@@ -31,6 +31,6 @@ namespace Content.Server.Abilities.Boxer
         public DamageModifierSet UnarmedModifiers = default!;
 
         [DataField("rangeBonus")]
-        public float RangeBonus = 2f;
+        public float RangeBonus = 1.5f;
     }
 }
