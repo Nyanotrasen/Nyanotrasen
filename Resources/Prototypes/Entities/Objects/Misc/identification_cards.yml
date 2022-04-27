@@ -414,3 +414,16 @@
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
+
+- type: entity
+  parent: IDCardStandard
+  id: BoxerIDCard
+  name: boxer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idboxer
+  - type: PresetIdCard
+    job: Boxer
+
