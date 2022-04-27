@@ -6,9 +6,10 @@ namespace Content.Server.Abilities.Boxer
     [RegisterComponent]
     public sealed class BoxerComponent : Component
     {
+        [ViewVariables(VVAccess.ReadWrite)]
+        // this is added at spawn as are gloves so let's enable it
         public bool Enabled = true;
 
-        [ViewVariables(VVAccess.ReadWrite)]
         [DataField("paralyzeChanceNoSlowdown")]
         public float ParalyzeChanceNoSlowdown { get; set; } = 0.2f;
 
