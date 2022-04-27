@@ -1,0 +1,24 @@
+- type: job
+  id: Boxer
+  name: "boxer"
+  startingGear: BoxerGear
+  departments:
+  - Civilian
+  icon: "Boxer"
+  supervisors: "the head of personnel"
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Stunbaton
+
+- type: startingGear
+  id: BoxerGear
+  equipment:
+    jumpsuit: UniformShortsRed
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: AssistantPDA
+    ears: ClothingHeadsetService
+  innerclothingskirt: UniformShortsRed
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
