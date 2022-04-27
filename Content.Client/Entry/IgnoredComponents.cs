@@ -10,6 +10,8 @@ namespace Content.Client.Entry
             "Pickaxe",
             "IngestionBlocker",
             "Charger",
+            "Boxer",
+            "BoxingGloves",
             "CloningPod",
             "HealthExaminable",
             "Destructible",

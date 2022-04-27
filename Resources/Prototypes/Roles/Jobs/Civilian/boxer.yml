@@ -9,7 +9,7 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: Stunbaton
+    - type: Boxer
 
 - type: startingGear
   id: BoxerGear
@@ -19,6 +19,7 @@
     shoes: ClothingShoesColorBlack
     id: AssistantPDA
     ears: ClothingHeadsetService
+    gloves: ClothingHandsGlovesBoxingRed
   innerclothingskirt: UniformShortsRed
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
