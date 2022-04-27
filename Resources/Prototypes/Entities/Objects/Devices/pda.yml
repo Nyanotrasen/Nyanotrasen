@@ -520,4 +520,19 @@
         state: pda-atmos
   - type: Icon
     state: pda-atmos
-        
+
+
+- type: entity
+  parent: BasePDA
+  id: BoxerPDA
+  name: boxer PDA
+  description: Float like a butterfly, ringtone like a bee.
+  components:
+  - type: PDA
+    id: BoxerIDCard
+  - type: Appearance
+    visuals:
+      - type: PDAVisualizer
+        state: pda-boxer
+  - type: Icon
+    state: pda-boxer

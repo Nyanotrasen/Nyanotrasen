@@ -390,7 +390,7 @@
     interfaces:
       - key: enum.AgentIDCardUiKey.Key
         type: AgentIDCardBoundUserInterface
-        
+
 - type: entity
   parent: IDCardStandard
   id: AtmosIDCard
@@ -402,3 +402,16 @@
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
+
+- type: entity
+  parent: IDCardStandard
+  id: BoxerIDCard
+  name: boxer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idboxer
+  - type: PresetIdCard
+    job: Boxer
+
