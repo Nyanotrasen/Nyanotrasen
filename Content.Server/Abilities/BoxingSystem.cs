@@ -17,37 +17,25 @@ namespace Content.Server.Abilities.Boxer
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<BoxerComponent, MeleeHitEvent>(OnMeleeHit);
+            SubscribeLocalEvent<BoxingComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<BoxingGlovesComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<BoxingGlovesComponent, GotUnequippedEvent>(OnUnequipped);
         }
 
-        private void OnMeleeHit(EntityUid uid, BoxerComponent component, MeleeHitEvent args)
+        private void OnMeleeHit(EntityUid uid, BoxingComponent component, MeleeHitEvent args)
         {
-            if (!component.Enabled)
-                return;
+            float boxModifier = 1f;
+            if (!TryComp<BoxerComponent>(uid, out var boxer) || !boxer.Enabled)
+                boxModifier *= 0.3f;
 
-            foreach (var entity in args.HitEntities)
+            if (boxer != null)
             {
-                if (!TryComp<StatusEffectsComponent>(entity, out var status))
-                    continue;
-
-                if (!HasComp<SlowedDownComponent>(entity))
-                {
-                    if (_robustRandom.Prob(component.ParalyzeChanceNoSlowdown))
-                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(component.ParalyzeTime), true, status);
-                    else
-                        _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(component.SlowdownTime), true,  0.5f, 0.5f, status);
-                }
-                else
-                {
-                    if (_robustRandom.Prob(component.ParalyzeChanceWithSlowdown))
-                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(component.ParalyzeTime), true, status);
-                    else
-                        _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(component.SlowdownTime), true,  0.5f, 0.5f, status);
-                }
+                Box(args.HitEntities, boxer.ParalyzeTime, boxer.ParalyzeChanceNoSlowdown, boxer.SlowdownTime, boxer.ParalyzeChanceWithSlowdown, boxModifier);
+                return;
             }
+            Box(args.HitEntities, modifier: boxModifier);
         }
+
         private void OnEquipped(EntityUid uid, BoxingGlovesComponent component, GotEquippedEvent args)
         {
             // This only works on clothing
@@ -62,8 +50,14 @@ namespace Content.Server.Abilities.Boxer
             // Set the component to active to the unequip check isn't CBT
             component.IsActive = true;
 
+            EnsureComp<BoxingComponent>(args.Equipee);
+
             if (TryComp<MeleeWeaponComponent>(args.Equipee, out var meleeComponent))
+            {
                 meleeComponent.HitSound = component.HitSound;
+                component.OldDamage = meleeComponent.Damage;
+                meleeComponent.Damage = component.Damage;
+            }
         }
 
         private void OnUnequipped(EntityUid uid, BoxingGlovesComponent component, GotUnequippedEvent args)
@@ -74,9 +68,39 @@ namespace Content.Server.Abilities.Boxer
             if(TryComp<BoxerComponent>(args.Equipee, out var boxer))
                 boxer.Enabled = false;
             if (TryComp<MeleeWeaponComponent>(args.Equipee, out var meleeComponent))
+            {
                 meleeComponent.HitSound = new SoundCollectionSpecifier("GenericHit");
+                meleeComponent.Damage = component.OldDamage;
+                component.OldDamage = default!;
+            }
             component.IsActive = false;
+            RemComp<BoxingComponent>(args.Equipee);
         }
 
+
+        private void Box(IEnumerable<EntityUid> hitEntities, float paralyzeTime = 5f, float paralyzeChanceNoSlowdown = 0.2f,
+            float slowdownTime = 3f, float paralyzeChanceWithSlowdown = 0.5f, float modifier = 1f)
+        {
+            foreach (var entity in hitEntities)
+            {
+                if (!TryComp<StatusEffectsComponent>(entity, out var status))
+                    continue;
+
+                if (!HasComp<SlowedDownComponent>(entity))
+                {
+                    if (_robustRandom.Prob(paralyzeChanceNoSlowdown * modifier))
+                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
+                    else
+                        _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(slowdownTime * modifier), true,  0.5f, 0.5f, status);
+                }
+                else
+                {
+                    if (_robustRandom.Prob(paralyzeChanceWithSlowdown * modifier))
+                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
+                    else
+                        _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(slowdownTime * modifier), true,  0.5f, 0.5f, status);
+                }
+            }
+        }
     }
 }
