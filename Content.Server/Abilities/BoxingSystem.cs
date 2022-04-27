@@ -18,10 +18,17 @@ namespace Content.Server.Abilities.Boxer
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<BoxerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<BoxingComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<BoxerComponent, MeleeHitEvent>(ApplyBoxerModifiers);
             SubscribeLocalEvent<BoxingGlovesComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<BoxingGlovesComponent, GotUnequippedEvent>(OnUnequipped);
+        }
+
+        private void OnInit(EntityUid uid, BoxerComponent boxer, ComponentInit args)
+        {
+            var meleeComp = EnsureComp<MeleeWeaponComponent>(uid);
+            meleeComp.Range *= boxer.RangeBonus;
         }
         private void OnMeleeHit(EntityUid uid, BoxingComponent component, MeleeHitEvent args)
         {
