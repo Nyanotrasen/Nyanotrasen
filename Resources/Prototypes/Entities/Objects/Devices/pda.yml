@@ -391,6 +391,23 @@
 
 - type: entity
   parent: BasePDA
+  id: ParamedicPDA
+  name: paramedic PDA
+  description: Sweaty. Whoever uses this must be noided. Has a bult-in health analyzer.
+  components:
+  - type: PDA
+    id: ParamedicIDCard
+  - type: Appearance
+    visuals:
+      - type: PDAVisualizer
+        state: pda-genetics
+  - type: Icon
+    state: pda-genetics
+  - type: HealthAnalyzer
+    scanDelay: 1.2
+
+- type: entity
+  parent: BasePDA
   id: ChemistryPDA
   name: chemistry PDA
   description: It has a few discolored blotches here and there.
@@ -520,4 +537,4 @@
         state: pda-atmos
   - type: Icon
     state: pda-atmos
-        
+

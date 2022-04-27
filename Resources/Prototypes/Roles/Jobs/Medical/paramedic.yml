@@ -1,0 +1,28 @@
+- type: job
+  id: Paramedic
+  name: "paramedic"
+  startingGear: ParamedicGear
+  departments:
+  - Medical
+  icon: "Paramedic"
+  supervisors: "the chief medical officer"
+  access:
+  - Medical
+  - Maintenance
+  - Brig
+  - Service
+
+- type: startingGear
+  id: ParamedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedic
+    back: ClothingBackpackMedicalFilled
+    shoes: ClothingShoesColorWhite
+    id: ParamedicPDA
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+    pocket1: HandheldGPSBasic
+    pocket2: HandheldCrewMonitor
+  innerclothingskirt: ClothingUniformJumpskirtParamedic
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled
