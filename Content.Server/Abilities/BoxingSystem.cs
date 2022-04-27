@@ -1,6 +1,7 @@
 using Content.Server.Weapon.Melee;
 using Content.Shared.StatusEffect;
 using Content.Shared.Sound;
+using Content.Shared.FixedPoint;
 using Content.Server.Stunnable;
 using Content.Shared.Stunnable;
 using Content.Shared.Inventory.Events;
@@ -18,10 +19,10 @@ namespace Content.Server.Abilities.Boxer
         {
             base.Initialize();
             SubscribeLocalEvent<BoxingComponent, MeleeHitEvent>(OnMeleeHit);
+            SubscribeLocalEvent<BoxerComponent, MeleeHitEvent>(ApplyBoxerModifiers);
             SubscribeLocalEvent<BoxingGlovesComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<BoxingGlovesComponent, GotUnequippedEvent>(OnUnequipped);
         }
-
         private void OnMeleeHit(EntityUid uid, BoxingComponent component, MeleeHitEvent args)
         {
             float boxModifier = 1f;
@@ -34,6 +35,11 @@ namespace Content.Server.Abilities.Boxer
                 return;
             }
             Box(args.HitEntities, modifier: boxModifier);
+        }
+
+        private void ApplyBoxerModifiers(EntityUid uid, BoxerComponent component, MeleeHitEvent args)
+        {
+            args.ModifiersList.Add(component.UnarmedModifiers);
         }
 
         private void OnEquipped(EntityUid uid, BoxingGlovesComponent component, GotEquippedEvent args)

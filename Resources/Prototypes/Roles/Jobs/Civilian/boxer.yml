@@ -10,6 +10,9 @@
   - !type:AddComponentSpecial
     components:
     - type: Boxer
+      modifiers:
+        coefficients:
+          Blunt: 2
 
 - type: startingGear
   id: BoxerGear

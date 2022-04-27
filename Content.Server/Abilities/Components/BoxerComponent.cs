@@ -1,3 +1,5 @@
+using Content.Shared.Damage;
+
 namespace Content.Server.Abilities.Boxer
 {
     /// <summary>
@@ -24,5 +26,8 @@ namespace Content.Server.Abilities.Boxer
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("slowdownTime")]
         public float SlowdownTime { get; set; } = 3f;
+
+        [DataField("modifiers", required: true)]
+        public DamageModifierSet UnarmedModifiers = default!;
     }
 }
