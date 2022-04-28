@@ -1,12 +1,13 @@
 using Content.Shared.Actions;
 using Content.Shared.Audio;
 using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
+using Content.Shared.Item;
 using Content.Server.Body.Components;
 using Content.Server.Medical;
 using Content.Server.Chemistry.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using Content.Shared.Throwing;
 using Robust.Shared.Random;
 
 namespace Content.Server.Abilities.Felinid
@@ -24,6 +25,7 @@ namespace Content.Server.Abilities.Felinid
             SubscribeLocalEvent<FelinidComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<FelinidComponent, HairballActionEvent>(OnHairball);
             SubscribeLocalEvent<HairballComponent, ThrowDoHitEvent>(OnHairballHit);
+            SubscribeLocalEvent<HairballComponent, GettingPickedUpAttemptEvent>(OnHairballPickupAttempt);
         }
 
         private void OnInit(EntityUid uid, FelinidComponent component, ComponentInit args)
@@ -56,6 +58,18 @@ namespace Content.Server.Abilities.Felinid
                 return;
             if (_robustRandom.Prob(0.2f))
                 _vomitSystem.Vomit(args.Target);
+        }
+
+        private void OnHairballPickupAttempt(EntityUid uid, HairballComponent component, GettingPickedUpAttemptEvent args)
+        {
+            if (HasComp<FelinidComponent>(args.User) || !HasComp<StatusEffectsComponent>(args.User))
+                return;
+
+            if (_robustRandom.Prob(0.2f))
+            {
+                _vomitSystem.Vomit(args.User);
+                args.Cancel();
+            }
         }
     }
 
