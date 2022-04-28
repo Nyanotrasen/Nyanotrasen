@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseItem
+  id: Hairball
+  name: hairball
+  description: Felinids, man...
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Specific/Species/felinid.rsi
+    state: icon

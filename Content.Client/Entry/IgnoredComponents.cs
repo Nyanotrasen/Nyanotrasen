@@ -40,6 +40,7 @@ namespace Content.Client.Entry
             "PoweredLight",
             "Smes",
             "LightBulb",
+            "Felinid",
             "GlassTable",
             "Healing",
             "Material",
