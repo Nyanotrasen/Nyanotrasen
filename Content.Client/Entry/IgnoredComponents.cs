@@ -325,6 +325,7 @@ namespace Content.Client.Entry
             "GrowingKudzu",
             "MonkeyAccent",
             "LizardAccent",
+            "OwOAccent",
             "ReplacementAccent",
             "ResistLocker",
             "IgniteOnCollide",

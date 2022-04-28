@@ -1,9 +1,10 @@
-﻿using Robust.Shared.GameObjects;
+namespace Content.Server.Speech.Components;
 
-namespace Content.Server.Speech.Components
+/// <summary>
+///     UwU!
+/// </summary>
+[RegisterComponent]
+public sealed class OwOAccentComponent : Component
 {
-    [RegisterComponent]
-    public sealed class OwOAccentComponent : Component
-    {
-    }
+
 }
