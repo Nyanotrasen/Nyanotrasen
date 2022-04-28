@@ -318,6 +318,8 @@
           types:
             Cellular: -1
             Radiation: 1
+      - !type:ChemVomit
+        probability: 0.05
 
 - type: reagent
   id: Romerol

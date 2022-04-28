@@ -19,7 +19,7 @@ namespace Content.Server.Medical
 
         [Dependency] private readonly PopupSystem _popupSystem = default!;
 
-        public void Vomit(EntityUid uid, float thirstAdded = -15f, float hungerAdded = -15f)
+        public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
             if (TryComp<HungerComponent>(uid, out var hunger))
                 hunger.UpdateFood(hungerAdded);
