@@ -16,7 +16,6 @@ namespace Content.Server.Medical
 
         [Dependency] private readonly StunSystem _stunSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
-
         [Dependency] private readonly PopupSystem _popupSystem = default!;
 
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)

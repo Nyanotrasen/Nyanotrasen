@@ -35,6 +35,7 @@ namespace Content.Client.Entry
             "MeleeWeapon",
             "MeleeChemicalInjector",
             "Dice",
+            "Hairball",
             "PaperLabel",
             "Construction",
             "PoweredLight",

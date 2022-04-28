@@ -3,7 +3,6 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Utility;
 
-
 namespace Content.Server.Abilities.Felinid
 {
     [RegisterComponent]
@@ -18,7 +17,7 @@ namespace Content.Server.Abilities.Felinid
         [DataField("hairballAction")]
         public InstantAction HairballAction = new()
         {
-            UseDelay = TimeSpan.FromSeconds(30),
+            UseDelay = TimeSpan.FromMinutes(4),
             Icon = new SpriteSpecifier.Texture(new ResourcePath("Objects/Specific/Species/felinid.rsi/icon.png")),
             Name = "hairball-action",
             Description = "hairball-action-desc",
