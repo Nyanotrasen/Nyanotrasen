@@ -22,6 +22,7 @@ namespace Content.Client.Entry
             "Vocal",
             "Summonable",
             "OnUseTimerTrigger",
+            "JabroniOutfit",
             "WarpPoint",
             "EmitSoundOnUse",
             "EmitSoundOnLand",
