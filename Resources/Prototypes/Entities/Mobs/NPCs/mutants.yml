@@ -1,0 +1,66 @@
+- type: entity
+  name: killer tomato
+  id: MobTomatoKiller
+  parent: SimpleSpaceMobBase
+  description: This is really going to let you own some vegans in your next online debate.
+  components:
+  - type: UtilityAI
+    behaviorSets:
+    - Idle
+    - UnarmedAttackHostiles
+  - type: AiFactionTag
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: produce
+      sprite: Mobs/Mutants/killer_tomato.rsi
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.5
+      mass: 50
+      mask:
+      - Impassable
+      - MobImpassable
+      - SmallImpassable
+      layer:
+      - Opaque
+  - type: MobState
+    thresholds:
+      0: !type:NormalMobState {}
+      60: !type:DeadMobState {}
+  - type: Appearance
+    visuals:
+    - type: DamageStateVisualizer
+      normal: produce
+      crit: produce_dead
+      dead: produce_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatTomato
+      amount: 3
+  - type: Bloodstream
+    bloodReagent: DemonsBlood
+    bloodMaxVolume: 100
+  - type: CombatMode
+    disarmAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-disarm
+  - type: Temperature
+    heatDamageThreshold: 500
+    coldDamageThreshold: 200
+  - type: UnarmedCombat
+    range: 0.5
+    arcwidth: 0
+    arc: claw
+    damage:
+      groups:
+        Brute: 8
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Produce
