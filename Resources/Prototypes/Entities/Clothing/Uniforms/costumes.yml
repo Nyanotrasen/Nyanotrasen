@@ -9,3 +9,66 @@
   - type: Clothing
     sprite: Clothing/Uniforms/Costume/jabroni.rsi
   - type: JabroniOutfit
+
+- type: entity
+  parent: ClothingUniformBase
+  id: UniformSchoolgirlRed
+  name: red schoolgirl uniform
+  description: Ready for school!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/red.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/red.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlBlue
+  name: blue schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlGreen
+  name: green schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/green.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/green.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlOrange
+  name: orange schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: UniformMaid
+  name: maid uniform
+  description: Authentic, from Space France!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/maid.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/maid.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: UniformGeisha
+  name: Geisha Dress
+  description: For a good hostess.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/geisha.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/geisha.rsi
