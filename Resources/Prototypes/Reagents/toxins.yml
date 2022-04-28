@@ -257,7 +257,7 @@
           types:
             Poison: 4
       - !type:ChemVomit
-        probability: 0.03
+        probability: 0.15
         conditions:
         - !type:ReagentThreshold
           min: 1
