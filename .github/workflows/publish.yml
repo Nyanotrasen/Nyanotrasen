@@ -46,13 +46,13 @@ jobs:
         username: deployment-maid
         key: ${{ secrets.BUILDS_PUSH_KEY }}
         source: "release/${{ github.sha }}"
-        target: "/home/deployment-maid/builds/"
+        target: "/var/www/builds.station14.space/nyanotrasen/builds/"
         strip_components: 1
 
-    - name: Update manifest JSON
-      uses: appleboy/ssh-action@master
-      with:
-        host: 5.161.72.223
-        username: deployment-maid
-        key: ${{ secrets.BUILDS_PUSH_KEY }}
-        script: /home/deployment-maid/builds/push.ps1 ${{ github.sha }}
+#    - name: Update manifest JSON
+#      uses: appleboy/ssh-action@master
+#      with:
+#        host: 5.161.72.223
+#       username: deployment-maid
+#        key: ${{ secrets.BUILDS_PUSH_KEY }}
+#       script: /var/www/builds.station14.space/nyanotrasen/builds/push.ps1 ${{ github.sha }}
