@@ -21,7 +21,7 @@ SERVER_FILES = [
 
 VERSION = os.environ['GITHUB_SHA']
 FORK_ID = "nyanotrasen"
-BUILD_URL = f"https://cdn.station14.space/builds/{{FORK_VERSION}}/{FILE}"
+BUILD_URL = f"https://builds.station14.space/{{FORK_ID}}/builds/{{FORK_VERSION}}/{FILE}"
 MANIFEST_URL = f"https://cdn.station14.space/cdn/version/{{FORK_VERSION}}/manifest"
 MANIFEST_DOWNLOAD_URL = f"https://cdn.station14.space/cdn/version/{{FORK_VERSION}}/download"
 
