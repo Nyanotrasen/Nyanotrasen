@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: UniformJabroni
+  name: jabroni outfit
+  description: For artists, perfomance artists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Costume/jabroni.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Costume/jabroni.rsi
+  - type: JabroniOutfit
