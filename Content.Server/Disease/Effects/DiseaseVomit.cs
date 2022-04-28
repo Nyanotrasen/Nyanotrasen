@@ -12,10 +12,10 @@ namespace Content.Server.Disease.Effects
     public sealed class DiseaseVomit : DiseaseEffect
     {
         [DataField("thirstAmount")]
-        public float ThirstAmount = 15f;
+        public float ThirstAmount = -15f;
 
         [DataField("hungerAmount")]
-        public float HungerAmount = 15f;
+        public float HungerAmount = -15f;
 
         public override void Effect(DiseaseEffectArgs args)
         {

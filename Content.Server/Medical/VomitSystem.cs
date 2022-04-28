@@ -36,7 +36,9 @@ namespace Content.Server.Medical
 
             var puddleComp = Comp<PuddleComponent>(puddle);
 
-            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Diseases/vomiting.ogg", AudioHelpers.WithVariation(0.2f));
+            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Diseases/vomiting.ogg", AudioHelpers.WithVariation(0.2f).WithVolume(-4f));
+
+            _popupSystem.PopupEntity(Loc.GetString("disease-vomit", ("person", uid)), uid, Filter.Pvs(uid));
 
             if (TryComp<BloodstreamComponent>(uid, out var bloodStream))
             {
