@@ -99,6 +99,11 @@
     Heat: 3
 
 - type: damageModifierSet
+  id: Felinid
+  coefficients:
+    Blunt: 1.15
+
+- type: damageModifierSet
   id: Scale # Skin tougher, bones weaker, strong stomachs, cold-blooded (kindof)
   coefficients:
     Blunt: 1.1

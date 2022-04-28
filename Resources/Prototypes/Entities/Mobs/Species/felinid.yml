@@ -104,7 +104,10 @@
     - map: [ "pocket2" ]
   - type: Body
     template: HumanoidTemplate
-    preset: HumanPreset
+    preset: FelinidPreset
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Felinid
 ##  - type: OwOAccent
 #Leaving this here in protest
 
