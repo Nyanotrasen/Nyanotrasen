@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Serialization;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.CharacterAppearance
 {
@@ -13,6 +13,8 @@ namespace Content.Shared.CharacterAppearance
         Snout,
         Frills,
         Horns,
+        EarsInner,
+        EarsOuter,
         Eyes,
         RArm,
         LArm,
@@ -23,6 +25,7 @@ namespace Content.Shared.CharacterAppearance
         RFoot,
         LFoot,
         TailFront,
+        FelinidTailFront,
         Handcuffs,
         StencilMask,
         Fire,

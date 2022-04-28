@@ -17,8 +17,9 @@ namespace Content.Shared.CharacterAppearance
                     yield return HumanoidVisualLayers.Chest;
                     break;
                 case BodyPartType.Tail:
-                    yield return HumanoidVisualLayers.TailFront;
                     yield return HumanoidVisualLayers.TailBehind;
+                    yield return HumanoidVisualLayers.TailFront;
+                    yield return HumanoidVisualLayers.FelinidTailFront;
                     break;
                 case BodyPartType.Head:
                     yield return HumanoidVisualLayers.Head;
@@ -28,6 +29,8 @@ namespace Content.Shared.CharacterAppearance
                     yield return HumanoidVisualLayers.Eyes;
                     yield return HumanoidVisualLayers.FacialHair;
                     yield return HumanoidVisualLayers.Hair;
+                    yield return HumanoidVisualLayers.EarsOuter;
+                    yield return HumanoidVisualLayers.EarsInner;
                     yield return HumanoidVisualLayers.StencilMask;
                     break;
                 case BodyPartType.Arm:
