@@ -11,5 +11,13 @@ namespace Content.Server.Abilities.Gachi.Components
 
         [DataField("hitOtherSound")]
         public SoundSpecifier HitOtherSound { get; set; } = new SoundCollectionSpecifier("GachiHitOther");
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("multiplier")]
+        public float Multiplier = 1f;
+
+        public float Accumulator = 0f;
+
+        public TimeSpan AddToMultiplierTime = TimeSpan.FromSeconds(1);
     }
 }

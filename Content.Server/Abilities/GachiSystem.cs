@@ -1,4 +1,5 @@
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Content.Shared.Inventory.Events;
 using Content.Server.Abilities.Gachi.Components;
 using Content.Server.Clothing.Components;
@@ -13,7 +14,6 @@ namespace Content.Server.Abilities.Gachi
     public sealed class GachiSystem : EntitySystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
-
         public override void Initialize()
         {
             base.Initialize();
@@ -24,23 +24,45 @@ namespace Content.Server.Abilities.Gachi
             SubscribeLocalEvent<JabroniOutfitComponent, GotUnequippedEvent>(OnUnequipped);
         }
 
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+            foreach (var gachi in EntityQuery<GachiComponent>())
+            {
+                gachi.Accumulator += frameTime;
+                if (gachi.Accumulator < gachi.AddToMultiplierTime.TotalSeconds)
+                    continue;
+                gachi.Accumulator -= (float) gachi.AddToMultiplierTime.TotalSeconds;
+                if (gachi.Multiplier < 1f)
+                    gachi.Multiplier += 0.01f;
+            }
+        }
+
         private void OnDamageChanged(EntityUid uid, GachiComponent component, DamageChangedEvent args)
         {
-            if (args.DamageIncreased && args.DamageDelta != null && args.DamageDelta.Total >= 5 && _random.Prob(0.3f))
+            if (TryComp<DamageableComponent>(uid, out var damageableComponent) && (damageableComponent.TotalDamage + args.DamageDelta?.Total >= 100))
+                return;
+            if (args.DamageIncreased && args.DamageDelta != null && args.DamageDelta.Total >= 5 && _random.Prob(0.3f * component.Multiplier))
             {
+                FixedPoint2 newMultiplier = component.Multiplier - 0.25;
+                component.Multiplier = (float) FixedPoint2.Max(FixedPoint2.Zero, newMultiplier);
+
                 if (_random.Prob(0.01f))
                 {
                     SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Gachi/ripears.ogg", uid, AudioParams.Default.WithVolume(8f));
                     return;
                 }
                 SoundSystem.Play(Filter.Pvs(uid), component.PainSound.GetSound(), uid);
+
             }
         }
 
         private void OnMeleeHit(EntityUid uid, GachiComponent component, MeleeHitEvent args)
         {
-            if (_random.Prob(0.2f))
+            if (_random.Prob(0.2f * component.Multiplier))
             {
+                FixedPoint2 newMultiplier = component.Multiplier - 0.25;
+                component.Multiplier = (float) FixedPoint2.Max(FixedPoint2.Zero, newMultiplier);
                 SoundSystem.Play(Filter.Pvs(uid), component.HitOtherSound.GetSound(), uid);
             }
         }
