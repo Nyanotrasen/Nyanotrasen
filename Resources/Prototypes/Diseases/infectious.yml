@@ -40,6 +40,8 @@
       damage:
         groups:
           Caustic: 1
+    - !type:DiseaseVomit
+      probability: 0.08
   cures:
     - !type:DiseaseBedrestCure
       maxLength: 30
