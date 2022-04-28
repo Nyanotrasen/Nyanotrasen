@@ -105,6 +105,9 @@
   - type: Body
     template: HumanoidTemplate
     preset: FelinidPreset
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Felinid
 ##  - type: OwOAccent
 #Leaving this here in protest
 
