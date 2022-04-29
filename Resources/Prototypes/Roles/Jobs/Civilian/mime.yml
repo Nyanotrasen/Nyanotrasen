@@ -8,6 +8,14 @@
   supervisors: "the head of personnel"
   access:
   - Theatre
+<<<<<<< HEAD
+=======
+  - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MimePowers
+>>>>>>> aa2a9971f85cab209f06bc8226dca7b8739cb560
 
 - type: startingGear
   id: MimeGear
