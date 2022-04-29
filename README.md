@@ -1,4 +1,4 @@
-This is a fork of Space Station 14. Any issues not specific to Arcadia should be directed here: https://github.com/space-wizards/space-station-14
+This is a fork of Space Station 14. Any issues not specific to Nyanotrasen RP should be directed here: https://github.com/space-wizards/space-station-14
 
 ## Links
 
