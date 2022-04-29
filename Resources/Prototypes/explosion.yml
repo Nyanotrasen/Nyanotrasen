@@ -43,6 +43,17 @@
   fireStates: 3
 
 - type: explosion
+  id: PureRadioactive
+  damagePerIntensity:
+    types:
+      Radiation: 9
+      Heat: 6
+  lightColor: Green
+  fireColor: Green
+  texturePath: /Textures/Effects/fire_greyscale.rsi 
+  fireStates: 3
+
+- type: explosion
   id: Cryo
   damagePerIntensity:
     types:

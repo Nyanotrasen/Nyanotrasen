@@ -295,3 +295,36 @@
         - !type:ChemCauseDisease ##Since this mostly just comes from the event you won't ingest that much
           causeChance: 0.6
           disease: VentCough
+
+- type: reagent
+  id: Polytantrium
+  name: polytantrium
+  group: Toxins
+  desc: A radioactive substance that would release huge amount of neutrons upon hit by an high speed proton.
+  physicalDesc: glowing
+  color: "#32336d"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 2
+
+- type: reagent
+  id: IsotopeT3
+  name: isotope T3
+  group: Toxins
+  desc: Extremly Unstable , handle with caution.
+  physicalDesc: glowing
+  color: "#fc0505"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        amount: 6000
+      - !type:HealthChange
+        damage:
+          types:
+            Radiation: 4
+            Heat: 3

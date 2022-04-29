@@ -287,3 +287,46 @@
      amount: 1
   products:
     Ephedrine: 4
+
+- type: reaction
+  id: NeutronExplosion
+  impact: High
+  priority: 20
+  reactants:
+    Polytantrium:
+      amount: 1
+    IsotopeT3:
+      amount: 1
+      catalyst: true
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: PureRadioactive
+      maxIntensity: 7 # at most 105 damage per tile
+      intensityPerUnit: 0.5 # 100+100 reagent for maximum explosion 
+      intensitySlope: 0.5
+      maxTotalIntensity: 50
+
+- type: reaction
+  id: Polytantrium
+  reactants:
+    WeldingFuel:
+      amount: 1
+    Radium:
+      amount: 1
+    Hydrogen:
+      amount: 1
+    TeleExtract:
+      amount: 1
+      catalyst: true
+  products:
+    Polytantrium: 3
+
+- type: reaction
+  id: IsotopeT3
+  reactants:
+    Plasma:
+      amount: 5
+    TeleExtract:
+      amount: 5
+  products:
+    IsotopeT3: 10
