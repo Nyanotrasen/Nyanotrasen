@@ -1,6 +1,7 @@
 - type: job
   id: CargoTechnician
   name: "cargo technician"
+  setPreference: false
   startingGear: CargoTechGear
   departments:
   - Cargo
