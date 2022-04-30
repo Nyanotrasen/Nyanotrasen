@@ -1,0 +1,13 @@
+- type: entity
+  parent: BaseItem
+  id: Mail
+  name: mail
+  components:
+  - type: Mail
+  - type: AccessReader
+  - type: Sprite
+    sprite: Objects/Specific/Mail/mail.rsi
+    layers:
+    - state: icon
+    - state: locked
+

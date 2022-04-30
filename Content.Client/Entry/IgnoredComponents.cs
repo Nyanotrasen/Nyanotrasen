@@ -46,6 +46,7 @@ namespace Content.Client.Entry
             "GlassTable",
             "Healing",
             "MailTeleporter",
+            "Mail",
             "Material",
             "RandomAppearance",
             "DiseaseProtection",

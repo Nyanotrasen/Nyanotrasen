@@ -1,0 +1,4 @@
+mail-recipient-mismatch = Recipient name or job does not match.
+mail-invalid-access = Recipient name and job match, but access isn't as expected.
+mail-desc-far = A parcel of mail. You can't make out who it's addressed to from this distance.
+mail-desc-close = A parcel of mail addressed to {CAPITALIZE($name)}, {$job}.
