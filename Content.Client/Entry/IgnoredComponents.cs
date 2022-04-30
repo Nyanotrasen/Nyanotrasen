@@ -30,6 +30,7 @@ namespace Content.Client.Entry
             "EmitSoundOnActivate",
             "EmitSoundOnUIOpen",
             "NameIdentifier",
+            "Farter",
             "HeatResistance",
             "EntityStorage",
             "MeleeWeapon",
