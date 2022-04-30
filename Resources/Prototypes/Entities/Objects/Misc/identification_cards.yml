@@ -132,6 +132,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: MailCarrierIDCard
+  name: mail carrier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmailcarrier
+  - type: PresetIdCard
+    job: MailCarrier
+
+- type: entity
+  parent: IDCardStandard
   id: SalvageIDCard
   name: salvage ID card
   components:

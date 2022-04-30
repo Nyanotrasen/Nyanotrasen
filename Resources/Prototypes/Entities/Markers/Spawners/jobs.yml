@@ -396,3 +396,15 @@
     layers:
       - state: green
       - state: boxer
+
+- type: entity
+  id: SpawnPointMailCarrier
+  parent: SpawnPointJobBase
+  name: mailcarrier
+  components:
+  - type: SpawnPoint
+    job_id: MailCarrier
+  - type: Sprite
+    layers:
+      - state: green
+      - state: mailcarrier

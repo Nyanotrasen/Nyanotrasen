@@ -219,6 +219,21 @@
 
 - type: entity
   parent: BasePDA
+  id: MailCarrierPDA
+  name: mail carrier PDA
+  description: Hope this doesn't have any... JUNK MAIL.
+  components:
+  - type: PDA
+    id: MailCarrierIDCard
+  - type: Appearance
+    visuals:
+      - type: PDAVisualizer
+        state: pda-mailcarrier
+  - type: Icon
+    state: pda-mailcarrier
+
+- type: entity
+  parent: BasePDA
   id: SalvagePDA
   name: salvage PDA
   description: Smells like ash.
