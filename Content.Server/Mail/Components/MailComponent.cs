@@ -1,3 +1,5 @@
+using Content.Shared.Storage;
+
 namespace Content.Server.Mail.Components
 {
     [RegisterComponent]
@@ -18,5 +20,11 @@ namespace Content.Server.Mail.Components
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("locked")]
         public bool Locked = true;
+
+        /// <summary>
+        /// What will be spawned when the mail is opened.
+        /// <summary>
+        [DataField("contents")]
+        public List<EntitySpawnEntry> Contents = new();
     }
 }

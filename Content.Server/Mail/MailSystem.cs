@@ -3,9 +3,13 @@ using Content.Server.Power.Components;
 using Content.Server.Popups;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Storage;
+using Content.Shared.Hands.EntitySystems;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server.Mail
 {
@@ -13,11 +17,14 @@ namespace Content.Server.Mail
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
+        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<MailTeleporterComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
         }
@@ -46,6 +53,19 @@ namespace Content.Server.Mail
         private void OnInit(EntityUid uid, MailTeleporterComponent component, ComponentInit args)
         {
             SpawnMail(uid, component);
+        }
+
+        /// <summary>
+        /// Try to open the mail.
+        /// <summary>
+        private void OnUseInHand(EntityUid uid, MailComponent component, UseInHandEvent args)
+        {
+            if (component.Locked)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
+                return;
+            }
+            OpenMail(uid, component, args.User);
         }
 
         /// <summary>
@@ -90,7 +110,23 @@ namespace Content.Server.Mail
             if (!Resolve(uid, ref component))
                 return;
 
-            EntityManager.SpawnEntity("Paper", Transform(uid).Coordinates);
+            EntityManager.SpawnEntity("Mail", Transform(uid).Coordinates);
+        }
+
+        public void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            var contentList = EntitySpawnCollection.GetSpawns(component.Contents, _random);
+
+            foreach (var item in contentList)
+            {
+                var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
+                if (user != null)
+                    _handsSystem.PickupOrDrop(user, entity);
+            }
+            EntityManager.QueueDeleteEntity(uid);
         }
     }
 }
