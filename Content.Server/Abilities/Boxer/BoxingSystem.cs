@@ -1,12 +1,13 @@
 using Content.Server.Weapon.Melee;
 using Content.Shared.StatusEffect;
 using Content.Shared.Sound;
-using Content.Shared.FixedPoint;
 using Content.Server.Stunnable;
 using Content.Shared.Stunnable;
 using Content.Shared.Inventory.Events;
 using Content.Server.Weapon.Melee.Components;
 using Content.Server.Clothing.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server.Abilities.Boxer
@@ -99,17 +100,26 @@ namespace Content.Server.Abilities.Boxer
                 if (!TryComp<StatusEffectsComponent>(entity, out var status))
                     continue;
 
+                if (HasComp<KnockedDownComponent>(entity))
+                    return;
+
                 if (!HasComp<SlowedDownComponent>(entity))
                 {
                     if (_robustRandom.Prob(paralyzeChanceNoSlowdown * modifier))
+                    {
+                        SoundSystem.Play(Filter.Pvs(entity), "/Audio/Weapons/boxingbell.ogg", entity);
                         _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
+                    }
                     else
                         _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(slowdownTime * modifier), true,  0.5f, 0.5f, status);
                 }
                 else
                 {
                     if (_robustRandom.Prob(paralyzeChanceWithSlowdown * modifier))
+                    {
+                        SoundSystem.Play(Filter.Pvs(entity), "/Audio/Weapons/boxingbell.ogg", entity);
                         _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
+                    }
                     else
                         _stunSystem.TrySlowdown(entity, TimeSpan.FromSeconds(slowdownTime * modifier), true,  0.5f, 0.5f, status);
                 }
