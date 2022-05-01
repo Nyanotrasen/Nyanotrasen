@@ -1,12 +1,8 @@
-using System.Linq;
-using System.Text;
 using Content.Server.Hands.Systems;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
-using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
 namespace Content.Server.Forensics

@@ -23,6 +23,8 @@ namespace Content.Server.Forensics
 
         private void OnScanCancelled(ScanCancelledEvent ev)
         {
+            if (ev.Component == null)
+                return;
             ev.Component.CancelToken = null;
         }
 
@@ -53,7 +55,7 @@ namespace Content.Server.Forensics
             _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, component.ScanDelay, component.CancelToken.Token, target: args.Target)
             {
                 BroadcastFinishedEvent = new TargetScanSuccessfulEvent(args.User, args.Target, component),
-                BroadcastCancelledEvent = new ScanCancelledEvent(component),
+                BroadcastCancelledEvent = new ScanCancelledEvent(uid, component),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -68,29 +70,30 @@ namespace Content.Server.Forensics
             component.UserInterface?.Open(actor.PlayerSession);
             component.UserInterface?.SendMessage(new ForensicScannerUserMessage(component.Fingerprints, component.Fibers));
         }
-    }
-
-    internal class ScanCancelledEvent
-    {
-        public ForensicScannerComponent Component;
-
-        public ScanCancelledEvent(ForensicScannerComponent component)
+        private sealed class ScanCancelledEvent : EntityEventArgs
         {
-            Component = component;
+            public EntityUid Uid;
+            public ForensicScannerComponent Component;
+
+            public ScanCancelledEvent(EntityUid uid, ForensicScannerComponent component)
+            {
+                Uid = uid;
+                Component = component;
+            }
         }
-    }
 
-    internal class TargetScanSuccessfulEvent
-    {
-        public EntityUid User;
-        public EntityUid? Target;
-        public ForensicScannerComponent Component;
-
-        public TargetScanSuccessfulEvent(EntityUid user, EntityUid? target, ForensicScannerComponent component)
+        private sealed class TargetScanSuccessfulEvent : EntityEventArgs
         {
-            User = user;
-            Target = target;
-            Component = component;
+            public EntityUid User;
+            public EntityUid? Target;
+            public ForensicScannerComponent Component;
+
+            public TargetScanSuccessfulEvent(EntityUid user, EntityUid? target, ForensicScannerComponent component)
+            {
+                User = user;
+                Target = target;
+                Component = component;
+            }
         }
     }
 }
