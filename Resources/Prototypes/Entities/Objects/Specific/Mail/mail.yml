@@ -21,3 +21,13 @@
     contents:
     - id: BikeHorn
 
+- type: entity
+  parent: BaseMail
+  id: MailJunkFood
+  suffix: junk food
+  components:
+  - type: Mail
+    contents:
+    - id: FoodBoxDonkpocket
+    - id: FoodSnackChips
+

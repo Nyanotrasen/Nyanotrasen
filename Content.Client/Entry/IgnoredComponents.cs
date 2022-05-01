@@ -41,6 +41,7 @@ namespace Content.Client.Entry
             "Construction",
             "PoweredLight",
             "Smes",
+            "MailReceiver",
             "LightBulb",
             "Felinid",
             "GlassTable",

@@ -7,10 +7,12 @@ namespace Content.Server.Mail.Components
     [RegisterComponent]
     public sealed class MailTeleporterComponent : Component
     {
+
+        // Not starting accumulator at 0 so mail carriers have some deliveries to make shortly after roundstart.
         [DataField("accumulator")]
-        public float Accumulator = 0f;
+        public float Accumulator = 495f;
 
         [DataField("teleportInterval")]
-        public TimeSpan teleportInterval = TimeSpan.FromSeconds(5);
+        public TimeSpan teleportInterval = TimeSpan.FromMinutes(5);
     }
 }

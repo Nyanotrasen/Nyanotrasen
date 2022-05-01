@@ -1,6 +1,7 @@
 using Content.Server.Mail.Components;
 using Content.Server.Power.Components;
 using Content.Server.Popups;
+using Content.Server.Access.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -18,12 +19,21 @@ namespace Content.Server.Mail
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+
+        // TODO: YAML Serializer won't catch this.
+        [ViewVariables(VVAccess.ReadWrite)]
+        public readonly IReadOnlyList<string> MailPrototypes = new[]
+        {
+            "MailBikeHorn",
+            "MailJunkFood"
+        };
+
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<MailTeleporterComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
@@ -45,14 +55,6 @@ namespace Content.Server.Mail
 
                 SpawnMail(mailTeleporter.Owner, mailTeleporter);
             }
-        }
-
-        /// <summary>
-        /// We're gonna spawn mail right away so the mailmen have something to do.
-        /// <summary>
-        private void OnInit(EntityUid uid, MailTeleporterComponent component, ComponentInit args)
-        {
-            SpawnMail(uid, component);
         }
 
         /// <summary>
@@ -110,7 +112,35 @@ namespace Content.Server.Mail
             if (!Resolve(uid, ref component))
                 return;
 
-            EntityManager.SpawnEntity("Mail", Transform(uid).Coordinates);
+            List<(string recipientName, string recipientJob, AccessComponent access)> candidateList = new();
+            foreach (var receiver in EntityQuery<MailReceiverComponent>())
+            {
+                if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard) && TryComp<AccessComponent>(idCard.Owner, out var access)
+                    && idCard.FullName != null && idCard.JobTitle != null)
+                {
+                    var candidateTuple = (idCard.FullName, idCard.JobTitle, access);
+                    candidateList.Add(candidateTuple);
+                }
+            }
+
+            if (candidateList.Count <= 0)
+            {
+                Logger.Error("List of mail candidates was empty!");
+                return;
+            }
+
+
+            for (int i = 0; i < 3; i++)
+            {
+                var mail = EntityManager.SpawnEntity(_random.Pick(MailPrototypes), Transform(uid).Coordinates);
+                var mailComp = EnsureComp<MailComponent>(mail);
+                var candidate = _random.Pick(candidateList);
+                mailComp.RecipientJob = candidate.recipientJob;
+                mailComp.Recipient = candidate.recipientName;
+
+                var accessReader = EnsureComp<AccessReaderComponent>(mail);
+                accessReader.AccessLists.Add(candidate.access.Tags);
+            }
         }
 
         public void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
