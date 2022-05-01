@@ -1,6 +1,4 @@
 using Content.Server.Hands.Systems;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Robust.Shared.Random;
@@ -15,30 +13,14 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<ForensicsComponent, InteractHandEvent>(OnInteractHand);
-            SubscribeLocalEvent<ForensicsComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttempt);
-            SubscribeLocalEvent<ForensicsComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
+            SubscribeLocalEvent<FingerprintComponent, UserInteractedWithItemEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, ComponentInit>(OnInit);
         }
 
-        private void OnInteractHand(EntityUid uid, ForensicsComponent component, InteractHandEvent args)
-        {
-            ApplyEvidence(args.User, args.Target);
-        }
-
-        private void OnGettingInteractedWithAttempt(EntityUid uid, ForensicsComponent component, GettingInteractedWithAttemptEvent args)
-        {
-            if (args.Target == null)
-                return;
-
-            ApplyEvidence(args.Uid, args.Target.Value);
-        }
-
-        private void OnGettingPickedUpAttempt(EntityUid uid, ForensicsComponent component, GettingPickedUpAttemptEvent args)
+        private void OnInteract(EntityUid uid, FingerprintComponent component, UserInteractedWithItemEvent args)
         {
             ApplyEvidence(args.User, args.Item);
         }
-
 
         private void OnInit(EntityUid uid, FingerprintComponent component, ComponentInit args)
         {
