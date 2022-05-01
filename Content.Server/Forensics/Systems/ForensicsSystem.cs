@@ -19,20 +19,32 @@ namespace Content.Server.Forensics
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<ForensicsComponent, InteractHandEvent>((uid, component, args) => ApplyEvidence(args.User, component));
-            SubscribeLocalEvent<ForensicsComponent, GettingInteractedWithAttemptEvent>((uid, component, args) =>
-            {
-                Hand hand = _handsSystem.EnumerateHands(args.Uid).First();
-                if (HasComp<ForensicScannerComponent>(hand.HeldEntity))
-                    return;
-                ApplyEvidence(args.Uid, component);
-            });
-            SubscribeLocalEvent<ForensicsComponent, ContainerGettingInsertedAttemptEvent>((uid, component, args) => ApplyEvidence(args.EntityUid, component));
-            SubscribeLocalEvent<ForensicsComponent, GettingPickedUpAttemptEvent>((uid, component, args) => ApplyEvidence(args.User, component));
-            SubscribeLocalEvent<FingerprintComponent, ComponentStartup>(OnFingerprintStartup);
+            SubscribeLocalEvent<ForensicsComponent, InteractHandEvent>(OnInteractHand);
+            SubscribeLocalEvent<ForensicsComponent, GettingInteractedWithAttemptEvent>(OnGettingInteractedWithAttempt);
+            SubscribeLocalEvent<ForensicsComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
+            SubscribeLocalEvent<FingerprintComponent, ComponentInit>(OnInit);
         }
 
-        private void OnFingerprintStartup(EntityUid uid, FingerprintComponent component, ComponentStartup args)
+        private void OnInteractHand(EntityUid uid, ForensicsComponent component, InteractHandEvent args)
+        {
+            ApplyEvidence(args.User, args.Target);
+        }
+
+        private void OnGettingInteractedWithAttempt(EntityUid uid, ForensicsComponent component, GettingInteractedWithAttemptEvent args)
+        {
+            if (args.Target == null)
+                return;
+
+            ApplyEvidence(args.Uid, args.Target.Value);
+        }
+
+        private void OnGettingPickedUpAttempt(EntityUid uid, ForensicsComponent component, GettingPickedUpAttemptEvent args)
+        {
+            ApplyEvidence(args.User, args.Item);
+        }
+
+
+        private void OnInit(EntityUid uid, FingerprintComponent component, ComponentInit args)
         {
             component.Fingerprint = GenerateFingerprint();
         }
@@ -44,29 +56,18 @@ namespace Content.Server.Forensics
             return Convert.ToHexString(fingerprint);
         }
 
-        private void ApplyEvidence(EntityUid user, ForensicsComponent component)
+        private void ApplyEvidence(EntityUid user, EntityUid target)
         {
+            var component = EnsureComp<ForensicsComponent>(target);
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && fiber.FiberDescription != null)
-                {
                     component.Fibers.Add(fiber.FiberDescription);
-                }
-                if (!TryComp<FingerprintMaskComponent>(gloves, out var fingerprintMask))
-                {
-                    if (TryComp<FingerprintComponent>(user, out var fingerprint))
-                    {
-                        component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
-                    }
-                }
+                if (HasComp<FingerprintMaskComponent>(gloves))
+                    return;
             }
-            else
-            {
-                if (TryComp<FingerprintComponent>(user, out var fingerprint))
-                {
-                    component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
-                }
-            }
+            if (TryComp<FingerprintComponent>(user, out var fingerprint))
+                component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
     }
 }
