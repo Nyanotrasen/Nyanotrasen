@@ -28,6 +28,7 @@ namespace Content.Client.Entry
             "EmitSoundOnLand",
             "EmitSoundOnTrigger",
             "EmitSoundOnActivate",
+            "ForensicPad",
             "EmitSoundOnUIOpen",
             "NameIdentifier",
             "Farter",

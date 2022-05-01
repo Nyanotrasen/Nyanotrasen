@@ -1,4 +1,4 @@
-using System.Linq;
+using System.Linq; // todo: remove this stinky LINQy
 using System.Threading;
 using Content.Server.DoAfter;
 using Content.Shared.Forensics;
@@ -89,7 +89,6 @@ namespace Content.Server.Forensics
             public EntityUid User;
             public EntityUid? Target;
             public ForensicScannerComponent Component;
-
             public TargetScanSuccessfulEvent(EntityUid user, EntityUid? target, ForensicScannerComponent component)
             {
                 User = user;

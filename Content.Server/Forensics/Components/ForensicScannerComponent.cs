@@ -1,7 +1,4 @@
 using System.Threading;
-using Content.Server.UserInterface;
-using Content.Shared.Forensics;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.Forensics
 {
