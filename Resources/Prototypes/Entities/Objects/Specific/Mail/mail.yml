@@ -1,0 +1,36 @@
+- type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseMail
+  name: mail
+  components:
+  - type: Mail
+  - type: AccessReader
+  - type: Sprite
+    sprite: Objects/Specific/Mail/mail.rsi
+    layers:
+    - state: icon
+    - state: locked
+      map: ["enum.MailVisualLayers.IsLocked"]
+  - type: Appearance
+  - type: MailVisuals
+
+- type: entity
+  parent: BaseMail
+  id: MailBikeHorn
+  suffix: bike horn
+  components:
+  - type: Mail
+    contents:
+    - id: BikeHorn
+
+- type: entity
+  parent: BaseMail
+  id: MailJunkFood
+  suffix: junk food
+  components:
+  - type: Mail
+    contents:
+    - id: FoodBoxDonkpocket
+    - id: FoodSnackChips
+
