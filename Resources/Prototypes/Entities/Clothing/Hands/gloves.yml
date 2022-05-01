@@ -13,6 +13,9 @@
       types:
         Blunt: 1
         Asphyxiation: 4
+  - type: Fiber
+    fiberDescription: "red leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
@@ -26,6 +29,9 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: blue
+  - type: Fiber
+    fiberDescription: "blue leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
@@ -39,6 +45,9 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: green
+  - type: Fiber
+    fiberDescription: "green leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsGlovesBoxingRed
@@ -52,6 +61,9 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: yellow
+  - type: Fiber
+    fiberDescription: "yellow leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -65,6 +77,9 @@
     sprite: Clothing/Hands/Gloves/captain.rsi
     HeatResistance: 1400
   - type: Insulated
+  - type: Fiber
+    fiberDescription: "high-quality regal blue synthetic fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -76,6 +91,10 @@
     sprite: Clothing/Hands/Gloves/ihscombat.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/ihscombat.rsi
+  - type: Fiber
+    fiberDescription: "high-quality synthetic fibers"
+  - type: FingerprintMask
+
 #### Medical
 - type: entity
   parent: ClothingHandsBase
@@ -89,6 +108,7 @@
     sprite: Clothing/Hands/Gloves/latex.rsi
   - type: DiseaseProtection
     protection: 0.1
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -102,6 +122,7 @@
     sprite: Clothing/Hands/Gloves/Color/blue.rsi
   - type: DiseaseProtection
     protection: 0.15
+  - type: FingerprintMask
 ####
 - type: entity
   parent: ClothingHandsBase
@@ -114,6 +135,9 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/leather.rsi
     HeatResistance: 1400
+  - type: Fiber
+    fiberDescription: "brown leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -125,6 +149,9 @@
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: Fiber
+    fiberDescription: "insulative fibers and nanomachines"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -136,6 +163,9 @@
     sprite: Clothing/Hands/Gloves/robohands.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/robohands.rsi
+  - type: Fiber
+    fiberDescription: "black leather fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -149,6 +179,9 @@
     sprite: Clothing/Hands/Gloves/spaceninja.rsi
     HeatResistance: 1400
   - type: Insulated
+  - type: Fiber
+    fiberDescription: "black insulative fire resistant fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -162,6 +195,9 @@
     sprite: Clothing/Hands/Gloves/Color/black.rsi
     HeatResistance: 1400
   - type: Insulated
+  - type: Fiber
+    fiberDescription: "black insulative fire resistant fibers"
+  - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
@@ -173,4 +209,6 @@
     sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/fingerless.rsi
+  - type: Fiber
+    fiberDescription: "black synthetic fibers"
 

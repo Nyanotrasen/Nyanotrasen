@@ -35,6 +35,8 @@
     drawdepth: Items
     noRot: false
   - type: Pullable
+  - type: ExplosionLaunched
+  - type: Forensics
 
 - type: entity
   name: "storage item"
@@ -47,3 +49,4 @@
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
+
