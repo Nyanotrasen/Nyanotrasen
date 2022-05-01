@@ -117,7 +117,15 @@
   suffix: Quartermaster, Locked
   components:
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]
+
+- type: entity
+  parent: AirlockCargo
+  id: AirlockMailLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
 
 - type: entity
   parent: AirlockMedical
@@ -216,6 +224,16 @@
   components:
   - type: AccessReader
     access: [["Security"]]
+  - type: Wires
+    LayoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
   - type: Wires
     LayoutId: AirlockSecurity
 
@@ -334,7 +352,15 @@
   suffix: Quartermaster, Locked
   components:
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockMailGlassLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
 
 - type: entity
   parent: AirlockMedicalGlass
@@ -439,6 +465,14 @@
   components:
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockDetectiveGlassLocked
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
 
 - type: entity
   parent: AirlockCommandGlassLocked

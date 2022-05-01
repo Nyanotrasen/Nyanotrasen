@@ -288,6 +288,18 @@
 
 - type: entity
   parent: IDCardStandard
+  id: DetectiveIDCard
+  name: detective ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: iddetective
+    - type: PresetIdCard
+      job: Detective
+
+- type: entity
+  parent: IDCardStandard
   id: HoPIDCard
   name: head of personnel ID card
   components:

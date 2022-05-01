@@ -207,6 +207,18 @@
         - state: green
         - state: musician
 
+- type: entity
+  id: SpawnPointDetective
+  parent: SpawnPointJobBase
+  name: detective
+  components:
+  - type: SpawnPoint
+    job_id: Detective
+  - type: Sprite
+    layers:
+      - state: green
+      - state: detective
+
 # Command
 
 - type: entity
