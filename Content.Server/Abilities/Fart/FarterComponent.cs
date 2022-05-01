@@ -13,7 +13,7 @@ namespace Content.Server.Abilities.Fart
         [DataField("fartAction")]
         public InstantAction FartAction = new()
         {
-            UseDelay = TimeSpan.FromSeconds(1),
+            UseDelay = TimeSpan.FromSeconds(3),
             Name = "fart-action",
             Description = "fart-action-desc",
             Priority = -1,
