@@ -27,10 +27,7 @@
     drawdepth: FloorObjects
     layers:
     - state: offline
-      map: ["enum.CargoTelepadLayers.Base"]
-    - state: idle
-      map: [ "enum.CargoTelepadLayers.Beam" ]
-      shader: unshaded
+      color: blue
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic

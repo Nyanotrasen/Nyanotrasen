@@ -10,8 +10,10 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Mail;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Mail
 {
@@ -55,6 +57,8 @@ namespace Content.Server.Mail
 
                 mailTeleporter.Accumulator -= (float) mailTeleporter.teleportInterval.TotalSeconds;
 
+
+                SoundSystem.Play(Filter.Pvs(mailTeleporter.Owner), "/Audio/Effects/teleport_arrival.ogg", mailTeleporter.Owner);
                 SpawnMail(mailTeleporter.Owner, mailTeleporter);
             }
         }
@@ -96,6 +100,7 @@ namespace Content.Server.Mail
             }
             _popupSystem.PopupEntity(Loc.GetString("mail-bounty", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
             component.Locked = false;
+            UpdateMailVisuals(uid, false);
             /// This needs to be revisited for multistation
             /// For now let's just add the bounty to the first
             /// console we find.
@@ -159,6 +164,8 @@ namespace Content.Server.Mail
             if (!Resolve(uid, ref component))
                 return;
 
+            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/packetrip.ogg", uid);
+
             var contentList = EntitySpawnCollection.GetSpawns(component.Contents, _random);
 
             foreach (var item in contentList)
@@ -168,6 +175,14 @@ namespace Content.Server.Mail
                     _handsSystem.PickupOrDrop(user, entity);
             }
             EntityManager.QueueDeleteEntity(uid);
+        }
+
+        private void UpdateMailVisuals(EntityUid uid, bool isLocked)
+        {
+            if (!TryComp<AppearanceComponent>(uid, out var appearance))
+                return;
+
+            appearance.SetData(MailVisuals.IsLocked, isLocked);
         }
     }
 }

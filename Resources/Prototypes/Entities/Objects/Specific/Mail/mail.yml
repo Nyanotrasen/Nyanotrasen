@@ -11,6 +11,9 @@
     layers:
     - state: icon
     - state: locked
+      map: ["enum.MailVisualLayers.IsLocked"]
+  - type: Appearance
+  - type: MailVisuals
 
 - type: entity
   parent: BaseMail
