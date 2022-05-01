@@ -47,6 +47,7 @@ namespace Content.Server.Mail
             {
                 if (TryComp<ApcPowerReceiverComponent>(mailTeleporter.Owner, out var power) && !power.Powered)
                     return;
+
                 mailTeleporter.Accumulator += frameTime;
 
                 if (mailTeleporter.Accumulator < mailTeleporter.teleportInterval.TotalSeconds)
