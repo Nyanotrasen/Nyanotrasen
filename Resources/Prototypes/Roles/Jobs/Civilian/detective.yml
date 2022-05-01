@@ -1,0 +1,32 @@
+- type: job
+  id: Detective
+  name: "detective"
+  startingGear: DetectiveGear
+  departments:
+  - Civilian
+  - Security
+  icon: "Detective"
+  supervisors: "the head of personnel"
+  access:
+  - Service
+  - Brig
+  - Detective
+  - Maintenance
+
+- type: startingGear
+  id: DetectiveGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDetective
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: DetectivePDA
+    outerClothing: ClothingOuterCoatDetective
+    ears: ClothingHeadsetService
+    head: ClothingHeadHatFedoraBrown
+    pocket1: RevolverInspector
+    pocket2: CigPackBlack
+  innerclothingskirt: ClothingUniformJumpskirtDetective
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+
+

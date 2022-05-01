@@ -11,8 +11,8 @@
 - type: accessLevel
   id: Brig
 
-#- type: accessLevel
-#  id: Detective
+- type: accessLevel
+  id: Detective
 
 - type: accessGroup
   id: Security
@@ -21,4 +21,4 @@
   - Security
   - Armory
   - Brig
-  # - Detective
+  - Detective
