@@ -2,6 +2,7 @@ using Content.Server.Mail.Components;
 using Content.Server.Power.Components;
 using Content.Server.Popups;
 using Content.Server.Access.Systems;
+using Content.Server.Cargo.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -75,7 +76,7 @@ namespace Content.Server.Mail
         /// </summary>
         private void OnAfterInteractUsing(EntityUid uid, MailComponent component, AfterInteractUsingEvent args)
         {
-            if (!args.CanReach)
+            if (!args.CanReach || !component.Locked)
                 return;
 
             if (!TryComp<IdCardComponent>(args.Used, out var idCard) || !TryComp<AccessReaderComponent>(uid, out var access))
@@ -92,8 +93,17 @@ namespace Content.Server.Mail
                 _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
                 return;
             }
-
+            _popupSystem.PopupEntity(Loc.GetString("mail-bounty", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
             component.Locked = false;
+            /// This needs to be revisited for multistation
+            /// For now let's just add the bounty to the first
+            /// console we find.
+            foreach (var console in EntityQuery<CargoConsoleComponent>())
+            {
+                if (console.BankAccount != null)
+                    console.BankAccount.Balance += component.Bounty;
+                return;
+            }
         }
 
         private void OnExamined(EntityUid uid, MailComponent component, ExaminedEvent args)
@@ -111,7 +121,7 @@ namespace Content.Server.Mail
         {
             if (!Resolve(uid, ref component))
                 return;
-
+            /// This needs to be revisited for multistation
             List<(string recipientName, string recipientJob, AccessComponent access)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {

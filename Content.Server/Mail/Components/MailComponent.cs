@@ -23,8 +23,13 @@ namespace Content.Server.Mail.Components
 
         /// <summary>
         /// What will be spawned when the mail is opened.
-        /// <summary>
+        /// </summary>
         [DataField("contents")]
         public List<EntitySpawnEntry> Contents = new();
+
+        /// <summary>
+        /// The amount that cargo will be awarded for delivering this mail.
+        /// </summary>
+        public int Bounty = 500;
     }
 }
