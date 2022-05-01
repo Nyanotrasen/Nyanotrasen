@@ -1,9 +1,12 @@
 namespace Content.Server.Forensics
 {
-  [RegisterComponent]
-  public sealed class FingerprintComponent : Component
-  {
-    [DataField("fingerprint")]
-    public string? Fingerprint;
-  }
+    /// <summary>
+    /// This component is for mobs that leave fingerprints.
+    /// </summary>
+    [RegisterComponent]
+    public sealed class FingerprintComponent : Component
+    {
+        [DataField("fingerprint")]
+        public string? Fingerprint;
+    }
 }

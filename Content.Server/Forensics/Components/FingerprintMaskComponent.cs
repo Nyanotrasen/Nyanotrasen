@@ -1,7 +1,10 @@
 namespace Content.Server.Forensics
 {
-  [RegisterComponent]
-  public sealed class FingerprintMaskComponent : Component
-  {
-  }
+    /// <summary>
+    /// This component stops the entity from leaving finger prints,
+    /// usually so fibres can be left instead.
+    /// </summary>
+    [RegisterComponent]
+    public sealed class FingerprintMaskComponent : Component
+    {}
 }

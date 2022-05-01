@@ -16,7 +16,6 @@ namespace Content.Server.Forensics
         {
             base.Initialize();
 
-            SubscribeLocalEvent<ForensicScannerComponent, ActivateInWorldEvent>(HandleActivateInWorld);
             SubscribeLocalEvent<ForensicScannerComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<TargetScanSuccessfulEvent>(OnTargetScanSuccessful);
             SubscribeLocalEvent<ScanCancelledEvent>(OnScanCancelled);
@@ -61,12 +60,6 @@ namespace Content.Server.Forensics
                 NeedHand = true
             });
         }
-
-        private void HandleActivateInWorld(EntityUid uid, ForensicScannerComponent component, ActivateInWorldEvent args)
-        {
-            OpenUserInterface(args.User, component);
-        }
-
         private void OpenUserInterface(EntityUid user, ForensicScannerComponent component)
         {
             if (!TryComp<ActorComponent>(user, out var actor))
