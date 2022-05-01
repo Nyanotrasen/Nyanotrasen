@@ -12,6 +12,8 @@ namespace Content.Server.Forensics
         [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
+        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -67,8 +69,10 @@ namespace Content.Server.Forensics
             if (!TryComp<ActorComponent>(user, out var actor))
                 return;
 
-            component.UserInterface?.Open(actor.PlayerSession);
-            component.UserInterface?.SendMessage(new ForensicScannerUserMessage(component.Fingerprints, component.Fibers));
+            var ui = _uiSystem.GetUi(component.Owner, ForensicScannerUiKey.Key);
+
+            ui.Open(actor.PlayerSession);
+            ui.SendMessage(new ForensicScannerUserMessage(component.Fingerprints, component.Fibers));
         }
         private sealed class ScanCancelledEvent : EntityEventArgs
         {

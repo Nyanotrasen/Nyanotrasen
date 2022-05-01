@@ -8,7 +8,6 @@ namespace Content.Server.Forensics
     [RegisterComponent]
     public sealed class ForensicScannerComponent : Component
     {
-        public BoundUserInterface? UserInterface => Owner.GetUIOrNull(ForensicScannerUiKey.Key);
         public CancellationTokenSource? CancelToken;
 
         public List<string> Fingerprints = new();
