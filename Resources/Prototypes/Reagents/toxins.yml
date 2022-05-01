@@ -315,7 +315,7 @@
   id: IsotopeT3
   name: isotope T3
   group: Toxins
-  desc: Extremly Unstable , handle with caution.
+  desc: Extremly Unstable , Handle with caution.
   physicalDesc: glowing
   color: "#fc0505"
   metabolisms:
@@ -326,5 +326,5 @@
       - !type:HealthChange
         damage:
           types:
-            Radiation: 4
+            Radiation: 5
             Heat: 3

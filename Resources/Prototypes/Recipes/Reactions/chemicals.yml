@@ -301,7 +301,7 @@
   effects:
     - !type:ExplosionReactionEffect
       explosionType: PureRadioactive
-      maxIntensity: 7 # at most 105 damage per tile
+      maxIntensity: 7 
       intensityPerUnit: 0.5 # 100+100 reagent for maximum explosion 
       intensitySlope: 0.5
       maxTotalIntensity: 50
@@ -327,3 +327,15 @@
       amount: 5
   products:
     IsotopeT3: 10
+
+- type: reaction
+  id: NuclearFissionFuel
+  quantized: true
+  reactants:
+    Uranium:
+      amount: 1
+    Polytantrium:
+      amount: 9 
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FissionFuel1

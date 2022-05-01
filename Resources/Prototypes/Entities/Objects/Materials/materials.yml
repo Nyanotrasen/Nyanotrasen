@@ -182,3 +182,27 @@
     state: cotton
   - type: Stack
     count: 1
+
+- type: entity
+  parent: MaterialBase
+  id: FissionFuel
+  name: fission fuel
+  suffix: Full
+  description: Radioactive Fuel made for Nuclear Fission Engines.
+  components:
+  - type: Stack
+    stackType: FissionFuel
+  - type: Sprite
+    state: diamond
+  - type: Item
+    HeldPrefix: diamond
+
+- type: entity
+  parent: FissionFuel
+  id: FissionFuel1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: diamond
+  - type: Stack
+    count: 1
