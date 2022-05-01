@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/purple.rsi
   - type: Fiber
-    fiberDescription: "purple synthetic fibers"
+    fiberDescription: fibers-synthetic-purple
   - type: FingerprintMask
 
 - type: entity
@@ -23,7 +23,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/red.rsi
   - type: Fiber
-    fiberDescription: "red synthetic fibers"
+    fiberDescription: fibers-synthetic-red
   - type: FingerprintMask
 
 - type: entity
@@ -38,7 +38,7 @@
     sprite: Clothing/Hands/Gloves/Color/black.rsi
     HeatResistance: 1400
   - type: Fiber
-    fiberDescription: "black synthetic fibers"
+    fiberDescription: fibers-synthetic-black
   - type: FingerprintMask
 
 - type: entity
@@ -52,7 +52,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/blue.rsi
   - type: Fiber
-    fiberDescription: "blue synthetic fibers"
+    fiberDescription: fibers-synthetic-blue
   - type: FingerprintMask
 
 - type: entity
@@ -66,7 +66,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/brown.rsi
   - type: Fiber
-    fiberDescription: "brown synthetic fibers"
+    fiberDescription: fibers-synthetic-brown
   - type: FingerprintMask
 
 - type: entity
@@ -80,7 +80,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/gray.rsi
   - type: Fiber
-    fiberDescription: "grey synthetic fibers"
+    fiberDescription: fibers-synthetic-grey
   - type: FingerprintMask
 
 - type: entity
@@ -94,7 +94,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/green.rsi
   - type: Fiber
-    fiberDescription: "green synthetic fibers"
+    fiberDescription: fibers-synthetic-green
   - type: FingerprintMask
 
 - type: entity
@@ -108,7 +108,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/lightbrown.rsi
   - type: Fiber
-    fiberDescription: "brown synthetic fibers"
+    fiberDescription: fibers-synthetic-brown
   - type: FingerprintMask
 
 - type: entity
@@ -122,7 +122,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/orange.rsi
   - type: Fiber
-    fiberDescription: "orange synthetic fibers"
+    fiberDescription: fibers-synthetic-orange
   - type: FingerprintMask
 
 - type: entity
@@ -136,7 +136,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/white.rsi
   - type: Fiber
-    fiberDescription: "white synthetic fibers"
+    fiberDescription: fibers-synthetic-white
   - type: FingerprintMask
 
 - type: entity
@@ -152,7 +152,7 @@
     HeatResistance: 1400
   - type: Insulated
   - type: Fiber
-    fiberDescription: "yellow insulative fibers"
+    fiberDescription: fibers-synthetic-yellow-insulative
   - type: FingerprintMask
 
 - type: entity
@@ -165,7 +165,7 @@
       HeatResistance: 0
     - type: Insulated
     - type: Fiber
-      fiberDescription: "yellow insulative fibers"
+      fiberDescription: fibers-synthetic-yellow-insulative
     - type: FingerprintMask
     - type: RandomInsulation
       # Why repeated numbers? So some numbers are more common, of course!

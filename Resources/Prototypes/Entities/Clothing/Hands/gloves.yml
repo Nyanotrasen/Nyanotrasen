@@ -14,7 +14,7 @@
         Blunt: 1
         Asphyxiation: 4
   - type: Fiber
-    fiberDescription: "red leather fibers"
+    fiberDescription: fibers-leather-red
   - type: FingerprintMask
 
 - type: entity
@@ -30,7 +30,7 @@
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: blue
   - type: Fiber
-    fiberDescription: "blue leather fibers"
+    fiberDescription: fibers-leather-blue
   - type: FingerprintMask
 
 - type: entity
@@ -46,7 +46,7 @@
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: green
   - type: Fiber
-    fiberDescription: "green leather fibers"
+    fiberDescription: fibers-leather-green
   - type: FingerprintMask
 
 - type: entity
@@ -62,7 +62,7 @@
     sprite: Clothing/Hands/Gloves/boxing.rsi
     HeldPrefix: yellow
   - type: Fiber
-    fiberDescription: "yellow leather fibers"
+    fiberDescription: fibers-leather-yellow
   - type: FingerprintMask
 
 - type: entity
@@ -78,7 +78,7 @@
     HeatResistance: 1400
   - type: Insulated
   - type: Fiber
-    fiberDescription: "high-quality regal blue synthetic fibers"
+    fiberDescription: fibers-durathread-regal-blue
   - type: FingerprintMask
 
 - type: entity
@@ -92,7 +92,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/ihscombat.rsi
   - type: Fiber
-    fiberDescription: "high-quality synthetic fibers"
+    fiberDescription: fibers-durathread
   - type: FingerprintMask
 
 #### Medical
@@ -108,6 +108,8 @@
     sprite: Clothing/Hands/Gloves/latex.rsi
   - type: DiseaseProtection
     protection: 0.1
+  - type: Fiber
+    fiberDescription: fibers-latex
   - type: FingerprintMask
 
 - type: entity
@@ -122,13 +124,15 @@
     sprite: Clothing/Hands/Gloves/Color/blue.rsi
   - type: DiseaseProtection
     protection: 0.15
+  - type: Fiber
+    fiberDescription: fibers-nitrile
   - type: FingerprintMask
 ####
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesLeather
-  name: "botanist's leather gloves"
-  description: "These leather gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin. They're also quite warm."
+  name: botanist's leather gloves
+  description: These leather gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin. They're also quite warm.
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/leather.rsi
@@ -136,21 +140,21 @@
     sprite: Clothing/Hands/Gloves/leather.rsi
     HeatResistance: 1400
   - type: Fiber
-    fiberDescription: "brown leather fibers"
+    fiberDescription: fibers-leather-brown
   - type: FingerprintMask
 
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesPowerglove
   name: power gloves
-  description: Now I'm playin' with power! Wait, they are turned off. # Use "Now I'm playin' with power! BAM!" for when they're turned on
+  description: Now I'm playin' with power! Wait, they are turned off. # Use Now I'm playin' with power! BAM! for when they're turned on
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/powerglove.rsi
   - type: Fiber
-    fiberDescription: "insulative fibers and nanomachines"
+    fiberDescription: fibers-insulative-nanomachines
   - type: FingerprintMask
 
 - type: entity
@@ -164,7 +168,7 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/robohands.rsi
   - type: Fiber
-    fiberDescription: "black leather fibers"
+    fiberDescription: fibers-leather-black
   - type: FingerprintMask
 
 - type: entity
@@ -180,7 +184,7 @@
     HeatResistance: 1400
   - type: Insulated
   - type: Fiber
-    fiberDescription: "black insulative fire resistant fibers"
+    fiberDescription: fibers-insulative-nanomachines
   - type: FingerprintMask
 
 - type: entity
@@ -196,7 +200,7 @@
     HeatResistance: 1400
   - type: Insulated
   - type: Fiber
-    fiberDescription: "black insulative fire resistant fibers"
+    fiberDescription: fibers-insulative-black
   - type: FingerprintMask
 
 - type: entity
@@ -210,5 +214,5 @@
   - type: Clothing
     sprite: Clothing/Hands/Gloves/fingerless.rsi
   - type: Fiber
-    fiberDescription: "black synthetic fibers"
+    fiberDescription: fibers-synthetic-black
 

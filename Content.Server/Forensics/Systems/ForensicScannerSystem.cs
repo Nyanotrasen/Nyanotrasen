@@ -9,9 +9,7 @@ namespace Content.Server.Forensics
 {
     public sealed class ForensicScannerSystem : EntitySystem
     {
-        [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
         public override void Initialize()

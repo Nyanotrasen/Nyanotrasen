@@ -8,6 +8,6 @@ namespace Content.Server.Forensics
     public sealed class FiberComponent : Component
     {
         [DataField("fiberDescription")]
-        public string FiberDescription = "synthetic fibers";
+        public string FiberDescription = "fibers-synthetic";
     }
 }

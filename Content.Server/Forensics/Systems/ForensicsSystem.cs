@@ -9,8 +9,6 @@ namespace Content.Server.Forensics
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly HandsSystem _handsSystem = default!;
-
         public override void Initialize()
         {
             SubscribeLocalEvent<FingerprintComponent, UserInteractedWithItemEvent>(OnInteract);
@@ -40,7 +38,8 @@ namespace Content.Server.Forensics
             if (_inventory.TryGetSlotEntity(user, "gloves", out var gloves))
             {
                 if (TryComp<FiberComponent>(gloves, out var fiber) && fiber.FiberDescription != null)
-                    component.Fibers.Add(fiber.FiberDescription);
+                    component.Fibers.Add(Loc.GetString(fiber.FiberDescription));
+
                 if (HasComp<FingerprintMaskComponent>(gloves))
                     return;
             }
