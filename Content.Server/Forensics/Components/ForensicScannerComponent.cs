@@ -6,7 +6,7 @@ using Robust.Server.GameObjects;
 namespace Content.Server.Forensics
 {
     [RegisterComponent]
-    public sealed class ForensicScannerComponent : SharedForensicScannerComponent
+    public sealed class ForensicScannerComponent : Component
     {
         public BoundUserInterface? UserInterface => Owner.GetUIOrNull(ForensicScannerUiKey.Key);
         public CancellationTokenSource? CancelToken;

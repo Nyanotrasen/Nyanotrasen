@@ -164,6 +164,9 @@
     - type: Clothing
       HeatResistance: 0
     - type: Insulated
+    - type: Fiber
+      fiberDescription: "yellow insulative fibers"
+    - type: FingerprintMask
     - type: RandomInsulation
       # Why repeated numbers? So some numbers are more common, of course!
       list:
@@ -180,6 +183,3 @@
         - 1.5
         - 1.5
         - 1.5
-  - type: Fiber
-    fiberDescription: "yellow low-quality insulative fibers"
-  - type: FingerprintMask
