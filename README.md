@@ -10,7 +10,7 @@ The SS14 [docs site](https://docs.spacestation14.io/) has documentation on SS14s
 
 ## Contributing
 
-We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of issues](https://github.com/arcadia-station/arcadia-station/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
+We are happy to accept contributions from anybody. Get in Discord if you want to help. We've got a [list of issues](https://github.com/Nyanotrasen/Nyanotrasen/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
 
 ## Building
 
