@@ -158,11 +158,7 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
-      hard: false
-      mask:
+    - mask:
         - Opaque
   - type: Projectile
     damage:
@@ -173,6 +169,39 @@
   - type: Tag
     tags:
     - EmitterBolt
+
+- type: entity
+  name: energy crossbow bolt
+  id: BoltEnergyCrossbow
+  parent: BulletBase
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/plasma.rsi
+    state: base
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+      hard: false
+      mask:
+      - Impassable
+      layer:
+      - MobImpassable
+  - type: Ammo
+    isProjectile: true
+    ammoVelocity: 20
+    caliber: Energy
+  - type: Projectile
+    damage:
+      types:
+        Poison: 15
+  - type: StunOnCollide
+    stunAmount: 2
+    knockdownAmount: 2
+
 
 # Launcher projectiles (grenade / rocket)
 - type: entity
