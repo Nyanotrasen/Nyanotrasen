@@ -16,6 +16,14 @@
   description: A loud and deadly revolver. Uses .40 Magnum.
   price: 8
 
+- type: uplinkListing
+  id: UplinkMiniEbow
+  category: Weapons
+  itemId: EnergyCrossbowMini
+  listingName: Miniature Energy Crossbow
+  description: A fairly quiet weapon that infinitely recharges and stuns. Good as a combo tool with other weapons.
+  price: 10
+
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: uplinkListing
   id: UplinkPistolMandella
@@ -33,13 +41,6 @@
   listingName: Surplus Rifle
   description: A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
   price: 4
-
-#- type: uplinkListing
-#  id: UplinkCrossbowEnergyMini
-#  category: Weapons
-#  itemId: CrossbowEnergyMini
-#  price: 8
-
 
 - type: uplinkListing
   id: UplinkEsword

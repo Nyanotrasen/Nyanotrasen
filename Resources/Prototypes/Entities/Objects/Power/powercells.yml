@@ -96,6 +96,16 @@
       prefix: s_hi
 
 - type: entity
+  name: bluespace cell
+  parent: PowerCellSmallHigh
+  id: PowerCellBluespace
+  description: An extremely fast recharging power cell. Only works in machine designed for it.
+  components:
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 360
+
+- type: entity
   name: small super-capacity power cell
   description: A rechargeable standardized power cell, size S. This premium high-capacity brand stores up to 50% more energy than the competition.
   id: PowerCellSmallSuper
