@@ -218,6 +218,7 @@ namespace Content.Shared.Verbs
             { typeof(Verb) },
             { typeof(InteractionVerb) },
             { typeof(UtilityVerb) },
+            { typeof(InnateVerb) },
             { typeof(AlternativeVerb) },
             { typeof(ActivationVerb) },
             { typeof(ExamineVerb) }
@@ -274,7 +275,7 @@ namespace Content.Shared.Verbs
     ///     You'll want to add or remove a component to the intent and subscribe
     ///     to GetVerbsEvent<InnateVerb>
     /// </summary>
-
+    [Serializable, NetSerializable]
     public sealed class InnateVerb : Verb
     {
         public override int TypePriority => 3;
