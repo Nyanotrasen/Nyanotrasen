@@ -1,0 +1,23 @@
+- type: entity
+  name: mail bag
+  id: MailBag
+  parent: BaseStorageItem
+  description: Holds mail
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
+    color: blue
+    state: icon
+  - type: Clothing
+    sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
+    color: blue
+    quickEquip: false
+    Slots:
+    - belt
+    size: 120
+  - type: Storage
+    capacity: 120
+    whitelist:
+      components:
+        - Mail

@@ -4,6 +4,8 @@
   id: BaseMail
   name: mail
   components:
+  - type: Item
+    size: 20
   - type: Mail
   - type: AccessReader
   - type: Sprite
