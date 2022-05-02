@@ -1,13 +1,20 @@
 using System.Threading;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Server.DoAfter;
+using Content.Server.Popups;
+using Robust.Shared.Player;
 
 namespace Content.Server.Forensics
 {
     public sealed class ForensicPadSystem : EntitySystem
     {
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -39,14 +46,28 @@ namespace Content.Server.Forensics
                 component.CancelToken = null;
             }
 
-            if (component.Used)
-                return;
-
             if (!args.CanReach || args.Target == null)
                 return;
 
+            if (component.Used)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("forensic-pad-already-used"), args.Target.Value, Filter.Entities(args.User));
+                return;
+            }
+
+            if (_inventory.TryGetSlotEntity(args.Target.Value, "gloves", out var gloves))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("forensic-pad-gloves", ("target", args.Target.Value)), args.Target.Value, Filter.Entities(args.User));
+                return;
+            }
+
             if (TryComp<FingerprintComponent>(args.Target, out var fingerprint) && fingerprint.Fingerprint != null)
             {
+                if (args.User != args.Target)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("forensic-pad-start-scan-user", ("target", args.Target.Value)), args.Target.Value, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("forensic-pad-start-scan-target", ("user", args.User)), args.Target.Value, Filter.Entities(args.Target.Value));
+                }
                 StartScan(args.User, args.Target.Value, component, fingerprint.Fingerprint);
                 return;
             }
