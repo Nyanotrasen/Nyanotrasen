@@ -1,4 +1,3 @@
-using Content.Server.Hands.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Robust.Shared.Random;
