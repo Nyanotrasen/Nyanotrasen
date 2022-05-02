@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace Content.Server.Medical.Components
 {
     /// <summary>
@@ -5,5 +7,10 @@ namespace Content.Server.Medical.Components
     /// </summary>
     [RegisterComponent]
     public sealed class WearingStethoscopeComponent : Component
-    {}
+    {
+        public CancellationTokenSource? CancelToken;
+
+        [DataField("delay")]
+        public float Delay = 2.5f;
+    }
 }
