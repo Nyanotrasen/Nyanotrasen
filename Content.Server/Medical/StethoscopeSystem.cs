@@ -2,6 +2,7 @@ using System.Threading;
 using Content.Shared.Verbs;
 using Content.Shared.Inventory.Events;
 using Content.Shared.MobState.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Server.Medical.Components;
@@ -119,25 +120,21 @@ namespace Content.Server.Medical
             if (!damage.Damage.TryGetDamageInGroup(airloss, out var totalAirloss))
                 return;
 
-            if (totalAirloss < 20)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("stethoscope-normal"), target, Filter.Entities(user));
-                return;
-            }
+            var message = GetDamageMessage(totalAirloss);
 
-            if (totalAirloss < 60)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("stethoscope-hyper"), target, Filter.Entities(user));
-                return;
-            }
+            _popupSystem.PopupEntity(Loc.GetString(message), target, Filter.Entities(user));
+        }
 
-            if (totalAirloss < 80)
+        private string GetDamageMessage(FixedPoint2 totalAirloss)
+        {
+            var msg = (int) totalAirloss switch
             {
-                _popupSystem.PopupEntity(Loc.GetString("stethoscope-irregular"), target, Filter.Entities(user));
-                return;
-            }
-
-            _popupSystem.PopupEntity(Loc.GetString("stethoscope-fucked"), target, Filter.Entities(user));
+                < 20 => "stethoscope-normal",
+                < 60 => "stethoscope-hyper",
+                < 80 => "stethoscope-irregular",
+                _ => "stethoscope-fucked"
+            };
+            return msg;
         }
 
         private sealed class ListenSuccessfulEvent : EntityEventArgs
