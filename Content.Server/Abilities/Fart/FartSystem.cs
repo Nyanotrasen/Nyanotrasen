@@ -5,11 +5,13 @@ using Content.Shared.Body.Components;
 using Content.Server.Bible.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Abilities.Fart
 {
     public sealed class FartSystem : EntitySystem
     {
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         public override void Initialize()
         {
@@ -30,7 +32,7 @@ namespace Content.Server.Abilities.Fart
             {
                 foreach (var entity in Transform(uid).Coordinates.GetEntitiesInTile())
                 {
-                    if (HasComp<BibleComponent>(entity))
+                    if (HasComp<BibleComponent>(entity) && !_containerSystem.IsEntityInContainer(entity))
                     {
                         body.Gib();
                         args.Handled = true;
