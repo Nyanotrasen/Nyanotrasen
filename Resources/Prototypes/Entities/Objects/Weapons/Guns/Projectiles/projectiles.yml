@@ -158,7 +158,11 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - mask:
+    - shape:
+        !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+      hard: false
+      mask:
         - Opaque
   - type: Projectile
     damage:
