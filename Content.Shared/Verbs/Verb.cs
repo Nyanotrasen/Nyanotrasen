@@ -266,6 +266,25 @@ namespace Content.Shared.Verbs
     }
 
     /// <summary>
+    ///     This is for verbs facilitated by components on the user.
+    ///     Useful for verbs that might be added by abilities or
+    ///     clothing the user is wearing that are used on other objects
+    /// </summary>
+    /// <remarks>
+    ///     You'll want to add or remove a component to the intent and subscribe
+    ///     to GetVerbsEvent<InnateVerb>
+    /// </summary>
+
+    public sealed class InnateVerb : Verb
+    {
+        public override int TypePriority => 3;
+        public InnateVerb() : base()
+        {
+            TextStyleClass = InteractionVerb.DefaultTextStyleClass;
+        }
+    }
+
+    /// <summary>
     ///     Verbs for alternative-interactions.
     /// </summary>
     /// <remarks>
