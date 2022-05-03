@@ -195,7 +195,8 @@ namespace Content.Server.Mail
             SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/packetrip.ogg", uid);
 
             var contentList = EntitySpawnCollection.GetSpawns(component.Contents, _random);
-
+            if (user != null)
+                _handsSystem.TryDrop((EntityUid) user);
             foreach (var item in contentList)
             {
                 var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
