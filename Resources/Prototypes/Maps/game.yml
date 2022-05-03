@@ -8,6 +8,7 @@
   mapPath: /Maps/saltern.yml
   minPlayers: 0
   maxPlayers: 29
+  votable: false
   fallback: true
   overflowJobs:
     - Assistant
@@ -115,6 +116,7 @@
     prefixCreator: '14'
   mapPath: /Maps/nss_pillar.yml
   minPlayers: 40
+  votable: false
   overflowJobs:
     - Assistant
   availableJobs:
