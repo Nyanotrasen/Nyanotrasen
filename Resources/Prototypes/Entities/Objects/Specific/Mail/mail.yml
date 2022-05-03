@@ -36,3 +36,170 @@
     - id: FoodBoxDonkpocket
     - id: FoodSnackChips
 
+- type: entity
+  parent: BaseMail
+  id: MailCosplay
+  suffix: cosplay
+  components:
+  - type: Mail
+    contents:
+    - id: UniformSchoolgirlBlue
+    - id: ClothingMaskMuzzle
+    - id: Handcuffs
+
+- type: entity
+  parent: BaseMail
+  id: MailMoney
+  suffix: money
+  components:
+  - type: Mail
+    contents:
+    - id: SpaceCash100
+
+- type: entity
+  parent: BaseMail
+  id: MailCigarettes
+  suffix: cigs
+  components:
+  - type: Mail
+    contents:
+    - id: CigPackRed
+    - id: CheapLighter
+
+- type: entity
+  parent: BaseMail
+  id: MailFigurine
+  suffix: figurine
+  components:
+  - type: Mail
+    contents:
+    - id: ToyAi
+      prob: 0.22
+    - id: ToyNuke
+      prob: 0.22
+    - id: ToyAssistant
+      prob: 0.22
+    - id: ToyGriffin
+      prob: 0.22
+    - id: ToyHonk
+      prob: 0.22
+    - id: ToyIan
+      prob: 0.22
+    - id: ToyMarauder
+      prob: 0.22
+    - id: ToyMauler
+      prob: 0.22
+    - id: ToyGygax
+      prob: 0.22
+    - id: ToyOdysseus
+      prob: 0.22
+    - id: ToyOwlman
+      prob: 0.22
+    - id: ToyDeathRipley
+      prob: 0.22
+    - id: ToyPhazon
+      prob: 0.22
+    - id: ToyFireRipley
+      prob: 0.22
+    - id: ToyReticence
+      prob: 0.22
+    - id: ToyRipley
+      prob: 0.22
+    - id: ToySeraph
+      prob: 0.22
+    - id: ToyDurand
+      prob: 0.22
+
+- type: entity
+  parent: BaseMail
+  id: MailBible
+  suffix: bible
+  components:
+  - type: Mail
+    contents:
+    - id: Bible
+
+- type: entity
+  parent: BaseMail
+  id: MailCapGun
+  suffix: CapGun
+  components:
+  - type: Mail
+    contents:
+    - id: RevolverCapGun
+    - id: CapLoader
+
+- type: entity
+  parent: BaseMail
+  id: MailGatfruit
+  suffix: Gatfruit
+  components:
+  - type: Mail
+    contents:
+    - id: GatfruitSeeds
+
+- type: entity
+  parent: BaseMail
+  id: MailCrayon
+  suffix: Crayon
+  components:
+  - type: Mail
+    contents:
+    - id: CrayonBox
+
+- type: entity
+  parent: BaseMail
+  id: MailPlushie
+  suffix: plushie
+  components:
+  - type: Mail
+    contents:
+    - id: PlushieBee
+      prob: 0.2
+    - id: PlushieRGBee
+      prob: 0.1
+    - id: PlushieNuke
+      prob: 0.2
+    - id: PlushieRouny
+      prob: 0.2
+    - id: PlushieLizard
+      prob: 0.2
+    - id: PlushieSpaceLizard
+      prob: 0.2
+    - id: PlushieRatvar
+      prob: 0.2
+    - id: PlushieNar
+      prob: 0.2
+    - id: PlushieCarp
+      prob: 0.2
+    - id: PlushieSlime
+      prob: 0.2
+    - id: PlushieSnake
+      prob: 0.2
+
+- type: entity
+  parent: BaseMail
+  id: MailPAI
+  suffix: PAI
+  components:
+  - type: Mail
+    contents:
+    - id: PersonalAI
+
+- type: entity
+  parent: BaseMail
+  id: MailSunglasses
+  suffix: Sunglasses
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesGlassesSunglasses
+
+- type: entity
+  parent: BaseMail
+  id: MailKatana
+  suffix: Katana
+  components:
+  - type: Mail
+    contents:
+    - id: Katana

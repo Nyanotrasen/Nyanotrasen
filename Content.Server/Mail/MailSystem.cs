@@ -11,6 +11,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
+using Content.Shared.PDA;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
@@ -30,7 +31,19 @@ namespace Content.Server.Mail
         public readonly IReadOnlyList<string> MailPrototypes = new[]
         {
             "MailBikeHorn",
-            "MailJunkFood"
+            "MailJunkFood",
+            "MailCosplay",
+            "MailMoney",
+            "MailCigarettes",
+            "MailFigurine",
+            "MailBible",
+            "MailCapGun",
+            "MailGatfruit",
+            "MailCrayon",
+            "MailPlushie",
+            "MailPAI",
+            "MailSunglasses",
+            "MailKatana"
         };
 
 
@@ -84,8 +97,23 @@ namespace Content.Server.Mail
             if (!args.CanReach || !component.Locked)
                 return;
 
-            if (!TryComp<IdCardComponent>(args.Used, out var idCard) || !TryComp<AccessReaderComponent>(uid, out var access))
+            if (!TryComp<AccessReaderComponent>(uid, out var access))
                 return;
+
+            IdCardComponent? idCard = null; // We need an ID card.
+
+            if (HasComp<PDAComponent>(args.Used)) /// Can we find it in a PDA if the user is using that?
+            {
+                _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
+                idCard = pdaID;
+            }
+
+            if (HasComp<IdCardComponent>(args.Used)) /// Or are they using an id card directly?
+                idCard = Comp<IdCardComponent>(args.Used);
+
+            if (idCard == null) /// Return if we still haven't found an id card.
+                return;
+
 
             if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
             {

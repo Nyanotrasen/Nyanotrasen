@@ -1,69 +1,4 @@
 Entries:
-- author: Peptide90
-  changes:
-  - {message: Power tools now do their job faster! Power drills and jaws of life never
-      looked so good to borrow..., type: Add}
-  - {message: Emergency welders are now slower than their bigger counterpart., type: Fix}
-  - {message: Metal crate deconstruction now requires a welder as it used to. Plastic
-      crates are still screwed., type: Fix}
-  id: 933
-  time: '2022-01-26T04:12:20.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Hacking doors now actually use their randomised layouts and hacking
-      takes time, type: Tweak}
-  id: 934
-  time: '2022-01-26T04:26:54.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Range limit removed from LOOC for ghosts, type: Tweak}
-  id: 935
-  time: '2022-01-26T13:18:56.0000000+00:00'
-- author: Lamrr
-  changes:
-  - {message: 'The mysterious red phone has returned, the favoured weapon of the Centcom
-      Official and the second favourite instrument of the Clown.', type: Add}
-  id: 936
-  time: '2022-01-26T17:27:04.0000000+00:00'
-- author: Peptide90
-  changes:
-  - {message: Captain and HoP now have Quartermaster access. Find somewhere else to
-      hide your contraband QM., type: Fix}
-  id: 937
-  time: '2022-01-26T18:29:44.0000000+00:00'
-- author: moony
-  changes:
-  - {message: 'The game rules have been updated. In short, no more revolutions unless
-      you''re an antagonist with administrator permission.', type: Tweak}
-  id: 938
-  time: '2022-01-26T22:50:44.0000000+00:00'
-- author: Peptide90
-  changes:
-  - {message: 'Lights now consume slighly more power than before. Can you cope?',
-    type: Fix}
-  - {message: 'LED lights are now less bright so won''t burn your eyes out, just your
-      hands.', type: Fix}
-  - {message: There's two high energy lightbulb specifically for shuttles and station
-      exteriors. Spot the blue and orange glow!, type: Add}
-  id: 939
-  time: '2022-01-27T00:01:32.0000000+00:00'
-- author: Plasmaguy
-  changes:
-  - {message: 'Added three new drinks (root beer, ice cream, and root beer floats).',
-    type: Add}
-  - {message: Root beer can be dispensed from the Bar's soda machine, type: Tweak}
-  - {message: Cans of root beer can be dispensed from the Robust Softdrinks vending
-      machines, type: Tweak}
-  id: 940
-  time: '2022-01-27T07:33:27.0000000+00:00'
-- author: Rane
-  changes:
-  - {message: Chief Engineers now have access to the advanced magboots in their locker.,
-    type: Add}
-  - {message: The 'Steal Magboots' objective is now 'Steal Advanced Magboots' and
-      considered more difficult., type: Tweak}
-  id: 941
-  time: '2022-01-28T18:28:05.0000000+00:00'
 - author: aaronmell
   changes:
   - {message: Admin and AdminRank windows show the save button correctly now, type: Fix}
@@ -3057,3 +2992,54 @@ Entries:
       or objects are more slippery than others., type: Fix}
   id: 1432
   time: '2022-05-01T06:02:29.0000000+00:00'
+- author: 20kdc
+  changes:
+  - {message: Knightship is officially deceased., type: Remove}
+  id: 1433
+  time: '2022-05-02T14:50:37.0000000+00:00'
+- author: Peptide90
+  changes:
+  - {message: Bolas and tiles now break after 3 and 4 throws respectively. Reduced
+      tile damage from 10 to 5. No more tile abuse., type: Tweak}
+  id: 1434
+  time: '2022-05-02T20:49:47.0000000+00:00'
+- author: Peptide90
+  changes:
+  - {message: To deconstruct vents and scrubbers you now need to use the screwdriver
+      before welding., type: Tweak}
+  id: 1435
+  time: '2022-05-02T20:49:53.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: The ATV now has many possible descriptions., type: Tweak}
+  id: 1436
+  time: '2022-05-02T20:51:03.0000000+00:00'
+- author: Peptide90
+  changes:
+  - {message: Added three new wall types for secret vaults. Expect to find them in
+      some hidden areas of asteroids in future and containing ancient dangers!, type: Add}
+  id: 1437
+  time: '2022-05-02T22:38:07.0000000+00:00'
+- author: TimrodDX
+  changes:
+  - {message: 'Delta Station now has an ore processor, and may or may not have some
+      decals.', type: Add}
+  id: 1438
+  time: '2022-05-02T22:43:33.0000000+00:00'
+- author: HoofedEar
+  changes:
+  - {message: Requires a little more effort strip something off of someone., type: Tweak}
+  id: 1439
+  time: '2022-05-02T22:47:19.0000000+00:00'
+- author: Macoron
+  changes:
+  - {message: You can't unstick C4 from great distance or while your character in
+      handcuffs., type: Fix}
+  id: 1440
+  time: '2022-05-02T22:50:11.0000000+00:00'
+- author: Peptide90
+  changes:
+  - {message: Added the industrial welder and advanced industrial welders to the game.
+      Larger capacity and the advanced is faster at welding., type: Add}
+  id: 1441
+  time: '2022-05-02T22:51:24.0000000+00:00'
