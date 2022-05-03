@@ -41,6 +41,8 @@ namespace Content.Client.Entry
             "PaperLabel",
             "Construction",
             "PoweredLight",
+            "Stethoscope",
+            "WearingStethoscope",
             "Smes",
             "MailReceiver",
             "LightBulb",

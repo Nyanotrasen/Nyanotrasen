@@ -218,6 +218,7 @@ namespace Content.Shared.Verbs
             { typeof(Verb) },
             { typeof(InteractionVerb) },
             { typeof(UtilityVerb) },
+            { typeof(InnateVerb) },
             { typeof(AlternativeVerb) },
             { typeof(ActivationVerb) },
             { typeof(ExamineVerb) }
@@ -260,6 +261,25 @@ namespace Content.Shared.Verbs
         public override int TypePriority => 3;
 
         public UtilityVerb() : base()
+        {
+            TextStyleClass = InteractionVerb.DefaultTextStyleClass;
+        }
+    }
+
+    /// <summary>
+    ///     This is for verbs facilitated by components on the user.
+    ///     Useful for verbs that might be added by abilities or
+    ///     clothing the user is wearing that are used on other objects
+    /// </summary>
+    /// <remarks>
+    ///     You'll want to add or remove a component to the intent and subscribe
+    ///     to GetVerbsEvent<InnateVerb>
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class InnateVerb : Verb
+    {
+        public override int TypePriority => 3;
+        public InnateVerb() : base()
         {
             TextStyleClass = InteractionVerb.DefaultTextStyleClass;
         }
