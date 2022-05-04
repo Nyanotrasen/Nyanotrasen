@@ -6,12 +6,10 @@
   components:
   - type: Sprite
     netsync: false
-    sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
-    color: blue
+    sprite: Clothing/Belt/mailbag.rsi
     state: icon
   - type: Clothing
-    sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
-    color: blue
+    sprite: Clothing/Belt/mailbag.rsi
     quickEquip: false
     Slots:
     - belt

@@ -31,5 +31,11 @@ namespace Content.Server.Mail.Components
         /// The amount that cargo will be awarded for delivering this mail.
         /// </summary>
         public int Bounty = 500;
+
+        /// <summary>
+        /// Whether this component is enabled.
+        /// Removed when it becomes trash.
+        /// </summary>
+        public bool Enabled = true;
     }
 }

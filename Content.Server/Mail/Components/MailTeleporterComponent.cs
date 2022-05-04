@@ -10,7 +10,7 @@ namespace Content.Server.Mail.Components
 
         // Not starting accumulator at 0 so mail carriers have some deliveries to make shortly after roundstart.
         [DataField("accumulator")]
-        public float Accumulator = 270f;
+        public float Accumulator = 285f;
 
         [DataField("teleportInterval")]
         public TimeSpan teleportInterval = TimeSpan.FromMinutes(5);

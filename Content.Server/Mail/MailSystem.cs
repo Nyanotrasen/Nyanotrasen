@@ -12,6 +12,7 @@ using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
 using Content.Shared.PDA;
+using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
@@ -25,6 +26,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         // TODO: YAML Serializer won't catch this.
         [ViewVariables(VVAccess.ReadWrite)]
@@ -50,6 +52,7 @@ namespace Content.Server.Mail
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<MailComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
@@ -77,10 +80,21 @@ namespace Content.Server.Mail
         }
 
         /// <summary>
+        /// Set initial appearance so stuff doesn't break.
+        /// </summary>
+        private void OnInit(EntityUid uid, MailComponent mail, ComponentInit args)
+        {
+            UpdateAntiTamperVisuals(uid, true);
+            UpdateMailTrashState(uid, false);
+        }
+
+        /// <summary>
         /// Try to open the mail.
         /// <summary>
         private void OnUseInHand(EntityUid uid, MailComponent component, UseInHandEvent args)
         {
+            if (!component.Enabled)
+                return;
             if (component.Locked)
             {
                 _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
@@ -128,7 +142,7 @@ namespace Content.Server.Mail
             }
             _popupSystem.PopupEntity(Loc.GetString("mail-bounty", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
             component.Locked = false;
-            UpdateMailVisuals(uid, false);
+            UpdateAntiTamperVisuals(uid, false);
             /// This needs to be revisited for multistation
             /// For now let's just add the bounty to the first
             /// console we find.
@@ -203,15 +217,25 @@ namespace Content.Server.Mail
                 if (user != null)
                     _handsSystem.PickupOrDrop(user, entity);
             }
-            EntityManager.QueueDeleteEntity(uid);
+            _tagSystem.AddTag(uid, "Trash");
+            component.Enabled = false;
+            UpdateMailTrashState(uid, true);
         }
 
-        private void UpdateMailVisuals(EntityUid uid, bool isLocked)
+        private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
         {
             if (!TryComp<AppearanceComponent>(uid, out var appearance))
                 return;
 
             appearance.SetData(MailVisuals.IsLocked, isLocked);
+        }
+
+        private void UpdateMailTrashState(EntityUid uid, bool isTrash)
+        {
+            if (!TryComp<AppearanceComponent>(uid, out var appearance))
+                return;
+
+            appearance.SetData(MailVisuals.IsTrash, isTrash);
         }
     }
 }
