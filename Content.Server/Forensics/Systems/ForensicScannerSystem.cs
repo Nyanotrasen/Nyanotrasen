@@ -76,16 +76,13 @@ namespace Content.Server.Forensics
             if (!TryComp<ForensicPadComponent>(args.Used, out var pad))
                 return;
 
-            if (Loc.TryGetString(pad.Sample, out var sample))
+            foreach (var fiber in component.Fibers)
             {
-                foreach (var fiber in component.Fibers)
+                if (fiber == pad.Sample)
                 {
-                    if (Loc.GetString(fiber) == sample)
-                    {
-                        SoundSystem.Play(Filter.Pvs(uid), "/Audio/Machines/Nuke/angry_beep.ogg", uid);
-                        _popupSystem.PopupEntity(Loc.GetString("forensic-scanner-match-fiber"), uid, Filter.Entities(args.User));
-                        return;
-                    }
+                    SoundSystem.Play(Filter.Pvs(uid), "/Audio/Machines/Nuke/angry_beep.ogg", uid);
+                    _popupSystem.PopupEntity(Loc.GetString("forensic-scanner-match-fiber"), uid, Filter.Entities(args.User));
+                    return;
                 }
             }
 
