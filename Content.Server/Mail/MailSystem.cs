@@ -218,6 +218,7 @@ namespace Content.Server.Mail
                     _handsSystem.PickupOrDrop(user, entity);
             }
             _tagSystem.AddTag(uid, "Trash");
+            _tagSystem.AddTag(uid, "Recyclable");
             component.Enabled = false;
             UpdateMailTrashState(uid, true);
         }
