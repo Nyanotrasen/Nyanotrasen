@@ -12,10 +12,14 @@
     sprite: Objects/Specific/Mail/mail.rsi
     layers:
     - state: icon
+      map: ["enum.MailVisualLayers.IsTrash"]
+    - state: postmark
     - state: locked
       map: ["enum.MailVisualLayers.IsLocked"]
   - type: Appearance
   - type: MailVisuals
+    normalState: icon
+    trashState: trash
 
 - type: entity
   parent: BaseMail

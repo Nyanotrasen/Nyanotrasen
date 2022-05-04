@@ -8,6 +8,7 @@ namespace Content.Shared.Mail
     [Serializable, NetSerializable]
     public enum MailVisuals : byte
     {
-        IsLocked
+        IsLocked,
+        IsTrash
     }
 }
