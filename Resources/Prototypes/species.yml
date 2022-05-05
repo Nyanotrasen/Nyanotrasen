@@ -8,8 +8,16 @@
 
 - type: species
   id: Felinid
-  name: Felinid
+  name: species-name-felinid
   roundStart: true
   prototype: MobFelinid
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
+
+- type: species
+  id: Reptilian
+  name: species-name-reptilian
+  roundStart: true
+  prototype: MobReptilian
+  dollPrototype: MobReptilianDummy
+  skinColoration: Hues
