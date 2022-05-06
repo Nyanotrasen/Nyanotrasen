@@ -20,8 +20,10 @@
       maxLength: 400
     - !type:DiseaseReagentCure
       reagent: Ultravasculine
-###    - !type:DiseaseReagentCure ### In Loving Memory, Lean
-###      reagent: Lean            ### 2022/03/12 - 2022/03/13
+    - !type:DiseaseReagentCure ### I'm back baby!
+      reagent: Lean            ###
+    - !type:DiseaseReagentCure
+      reagent: Codeine
 
 - type: disease
   id: VentCough
