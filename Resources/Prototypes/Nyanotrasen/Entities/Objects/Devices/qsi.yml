@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseItem
+  id: QSI
+  name: quantum spin inverter
+  components:
+  - type: QuantumSpinInverter
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+    state: icon
