@@ -5,9 +5,9 @@
   description: For artists, perfomance artists.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/jabroni.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/jabroni.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/jabroni.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/jabroni.rsi
   - type: JabroniOutfit
 
 - type: entity
@@ -17,9 +17,9 @@
   description: Ready for school!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/red.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/red.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/red.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/red.rsi
 
 - type: entity
   parent: UniformSchoolgirlRed
@@ -27,9 +27,9 @@
   name: blue schoolgirl uniform
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
 
 - type: entity
   parent: UniformSchoolgirlRed
@@ -37,9 +37,9 @@
   name: green schoolgirl uniform
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/green.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/green.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/green.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/green.rsi
 
 - type: entity
   parent: UniformSchoolgirlRed
@@ -47,9 +47,9 @@
   name: orange schoolgirl uniform
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -58,9 +58,9 @@
   description: Authentic, from Space France!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/maid.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/maid.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/maid.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/maid.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -69,6 +69,6 @@
   description: For a good hostess.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Costume/geisha.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/geisha.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Costume/geisha.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/geisha.rsi
