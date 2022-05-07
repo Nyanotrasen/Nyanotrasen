@@ -3,6 +3,7 @@ using Content.Shared.Interaction.Events;
 using Content.Server.Popups;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 
 namespace Content.Server.QSI
 {
@@ -40,11 +41,15 @@ namespace Content.Server.QSI
             if (component.Partner == null)
                 return;
 
-
+            SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
 
             var destination = Transform((EntityUid) component.Partner).Coordinates;
 
             Transform(args.User).Coordinates = destination;
+            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
+
+            EntityManager.QueueDeleteEntity(uid);
+            EntityManager.QueueDeleteEntity((EntityUid) component.Partner);
         }
     }
 }
