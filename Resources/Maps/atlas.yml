@@ -5179,7 +5179,7 @@ entities:
       6,-7: 0
       6,-6: 0
       6,-5: 0
-      6,-4: 4
+      6,-4: 6
       6,-3: 0
       7,-16: 0
       7,-15: 0
@@ -5193,7 +5193,7 @@ entities:
       7,-7: 0
       7,-6: 0
       7,-5: 0
-      7,-4: 0
+      7,-4: 7
       7,-3: 0
       7,-2: 0
       7,-1: 0
@@ -6235,8 +6235,8 @@ entities:
       -29,-26: 0
       -29,-25: 0
       -29,-24: 0
-      -29,-23: 6
-      -29,-22: 6
+      -29,-23: 8
+      -29,-22: 8
       -29,-21: 0
       -29,-20: 0
       -29,-19: 0
@@ -6244,8 +6244,8 @@ entities:
       -29,-17: 0
       -28,-27: 0
       -28,-24: 0
-      -28,-23: 6
-      -28,-22: 6
+      -28,-23: 8
+      -28,-22: 8
       -28,-21: 0
       -28,-20: 0
       -28,-19: 0
@@ -6256,8 +6256,8 @@ entities:
       -27,-26: 0
       -27,-25: 0
       -27,-24: 0
-      -27,-23: 6
-      -27,-22: 6
+      -27,-23: 8
+      -27,-22: 8
       -27,-21: 0
       -27,-20: 0
       -27,-19: 0
@@ -6265,7 +6265,7 @@ entities:
       -27,-17: 0
       -26,-24: 0
       -26,-23: 0
-      -26,-22: 7
+      -26,-22: 9
       -26,-21: 0
       -26,-20: 0
       -26,-19: 0
@@ -6313,7 +6313,7 @@ entities:
       -21,-17: 0
       -20,-24: 0
       -20,-23: 0
-      -20,-22: 7
+      -20,-22: 9
       -20,-21: 0
       -20,-20: 0
       -20,-19: 0
@@ -6324,8 +6324,8 @@ entities:
       -19,-26: 0
       -19,-25: 0
       -19,-24: 0
-      -19,-23: 6
-      -19,-22: 6
+      -19,-23: 8
+      -19,-22: 8
       -19,-21: 0
       -19,-20: 0
       -19,-19: 0
@@ -6333,8 +6333,8 @@ entities:
       -19,-17: 0
       -18,-27: 0
       -18,-24: 0
-      -18,-23: 6
-      -18,-22: 6
+      -18,-23: 8
+      -18,-22: 8
       -18,-21: 0
       -18,-20: 0
       -18,-19: 0
@@ -6345,8 +6345,8 @@ entities:
       -17,-26: 0
       -17,-25: 0
       -17,-24: 0
-      -17,-23: 6
-      -17,-22: 6
+      -17,-23: 8
+      -17,-22: 8
       -17,-21: 0
       -17,-20: 0
       -17,-19: 0
@@ -7319,15 +7319,15 @@ entities:
       -37,23: 0
       -35,23: 0
       -33,23: 0
-      -48,1: 8
+      -48,1: 10
       -48,2: 0
-      -48,3: 9
-      -47,1: 8
+      -48,3: 11
+      -47,1: 10
       -47,2: 0
-      -47,3: 9
-      -46,1: 8
+      -47,3: 11
+      -46,1: 10
       -46,2: 0
-      -46,3: 9
+      -46,3: 11
       -45,1: 0
       -45,2: 0
       -45,3: 0
@@ -7400,10 +7400,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 138.28116
+      temperature: 137.55583
       moles:
-      - 10.187785
-      - 38.325478
+      - 10.133284
+      - 38.12045
       - 0
       - 0
       - 0
@@ -7411,10 +7411,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 284.07343
+      temperature: 282.78802
       moles:
-      - 21.142853
-      - 79.5374
+      - 21.046267
+      - 79.17405
       - 0
       - 0
       - 0
@@ -7433,10 +7433,32 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 254.5746
+      temperature: 251.67332
       moles:
-      - 18.926262
-      - 71.1988
+      - 18.708256
+      - 70.37868
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 215.71558
+      moles:
+      - 16.006332
+      - 60.2143
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 273.8623
+      moles:
+      - 20.375572
+      - 76.650955
       - 0
       - 0
       - 0
@@ -27713,13 +27735,17 @@ entities:
     parent: 81
     type: Transform
 - uid: 2378
-  type: VendingMachineSovietSoda
+  type: DisposalTrunk
   components:
-  - pos: 8.5,-10.5
+  - pos: 8.5,-9.5
     parent: 81
     type: Transform
-  - enabled: False
-    type: AmbientSound
+  - canCollide: False
+    type: Physics
+  - containers:
+      DisposalEntry: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 2379
   type: chem_master
   components:
@@ -30604,13 +30630,22 @@ entities:
     parent: 81
     type: Transform
 - uid: 2655
-  type: VendingMachineMediDrobe
+  type: MedicalScanner
   components:
-  - pos: 2.5,-4.5
+  - pos: 0.5,-4.5
     parent: 81
     type: Transform
-  - enabled: False
-    type: AmbientSound
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      MedicalScanner-bodyContainer: !type:ContainerSlot {}
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 2656
   type: TableGlass
   components:
@@ -30749,20 +30784,21 @@ entities:
     parent: 81
     type: Transform
 - uid: 2671
-  type: CrateMedicalSupplies
+  type: CloningPod
   components:
-  - pos: 0.5,-4.5
+  - pos: 2.5,-4.5
     parent: 81
     type: Transform
   - containers:
-    - EntityStorageComponent
+    - machine_parts
+    - machine_board
     type: Construction
-  - isPlaceable: False
-    type: PlaceableSurface
   - containers:
-      EntityStorageComponent: !type:Container
+      CloningPod-bodyContainer: !type:ContainerSlot {}
+      machine_board: !type:Container
         ents: []
-      PaperLabel: !type:ContainerSlot {}
+      machine_parts: !type:Container
+        ents: []
     type: ContainerContainer
 - uid: 2672
   type: GasVentPump
@@ -35828,15 +35864,17 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 3245
-  type: VendingMachineCoffee
+  type: DisposalPipe
   components:
-  - name: Hot drinks machine
-    type: MetaData
-  - pos: 8.5,-9.5
+  - pos: 8.5,-10.5
     parent: 81
     type: Transform
-  - enabled: False
-    type: AmbientSound
+  - canCollide: False
+    type: Physics
+  - containers:
+      DisposalTransit: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 3246
   type: CableApcExtension
   components:
@@ -48621,15 +48659,15 @@ entities:
     parent: 81
     type: Transform
 - uid: 4652
-  type: BaseResearchAndDevelopmentPointSource
-  components:
-  - pos: -23.5,-10.5
-    parent: 81
-    type: Transform
-- uid: 4653
   type: ResearchAndDevelopmentServer
   components:
   - pos: -23.5,-9.5
+    parent: 81
+    type: Transform
+- uid: 4653
+  type: BaseResearchAndDevelopmentPointSource
+  components:
+  - pos: -23.5,-10.5
     parent: 81
     type: Transform
 - uid: 4654
@@ -48709,15 +48747,11 @@ entities:
     parent: 81
     type: Transform
 - uid: 4663
-  type: LaserPistolSvalinn
+  type: PowerCellBluespace
   components:
-  - pos: -19.52214,-8.37014
+  - pos: -19.425953,-8.414604
     parent: 81
     type: Transform
-  - containers:
-      Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
-      cellslot_cell_container: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 4664
   type: WindoorScienceLocked
   components:
@@ -63864,12 +63898,18 @@ entities:
   - pos: -36.481194,-9.381878
     parent: 81
     type: Transform
+  - containers:
+      toggleable-clothing: !type:ContainerSlot {}
+    type: ContainerContainer
 - uid: 6281
   type: ClothingOuterSuitEmergency
   components:
   - pos: -35.49682,-9.335003
     parent: 81
     type: Transform
+  - containers:
+      toggleable-clothing: !type:ContainerSlot {}
+    type: ContainerContainer
 - uid: 6282
   type: RedOxygenTankFilled
   components:
@@ -64810,12 +64850,18 @@ entities:
   - pos: -43.4983,15.684031
     parent: 81
     type: Transform
+  - containers:
+      toggleable-clothing: !type:ContainerSlot {}
+    type: ContainerContainer
 - uid: 6364
   type: ClothingOuterSuitEmergency
   components:
   - pos: -42.4983,15.668406
     parent: 81
     type: Transform
+  - containers:
+      toggleable-clothing: !type:ContainerSlot {}
+    type: ContainerContainer
 - uid: 6365
   type: OxygenTankFilled
   components:
@@ -74893,4 +74939,39 @@ entities:
     type: AmbientSound
   - canCollide: False
     type: Physics
+- uid: 7466
+  type: RemoteSignaller
+  components:
+  - pos: -14.943302,-10.358528
+    parent: 81
+    type: Transform
+  - outputs:
+      Pressed: []
+    type: SignalTransmitter
+- uid: 7467
+  type: VendingMachineMediDrobe
+  components:
+  - pos: 13.5,-9.5
+    parent: 81
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7468
+  type: VendingMachineMedical
+  components:
+  - pos: 13.5,-10.5
+    parent: 81
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7469
+  type: DisposalUnit
+  components:
+  - pos: 8.5,-9.5
+    parent: 81
+    type: Transform
+  - containers:
+      DisposalUnit: !type:Container
+        ents: []
+    type: ContainerContainer
 ...
