@@ -39,6 +39,7 @@ namespace Content.Client.Entry
             "Dice",
             "Hairball",
             "PaperLabel",
+            "PressureImmunity",
             "Construction",
             "PoweredLight",
             "Stethoscope",
@@ -362,7 +363,8 @@ namespace Content.Client.Entry
             "EnergySword",
             "DoorRemote",
             "InteractionPopup",
-            "HealthAnalyzer"
+            "HealthAnalyzer",
+            "Wires"
         };
     }
 }
