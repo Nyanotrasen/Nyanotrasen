@@ -40,6 +40,7 @@ namespace Content.Client.Entry
             "Hairball",
             "PaperLabel",
             "PressureImmunity",
+            "QuantumSpinInverter",
             "Construction",
             "PoweredLight",
             "Stethoscope",

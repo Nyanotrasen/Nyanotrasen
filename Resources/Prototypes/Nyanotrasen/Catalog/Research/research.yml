@@ -1,0 +1,16 @@
+- type: technology
+  name: "spacetime technology"
+  id: SpaceTimeTechnology
+  description: Pushing the limits of the universe.
+  icon:
+    sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+    state: icon
+  requiredPoints: 20000
+  requiredTechnologies:
+    - CompactPowerTechnology
+    - AdvancedAtmosTechnology
+    - AvionicsSystems
+    - ChemistryTechnology
+  unlockedRecipes:
+    - QSI
+    - BluespaceBeaker

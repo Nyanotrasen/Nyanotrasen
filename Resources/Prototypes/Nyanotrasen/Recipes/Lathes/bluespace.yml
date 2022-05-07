@@ -1,0 +1,25 @@
+- type: latheRecipe
+  id: QSI
+  icon:
+    sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+    state: icon
+  result: QSI
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 500
+
+- type: latheRecipe
+  id: BluespaceBeaker
+  icon:
+    sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
+    state: beakerbluespace
+  result: BluespaceBeaker
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 500
