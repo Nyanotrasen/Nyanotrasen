@@ -9,7 +9,7 @@
   - type: Mail
   - type: AccessReader
   - type: Sprite
-    sprite: Objects/Specific/Mail/mail.rsi
+    sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
     layers:
     - state: icon
       map: ["enum.MailVisualLayers.IsTrash"]

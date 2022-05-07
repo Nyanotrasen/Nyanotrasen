@@ -715,17 +715,6 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformMailCarrier
-  name: mail carrier's uniform
-  description: Enemy of dogs everywhere.
-  components:
-  - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/mailman.rsi
-  - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/mailman.rsi
-
-- type: entity
-  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCapFormal
   name: captain's formal suit
   description: A suit for special occasions.

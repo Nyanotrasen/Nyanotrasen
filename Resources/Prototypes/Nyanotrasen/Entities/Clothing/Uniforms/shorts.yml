@@ -5,9 +5,9 @@
   description: Like green shorts, but red
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Shorts/Color/red.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Shorts/Color/red.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Shorts/Color/red.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Shorts/Color/red.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -16,6 +16,6 @@
   description: Like green shorts and a sports bra, but with red pants
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Shorts/Color/red_female.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Shorts/Color/red_female.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Shorts/Color/red_female.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Shorts/Color/red_female.rsi
