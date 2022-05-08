@@ -1,6 +1,7 @@
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Server.Popups;
+using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -39,6 +40,9 @@ namespace Content.Server.QSI
         private void OnUseInHand(EntityUid uid, QuantumSpinInverterComponent component, UseInHandEvent args)
         {
             if (component.Partner == null)
+                return;
+
+            if (HasComp<BeingDisposedComponent>(component.Partner)) // This is way too glitchy
                 return;
 
             SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
