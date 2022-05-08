@@ -18,3 +18,14 @@
     minAngle: 10
     fireCost: 60
     ammoPrototype: BoltDecloner
+
+- type: entity
+  parent: Decloner
+  id: ShrinkRay
+  name: shrink ray
+  description: It shrinks people.
+  components:
+  - type: BatteryBarrel
+    minAngle: 10
+    fireCost: 60
+    ammoPrototype: BoltShrinkRay
