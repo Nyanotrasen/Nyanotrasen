@@ -171,12 +171,10 @@
       - Hemostat
       - Beaker
       - LargeBeaker
-      - CryostasisBeaker
       - Dropper
       - Syringe
       - PillCanister
       - Drone
-      - ShockCollar
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart
@@ -197,13 +195,8 @@
       - ButchCleaver
       - FlashlightLantern
       - TimerTrigger
-      - ChemicalPayload
-      - FlashPayload
       - Signaller
       - SignalTrigger
-      - QSI
-      - BluespaceBeaker
-      - Decloner
   - type: ActivatableUI
     key: enum.LatheUiKey.Key #Yes only having 1 of them here doesn't break anything
   - type: ActivatableUIRequiresPower
@@ -298,6 +291,10 @@
     runningState: icon
   - type: ProtolatheDatabase
     protolatherecipes:
+      - TimerTrigger
+      - Signaller
+      - SignalTrigger
+      - FlashPayload
       - Flash
       - Handcuffs
       - Stunbaton
@@ -326,9 +323,6 @@
       - CableStack
       - CableMVStack
       - CableHVStack
-      - TimerTrigger
-      - Signaller
-      - SignalTrigger
   - type: Lathe
     whitelist:
       tags:
@@ -373,6 +367,7 @@
       - Drill
       - Saw
       - Hemostat
+      - ChemicalPayload
       - Beaker
       - LargeBeaker
       - CryostasisBeaker
