@@ -1,0 +1,19 @@
+- type: entity
+  parent: MopItem
+  id: MopAdvanced
+  name: advanced mop
+  description: The next generation of mopping.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Specific/Janitorial/advmop.rsi
+    state: mop
+  - type: Item
+    size: 15
+    sprite: Nyanotrasen/Objects/Specific/Janitorial/advmop.rsi
+  - type: Absorbent
+    mopSpeed: 0.5
+    pickupAmount: 20
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 100
