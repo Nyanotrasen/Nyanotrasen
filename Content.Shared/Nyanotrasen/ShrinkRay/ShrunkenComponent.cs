@@ -9,5 +9,7 @@ namespace Content.Shared.ShrinkRay
         public Vector2 ScaleFactor = (0.3f, 0.3f);
 
         public Vector2 OriginalScaleFactor = (1f, 1f);
+
+        public bool WasOriginallyItem = false;
     }
 }
