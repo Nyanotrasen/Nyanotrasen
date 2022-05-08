@@ -118,89 +118,63 @@ entities:
 - uid: 0
   type: WallReinforced
   components:
-  - pos: 29.5,11.5
+  - pos: 34.5,5.5
     parent: 81
     type: Transform
 - uid: 1
   type: WallReinforced
   components:
-  - pos: 29.5,6.5
+  - pos: 33.5,8.5
     parent: 81
     type: Transform
 - uid: 2
   type: WallReinforced
   components:
-  - pos: 30.5,5.5
+  - pos: 29.5,7.5
     parent: 81
     type: Transform
 - uid: 3
-  type: WallReinforced
+  type: Window
   components:
-  - pos: 37.5,5.5
+  - pos: -0.5,2.5
     parent: 81
     type: Transform
 - uid: 4
   type: WallReinforced
   components:
-  - pos: 33.5,5.5
+  - pos: 32.5,5.5
     parent: 81
     type: Transform
 - uid: 5
-  type: WallReinforced
+  type: WallSolid
   components:
-  - pos: 29.5,5.5
+  - pos: -25.5,6.5
     parent: 81
     type: Transform
 - uid: 6
-  type: WallSolid
+  type: Window
   components:
-  - pos: -12.5,6.5
+  - pos: -4.5,-1.5
     parent: 81
     type: Transform
 - uid: 7
-  type: WallReinforced
+  type: Poweredlight
   components:
-  - pos: 33.5,6.5
+  - rot: 3.141592653589793 rad
+    pos: -23.5,6.5
     parent: 81
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - containers:
+      light_bulb: !type:ContainerSlot {}
+    type: ContainerContainer
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
 - uid: 8
-  type: Window
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -0.5,6.5
-    parent: 81
-    type: Transform
-- uid: 9
-  type: WallReinforced
-  components:
-  - pos: 35.5,5.5
-    parent: 81
-    type: Transform
-- uid: 10
-  type: AirlockGlass
-  components:
-  - pos: 16.5,3.5
-    parent: 81
-    type: Transform
-- uid: 11
-  type: WallReinforced
-  components:
-  - pos: 33.5,9.5
-    parent: 81
-    type: Transform
-- uid: 12
-  type: WallReinforced
-  components:
-  - pos: 25.5,5.5
-    parent: 81
-    type: Transform
-- uid: 13
-  type: WallReinforced
-  components:
-  - pos: 29.5,8.5
-    parent: 81
-    type: Transform
-- uid: 14
   type: PoweredSmallLight
   components:
   - rot: -1.5707963267948966 rad
@@ -219,63 +193,89 @@ entities:
       Off: []
       Toggle: []
     type: SignalReceiver
-- uid: 15
-  type: Poweredlight
+- uid: 9
+  type: WallReinforced
   components:
-  - rot: 3.141592653589793 rad
-    pos: -23.5,6.5
+  - pos: 29.5,8.5
     parent: 81
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
-- uid: 16
+- uid: 10
+  type: WallReinforced
+  components:
+  - pos: 25.5,5.5
+    parent: 81
+    type: Transform
+- uid: 11
+  type: WallReinforced
+  components:
+  - pos: 33.5,9.5
+    parent: 81
+    type: Transform
+- uid: 12
+  type: AirlockGlass
+  components:
+  - pos: 16.5,3.5
+    parent: 81
+    type: Transform
+- uid: 13
+  type: WallReinforced
+  components:
+  - pos: 35.5,5.5
+    parent: 81
+    type: Transform
+- uid: 14
   type: Window
   components:
-  - pos: -4.5,-1.5
+  - rot: -1.5707963267948966 rad
+    pos: -0.5,6.5
+    parent: 81
+    type: Transform
+- uid: 15
+  type: WallReinforced
+  components:
+  - pos: 33.5,6.5
+    parent: 81
+    type: Transform
+- uid: 16
+  type: WallSolid
+  components:
+  - pos: -12.5,6.5
     parent: 81
     type: Transform
 - uid: 17
-  type: WallSolid
+  type: WallReinforced
   components:
-  - pos: -25.5,6.5
+  - pos: 29.5,5.5
     parent: 81
     type: Transform
 - uid: 18
   type: WallReinforced
   components:
-  - pos: 32.5,5.5
+  - pos: 33.5,5.5
     parent: 81
     type: Transform
 - uid: 19
-  type: Window
+  type: WallReinforced
   components:
-  - pos: -0.5,2.5
+  - pos: 37.5,5.5
     parent: 81
     type: Transform
 - uid: 20
   type: WallReinforced
   components:
-  - pos: 29.5,7.5
+  - pos: 30.5,5.5
     parent: 81
     type: Transform
 - uid: 21
   type: WallReinforced
   components:
-  - pos: 33.5,8.5
+  - pos: 29.5,6.5
     parent: 81
     type: Transform
 - uid: 22
   type: WallReinforced
   components:
-  - pos: 34.5,5.5
+  - pos: 29.5,11.5
     parent: 81
     type: Transform
 - uid: 23
@@ -7400,10 +7400,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 137.55583
+      temperature: 137.5521
       moles:
-      - 10.133284
-      - 38.12045
+      - 10.133003
+      - 38.119392
       - 0
       - 0
       - 0
@@ -7411,10 +7411,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 282.78802
+      temperature: 282.77774
       moles:
-      - 21.046267
-      - 79.17405
+      - 21.045492
+      - 79.171135
       - 0
       - 0
       - 0
@@ -7433,10 +7433,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 251.67332
+      temperature: 251.6584
       moles:
-      - 18.708256
-      - 70.37868
+      - 18.707134
+      - 70.37446
       - 0
       - 0
       - 0
@@ -7444,10 +7444,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 215.71558
+      temperature: 215.69785
       moles:
-      - 16.006332
-      - 60.2143
+      - 16.005001
+      - 60.20929
       - 0
       - 0
       - 0
@@ -7455,10 +7455,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 273.8623
+      temperature: 273.79138
       moles:
-      - 20.375572
-      - 76.650955
+      - 20.370243
+      - 76.63091
       - 0
       - 0
       - 0
@@ -74972,6 +74972,22 @@ entities:
     type: Transform
   - containers:
       DisposalUnit: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7470
+  type: ScienceTechFab
+  components:
+  - pos: -17.5,-12.5
+    parent: 81
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
         ents: []
     type: ContainerContainer
 ...
