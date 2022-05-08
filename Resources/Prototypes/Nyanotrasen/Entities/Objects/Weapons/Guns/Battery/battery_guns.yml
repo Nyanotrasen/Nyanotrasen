@@ -1,0 +1,20 @@
+- type: entity
+  parent: BatteryGunSmall
+  id: Decloner
+  name: decloner
+  description: A weapon that damages the target's genome, making it very hard to heal from
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    layers:
+      - state: icon
+        map: ["enum.RangedBarrelVisualLayers.Base"]
+  - type: Item
+    size: 12
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner
+  - type: RangedWeapon
+  - type: BatteryBarrel
+    minAngle: 10
+    fireCost: 60
+    ammoPrototype: BoltDecloner
