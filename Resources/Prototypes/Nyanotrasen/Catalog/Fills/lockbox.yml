@@ -1,0 +1,11 @@
+- type: entity
+  parent: Lockbox
+  id: LockboxDecloner
+  name: decloner lockbox
+  suffix: Decloner
+  components:
+  - type: StorageFill
+    contents:
+      - id: Decloner
+  - type: AccessReader
+    access: [["Armory"]]
