@@ -14,3 +14,17 @@
   unlockedRecipes:
     - QSI
     - BluespaceBeaker
+
+- type: technology
+  name: "direct energy technology"
+  id: DirectEnergyTechnology
+  description: Basically laser guns.
+  icon:
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    state: icon
+  requiredPoints: 15000
+  requiredTechnologies:
+    - SecurityTechnology
+    - CompactPowerTechnology
+  unlockedRecipes:
+    - Decloner

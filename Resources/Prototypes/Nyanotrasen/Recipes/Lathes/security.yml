@@ -9,3 +9,15 @@
     Steel: 300
     Glass: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: Decloner
+  icon:
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    state: icon
+  result: LockboxDecloner
+  completetime: 4
+  materials:
+    Steel: 400
+    Glass: 400
+    Plastic: 400
