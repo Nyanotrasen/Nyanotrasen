@@ -96,6 +96,14 @@
     access: [["Engineering"]]
 
 - type: entity
+  parent: AirlockAtmospherics
+  id: AirlockAtmosphericsLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+
+- type: entity
   parent: AirlockCargo
   id: AirlockCargoLocked
   suffix: Cargo, Locked
@@ -331,6 +339,14 @@
     access: [["Engineering"]]
 
 - type: entity
+  parent: AirlockAtmosphericsGlass
+  id: AirlockAtmosphericsGlassLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+    
+- type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
   suffix: Cargo, Locked
@@ -531,6 +547,14 @@
   - type: AccessReader
     access: [["Engineering"]]
 
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintAtmoLocked
+  suffix: Atmospherics, Locked
+  components:
+  - type: AccessReader
+    access: [["Atmospherics"]]
+    
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintBarLocked
