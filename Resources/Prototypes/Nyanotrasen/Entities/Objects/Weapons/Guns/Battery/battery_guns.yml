@@ -29,3 +29,14 @@
     minAngle: 10
     fireCost: 60
     ammoPrototype: BoltShrinkRay
+
+- type: entity
+  parent: ShrinkRay
+  name: growth ray
+  id: GrowthRay
+  description: It grows people.
+  components:
+  - type: BatteryBarrel
+    minAngle: 10
+    fireCost: 60
+    ammoPrototype: BoltGrowthRay

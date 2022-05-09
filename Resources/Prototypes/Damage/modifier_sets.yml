@@ -99,6 +99,13 @@
     Heat: 3
 
 - type: damageModifierSet
+  id: SizeChanged
+  coefficients:
+    Blunt: 3.33
+    Slash: 3.33
+    Piercing: 3.33
+
+- type: damageModifierSet
   id: Felinid
   coefficients:
     Blunt: 1.15

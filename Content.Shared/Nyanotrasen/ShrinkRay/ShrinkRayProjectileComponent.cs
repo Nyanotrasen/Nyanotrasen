@@ -6,6 +6,11 @@ namespace Content.Shared.ShrinkRay
     [NetworkedComponent]
     public sealed class ShrinkRayProjectileComponent : Component
     {
+        [DataField("scaleFactor")]
         public Vector2 ScaleFactor = (0.3f, 0.3f);
+
+        [ViewVariables]
+        [DataField("applyItem")]
+        public bool ApplyItem = true;
     }
 }

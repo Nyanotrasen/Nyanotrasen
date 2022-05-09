@@ -8,8 +8,13 @@ namespace Content.Shared.ShrinkRay
     {
         public Vector2 ScaleFactor = (0.3f, 0.3f);
         public Vector2 OriginalScaleFactor = (1f, 1f);
+
         [ViewVariables]
-        public bool WasOriginallyItem = true;
+        public double MassScale = 0.027;
+
+        [ViewVariables]
+        public bool ShouldHaveItemComp = true;
+
         [ViewVariables]
         public float Accumulator = 0f;
         [ViewVariables]
