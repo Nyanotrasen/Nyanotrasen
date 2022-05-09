@@ -8,10 +8,11 @@ namespace Content.Client.ShrinkRay
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<SharedShrunkenComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<ShrunkenSpriteComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<ShrunkenSpriteComponent, ComponentShutdown>(OnShutdown);
         }
 
-        private void OnInit(EntityUid uid, SharedShrunkenComponent component, ComponentInit args)
+        private void OnInit(EntityUid uid, ShrunkenSpriteComponent component, ComponentInit args)
         {
             if (!TryComp<SpriteComponent>(uid, out var sprite))
                 return;
@@ -20,5 +21,13 @@ namespace Content.Client.ShrinkRay
             sprite.Scale = component.ScaleFactor;
         }
 
+
+        private void OnShutdown(EntityUid uid, ShrunkenSpriteComponent component, ComponentShutdown args)
+        {
+            if (!TryComp<SpriteComponent>(uid, out var sprite))
+                return;
+
+            sprite.Scale = component.OriginalScaleFactor;
+        }
     }
 }
