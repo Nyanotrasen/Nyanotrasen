@@ -20,7 +20,7 @@ namespace Content.Server.Research.Components
         private float _timer = 0f;
         public TechnologyDatabaseComponent? Database { get; private set; }
 
-        [ViewVariables(VVAccess.ReadWrite)] [DataField("points")] private int _points = 0;
+        [ViewVariables(VVAccess.ReadWrite)] [DataField("points")] public int Points = 0;
 
         [ViewVariables(VVAccess.ReadOnly)] public int Id { get; private set; }
 
@@ -34,7 +34,7 @@ namespace Content.Server.Research.Components
         [ViewVariables(VVAccess.ReadOnly)]
         public List<ResearchClientComponent> Clients { get; } = new();
 
-        public int Point => _points;
+        public int Point => Points;
 
         /// <summary>
         ///     How many points per second this R&D server gets.
@@ -88,7 +88,7 @@ namespace Content.Server.Research.Components
                 return false;
 
             if (!Database.CanUnlockTechnology(technology) ||
-                _points < technology.RequiredPoints ||
+                Points < technology.RequiredPoints ||
                 Database.IsTechnologyUnlocked(technology))
                 return false;
 
@@ -106,7 +106,7 @@ namespace Content.Server.Research.Components
             if (!CanUnlockTechnology(technology)) return false;
             var result = Database?.UnlockTechnology(technology) ?? false;
             if (result)
-                _points -= technology.RequiredPoints;
+                Points -= technology.RequiredPoints;
             return result;
         }
 
@@ -162,7 +162,7 @@ namespace Content.Server.Research.Components
             _timer += frameTime;
             if (_timer < 1f) return;
             _timer = 0f;
-            _points += PointsPerSecond;
+            Points += PointsPerSecond;
         }
     }
 }

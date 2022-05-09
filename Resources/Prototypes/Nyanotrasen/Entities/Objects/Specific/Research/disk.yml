@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseItem
+  id: ResearchDisk
+  name: research point disk (1000)
+  description: A disk for the R&D server containing 1000 points.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Specific/Research/datadisk.rsi
+    state: icon
+  - type: ResearchDisk
