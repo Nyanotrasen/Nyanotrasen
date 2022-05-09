@@ -23,3 +23,15 @@
     Glass: 500
     Plastic: 500
     Gold: 500
+
+- type: latheRecipe
+  id: ShrinkRay
+  icon:
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    state: icon
+  result: LockboxShrinkRay
+  completetime: 4
+  materials:
+    Steel: 400
+    Glass: 400
+    Plastic: 400

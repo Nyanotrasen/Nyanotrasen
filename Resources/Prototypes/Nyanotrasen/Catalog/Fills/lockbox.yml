@@ -9,3 +9,15 @@
       - id: Decloner
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxShrinkRay
+  name: shrink ray lockbox
+  suffix: Shrink Ray
+  components:
+  - type: StorageFill
+    contents:
+      - id: ShrinkRay
+  - type: AccessReader
+    access: [["ResearchDirector"]]
