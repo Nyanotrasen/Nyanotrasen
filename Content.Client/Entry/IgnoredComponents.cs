@@ -51,6 +51,7 @@ namespace Content.Client.Entry
             "Felinid",
             "GlassTable",
             "Healing",
+            "OfHolding",
             "MailTeleporter",
             "Mail",
             "Material",

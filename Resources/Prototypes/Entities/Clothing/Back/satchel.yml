@@ -8,7 +8,7 @@
     sprite: Clothing/Back/Satchels/satchel.rsi
     state: icon
   - type: Clothing
-    size: 9999
+    size: 500
     quickEquip: false
     Slots:
     - back
@@ -114,3 +114,4 @@
     sprite: Clothing/Back/Satchels/holding.rsi
   - type: Storage
     capacity: 10000
+  - type: OfHolding

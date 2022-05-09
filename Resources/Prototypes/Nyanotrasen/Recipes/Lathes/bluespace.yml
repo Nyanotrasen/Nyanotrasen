@@ -35,3 +35,39 @@
     Steel: 400
     Glass: 400
     Plastic: 400
+
+- type: latheRecipe
+  id: BackpackOfHolding
+  icon:
+    sprite: Clothing/Back/Backpacks/holding.rsi
+    state: holding
+  result: ClothingBackpackHolding
+  completetime: 4
+  materials:
+    Steel: 400
+    Durathread: 1600
+    Plastic: 400
+
+- type: latheRecipe
+  id: SatchelOfHolding
+  icon:
+    sprite: Clothing/Back/Satchels/holding.rsi
+    state: icon
+  result: ClothingBackpackSatchelHolding
+  completetime: 4
+  materials:
+    Steel: 400
+    Durathread: 1600
+    Plastic: 400
+
+- type: latheRecipe
+  id: DuffelbagOfHolding
+  icon:
+    sprite: Clothing/Back/Duffels/holding.rsi
+    state: icon
+  result: ClothingBackpackDuffelHolding
+  completetime: 4
+  materials:
+    Steel: 400
+    Durathread: 1600
+    Plastic: 400
