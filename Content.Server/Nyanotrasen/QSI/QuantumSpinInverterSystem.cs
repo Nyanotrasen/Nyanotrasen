@@ -4,13 +4,14 @@ using Content.Server.Popups;
 using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
-using Robust.Shared.Map;
+using Robust.Shared.Containers;
 
 namespace Content.Server.QSI
 {
     public sealed class QuantumSpinInverterSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popups = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -46,10 +47,20 @@ namespace Content.Server.QSI
                 return;
 
             SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
+            if (!_containerSystem.IsEntityOrParentInContainer(uid))
+            {
+                var destination = Transform((EntityUid) component.Partner).Coordinates;
+                Transform(args.User).Coordinates = destination;
+            } else
+            {
+                if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
+                {
+                    Transform(args.User).AttachParentToContainerOrGrid(EntityManager);
+                    Transform(args.User).LocalPosition = Transform(container.Owner).LocalPosition;
+                }
+            }
 
-            var destination = Transform((EntityUid) component.Partner).Coordinates;
 
-            Transform(args.User).Coordinates = destination;
             SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
 
             EntityManager.QueueDeleteEntity(uid);
