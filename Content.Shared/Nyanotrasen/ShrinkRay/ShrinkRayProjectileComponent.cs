@@ -8,5 +8,9 @@ namespace Content.Shared.ShrinkRay
     {
         [DataField("scaleFactor")]
         public Vector2 ScaleFactor = (0.3f, 0.3f);
+
+        [ViewVariables]
+        [DataField("applyItem")]
+        public bool ApplyItem = true;
     }
 }

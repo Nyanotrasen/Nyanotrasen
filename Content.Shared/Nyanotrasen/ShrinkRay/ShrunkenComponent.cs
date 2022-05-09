@@ -13,7 +13,8 @@ namespace Content.Shared.ShrinkRay
         public double MassScale = 0.027;
 
         [ViewVariables]
-        public bool WasOriginallyItem = true;
+        public bool ShouldHaveItemComp = true;
+
         [ViewVariables]
         public float Accumulator = 0f;
         [ViewVariables]

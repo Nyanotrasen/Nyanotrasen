@@ -60,10 +60,10 @@ namespace Content.Server.ShrinkRay
             if (_tagSystem.HasAnyTag(args.OtherFixture.Body.Owner, "Structure", "Wall", "Window"))
                 return;
 
-            if (TryComp<ShrunkenComponent>(args.OtherFixture.Body.Owner, out var alreadyShrank))
+            if (TryComp<ShrunkenComponent>(args.OtherFixture.Body.Owner, out var alreadyShrank) && alreadyShrank.ScaleFactor == component.ScaleFactor)
             {
-                alreadyShrank.Accumulator = 0;
-                return;
+                    alreadyShrank.Accumulator = 0;
+                    return;
             }
 
             ShrunkenComponent shrunken = new();
@@ -73,12 +73,6 @@ namespace Content.Server.ShrinkRay
             EntityManager.AddComponent<ShrunkenComponent>(args.OtherFixture.Body.Owner, shrunken, true);
 
             RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor));
-
-            if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
-            {
-                shrunken.WasOriginallyItem = false;
-                AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
-            }
 
             if (TryComp<FixturesComponent>(args.OtherFixture.Body.Owner, out var fixtures))
             {
@@ -91,10 +85,18 @@ namespace Content.Server.ShrinkRay
                     fixture.Mass *= (float) massScale;
                 }
             }
+            if (component.ApplyItem)
+            {
+                if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
+                {
+                    shrunken.ShouldHaveItemComp = false;
+                    AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
+                }
+            }
         }
         private void OnShutdown(EntityUid uid, ShrunkenComponent component, ComponentShutdown args)
         {
-            if (!component.WasOriginallyItem)
+            if (!component.ShouldHaveItemComp)
             {
                 RemComp<ItemComponent>(uid);
                 if (_containerSystem.IsEntityOrParentInContainer(uid))

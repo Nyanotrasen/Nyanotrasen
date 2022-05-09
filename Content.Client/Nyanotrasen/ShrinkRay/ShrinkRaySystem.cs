@@ -16,10 +16,12 @@ namespace Content.Client.ShrinkRay
         {
             if (!TryComp<SpriteComponent>(args.Target, out var sprite))
                 return;
-
-            var shrunken = EnsureComp<ShrunkenSpriteComponent>(args.Target);
+            ShrunkenSpriteComponent shrunken = new();
+            shrunken.Owner = args.Target;
             shrunken.OriginalScaleFactor = sprite.Scale;
             shrunken.ScaleFactor = args.Scale;
+            EntityManager.AddComponent<ShrunkenSpriteComponent>(args.Target, shrunken, true); // So we can cleanly overwrite
+
             sprite.Scale = shrunken.ScaleFactor;
         }
         private void OnShutdown(EntityUid uid, ShrunkenSpriteComponent component, ComponentShutdown args)
