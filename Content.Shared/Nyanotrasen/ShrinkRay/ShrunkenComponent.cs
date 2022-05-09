@@ -10,7 +10,7 @@ namespace Content.Shared.ShrinkRay
         public Vector2 OriginalScaleFactor = (1f, 1f);
 
         [ViewVariables]
-        public double MassScale = 0.02;
+        public double MassScale = 0.027;
 
         [ViewVariables]
         public bool WasOriginallyItem = true;

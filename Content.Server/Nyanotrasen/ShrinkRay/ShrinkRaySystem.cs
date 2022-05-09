@@ -1,11 +1,14 @@
 using Content.Shared.Item;
 using Content.Shared.Tag;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
 using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.ShrinkRay
 {
@@ -13,13 +16,14 @@ namespace Content.Server.ShrinkRay
     {
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedShrinkRaySystem _sharedShrink = default!;
-
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<ShrinkRayProjectileComponent, StartCollideEvent>(OnStartCollide);
             SubscribeLocalEvent<ShrunkenComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ShrunkenComponent, DamageModifyEvent>(OnDamageModify);
         }
 
         private Queue<EntityUid> RemQueue = new();
@@ -103,6 +107,20 @@ namespace Content.Server.ShrinkRay
                 {
                     fixture.Mass /= (float) component.MassScale;
                 }
+            }
+        }
+
+        private void OnDamageModify(EntityUid uid, ShrunkenComponent component, DamageModifyEvent args)
+        {
+            var multiplier = (1 / ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2));
+            DamageModifierSetPrototype actualMods = new();
+            if (_prototypeManager.TryIndex<DamageModifierSetPrototype>("SizeChanged", out var mods))
+            {
+                foreach (var coef in mods.Coefficients)
+                {
+                    actualMods.Coefficients.Add(coef.Key, multiplier);
+                }
+                args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, actualMods);
             }
         }
     }
