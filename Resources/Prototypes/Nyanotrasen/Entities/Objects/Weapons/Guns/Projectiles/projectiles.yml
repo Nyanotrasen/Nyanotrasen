@@ -91,3 +91,13 @@
       types:
         Poison: 1
   - type: ShrinkRayProjectile
+
+- type: entity
+  parent: BoltShrinkRay
+  name: growth ray bolt
+  id: BoltGrowthRay
+  noSpawn: true
+  components:
+  - type: ShrinkRayProjectile
+    scaleFactor: "3.5, 3.5"
+

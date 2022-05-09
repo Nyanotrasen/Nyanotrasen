@@ -66,8 +66,13 @@ namespace Content.Server.ShrinkRay
                 return;
             }
 
-            var shrunken = EnsureComp<ShrunkenComponent>(args.OtherFixture.Body.Owner);
-            EnsureComp<ShrunkenSpriteComponent>(args.OtherFixture.Body.Owner);
+            ShrunkenComponent shrunken = new();
+            shrunken.ScaleFactor = component.ScaleFactor;
+            shrunken.Owner = args.OtherFixture.Body.Owner;
+
+            EntityManager.AddComponent<ShrunkenComponent>(args.OtherFixture.Body.Owner, shrunken, true);
+
+            RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor));
 
             if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
             {
@@ -82,6 +87,7 @@ namespace Content.Server.ShrinkRay
                 shrunken.MassScale = massScale;
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
+                    fixture.Shape.Radius *= (float) massScale;
                     fixture.Mass *= (float) massScale;
                 }
             }
@@ -105,6 +111,7 @@ namespace Content.Server.ShrinkRay
             {
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
+                    fixture.Shape.Radius /= (float) component.MassScale;
                     fixture.Mass /= (float) component.MassScale;
                 }
             }
