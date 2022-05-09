@@ -37,8 +37,8 @@
         - ClothingUnderSocksCoder
       chance: 0.6
       offset: 0.0
-      
-      
+
+
 - type: entity
   name: Maint Loot Spawner
   suffix: Tools+Cells+Mats
@@ -70,9 +70,10 @@
         - FlareGun
         - SheetSteel
         - SheetPlastic
+        - ResearchDisk
       chance: 0.6
       offset: 0.0
-      
+
 - type: entity
   name: Maint Loot Spawner
   suffix: Scrap+Weapons
