@@ -1,6 +1,6 @@
 using Content.Server.Nutrition.Components;
 using Content.Server.Stunnable;
-using Content.Shared.Chemistry.Components;
+using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Fluids.Components;
 using Content.Server.Chemistry.EntitySystems;
@@ -20,6 +20,7 @@ namespace Content.Server.Medical
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
+        [Dependency] private readonly ThirstSystem _thirstSystem = default!;
 
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
@@ -27,7 +28,7 @@ namespace Content.Server.Medical
                 hunger.UpdateFood(hungerAdded);
 
             if (TryComp<ThirstComponent>(uid, out var thirst))
-                thirst.UpdateThirst(thirstAdded);
+                _thirstSystem.UpdateThirst(thirst, thirstAdded);
 
             // Since it fully empties the stomach, chemstream is a lot weaker
             float solutionSize = (Math.Abs(thirstAdded) + Math.Abs(hungerAdded)) / 6;
