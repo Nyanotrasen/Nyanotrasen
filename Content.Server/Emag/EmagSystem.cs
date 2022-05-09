@@ -13,7 +13,6 @@ namespace Content.Server.Emag
     {
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAdminLogSystem _adminLog = default!;
-
         [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public override void Initialize()
