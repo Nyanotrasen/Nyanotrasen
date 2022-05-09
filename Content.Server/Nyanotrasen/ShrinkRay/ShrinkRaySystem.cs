@@ -52,7 +52,7 @@ namespace Content.Server.ShrinkRay
 
         private void OnStartCollide(EntityUid uid, ShrinkRayProjectileComponent component, StartCollideEvent args)
         {
-            if (_tagSystem.HasAnyTag(args.OtherFixture.Body.Owner, "Structure", "Wall"))
+            if (_tagSystem.HasAnyTag(args.OtherFixture.Body.Owner, "Structure", "Wall", "Window"))
                 return;
 
             if (TryComp<ShrunkenComponent>(args.OtherFixture.Body.Owner, out var alreadyShrank))
