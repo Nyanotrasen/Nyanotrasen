@@ -2,15 +2,18 @@ using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Shared.ShrinkRay;
 using Content.Server.Clothing.Components;
+using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Physics.Dynamics;
+using Robust.Shared.Containers;
 
 namespace Content.Server.ShrinkRay
 {
     public sealed class ShrinkRaySystem : EntitySystem
     {
         [Dependency] private readonly TagSystem _tagSystem = default!;
-
         [Dependency] private readonly SharedShrinkRaySystem _sharedShrink = default!;
+
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -33,6 +36,11 @@ namespace Content.Server.ShrinkRay
 
             foreach (var shrunken in EntityQuery<ShrunkenComponent>())
             {
+                if (HasComp<BeingDisposedComponent>(shrunken.Owner)) /// yeah not dealing with that
+                {
+                    continue;
+                }
+
                 shrunken.Accumulator += frameTime;
                 if (shrunken.Accumulator < shrunken.ShrinkTime.TotalSeconds)
                 {
@@ -67,7 +75,17 @@ namespace Content.Server.ShrinkRay
         private void OnShutdown(EntityUid uid, ShrunkenComponent component, ComponentShutdown args)
         {
             if (!component.WasOriginallyItem)
+            {
                 RemComp<ItemComponent>(uid);
+                if (_containerSystem.IsEntityOrParentInContainer(uid))
+                {
+                    if (_containerSystem.TryGetOuterContainer(uid, Transform(uid), out var container))
+                    {
+                        Transform(uid).AttachParentToContainerOrGrid(EntityManager);
+                        Transform(uid).LocalPosition = Transform(container.Owner).LocalPosition;
+                    }
+                }
+            }
         }
     }
 }
