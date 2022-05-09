@@ -71,4 +71,5 @@ public enum LogType
     Unanchor = 67,
     // haha so funny
     Emag = 69,
+    BagOfHolding = 420,
 }
