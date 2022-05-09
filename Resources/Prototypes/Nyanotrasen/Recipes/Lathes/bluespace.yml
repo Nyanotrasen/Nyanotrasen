@@ -6,10 +6,9 @@
   result: QSI
   completetime: 5
   materials:
-    Steel: 500
+    Bluespace: 200
     Glass: 500
     Plastic: 500
-    Gold: 500
 
 - type: latheRecipe
   id: BluespaceBeaker
@@ -19,10 +18,9 @@
   result: BluespaceBeaker
   completetime: 5
   materials:
-    Steel: 500
+    Bluespace: 100
     Glass: 500
     Plastic: 500
-    Gold: 500
 
 - type: latheRecipe
   id: ShrinkRay
@@ -32,9 +30,9 @@
   result: LockboxShrinkRay
   completetime: 4
   materials:
+    Bluespace: 400
     Steel: 400
     Glass: 400
-    Plastic: 400
 
 - type: latheRecipe
   id: BackpackOfHolding
@@ -44,8 +42,8 @@
   result: ClothingBackpackHolding
   completetime: 4
   materials:
-    Steel: 400
-    Durathread: 1600
+    Bluespace: 400
+    Durathread: 1500
     Plastic: 400
 
 - type: latheRecipe
@@ -56,8 +54,8 @@
   result: ClothingBackpackSatchelHolding
   completetime: 4
   materials:
-    Steel: 400
-    Durathread: 1600
+    Bluespace: 400
+    Durathread: 1500
     Plastic: 400
 
 - type: latheRecipe
@@ -68,6 +66,6 @@
   result: ClothingBackpackDuffelHolding
   completetime: 4
   materials:
-    Steel: 400
-    Durathread: 1600
+    Bluespace: 400
+    Durathread: 1500
     Plastic: 400

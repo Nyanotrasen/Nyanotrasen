@@ -26,7 +26,7 @@ namespace Content.Server.QSI
 
             if (component.Partner != null)
             {
-                _popups.PopupEntity(Loc.GetString("qsi-already-bonded"), uid, Filter.Entities(args.User));
+                // _popups.PopupEntity(Loc.GetString("qsi-already-bonded"), uid, Filter.Entities(args.User));
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace Content.Server.QSI
 
             component.Partner = otherQSI.Owner;
             otherQSI.Partner = component.Owner;
-            _popups.PopupEntity(Loc.GetString("qsi-bonded"), uid, Filter.Entities(args.User));
+            // _popups.PopupEntity(Loc.GetString("qsi-bonded"), uid, Filter.Entities(args.User));
         }
 
         private void OnUseInHand(EntityUid uid, QuantumSpinInverterComponent component, UseInHandEvent args)
@@ -47,17 +47,13 @@ namespace Content.Server.QSI
                 return;
 
             SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
-            if (!_containerSystem.IsEntityOrParentInContainer(uid))
+            if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
             {
-                var destination = Transform((EntityUid) component.Partner).Coordinates;
-                Transform(args.User).Coordinates = destination;
+                Transform(args.User).AttachParentToContainerOrGrid(EntityManager);
+                Transform(args.User).LocalPosition = Transform(container.Owner).LocalPosition;
             } else
             {
-                if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
-                {
-                    Transform(args.User).AttachParentToContainerOrGrid(EntityManager);
-                    Transform(args.User).LocalPosition = Transform(container.Owner).LocalPosition;
-                }
+                Transform(args.User).LocalPosition = Transform((EntityUid) component.Partner).LocalPosition;
             }
 
 
