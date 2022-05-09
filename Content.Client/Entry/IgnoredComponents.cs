@@ -69,6 +69,7 @@ namespace Content.Client.Entry
             "RandomMetadata",
             "Ammo",
             "AiController",
+            "ResearchDisk",
             "Computer",
             "ResearchServer",
             "ResearchPointSource",
