@@ -1,0 +1,12 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialBluespace
+  name: Bluespace Crystal
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+  - type: Material
+    materials:
+      Bluespace: 400
