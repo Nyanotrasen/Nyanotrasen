@@ -117,6 +117,9 @@
       possiblePrototypes:
         - MobCarpHolo
         - MobCarpMagic
+        - MobBearSpace
+        - ResearchDisk5000
+        - MaterialBluespace
 
 - type: entity
   parent: BaseXenoArtifact
@@ -130,6 +133,7 @@
         - FoodPacketSemkiTrash
         - RandomInstruments
         - ToySpawner
+        - ResearchDisk
 
 - type: entity
   parent: BaseXenoArtifact
