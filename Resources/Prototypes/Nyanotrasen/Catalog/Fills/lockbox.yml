@@ -2,6 +2,7 @@
   parent: Lockbox
   id: LockboxDecloner
   name: decloner lockbox
+  description: A lockbox secured by an access reader, requiring Armory access.
   suffix: Decloner
   components:
   - type: StorageFill
@@ -14,6 +15,7 @@
   parent: Lockbox
   id: LockboxShrinkRay
   name: shrink ray lockbox
+  description: A lockbox secured by an access reader, requiring Research Director access.
   suffix: Shrink Ray
   components:
   - type: StorageFill
