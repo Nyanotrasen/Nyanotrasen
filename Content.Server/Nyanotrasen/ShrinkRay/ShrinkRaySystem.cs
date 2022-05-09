@@ -5,6 +5,7 @@ using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
+using Robust.Shared.Physics;
 
 namespace Content.Server.ShrinkRay
 {
@@ -61,17 +62,26 @@ namespace Content.Server.ShrinkRay
                 return;
             }
 
-            EnsureComp<ShrunkenComponent>(args.OtherFixture.Body.Owner);
+            var shrunken = EnsureComp<ShrunkenComponent>(args.OtherFixture.Body.Owner);
             EnsureComp<ShrunkenSpriteComponent>(args.OtherFixture.Body.Owner);
 
             if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
             {
-                var shrunken = Comp<ShrunkenComponent>(args.OtherFixture.Body.Owner);
                 shrunken.WasOriginallyItem = false;
                 AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
             }
-        }
 
+            if (TryComp<FixturesComponent>(args.OtherFixture.Body.Owner, out var fixtures))
+            {
+                double averageScale = ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2);
+                var massScale = Math.Pow(averageScale, 3); /// 3 dimensions
+                shrunken.MassScale = massScale;
+                foreach (var fixture in fixtures.Fixtures.Values)
+                {
+                    fixture.Mass *= (float) massScale;
+                }
+            }
+        }
         private void OnShutdown(EntityUid uid, ShrunkenComponent component, ComponentShutdown args)
         {
             if (!component.WasOriginallyItem)
@@ -84,6 +94,14 @@ namespace Content.Server.ShrinkRay
                         Transform(uid).AttachParentToContainerOrGrid(EntityManager);
                         Transform(uid).LocalPosition = Transform(container.Owner).LocalPosition;
                     }
+                }
+            }
+
+            if (TryComp<FixturesComponent>(uid, out var fixtures))
+            {
+                foreach (var fixture in fixtures.Fixtures.Values)
+                {
+                    fixture.Mass /= (float) component.MassScale;
                 }
             }
         }
