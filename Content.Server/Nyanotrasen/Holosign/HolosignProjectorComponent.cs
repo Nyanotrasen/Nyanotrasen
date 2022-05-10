@@ -18,7 +18,7 @@ namespace Content.Server.Holosign
         public float Accumulator = 0f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-
+        [DataField("rechargeTime")]
         public TimeSpan RechargeTime = TimeSpan.FromSeconds(30);
     }
 }
