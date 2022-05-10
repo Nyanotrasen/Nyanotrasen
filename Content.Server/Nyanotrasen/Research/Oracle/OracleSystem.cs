@@ -5,6 +5,7 @@ using Content.Shared.Research.Prototypes;
 using Content.Server.Chat;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Server.Botany;
 
 namespace Content.Server.Research.Oracle
 {
@@ -106,7 +107,8 @@ namespace Content.Server.Research.Oracle
         {
             var allMeals = _prototypeManager.EnumeratePrototypes<FoodRecipePrototype>().Select(x => x.Result).ToList();
             var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
-            var allProtos = allMeals.Concat(allRecipes).ToList();
+            var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
+            var allProtos = allMeals.Concat(allRecipes).Concat(allPlants).ToList();
             return _random.Pick((allProtos));
         }
     }
