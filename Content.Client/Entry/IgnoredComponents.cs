@@ -309,6 +309,8 @@ namespace Content.Client.Entry
             "DisassembleOnAltVerb",
             "BeingCloned",
             "Advertise",
+            "InvisibleWall",
+            "HolosignProjector",
             "Bible",
             "HealOnBuckle",
             "StasisBed",
