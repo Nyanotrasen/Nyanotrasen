@@ -24,7 +24,7 @@ namespace Content.Shared.Research.Prototypes
         private string _description = string.Empty;
 
         [DataField("result", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        private string _result = string.Empty;
+        public string _result = string.Empty;
 
         [DataField("completetime")]
         private TimeSpan _completeTime = TimeSpan.FromSeconds(5);

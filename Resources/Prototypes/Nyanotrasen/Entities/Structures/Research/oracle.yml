@@ -1,0 +1,9 @@
+- type: entity
+  parent: StatueVenusBlue
+  id: Oracle
+  name: Oracle
+  description: It asks for items in exchange for knowledge. No one knows how it works.
+  components:
+  - type: Oracle
+  - type: Speech
+    speechSounds: Alto

@@ -88,6 +88,7 @@ namespace Content.Client.Entry
             "Fingerprint",
             "FingerprintMask",
             "Food",
+            "Oracle",
             "Forensics",
             "ForensicScanner",
             "DeployableBarrier",
