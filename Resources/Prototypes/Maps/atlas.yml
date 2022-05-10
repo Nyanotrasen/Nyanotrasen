@@ -1,18 +1,22 @@
 - type: gameMap
   id: atlas
   mapName: 'Atlas'
-  mapNameTemplate: '{0} Atlas {1}'
-  nameGenerator:
-    !type:NanotrasenNameGenerator
-    prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
   mapPath: /Maps/atlas.yml
   minPlayers: 0
   maxPlayers: 29
+  stations:
+    Station: #TODO: Mapper, add a BecomesStation component to the primary grid of the map.
+      mapNameTemplate: '{0} Atlas {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: 'R4' # R4407/Goon. GS isn't as cool sounding.
+      overflowJobs:
+        - Passenger
   overflowJobs:
     - Assistant
   availableJobs:
     MailCarrier: [ 1, 1 ]
-    Assistant: [ -1, -1 ]
+    Passenger: [ -1, -1 ]
     Bartender: [ 1, 1 ]
     Botanist: [ 2, 2]
     Chef: [ 1, 1 ]

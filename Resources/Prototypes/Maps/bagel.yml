@@ -1,16 +1,20 @@
 - type: gameMap
   id: bagelstation
   mapName: 'Bagel Station'
-  mapNameTemplate: '{0} Bagel Station {1}'
-  nameGenerator:
-    !type:NanotrasenNameGenerator
-    prefixCreator: '14'
   mapPath: /Maps/bagel.yml
   minPlayers: 35
+  stations:
+    Bagel: #TODO: Mapper, fix this name in your map file. (just change the name for every grid with a BecomesStation or PartOfStation component.)
+      mapNameTemplate: '{0} Bagel Station {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs:
+        - Passenger
   overflowJobs:
     - Assistant
   availableJobs:
-    Assistant: [ -1, -1 ]
+    Passenger: [ -1, -1 ]
     Bartender: [ 2, 2 ]
     Botanist: [ 3, 3]
     Chef: [ 2, 2 ]
