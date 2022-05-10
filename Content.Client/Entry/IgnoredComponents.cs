@@ -74,6 +74,7 @@ namespace Content.Client.Entry
             "ResearchServer",
             "ResearchPointSource",
             "ResearchClient",
+            "DiseaseServer",
             "IdCardConsole",
             "MimePowers",
             "ThermalRegulator",

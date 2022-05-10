@@ -264,6 +264,18 @@ namespace Content.Server.Disease
 
             return report;
         }
+
+
+        public bool ServerHasDisease(DiseaseServerComponent server, DiseasePrototype disease)
+        {
+            bool has = false;
+            foreach (var serverDisease in server.Diseases)
+            {
+                if (serverDisease.ID == disease.ID)
+                    has = true;
+            }
+            return has;
+        }
         ///
         /// Appearance stuff
         ///
@@ -337,6 +349,24 @@ namespace Content.Server.Disease
             {
                 reportTitle = Loc.GetString("diagnoser-disease-report", ("disease", args.Machine.Disease.Name));
                 contents = AssembleDiseaseReport(args.Machine.Disease);
+                // TODO update for multistation (also research servers are shit holy fuck)
+                bool known = false;
+
+                foreach (var server in EntityQuery<DiseaseServerComponent>())
+                {
+                    if (ServerHasDisease(server, args.Machine.Disease))
+                    {
+                       known = true;
+                    } else
+                    {
+                        server.Diseases.Add(args.Machine.Disease);
+                    }
+                }
+
+                if (!known)
+                {
+                    EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
+                }
             } else
             {
                 reportTitle = Loc.GetString("diagnoser-disease-report-none");
@@ -346,6 +376,8 @@ namespace Content.Server.Disease
 
             _paperSystem.SetContent(printed, contents.ToMarkup(), paper);
         }
+
+
 
         /// <summary>
         /// Prints a vaccine that will vaccinate
