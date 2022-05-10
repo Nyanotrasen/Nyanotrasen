@@ -81,7 +81,7 @@
     - state: idintern-service
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: TechnicalAssistantIDCard
   name: technical assistant ID card
   components:
@@ -93,7 +93,7 @@
     - state: idintern-tech
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: MedicalInternIDCard
   name: medical intern ID card
   components:
@@ -105,7 +105,7 @@
     - state: idintern-med
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: SecurityCadetIDCard
   name: security cadet ID card
   components:
@@ -117,7 +117,7 @@
     - state: idintern-cadet
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: ServiceWorkerIDCard
   name: service worker ID card
   components:
