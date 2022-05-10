@@ -1,0 +1,11 @@
+- type: entity
+  id: HolosignWetFloor
+  name: wet floor sign
+  description: The words flicker as if they mean nothing.
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Holo/wetfloor.rsi
+    state: icon
+  - type: InvisibleWall

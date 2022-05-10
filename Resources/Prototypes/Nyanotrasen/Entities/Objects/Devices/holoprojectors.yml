@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseItem
+  id: Holoprojector
+  name: holographic sign projector
+  description: A handy-dandy holographic projector that displays a janitorial sign.
+  components:
+  - type: HolosignProjector
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/custodial.rsi
+    state: icon
