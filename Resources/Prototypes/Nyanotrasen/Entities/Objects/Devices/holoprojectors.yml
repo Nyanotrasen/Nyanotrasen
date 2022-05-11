@@ -8,3 +8,16 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Devices/Holoprojectors/custodial.rsi
     state: icon
+
+- type: entity
+  parent: Holoprojector
+  id: HolofanProjector
+  name: holofan projector
+  description: Stop suicidal passengers from killing everyone during atmos emergencies.
+  components:
+  - type: HolosignProjector
+    signProto: HoloFan
+    rechargeTime: 180
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/atmos.rsi
+    state: icon

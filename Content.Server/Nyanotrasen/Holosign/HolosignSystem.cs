@@ -1,4 +1,5 @@
 using Content.Shared.Interaction.Events;
+using Content.Server.Coordinates.Helpers;
 
 namespace Content.Server.Holosign
 {
@@ -34,7 +35,7 @@ namespace Content.Server.Holosign
             if (component.CurrentCharges == 0)
                 return;
 
-            EntityManager.SpawnEntity(component.SignProto, Transform(args.User).Coordinates);
+            EntityManager.SpawnEntity(component.SignProto, Transform(args.User).Coordinates.SnapToGrid());
             component.CurrentCharges--;
         }
     }
