@@ -32,7 +32,7 @@
       state_open: qm_open
       state_closed: qm_door
   - type: AccessReader
-    access: [["Quartermaster"]]
+    access: [["Cargo"]]
 
 - type: entity
   id: LockerSalvageSpecialist
@@ -47,8 +47,8 @@
       state_open: mining_open
       state_closed: mining_door
   - type: AccessReader
-    access: [["Salvage"]] 
-    
+    access: [["Salvage"]]
+
 # Command
 - type: entity
   id: LockerCaptain
