@@ -1,12 +1,11 @@
 - type: job
   id: Detective
-  name: "detective"
+  name: "Areopagite"
   startingGear: DetectiveGear
   departments:
-  - Civilian
-  - Security
+  - Epistemics
   icon: "Detective"
-  supervisors: "the head of personnel"
+  supervisors: "the mystagogue"
   access:
   - Service
   - Brig
@@ -16,15 +15,14 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitDetective
+    jumpsuit: ClothingUniformJumpsuitChaplain
     back: ClothingBackpackDetectiveFilled
     shoes: ClothingShoesColorBlack
     id: DetectivePDA
-    outerClothing: ClothingOuterCoatDetective
+    outerClothing: ClothingOuterSuitAreopagite
     ears: ClothingHeadsetService
-    head: ClothingHeadHatFedoraBrown
     pocket1: RevolverInspector
     pocket2: ForensicScanner
-  innerclothingskirt: ClothingUniformJumpskirtDetective
+  innerclothingskirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelDetectiveFilled
   duffelbag: ClothingBackpackDuffelDetectiveFilled
