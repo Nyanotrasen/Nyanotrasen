@@ -8,3 +8,45 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodMystic
+  name: mystic hood
+  description: To contain a very wise head.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/mystic.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/mystic.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHoodBrown
+  name: brown hood
+  description: Spooky.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/brownhood.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/brownhood.rsi
+  - type: Tag
+    tags:
+    - HidesHair
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadAreopagite
+  name: areopagite hat
+  description: Intimidating.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
