@@ -1,6 +1,6 @@
 - type: job
   id: Chaplain
-  name: "Pistician"
+  name: "cleric"
   startingGear: ChaplainGear
   departments:
   - Epistemics
@@ -8,6 +8,7 @@
   supervisors: "the mystagogue"
   access:
   - Chapel
+  - Research
   special:
   - !type:AddComponentSpecial
     components:

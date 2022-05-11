@@ -1,10 +1,9 @@
 - type: job
   id: Librarian
-  name: "librarian"
-  setPreference: false
+  name: "cataloguer"
   startingGear: LibrarianGear
   departments:
-  - Civilian
+  - Epistemics
   icon: "Librarian"
   supervisors: "the head of personnel"
   access:

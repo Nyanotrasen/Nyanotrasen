@@ -1,13 +1,13 @@
 - type: job
   id: Detective
-  name: "Areopagite"
+  name: "areopagite"
   startingGear: DetectiveGear
   departments:
   - Epistemics
   icon: "Detective"
   supervisors: "the mystagogue"
   access:
-  - Service
+  - Research
   - Brig
   - Detective
   - Maintenance
