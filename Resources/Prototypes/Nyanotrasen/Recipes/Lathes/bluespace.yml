@@ -69,3 +69,15 @@
     Bluespace: 400
     Durathread: 1500
     Plastic: 400
+
+- type: latheRecipe
+  id: TrashBagOfHolding
+  icon:
+    sprite: Objects/Specific/Janitorial/trashbag.rsi
+    state: blue-icon-0
+  result: TrashBagOfHolding
+  completetime: 4
+  materials:
+    Bluespace: 200
+    Durathread: 750
+    Plastic: 200

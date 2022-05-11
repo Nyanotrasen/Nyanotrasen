@@ -18,6 +18,7 @@
     - BackpackOfHolding
     - SatchelOfHolding
     - DuffelbagOfHolding
+    - TrashBagOfHolding
 
 - type: technology
   name: "direct energy technology"
@@ -32,3 +33,5 @@
     - CompactPowerTechnology
   unlockedRecipes:
     - Decloner
+    - Holoprojector
+    - HolofanProjector
