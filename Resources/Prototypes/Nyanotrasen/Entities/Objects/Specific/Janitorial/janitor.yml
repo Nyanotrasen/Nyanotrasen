@@ -17,3 +17,9 @@
     solutions:
       absorbed:
         maxVol: 100
+
+- type: entity
+  parent: BagOfSummoningGarbage
+  id: TrashBagOfHolding
+  name: trash bag of holding
+  description: A bluespace-infused trashbag with an extremely high capacity.
