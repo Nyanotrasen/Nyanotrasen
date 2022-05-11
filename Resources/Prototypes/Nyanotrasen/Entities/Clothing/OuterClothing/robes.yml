@@ -11,6 +11,17 @@
 
 - type: entity
   parent: ClothingOuterBase
+  id: ClothingOuterRobeBrown
+  name: Brown Robe
+  description: This doesn't look creepy at all.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
+
+- type: entity
+  parent: ClothingOuterBase
   id: ClothingOuterRobeMystic
   name: mystic robe
   description: The mystagogue's flashy robe.

@@ -7,15 +7,17 @@
   icon: "Librarian"
   supervisors: "the head of personnel"
   access:
-  - Service
+  - Research
 
 - type: startingGear
   id: LibrarianGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitLibrarian
+    jumpsuit: ClothingUniformJumpsuitColorBrown
     back: ClothingBackpackBriefcaseFilled
     shoes: ClothingShoesColorBlack
     id: LibrarianPDA
+    outerClothing: ClothingOuterRobeBrown
+    head: ClothingHeadHoodBrown
     ears: ClothingHeadsetService
     pocket1: d10Dice
-  innerclothingskirt: ClothingUniformJumpskirtColorLightBrown
+  innerclothingskirt: ClothingUniformJumpskirtColorBrown
