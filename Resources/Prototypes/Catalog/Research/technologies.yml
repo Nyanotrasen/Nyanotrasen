@@ -11,6 +11,10 @@
     sprite: Structures/Machines/server.rsi
     state: server-on
   requiredPoints: 2500
+  unlockedRecipes:
+    - DrinkMug
+    - DrinkMugMetal
+    - DrinkGlass
 
 # Cleaning Technology Tree
 
