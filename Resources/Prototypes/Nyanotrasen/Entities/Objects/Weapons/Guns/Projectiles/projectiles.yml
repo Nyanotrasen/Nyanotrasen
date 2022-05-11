@@ -17,7 +17,7 @@
       mask:
       - Impassable
       layer:
-      - MobImpassable
+      - MidImpassable
   - type: Ammo
     isProjectile: true
     ammoVelocity: 20
@@ -50,7 +50,7 @@
       mask:
       - Impassable
       layer:
-      - MobImpassable
+      - MidImpassable
   - type: Ammo
     isProjectile: true
     ammoVelocity: 20
@@ -81,7 +81,7 @@
       mask:
       - Impassable
       layer:
-      - MobImpassable
+      - MidImpassable
   - type: Ammo
     isProjectile: true
     ammoVelocity: 20

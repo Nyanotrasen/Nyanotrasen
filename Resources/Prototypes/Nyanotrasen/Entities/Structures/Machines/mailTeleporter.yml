@@ -17,10 +17,8 @@
         !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.00"
       mass: 25
-      layer:
-      - Passable
       mask:
-      - VaultImpassable
+      - HighImpassable
   - type: Sprite
     netsync: false
     sprite: Structures/cargo_telepad.rsi
