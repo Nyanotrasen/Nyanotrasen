@@ -45,15 +45,19 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
+        bounds: "-0.5,-0.5,0.5,0.5"
       mass: 100
       mask:
-      - Impassable
+      - FullTileMask
       layer:
+<<<<<<< HEAD
       - Opaque
       - Impassable
       - VaultImpassable
       - SmallImpassable
+=======
+      - WallLayer
+>>>>>>> 320997bffa49f308ef3e98c08a429cf47eb2666a
   - type: IconSmooth
     key: rock
     base: rock_
