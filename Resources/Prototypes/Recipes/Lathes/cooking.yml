@@ -22,7 +22,9 @@
 
 - type: latheRecipe
   id: DrinkMug
-  icon: Objects/Consumable/Drinks/mug.rsi
+  icon:
+    sprite: Objects/Consumable/Drinks/mug.rsi
+    state: icon-0
   result: DrinkMug
   completetime: 0.8
   materials:
@@ -30,7 +32,9 @@
 
 - type: latheRecipe
   id: DrinkMugMetal
-  icon: Objects/Consumable/Drinks/mug_metal.rsi
+  icon:
+    sprite: Objects/Consumable/Drinks/mug_metal.rsi
+    state: icon-0
   result: DrinkMugMetal
   completetime: 0.8
   materials:
@@ -38,7 +42,9 @@
 
 - type: latheRecipe
   id: DrinkGlass
-  icon: Objects/Consumable/Drinks/glass_clear.rsi
+  icon:
+    sprite: Objects/Consumable/Drinks/glass_clear.rsi
+    state: icon
   result: DrinkGlass
   completetime: 0.8
   materials:
