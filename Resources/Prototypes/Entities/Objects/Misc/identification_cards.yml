@@ -22,18 +22,18 @@
 
 - type: entity
   parent: IDCardStandard
-  id: AssistantIDCard
-  name: assistant ID card
+  id: PassengerIDCard
+  name: passenger ID card
   components:
   - type: Sprite
     layers:
     - state: default
-    - state: idassistant
+    - state: idpassenger
   - type: PresetIdCard
-    job: Assistant
+    job: Passenger
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: TechnicalAssistantIDCard
   name: technical assistant ID card
   components:
@@ -45,7 +45,7 @@
     - state: idintern-tech
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: MedicalInternIDCard
   name: medical intern ID card
   components:
@@ -57,7 +57,7 @@
     - state: idintern-med
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: SecurityCadetIDCard
   name: security cadet ID card
   components:
@@ -69,7 +69,55 @@
     - state: idintern-cadet
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
+  id: ServiceWorkerIDCard
+  name: service worker ID card
+  components:
+  - type: PresetIdCard
+    job: ServiceWorker
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idintern-service
+
+- type: entity
+  parent: PassengerIDCard
+  id: TechnicalAssistantIDCard
+  name: technical assistant ID card
+  components:
+  - type: PresetIdCard
+    job: TechnicalAssistant
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idintern-tech
+
+- type: entity
+  parent: PassengerIDCard
+  id: MedicalInternIDCard
+  name: medical intern ID card
+  components:
+  - type: PresetIdCard
+    job: MedicalIntern
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idintern-med
+
+- type: entity
+  parent: PassengerIDCard
+  id: SecurityCadetIDCard
+  name: security cadet ID card
+  components:
+  - type: PresetIdCard
+    job: SecurityCadet
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idintern-cadet
+
+- type: entity
+  parent: PassengerIDCard
   id: ServiceWorkerIDCard
   name: service worker ID card
   components:
@@ -463,7 +511,7 @@
       job: Musician
 
 - type: entity
-  parent: AssistantIDCard
+  parent: PassengerIDCard
   id: AgentIDCard
   suffix: Agent
   components:
