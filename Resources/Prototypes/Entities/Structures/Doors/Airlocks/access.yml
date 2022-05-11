@@ -16,7 +16,7 @@
     access: [["Theatre"]]
 
 - type: entity
-  parent: Airlock
+  parent: AirlockScienceLocked
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -236,7 +236,7 @@
     LayoutId: AirlockSecurity
 
 - type: entity
-  parent: AirlockSecurity
+  parent: AirlockScienceLocked
   id: AirlockDetectiveLocked
   suffix: Detective, Locked
   components:
@@ -323,7 +323,7 @@
     access: [["Hydroponics"]]
 
 - type: entity
-  parent: AirlockGlass
+  parent: AirlockScienceGlassLocked
   id: AirlockChapelGlassLocked
   suffix: Chapel, Locked
   components:
@@ -345,7 +345,7 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
-    
+
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
@@ -483,7 +483,7 @@
     access: [["Armory"]]
 
 - type: entity
-  parent: AirlockSecurityGlass
+  parent: AirlockScienceGlassLocked
   id: AirlockDetectiveGlassLocked
   suffix: Detective, Locked
   components:
@@ -554,7 +554,7 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
-    
+
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintBarLocked
