@@ -16,6 +16,14 @@ namespace Content.Client.ShrinkRay
         {
             if (!TryComp<SpriteComponent>(args.Target, out var sprite))
                 return;
+
+            if (args.Reset)
+            {
+                RemComp<ShrunkenComponent>(args.Target);
+                RemComp<ShrunkenSpriteComponent>(args.Target);
+                return;
+            }
+
             ShrunkenSpriteComponent shrunken = new();
             shrunken.Owner = args.Target;
             shrunken.OriginalScaleFactor = sprite.Scale;

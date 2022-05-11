@@ -32,8 +32,12 @@ namespace Content.Server.ShrinkRay
             base.FrameUpdate(frameTime);
             foreach (var shrunken in RemQueue)
             {
+                var shrunkenComponent = Comp<ShrunkenComponent>(shrunken);
+                RaiseNetworkEvent(new SizeChangedEvent(shrunken, shrunkenComponent.OriginalScaleFactor, true));
+
                 RemComp<ShrunkenComponent>(shrunken);
                 RemComp<ShrunkenSpriteComponent>(shrunken);
+
                 _sharedShrink.RemoveShrunken(shrunken);
 
             }
@@ -72,7 +76,7 @@ namespace Content.Server.ShrinkRay
 
             EntityManager.AddComponent<ShrunkenComponent>(args.OtherFixture.Body.Owner, shrunken, true);
 
-            RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor));
+            RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor, false));
 
             if (TryComp<FixturesComponent>(args.OtherFixture.Body.Owner, out var fixtures))
             {
