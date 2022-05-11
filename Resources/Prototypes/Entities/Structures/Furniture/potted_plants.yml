@@ -15,16 +15,10 @@
         radius: 0.2
       mass: 25
       mask:
-<<<<<<< HEAD
-        - Impassable 
-      layer:
-        - Opaque
-=======
       - Impassable
       layer:
       - Opaque
       - BulletImpassable
->>>>>>> 320997bffa49f308ef3e98c08a429cf47eb2666a
   - type: Sprite
     drawdepth: Overdoors
     offset: "0.0,0.3"

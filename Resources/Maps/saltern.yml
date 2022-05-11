@@ -838,11 +838,11 @@ entities:
         - -0.25,-0.48
       mask:
       - Impassable
-      - SmallImpassable
+      - LowImpassable
       layer:
-      - MobImpassable
+      - MidImpassable
       - ThrownItem
-      - SmallImpassable
+      - LowImpassable
       - Opaque
       mass: 70
     type: Fixtures
