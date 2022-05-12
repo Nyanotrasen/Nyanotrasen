@@ -65,7 +65,6 @@ namespace Content.Client.Entry
             "DiseaseBuildup",
             "ZombieTransfer",
             "ShockCollar",
-            "Mineable",
             "RangedMagazine",
             "RandomMetadata",
             "Ammo",
