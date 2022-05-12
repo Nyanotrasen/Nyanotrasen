@@ -25,6 +25,7 @@ namespace Content.Server.ShrinkRay
             SubscribeLocalEvent<ShrinkRayProjectileComponent, StartCollideEvent>(OnStartCollide);
             SubscribeLocalEvent<ShrunkenComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ShrunkenComponent, DamageModifyEvent>(OnDamageModify);
+            SubscribeLocalEvent<ShrunkenComponent, PickupAttemptEvent>(OnPickupAttempt);
         }
 
         private Queue<EntityUid> RemQueue = new();
@@ -140,6 +141,12 @@ namespace Content.Server.ShrinkRay
                 }
                 args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, actualMods);
             }
+        }
+
+        private void OnPickupAttempt(EntityUid uid, ShrunkenComponent component, PickupAttemptEvent args)
+        {
+            if (HasComp<ShrunkenComponent>(args.Item))
+                args.Cancel();
         }
     }
 }
