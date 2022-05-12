@@ -100,7 +100,8 @@ namespace Content.Server.ShrinkRay
                 if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
                 {
                     shrunken.ShouldHaveItemComp = false;
-                    AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
+                    var item = AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
+                    item.Size = 5;
                 }
             }
         }
@@ -113,7 +114,7 @@ namespace Content.Server.ShrinkRay
                 {
                     if (_containerSystem.TryGetOuterContainer(uid, Transform(uid), out var container))
                     {
-                        Transform(uid).AttachParentToContainerOrGrid(EntityManager);
+                        Transform(uid).AttachToGridOrMap();
                         Transform(uid).LocalPosition = Transform(container.Owner).LocalPosition;
                     }
                 }
