@@ -308,6 +308,7 @@
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
   - type: Puller
+  - type: Fingerprint
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
@@ -323,7 +324,6 @@
     attributes:
       proper: true
   - type: StandingState
-  - type: Fingerprint
 
 - type: entity
   save: false

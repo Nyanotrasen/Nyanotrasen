@@ -81,54 +81,6 @@
     - state: idintern-service
 
 - type: entity
-  parent: PassengerIDCard
-  id: TechnicalAssistantIDCard
-  name: technical assistant ID card
-  components:
-  - type: PresetIdCard
-    job: TechnicalAssistant
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-tech
-
-- type: entity
-  parent: PassengerIDCard
-  id: MedicalInternIDCard
-  name: medical intern ID card
-  components:
-  - type: PresetIdCard
-    job: MedicalIntern
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-med
-
-- type: entity
-  parent: PassengerIDCard
-  id: SecurityCadetIDCard
-  name: security cadet ID card
-  components:
-  - type: PresetIdCard
-    job: SecurityCadet
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-cadet
-
-- type: entity
-  parent: PassengerIDCard
-  id: ServiceWorkerIDCard
-  name: service worker ID card
-  components:
-  - type: PresetIdCard
-    job: ServiceWorker
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-service
-
-- type: entity
   parent: IDCardStandard
   id: CaptainIDCard
   name: captain ID card
@@ -537,6 +489,7 @@
 
 - type: entity
   parent: IDCardStandard
+<<<<<<< HEAD
   id: BoxerIDCard
   name: boxer ID card
   components:
@@ -549,6 +502,8 @@
 
 - type: entity
   parent: IDCardStandard
+=======
+>>>>>>> 35f97ac78c60e4f80371d3d363ea125cbde5f2c2
   id: SyndicateIDCard
   name: Syndicate ID card
   components:

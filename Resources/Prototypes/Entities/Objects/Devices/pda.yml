@@ -647,6 +647,7 @@
     state: pda-boxer
 
 - type: entity
+  parent: BasePDA
   id: ClearPDA
   name: clear PDA
   description: 99 and 44/100ths percent pure plastic.
@@ -674,3 +675,7 @@
         state: pda-syndi
   - type: Icon
     state: pda-syndi
+<<<<<<< HEAD
+=======
+
+>>>>>>> 35f97ac78c60e4f80371d3d363ea125cbde5f2c2

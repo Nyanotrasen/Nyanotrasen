@@ -75,7 +75,6 @@
       recolor: true
   - type: Slippery
     launchForwardsMultiplier: 2.0
-
 - type: entity
   name: puddle
   id: PuddleSplatter
@@ -92,7 +91,6 @@
     - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
-
 - type: entity
   id: PuddleBlood
   name: blood
@@ -166,4 +164,3 @@
     - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
-
