@@ -77,18 +77,20 @@ namespace Content.Server.Research.Oracle
         {
             if (!TryComp<MetaDataComponent>(args.Used, out var meta))
                 return;
-
-            if (meta.EntityPrototype == null || meta.EntityPrototype.ID != component.DesiredPrototype.ID)
+            /// The trim helps with stacks and singles
+            if (meta.EntityPrototype == null || meta.EntityPrototype.ID.TrimEnd('1') != component.DesiredPrototype.ID.TrimEnd('1'))
             {
                 _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
                 return;
             }
 
             EntityManager.QueueDeleteEntity(args.Used);
+
+            EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
+
             if (_random.Prob(0.15f))
                 EntityManager.SpawnEntity("MaterialBluespace", Transform(uid).Coordinates);
-            else
-                EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
+
             NextItem(component);
         }
 
