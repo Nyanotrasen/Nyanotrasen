@@ -9,6 +9,7 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.ShrinkRay
 {
@@ -73,6 +74,10 @@ namespace Content.Server.ShrinkRay
             ShrunkenComponent shrunken = new();
             shrunken.ScaleFactor = component.ScaleFactor;
             shrunken.Owner = args.OtherFixture.Body.Owner;
+
+            if (TryComp<SpriteComponent>(args.OtherFixture.Body.Owner, out var sprite)
+            && !HasComp<ShrunkenComponent>(args.OtherFixture.Body.Owner))
+                shrunken.OriginalScaleFactor = sprite.Scale;
 
             EntityManager.AddComponent<ShrunkenComponent>(args.OtherFixture.Body.Owner, shrunken, true);
 

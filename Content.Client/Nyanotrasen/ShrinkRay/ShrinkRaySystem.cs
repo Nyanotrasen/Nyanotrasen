@@ -26,7 +26,16 @@ namespace Content.Client.ShrinkRay
 
             ShrunkenSpriteComponent shrunken = new();
             shrunken.Owner = args.Target;
-            shrunken.OriginalScaleFactor = sprite.Scale;
+
+            // If they are already shrunken, don't overwrite the original scale factor.
+            if (TryComp<ShrunkenSpriteComponent>(args.Target, out var existingShrunken))
+            {
+                shrunken.OriginalScaleFactor = existingShrunken.OriginalScaleFactor;
+            } else
+            {
+                shrunken.OriginalScaleFactor = sprite.Scale;
+            }
+
             shrunken.ScaleFactor = args.Scale;
             EntityManager.AddComponent<ShrunkenSpriteComponent>(args.Target, shrunken, true); // So we can cleanly overwrite
 
