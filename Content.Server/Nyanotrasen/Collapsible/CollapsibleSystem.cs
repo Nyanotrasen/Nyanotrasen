@@ -3,6 +3,7 @@ using Content.Shared.Collapsible;
 using Content.Server.Weapon.StunOnHit;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Content.Shared.Item;
 
 namespace Content.Server.Collapsible
 {
@@ -35,6 +36,17 @@ namespace Content.Server.Collapsible
 
             if (TryComp<StunOnHitComponent>(uid, out var stunComp))
                 stunComp.Disabled = component.Collapsed;
+
+            if (TryComp<SharedItemComponent>(uid, out var item))
+            {
+                if (!component.Collapsed)
+                {
+                    item.Size *= 15;
+                } else
+                {
+                    item.Size /= 15;
+                }
+            }
 
             UpdateCollapsibleVisuals(uid, component.Collapsed);
         }
