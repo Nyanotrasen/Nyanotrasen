@@ -1,0 +1,47 @@
+- type: entity
+  parent: IDCardStandard
+  id: BoxerIDCard
+  name: boxer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idboxer
+  - type: PresetIdCard
+    job: Boxer
+
+- type: entity
+  parent: IDCardStandard
+  id: DetectiveIDCard
+  name: detective ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: iddetective
+    - type: PresetIdCard
+      job: Detective
+
+- type: entity
+  parent: IDCardStandard
+  id: ParamedicIDCard
+  name: paramedic ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idparamedic
+  - type: PresetIdCard
+    job: Paramedic
+
+- type: entity
+  parent: IDCardStandard
+  id: MailCarrierIDCard
+  name: mail carrier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idmailcarrier
+  - type: PresetIdCard
+    job: MailCarrier

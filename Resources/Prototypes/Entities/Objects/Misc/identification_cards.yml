@@ -81,54 +81,6 @@
     - state: idintern-service
 
 - type: entity
-  parent: PassengerIDCard
-  id: TechnicalAssistantIDCard
-  name: technical assistant ID card
-  components:
-  - type: PresetIdCard
-    job: TechnicalAssistant
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-tech
-
-- type: entity
-  parent: PassengerIDCard
-  id: MedicalInternIDCard
-  name: medical intern ID card
-  components:
-  - type: PresetIdCard
-    job: MedicalIntern
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-med
-
-- type: entity
-  parent: PassengerIDCard
-  id: SecurityCadetIDCard
-  name: security cadet ID card
-  components:
-  - type: PresetIdCard
-    job: SecurityCadet
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-cadet
-
-- type: entity
-  parent: PassengerIDCard
-  id: ServiceWorkerIDCard
-  name: service worker ID card
-  components:
-  - type: PresetIdCard
-    job: ServiceWorker
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idintern-service
-
-- type: entity
   parent: IDCardStandard
   id: CaptainIDCard
   name: captain ID card
@@ -192,18 +144,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ParamedicIDCard
-  name: paramedic ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idparamedic
-  - type: PresetIdCard
-    job: Paramedic
-
-- type: entity
-  parent: IDCardStandard
   id: ChemistIDCard
   name: chemist ID card
   components:
@@ -225,18 +165,6 @@
     - state: idcargotechnician
   - type: PresetIdCard
     job: CargoTechnician
-
-- type: entity
-  parent: IDCardStandard
-  id: MailCarrierIDCard
-  name: mail carrier ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idmailcarrier
-  - type: PresetIdCard
-    job: MailCarrier
 
 - type: entity
   parent: IDCardStandard
@@ -384,18 +312,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: DetectiveIDCard
-  name: detective ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: iddetective
-    - type: PresetIdCard
-      job: Detective
-
-- type: entity
-  parent: IDCardStandard
   id: HoPIDCard
   name: head of personnel ID card
   components:
@@ -534,18 +450,6 @@
     - state: idatmospherictechnician
   - type: PresetIdCard
     job: AtmosphericTechnician
-
-- type: entity
-  parent: IDCardStandard
-  id: BoxerIDCard
-  name: boxer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idboxer
-  - type: PresetIdCard
-    job: Boxer
 
 - type: entity
   parent: IDCardStandard
