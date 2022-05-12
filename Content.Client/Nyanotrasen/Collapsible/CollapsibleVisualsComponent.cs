@@ -14,10 +14,4 @@ public sealed class CollapsibleVisualsComponent : Component
 
     [DataField("extendedState", required: true)]
     public string ExtendedState = default!;
-
-    /// <summary>
-    ///     Layers to add to the sprite of the player that is holding this entity (while the component is toggled on).
-    /// </summary>
-    [DataField("inhandVisuals")]
-    public Dictionary<HandLocation, List<PrototypeLayerData>> InhandVisuals = new();
 }

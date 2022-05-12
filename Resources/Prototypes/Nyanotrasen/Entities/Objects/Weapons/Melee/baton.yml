@@ -9,11 +9,6 @@
     layers:
     - state: icon
       map: ["enum.CollapsibleVisualLayers.IsCollapsed"]
-      inhandVisuals:
-        left:
-        - state: inhand-left
-        right:
-        - state: inhand-right
   - type: MeleeWeapon
     damage:
       types:

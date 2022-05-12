@@ -83,6 +83,7 @@
       - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
+      - id: Telebaton
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -128,6 +129,7 @@
       - id: HandheldCrewMonitor
       - id: DoorRemoteMedical
       - id: RubberStampCMO
+      - id: Telebaton
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -146,6 +148,7 @@
         prob: 0.1
       - id: DoorRemoteResearch
       - id: RubberStampRd
+      - id: Telebaton
 
 - type: entity
   id: LockerHeadOfSecurityFilled
