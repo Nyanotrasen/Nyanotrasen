@@ -15,7 +15,7 @@ namespace Content.Server.Weapon.StunOnHit
 
         private void OnMeleeHit(EntityUid uid, StunOnHitComponent component, MeleeHitEvent args)
         {
-            if (!component.Enabled)
+            if (component.Disabled)
                 return;
 
             foreach (var entity in args.HitEntities)

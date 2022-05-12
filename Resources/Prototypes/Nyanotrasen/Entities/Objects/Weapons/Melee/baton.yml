@@ -6,7 +6,9 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/telebaton.rsi
-    state: icon-on
+    layers:
+    - state: icon
+      map: ["enum.CollapsibleVisualLayers.IsCollapsed"]
   - type: MeleeWeapon
     damage:
       types:
@@ -15,3 +17,8 @@
     size: 15
     sprite: Nyanotrasen/Objects/Weapons/Melee/telebaton.rsi
   - type: StunOnHit
+  - type: Collapsible
+  - type: Appearance
+  - type: CollapsibleVisuals
+    collapsedState: icon
+    extendedState: icon-on

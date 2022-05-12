@@ -1,0 +1,44 @@
+using Content.Shared.Interaction.Events;
+using Content.Shared.Collapsible;
+using Content.Server.Weapon.StunOnHit;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+
+namespace Content.Server.Collapsible
+{
+    public sealed class CollapsibleSystem : EntitySystem
+    {
+        public override void Initialize()
+        {
+            base.Initialize();
+            SubscribeLocalEvent<CollapsibleComponent, UseInHandEvent>(OnUseInHand);
+        }
+        private void OnUseInHand(EntityUid uid, CollapsibleComponent component, UseInHandEvent args)
+        {
+            ToggleCollapse(uid, component);
+        }
+
+        public void ToggleCollapse(EntityUid uid, CollapsibleComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return;
+
+            component.Collapsed = !component.Collapsed;
+            if (!component.Collapsed && component.ExtendSound != null)
+                SoundSystem.Play(Filter.Pvs(uid), component.ExtendSound.GetSound(), uid);
+
+            if (TryComp<StunOnHitComponent>(uid, out var stunComp))
+                stunComp.Disabled = component.Collapsed;
+
+            UpdateCollapsibleVisuals(uid, component.Collapsed);
+        }
+
+        private void UpdateCollapsibleVisuals(EntityUid uid, bool isCollapsed)
+        {
+            if (!TryComp<AppearanceComponent>(uid, out var appearance))
+                return;
+
+            appearance.SetData(CollapsibleVisuals.IsCollapsed, isCollapsed);
+        }
+    }
+}
