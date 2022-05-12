@@ -144,18 +144,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: ParamedicIDCard
-  name: paramedic ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idparamedic
-  - type: PresetIdCard
-    job: Paramedic
-
-- type: entity
-  parent: IDCardStandard
   id: ChemistIDCard
   name: chemist ID card
   components:
@@ -177,18 +165,6 @@
     - state: idcargotechnician
   - type: PresetIdCard
     job: CargoTechnician
-
-- type: entity
-  parent: IDCardStandard
-  id: MailCarrierIDCard
-  name: mail carrier ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idmailcarrier
-  - type: PresetIdCard
-    job: MailCarrier
 
 - type: entity
   parent: IDCardStandard
@@ -336,18 +312,6 @@
 
 - type: entity
   parent: IDCardStandard
-  id: DetectiveIDCard
-  name: detective ID card
-  components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: iddetective
-    - type: PresetIdCard
-      job: Detective
-
-- type: entity
-  parent: IDCardStandard
   id: HoPIDCard
   name: head of personnel ID card
   components:
@@ -489,21 +453,6 @@
 
 - type: entity
   parent: IDCardStandard
-<<<<<<< HEAD
-  id: BoxerIDCard
-  name: boxer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idboxer
-  - type: PresetIdCard
-    job: Boxer
-
-- type: entity
-  parent: IDCardStandard
-=======
->>>>>>> 35f97ac78c60e4f80371d3d363ea125cbde5f2c2
   id: SyndicateIDCard
   name: Syndicate ID card
   components:

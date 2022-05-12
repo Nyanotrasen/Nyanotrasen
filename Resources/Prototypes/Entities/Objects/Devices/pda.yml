@@ -280,21 +280,6 @@
 
 - type: entity
   parent: BasePDA
-  id: MailCarrierPDA
-  name: mail carrier PDA
-  description: Hope this doesn't have any... JUNK MAIL.
-  components:
-  - type: PDA
-    id: MailCarrierIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-mailcarrier
-  - type: Icon
-    state: pda-mailcarrier
-
-- type: entity
-  parent: BasePDA
   id: SalvagePDA
   name: salvage PDA
   description: Smells like ash.
@@ -352,21 +337,6 @@
         state: pda-lawyer
   - type: Icon
     state: pda-lawyer
-
-- type: entity
-  parent: BasePDA
-  id: DetectivePDA
-  name: detective PDA
-  description: Smells like tobacco, and justice.
-  components:
-  - type: PDA
-    id: DetectiveIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-detective
-  - type: Icon
-    state: pda-detective
 
 - type: entity
   parent: BasePDA
@@ -479,23 +449,6 @@
         state: pda-medical
   - type: Icon
     state: pda-medical
-  - type: HealthAnalyzer
-    scanDelay: 1.2
-
-- type: entity
-  parent: BasePDA
-  id: ParamedicPDA
-  name: paramedic PDA
-  description: Sweaty. Whoever uses this must be noided. Has a bult-in health analyzer.
-  components:
-  - type: PDA
-    id: ParamedicIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-genetics
-  - type: Icon
-    state: pda-genetics
   - type: HealthAnalyzer
     scanDelay: 1.2
 
@@ -633,21 +586,6 @@
 
 - type: entity
   parent: BasePDA
-  id: BoxerPDA
-  name: boxer PDA
-  description: Float like a butterfly, ringtone like a bee.
-  components:
-  - type: PDA
-    id: BoxerIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-boxer
-  - type: Icon
-    state: pda-boxer
-
-- type: entity
-  parent: BasePDA
   id: ClearPDA
   name: clear PDA
   description: 99 and 44/100ths percent pure plastic.
@@ -675,7 +613,3 @@
         state: pda-syndi
   - type: Icon
     state: pda-syndi
-<<<<<<< HEAD
-=======
-
->>>>>>> 35f97ac78c60e4f80371d3d363ea125cbde5f2c2
