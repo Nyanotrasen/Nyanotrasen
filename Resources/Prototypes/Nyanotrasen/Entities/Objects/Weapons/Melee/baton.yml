@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: Telebaton
+  name: telescopic baton
+  description: A sleek, contractable personal defense weapon.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Melee/telebaton.rsi
+    state: icon-on
+  - type: MeleeWeapon
+    damage:
+      types:
+        Asphyxiation: 5
+  - type: Item
+    size: 15
+    sprite: Nyanotrasen/Objects/Weapons/Melee/telebaton.rsi
+  - type: StunOnHit
