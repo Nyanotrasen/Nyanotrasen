@@ -14,6 +14,7 @@ namespace Content.Server.Entry
             "ItemStatus",
             "VehicleVisuals",
             "Marker",
+            "CollapsibleVisuals",
             "MailVisuals",
             "Clickable",
             "Icon",
