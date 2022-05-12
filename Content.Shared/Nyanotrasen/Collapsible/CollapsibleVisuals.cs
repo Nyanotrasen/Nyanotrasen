@@ -8,6 +8,7 @@ namespace Content.Shared.Collapsible
     [Serializable, NetSerializable]
     public enum CollapsibleVisuals : byte
     {
-        IsCollapsed
+        IsCollapsed,
+        InhandsVisible
     }
 }

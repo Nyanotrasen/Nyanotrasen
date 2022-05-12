@@ -11,7 +11,13 @@ namespace Content.Server.Collapsible
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<CollapsibleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CollapsibleComponent, UseInHandEvent>(OnUseInHand);
+        }
+
+        private void OnInit(EntityUid uid, CollapsibleComponent component, ComponentInit args)
+        {
+            UpdateCollapsibleVisuals(uid, component.Collapsed);
         }
         private void OnUseInHand(EntityUid uid, CollapsibleComponent component, UseInHandEvent args)
         {
@@ -39,6 +45,7 @@ namespace Content.Server.Collapsible
                 return;
 
             appearance.SetData(CollapsibleVisuals.IsCollapsed, isCollapsed);
+            appearance.SetData(CollapsibleVisuals.InhandsVisible, !isCollapsed);
         }
     }
 }
