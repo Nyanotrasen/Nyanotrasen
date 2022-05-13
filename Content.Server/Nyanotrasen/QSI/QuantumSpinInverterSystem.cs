@@ -49,7 +49,7 @@ namespace Content.Server.QSI
             SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
             if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
             {
-                Transform(args.User).AttachParentToContainerOrGrid(EntityManager);
+                Transform(args.User).AttachToGridOrMap();
                 Transform(args.User).LocalPosition = Transform(container.Owner).LocalPosition;
             } else
             {
