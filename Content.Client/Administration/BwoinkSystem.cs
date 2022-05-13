@@ -24,7 +24,6 @@ namespace Content.Client.Administration
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IGameHud _hud = default!;
-
         [Dependency] private readonly IRobustRandom _random = default!;
 
         private BwoinkWindow? _adminWindow;
