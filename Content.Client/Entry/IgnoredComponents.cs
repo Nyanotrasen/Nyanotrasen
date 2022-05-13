@@ -287,6 +287,7 @@ namespace Content.Client.Entry
             "SliceableFood",
             "DamageOtherOnHit",
             "SinguloFood",
+            "ShrinkRay",
             "DamageOnLand",
             "SmokeSolutionAreaEffect",
             "FoamSolutionAreaEffect",

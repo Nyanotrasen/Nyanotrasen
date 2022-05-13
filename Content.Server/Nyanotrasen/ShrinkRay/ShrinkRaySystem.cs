@@ -1,10 +1,13 @@
 using Content.Shared.Item;
 using Content.Shared.Tag;
+using Content.Shared.Interaction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
 using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
+using Content.Server.Weapon.Ranged.Barrels.Components;
+using Content.Server.PowerCell;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
@@ -19,9 +22,12 @@ namespace Content.Server.ShrinkRay
         [Dependency] private readonly SharedShrinkRaySystem _sharedShrink = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+
+        [Dependency] private readonly PowerCellSystem _cellSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<ShrinkRayComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<ShrinkRayProjectileComponent, StartCollideEvent>(OnStartCollide);
             SubscribeLocalEvent<ShrunkenComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ShrunkenComponent, DamageModifyEvent>(OnDamageModify);
@@ -61,6 +67,25 @@ namespace Content.Server.ShrinkRay
             }
         }
 
+        private void OnAfterInteract(EntityUid uid, ShrinkRayComponent component, AfterInteractEvent args)
+        {
+            if (!args.CanReach)
+                return;
+
+            if (args.Target == null || _tagSystem.HasAnyTag((EntityUid) args.Target, "Structure", "Wall", "Window"))
+                return;
+
+            ApplySizeChange((EntityUid) args.Target, component.ScaleFactor, component.ApplyItem);
+
+            if (TryComp<BatteryBarrelComponent>(uid, out var batBarrel) && _cellSystem.TryGetBatteryFromSlot(uid, out var battery))
+            {
+                if (battery.CurrentCharge < batBarrel.BaseFireCost)
+                    return;
+
+                battery.UseCharge(batBarrel.BaseFireCost);
+            }
+        }
+
         private void OnStartCollide(EntityUid uid, ShrinkRayProjectileComponent component, StartCollideEvent args)
         {
             if (_tagSystem.HasAnyTag(args.OtherFixture.Body.Owner, "Structure", "Wall", "Window"))
@@ -71,22 +96,26 @@ namespace Content.Server.ShrinkRay
                     alreadyShrank.Accumulator = 0;
                     return;
             }
+            ApplySizeChange(args.OtherFixture.Body.Owner, component.ScaleFactor, component.ApplyItem);
+        }
 
+        public void ApplySizeChange(EntityUid target, Vector2 scaleFactor, bool applyItem)
+        {
             ShrunkenComponent shrunken = new();
-            shrunken.ScaleFactor = component.ScaleFactor;
-            shrunken.Owner = args.OtherFixture.Body.Owner;
+            shrunken.ScaleFactor = scaleFactor;
+            shrunken.Owner = target;
 
-            if (TryComp<SpriteComponent>(args.OtherFixture.Body.Owner, out var sprite)
-            && !HasComp<ShrunkenComponent>(args.OtherFixture.Body.Owner))
+            if (TryComp<SpriteComponent>(target, out var sprite)
+            && !HasComp<ShrunkenComponent>(target))
                 shrunken.OriginalScaleFactor = sprite.Scale;
 
-            EntityManager.AddComponent<ShrunkenComponent>(args.OtherFixture.Body.Owner, shrunken, true);
+            EntityManager.AddComponent<ShrunkenComponent>(target, shrunken, true);
 
-            RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor, false));
+            RaiseNetworkEvent(new SizeChangedEvent(target, scaleFactor, false));
 
-            double averageScale = ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2);
+            double averageScale = ((scaleFactor.X + scaleFactor.Y) / 2);
 
-            if (TryComp<FixturesComponent>(args.OtherFixture.Body.Owner, out var fixtures))
+            if (TryComp<FixturesComponent>(target, out var fixtures))
             {
                 var massScale = Math.Pow(averageScale, 3); /// 3 dimensions
                 shrunken.MassScale = massScale;
@@ -97,17 +126,17 @@ namespace Content.Server.ShrinkRay
                 }
             }
 
-            if (TryComp<EyeComponent>(args.OtherFixture.Body.Owner, out var eye))
+            if (TryComp<EyeComponent>(target, out var eye))
             {
                 eye.Zoom *= (float) averageScale;
             }
 
-            if (component.ApplyItem)
+            if (applyItem)
             {
-                if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
+                if (!HasComp<ItemComponent>(target) && !HasComp<SharedItemComponent>(target)) // yes it will crash without both of these
                 {
                     shrunken.ShouldHaveItemComp = false;
-                    var item = AddComp<ItemComponent>(args.OtherFixture.Body.Owner);
+                    var item = AddComp<ItemComponent>(target);
                     item.Size = 5;
                 }
             }
