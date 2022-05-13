@@ -31,7 +31,7 @@
 - type: entity
   id: BatteryGunSmall
   parent: BatteryGunBase
-  abstract: true 
+  abstract: true
   components:
   - type: PowerCellSlot
     slotSize: Small
@@ -39,7 +39,7 @@
 - type: entity
   id: BatteryGunMedium
   parent: BatteryGunBase
-  abstract: true 
+  abstract: true
   components:
   - type: PowerCellSlot
     slotSize: Medium
@@ -47,7 +47,7 @@
 - type: entity
   id: BatteryGunLarge
   parent: BatteryGunBase
-  abstract: true 
+  abstract: true
   components:
   - type: PowerCellSlot
     slotSize: Large
@@ -100,7 +100,8 @@
     size: 24
     sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
   - type: BatteryBarrel
-    fireCost: 120
+    fireCost: 240
+
 
 - type: entity
   name: svalinn laser pistol
@@ -172,7 +173,8 @@
     size: 24
     sprite: Objects/Weapons/Guns/Battery/cog.rsi
   - type: BatteryBarrel
-    fireCost: 120
+    fireCost: 140
+    ammoPrototype: RedMediumLaser
 
 - type: entity
   name: nightfall laser rifle
@@ -193,7 +195,8 @@
     size: 24
     sprite: Objects/Weapons/Guns/Battery/nightfall.rsi
   - type: BatteryBarrel
-    fireCost: 6
+    fireCost: 100
+    ammoPrototype: RedMediumLaser
   - type: Appearance
     visuals:
     - type: MagVisualizer
@@ -235,7 +238,7 @@
   name: destroyer pulse rifle
   parent: BatteryGunMedium
   id: PulseRifleDeathSquad
-  description: A weapon that fully lives up to its name. 
+  description: A weapon that fully lives up to its name.
   components:
   - type: Sprite
     netsync: false
@@ -250,7 +253,7 @@
     size: 24
     sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
   - type: BatteryBarrel
-    fireCost: 6
+    fireCost: 100
     ammoPrototype: Pulse
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -391,10 +394,10 @@
     size: 12
     sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
   - type: BatteryBarrel
-    fireCost: 6
+    fireCost: 120
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: RangedWeapon    
+  - type: RangedWeapon
   - type: PowerCellSlot
     descFormatString : "" # empty string for no examine-text (cell is not ejectable)
     cellSlot:

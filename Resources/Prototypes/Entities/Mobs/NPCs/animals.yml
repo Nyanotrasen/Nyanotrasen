@@ -560,7 +560,7 @@
         crit: kangaroo-dead
         dead: kangaroo-dead
   - type: Puller
-
+  
 - type: entity
   name: boxing kangaroo
   parent: MobKangaroo
@@ -748,6 +748,7 @@
     bloodMaxVolume: 50
   - type: DiseaseCarrier #The other class lab animal and disease vector
   - type: CanEscapeInventory
+
 
 - type: entity
   parent: MobMouse

@@ -554,6 +554,7 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
+
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintBarLocked

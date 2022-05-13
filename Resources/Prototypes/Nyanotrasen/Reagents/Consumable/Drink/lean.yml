@@ -1,0 +1,15 @@
+- type: reagent
+  id: Lean
+  name: lean
+  parent: BaseAlcohol
+  desc: A disgusting mixture of soda, booze, and cough syrup.
+  physicalDesc: strong-smelling
+  color: "#9400D3"
+  spritePath: lean.rsi
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter

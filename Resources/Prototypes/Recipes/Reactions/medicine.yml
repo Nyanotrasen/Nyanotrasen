@@ -43,18 +43,6 @@
     Bicaridine: 2
 
 - type: reaction
-  id: Codeine
-  reactants:
-    Carbon:
-      amount: 1
-    Oxygen:
-      amount: 1
-    Hydrogen:
-      amount: 1
-  products:
-    Codeine: 3
-
-- type: reaction
   id: Cryoxadone
   reactants:
     Dexalin:
