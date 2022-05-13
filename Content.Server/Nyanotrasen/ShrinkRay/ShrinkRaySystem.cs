@@ -84,9 +84,10 @@ namespace Content.Server.ShrinkRay
 
             RaiseNetworkEvent(new SizeChangedEvent(args.OtherFixture.Body.Owner, component.ScaleFactor, false));
 
+            double averageScale = ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2);
+
             if (TryComp<FixturesComponent>(args.OtherFixture.Body.Owner, out var fixtures))
             {
-                double averageScale = ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2);
                 var massScale = Math.Pow(averageScale, 3); /// 3 dimensions
                 shrunken.MassScale = massScale;
                 foreach (var fixture in fixtures.Fixtures.Values)
@@ -95,6 +96,12 @@ namespace Content.Server.ShrinkRay
                     fixture.Mass *= (float) massScale;
                 }
             }
+
+            if (TryComp<EyeComponent>(args.OtherFixture.Body.Owner, out var eye))
+            {
+                eye.Zoom *= (float) averageScale;
+            }
+
             if (component.ApplyItem)
             {
                 if (!HasComp<ItemComponent>(args.OtherFixture.Body.Owner) && !HasComp<SharedItemComponent>(args.OtherFixture.Body.Owner)) // yes it will crash without both of these
@@ -127,6 +134,11 @@ namespace Content.Server.ShrinkRay
                     fixture.Shape.Radius /= (float) component.MassScale;
                     fixture.Mass /= (float) component.MassScale;
                 }
+            }
+
+            if (TryComp<EyeComponent>(uid, out var eye))
+            {
+                eye.Zoom /= ((component.ScaleFactor.X + component.ScaleFactor.Y) / 2);
             }
         }
 
