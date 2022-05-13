@@ -21,3 +21,22 @@
   prototype: MobReptilian
   dollPrototype: MobReptilianDummy
   skinColoration: Hues
+  maleFirstNames: names_reptilian_male
+  femaleFirstNames: names_reptilian_female
+  naming: FirstDashFirst
+
+- type: species
+  id: Skeleton
+  name: Skeleton
+  roundStart: true
+  prototype: MobSkeletonPerson
+  dollPrototype: MobSkeletonPersonDummy
+  skinColoration: TintedHues
+
+#- type: species
+#  id: Vox
+#  name: Vox
+#  roundStart: true
+#  prototype: MobVox
+#  dollPrototype: MobVoxDummy
+#  skinColoration: Hues

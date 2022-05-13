@@ -4,6 +4,7 @@ using System.Linq;
 using Content.Client.Administration.Managers;
 using Content.Client.Administration.UI;
 using Content.Client.Administration.UI.CustomControls;
+using Content.Client.HUD;
 using Content.Shared.Administration;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -22,6 +23,7 @@ namespace Content.Client.Administration
         [Dependency] private readonly IClientAdminManager _adminManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IClyde _clyde = default!;
+        [Dependency] private readonly IGameHud _hud = default!;
 
         [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -48,7 +50,17 @@ namespace Content.Client.Administration
                 _clyde.RequestWindowAttention();
             }
 
-            _adminWindow?.OnBwoink(message.ChannelId);
+            // If they're not an admin force it open so they read
+            // If it's admin-admin messaging then eh.
+            if (!_adminManager.HasFlag(AdminFlags.Adminhelp))
+                _plainWindow?.Open();
+            else
+            {
+                _adminWindow?.OnBwoink(message.ChannelId);
+
+                if (_adminWindow?.IsOpen != true)
+                    _hud.SetInfoRed(true);
+            }
         }
 
         public bool TryGetChannel(NetUserId ch, [NotNullWhen(true)] out BwoinkPanel? bp) => _activePanelMap.TryGetValue(ch, out bp);
@@ -64,8 +76,6 @@ namespace Content.Client.Administration
                 if (!_adminWindow.BwoinkArea.Children.Contains(existingPanel))
                     _adminWindow.BwoinkArea.AddChild(existingPanel);
             }
-
-            if(!_adminWindow.IsOpen) _adminWindow.Open();
 
             return existingPanel;
         }
@@ -91,7 +101,6 @@ namespace Content.Client.Administration
                 bp = (BwoinkPanel) _plainWindow.Contents.GetChild(0);
             }
 
-            _plainWindow.Open();
             return bp;
         }
 
@@ -113,13 +122,17 @@ namespace Content.Client.Administration
                 return;
             }
 
+            _hud.SetInfoRed(false);
+
             if (_adminManager.HasFlag(AdminFlags.Adminhelp))
             {
                 SelectChannel(channelId.Value);
+                _adminWindow?.Open();
                 return;
             }
 
             EnsurePlain(channelId.Value);
+            _plainWindow?.Open();
         }
 
         public void Close()
