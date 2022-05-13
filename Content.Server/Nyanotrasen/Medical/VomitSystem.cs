@@ -24,6 +24,13 @@ namespace Content.Server.Medical
 
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
+            var stomachList = _bodySystem.GetComponentsOnMechanisms<StomachComponent>(uid);
+            Logger.Error("Stomach count is " + stomachList.Count);
+            if (stomachList.Count == 0)
+            {
+                return;
+            }
+
             if (TryComp<HungerComponent>(uid, out var hunger))
                 hunger.UpdateFood(hungerAdded);
 
@@ -43,8 +50,6 @@ namespace Content.Server.Medical
             SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Diseases/vomiting.ogg", uid, AudioHelpers.WithVariation(0.2f).WithVolume(-4f));
 
             _popupSystem.PopupEntity(Loc.GetString("disease-vomit", ("person", uid)), uid, Filter.Pvs(uid));
-
-            var stomachList = _bodySystem.GetComponentsOnMechanisms<StomachComponent>(uid);
 
             _solutionSystem.TryGetSolution(puddle, puddleComp.SolutionName, out var puddleSolution);
 
