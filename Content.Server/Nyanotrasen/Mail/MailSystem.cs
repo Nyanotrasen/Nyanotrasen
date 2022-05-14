@@ -73,9 +73,7 @@ namespace Content.Server.Mail
 
                 mailTeleporter.Accumulator -= (float) mailTeleporter.teleportInterval.TotalSeconds;
 
-
-                SoundSystem.Play(Filter.Pvs(mailTeleporter.Owner), "/Audio/Effects/teleport_arrival.ogg", mailTeleporter.Owner);
-                SpawnMail(mailTeleporter.Owner, mailTeleporter);
+                SpawnMail(mailTeleporter.Owner);
             }
         }
 
@@ -165,10 +163,9 @@ namespace Content.Server.Mail
             args.PushMarkup(Loc.GetString("mail-desc-close", ("name", component.Recipient), ("job", component.RecipientJob)));
         }
 
-        public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
+        public void SpawnMail(EntityUid uid)
         {
-            if (!Resolve(uid, ref component))
-                return;
+            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
             /// This needs to be revisited for multistation
             List<(string recipientName, string recipientJob, AccessComponent access)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
