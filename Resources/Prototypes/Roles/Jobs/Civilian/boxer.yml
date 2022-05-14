@@ -6,6 +6,8 @@
   - Civilian
   icon: "Boxer"
   supervisors: "the head of personnel"
+  access:
+  - Service
   special:
   - !type:AddComponentSpecial
     components:
