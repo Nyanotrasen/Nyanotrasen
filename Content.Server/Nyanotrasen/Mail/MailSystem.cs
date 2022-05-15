@@ -167,13 +167,14 @@ namespace Content.Server.Mail
         {
             SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
             /// This needs to be revisited for multistation
-            List<(string recipientName, string recipientJob, AccessComponent access)> candidateList = new();
+            List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
                 if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard) && TryComp<AccessComponent>(idCard.Owner, out var access)
                     && idCard.FullName != null && idCard.JobTitle != null)
                 {
-                    var candidateTuple = (idCard.FullName, idCard.JobTitle, access);
+                    HashSet<String> accessTags = access.Tags;
+                    var candidateTuple = (idCard.FullName, idCard.JobTitle, accessTags);
                     candidateList.Add(candidateTuple);
                 }
             }
@@ -184,7 +185,6 @@ namespace Content.Server.Mail
                 return;
             }
 
-
             for (int i = (candidateList.Count / 8) + 1; i < 3; i++)
             {
                 var mail = EntityManager.SpawnEntity(_random.Pick(MailPrototypes), Transform(uid).Coordinates);
@@ -194,7 +194,7 @@ namespace Content.Server.Mail
                 mailComp.Recipient = candidate.recipientName;
 
                 var accessReader = EnsureComp<AccessReaderComponent>(mail);
-                accessReader.AccessLists.Add(candidate.access.Tags);
+                accessReader.AccessLists.Add(candidate.accessTags);
             }
         }
 
