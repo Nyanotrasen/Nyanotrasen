@@ -337,3 +337,40 @@
   - type: Mail
     contents:
     - id: DrinkCanPack
+
+- type: entity
+  parent: BaseMail
+  id: MailFishingCap
+  suffix: fishingcap
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadFishCap
+
+- type: entity
+  parent: BaseMail
+  id: MailSignallerKit
+  suffix: signallerkit
+  components:
+  - type: Mail
+    contents:
+    - id: Multitool
+    - id: RemoteSignaller
+
+- type: entity
+  parent: BaseMail
+  id: MailSkub
+  suffix: skub
+  components:
+  - type: Mail
+    contents:
+    - id: Skub
+
+- type: entity
+  parent: BaseMail
+  id: MailSkub
+  suffix: skub
+  components:
+  - type: Mail
+    contents:
+    - id: Skub
