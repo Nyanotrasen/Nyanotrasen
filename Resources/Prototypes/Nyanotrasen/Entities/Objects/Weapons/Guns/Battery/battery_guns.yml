@@ -25,6 +25,10 @@
   name: shrink ray
   description: It shrinks people.
   components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/shrinkray.rsi
+  - type: Item
+    size: 12
   - type: BatteryBarrel
     minAngle: 10
     fireCost: 60
