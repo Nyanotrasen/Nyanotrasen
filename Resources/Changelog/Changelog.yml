@@ -1,27 +1,4 @@
 Entries:
-- author: ElectroJr
-  changes:
-  - {message: Mobs that need to breathe once again suffocate while in critical condition.,
-    type: Fix}
-  id: 1032
-  time: '2022-02-10T19:04:05.0000000+00:00'
-- author: Spillhelm53
-  changes:
-  - {message: 'Fixes certain puddles not being able to evaporate, which had been slipping
-      people forever. The janitor''s *points at wet floor sign* schadenfreude  can
-      now return to its regular safe levels.', type: Fix}
-  id: 1033
-  time: '2022-02-10T21:07:22.0000000+00:00'
-- author: Lamrr
-  changes:
-  - {message: High-voltage cables are now a little smoother., type: Tweak}
-  id: 1034
-  time: '2022-02-10T21:08:50.0000000+00:00'
-- author: Mith-randalf
-  changes:
-  - {message: 'Added some new, sensibly-sized signs.', type: Add}
-  id: 1035
-  time: '2022-02-10T21:08:56.0000000+00:00'
 - author: Fishfish458
   changes:
   - {message: Added more clothes to the ClothesMate to make greytide less grey, type: Add}
@@ -3042,3 +3019,29 @@ Entries:
       under airlocks safely.', type: Tweak}
   id: 1531
   time: '2022-05-14T04:05:04.0000000+00:00'
+- author: JustinTrotter
+  changes:
+  - {message: made lobby background keep aspect when stretching, type: Tweak}
+  id: 1532
+  time: '2022-05-15T02:06:07.0000000+00:00'
+- author: Peptide90
+  changes:
+  - {message: Asteroids are now more robust. Use a pickaxe to break them instead of
+      a welder...please., type: Tweak}
+  id: 1533
+  time: '2022-05-15T02:07:59.0000000+00:00'
+- author: mirrorcult
+  changes:
+  - {message: Flashes and stunbatons now only have effect in combat mode., type: Tweak}
+  - {message: 'Stunbatons will no longer hurt people in combat mode, if they successfully
+      stun them. Harmbatoning is no longer possible while stunning at the same time.',
+    type: Tweak}
+  - {message: Stunbaton damage reduced., type: Tweak}
+  id: 1534
+  time: '2022-05-15T02:10:34.0000000+00:00'
+- author: ShadowCommander
+  changes:
+  - {message: Fixed not being able to climb after being cloned or ejected from a medical
+      scanner., type: Fix}
+  id: 1535
+  time: '2022-05-15T09:57:13.0000000+00:00'
