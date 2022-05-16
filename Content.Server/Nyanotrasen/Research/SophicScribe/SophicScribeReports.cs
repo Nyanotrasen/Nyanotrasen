@@ -4,6 +4,12 @@ using Content.Server.Wieldable.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Botany.Components;
 using Content.Server.Botany;
+using Content.Server.Storage.Components;
+using Content.Server.OfHolding;
+using Content.Server.QSI;
+using Content.Server.ShrinkRay;
+using Content.Server.Research.Disk;
+using Content.Server.Bible.Components;
 using Content.Shared.Item;
 using Robust.Shared.Prototypes;
 
@@ -30,6 +36,28 @@ namespace Content.Server.Research.SophicScribe
 
             if (TryComp<ProduceComponent>(item, out var produce))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(produce));
+
+            if (TryComp<ServerStorageComponent>(item, out var storage))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(storage));
+
+            if (TryComp<OfHoldingComponent>(item, out var ofHolding))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(ofHolding));
+
+            if (TryComp<QuantumSpinInverterComponent>(item, out var qsi))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(qsi));
+
+            if (TryComp<ShrinkRayComponent>(item, out var shrinkRay))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(shrinkRay));
+
+            if (TryComp<ResearchDiskComponent>(item, out var disk))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(disk));
+
+            if (TryComp<BibleComponent>(item, out var bible))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(bible));
+
+        if (TryComp<SummonableComponent>(item, out var summonable))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(summonable));
+
         }
         private string AssembleReport(MeleeWeaponComponent comp)
         {
@@ -101,6 +129,76 @@ namespace Content.Server.Research.SophicScribe
             if (produce.SeedId != null && _prototypeManager.TryIndex<SeedPrototype>(produce.SeedId, out var seedPrototype))
             {
                 report += "It comes from a " + seedPrototype.DisplayName + ". ";
+            }
+
+            return report;
+        }
+
+        private string AssembleReport(ServerStorageComponent storage)
+        {
+            string report = ("It can store items with a combined size of " + storage.StorageCapacityMax + ". ");
+
+            if (storage.Whitelist != null)
+                report += "Only certain kinds of items can be stored inside.";
+
+            if (storage.Blacklist != null)
+                report += "Certain kinds of items cannot be stored inside.";
+
+            return report;
+        }
+
+        private string AssembleReport(OfHoldingComponent ofHolding)
+        {
+            string report = ("It has a bluespace pocket dimension inside. Putting another pocket dimension inside will create one of the densest objects known to the stars.");
+            return report;
+        }
+
+        private string AssembleReport(QuantumSpinInverterComponent qsi)
+        {
+            string report = "It can be bonded with another one of its kind. After it is bonded, activating it at any time will teleport its user to the location of its partner, using it up in the process.";
+            return report;
+        }
+
+        private string AssembleReport(ShrinkRayComponent shrinkRay)
+        {
+            var scale = (((shrinkRay.ScaleFactor.X + shrinkRay.ScaleFactor.Y) / 2) * 100);
+            string report = ("It's able to scale its target its " + scale + "% of that target's original size. ");
+            return report;
+        }
+
+        private string AssembleReport(ResearchDiskComponent disk)
+        {
+            string report = ("If inserted into the research server, it will provide the server with an additional " + disk.Points + " research points. ");
+            return report;
+        }
+
+        private string AssembleReport(BibleComponent bible)
+        {
+            string report = "People with the right religious training can wield this to perform miracles. ";
+            report += ("Attempting to use it without religious training will deal a total of " + bible.DamageOnUntrainedUse.Total + " damage. ");
+            if (bible.Damage.Total <= 0)
+                report += ("Otherwise, it will heal its target for " + Math.Abs((float) bible.Damage.Total) + " total damage. ");
+            else
+                report += ("Otherwise, it will damage its target for " + bible.Damage.Total + " total damage. ");
+
+            if (bible.FailChance > 0)
+            {
+                report += ("If the target is not a familiar and is not wearing anything on their head, there is a " + (bible.FailChance * 100) + "% chance to instead deal " + bible.DamageOnFail.Total + " total damage. ");
+            }
+
+            return report;
+        }
+
+        private string AssembleReport(SummonableComponent summonable)
+        {
+            var report = "It has special summoning capabilities. ";
+
+            if (summonable.RequiresBibleUser)
+                report += "Its user requires religious training to use them. ";
+
+            if (summonable.SpecialItemPrototype != null &&_prototypeManager.TryIndex<EntityPrototype>(summonable.SpecialItemPrototype, out var summoned))
+            {
+                report += "Specifically, it can summon " + summoned.Name + ". ";
             }
 
             return report;

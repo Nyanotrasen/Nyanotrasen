@@ -9,6 +9,6 @@ namespace Content.Server.Research.SophicScribe
         public float Accumulator = 0f;
 
         [DataField("SpeechDelay")]
-        public TimeSpan SpeechDelay = TimeSpan.FromSeconds(3);
+        public TimeSpan SpeechDelay = TimeSpan.FromSeconds(3.5);
     }
 }
