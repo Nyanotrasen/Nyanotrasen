@@ -1,0 +1,9 @@
+- type: entity
+  parent: StatueVenusRed
+  id: SophicScribe
+  name: sophic grammateus
+  description: It tells you all it knows about items.
+  components:
+  - type: SophicScribe
+  - type: Speech
+    speechSounds: Alto
