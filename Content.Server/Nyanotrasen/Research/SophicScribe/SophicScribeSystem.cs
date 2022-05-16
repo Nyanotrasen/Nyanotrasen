@@ -37,7 +37,7 @@ namespace Content.Server.Research.SophicScribe
 
         private void OnAfterInteractUsing(EntityUid uid, SophicScribeComponent component, AfterInteractUsingEvent args)
         {
-            if (args.Used == null)
+            if (args.Used == null || !args.CanReach)
                 return;
 
             if (component.SpeechQueue.Count != 0)

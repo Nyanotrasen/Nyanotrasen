@@ -1,13 +1,17 @@
 using Content.Server.Weapon.Melee.Components;
 using Content.Server.Damage.Components;
 using Content.Server.Wieldable.Components;
-using Content.Shared.Damage;
+using Content.Server.Nutrition.Components;
+using Content.Server.Botany.Components;
+using Content.Server.Botany;
+using Content.Shared.Item;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Research.SophicScribe
 {
     public sealed partial class SophicScribeSystem
     {
-
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         public void AssembleReport(EntityUid item, EntityUid scribe, SophicScribeComponent? scribeComponent = null)
         {
             if (!Resolve(scribe, ref scribeComponent))
@@ -15,10 +19,17 @@ namespace Content.Server.Research.SophicScribe
 
             scribeComponent.SpeechQueue.Enqueue(Loc.GetString("sophic-entity-name", ("item", item)));
 
+            if (TryComp<SharedItemComponent>(item, out var itemComp))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(itemComp));
+
             if (TryComp<MeleeWeaponComponent>(item, out var melee))
-            {
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(melee));
-            }
+
+            if (TryComp<FoodComponent>(item, out var food))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(food));
+
+            if (TryComp<ProduceComponent>(item, out var produce))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(produce));
         }
         private string AssembleReport(MeleeWeaponComponent comp)
         {
@@ -59,6 +70,37 @@ namespace Content.Server.Research.SophicScribe
             if (TryComp<DamageOtherOnHitComponent>(comp.Owner, out var thrown))
             {
                 report += ("It can be thrown to deal a total of " +  thrown.Damage.Total + " damage. ");
+            }
+
+            return report;
+        }
+
+        private string AssembleReport(SharedItemComponent item)
+        {
+            string report = ("It has a size of " + item.Size.ToString() + ". ");
+
+            var slot = item.SlotFlags.ToString().ToLower();
+
+            if (slot != "preventequip")
+                report += "It can be equipped on the " + slot + ". ";
+
+            return report;
+        }
+
+        private string AssembleReport(FoodComponent food)
+        {
+            string report = ("It's edible.");
+
+            return report;
+        }
+
+        private string AssembleReport(ProduceComponent produce)
+        {
+            string report = ("It can be grown in hydroponics. ");
+
+            if (produce.SeedId != null && _prototypeManager.TryIndex<SeedPrototype>(produce.SeedId, out var seedPrototype))
+            {
+                report += "It comes from a " + seedPrototype.DisplayName + ". ";
             }
 
             return report;
