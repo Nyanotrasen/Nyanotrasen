@@ -10,6 +10,8 @@ using Content.Server.QSI;
 using Content.Server.ShrinkRay;
 using Content.Server.Research.Disk;
 using Content.Server.Bible.Components;
+using Content.Server.Mail.Components;
+using Content.Server.Forensics;
 using Content.Shared.Item;
 using Robust.Shared.Prototypes;
 
@@ -55,9 +57,17 @@ namespace Content.Server.Research.SophicScribe
             if (TryComp<BibleComponent>(item, out var bible))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(bible));
 
-        if (TryComp<SummonableComponent>(item, out var summonable))
+            if (TryComp<SummonableComponent>(item, out var summonable))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(summonable));
 
+            if (TryComp<MailComponent>(item, out var mail))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(mail));
+
+            if (TryComp<ForensicScannerComponent>(item, out var fscanner))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(fscanner));
+
+            if (TryComp<ForensicPadComponent>(item, out var fpad))
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(fpad));
         }
         private string AssembleReport(MeleeWeaponComponent comp)
         {
@@ -161,8 +171,8 @@ namespace Content.Server.Research.SophicScribe
 
         private string AssembleReport(ShrinkRayComponent shrinkRay)
         {
-            var scale = (((shrinkRay.ScaleFactor.X + shrinkRay.ScaleFactor.Y) / 2) * 100);
-            string report = ("It's able to scale its target its " + scale + "% of that target's original size. ");
+            var scale = Math.Round(((shrinkRay.ScaleFactor.X + shrinkRay.ScaleFactor.Y) / 2) * 100);
+            string report = ("It's able to scale its target to " + scale + "% of that target's original size. ");
             return report;
         }
 
@@ -201,6 +211,28 @@ namespace Content.Server.Research.SophicScribe
                 report += "Specifically, it can summon " + summoned.Name + ". ";
             }
 
+            return report;
+        }
+
+        private string AssembleReport(MailComponent mail)
+        {
+            var report = "It can be unlocked by its intended recipient. It checks that the name, job, and accesses match. ";
+
+            if (mail.Locked)
+                report += "When unlocked by its recipient, cargo will receive " + mail.Bounty + " points";
+
+            return report;
+        }
+
+        private string AssembleReport(ForensicScannerComponent component)
+        {
+            var report = "It can be used to scan for traces of fingerprints and glove fibres. Using a forensic pad on it will quickly check against the last scanned item.";
+            return report;
+        }
+
+        private string AssembleReport(ForensicPadComponent component)
+        {
+            var report = "It can be used once to collect a fingerprint sample from someone's hands, or a fibre sample from gloves. It can be used on a forensic scanner to quickly check its sample against the last thing that scanner scanned.";
             return report;
         }
     }

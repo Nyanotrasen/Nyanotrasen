@@ -20,7 +20,7 @@ namespace Content.Server.Research.SophicScribe
             {
                 if (scribe.SpeechQueue.Count == 0)
                 {
-                    scribe.Accumulator = 2.5f;
+                    scribe.Accumulator = 4.5f;
                     continue;
                 }
 
