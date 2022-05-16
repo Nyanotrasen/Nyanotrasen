@@ -40104,7 +40104,7 @@ entities:
       - LowImpassable
       layer:
       - Impassable
-      - MidImpassable
+      - TableLayer
       - HighImpassable
       - LowImpassable
       - Opaque
@@ -54810,7 +54810,7 @@ entities:
       - LowImpassable
       layer:
       - Impassable
-      - MidImpassable
+      - TableLayer
       - HighImpassable
       - LowImpassable
       - Opaque
@@ -95036,7 +95036,7 @@ entities:
       - LowImpassable
       layer:
       - Impassable
-      - MidImpassable
+      - TableLayer
       - HighImpassable
       - LowImpassable
       - Opaque
@@ -155372,27 +155372,27 @@ entities:
     parent: 25
     type: Transform
 - uid: 14089
-  type: Bookshelf
+  type: CarpetBlue
   components:
-  - pos: -12.5,18.5
+  - pos: -9.5,22.5
     parent: 25
     type: Transform
 - uid: 14090
-  type: Bookshelf
+  type: TableStone
   components:
-  - pos: -12.5,21.5
+  - pos: -12.5,22.5
     parent: 25
     type: Transform
 - uid: 14091
-  type: Bookshelf
+  type: CarpetBlue
   components:
-  - pos: -12.5,19.5
+  - pos: -11.5,21.5
     parent: 25
     type: Transform
 - uid: 14092
-  type: Bookshelf
+  type: TableStone
   components:
-  - pos: -12.5,22.5
+  - pos: -10.5,22.5
     parent: 25
     type: Transform
 - uid: 14093
@@ -155424,9 +155424,9 @@ entities:
     parent: 25
     type: Transform
 - uid: 14097
-  type: Bookshelf
+  type: CarpetBlue
   components:
-  - pos: -12.5,20.5
+  - pos: -10.5,21.5
     parent: 25
     type: Transform
 - uid: 14098
@@ -155505,13 +155505,13 @@ entities:
     parent: 25
     type: Transform
 - uid: 14109
-  type: Bookshelf
+  type: FoodBowlBig
   components:
-  - pos: -11.5,22.5
+  - pos: -12.5,22.5
     parent: 25
     type: Transform
 - uid: 14110
-  type: Bookshelf
+  type: FoodBowlBig
   components:
   - pos: -10.5,22.5
     parent: 25
@@ -155646,45 +155646,39 @@ entities:
     parent: 25
     type: Transform
 - uid: 14129
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -11.5,20.5
+  - pos: -9.5,21.5
     parent: 25
     type: Transform
 - uid: 14130
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -11.5,21.5
+  - pos: -12.5,21.5
     parent: 25
     type: Transform
 - uid: 14131
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -10.5,20.5
+  - pos: -9.5,20.5
     parent: 25
     type: Transform
 - uid: 14132
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -10.5,21.5
+  - pos: -12.5,20.5
     parent: 25
     type: Transform
 - uid: 14133
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -9.5,20.5
+  - pos: -10.5,20.5
     parent: 25
     type: Transform
 - uid: 14134
-  type: Carpet
+  type: CarpetBlue
   components:
-  - rot: 3.141592653589793 rad
-    pos: -9.5,21.5
+  - pos: -11.5,20.5
     parent: 25
     type: Transform
 - uid: 14135
@@ -155746,9 +155740,9 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 14143
-  type: TableWood
+  type: CarpetBlue
   components:
-  - pos: -9.5,22.5
+  - pos: -11.5,22.5
     parent: 25
     type: Transform
 - uid: 14144
@@ -156015,15 +156009,15 @@ entities:
     parent: 25
     type: Transform
 - uid: 14185
-  type: d6Dice
+  type: CarpetBlue
   components:
-  - pos: -9.647576,22.752214
+  - pos: -12.5,22.5
     parent: 25
     type: Transform
 - uid: 14186
-  type: d6Dice
+  type: CarpetBlue
   components:
-  - pos: -9.366326,22.564714
+  - pos: -10.5,22.5
     parent: 25
     type: Transform
 - uid: 14187
@@ -156061,21 +156055,11 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 14191
-  type: Poweredlight
+  type: UnpoweredLightSodium
   components:
-  - pos: -12.5,22.5
+  - pos: -11.5,22.5
     parent: 25
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 14192
   type: Poweredlight
   components:
@@ -158639,9 +158623,9 @@ entities:
     parent: 25
     type: Transform
 - uid: 14406
-  type: ChairWood
+  type: SophicScribe
   components:
-  - pos: -11.5,21.5
+  - pos: -11.5,22.5
     parent: 25
     type: Transform
 - uid: 14407
