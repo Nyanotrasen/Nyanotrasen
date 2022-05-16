@@ -13,17 +13,37 @@ namespace Content.Server.Research.SophicScribe
             SubscribeLocalEvent<SophicScribeComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         }
 
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+            foreach (var scribe in EntityQuery<SophicScribeComponent>())
+            {
+                if (scribe.SpeechQueue.Count == 0)
+                {
+                    scribe.Accumulator = 2.5f;
+                    continue;
+                }
+
+                scribe.Accumulator += frameTime;
+                if (scribe.Accumulator < scribe.SpeechDelay.TotalSeconds)
+                {
+                    continue;
+                }
+
+                _chat.TrySendInGameICMessage(scribe.Owner, scribe.SpeechQueue.Dequeue(), InGameICChatType.Speak, true);
+                scribe.Accumulator = 0;
+            }
+        }
+
         private void OnAfterInteractUsing(EntityUid uid, SophicScribeComponent component, AfterInteractUsingEvent args)
         {
             if (args.Used == null)
                 return;
 
-            _chat.TrySendInGameICMessage(uid, Loc.GetString("sophic-entity-name", ("item", args.Used)), InGameICChatType.Speak, true);
+            if (component.SpeechQueue.Count != 0)
+                return;
 
-            if (TryComp<MeleeWeaponComponent>(args.Used, out var melee))
-            {
-                _chat.TrySendInGameICMessage(uid, AssembleReport(melee), InGameICChatType.Speak, true);
-            }
+            AssembleReport(args.Used, uid, component);
         }
     }
 }

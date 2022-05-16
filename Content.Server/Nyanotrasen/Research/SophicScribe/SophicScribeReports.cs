@@ -7,6 +7,19 @@ namespace Content.Server.Research.SophicScribe
 {
     public sealed partial class SophicScribeSystem
     {
+
+        public void AssembleReport(EntityUid item, EntityUid scribe, SophicScribeComponent? scribeComponent = null)
+        {
+            if (!Resolve(scribe, ref scribeComponent))
+                return;
+
+            scribeComponent.SpeechQueue.Enqueue(Loc.GetString("sophic-entity-name", ("item", item)));
+
+            if (TryComp<MeleeWeaponComponent>(item, out var melee))
+            {
+                scribeComponent.SpeechQueue.Enqueue(AssembleReport(melee));
+            }
+        }
         private string AssembleReport(MeleeWeaponComponent comp)
         {
             var report = "It's a melee weapon. ";
