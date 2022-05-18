@@ -5,11 +5,17 @@
   abstract: true
   description: A miserable pile of... uhhh, what are oni known for?
   components:
+  - type: Markings
+    layerPoints:
+      HeadTop:
+        points: 1
+        required: true
+        defaultMarkings: [OniHornTest]
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1.2, 1.2
+    scale: 1.0, 1.0
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
@@ -89,6 +95,10 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: none
+        visible: false
   - type: Body
     template: HumanoidTemplate
     preset: HumanPreset
@@ -102,11 +112,17 @@
   noSpawn: true
   description: A dummy oni meant to be used in character setup.
   components:
+  - type: Markings
+    layerPoints:
+      HeadTop:
+        points: 1
+        required: true
+        defaultMarkings: [OniHornTest]
   - type: Sprite
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1.2, 1.2
+    scale: 1.0, 1.0
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
@@ -186,3 +202,7 @@
       - map: [ "head" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: none
+        visible: false

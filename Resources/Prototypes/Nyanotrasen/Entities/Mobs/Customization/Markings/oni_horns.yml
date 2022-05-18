@@ -1,0 +1,9 @@
+- type: marking
+  id: OniHornTest
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: false
+  speciesRestriction: [Oni]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+    state: horn-test
