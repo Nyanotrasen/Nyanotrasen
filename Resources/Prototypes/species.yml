@@ -33,6 +33,14 @@
   dollPrototype: MobSkeletonPersonDummy
   skinColoration: TintedHues
 
+- type: species
+  id: Oni
+  name: Oni
+  roundStart: true
+  prototype: MobOni
+  dollPrototype: MobOniDummy
+  skinColoration: Hues
+
 #- type: species
 #  id: Vox
 #  name: Vox
