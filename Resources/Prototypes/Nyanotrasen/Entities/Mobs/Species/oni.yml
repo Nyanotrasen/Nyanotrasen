@@ -15,7 +15,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1.0, 1.0
+    scale: 1.2, 1.2
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
@@ -99,9 +99,27 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 1.35
+        Slash: 1.2
+        Piercing: 1.2
+        Asphyxiation: 1.35
   - type: Body
     template: HumanoidTemplate
     preset: HumanPreset
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.42
+      mass: 120
+      restitution: 0.0
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
   - type: Farter
 
 - type: entity
