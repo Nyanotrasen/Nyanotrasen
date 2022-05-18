@@ -213,6 +213,7 @@ namespace Content.Client.Entry
             "GasValve",
             "GasThermoMachine",
             "Respirator",
+            "MeleeSound",
             "Metabolizer",
             "AiFactionTag",
             "PressureProtection",
