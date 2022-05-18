@@ -1,9 +1,19 @@
 - type: marking
-  id: OniHornTest
+  id: OniHornSingleCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: horn-test
+    state: single_curved
+
+- type: marking
+  id: OniHornDoubleCurvedOutwards
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: false
+  speciesRestriction: [Oni]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+    state: double_curved_outwards

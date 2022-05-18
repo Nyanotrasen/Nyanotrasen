@@ -106,6 +106,9 @@
         Slash: 1.2
         Piercing: 1.2
         Asphyxiation: 1.35
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Oni
   - type: Body
     template: HumanoidTemplate
     preset: HumanPreset
