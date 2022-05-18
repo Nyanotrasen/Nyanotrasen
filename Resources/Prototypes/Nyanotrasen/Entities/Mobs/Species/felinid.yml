@@ -100,14 +100,14 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      sprite: Mobs/Customization/masking_helpers.rsi
-      state: none
-      visible: false
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: none
+      visible: false
   - type: Body
     template: HumanoidTemplate
     preset: FelinidPreset
@@ -119,7 +119,7 @@
       collection: Punch
     range: 0.8
     arcwidth: 30
-    arc: fist
+    arc: claw
     damage:
       types:
         Blunt: 1
@@ -226,15 +226,15 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
       - map: ["mask"]
       - map: ["head"]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: ["hand-left"]
       - map: ["hand-right"]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: none
+        visible: false
 
 #Nya~
