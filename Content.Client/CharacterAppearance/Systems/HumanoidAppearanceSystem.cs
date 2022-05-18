@@ -40,11 +40,6 @@ namespace Content.Client.CharacterAppearance.Systems
             HumanoidVisualLayers.LFoot
         };
 
-        private readonly HumanoidVisualLayers[] _otherBodyPartLayers = {
-            HumanoidVisualLayers.FelinidTailFront,
-            HumanoidVisualLayers.EarsOuter,
-        };
-
         private void UpdateLooks(EntityUid uid, HumanoidAppearanceComponent component,
             ChangedHumanoidAppearanceEvent args)
         {
@@ -97,12 +92,6 @@ namespace Content.Client.CharacterAppearance.Systems
 
                 var facialHairPrototype = _prototypeManager.Index<SpriteAccessoryPrototype>(facialHairStyle);
                 sprite.LayerSetSprite(facialLayer, facialHairPrototype.Sprite);
-            }
-
-            foreach (var layer in _otherBodyPartLayers)
-            {
-                if (!sprite.LayerMapTryGet(layer, out var actualLayer)) continue;
-                sprite.LayerSetColor(actualLayer, component.Appearance.HairColor);
             }
 
             foreach (var layer in BodyPartLayers)
