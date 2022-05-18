@@ -338,6 +338,7 @@ namespace Content.Client.Entry
             "ExtensionCableProvider",
             "ApcNetworkConnection",
             "Gatherable",
+            "Oni",
             "SuitSensor",
             "CrewMonitoringConsole",
             "ApcNetSwitch",

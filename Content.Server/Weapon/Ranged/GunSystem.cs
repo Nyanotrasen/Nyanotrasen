@@ -229,24 +229,24 @@ public sealed partial class GunSystem : EntitySystem
         var angle = Angle.FromDegrees(direction.Degrees + component.CurrentAngle.Degrees * random);
         return angle;
     }
+}
 
-    /// <summary>
-    /// Raised on a gun when it fires.
-    /// </summary>
-    public sealed class GunShotEvent : EntityEventArgs
+/// <summary>
+/// Raised on a gun when it fires.
+/// </summary>
+public sealed class GunShotEvent : EntityEventArgs
+{
+
+}
+
+public sealed class GunFireAttemptEvent : CancellableEntityEventArgs
+{
+    public EntityUid? User = null;
+    public ServerRangedWeaponComponent Weapon;
+
+    public GunFireAttemptEvent(EntityUid? user, ServerRangedWeaponComponent weapon)
     {
-
-    }
-
-    public sealed class GunFireAttemptEvent : CancellableEntityEventArgs
-    {
-        public EntityUid? User = null;
-        public ServerRangedWeaponComponent Weapon;
-
-        public GunFireAttemptEvent(EntityUid? user, ServerRangedWeaponComponent weapon)
-        {
-            User = user;
-            Weapon = weapon;
-        }
+        User = user;
+        Weapon = weapon;
     }
 }
