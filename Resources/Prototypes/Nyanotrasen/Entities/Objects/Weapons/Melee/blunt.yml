@@ -11,11 +11,17 @@
     damage:
       types:
         Blunt: 22
+    hitSound:
+      path: /Audio/Weapons/club.ogg
+    missSound:
+      path: /Audio/Weapons/club-miss.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     modifiers:
       flatReductions:
         Blunt: -8
-  - type: Item
+  - type: Clothing
     size: 20
     sprite: Nyanotrasen/Objects/Weapons/Melee/kanabou.rsi
+    Slots:
+    - back
