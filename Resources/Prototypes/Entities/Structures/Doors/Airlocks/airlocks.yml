@@ -24,6 +24,22 @@
     
 - type: entity
   parent: Airlock
+  id: AirlockAtmospherics
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockAtmospherics
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+
+- type: entity
+  parent: Airlock
   id: AirlockCargo
   suffix: Cargo
   components:
@@ -85,6 +101,11 @@
   parent: Airlock
   name: glass airlock
   components:
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Effects/glass_hit.ogg"
   - type: Door
     occludes: false
   - type: Occluder
@@ -126,6 +147,26 @@
     sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
   - type: PaintableAirlock
     group: Glass    
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockAtmosphericsGlass
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+  - type: PaintableAirlock
+    group: Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockAtmosphericsGlass
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+  - type: PaintableAirlock
+    group: Glass
 
 - type: entity
   parent: AirlockGlass

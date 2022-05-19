@@ -34,7 +34,9 @@
 #*.modelproj merge=binary
 #*.sqlproj   merge=binary
 #*.wwaproj   merge=binary
-Resources/Maps/**.yml merge=mapping-merge-driver
+*/Maps/*.yml merge=ours
+*Rules.txt merge=ours
+
 
 ###############################################################################
 # behavior for image files

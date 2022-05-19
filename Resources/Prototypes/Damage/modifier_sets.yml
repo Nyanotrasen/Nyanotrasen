@@ -7,6 +7,7 @@
     Shock: 1.2
   flatReductions:
     Blunt: 5
+    Heat: 5
 
 # Like metallic, but without flat reduction so it can be damaged with fists.
 - type: damageModifierSet
@@ -109,6 +110,13 @@
   id: Felinid
   coefficients:
     Blunt: 1.15
+
+- type: damageModifierSet
+  id: Oni
+  coefficients:
+    Blunt: 0.85
+    Slash: 0.9
+    Piercing: 0.95
 
 - type: damageModifierSet
   id: Scale # Skin tougher, bones weaker, strong stomachs, cold-blooded (kindof)

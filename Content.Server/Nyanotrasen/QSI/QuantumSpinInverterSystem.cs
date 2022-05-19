@@ -50,10 +50,10 @@ namespace Content.Server.QSI
             if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
             {
                 Transform(args.User).AttachToGridOrMap();
-                Transform(args.User).LocalPosition = Transform(container.Owner).LocalPosition;
+                Transform(args.User).Coordinates = Transform(container.Owner).Coordinates;
             } else
             {
-                Transform(args.User).LocalPosition = Transform((EntityUid) component.Partner).LocalPosition;
+                Transform(args.User).Coordinates = Transform((EntityUid) component.Partner).Coordinates;
             }
 
 

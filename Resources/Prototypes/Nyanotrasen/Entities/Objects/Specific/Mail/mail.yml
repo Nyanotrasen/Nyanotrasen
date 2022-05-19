@@ -207,3 +207,170 @@
   - type: Mail
     contents:
     - id: Katana
+
+- type: entity
+  parent: BaseMail
+  id: MailCigars
+  suffix: Cigars
+  components:
+  - type: Mail
+    contents:
+    - id: CigarCase
+    - id: Lighter 
+
+- type: entity
+  parent: BaseMail
+  id: MailKnife
+  suffix: Knife
+  components:
+  - type: Mail
+    contents:
+    - id: CombatKnife
+
+- type: entity
+  parent: BaseMail
+  id: MailFlashlight
+  suffix: Flashlight
+  components:
+  - type: Mail
+    contents:
+    - id: FlashlightSeclite
+
+- type: entity
+  parent: BaseMail
+  id: MailHighlander
+  suffix: highlander
+  components:
+  - type: Mail
+    contents:
+    - id: Claymore
+    - id: ClothingUniformJumpskirtColorRed
+    - id: ClothingHeadHatBeret
+    - id: DrinkRedMeadGlass
+
+- type: entity
+  parent: BaseMail
+  id: MailNoir
+  suffix: noir
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitDetectiveGrey
+    - id: ClothingUniformJumpskirtDetectiveGrey
+    - id: ClothingHeadHatBowlerHat
+    - id: ClothingOuterCoatGentle
+
+- type: entity
+  parent: BaseMail
+  id: MailBooks
+  suffix: books
+  components:
+  - type: Mail
+    contents:
+    - id: BookDemonomiconRandom
+      prob: 0.5
+    - id: BookChemistryInsane
+      prob: 0.10
+    - id: BookBotanicalTextbook
+      prob: 0.5
+    - id: BookFishing
+      prob: 0.10
+    - id: BookDetective
+      prob: 0.10
+    - id: BookGnominomicon
+      prob: 0.2
+
+- type: entity
+  parent: BaseMail
+  id: MailAMEGuide
+  suffix: ameguide
+  components:
+  - type: Mail
+    contents:
+    - id: PaperWrittenAMEScribbles
+    - id: Pen
+
+- type: entity
+  parent: BaseMail
+  id: MailMakeshiftLaserPistol
+  suffix: makeshiftlaserpistol
+  components:
+  - type: Mail
+    contents:
+    - id: MakeshiftLaser
+    - id: ClothingHandsGlovesColorYellowBudget
+
+- type: entity
+  parent: BaseMail
+  id: MailBlockGameDIY
+  suffix: blockgamediy
+  components:
+  - type: Mail
+    contents:
+    - id: BlockGameArcadeComputerCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceVillainDIY
+  suffix: spacevilliandiy
+  components:
+  - type: Mail
+    contents:
+    - id: SpaceVillainArcadeComputerCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailWizardCosplay
+  suffix: wizardcosplay
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWizard
+    - id: ClothingHeadHatWizardFake
+    - id: ClothingShoesWizard
+
+- type: entity
+  parent: BaseMail
+  id: MailSixPack
+  suffix: sixpack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkCanPack
+
+- type: entity
+  parent: BaseMail
+  id: MailFishingCap
+  suffix: fishingcap
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadFishCap
+
+- type: entity
+  parent: BaseMail
+  id: MailSignallerKit
+  suffix: signallerkit
+  components:
+  - type: Mail
+    contents:
+    - id: Multitool
+    - id: RemoteSignaller
+
+- type: entity
+  parent: BaseMail
+  id: MailSkub
+  suffix: skub
+  components:
+  - type: Mail
+    contents:
+    - id: Skub
+
+- type: entity
+  parent: BaseMail
+  id: MailSkub
+  suffix: skub
+  components:
+  - type: Mail
+    contents:
+    - id: Skub
