@@ -52366,7 +52366,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4775
-  type: UnpoweredLightSodium
+  type: AlwaysPoweredLightSodium
   components:
   - rot: 1.5707963267948966 rad
     pos: -28.5,-19.5
@@ -69685,7 +69685,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 6496
-  type: UnpoweredLightSodium
+  type: AlwaysPoweredLightSodium
   components:
   - rot: 1.5707963267948966 rad
     pos: -30.5,-13.5
