@@ -21,7 +21,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-
+        [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         public override void Initialize()
         {
@@ -143,6 +143,7 @@ namespace Content.Server.Carrying
             _actionBlockerSystem.UpdateCanMove(carried);
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             Transform(carried).AttachToGridOrMap();
+            _standingState.Stand(carried);
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
