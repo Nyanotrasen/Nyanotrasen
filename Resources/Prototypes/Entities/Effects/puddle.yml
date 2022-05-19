@@ -57,6 +57,7 @@
     - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
+  - type: StepTrigger
 
 - type: entity
   name: puddle
@@ -75,6 +76,8 @@
       recolor: true
   - type: Slippery
     launchForwardsMultiplier: 2.0
+  - type: StepTrigger
+
 - type: entity
   name: puddle
   id: PuddleSplatter
@@ -91,6 +94,8 @@
     - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
+  - type: StepTrigger
+
 - type: entity
   id: PuddleBlood
   name: blood
@@ -144,8 +149,38 @@
           Quantity: 5
         - ReagentId: Water
           Quantity: 5
+  - type: Appearance
+    visuals:
+    - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
+  - type: StepTrigger
+
+- type: entity
+  name: toxins vomit
+  id: PuddleVomitToxin
+  parent: PuddleVomit
+  description: You probably don't want to get too close to this.
+  components:
+  - type: Sprite
+    sprite: Fluids/vomit_toxin.rsi
+    state: vomit_toxin-0
+    netsync: false
+  - type: Puddle
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 5
+        - ReagentId: Water
+          Quantity: 5
+  - type: Appearance
+    visuals:
+    - type: PuddleVisualizer
+  - type: Slippery
+    launchForwardsMultiplier: 2.0
+  - type: StepTrigger
 
 - type: entity
   name: writing
@@ -164,3 +199,4 @@
     - type: PuddleVisualizer
   - type: Slippery
     launchForwardsMultiplier: 2.0
+  - type: StepTrigger
