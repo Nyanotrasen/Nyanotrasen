@@ -1,4 +1,5 @@
-using Content.Shared.Movement.EntitySystems;
+using System.Threading;
+using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
 using Content.Shared.MobState.Components;
@@ -16,12 +17,13 @@ namespace Content.Server.Carrying
     {
         [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+            SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
         }
 
 
@@ -43,7 +45,7 @@ namespace Content.Server.Carrying
             {
                 Act = () =>
                 {
-                    Carry(args.User, uid);
+                    StartCarryDoAfter(args.User, uid, component);
                 },
                 Text = Loc.GetString("carry-verb"),
                 Priority = 2
@@ -57,6 +59,42 @@ namespace Content.Server.Carrying
                 return;
 
             DropCarried(uid, args.BlockingEntity);
+        }
+
+        private void OnCarrySuccess(CarrySuccessfulEvent ev)
+        {
+            if (!CanCarry(ev.Carrier, ev.Carried, ev.Component))
+                return;
+
+            Carry(ev.Carrier, ev.Carried);
+        }
+
+        private void OnCarryCancelled(CarryCancelledEvent ev)
+        {
+            if (ev.Component == null)
+                return;
+
+            ev.Component.CancelToken = null;
+        }
+
+        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
+        {
+            if (component.CancelToken != null)
+            {
+                component.CancelToken.Cancel();
+                component.CancelToken = null;
+            }
+
+            component.CancelToken = new CancellationTokenSource();
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, 3f, component.CancelToken.Token, target: carried)
+            {
+                BroadcastFinishedEvent = new CarrySuccessfulEvent(carrier, carried, component),
+                BroadcastCancelledEvent = new CarryCancelledEvent(carrier, component),
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                BreakOnStun = true,
+                NeedHand = true
+            });
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)
@@ -120,6 +158,35 @@ namespace Content.Server.Carrying
                 return false;
 
             return true;
+        }
+
+        private sealed class CarryCancelledEvent : EntityEventArgs
+        {
+            public EntityUid Uid;
+
+            public CarriableComponent Component;
+
+            public CarryCancelledEvent(EntityUid uid, CarriableComponent component)
+            {
+                Uid = uid;
+                Component = component;
+            }
+        }
+
+        private sealed class CarrySuccessfulEvent : EntityEventArgs
+        {
+            public EntityUid Carrier;
+
+            public EntityUid Carried;
+
+            public CarriableComponent Component;
+
+            public CarrySuccessfulEvent(EntityUid carrier, EntityUid carried, CarriableComponent component)
+            {
+                Carrier = carrier;
+                Carried = carried;
+                Component = component;
+            }
         }
     }
 }
