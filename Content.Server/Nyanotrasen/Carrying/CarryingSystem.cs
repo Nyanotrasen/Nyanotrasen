@@ -6,9 +6,12 @@ using Content.Shared.MobState.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Carrying;
-using Robust.Shared.Containers;
+using Content.Shared.Movement;
+using Content.Shared.Standing;
+using Content.Shared.ActionBlocker;
 using Robust.Shared.Physics;
 
 namespace Content.Server.Carrying
@@ -18,12 +21,18 @@ namespace Content.Server.Carrying
         [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+
+        [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+            SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
+            SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
+            SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
             SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
+            SubscribeLocalEvent<CarryCancelledEvent>(OnCarryCancelled);
         }
 
 
@@ -59,6 +68,22 @@ namespace Content.Server.Carrying
                 return;
 
             DropCarried(uid, args.BlockingEntity);
+        }
+
+        private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
+        {
+            args.Cancel();
+        }
+
+        private void OnStandAttempt(EntityUid uid, BeingCarriedComponent component, StandAttemptEvent args)
+        {
+            args.Cancel();
+        }
+
+        private void OnInteractedWith(EntityUid uid, BeingCarriedComponent component, GettingInteractedWithAttemptEvent args)
+        {
+            if (args.Uid != component.Carrier)
+                args.Cancel();
         }
 
         private void OnCarrySuccess(CarrySuccessfulEvent ev)
@@ -105,12 +130,17 @@ namespace Content.Server.Carrying
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
             EnsureComp<CarryingComponent>(carrier);
             ApplyCarrySlowdown(carrier, carried);
+            var carriedComp = EnsureComp<BeingCarriedComponent>(carried);
+            carriedComp.Carrier = carrier;
+            _actionBlockerSystem.UpdateCanMove(carried);
         }
 
-        private void DropCarried(EntityUid carrier, EntityUid carried)
+        public void DropCarried(EntityUid carrier, EntityUid carried)
         {
             RemComp<CarryingComponent>(carrier); // get rid of this first so we don't recusrively fire that event
             RemComp<CarryingSlowdownComponent>(carrier);
+            RemComp<BeingCarriedComponent>(carried);
+            _actionBlockerSystem.UpdateCanMove(carried);
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             Transform(carried).AttachToGridOrMap();
         }

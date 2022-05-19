@@ -2,6 +2,7 @@ using Content.Shared.Movement;
 using Content.Server.DoAfter;
 using Robust.Shared.Containers;
 using Content.Server.Popups;
+using Content.Server.Carrying;
 using Content.Shared.Movement.EntitySystems;
 using Robust.Shared.Player;
 using Content.Shared.Storage;
@@ -15,6 +16,7 @@ public sealed class EscapeInventorySystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly CarryingSystem _carryingSystem = default!;
 
     public override void Initialize()
     {
@@ -32,8 +34,14 @@ public sealed class EscapeInventorySystem : EntitySystem
         if (component.IsResisting == true)
             return;
 
-        if (_containerSystem.TryGetContainingContainer(uid, out var container)
-            && (HasComp<SharedStorageComponent>(container.Owner) || HasComp<InventoryComponent>(container.Owner) || HasComp<SharedHandsComponent>(container.Owner)))
+        if (TryComp<BeingCarriedComponent>(uid, out var carriedComp))
+        {
+            AttemptEscape(uid, carriedComp.Carrier, component);
+            return;
+        }
+
+        if ((_containerSystem.TryGetContainingContainer(uid, out var container)
+            && (HasComp<SharedStorageComponent>(container.Owner) || HasComp<InventoryComponent>(container.Owner) || HasComp<SharedHandsComponent>(container.Owner))))
         {
             AttemptEscape(uid, container.Owner, component);
         }
@@ -67,6 +75,10 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnEscapeComplete(EntityUid uid, CanEscapeInventoryComponent component, EscapeDoAfterComplete ev)
     {
+        if (TryComp<BeingCarriedComponent>(uid, out var carriedComp))
+        {
+            _carryingSystem.DropCarried(carriedComp.Carrier, uid);
+        }
         //Drops the mob on the tile below the container
         Transform(uid).AttachParentToContainerOrGrid(EntityManager);
         component.IsResisting = false;
