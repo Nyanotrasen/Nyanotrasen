@@ -1,0 +1,35 @@
+- type: constructionGraph
+  id: HonkBot
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: bot
+      steps:
+      - prototype: BoxHug
+        icon:
+          sprite: Objects/Storage/boxes.rsi
+          state: box_hug
+        name: box of hugs
+      - prototype: RubberStampClown
+        icon:
+          sprite: Objects/Misc/bureaucracy.rsi
+          state: stamp-clown
+        name: clown's rubber stamp
+      - prototype: BikeHorn
+        icon:
+            sprite: Objects/Fun/bikehorn.rsi
+            state: icon
+        name: bike horn
+      - prototype: ProximitySensor
+        icon:
+          sprite: Nyanotrasen/Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
+      - tag: BorgArm
+        icon:
+          sprite: Mobs/Silicon/drone.rsi
+          state: l_hand
+        name: borg arm
+  - node: bot
+    entity: MobHonkBot

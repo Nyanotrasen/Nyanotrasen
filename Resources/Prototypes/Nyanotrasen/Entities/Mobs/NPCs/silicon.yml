@@ -43,8 +43,6 @@
   - type: UtilityAI
     behaviorSets:
     - Idle
-  - type: Input
-    context: "human"
   - type: AiFactionTag
     factions:
     - SimpleNeutral
@@ -75,7 +73,6 @@
     fuelcost: 15
     doAfterDelay: 8
   - type: Pullable
-  - type: PlayerInputMover
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -127,3 +124,6 @@
       layer:
       - MobLayer
       - SlipLayer
+  - type: Construction
+    graph: HonkBot
+    node: bot
