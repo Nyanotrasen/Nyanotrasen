@@ -1,0 +1,65 @@
+- type: entity
+  parent: WallBase
+  id: WallSupernorn
+  name: solid wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+      - RCDDeconstructWhitelist
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Walls/supernorn.rsi
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Walls/supernorn.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: walls
+    base: supernorn
+
+- type: entity
+  parent: WallBase
+  id: WallSupernornR
+  name: reinforced wall
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Walls/supernorn.rsi
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Walls/supernorn.rsi
+    state: full_r
+  - type: Construction
+    graph: Girder
+    node: reinforcedWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1200 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: supernorn_r
+  - type: Appearance
+    visuals:
+      - type: ReinforcedWallVisualizer
