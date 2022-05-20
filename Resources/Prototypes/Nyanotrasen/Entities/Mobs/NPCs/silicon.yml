@@ -43,8 +43,6 @@
   - type: UtilityAI
     behaviorSets:
     - Idle
-  - type: Input
-    context: "human"
   - type: AiFactionTag
     factions:
     - SimpleNeutral
@@ -95,4 +93,37 @@
     - CleanBot
   - type: Construction
     graph: CleanBot
+    node: bot
+
+- type: entity
+  parent: MobSiliconBase
+  id: MobHonkBot
+  name: honkbot
+  description: Horrifying.
+  components:
+  - type: HonkBot
+  - type: UtilityAI
+    behaviorSets:
+    - Idle
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Nyanotrasen/Mobs/Robots/honkbot.rsi
+    state: honkbot
+  - type: Slippery
+    launchForwardsMultiplier: 6.0
+  - type: StepTrigger
+    intersectRatio: 0.2
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      mass: 20
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+      - SlipLayer
+  - type: Construction
+    graph: HonkBot
     node: bot
