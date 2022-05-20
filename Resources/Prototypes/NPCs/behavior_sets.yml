@@ -30,8 +30,9 @@
 - type: behaviorSet
   id: CleanBot
   actions:
+  - BufferNearbyPuddlesExp
   - WanderAndWait
-  - GoToPuddleAndWait
+
 
 - type: behaviorSet
   id: Spirate
