@@ -54,6 +54,7 @@ namespace Content.Client.Entry
             "Healing",
             "OfHolding",
             "MailTeleporter",
+            "FloorBuffer",
             "Mail",
             "Material",
             "RandomAppearance",
