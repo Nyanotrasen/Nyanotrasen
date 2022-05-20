@@ -28,6 +28,12 @@
   - MoveRightAndLeftTen
 
 - type: behaviorSet
+  id: CleanBot
+  actions:
+  - WanderAndWait
+  - GoToPuddleAndWait
+
+- type: behaviorSet
   id: Spirate
   actions:
   - EquipMeleeExp

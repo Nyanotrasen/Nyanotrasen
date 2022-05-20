@@ -90,3 +90,6 @@
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Robots/cleanbot.rsi
     state: cleanbot
+  - type: UtilityAI
+    behaviorSets:
+    - CleanBot
