@@ -9,7 +9,7 @@
 
 - type: entity
   id: LeftHandDrone
-  name: "left drone hand"
+  name: "left borg arm"
   parent: PartSilicon
   components:
   - type: Sprite
@@ -32,7 +32,7 @@
 
 - type: entity
   id: RightHandDrone
-  name: "right drone hand"
+  name: "right borg arm"
   parent: PartSilicon
   components:
   - type: Sprite
