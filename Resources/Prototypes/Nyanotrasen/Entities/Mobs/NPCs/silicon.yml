@@ -81,7 +81,7 @@
 
 - type: entity
   parent: MobSiliconBase
-  id: CleanBot
+  id: MobCleanBot
   name: cleanbot
   description: The creep of automation now threatening space janitors.
   components:
@@ -93,3 +93,6 @@
   - type: UtilityAI
     behaviorSets:
     - CleanBot
+  - type: Construction
+    graph: CleanBot
+    node: bot
