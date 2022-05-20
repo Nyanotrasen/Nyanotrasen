@@ -193,6 +193,7 @@
   - type: Slippery
     paralyzeTime: 4
     launchForwardsMultiplier: 9.0
+  - type: StepTrigger
   - type: CollisionWake
     enabled: false
   - type: Physics
