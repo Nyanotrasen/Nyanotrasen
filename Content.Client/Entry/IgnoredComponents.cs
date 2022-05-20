@@ -16,6 +16,7 @@ namespace Content.Client.Entry
             "Destructible",
             "Temperature",
             "AtmosExposed",
+            "HonkBot",
             "Explosive",
             "ExplosionResistance",
             "Vocal",
