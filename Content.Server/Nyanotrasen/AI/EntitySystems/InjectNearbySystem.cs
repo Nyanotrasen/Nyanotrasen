@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
+using Content.Server.AI.Tracking;
 using Content.Shared.MobState.Components;
 using Content.Shared.Damage;
 
@@ -35,12 +36,14 @@ namespace Content.Server.AI.EntitySystems
             if (damage.TotalDamage <= 50)
             {
                 _solutionSystem.TryAddReagent(target, injectable, "Tricordrazine", 15, out var accepted);
+                EnsureComp<RecentlyInjectedComponent>(target);
                 return true;
             }
 
             if (damage.TotalDamage >= 100)
             {
                 _solutionSystem.TryAddReagent(target, injectable, "Inaprovaline", 15, out var accepted);
+                EnsureComp<RecentlyInjectedComponent>(target);
                 return true;
             }
 
