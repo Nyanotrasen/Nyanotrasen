@@ -67,8 +67,6 @@
     - Electrocution
   - type: NameIdentifier
     group: GenericNumber
-  - type: ReplacementAccent
-    accent: silicon
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8
@@ -154,3 +152,4 @@
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Robots/medibot.rsi
     state: medibot
+  - type: Speech
