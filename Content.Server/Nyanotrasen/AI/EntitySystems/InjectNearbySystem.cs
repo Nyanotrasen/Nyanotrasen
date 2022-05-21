@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.MobState.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Player;
+using Robust.Shared.Audio;
 
 namespace Content.Server.AI.EntitySystems
 {
@@ -41,6 +42,7 @@ namespace Content.Server.AI.EntitySystems
                 _solutionSystem.TryAddReagent(target, injectable, "Tricordrazine", 15, out var accepted);
                 EnsureComp<RecentlyInjectedComponent>(target);
                 _popupSystem.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, Filter.Entities(target));
+                SoundSystem.Play(Filter.Pvs(target), "/Audio/Items/hypospray.ogg", target);
                 return true;
             }
 
@@ -49,6 +51,7 @@ namespace Content.Server.AI.EntitySystems
                 _solutionSystem.TryAddReagent(target, injectable, "Inaprovaline", 15, out var accepted);
                 EnsureComp<RecentlyInjectedComponent>(target);
                 _popupSystem.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, Filter.Entities(target));
+                SoundSystem.Play(Filter.Pvs(target), "/Audio/Items/hypospray.ogg", target);
                 return true;
             }
 
