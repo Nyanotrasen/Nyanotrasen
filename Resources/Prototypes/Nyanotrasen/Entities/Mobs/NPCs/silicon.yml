@@ -67,8 +67,6 @@
     - Electrocution
   - type: NameIdentifier
     group: GenericNumber
-  - type: ReplacementAccent
-    accent: silicon
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8
@@ -76,6 +74,19 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
 
 - type: entity
   parent: MobSiliconBase
@@ -126,4 +137,22 @@
       - SlipLayer
   - type: Construction
     graph: HonkBot
+    node: bot
+
+- type: entity
+  parent: MobSiliconBase
+  id: MobMedibot
+  name: medibot
+  description: No substitute for a doctor, but better than nothing.
+  components:
+  - type: UtilityAI
+    behaviorSets:
+    - MediBot
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Nyanotrasen/Mobs/Robots/medibot.rsi
+    state: medibot
+  - type: Speech
+  - type: Construction
+    graph: MediBot
     node: bot
