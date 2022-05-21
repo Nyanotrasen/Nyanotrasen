@@ -2,6 +2,7 @@ using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.AI.Tracking;
 using Content.Server.Popups;
+using Content.Server.Chat;
 using Content.Shared.MobState.Components;
 using Content.Shared.Damage;
 using Robust.Shared.Player;
@@ -14,6 +15,7 @@ namespace Content.Server.AI.EntitySystems
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly ChatSystem _chat = default!;
 
         public EntityUid GetNearbyInjectable(EntityUid medibot, float range = 4)
         {
@@ -43,6 +45,7 @@ namespace Content.Server.AI.EntitySystems
                 EnsureComp<RecentlyInjectedComponent>(target);
                 _popupSystem.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, Filter.Entities(target));
                 SoundSystem.Play(Filter.Pvs(target), "/Audio/Items/hypospray.ogg", target);
+                _chat.TrySendInGameICMessage(medibot, Loc.GetString("medibot-finish-inject"), InGameICChatType.Speak, false);
                 return true;
             }
 
@@ -52,6 +55,7 @@ namespace Content.Server.AI.EntitySystems
                 EnsureComp<RecentlyInjectedComponent>(target);
                 _popupSystem.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), target, Filter.Entities(target));
                 SoundSystem.Play(Filter.Pvs(target), "/Audio/Items/hypospray.ogg", target);
+                _chat.TrySendInGameICMessage(medibot, Loc.GetString("medibot-finish-inject"), InGameICChatType.Speak, false);
                 return true;
             }
 
