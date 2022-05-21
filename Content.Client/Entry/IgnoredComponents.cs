@@ -64,6 +64,7 @@ namespace Content.Client.Entry
             "DiseaseVaccine",
             "SophicScribe",
             "DiseaseVaccineCreator",
+            "ImmovableRod",
             "DiseaseZombie",
             "DiseaseBuildup",
             "Carriable",
