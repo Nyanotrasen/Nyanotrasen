@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Server.Chat;
 using Content.Shared.MobState.Components;
 using Content.Shared.Damage;
+using Content.Shared.Interaction;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 
@@ -16,6 +17,7 @@ namespace Content.Server.AI.EntitySystems
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
 
         public EntityUid GetNearbyInjectable(EntityUid medibot, float range = 4)
         {
@@ -35,6 +37,9 @@ namespace Content.Server.AI.EntitySystems
 
             if (!_solutionSystem.TryGetInjectableSolution(target, out var injectable))
                 return false;
+
+            if (!_interactionSystem.InRangeUnobstructed(medibot, target))
+                return true; // return true lets the bot reattempt the action on the same target
 
             if (damage.TotalDamage == 0)
                 return false;
