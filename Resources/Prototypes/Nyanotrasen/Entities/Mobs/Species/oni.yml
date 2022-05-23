@@ -10,7 +10,7 @@
       HeadTop:
         points: 1
         required: true
-        defaultMarkings: [OniHornTest]
+        defaultMarkings: [OniHornSingleCurved]
   - type: Speech
     speechSounds: Baritone
   - type: Sprite
@@ -140,7 +140,7 @@
       HeadTop:
         points: 1
         required: true
-        defaultMarkings: [OniHornTest]
+        defaultMarkings: [OniHornSingleCurved]
   - type: Sprite
     netsync: false
     noRot: true
