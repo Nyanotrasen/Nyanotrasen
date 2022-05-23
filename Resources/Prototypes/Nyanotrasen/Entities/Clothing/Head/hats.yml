@@ -47,3 +47,17 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadTechPriest
+  name: automaturge hood
+  description: Protects the mind that makes artificial minds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/techpriest.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/techpriest.rsi
+  - type: Tag
+    tags:
+    - HidesHair

@@ -1,0 +1,25 @@
+- type: job
+  id: Automaturge
+  name: "areopagite"
+  startingGear: AutomaturgeGear
+  departments:
+  - Epistemics
+  icon: "Detective"
+  supervisors: "the mystagogue"
+  access:
+  - Research
+  - Maintenance
+
+- type: startingGear
+  id: AutomaturgeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    head: ClothingHeadTechPriest
+    id: DetectivePDA
+    outerClothing: ClothingOuterRobeTechPriest
+    ears: ClothingHeadsetScience
+  innerclothingskirt: ClothingUniformJumpskirtColorBlack
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
