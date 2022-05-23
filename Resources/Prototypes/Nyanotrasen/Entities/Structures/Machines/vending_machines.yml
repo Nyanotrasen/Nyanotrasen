@@ -1,0 +1,27 @@
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineRobotics
+  name: robotech deluxe
+  description: It's full of robot parts and surgical tools.
+  components:
+  - type: VendingMachine
+    pack: RobotechDeluxeInventory
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/VendingMachines/robotech.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Unlit"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Research"]]
+  - type: Appearance
+    visuals:
+    - type: VendingMachineVisualizer
+      normalUnshaded: true
+      denyUnshaded: true
+      broken: true
+    - type: WiresVisualizer

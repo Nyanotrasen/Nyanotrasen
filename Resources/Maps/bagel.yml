@@ -198067,6 +198067,18 @@ entities:
   - pos: 40.5,-20.5
     parent: 25
     type: Transform
+- uid: 18694
+  type: VendingMachineRobotics
+  components:
+  - name: Robotech Deluxe
+    type: MetaData
+  - pos: -31.5,15.5
+    parent: 25
+    type: Transform
+  - sprite: Structures/Machines/VendingMachines/robotics.rsi
+    type: Sprite
+  - enabled: False
+    type: AmbientSound
 - uid: 18706
   type: PoweredlightSodium
   components:
