@@ -45,3 +45,15 @@
     - state: idmailcarrier
   - type: PresetIdCard
     job: MailCarrier
+
+- type: entity
+  parent: IDCardStandard
+  id: AutomaturgeIDCard
+  name: automaturge ID card
+  components:
+    - type: Sprite
+      layers:
+        - state: default
+        - state: idroboticist
+    - type: PresetIdCard
+      job: Automaturge

@@ -27880,17 +27880,11 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 2284
-  type: ClosetL3VirologyFilled
+  type: TableGlass
   components:
-  - pos: 1.5,-19.5
+  - pos: 0.5,-21.5
     parent: 4
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
-  - containers:
-      EntityStorageComponent: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2285
   type: WallSolid
   components:
@@ -78708,4 +78702,20 @@ entities:
   - pos: 2.5,7.5
     parent: 4
     type: Transform
+- uid: 7480
+  type: SpawnPointAutomaturge
+  components:
+  - pos: -25.5,-12.5
+    parent: 4
+    type: Transform
+- uid: 7481
+  type: BoxMouthSwab
+  components:
+  - pos: 0.27016497,-21.42121
+    parent: 4
+    type: Transform
+  - containers:
+      storagebase: !type:Container
+        ents: []
+    type: ContainerContainer
 ...

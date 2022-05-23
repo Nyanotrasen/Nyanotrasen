@@ -239,19 +239,6 @@
       layers:
         - state: green
         - state: musician
-
-- type: entity
-  id: SpawnPointDetective
-  parent: SpawnPointJobBase
-  name: detective
-  components:
-  - type: SpawnPoint
-    job_id: Detective
-  - type: Sprite
-    layers:
-      - state: green
-      - state: detective
-
 # Command
 
 - type: entity
@@ -417,39 +404,3 @@
     layers:
       - state: green
       - state: security_officer
-
-- type: entity
-  id: SpawnPointParamedic
-  parent: SpawnPointJobBase
-  name: paramedic
-  components:
-  - type: SpawnPoint
-    job_id: Paramedic
-  - type: Sprite
-    layers:
-      - state: green
-      - state: paramedic
-
-- type: entity
-  id: SpawnPointBoxer
-  parent: SpawnPointJobBase
-  name: boxer
-  components:
-  - type: SpawnPoint
-    job_id: Boxer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: boxer
-
-- type: entity
-  id: SpawnPointMailCarrier
-  parent: SpawnPointJobBase
-  name: mailcarrier
-  components:
-  - type: SpawnPoint
-    job_id: MailCarrier
-  - type: Sprite
-    layers:
-      - state: green
-      - state: mailcarrier

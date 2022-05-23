@@ -1,0 +1,59 @@
+- type: entity
+  id: SpawnPointParamedic
+  parent: SpawnPointJobBase
+  name: paramedic
+  components:
+  - type: SpawnPoint
+    job_id: Paramedic
+  - type: Sprite
+    layers:
+      - state: green
+      - state: paramedic
+
+- type: entity
+  id: SpawnPointBoxer
+  parent: SpawnPointJobBase
+  name: boxer
+  components:
+  - type: SpawnPoint
+    job_id: Boxer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: boxer
+
+- type: entity
+  id: SpawnPointMailCarrier
+  parent: SpawnPointJobBase
+  name: mailcarrier
+  components:
+  - type: SpawnPoint
+    job_id: MailCarrier
+  - type: Sprite
+    layers:
+      - state: green
+      - state: mailcarrier
+
+- type: entity
+  id: SpawnPointDetective
+  parent: SpawnPointJobBase
+  name: detective
+  components:
+  - type: SpawnPoint
+    job_id: Detective
+  - type: Sprite
+    layers:
+      - state: green
+      - state: detective
+
+- type: entity
+  id: SpawnPointAutomaturge
+  parent: SpawnPointJobBase
+  name: automaturge
+  components:
+  - type: SpawnPoint
+    job_id: Automaturge
+  - type: Sprite
+    layers:
+      - state: green
+      - state: roboticist
