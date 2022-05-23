@@ -52767,6 +52767,12 @@ entities:
     type: AmbientSound
   - canCollide: False
     type: Physics
+- uid: 3135
+  type: SpawnPointAutomaturge
+  components:
+  - pos: -32.5,13.5
+    parent: 25
+    type: Transform
 - uid: 3136
   type: PoweredSmallLight
   components:
@@ -140121,6 +140127,8 @@ entities:
   - pos: 34.5,1.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - inputs:
       OrderReceiver: []
     type: SignalReceiver
@@ -198045,6 +198053,18 @@ entities:
   type: TableWood
   components:
   - pos: 21.5,-42.5
+    parent: 25
+    type: Transform
+- uid: 18692
+  type: SpawnPointParamedic
+  components:
+  - pos: 38.5,-20.5
+    parent: 25
+    type: Transform
+- uid: 18693
+  type: SpawnPointParamedic
+  components:
+  - pos: 40.5,-20.5
     parent: 25
     type: Transform
 - uid: 18706
