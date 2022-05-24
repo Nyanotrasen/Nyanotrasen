@@ -1,17 +1,4 @@
 - type: reagent
-  id: Ipecac
-  name: ipecac
-  group: Medicine
-  desc: Induces vomiting. Useful for stopping a poisoning that isn't done metabolizing.
-  physicalDesc: inky
-  color: "#422912"
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:ChemVomit
-        probability: 0.3
-
-- type: reagent
   id: Codeine
   name: codeine
   group: Medicine
