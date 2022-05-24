@@ -1,44 +1,4 @@
 Entries:
-- author: Rane
-  changes:
-  - {message: You will no longer drop items on the ground when trying to smart equip
-      them while stunned., type: Fix}
-  id: 1087
-  time: '2022-02-19T19:16:15.0000000+00:00'
-- author: mirrorcult
-  changes:
-  - {message: Warping to an entity using the ghost warp menu will now automatically
-      make you start following the entity., type: Tweak}
-  id: 1088
-  time: '2022-02-19T19:16:27.0000000+00:00'
-- author: mirrorcult
-  changes:
-  - {message: 'Ghosts now orbit around entities they follow, rather than just sitting
-      on top of them.', type: Add}
-  id: 1089
-  time: '2022-02-19T19:16:44.0000000+00:00'
-- author: Macoron
-  changes:
-  - {message: Added more xeno artifact triggers. Test them with hot or electrical
-      objects., type: Add}
-  - {message: Temperature changing artifacts are much deadlier than before. Isolate
-      them as soon as possible., type: Tweak}
-  id: 1090
-  time: '2022-02-19T19:16:50.0000000+00:00'
-- author: Peptide90
-  changes:
-  - {message: Pillar V4.1 - Atmos fixed. Misc changes. Exterior airlocks swapped to
-      glass. Some decal changes. Other misc fixes., type: Tweak}
-  id: 1091
-  time: '2022-02-19T19:24:15.0000000+00:00'
-- author: Elijahrane
-  changes:
-  - {message: 'Added security techfabs, which print the security weapons and equipment
-      now instead of the protolathe.', type: Add}
-  - {message: Removed RCD recipe from the protolathe. You can still print more ammo
-      for them., type: Remove}
-  id: 1092
-  time: '2022-02-19T19:25:25.0000000+00:00'
 - author: HoofedEar
   changes:
   - {message: Mice can no longer harm things., type: Remove}
@@ -3016,3 +2976,37 @@ Entries:
       reoccur twice within 30 minutes., type: Tweak}
   id: 1586
   time: '2022-05-23T01:01:54.0000000+00:00'
+- author: themias
+  changes:
+  - {message: Gibbing an entity in the microwave no longer locks its UI, type: Fix}
+  id: 1587
+  time: '2022-05-23T19:39:52.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: All base animals around the station can now carry diseases. Have fun
+      giving all the beloved station pets cancer., type: Tweak}
+  id: 1588
+  time: '2022-05-23T19:40:16.0000000+00:00'
+- author: ike709
+  changes:
+  - {message: Servers can now specify their own rules file, type: Add}
+  id: 1589
+  time: '2022-05-23T19:43:09.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Ported vomiting from the Nyanotrasen fork. Several new and old diseases
+      and chems now cause vomiting., type: Add}
+  - {message: The vomit puddle sprite no longer loses its color as it evaporates.,
+    type: Fix}
+  id: 1590
+  time: '2022-05-23T23:03:27.0000000+00:00'
+- author: keronshb
+  changes:
+  - {message: Balanced slipping speed so items don't go mach 5., type: Tweak}
+  id: 1591
+  time: '2022-05-23T23:11:17.0000000+00:00'
+- author: themias
+  changes:
+  - {message: Fixed an issue where drained power cells could still explode, type: Fix}
+  id: 1592
+  time: '2022-05-24T00:11:20.0000000+00:00'

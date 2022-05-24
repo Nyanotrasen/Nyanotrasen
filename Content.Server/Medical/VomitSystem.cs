@@ -22,24 +22,27 @@ namespace Content.Server.Medical
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly ThirstSystem _thirstSystem = default!;
 
+        /// <summary>
+        /// Make an entity vomit, if they have a stomach.
+        /// </summary>
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
+            /// Main requirement: You have a stomach
             var stomachList = _bodySystem.GetComponentsOnMechanisms<StomachComponent>(uid);
-            Logger.Error("Stomach count is " + stomachList.Count);
             if (stomachList.Count == 0)
             {
                 return;
             }
-
+            /// Vomiting makes you hungrier and thirstier
             if (TryComp<HungerComponent>(uid, out var hunger))
                 hunger.UpdateFood(hungerAdded);
 
             if (TryComp<ThirstComponent>(uid, out var thirst))
                 _thirstSystem.UpdateThirst(thirst, thirstAdded);
 
-            // Since it fully empties the stomach, chemstream is a lot weaker
+            // It fully empties the stomach, this amount from the chem stream is relatively small
             float solutionSize = (Math.Abs(thirstAdded) + Math.Abs(hungerAdded)) / 6;
-
+            // Apply a bit of slowdown
             if (TryComp<StatusEffectsComponent>(uid, out var status))
                 _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(solutionSize), true, 0.5f, 0.5f, status);
 
@@ -50,20 +53,20 @@ namespace Content.Server.Medical
             SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Diseases/vomiting.ogg", uid, AudioHelpers.WithVariation(0.2f).WithVolume(-4f));
 
             _popupSystem.PopupEntity(Loc.GetString("disease-vomit", ("person", uid)), uid, Filter.Pvs(uid));
-
-            _solutionSystem.TryGetSolution(puddle, puddleComp.SolutionName, out var puddleSolution);
-
+            // Get the solution of the puddle we spawned
+            if (!_solutionSystem.TryGetSolution(puddle, puddleComp.SolutionName, out var puddleSolution))
+                return;
+            // Empty the stomach out into it
             foreach (var stomach in stomachList)
             {
-                if (puddleSolution != null && _solutionSystem.TryGetSolution(stomach.Comp.Owner, StomachSystem.DefaultSolutionName, out var sol))
+                if (_solutionSystem.TryGetSolution(stomach.Comp.Owner, StomachSystem.DefaultSolutionName, out var sol))
                     _solutionSystem.TryAddSolution(puddle, puddleSolution, sol);
             }
-
+            // And the small bit of the chem stream from earlier
             if (TryComp<BloodstreamComponent>(uid, out var bloodStream))
             {
                 var temp = bloodStream.ChemicalSolution.SplitSolution(solutionSize);
-                if (puddleSolution != null)
-                    _solutionSystem.TryAddSolution(puddle, puddleSolution, temp);
+                _solutionSystem.TryAddSolution(puddle, puddleSolution, temp);
             }
         }
     }
