@@ -74,19 +74,13 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: Destructible
+  - type: Bot
+  - type: MobState
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          SheetSteel1:
-            min: 2
-            max: 4
+      0: !type:NormalMobState {}
+      150: !type:DeadMobState {}
+  - type: Input
+    context: "human"
 
 - type: entity
   parent: MobSiliconBase
@@ -105,6 +99,8 @@
   - type: Construction
     graph: CleanBot
     node: bot
+  - type: SentienceTarget
+    flavorKind: mechanical
 
 - type: entity
   parent: MobSiliconBase
@@ -138,6 +134,8 @@
   - type: Construction
     graph: HonkBot
     node: bot
+  - type: SentienceTarget
+    flavorKind: mechanical
 
 - type: entity
   parent: MobSiliconBase

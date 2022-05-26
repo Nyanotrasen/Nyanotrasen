@@ -306,6 +306,7 @@ namespace Content.Client.Entry
             "SolutionTransfer",
             "Evaporation",
             "ReagentTank",
+            "Bot",
             "UtilityAI",
             "FlashImmunity",
             "GhostTakeoverAvailable",
