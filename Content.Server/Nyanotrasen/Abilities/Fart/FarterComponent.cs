@@ -1,5 +1,5 @@
-using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Sound;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Abilities.Fart
 {
@@ -10,14 +10,6 @@ namespace Content.Server.Abilities.Fart
         [DataField("fartSound")]
         public SoundSpecifier FartSound { get; set; } = new SoundCollectionSpecifier("Fart");
 
-        [DataField("fartAction")]
-        public InstantAction FartAction = new()
-        {
-            UseDelay = TimeSpan.FromSeconds(3),
-            Name = "fart-action",
-            Description = "fart-action-desc",
-            Priority = -1,
-            Event = new FartActionEvent(),
-        };
+        public IPlayingAudioStream? Stream;
     }
 }
