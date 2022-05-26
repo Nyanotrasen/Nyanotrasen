@@ -39,6 +39,9 @@ binds:
 - function: Walk
   type: State
   key: Shift
+- function: Fart
+  type: State
+  key: F
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7

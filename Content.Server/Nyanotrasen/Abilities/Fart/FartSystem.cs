@@ -3,9 +3,13 @@ using Content.Shared.Audio;
 using Content.Shared.Maps;
 using Content.Shared.Body.Components;
 using Content.Server.Bible.Components;
+using Content.Shared.Input;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Containers;
+using Robust.Shared.Input.Binding;
+using Robust.Shared.Players;
+using Robust.Server.Player;
 
 namespace Content.Server.Abilities.Fart
 {
@@ -16,31 +20,35 @@ namespace Content.Server.Abilities.Fart
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<FarterComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<FarterComponent, FartActionEvent>(OnFart);
+            CommandBinds.Builder
+                .Bind(ContentKeyFunctions.Fart, InputCmdHandler.FromDelegate(HandleFart))
+                .Register<FartSystem>();
         }
 
-        private void OnInit(EntityUid uid, FarterComponent component, ComponentInit args)
+        private void HandleFart(ICommonSession? session)
         {
-            _actionsSystem.AddAction(uid, component.FartAction, uid);
-        }
+            Logger.Error("Handling fart...");
+            if (session is not IPlayerSession playerSession)
+                return;
+            if (playerSession.AttachedEntity is not {Valid: true} plyEnt || !Exists(plyEnt))
+                return;
+            if (!TryComp<FarterComponent>(playerSession.AttachedEntity, out var farter))
+                return;
+            if (farter.Stream != null)
+                farter.Stream.Stop();
 
-        private void OnFart(EntityUid uid, FarterComponent component, FartActionEvent args)
-        {
-            SoundSystem.Play(Filter.Pvs(uid), component.FartSound.GetSound(), uid, AudioHelpers.WithVariation(0.3f));
-            if (TryComp<SharedBodyComponent>(uid, out var body))
+            farter.Stream = SoundSystem.Play(Filter.Pvs(farter.Owner), farter.FartSound.GetSound(), farter.Owner, AudioHelpers.WithVariation(0.3f));
+            if (TryComp<SharedBodyComponent>(farter.Owner, out var body))
             {
-                foreach (var entity in Transform(uid).Coordinates.GetEntitiesInTile())
+                foreach (var entity in Transform(farter.Owner).Coordinates.GetEntitiesInTile())
                 {
                     if (HasComp<BibleComponent>(entity) && !_containerSystem.IsEntityInContainer(entity))
                     {
                         body.Gib();
-                        args.Handled = true;
                         return;
                     }
                 }
             }
-            args.Handled = true;
         }
     }
 

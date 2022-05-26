@@ -45,6 +45,7 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OpenInventoryMenu);
             human.AddFunction(ContentKeyFunctions.SmartEquipBackpack);
             human.AddFunction(ContentKeyFunctions.SmartEquipBelt);
+            human.AddFunction(ContentKeyFunctions.Fart);
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
             human.AddFunction(ContentKeyFunctions.ArcadeUp);
             human.AddFunction(ContentKeyFunctions.ArcadeDown);

@@ -50,6 +50,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction Arcade2 = "Arcade2";
         public static readonly BoundKeyFunction Arcade3 = "Arcade3";
         public static readonly BoundKeyFunction OpenActionsMenu = "OpenAbilitiesMenu";
+        public static readonly BoundKeyFunction Fart = "Fart";
         public static readonly BoundKeyFunction Hotbar0 = "Hotbar0";
         public static readonly BoundKeyFunction Hotbar1 = "Hotbar1";
         public static readonly BoundKeyFunction Hotbar2 = "Hotbar2";
