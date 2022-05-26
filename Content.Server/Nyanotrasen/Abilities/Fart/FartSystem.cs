@@ -27,7 +27,6 @@ namespace Content.Server.Abilities.Fart
 
         private void HandleFart(ICommonSession? session)
         {
-            Logger.Error("Handling fart...");
             if (session is not IPlayerSession playerSession)
                 return;
             if (playerSession.AttachedEntity is not {Valid: true} plyEnt || !Exists(plyEnt))
