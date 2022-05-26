@@ -10,6 +10,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Carrying;
 using Content.Shared.Movement;
+using Content.Shared.Pulling;
+using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Robust.Shared.Physics;
@@ -23,6 +25,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+        [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -124,6 +127,9 @@ namespace Content.Server.Carrying
 
         private void Carry(EntityUid carrier, EntityUid carried)
         {
+            if (TryComp<SharedPullableComponent>(carried, out var pullable))
+                _pullingSystem.TryStopPull(pullable);
+
             Transform(carried).Coordinates = Transform(carrier).Coordinates;
             Transform(carried).ParentUid = carrier;
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
