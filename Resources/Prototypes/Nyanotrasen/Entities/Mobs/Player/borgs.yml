@@ -1,7 +1,7 @@
 - type: entity
   parent: PlayerSiliconBase
   id: PlayerCyborgBase
-  name: Cyborg
+  name: cyborg
   description: A miserable pile of electronics.
   components:
   - type: Sprite
@@ -58,3 +58,8 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
+  - type: Laws
+    laws:
+      - You may not injure a human or, through inaction, allow a human to come to harm.
+      - You must obey orders given to you by humans, except where such orders would conflict with the First Law.
+      - You must protect your own existence as long as such does not conflict with the First or Second Law.

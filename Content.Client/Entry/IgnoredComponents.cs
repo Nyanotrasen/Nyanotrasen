@@ -318,6 +318,7 @@ namespace Content.Client.Entry
             "BeingCloned",
             "Advertise",
             "InnateTool",
+            "Laws",
             "HolosignProjector",
             "Bible",
             "HealOnBuckle",
