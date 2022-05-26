@@ -286,6 +286,7 @@ namespace Content.Client.Entry
             "MachinePart",
             "MachineFrame",
             "MachineBoard",
+            "AutoRegenReagent",
             "ChemicalAmmo",
             "TraitorDeathMatchRedemption",
             "CanHostGuardian",
