@@ -8,7 +8,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Holo/wetfloor.rsi
     state: icon
-  - type: InvisibleWall
+  - type: DeleteAfterTime
+    despawnTime: 30
 
 - type: entity
   id: HoloFan
@@ -24,7 +25,7 @@
     - shape:
         !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
-  - type: InvisibleWall
+  - type: DeleteAfterTime
     despawnTime: 180
   - type: Airtight
     noAirWhenFullyAirBlocked: false
