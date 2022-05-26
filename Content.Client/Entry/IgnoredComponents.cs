@@ -317,6 +317,7 @@ namespace Content.Client.Entry
             "DisassembleOnAltVerb",
             "BeingCloned",
             "Advertise",
+            "InnateTool",
             "HolosignProjector",
             "Bible",
             "HealOnBuckle",

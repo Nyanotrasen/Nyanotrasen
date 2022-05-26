@@ -1,0 +1,60 @@
+- type: entity
+  parent: PlayerSiliconBase
+  id: PlayerCyborgBase
+  name: Cyborg
+  description: A miserable pile of electronics.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    layers:
+    - state: robot
+      sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 5
+  - type: Bot
+  - type: MobState
+    thresholds:
+      0: !type:NormalMobState {}
+      300: !type:DeadMobState {}
+  - type: NoSlip
+  - type: MovementIgnoreGravity
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      mass: 150
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
+  - type: Repairable
+    fuelcost: 15
+    doAfterDelay: 8
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Access
+    groups:
+    - AllAccess
+  - type: Hands
+    showInHands: false
+  - type: Body
+    template: DroneTemplate
+    preset: DronePreset
+  - type: InnateTool
+    tools:
+      - id: HandheldHealthAnalyzer
+      - id: Wrench
+      - id: Crowbar
+      - id: MopItem
+      - id: FireExtinguisher
+      - id: EmergencyMedipen
+  - type: Actions
+  - type: CombatMode
+    disarmAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-disarm
