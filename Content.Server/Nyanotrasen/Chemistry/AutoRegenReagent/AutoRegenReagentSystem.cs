@@ -14,6 +14,8 @@ namespace Content.Server.Chemistry.AutoRegenReagent
 
         private void OnInit(EntityUid uid, AutoRegenReagentComponent component, ComponentInit args)
         {
+            if (component.SolutionName == null)
+                return;
             if (_solutionSystem.TryGetSolution(uid, component.SolutionName, out var solution))
                 component.Solution = solution;
         }

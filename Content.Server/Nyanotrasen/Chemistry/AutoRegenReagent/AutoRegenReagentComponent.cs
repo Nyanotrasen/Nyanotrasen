@@ -6,7 +6,7 @@ namespace Content.Server.Chemistry.AutoRegenReagent
     public sealed class AutoRegenReagentComponent : Component
     {
         [DataField("solution", required: true)]
-        public string SolutionName = default!;
+        public string? SolutionName = null; // we'll fail during tests otherwise
 
         [DataField("reagent", required: true)]
         public string Reagent = default!;
