@@ -1,0 +1,21 @@
+- type: entity
+  name: epinephrine hypospray
+  parent: BaseItem
+  description: A borg version of hypospray that automatically regenerates epinephrine.
+  id: HyposprayBorgStandard
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: hypo
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 30
+  - type: AutoRegenReagent
+    solution: hypospray
+    reagent: Epinephrine
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
