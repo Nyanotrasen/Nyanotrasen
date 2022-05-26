@@ -281,6 +281,7 @@ namespace Content.Client.Entry
             "Extractable",
             "WelderRefinable",
             "TwoWayLever",
+            "InnateItem",
             "SolutionInjectOnCollide",
             "Machine",
             "MachinePart",

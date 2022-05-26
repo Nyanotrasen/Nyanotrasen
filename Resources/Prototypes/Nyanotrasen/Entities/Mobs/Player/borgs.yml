@@ -46,12 +46,20 @@
     preset: DronePreset
   - type: InnateTool
     tools:
-      - id: HandheldHealthAnalyzer
+      - id: WelderIndustrial
       - id: Wrench
       - id: Crowbar
       - id: MopItem
       - id: FireExtinguisher
-      - id: HyposprayBorgStandard
+      - id: TrashBag
+  - type: ItemSlots
+    slots:
+      analyzer_slot:
+        name: HealthAnalyzer
+        startingItem: HandheldHealthAnalyzer
+      hypospray_slot:
+        name: Hypospray
+        startingItem: HyposprayBorgStandard
   - type: Actions
   - type: CombatMode
     disarmAction:
