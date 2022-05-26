@@ -1,8 +1,8 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Timing;
 using Content.Shared.Interaction;
+using Content.Server.Mind.Components;
 
 namespace Content.Server.Borgs
 {
@@ -14,13 +14,16 @@ namespace Content.Server.Borgs
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<InnateItemComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<InnateItemComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<InnateItemComponent, InnateAfterInteractActionEvent>(StartAfterInteract);
         }
 
-        private void OnInit(EntityUid uid, InnateItemComponent component, ComponentInit args)
+        private void OnMindAdded(EntityUid uid, InnateItemComponent component, MindAddedMessage args)
         {
-            RefreshItems(uid);
+            if (!component.AlreadyInitialized)
+                RefreshItems(uid);
+
+            component.AlreadyInitialized = true;
         }
 
         private void RefreshItems(EntityUid uid)
