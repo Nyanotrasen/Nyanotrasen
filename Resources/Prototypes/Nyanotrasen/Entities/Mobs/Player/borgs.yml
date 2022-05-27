@@ -58,12 +58,15 @@
       analyzer_slot:
         name: HealthAnalyzer
         startingItem: HandheldHealthAnalyzer
+        locked: true
       hypospray_slot:
         name: Hypospray
         startingItem: HyposprayBorgStandard
+        locked: true
       wrench_slot:
         name: TrashBag
         startingItem: TrashBag
+        locked: true
   - type: Actions
   - type: CombatMode
     disarmAction:
