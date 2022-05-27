@@ -11,6 +11,18 @@
   - type: DeleteAfterTime
     despawnTime: 30
 
+
+- type: entity
+  id: HolosignEng
+  name: engineering warning sign
+  description: What's the worst that could lie beyond?
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Holo/eng.rsi
+    state: icon
+  - type: DeleteAfterTime
+    despawnTime: 180
+
 - type: entity
   id: HoloFan
   parent: HolosignWetFloor

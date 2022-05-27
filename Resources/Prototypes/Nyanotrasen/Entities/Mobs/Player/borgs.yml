@@ -11,8 +11,14 @@
     layers:
     - state: robot
   - type: MovementSpeedModifier
-    baseWalkSpeed : 5
-    baseSprintSpeed : 5
+  - type: Speech
+    speechSounds: Bass
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.8
+      120: 0.6
+      180: 0.4
+      240: 0.2
   - type: Bot
   - type: MobState
     thresholds:
@@ -47,8 +53,8 @@
   - type: InnateTool
     tools:
       - id: WelderIndustrial
-      - id: Wrench
-      - id: Crowbar
+      - id: HoloprojectorEngineering
+      - id: BorgToolStandard
       - id: MopItem
       - id: FireExtinguisher
       - id: FloorTileItemSteelInfinite
@@ -67,6 +73,10 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
+      headset_slot:
+        name: Headset
+        startingItem: ClothingHeadsetBorg
+        locked: True
   - type: Actions
   - type: CombatMode
     disarmAction:
@@ -112,3 +122,5 @@
         keywords: [ "AI", "console", "interface" ]
         priority: -1
         event: !type:ToggleIntrinsicUIEvent
+  - type: RandomMetadata
+    nameSet: names_autoborg

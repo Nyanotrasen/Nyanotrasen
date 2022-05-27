@@ -1,8 +1,10 @@
 
 using Content.Shared.Interaction.Components;
 using Content.Server.Hands.Components;
+using Content.Server.Light.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage;
+using Content.Shared.Actions;
 using Robust.Shared.Random;
 
 namespace Content.Server.Borgs
@@ -11,6 +13,7 @@ namespace Content.Server.Borgs
     {
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
         public override void Initialize()
         {
@@ -41,6 +44,11 @@ namespace Content.Server.Borgs
                     }
                     component.ToolUids.Add(item);
                 }
+            }
+
+            if (TryComp<ActionsComponent>(uid, out var actions) && TryComp<UnpoweredFlashlightComponent>(uid, out var flashlight))
+            {
+                _actionsSystem.AddAction(uid, flashlight.ToggleAction, null, actions);
             }
         }
 
