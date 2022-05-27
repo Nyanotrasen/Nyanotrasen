@@ -16,11 +16,13 @@
           sprite: Objects/Misc/bureaucracy.rsi
           state: stamp-clown
         name: clown's rubber stamp
+        doAfter: 2
       - prototype: BikeHorn
         icon:
             sprite: Objects/Fun/bikehorn.rsi
             state: icon
         name: bike horn
+        doAfter: 2
       - prototype: ProximitySensor
         icon:
           sprite: Nyanotrasen/Objects/Misc/proximity_sensor.rsi
@@ -31,5 +33,6 @@
           sprite: Mobs/Silicon/drone.rsi
           state: l_hand
         name: borg arm
+        doAfter: 2
   - node: bot
     entity: MobHonkBot
