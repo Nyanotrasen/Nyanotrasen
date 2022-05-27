@@ -294,6 +294,7 @@ namespace Content.Client.Entry
             "SliceableFood",
             "DamageOtherOnHit",
             "SinguloFood",
+            "Borg",
             "ShrinkRay",
             "DamageOnLand",
             "SmokeSolutionAreaEffect",

@@ -351,6 +351,8 @@ entities:
   - pos: 50.005993,-8.435179
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -404,6 +406,8 @@ entities:
   - pos: 21.644495,-18.456367
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 19
   type: FirelockEdge
   components:
@@ -21827,6 +21831,8 @@ entities:
   - pos: 46.50832,-16.561968
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 32
   type: WallSolid
   components:
@@ -21839,6 +21845,8 @@ entities:
   - pos: -15.652456,-29.638643
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 34
   type: SpawnPointJanitor
   components:
@@ -22077,13 +22085,13 @@ entities:
   - pos: -17.449331,-29.623018
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 67
   type: MagazineMagnumSmgRubber
   components:
   - parent: 8879
     type: Transform
-  - canCollide: False
-    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -22113,6 +22121,8 @@ entities:
   - pos: 37.455032,-37.40484
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22129,6 +22139,8 @@ entities:
   - pos: 55.62253,-8.328542
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 74
   type: Crematorium
   components:
@@ -22161,6 +22173,8 @@ entities:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 78
   type: WallSolid
   components:
@@ -22332,6 +22346,8 @@ entities:
   - pos: 35.46979,-18.379112
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 100
   type: AirlockMaintMedLocked
   components:
@@ -22356,6 +22372,8 @@ entities:
   - pos: 49.990368,-8.232054
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22434,6 +22452,8 @@ entities:
   - pos: 48.927868,-8.450804
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22483,6 +22503,8 @@ entities:
   - pos: 50.537243,-8.247679
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22493,6 +22515,8 @@ entities:
   - pos: 19.387941,-50.49055
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 118
   type: WallReinforced
   components:
@@ -22558,6 +22582,8 @@ entities:
   - pos: 49.459118,-8.232054
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22601,6 +22627,8 @@ entities:
   - pos: 50.552868,-8.466429
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22643,6 +22671,8 @@ entities:
   - pos: 50.490368,-9.185179
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 134
   type: SignalButton
   components:
@@ -22700,6 +22730,8 @@ entities:
   - pos: 50.521618,-9.466429
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 139
   type: WallSolid
   components:
@@ -22724,6 +22756,8 @@ entities:
   - pos: 48.912243,-8.247679
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -22758,6 +22792,8 @@ entities:
   - pos: 40.472416,-19.403461
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 146
   type: Table
   components:
@@ -22820,6 +22856,8 @@ entities:
   - pos: 56.419407,-8.359792
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 153
   type: PosterContrabandWehWatches
   components:
@@ -23000,6 +23038,8 @@ entities:
   - pos: 41.5,-7.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -23769,6 +23809,8 @@ entities:
   - pos: 50.484463,-8.930707
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 256
   type: RandomSpawner
   components:
@@ -23793,6 +23835,8 @@ entities:
   - pos: 33.609066,-7.2793293
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -24033,6 +24077,8 @@ entities:
   - pos: 23.456995,-16.221992
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 291
   type: GasPipeStraight
   components:
@@ -24139,6 +24185,8 @@ entities:
   - pos: 48.380993,-8.450804
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -24263,6 +24311,8 @@ entities:
   - pos: 23.50387,-19.253242
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 315
   type: WallReinforced
   components:
@@ -24348,6 +24398,8 @@ entities:
   - pos: 38.5,-19.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 326
   type: Table
   components:
@@ -24496,6 +24548,8 @@ entities:
   - pos: 41.440662,-10.344523
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 347
   type: Morgue
   components:
@@ -24580,6 +24634,8 @@ entities:
   - pos: 21.41012,-18.206367
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 357
   type: DisposalTrunk
   components:
@@ -24625,6 +24681,8 @@ entities:
   - pos: 25.565468,-15.324441
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -25304,6 +25362,8 @@ entities:
   - pos: 41.484077,-28.457115
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 437
   type: Poweredlight
   components:
@@ -26256,6 +26316,8 @@ entities:
   - pos: 38.536236,-12.376746
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -27209,6 +27271,8 @@ entities:
   - pos: 13.470122,-20.417242
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 654
   type: SubstationBasic
   components:
@@ -27269,6 +27333,8 @@ entities:
   - pos: 13.360747,-20.339117
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 661
   type: Poweredlight
   components:
@@ -28330,6 +28396,8 @@ entities:
   - pos: 40.317486,-14.517371
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 770
   type: VendingMachineSmartFridge
   components:
@@ -29832,6 +29900,8 @@ entities:
   - pos: -6.7018414,-28.410858
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 914
   type: GasPipeStraight
   components:
@@ -29850,12 +29920,16 @@ entities:
   - pos: -4.5299664,-28.410858
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 916
   type: SprayBottleSpaceCleaner
   components:
   - pos: -6.7018414,-28.238983
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 917
   type: ShuttersNormal
   components:
@@ -29879,6 +29953,8 @@ entities:
   - pos: -5.6705914,-28.301483
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       light_replacer_storage: !type:Container
         ents: []
@@ -29907,12 +29983,16 @@ entities:
   - pos: -6.7018414,-28.567108
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 923
   type: TrashBag
   components:
   - pos: -6.1549664,-28.379608
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -29948,6 +30028,8 @@ entities:
       keywords: []
       event: !type:ToggleActionEvent {}
     type: HandheldLight
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -29985,18 +30067,24 @@ entities:
   - pos: -10.55104,-28.480585
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 932
   type: Pen
   components:
   - pos: -10.316665,-28.324335
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 933
   type: PlantBGoneSpray
   components:
   - pos: 55.748558,-45.756844
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 934
   type: PoweredSmallLight
   components:
@@ -30081,6 +30169,8 @@ entities:
   - pos: 38.117302,-32.42313
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -30123,24 +30213,32 @@ entities:
   - pos: 38.567486,-14.251746
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 941
   type: ScalpelLaser
   components:
   - pos: 40.30186,-14.267371
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 942
   type: Retractor
   components:
   - pos: 38.61436,-14.407996
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 943
   type: ClothingHandsGlovesNitrile
   components:
   - pos: 39.473736,-14.439246
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 944
   type: Catwalk
   components:
@@ -35287,6 +35385,8 @@ entities:
   - pos: 5.3996553,-27.381968
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1378
   type: CableHV
   components:
@@ -36056,8 +36156,6 @@ entities:
   components:
   - parent: 7964
     type: Transform
-  - canCollide: False
-    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -36067,8 +36165,6 @@ entities:
   components:
   - parent: 7964
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 1448
   type: SignSpace
   components:
@@ -36167,6 +36263,8 @@ entities:
   - pos: -33.55312,-15.522824
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1458
   type: WeaponCapacitorRecharger
   components:
@@ -36325,6 +36423,8 @@ entities:
   - pos: -33.400276,-15.397824
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1480
   type: Grille
   components:
@@ -36400,6 +36500,8 @@ entities:
   - pos: -34.193745,-15.397824
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -36519,6 +36621,8 @@ entities:
   - pos: -18.5,-7.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1500
   type: ReinforcedWindow
   components:
@@ -36838,6 +36942,8 @@ entities:
   - pos: -28.464243,1.9162104
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-chamber: !type:ContainerSlot {}
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-magazine: !type:ContainerSlot
@@ -36904,6 +37010,8 @@ entities:
   - pos: -28.464243,1.2755854
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
       cellslot_cell_container: !type:ContainerSlot {}
@@ -36914,6 +37022,8 @@ entities:
   - pos: -28.479868,1.4474604
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
       cellslot_cell_container: !type:ContainerSlot {}
@@ -36924,6 +37034,8 @@ entities:
   - pos: -30.436169,1.8062131
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -36957,6 +37069,8 @@ entities:
   - pos: -18.628916,0.6440793
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -37080,6 +37194,8 @@ entities:
   - pos: -25.456688,-11.384605
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1554
   type: CableMV
   components:
@@ -37487,6 +37603,8 @@ entities:
   - pos: -24.508204,-0.5168052
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1593
   type: WallReinforced
   components:
@@ -37802,6 +37920,8 @@ entities:
   - pos: -21.551075,0.6451446
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -37824,6 +37944,8 @@ entities:
   - pos: -34.337,0.56774914
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 1622
@@ -37905,6 +38027,8 @@ entities:
   - pos: -25.487938,-11.52523
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1630
   type: FirelockGlass
   components:
@@ -38050,6 +38174,8 @@ entities:
   - pos: -28.404697,2.4943354
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-chamber: !type:ContainerSlot {}
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-magazine: !type:ContainerSlot
@@ -38089,6 +38215,8 @@ entities:
   - pos: -30.342419,1.7905881
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -38108,6 +38236,8 @@ entities:
   - pos: -20.61329,0.6753293
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1653
   type: Carpet
   components:
@@ -38145,6 +38275,8 @@ entities:
   - pos: -18.552671,1.5921435
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1657
   type: WallReinforced
   components:
@@ -38157,12 +38289,16 @@ entities:
   - pos: -28.464243,0.4045535
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1659
   type: ShellShotgun
   components:
   - pos: -24.292368,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1660
   type: Poweredlight
   components:
@@ -38202,6 +38338,8 @@ entities:
   - pos: -30.691933,2.653679
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -38461,6 +38599,8 @@ entities:
   - pos: -34.28861,-3.3921857
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -38664,30 +38804,40 @@ entities:
   - pos: -18.5,-10.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1714
   type: BedsheetOrange
   components:
   - pos: -18.5,-13.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1715
   type: BedsheetOrange
   components:
   - pos: -33.5,-7.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1716
   type: BedsheetOrange
   components:
   - pos: -33.5,-10.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1717
   type: BedsheetOrange
   components:
   - pos: -33.5,-13.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1718
   type: Bed
   components:
@@ -38726,6 +38876,8 @@ entities:
   - pos: -24.261118,1.5764284
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -38814,6 +38966,8 @@ entities:
   - pos: -24.432993,1.5920534
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -39450,6 +39604,8 @@ entities:
   - pos: -27.50749,-8.399244
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cluster-flash: !type:Container
         ents: []
@@ -39492,6 +39648,8 @@ entities:
   - pos: -24.448618,0.4201785
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -39502,6 +39660,8 @@ entities:
   - pos: -28.417368,0.95142853
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.PumpBarrelComponent-ammo-container: !type:Container
         ents: []
@@ -39513,6 +39673,8 @@ entities:
   - pos: -27.50749,-7.7898693
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 1800
@@ -39600,6 +39762,8 @@ entities:
     pos: -24.761118,1.4826785
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -39610,6 +39774,8 @@ entities:
   - pos: -28.476954,-0.4074302
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1813
   type: GasPipeBend
   components:
@@ -39629,6 +39795,8 @@ entities:
   - pos: -24.448618,0.67017853
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -39772,8 +39940,6 @@ entities:
   components:
   - parent: 1845
     type: Transform
-  - canCollide: False
-    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -39963,6 +40129,8 @@ entities:
   - pos: -18.455557,1.0670196
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-chamber: !type:ContainerSlot {}
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-magazine: !type:ContainerSlot
@@ -40124,12 +40292,16 @@ entities:
   - pos: -24.542368,2.5412104
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1863
   type: ClothingOuterArmorRiot
   components:
   - pos: -24.370493,2.4474604
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1864
   type: WallReinforced
   components:
@@ -40171,6 +40343,8 @@ entities:
   - pos: -30.457558,0.95884895
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
       cellslot_cell_container: !type:ContainerSlot {}
@@ -40288,12 +40462,16 @@ entities:
   - pos: -24.229868,2.6193354
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1880
   type: MagazineMagnumSmg
   components:
   - pos: -24.182993,1.5764284
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -40324,6 +40502,8 @@ entities:
   - pos: -24.511118,2.8224604
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1884
   type: Carpet
   components:
@@ -40522,6 +40702,8 @@ entities:
   - pos: -20.457937,-16.34211
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -40611,6 +40793,8 @@ entities:
   - pos: -19.488003,-17.472603
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -40621,6 +40805,8 @@ entities:
   - pos: 9.534421,17.596312
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1909
   type: GasPipeStraight
   components:
@@ -40705,6 +40891,8 @@ entities:
   - pos: -26.438948,-13.357734
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -41089,6 +41277,8 @@ entities:
   - pos: -24.386118,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1947
   type: WallReinforced
   components:
@@ -41101,6 +41291,8 @@ entities:
   - pos: -24.214243,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1949
   type: WallReinforced
   components:
@@ -41113,6 +41305,8 @@ entities:
   - pos: -24.401743,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1951
   type: WallReinforced
   components:
@@ -41279,6 +41473,8 @@ entities:
   - pos: -18.365171,1.4671435
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 1968
   type: GasPipeTJunction
   components:
@@ -41452,6 +41648,8 @@ entities:
   - pos: -33.505833,2.6771145
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -41640,6 +41838,8 @@ entities:
   - pos: -24.573618,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2000
   type: ReinforcedPlasmaWindow
   components:
@@ -42214,6 +42414,8 @@ entities:
   - pos: -24.354868,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2070
   type: VendingMachineSec
   components:
@@ -42433,6 +42635,8 @@ entities:
   - pos: -24.432993,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2089
   type: TableReinforced
   components:
@@ -42808,6 +43012,8 @@ entities:
       keywords: []
       event: !type:ToggleActionEvent {}
     type: HandheldLight
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -42828,6 +43034,8 @@ entities:
   - pos: -34.599995,-15.397824
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -42945,6 +43153,8 @@ entities:
   - pos: 34.652073,-13.291081
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -42954,6 +43164,8 @@ entities:
   - pos: 29.515877,-12.379152
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -42983,6 +43195,8 @@ entities:
   - pos: 30.219002,-14.738527
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2136
   type: Bed
   components:
@@ -43845,6 +44059,8 @@ entities:
   - pos: 11.495399,-35.596832
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2239
   type: BoozeDispenser
   components:
@@ -45442,12 +45658,16 @@ entities:
   - pos: 35.51023,-35.531483
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2389
   type: HydroponicsToolClippers
   components:
   - pos: 35.44177,-35.797108
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2390
   type: WallReinforced
   components:
@@ -48649,12 +48869,16 @@ entities:
     type: Transform
   - solution: bucket
     type: Drink
+  - canCollide: False
+    type: Physics
 - uid: 2694
   type: HydroponicsToolScythe
   components:
   - pos: 35.588356,-36.359608
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2695
   type: Bucket
   components:
@@ -48663,30 +48887,40 @@ entities:
     type: Transform
   - solution: bucket
     type: Drink
+  - canCollide: False
+    type: Physics
 - uid: 2696
   type: HydroponicsToolHatchet
   components:
   - pos: 35.588356,-36.422108
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2697
   type: ClothingHeadHatTrucker
   components:
   - pos: 35.463356,-37.328358
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2698
   type: HydroponicsToolSpade
   components:
   - pos: 35.650856,-36.593983
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2699
   type: ClothingHeadHatPumpkin
   components:
   - pos: 33.555557,-37.625233
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2700
   type: Bucket
   components:
@@ -48695,6 +48929,8 @@ entities:
     type: Transform
   - solution: bucket
     type: Drink
+  - canCollide: False
+    type: Physics
 - uid: 2701
   type: WallSolid
   components:
@@ -50657,6 +50893,8 @@ entities:
   - pos: 8.5,-32.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2912
   type: CableHV
   components:
@@ -52255,6 +52493,8 @@ entities:
   - pos: 16.400927,-37.243366
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -53451,8 +53691,6 @@ entities:
   components:
   - parent: 13541
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3214
   type: WallSolid
   components:
@@ -53520,6 +53758,8 @@ entities:
   - pos: 22.509872,-51.419544
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3223
   type: WallReinforced
   components:
@@ -53731,6 +53971,8 @@ entities:
   - pos: 22.494247,-51.263294
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3254
   type: OxygenCanister
   components:
@@ -53978,6 +54220,8 @@ entities:
   - pos: 46.458164,-47.47581
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3295
   type: Barricade
   components:
@@ -54074,6 +54318,8 @@ entities:
   - pos: 29.486662,-53.524357
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3311
   type: ReinforcedWindow
   components:
@@ -54140,6 +54386,8 @@ entities:
   - pos: 51.726803,-25.342684
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -55252,6 +55500,8 @@ entities:
   - pos: 48.504288,-34.559772
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3487
   type: ClosetBase
   components:
@@ -55656,8 +55906,6 @@ entities:
   components:
   - parent: 13544
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3539
   type: WallReinforced
   components:
@@ -56113,8 +56361,6 @@ entities:
   components:
   - parent: 13544
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3580
   type: PoweredSmallLight
   components:
@@ -56148,6 +56394,8 @@ entities:
   - pos: 14.470102,-43.56056
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3583
   type: ClothingUniformJumpsuitDetectiveGrey
   components:
@@ -56220,8 +56468,6 @@ entities:
   components:
   - parent: 13544
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3593
   type: Rack
   components:
@@ -56284,8 +56530,6 @@ entities:
   components:
   - parent: 13541
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3602
   type: FirelockGlass
   components:
@@ -57154,6 +57398,8 @@ entities:
   - pos: 39.442223,-43.78793
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -57164,6 +57410,8 @@ entities:
   - pos: 39.34367,-43.38168
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3730
   type: MaintenanceFluffSpawner
   components:
@@ -57290,22 +57538,16 @@ entities:
   components:
   - parent: 13544
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3746
   type: UniformJabroni
   components:
   - parent: 13544
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3747
   type: UniformJabroni
   components:
   - parent: 13541
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 3748
   type: Rack
   components:
@@ -57412,6 +57654,8 @@ entities:
   - pos: 4.3127413,-36.61039
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3765
   type: ClothingOuterHardsuitEVA
   components:
@@ -57484,6 +57728,8 @@ entities:
   - pos: 4.5002413,-36.469765
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 3773
   type: ClothingHeadHelmetEVA
   components:
@@ -60565,6 +60811,8 @@ entities:
   - pos: 36.402073,-14.447331
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4098
   type: ComfyChair
   components:
@@ -60577,6 +60825,8 @@ entities:
   - pos: 35.527073,-13.400456
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -60612,6 +60862,8 @@ entities:
   - pos: 36.470272,-13.325863
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -60622,6 +60874,8 @@ entities:
   - pos: 29.469002,-12.488527
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4104
   type: TableGlass
   components:
@@ -60679,6 +60933,8 @@ entities:
   - pos: 30.5,-14.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4110
   type: GasPipeStraight
   components:
@@ -62559,18 +62815,24 @@ entities:
   - pos: -43.469677,-43.42008
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4342
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4343
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4344
   type: WallReinforced
   components:
@@ -63491,6 +63753,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4477
   type: Grille
   components:
@@ -63553,18 +63817,24 @@ entities:
   - pos: 4.420593,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4484
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4485
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4486
   type: WallSolid
   components:
@@ -63577,6 +63847,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4488
   type: CableMV
   components:
@@ -63897,6 +64169,8 @@ entities:
   - pos: 55.750977,-35.466022
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 4515
   type: PoweredSmallLight
   components:
@@ -64199,6 +64473,8 @@ entities:
   - pos: -30.551308,1.7826514
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -69863,6 +70139,8 @@ entities:
   - pos: -20.640932,-71.23503
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 5143
@@ -69871,6 +70149,8 @@ entities:
   - pos: -20.453432,-71.344406
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 5144
@@ -71247,18 +71527,24 @@ entities:
   - pos: -36.191387,-34.98309
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5290
   type: ClothingOuterWizard
   components:
   - pos: -36.144512,-35.432755
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5291
   type: ClothingShoesWizard
   components:
   - pos: -36.128887,-35.995255
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5292
   type: Catwalk
   components:
@@ -72779,6 +73065,8 @@ entities:
   - pos: 49.459118,-8.466429
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -72828,6 +73116,8 @@ entities:
   - pos: 4.420593,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5451
   type: GasPipeStraight
   components:
@@ -73014,18 +73304,24 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5471
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5472
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5473
   type: WallReinforced
   components:
@@ -73116,6 +73412,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5488
   type: ShuttersNormalOpen
   components:
@@ -73154,12 +73452,16 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5492
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5493
   type: ReinforcedWindow
   components:
@@ -73216,6 +73518,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5500
   type: WallReinforced
   components:
@@ -74595,6 +74899,8 @@ entities:
   - pos: 41.5,-19.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5660
   type: DisposalPipe
   components:
@@ -74702,6 +75008,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5669
   type: GasPipeStraight
   components:
@@ -75922,6 +76230,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5767
   type: Chair
   components:
@@ -76114,6 +76424,8 @@ entities:
   - pos: 38.554688,-32.563755
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5791
   type: SalternAPC
   components:
@@ -76165,8 +76477,6 @@ entities:
   components:
   - parent: 6431
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 5797
   type: PoweredSmallLight
   components:
@@ -76521,6 +76831,8 @@ entities:
   - pos: 5.6340303,-27.522593
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5828
   type: ComfyChair
   components:
@@ -76533,6 +76845,8 @@ entities:
   - pos: 3.7008076,-31.317545
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -76603,6 +76917,8 @@ entities:
   - pos: 48.380993,-8.247679
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -76613,6 +76929,8 @@ entities:
   - pos: 37.51929,-19.325336
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -77211,6 +77529,8 @@ entities:
   - pos: 29.503044,-17.356108
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5899
   type: WallSolid
   components:
@@ -77420,6 +77740,8 @@ entities:
   - pos: -27.433548,-11.3345785
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5917
   type: Table
   components:
@@ -77845,6 +78167,8 @@ entities:
   - pos: -25.520594,-13.323789
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -78655,6 +78979,8 @@ entities:
   - pos: -25.567469,-11.318705
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -78688,6 +79014,8 @@ entities:
   - pos: -25.432629,-11.4085865
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6026
   type: SpawnPointWarden
   components:
@@ -80763,6 +81091,8 @@ entities:
   - pos: 30.5,-20.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6259
   type: WallSolid
   components:
@@ -80775,6 +81105,8 @@ entities:
   - pos: 24.517786,-13.4080305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6261
   type: GasPipeTJunction
   components:
@@ -81280,6 +81612,8 @@ entities:
   - pos: 13.582136,15.57569
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6302
   type: VendingMachineSnack
   components:
@@ -81542,6 +81876,8 @@ entities:
   - pos: -19.411674,-42.528496
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6334
   type: CableHV
   components:
@@ -81564,6 +81900,8 @@ entities:
   - pos: 26.503925,-12.6892805
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6337
   type: CableHV
   components:
@@ -81636,6 +81974,8 @@ entities:
   - pos: 35.520084,-27.379148
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6345
   type: TableWood
   components:
@@ -82287,6 +82627,8 @@ entities:
   - pos: -36.972637,-35.964005
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6403
   type: WallReinforced
   components:
@@ -82351,6 +82693,8 @@ entities:
   - pos: -39.057964,-28.344824
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: RefillableSolution
 - uid: 6410
@@ -82518,6 +82862,8 @@ entities:
   - pos: 17.309816,-50.5843
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6433
   type: PoweredSmallLightEmpty
   components:
@@ -82780,6 +83126,8 @@ entities:
   - pos: 22.4883,-11.1267805
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -83826,6 +84174,8 @@ entities:
   - pos: 9.300046,18.205687
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6580
   type: CarpetOrange
   components:
@@ -83873,12 +84223,16 @@ entities:
   - pos: 4.775793,13.661089
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6586
   type: CableApcStack
   components:
   - pos: 4.182043,13.598589
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6587
   type: WallSolid
   components:
@@ -83891,6 +84245,8 @@ entities:
   - pos: 4.353918,13.536089
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6589
   type: WallSolid
   components:
@@ -84137,18 +84493,24 @@ entities:
   - pos: 21.253925,-11.2986555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6618
   type: FoodBanana
   components:
   - pos: 21.4258,-11.2986555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6619
   type: FoodBanana
   components:
   - pos: 21.58205,-11.2986555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6620
   type: CableApcExtension
   components:
@@ -84189,6 +84551,8 @@ entities:
   - pos: -36.972637,-35.41713
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6624
   type: CableHV
   components:
@@ -84245,6 +84609,8 @@ entities:
   - pos: -3.27881,13.277736
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6630
   type: Fireplace
   components:
@@ -84287,6 +84653,8 @@ entities:
   - pos: 22.253925,-11.4549055
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6634
   type: WallReinforced
   components:
@@ -84299,12 +84667,16 @@ entities:
   - pos: 21.4883,-11.4705305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6636
   type: BedsheetClown
   components:
   - pos: 21.5,-11.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6637
   type: WallReinforced
   components:
@@ -84317,6 +84689,8 @@ entities:
   - pos: 30.5,-17.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6639
   type: WallReinforced
   components:
@@ -84335,6 +84709,8 @@ entities:
   - pos: 21.7383,-11.4705305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6642
   type: WallReinforced
   components:
@@ -84347,18 +84723,24 @@ entities:
   - pos: 8.293676,-28.856617
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6644
   type: RubberStampDenied
   components:
   - pos: 8.621801,-28.856617
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6645
   type: Paper
   components:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6646
   type: CableApcExtension
   components:
@@ -84451,6 +84833,8 @@ entities:
   - pos: 21.334734,-11.3924055
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -84462,6 +84846,8 @@ entities:
   - pos: 21.285175,-11.4705305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6659
   type: ReinforcedWindow
   components:
@@ -84474,12 +84860,16 @@ entities:
   - pos: 21.722675,-11.2986555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6661
   type: BikeHorn
   components:
   - pos: 22.174164,-11.4080305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6662
   type: Grille
   components:
@@ -84492,6 +84882,8 @@ entities:
   - pos: 20.490417,-11.6111555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6664
   type: PosterContrabandClown
   components:
@@ -84504,6 +84896,8 @@ entities:
   - pos: 27.5,-12.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6666
   type: Grille
   components:
@@ -84516,6 +84910,8 @@ entities:
   - pos: 20.497465,-11.17455
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6668
   type: AirlockEngineeringLocked
   components:
@@ -84528,6 +84924,8 @@ entities:
   - pos: 20.521667,-11.6736555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6670
   type: WallSolid
   components:
@@ -84600,6 +84998,8 @@ entities:
   - pos: 20.48184,-11.502675
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -84610,12 +85010,16 @@ entities:
   - pos: 27.351957,-12.1736555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6683
   type: CrayonBox
   components:
   - pos: 27.508207,-11.6580305
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -85420,12 +85824,16 @@ entities:
   - pos: 9.534421,17.768187
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6761
   type: RCDAmmo
   components:
   - pos: 9.550046,18.190062
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6762
   type: GasPipeStraight
   components:
@@ -85472,12 +85880,16 @@ entities:
   - pos: 42.414062,-27.470005
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6767
   type: FoodMeatRatdoubleKebab
   components:
   - pos: 13.626031,-46.39916
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6768
   type: CableApcExtension
   components:
@@ -85502,6 +85914,8 @@ entities:
   - pos: 19.394547,-50.426735
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -85512,6 +85926,8 @@ entities:
   - pos: 19.684816,-50.49055
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 6772
@@ -85962,12 +86378,16 @@ entities:
   - pos: 35.495808,-18.799927
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6815
   type: CheapRollerBed
   components:
   - pos: 35.46979,-19.254112
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6816
   type: GasPipeStraight
   components:
@@ -87675,6 +88095,8 @@ entities:
   - pos: 27.077738,-19.747766
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7031
   type: FirelockEdge
   components:
@@ -88553,6 +88975,8 @@ entities:
   - pos: 3.713293,13.629839
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7148
   type: PowerCellMediumPotato
   components:
@@ -88952,6 +89376,8 @@ entities:
   - pos: -5.2174664,-28.395233
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -89081,12 +89507,16 @@ entities:
   - pos: -14.52124,-43.447884
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7217
   type: FoodTinMRETrash
   components:
   - pos: -22.847633,-45.21351
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7218
   type: DisposalUnit
   components:
@@ -89127,18 +89557,24 @@ entities:
   - pos: 24.330286,-13.4236555
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7224
   type: XylophoneInstrument
   components:
   - pos: 23.533411,-13.4549055
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7225
   type: RubberStampMime
   components:
   - pos: 27.742582,-12.3142805
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7226
   type: CableApcExtension
   components:
@@ -89392,6 +89828,8 @@ entities:
   - pos: 33.5,-7.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -91846,6 +92284,8 @@ entities:
   - pos: -34.95712,-41.37509
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 7564
@@ -91854,6 +92294,8 @@ entities:
   - pos: -49.492313,-42.32916
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 7565
@@ -91914,8 +92356,6 @@ entities:
   components:
   - parent: 13541
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7574
   type: WallReinforced
   components:
@@ -92022,6 +92462,8 @@ entities:
   - pos: -49.629227,-28.475441
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7589
   type: PoweredSmallLight
   components:
@@ -92060,6 +92502,8 @@ entities:
     type: Transform
   - count: 8
     type: Stack
+  - canCollide: False
+    type: Physics
 - uid: 7593
   type: Grille
   components:
@@ -92092,6 +92536,8 @@ entities:
     type: Transform
   - count: 7
     type: Stack
+  - canCollide: False
+    type: Physics
 - uid: 7597
   type: OxygenCanister
   components:
@@ -92103,8 +92549,6 @@ entities:
   components:
   - parent: 13541
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7599
   type: DisposalPipe
   components:
@@ -92148,6 +92592,8 @@ entities:
   - pos: 39.552143,-14.300034
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7603
   type: DonkpocketBoxSpawner
   components:
@@ -92370,6 +92816,8 @@ entities:
   - pos: 10.261496,2.5798516
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7628
   type: Poweredlight
   components:
@@ -92636,6 +93084,8 @@ entities:
   - pos: -27.491865,-7.3054943
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
       cellslot_cell_container: !type:ContainerSlot {}
@@ -92671,6 +93121,8 @@ entities:
   - pos: -24.508204,-0.3293052
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7661
   type: AirlockBrigGlassLocked
   components:
@@ -92740,6 +93192,8 @@ entities:
   - pos: -30.504433,2.372429
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -92761,6 +93215,8 @@ entities:
   - pos: -24.542368,1.5920534
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -92802,6 +93258,8 @@ entities:
   - pos: -36.985573,-34.975445
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7676
   type: PoweredSmallLight
   components:
@@ -93253,6 +93711,8 @@ entities:
   - pos: -17.499718,-35.38202
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       toggleable-clothing: !type:ContainerSlot {}
     type: ContainerContainer
@@ -93538,6 +93998,8 @@ entities:
   - pos: 68.494286,-27.490837
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7767
   type: GasPipeStraight
   components:
@@ -93563,6 +94025,8 @@ entities:
   - pos: -30.301308,2.763054
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -93573,6 +94037,8 @@ entities:
   - pos: -34.587,0.72399914
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 7771
@@ -93581,6 +94047,8 @@ entities:
   - pos: -18.316416,0.6440793
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.RangedMagazineComponent-magazine: !type:Container
         ents: []
@@ -93631,6 +94099,8 @@ entities:
   - pos: -25.481215,-45.479855
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -94072,6 +94542,8 @@ entities:
   - pos: 47.535595,-44.54304
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -94106,6 +94578,8 @@ entities:
   - pos: -60.632572,-41.457832
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -94116,24 +94590,32 @@ entities:
   - pos: 41.371563,-36.423416
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7843
   type: ClothingNeckHeadphones
   components:
   - pos: 50.559456,-44.391296
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7844
   type: ClothingNeckScarfStripedBlue
   components:
   - pos: 47.45731,-46.148834
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7845
   type: ClothingHeadHatAnimalMonkey
   components:
   - pos: 58.527092,-45.44077
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7846
   type: Sink
   components:
@@ -94147,18 +94629,24 @@ entities:
   - pos: 51.40455,-45.767857
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7848
   type: ClothingShoesTourist
   components:
   - pos: -44.517593,-34.836853
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7849
   type: ClothingHeadHelmetThunderdome
   components:
   - pos: 25.16276,-43.104046
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7850
   type: MaintenanceToolSpawner
   components:
@@ -94435,6 +94923,8 @@ entities:
   - pos: -18.5,2.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7893
   type: WallReinforced
   components:
@@ -94929,6 +95419,8 @@ entities:
   - pos: 7.4701314,-68.387955
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -94938,6 +95430,8 @@ entities:
   - pos: 7.5482564,-69.15358
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -95309,6 +95803,8 @@ entities:
   - pos: 58.433342,-46.15952
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7999
   type: PaintingMonkey
   components:
@@ -95334,12 +95830,16 @@ entities:
   - pos: 50.500725,-44.523643
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8003
   type: ToyOwlman
   components:
   - pos: 47.478683,-45.212933
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8004
   type: WallReinforced
   components:
@@ -95377,12 +95877,16 @@ entities:
   - pos: 48.406765,-46.380566
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8010
   type: DrinkSyndicatebomb
   components:
   - pos: -49.468544,-41.654823
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 8011
@@ -96215,6 +96719,8 @@ entities:
   - pos: 7.766929,-61.772892
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8105
   type: SpawnPointChiefEngineer
   components:
@@ -96227,6 +96733,8 @@ entities:
   - pos: 5.5248027,-57.460384
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -96510,6 +97018,8 @@ entities:
   - pos: -5.1717057,-44.471844
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 8141
@@ -96642,12 +97152,16 @@ entities:
   - pos: -7.4422164,-44.400204
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8154
   type: ClothingOuterArmorReflective
   components:
   - pos: -7.5203414,-45.449577
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8155
   type: SignNosmoking
   components:
@@ -96770,18 +97284,24 @@ entities:
   - pos: -16.485485,-60.5552
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8171
   type: CrowbarRed
   components:
   - pos: -9.482377,-60.52395
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8172
   type: ToolboxEmergencyFilled
   components:
   - pos: -21.489641,-60.35707
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -96792,6 +97312,8 @@ entities:
   - pos: -9.471111,-64.403946
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -96852,6 +97374,8 @@ entities:
   - pos: 51.49708,-44.367695
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8180
   type: Table
   components:
@@ -96894,6 +97418,8 @@ entities:
   - pos: -28.476954,-0.5949302
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8186
   type: GasPipeStraight
   components:
@@ -97068,12 +97594,16 @@ entities:
   - pos: -33.480396,4.563615
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8204
   type: DrinkMugHeart
   components:
   - pos: 25.413553,-39.445656
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 8205
@@ -97227,6 +97757,8 @@ entities:
   - pos: 26.02446,-27.919643
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8220
   type: PaintingMonkey
   components:
@@ -97239,6 +97771,8 @@ entities:
   - pos: 11.332857,-37.464973
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8222
   type: Rack
   components:
@@ -98635,12 +99169,16 @@ entities:
   - pos: 9.499123,-36.336754
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8367
   type: FoodSoupMiso
   components:
   - pos: -13.380473,-50.322884
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8368
   type: GasPipeStraight
   components:
@@ -98684,18 +99222,24 @@ entities:
   - pos: 24.341068,-34.308445
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8372
   type: FoodBakedCookieFortune
   components:
   - pos: -13.272091,-52.419376
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8373
   type: FoodMealMilkape
   components:
   - pos: -6.5016093,-63.596687
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8374
   type: CableApcExtension
   components:
@@ -98761,12 +99305,16 @@ entities:
   - pos: -12.063588,-50.214176
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8383
   type: DrinkSakeGlass
   components:
   - pos: -11.479933,-50.196045
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 8384
@@ -98775,6 +99323,8 @@ entities:
   - pos: -11.339308,-50.36792
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 8385
@@ -98873,6 +99423,8 @@ entities:
   - pos: -12.53384,-50.273567
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8395
   type: GasVentPump
   components:
@@ -100104,6 +100656,8 @@ entities:
   - pos: 24.473473,-44.545494
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -100114,6 +100668,8 @@ entities:
   - pos: 4.5680137,-57.51097
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -100818,6 +101374,8 @@ entities:
   - pos: 23.432821,26.485954
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8576
   type: WallSolid
   components:
@@ -101910,6 +102468,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8685
   type: CableHV
   components:
@@ -101928,6 +102488,8 @@ entities:
   - pos: 4.436218,-31.37929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8687
   type: ComputerCrewMonitoring
   components:
@@ -101951,6 +102513,8 @@ entities:
   - pos: 8.483092,-29.394915
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8690
   type: Grille
   components:
@@ -102373,42 +102937,56 @@ entities:
   - pos: 26.44381,26.617271
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8739
   type: FoodBakedPancake
   components:
   - pos: 10.479717,-70.350136
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8740
   type: FoodPizzaSassysageSlice
   components:
   - pos: 24.508577,22.65661
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8741
   type: Dropper
   components:
   - pos: 38.601562,-32.313755
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8742
   type: Paper
   components:
   - pos: -10.722915,-28.386835
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8743
   type: Paper
   components:
   - pos: -10.910415,-28.30871
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8744
   type: BoxBeaker
   components:
   - pos: 37.539177,-32.376255
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -102485,12 +103063,16 @@ entities:
   - pos: -38.793877,-28.532324
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8751
   type: OrganHumanHeart
   components:
   - pos: -38.6466,-28.391699
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8752
   type: WallReinforced
   components:
@@ -102686,534 +103268,712 @@ entities:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8776
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8777
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8778
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8779
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8780
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8781
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8782
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8783
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8784
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8785
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8786
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8787
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8788
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8789
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8790
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8791
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8792
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8793
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8794
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8795
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8796
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8797
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8798
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8799
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8800
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8801
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8802
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8803
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8804
   type: FloorTileItemEighties
   components:
   - pos: 56.478832,-44.528122
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8805
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.481476
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8806
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8807
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8808
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8809
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8810
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8811
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8812
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8813
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8814
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8815
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8816
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8817
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8818
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8819
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8820
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8821
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8822
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8823
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8824
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8825
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8826
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8827
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8828
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8829
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8830
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8831
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8832
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8833
   type: FloorTileItemArcadeRed
   components:
   - pos: -37.51721,-35.4971
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8834
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8835
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8836
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8837
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8838
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8839
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8840
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8841
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8842
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8843
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8844
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8845
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8846
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8847
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8848
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8849
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8850
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8851
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8852
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8853
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8854
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8855
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8856
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8857
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8858
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8859
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8860
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8861
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8862
   type: FloorTileItemArcadeBlue
   components:
   - pos: -35.503693,-35.511295
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8863
   type: ClothingOuterSuitFire
   components:
   - pos: 13.516997,-17.542747
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8864
   type: ClothingHeadHelmetFire
   components:
@@ -103228,6 +103988,8 @@ entities:
       keywords: []
       event: !type:ToggleActionEvent {}
     type: HandheldLight
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -103268,6 +104030,8 @@ entities:
   - pos: 52.481804,-26.591118
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -103278,12 +104042,16 @@ entities:
   - pos: 50.481804,-25.356743
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8870
   type: BoxSterile
   components:
   - pos: 51.178062,-25.257103
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -103377,6 +104145,8 @@ entities:
   - pos: -28.420322,2.2599604
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-chamber: !type:ContainerSlot {}
       Content.Server.Weapon.Ranged.Barrels.Components.MagazineBarrelComponent-magazine: !type:ContainerSlot
@@ -103629,12 +104399,16 @@ entities:
   - pos: 17.46565,-49.582985
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8911
   type: ClothingHeadHatFedoraGrey
   components:
   - pos: 17.79857,-46.242443
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8912
   type: MouseTimedSpawner
   components:
@@ -103663,6 +104437,8 @@ entities:
   - pos: 13.641997,-20.542242
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8916
   type: Bed
   components:
@@ -103675,6 +104451,8 @@ entities:
   - pos: -35.5,-36.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8918
   type: WallReinforced
   components:
@@ -103687,6 +104465,8 @@ entities:
   - pos: -15.445587,-40.483425
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8920
   type: WallReinforced
   components:
@@ -103699,6 +104479,8 @@ entities:
   - pos: -32.7886,-34.450375
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8922
   type: SubstationBasic
   components:
@@ -103929,6 +104711,8 @@ entities:
   - pos: 47.492695,-17.296343
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8944
   type: GasVentPump
   components:
@@ -104000,6 +104784,8 @@ entities:
   - pos: 29.51867,-20.434233
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104035,6 +104821,8 @@ entities:
   - pos: 8.593838,-28.432688
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104051,6 +104839,8 @@ entities:
   - pos: 8.437588,-28.338938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104061,6 +104851,8 @@ entities:
   - pos: 8.718838,-28.542063
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104091,12 +104883,16 @@ entities:
   - pos: 7.49703,-69.46169
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8961
   type: RubberStampTrader
   components:
   - pos: -5.50963,-45.39873
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8962
   type: BedsheetCentcom
   components:
@@ -104206,6 +105002,8 @@ entities:
   - pos: -47.48362,-26.620394
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8980
   type: AtmosFixPlasmaMarker
   components:
@@ -104218,24 +105016,32 @@ entities:
   - pos: 51.46583,-44.13332
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8982
   type: ClothingShoesWizard
   components:
   - pos: 51.49708,-44.930195
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8983
   type: ClothingEyesEyepatch
   components:
   - pos: 33.572598,-48.507545
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8984
   type: ClothingHandsGlovesColorRed
   components:
   - pos: -34.495636,-43.28274
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8985
   type: GasPipeStraight
   components:
@@ -104254,12 +105060,16 @@ entities:
   - pos: -49.556843,-33.468502
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8987
   type: ClothingShoesChef
   components:
   - pos: 26.515617,-37.848625
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8988
   type: PosterMapBagel
   components:
@@ -104398,6 +105208,8 @@ entities:
   - pos: 47.51707,-12.443449
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9006
   type: Grille
   components:
@@ -104576,6 +105388,8 @@ entities:
   - pos: 47.501446,-12.474699
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9024
   type: GasPipeStraight
   components:
@@ -104640,6 +105454,8 @@ entities:
   - pos: -6.3893414,-28.395233
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104668,6 +105484,8 @@ entities:
   - pos: -24.526743,0.52955353
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9033
   type: WallReinforced
   components:
@@ -104831,12 +105649,16 @@ entities:
   - pos: -45.537216,-24.47023
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9052
   type: WelderMini
   components:
   - pos: -45.52159,-24.454605
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9053
   type: AirlockServiceGlassLocked
   components:
@@ -104849,6 +105671,8 @@ entities:
   - pos: 13.54451,-44.40129
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104865,6 +105689,8 @@ entities:
   - pos: 35.629635,-51.39923
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9057
   type: Rack
   components:
@@ -104943,6 +105769,8 @@ entities:
   - pos: 55.263298,-12.280668
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 9068
@@ -104951,6 +105779,8 @@ entities:
   - pos: 55.435173,-12.327543
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 9069
@@ -104959,6 +105789,8 @@ entities:
   - pos: 56.403923,-12.374418
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -104969,6 +105801,8 @@ entities:
   - pos: 56.622673,-12.218168
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9071
   type: Rack
   components:
@@ -105087,12 +105921,16 @@ entities:
   - pos: -21.512901,-64.526695
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9087
   type: ShuttleConsoleCircuitboard
   components:
   - pos: -24.319864,-63.386074
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9088
   type: Chair
   components:
@@ -107290,18 +108128,24 @@ entities:
   - pos: -54.61004,-0.4135945
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9403
   type: GasAnalyzer
   components:
   - pos: -54.32879,-0.4135945
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9404
   type: Wrench
   components:
   - pos: -54.563164,-0.4292195
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9405
   type: TableReinforcedGlass
   components:
@@ -107913,36 +108757,48 @@ entities:
   - pos: -42.5,12.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9490
   type: Hemostat
   components:
   - pos: -40.5,12.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9491
   type: Retractor
   components:
   - pos: -40.554253,12.2640085
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9492
   type: Scalpel
   components:
   - pos: -40.5,11.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9493
   type: Cautery
   components:
   - pos: -40.538628,11.9046335
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9494
   type: Flash
   components:
   - pos: -40.679253,11.6233835
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9495
   type: WallSolid
   components:
@@ -108004,6 +108860,8 @@ entities:
   - pos: -30.479893,15.642257
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108024,6 +108882,8 @@ entities:
   - pos: -32.46437,15.522025
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9507
   type: FirelockGlass
   components:
@@ -108079,6 +108939,8 @@ entities:
   - pos: -42.59354,4.4881296
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 9514
@@ -108087,6 +108949,8 @@ entities:
   - pos: -43.426285,4.6287546
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -108107,6 +108971,8 @@ entities:
   - pos: -30.470657,1.1337857
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Barrels.Components.BatteryBarrelComponent-ammo-container: !type:ContainerSlot {}
       cellslot_cell_container: !type:ContainerSlot {}
@@ -108117,6 +108983,8 @@ entities:
   - pos: -42.452915,3.8943796
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108127,18 +108995,24 @@ entities:
   - pos: -42.484165,4.0662546
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9519
   type: Paper
   components:
   - pos: -42.46854,4.0506296
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9520
   type: Paper
   components:
   - pos: -42.421665,4.0193796
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9521
   type: KitchenReagentGrinder
   components:
@@ -108156,6 +109030,8 @@ entities:
   - pos: -41.52392,-3.396945
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108166,6 +109042,8 @@ entities:
   - pos: -42.258293,-3.334445
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108176,18 +109054,24 @@ entities:
   - pos: -40.55517,-10.459445
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9525
   type: Screwdriver
   components:
   - pos: -45.39892,-6.41257
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9526
   type: Wrench
   components:
   - pos: -44.508293,-3.521945
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9527
   type: VendingMachineSnack
   components:
@@ -108288,12 +109172,16 @@ entities:
   - pos: -49.5,-6.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9540
   type: BoxFolderBlack
   components:
   - pos: -45.46234,-1.3609619
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108310,6 +109198,8 @@ entities:
   - pos: -49.5,-8.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9543
   type: WallReinforced
   components:
@@ -108440,48 +109330,64 @@ entities:
   - pos: -55.338974,14.554046
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9561
   type: SheetSteel
   components:
   - pos: -55.338974,14.554046
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9562
   type: SheetGlass
   components:
   - pos: -54.51085,14.522796
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9563
   type: SheetGlass
   components:
   - pos: -54.51085,14.522796
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9564
   type: SheetPlastic
   components:
   - pos: -53.5421,14.538421
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9565
   type: SheetPlastic
   components:
   - pos: -53.5421,14.538421
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9566
   type: Multitool
   components:
   - pos: -56.485554,9.521204
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9567
   type: ClothingBeltUtilityFilled
   components:
   - pos: -56.46993,8.505579
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108552,12 +109458,16 @@ entities:
   - pos: -53.501022,10.709593
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9577
   type: ClothingEyesGlasses
   components:
   - pos: -53.501022,10.522093
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9578
   type: PowerDrill
   components:
@@ -108567,6 +109477,8 @@ entities:
   - useSound: !type:SoundPathSpecifier
       path: /Audio/Items/drill_use.ogg
     type: Tool
+  - canCollide: False
+    type: Physics
 - uid: 9579
   type: WeaponCapacitorRecharger
   components:
@@ -108595,12 +109507,16 @@ entities:
   - pos: -40.482635,3.7726111
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9582
   type: ClothingHeadHelmetEVA
   components:
   - pos: -40.65451,3.6319861
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9583
   type: Chair
   components:
@@ -108675,12 +109591,16 @@ entities:
   - pos: -34.380413,15.54944
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9591
   type: ClothingHeadHatWelding
   components:
   - pos: -34.442913,15.721314
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9592
   type: LargeBeaker
   components:
@@ -108689,12 +109609,16 @@ entities:
     type: Transform
   - solution: beaker
     type: Drink
+  - canCollide: False
+    type: Physics
 - uid: 9593
   type: ToolboxElectricalFilled
   components:
   - pos: -39.485977,11.728887
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -108711,12 +109635,16 @@ entities:
   - pos: -39.517227,14.525762
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9596
   type: ClothingHandsGlovesColorBlack
   components:
   - pos: -39.470352,14.432012
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9597
   type: Autolathe
   components:
@@ -108751,6 +109679,8 @@ entities:
   - pos: -37.43891,14.626589
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9601
   type: WindowReinforcedDirectional
   components:
@@ -108771,6 +109701,8 @@ entities:
   - pos: -53.51317,9.765945
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -128282,6 +129214,8 @@ entities:
   - pos: -21.040066,0.7136909
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 11411
@@ -128460,18 +129394,24 @@ entities:
   - pos: -48.08845,14.458525
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11438
   type: Multitool
   components:
   - pos: -48.437252,14.607741
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11439
   type: ClothingBeltUtility
   components:
   - pos: -45.5194,14.646025
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -128488,6 +129428,8 @@ entities:
   - pos: -44.472527,14.66165
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -128573,6 +129515,8 @@ entities:
   - pos: -46.385326,14.583525
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -128583,24 +129527,32 @@ entities:
   - pos: -47.6197,14.6929
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11451
   type: Paper
   components:
   - pos: -47.46345,14.646025
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11452
   type: Paper
   components:
   - pos: -47.27595,14.5679
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11453
   type: Pen
   components:
   - pos: -46.9322,14.72415
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11454
   type: SpawnPointClown
   components:
@@ -128659,6 +129611,8 @@ entities:
   - pos: -9.531382,-31.542116
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11462
   type: ClosetBase
   components:
@@ -130903,6 +131857,8 @@ entities:
   - pos: -4.288453,-51.455044
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11660
   type: PoweredSmallLight
   components:
@@ -130975,6 +131931,8 @@ entities:
   - pos: 12.553763,-50.43942
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -130985,6 +131943,8 @@ entities:
   - pos: 14.569388,-48.423794
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11668
   type: AirlockGlass
   components:
@@ -131015,12 +131975,16 @@ entities:
   - pos: -40.826138,-17.391531
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11673
   type: Paper
   components:
   - pos: -40.669888,-17.469656
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11674
   type: WallReinforced
   components:
@@ -131681,6 +132645,8 @@ entities:
       keywords: []
       event: !type:ToggleActionEvent {}
     type: HandheldLight
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -131690,6 +132656,8 @@ entities:
   - pos: 19.5,-5.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11747
   type: LockerQuarterMasterFilled
   components:
@@ -131846,18 +132814,24 @@ entities:
   - pos: 21.395725,-6.175393
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11767
   type: CigarGold
   components:
   - pos: 21.364475,-6.081643
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11768
   type: BoxFolderYellow
   components:
   - pos: 21.625202,-6.458885
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -131868,36 +132842,48 @@ entities:
   - pos: 21.515827,-5.740135
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11770
   type: Paper
   components:
   - pos: 21.66135,-6.347268
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11771
   type: Paper
   components:
   - pos: 21.66135,-6.347268
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11772
   type: Paper
   components:
   - pos: 21.66135,-6.347268
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11773
   type: Paper
   components:
   - pos: 21.66135,-6.347268
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11774
   type: Paper
   components:
   - pos: 21.66135,-6.347268
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11775
   type: TwoWayLever
   components:
@@ -131981,6 +132967,8 @@ entities:
   - pos: 27.46107,1.6018682
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11777
   type: Table
   components:
@@ -132017,6 +133005,8 @@ entities:
   - pos: 26.5631,-3.5507765
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11783
   type: Table
   components:
@@ -132058,6 +133048,8 @@ entities:
   - pos: 24.494469,-6.2100296
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -132125,180 +133117,240 @@ entities:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11793
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11794
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11795
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11796
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11797
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11798
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11799
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11800
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11801
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11802
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11803
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11804
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11805
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11806
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11807
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11808
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11809
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11810
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11811
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11812
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11813
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11814
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11815
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11816
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11817
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11818
   type: Paper
   components:
   - pos: 24.418564,-1.4510801
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11819
   type: Paper
   components:
   - pos: 24.418564,-1.4354551
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11820
   type: Paper
   components:
   - pos: 24.418564,-1.4354551
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11821
   type: Paper
   components:
   - pos: 24.418564,-1.4354551
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 11822
   type: Table
   components:
@@ -132311,6 +133363,8 @@ entities:
   - pos: 26.556969,1.6324213
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -136901,6 +137955,8 @@ entities:
   - pos: 29.5,-7.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -141483,6 +142539,8 @@ entities:
   - pos: 26.506096,-3.5528235
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -144274,48 +145332,64 @@ entities:
   - pos: 29.303274,5.6306067
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12911
   type: FireExtinguisher
   components:
   - pos: 29.47515,5.5681067
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12912
   type: FireExtinguisher
   components:
   - pos: 29.66265,5.6774817
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12913
   type: Shovel
   components:
   - pos: 30.428274,5.5524817
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12914
   type: Shovel
   components:
   - pos: 30.678274,5.5212317
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12915
   type: Pickaxe
   components:
   - pos: 30.47515,5.5837317
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12916
   type: DoubleEmergencyOxygenTankFilled
   components:
   - pos: 29.584524,12.540312
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12917
   type: YellowOxygenTankFilled
   components:
   - pos: 31.428274,12.571562
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12918
   type: ChairOfficeDark
   components:
@@ -144353,6 +145427,8 @@ entities:
   - pos: 31.545334,8.616834
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 12924
@@ -144474,12 +145550,16 @@ entities:
   - pos: 30.442081,12.594205
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12934
   type: PartRodMetal
   components:
   - pos: 30.738956,12.57858
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12935
   type: SalvageMagnet
   components:
@@ -144797,24 +145877,32 @@ entities:
   - pos: 31.52092,-3.4827955
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12957
   type: SheetPlasteel
   components:
   - pos: 31.52092,-3.4827955
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12958
   type: SheetSteel
   components:
   - pos: 30.55213,-3.4557939
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12959
   type: SheetSteel
   components:
   - pos: 30.55213,-3.4557939
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12960
   type: Table
   components:
@@ -144855,6 +145943,8 @@ entities:
   - pos: 31.503656,5.4103765
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12966
   type: WindoorCargoLocked
   components:
@@ -144881,6 +145971,8 @@ entities:
   - pos: 36.45546,18.597403
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12970
   type: GasVentScrubber
   components:
@@ -144909,6 +146001,8 @@ entities:
   - pos: 33.483963,9.527896
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12973
   type: Table
   components:
@@ -144939,18 +146033,24 @@ entities:
   - pos: 33.459244,-3.4773045
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12978
   type: OxygenTankFilled
   components:
   - pos: 40.463966,-2.5085545
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 12979
   type: BoxBeaker
   components:
   - pos: 40.463966,-3.3210545
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -144961,6 +146061,8 @@ entities:
   - pos: 39.88584,-3.3366795
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -150399,6 +151501,8 @@ entities:
   - pos: 22.526571,26.579704
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13479
   type: Catwalk
   components:
@@ -150696,6 +151800,8 @@ entities:
   - pos: 32.49577,-3.5108848
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13513
   type: CrateFilledSpawner
   components:
@@ -150726,30 +151832,40 @@ entities:
   - pos: 34.353848,-3.4529443
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13518
   type: Flare
   components:
   - pos: 34.525723,-3.4529443
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13519
   type: Flare
   components:
   - pos: 34.697598,-3.4529443
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13520
   type: FireExtinguisher
   components:
   - pos: 33.33081,13.632337
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13521
   type: ClothingHeadHatCargosoftFlipped
   components:
   - pos: 26.516693,-6.3135796
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13522
   type: SinkWide
   components:
@@ -151185,6 +152301,8 @@ entities:
   - pos: 3.6122198,-39.55812
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13570
   type: RandomPosterLegit
   components:
@@ -151699,12 +152817,16 @@ entities:
   - pos: -6.6243186,-18.287552
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13650
   type: ClothingOuterHardsuitEVAPrisoner
   components:
   - pos: -6.4055686,-18.490677
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13651
   type: GasPipeTJunction
   components:
@@ -151970,6 +153092,8 @@ entities:
   - pos: -8.5,-13.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13676
   type: Bucket
   components:
@@ -151978,6 +153102,8 @@ entities:
     type: Transform
   - solution: bucket
     type: Drink
+  - canCollide: False
+    type: Physics
 - uid: 13677
   type: Bed
   components:
@@ -151990,6 +153116,8 @@ entities:
   - pos: -8.5,-14.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13679
   type: SalternAPC
   components:
@@ -152220,24 +153348,32 @@ entities:
   - pos: -10.334051,-16.471195
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13701
   type: ClothingHeadHatPaper
   components:
   - pos: -8.49187,-16.753117
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13702
   type: AppleSeeds
   components:
   - pos: -9.521551,-12.502444
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13703
   type: HydroponicsToolMiniHoe
   components:
   - pos: -9.552801,-12.486819
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13704
   type: PottedPlantRandom
   components:
@@ -152757,6 +153893,8 @@ entities:
   - pos: -6.4360423,-18.239985
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -152966,12 +154104,16 @@ entities:
   - pos: 3.4523659,13.738024
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13785
   type: ClothingHeadHatWelding
   components:
   - pos: 3.6398659,13.628649
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13786
   type: Catwalk
   components:
@@ -153014,6 +154156,8 @@ entities:
   - pos: 4.247008,21.736326
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 13793
@@ -153348,6 +154492,8 @@ entities:
   - pos: -2.5697675,13.636754
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13843
   type: WallReinforced
   components:
@@ -153381,6 +154527,8 @@ entities:
   - pos: -2.3666425,13.527379
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13848
   type: PoweredSmallLight
   components:
@@ -154104,6 +155252,8 @@ entities:
   - pos: 4.525793,13.457964
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13945
   type: FirelockGlass
   components:
@@ -154513,6 +155663,8 @@ entities:
   - pos: 42.5,20.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 13998
   type: Poweredlight
   components:
@@ -154571,6 +155723,8 @@ entities:
   - pos: 41.5,20.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -155408,6 +156562,8 @@ entities:
   - pos: -8.430582,20.718344
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -155511,12 +156667,16 @@ entities:
   - pos: -12.5,22.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14110
   type: FoodBowlBig
   components:
   - pos: -10.5,22.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14111
   type: Bookshelf
   components:
@@ -155801,6 +156961,8 @@ entities:
   - pos: -8.542841,25.577087
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -155837,6 +156999,8 @@ entities:
   - pos: -6.5344563,24.313803
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14157
   type: ChairOfficeDark
   components:
@@ -155849,6 +157013,8 @@ entities:
   - pos: -8.620966,24.873962
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -155859,90 +157025,120 @@ entities:
   - pos: -8.386591,24.530212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14160
   type: Paper
   components:
   - pos: -8.386591,24.530212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14161
   type: Paper
   components:
   - pos: -8.386591,24.530212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14162
   type: Paper
   components:
   - pos: -8.386591,24.530212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14163
   type: Paper
   components:
   - pos: -8.386591,24.530212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14164
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14165
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14166
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14167
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14168
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14169
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14170
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14171
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14172
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14173
   type: Paper
   components:
   - pos: -6.5813313,20.579428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14174
   type: Bookshelf
   components:
@@ -155967,48 +157163,64 @@ entities:
   - pos: -7.499414,20.54909
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14178
   type: ToyRipley
   components:
   - pos: -8.499414,17.595964
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14179
   type: ToySkeleton
   components:
   - pos: -9.358789,16.79909
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14180
   type: ToyAssistant
   components:
   - pos: -9.515039,17.51784
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14181
   type: Paper
   components:
   - pos: -8.515039,16.595964
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14182
   type: Paper
   components:
   - pos: -9.030664,17.502214
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14183
   type: d20Dice
   components:
   - pos: -8.428826,17.002214
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14184
   type: d8Dice
   components:
   - pos: -9.631951,17.08034
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14185
   type: CarpetBlue
   components:
@@ -156027,6 +157239,8 @@ entities:
   - pos: -6.522576,13.64284
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14188
   type: SpawnMobMouse
   components:
@@ -158608,6 +159822,8 @@ entities:
   - pos: -10.513155,13.663327
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -158617,12 +159833,16 @@ entities:
   - pos: -8.013154,20.54689
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14405
   type: ClothingEyesGlasses
   components:
   - pos: -44.55676,-10.436331
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14406
   type: SophicScribe
   components:
@@ -159500,12 +160720,16 @@ entities:
   - pos: -22.476202,18.942682
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14509
   type: DrinkWineBottleFull
   components:
   - pos: -22.523077,19.739557
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 14510
@@ -160476,6 +161700,8 @@ entities:
   - pos: -19.5,18.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14593
   type: DisposalBend
   components:
@@ -161264,12 +162490,16 @@ entities:
   - pos: -19.702135,30.66251
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14693
   type: ClothingHeadHatWelding
   components:
   - pos: -19.53026,30.53751
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14694
   type: Poweredlight
   components:
@@ -161292,6 +162522,8 @@ entities:
   - pos: -19.264635,30.60001
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 14696
   type: GasPipeTJunction
   components:
@@ -165140,60 +166372,80 @@ entities:
   - pos: -28.51308,32.542072
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15153
   type: ClothingShoesBootsMag
   components:
   - pos: -28.51308,32.463947
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15154
   type: InflatableWallStack
   components:
   - pos: -30.57607,32.667072
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15155
   type: InflatableWallStack
   components:
   - pos: -30.57607,32.667072
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15156
   type: InflatableDoorStack
   components:
   - pos: -30.404196,32.495197
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15157
   type: InflatableDoorStack
   components:
   - pos: -30.404196,32.495197
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15158
   type: PartRodMetal
   components:
   - pos: -29.907173,32.588947
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15159
   type: PartRodMetal
   components:
   - pos: -29.907173,32.588947
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15160
   type: SheetSteel
   components:
   - pos: -29.391548,32.510822
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15161
   type: SheetSteel
   components:
   - pos: -29.391548,32.510822
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 15162
   type: WeldingFuelTankFull
   components:
@@ -170162,6 +171414,8 @@ entities:
   - pos: 5.566845,21.704134
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -173945,6 +175199,8 @@ entities:
   - pos: 4.583174,23.552982
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16027
   type: SignElectricalMed
   components:
@@ -173993,24 +175249,32 @@ entities:
   - pos: 10.061119,21.64667
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16035
   type: CableMVStack
   components:
   - pos: 10.248619,21.568544
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16036
   type: CableHVStack
   components:
   - pos: 10.482994,21.45917
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16037
   type: ClothingEyesHudDiagnostic
   components:
   - pos: 9.436119,21.599794
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16038
   type: JawsOfLife
   components:
@@ -174020,6 +175284,8 @@ entities:
   - useSound: !type:SoundPathSpecifier
       path: /Audio/Items/jaws_pry.ogg
     type: Tool
+  - canCollide: False
+    type: Physics
 - uid: 16039
   type: PottedPlantRandom
   components:
@@ -174047,12 +175313,16 @@ entities:
   - pos: 1.5213165,21.50849
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16043
   type: ClothingBeltUtilityFilled
   components:
   - pos: 0.49006647,21.53974
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -174063,54 +175333,72 @@ entities:
   - pos: 0.55256647,20.72724
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16045
   type: RadioHandheld
   components:
   - pos: 1.2244415,19.742865
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16046
   type: RadioHandheld
   components:
   - pos: 1.4275665,19.899115
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16047
   type: RadioHandheld
   components:
   - pos: 1.6463165,19.742865
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16048
   type: RadioHandheld
   components:
   - pos: 1.4275665,19.555365
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16049
   type: CrowbarRed
   components:
   - pos: 1.5525665,21.41474
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16050
   type: Multitool
   components:
   - pos: 1.0994415,21.586615
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16051
   type: PowerCellMediumHyper
   components:
   - pos: 0.56819147,21.03974
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16052
   type: BoxLighttube
   components:
   - pos: 0.97444147,20.461615
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -174121,12 +175409,16 @@ entities:
   - pos: 0.59944147,19.88349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16054
   type: FoodPizzaMeatSlice
   components:
   - pos: 1.4275665,20.805365
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16055
   type: LockerWeldingSuppliesFilled
   components:
@@ -174175,6 +175467,8 @@ entities:
   - pos: 4.99697,21.690666
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 16061
@@ -174183,6 +175477,8 @@ entities:
   - pos: 4.77822,21.565666
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 16062
@@ -174191,6 +175487,8 @@ entities:
   - pos: 9.590719,18.628166
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 16063
@@ -174199,6 +175497,8 @@ entities:
   - pos: 4.575133,21.709621
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 16064
@@ -183449,60 +184749,80 @@ entities:
   - pos: -3.5282934,29.543653
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16985
   type: SheetSteel
   components:
   - pos: -3.5282934,29.543653
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16986
   type: SheetSteel
   components:
   - pos: -3.5282934,29.543653
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16987
   type: SheetGlass
   components:
   - pos: -2.9657934,29.544163
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16988
   type: SheetGlass
   components:
   - pos: -2.9657934,29.544163
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16989
   type: SheetGlass
   components:
   - pos: -2.9657934,29.544163
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16990
   type: SheetPlasteel
   components:
   - pos: -2.4501684,29.544163
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16991
   type: SheetPlasteel
   components:
   - pos: -2.4501684,29.544163
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16992
   type: PartRodMetal
   components:
   - pos: -1.9970434,29.559788
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16993
   type: PartRodMetal
   components:
   - pos: -1.9970434,29.559788
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 16994
   type: SignElectricalMed
   components:
@@ -185046,42 +186366,56 @@ entities:
   - pos: -18.527008,32.655674
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17203
   type: YellowOxygenTankFilled
   components:
   - pos: -18.245758,32.64005
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17204
   type: ClothingEyesGlassesMeson
   components:
   - pos: -17.4682,32.663837
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17205
   type: ClothingEyesGlassesMeson
   components:
   - pos: -17.4682,32.476337
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17206
   type: Multitool
   components:
   - pos: -14.577575,32.601337
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17207
   type: WelderMini
   components:
   - pos: -14.43695,32.523212
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17208
   type: ClothingHandsGlovesColorBlack
   components:
   - pos: -14.562539,33.47624
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17209
   type: NitrogenCanister
   components:
@@ -185130,12 +186464,16 @@ entities:
   - pos: -15.446266,32.680546
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17217
   type: ClothingMaskGasAtmos
   components:
   - pos: -15.243141,32.524296
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17218
   type: SignRadiationMed
   components:
@@ -185683,6 +187021,8 @@ entities:
   - pos: -60.46024,22.570763
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17307
   type: VendingMachineCigs
   components:
@@ -185894,6 +187234,8 @@ entities:
   - pos: -65.39612,21.710405
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -185903,6 +187245,8 @@ entities:
   - pos: -65.60689,25.867188
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 17338
@@ -185911,12 +187255,16 @@ entities:
   - pos: -61.231888,21.554688
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17339
   type: BoxFolderBlack
   components:
   - pos: -61.544388,21.585938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -185927,30 +187275,40 @@ entities:
   - pos: -61.497513,21.710938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17341
   type: Paper
   components:
   - pos: -61.497513,21.710938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17342
   type: Paper
   components:
   - pos: -61.497513,21.710938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17343
   type: Paper
   components:
   - pos: -61.497513,21.710938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17344
   type: Paper
   components:
   - pos: -61.497513,21.710938
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17345
   type: CableApcExtension
   components:
@@ -186603,6 +187961,8 @@ entities:
   - pos: -56.463734,20.387777
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17401
   type: Bed
   components:
@@ -188505,6 +189865,8 @@ entities:
   - pos: -53.465393,21.49586
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -188515,6 +189877,8 @@ entities:
   - pos: -53.41401,20.42319
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -188525,24 +189889,32 @@ entities:
   - pos: -53.465393,20.511484
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17624
   type: ClothingUniformJumpsuitOperative
   components:
   - pos: -53.481018,20.542734
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17625
   type: ClothingShoesSwat
   components:
   - pos: -54.44779,21.345064
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17626
   type: Lamp
   components:
   - pos: -53.47904,19.64194
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -188558,6 +189930,8 @@ entities:
   - pos: -54.57279,25.39194
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17629
   type: TableWood
   components:
@@ -188595,6 +189969,8 @@ entities:
   - pos: -47.44779,23.595064
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -189104,210 +190480,280 @@ entities:
   - pos: -65.514404,1.4646236
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17698
   type: FoodBurgerMcguffin
   components:
   - pos: -53.466866,25.529905
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17699
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17700
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17701
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17702
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17703
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17704
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17705
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17706
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17707
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17708
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17709
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17710
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17711
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17712
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17713
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17714
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17715
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17716
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17717
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17718
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17719
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17720
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17721
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17722
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17723
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17724
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17725
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17726
   type: FloorTileItemEighties
   components:
   - pos: -54.466866,23.51428
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17727
   type: FloorTileItemEighties
   components:
   - pos: -54.45124,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17728
   type: FloorTileItemEighties
   components:
   - pos: -54.45124,23.498655
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17729
   type: ClothingNeckHeadphones
   components:
   - pos: -39.489933,19.58194
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17730
   type: ClothingOuterHoodieBlack
   components:
   - pos: -39.536808,19.45694
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17731
   type: CrowbarRed
   components:
   - pos: -38.614933,19.51944
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17732
   type: ClosetEmergencyFilledRandom
   components:
@@ -189619,6 +191065,8 @@ entities:
   - pos: -35.62803,21.695175
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 17763
@@ -189627,6 +191075,8 @@ entities:
   - pos: -35.31553,21.695175
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 17764
@@ -189667,6 +191117,8 @@ entities:
   - pos: -32.571205,20.571234
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -189677,24 +191129,32 @@ entities:
   - pos: -32.602455,19.539984
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17770
   type: Paper
   components:
   - pos: -32.7919,20.084345
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17771
   type: Paper
   components:
   - pos: -32.49308,19.946234
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17772
   type: Paper
   components:
   - pos: -32.27433,20.055609
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17773
   type: Table
   components:
@@ -189727,6 +191187,8 @@ entities:
   - pos: -60.56838,4.5321064
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17777
   type: Rack
   components:
@@ -189779,12 +191241,16 @@ entities:
   - pos: -56.61962,-11.410926
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17784
   type: ClothingMaskBreath
   components:
   - pos: -56.36962,-11.551551
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17785
   type: Chair
   components:
@@ -189805,6 +191271,8 @@ entities:
   - pos: -42.528843,-13.558097
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17788
   type: Poweredlight
   components:
@@ -189960,6 +191428,8 @@ entities:
   - pos: 19.53748,21.610455
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -189970,6 +191440,8 @@ entities:
   - pos: 21.428104,21.579205
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17801
   type: WallSolid
   components:
@@ -190072,12 +191544,16 @@ entities:
   - pos: 31.552929,-10.554792
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17818
   type: ClothingMaskBreathMedical
   components:
   - pos: 29.52168,-10.507917
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17819
   type: CrateEmptySpawner
   components:
@@ -190130,6 +191606,8 @@ entities:
   - pos: -8.500896,-50.426304
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17827
   type: Chair
   components:
@@ -190163,6 +191641,8 @@ entities:
   - pos: -8.719646,-50.56693
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17832
   type: VendingMachineCigs
   components:
@@ -190185,6 +191665,8 @@ entities:
   - pos: 6.472772,-48.463036
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17835
   type: ClosetEmergencyFilledRandom
   components:
@@ -191450,12 +192932,16 @@ entities:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17988
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 17989
   type: WallReinforced
   components:
@@ -191922,12 +193408,16 @@ entities:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18064
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18065
   type: WallReinforced
   components:
@@ -194582,6 +196072,8 @@ entities:
   - pos: -2.47266,-11.475237
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18304
   type: WallReinforced
   components:
@@ -194630,144 +196122,192 @@ entities:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18312
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18313
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18314
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18315
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18316
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18317
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18318
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18319
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18320
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18321
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18322
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18323
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18324
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18325
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18326
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18327
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18328
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18329
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18330
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18331
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18332
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18333
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18334
   type: FloorTileItemGold
   components:
   - pos: 8.50918,-6.461349
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18335
   type: AirlockMaintLocked
   components:
@@ -195186,6 +196726,8 @@ entities:
   - pos: 5.5158696,-7.3988457
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -195235,6 +196777,8 @@ entities:
   - pos: 5.6252446,-7.5082207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18386
   type: BoxFolderBlack
   components:
@@ -195243,6 +196787,8 @@ entities:
   - pos: 3.5158696,-7.3832207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -195253,6 +196799,8 @@ entities:
   - pos: 5.5002446,-5.3832207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -195263,12 +196811,16 @@ entities:
   - pos: 6.4689946,-5.3675957
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18389
   type: DrinkGoldschlagerBottleFull
   components:
   - pos: 6.3908696,-5.6800957
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 18390
@@ -195277,6 +196829,8 @@ entities:
   - pos: 6.6877446,-6.3988457
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 18391
@@ -195285,24 +196839,32 @@ entities:
   - pos: 6.7189946,-5.8832207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18392
   type: IngotSilver
   components:
   - pos: 6.5002446,-7.2894707
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18393
   type: ClothingBeltChampion
   components:
   - pos: 6.5002446,-6.7582207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18394
   type: ClothingNeckBling
   components:
   - pos: 5.9221196,-5.3832207
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18395
   type: FirelockGlass
   components:
@@ -195353,18 +196915,24 @@ entities:
   - pos: 4.4681315,-9.3940325
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18401
   type: ClothingEyesEyepatch
   components:
   - pos: 4.4993815,-9.5034075
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18402
   type: ElectricGuitarInstrument
   components:
   - pos: 4.4056315,-9.4877825
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18403
   type: TableWood
   components:
@@ -195401,6 +196969,8 @@ entities:
   - pos: -8.635315,-5.284297
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -195410,6 +196980,8 @@ entities:
   - pos: -8.369689,-5.424922
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - solution: drink
     type: DrainableSolution
 - uid: 18410
@@ -195667,6 +197239,8 @@ entities:
   - pos: -6.5,-6.5
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18440
   type: AirlockCaptainGlassLocked
   components:
@@ -195877,6 +197451,8 @@ entities:
   - pos: -4.371214,-6.2960124
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       cellslot_cell_container: !type:ContainerSlot {}
     type: ContainerContainer
@@ -195886,6 +197462,8 @@ entities:
   - pos: -3.511839,-6.4366374
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18463
   type: DisposalUnit
   components:
@@ -196041,6 +197619,8 @@ entities:
   - pos: -4.5524774,-3.3857722
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18477
   type: Bookshelf
   components:
@@ -196291,18 +197871,24 @@ entities:
   - pos: -0.465486,3.4514241
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18507
   type: Multitool
   components:
   - pos: -2.512361,3.5139241
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18508
   type: FoodBoxDonut
   components:
   - pos: 2.6282425,3.6481223
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -196313,12 +197899,16 @@ entities:
   - pos: 3.1967216,3.6603613
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18510
   type: MedkitFilled
   components:
   - pos: 3.6342216,3.5822363
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -196329,6 +197919,8 @@ entities:
   - pos: 4.4779716,1.6538
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -196419,12 +198011,16 @@ entities:
   - pos: 8.522635,-6.499717
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18518
   type: SLMagnumHV
   components:
   - pos: -4.5212274,-3.5888972
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       Content.Server.Weapon.Ranged.Ammunition.Components.SpeedLoaderComponent-container: !type:Container
         ents: []
@@ -196593,6 +198189,8 @@ entities:
   - pos: -20.447735,5.5611706
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -196603,6 +198201,8 @@ entities:
   - pos: -8.419895,2.4452944
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18541
   type: FirelockGlass
   components:
@@ -196635,6 +198235,8 @@ entities:
   - pos: 3.5038543,-3.4785218
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -197222,8 +198824,6 @@ entities:
   components:
   - parent: 18588
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 18588
   type: ClosetBase
   components:
@@ -197460,6 +199060,8 @@ entities:
   - pos: -2.5209453,-2.870048
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18615
   type: PoweredSmallLight
   components:
@@ -197944,6 +199546,8 @@ entities:
     pos: -1.3567805,29.586765
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18674
   type: APCElectronics
   components:
@@ -197951,6 +199555,8 @@ entities:
     pos: -1.3567805,29.586765
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18675
   type: AirAlarmElectronics
   components:
@@ -197958,6 +199564,8 @@ entities:
     pos: -1.5599055,29.41489
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18676
   type: AirAlarmElectronics
   components:
@@ -197965,6 +199573,8 @@ entities:
     pos: -1.5599055,29.41489
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18677
   type: Table
   components:
@@ -197977,24 +199587,32 @@ entities:
   - pos: -8.541508,32.64864
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18679
   type: FirelockElectronics
   components:
   - pos: -8.541508,32.64864
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18680
   type: DoorElectronics
   components:
   - pos: -8.400883,32.49239
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18681
   type: DoorElectronics
   components:
   - pos: -8.400883,32.49239
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18682
   type: TableWood
   components:
@@ -198079,6 +199697,12 @@ entities:
     type: Sprite
   - enabled: False
     type: AmbientSound
+- uid: 18695
+  type: SpawnPointCyborg
+  components:
+  - pos: -50.5,8.5
+    parent: 25
+    type: Transform
 - uid: 18706
   type: PoweredlightSodium
   components:
@@ -198142,6 +199766,8 @@ entities:
   - pos: 12.525269,-40.487293
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
   - containers:
       storagebase: !type:Container
         ents: []
@@ -199050,6 +200676,8 @@ entities:
   - pos: 0.38949126,20.31537
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18793
   type: ServiceTechFab
   components:
@@ -199078,6 +200706,8 @@ entities:
   - pos: 25.815205,-39.406727
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18796
   type: Poweredlight
   components:
@@ -199150,16 +200780,22 @@ entities:
   - pos: -44.02734,4.623246
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18801
   type: MaterialBluespace
   components:
   - pos: -42.90234,4.591996
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 18802
   type: MaterialBluespace
   components:
   - pos: -42.68359,3.4044962
     parent: 25
     type: Transform
+  - canCollide: False
+    type: Physics
 ...
