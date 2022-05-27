@@ -19,3 +19,18 @@
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
+
+- type: entity
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelInfinite
+  components:
+  - type: Stack
+    count: 30
+    unlimited: true
+
+- type: entity
+  parent: PartRodMetal
+  id: PartRodMetalInfinite
+  components:
+  - type: Stack
+    unlimited: true

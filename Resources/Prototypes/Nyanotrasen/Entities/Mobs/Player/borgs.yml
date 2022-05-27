@@ -51,7 +51,7 @@
       - id: Crowbar
       - id: MopItem
       - id: FireExtinguisher
-      - id: TrashBag
+      - id: FloorTileItemSteelInfinite
   - type: InnateItem
   - type: ItemSlots
     slots:
@@ -61,6 +61,9 @@
       hypospray_slot:
         name: Hypospray
         startingItem: HyposprayBorgStandard
+      wrench_slot:
+        name: TrashBag
+        startingItem: TrashBag
   - type: Actions
   - type: CombatMode
     disarmAction:
@@ -86,3 +89,23 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: Appearance
+  - type: UserInterface
+    interfaces:
+      - key: enum.CrewMonitoringUIKey.Key
+        type: CrewMonitoringBoundUserInterface
+  - type: CrewMonitoringConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SuitSensor
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: IntrinsicUI
+    uis:
+    - key: enum.CrewMonitoringUIKey.Key
+      toggleAction:
+        name: action-name-show-crew-monitoring-console
+        description: action-description-crew-monitoring-console
+        icon: Objects/Specific/Medical/handheldcrewmonitor.rsi/icon.png
+        keywords: [ "AI", "console", "interface" ]
+        priority: -1
+        event: !type:ToggleIntrinsicUIEvent
