@@ -11,6 +11,18 @@
 
 - type: entity
   parent: Holoprojector
+  id: HoloprojectorEngineering
+  name: engineering holoprojector
+  description: Displays a warning sign.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignEng
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Holoprojectors/eng.rsi
+    state: icon
+
+- type: entity
+  parent: Holoprojector
   id: HolofanProjector
   name: holofan projector
   description: Stop suicidal passengers from killing everyone during atmos emergencies.

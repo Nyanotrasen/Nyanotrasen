@@ -3,13 +3,14 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Server.Mind.Components;
+using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
 {
     public sealed class InnateItemSystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public override void Initialize()
         {
@@ -32,10 +33,13 @@ namespace Content.Server.Borgs
                 return;
             foreach (var slot in slotsComp.Slots.Values)
             {
+
                 if (slot.ContainerSlot == null)
                     continue;
                 var sourceItem = slot.ContainerSlot.ContainedEntity;
                 if (sourceItem == null)
+                    continue;
+                if (_tagSystem.HasTag((EntityUid) sourceItem, "NoAction"))
                     continue;
 
                 _actionsSystem.AddAction(uid, CreateAction((EntityUid) sourceItem), uid);
