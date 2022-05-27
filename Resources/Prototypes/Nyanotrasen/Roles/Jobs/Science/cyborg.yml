@@ -1,0 +1,11 @@
+- type: job
+  id: Cyborg
+  name: "cyborg"
+  departments:
+  - Epistemics
+  icon: "Roboticist"
+  supervisors: "all humans"
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Borg
