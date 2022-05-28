@@ -5,6 +5,7 @@
   - Epistemics
   icon: "Unknown"
   supervisors: "all humans"
+  canBeAntag: false
   special:
   - !type:AddComponentSpecial
     components:
