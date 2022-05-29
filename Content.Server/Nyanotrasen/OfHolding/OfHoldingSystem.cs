@@ -9,7 +9,7 @@ namespace Content.Server.OfHolding
     public sealed class OfHoldingSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedAdminLogSystem _adminLog = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -30,7 +30,7 @@ namespace Content.Server.OfHolding
                     return;
                 }
                 EntityManager.SpawnEntity("Singularity", Transform(args.User).Coordinates);
-                _adminLog.Add(LogType.BagOfHolding, LogImpact.Extreme, $"{ToPrettyString(args.User):player} released a singularity by combining 2 bags of holding.");
+                _adminLogger.Add(LogType.BagOfHolding, LogImpact.Extreme, $"{ToPrettyString(args.User):player} released a singularity by combining 2 bags of holding.");
             }
         }
     }
