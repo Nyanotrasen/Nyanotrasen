@@ -11,7 +11,7 @@ namespace Content.Server.Research.Oracle
 
         [ViewVariables]
         [DataField("resetTime")]
-        public TimeSpan ResetTime = TimeSpan.FromMinutes(1);
+        public TimeSpan ResetTime = TimeSpan.FromMinutes(10);
 
         [DataField("barkAccumulator")]
         public float BarkAccumulator = 0f;
