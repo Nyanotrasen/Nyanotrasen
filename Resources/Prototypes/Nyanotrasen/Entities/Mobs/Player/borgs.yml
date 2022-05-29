@@ -11,6 +11,8 @@
     layers:
     - state: robot
   - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5
   - type: Speech
     speechSounds: Bass
   - type: SlowOnDamage
