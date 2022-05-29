@@ -57,6 +57,7 @@ namespace Content.Server.Research.Oracle
 
                 if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
                 {
+                    oracle.LastDesiredPrototype = oracle.DesiredPrototype;
                     NextItem(oracle);
                 }
             }
@@ -77,8 +78,26 @@ namespace Content.Server.Research.Oracle
         {
             if (!TryComp<MetaDataComponent>(args.Used, out var meta))
                 return;
+
+            if (meta.EntityPrototype == null)
+                return;
+
+            var validItem = false;
+
+            var nextItem = true;
+
+            if (meta.EntityPrototype.ID.TrimEnd('1') == component.DesiredPrototype.ID.TrimEnd('1'))
+                validItem = true;
+
+            if (component.LastDesiredPrototype != null && meta.EntityPrototype.ID.TrimEnd('1') == component.LastDesiredPrototype.ID.TrimEnd('1'))
+            {
+                nextItem = false;
+                validItem = true;
+                component.LastDesiredPrototype = null;
+            }
+
             /// The trim helps with stacks and singles
-            if (meta.EntityPrototype == null || meta.EntityPrototype.ID.TrimEnd('1') != component.DesiredPrototype.ID.TrimEnd('1'))
+            if (!validItem)
             {
                 _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
                 return;
@@ -91,7 +110,8 @@ namespace Content.Server.Research.Oracle
             if (_random.Prob(0.15f))
                 EntityManager.SpawnEntity("MaterialBluespace", Transform(uid).Coordinates);
 
-            NextItem(component);
+            if (nextItem)
+                NextItem(component);
         }
 
         private void NextItem(OracleComponent component)

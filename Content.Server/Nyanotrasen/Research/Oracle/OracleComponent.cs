@@ -17,9 +17,12 @@ namespace Content.Server.Research.Oracle
         public float BarkAccumulator = 0f;
 
         [DataField("barkTime")]
-        public TimeSpan BarkTime = TimeSpan.FromSeconds(40);
+        public TimeSpan BarkTime = TimeSpan.FromSeconds(30);
 
         [ViewVariables(VVAccess.ReadWrite)]
         public EntityPrototype DesiredPrototype = default!;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public EntityPrototype? LastDesiredPrototype = default!;
     }
 }
