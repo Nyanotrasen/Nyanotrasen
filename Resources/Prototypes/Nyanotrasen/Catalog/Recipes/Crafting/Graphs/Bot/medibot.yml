@@ -11,7 +11,7 @@
           sprite: Objects/Specific/Medical/firstaidkits.rsi
           state: firstaid
         name: medkit
-      - component: HealthAnalyzer
+      - tag: DiscreteHealthAnalyzer
         icon:
           sprite: Objects/Specific/Medical/healthanalyzer.rsi
           state: analyzer
