@@ -23,9 +23,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Weapon.Ranged;
 
@@ -35,7 +35,7 @@ public sealed partial class GunSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ActionBlockerSystem  _blocker = default!;
-    [Dependency] private readonly AdminLogSystem _logs = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly CameraRecoilSystem _recoil = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -235,14 +235,14 @@ public sealed partial class GunSystem : EntitySystem
         var angle = Angle.FromDegrees(direction.Degrees + component.CurrentAngle.Degrees * random);
         return angle;
     }
-}
 
-/// <summary>
-/// Raised on a gun when it fires.
-/// </summary>
-public sealed class GunShotEvent : EntityEventArgs
-{
+    /// <summary>
+    /// Raised on a gun when it fires.
+    /// </summary>
+    public sealed class GunShotEvent : EntityEventArgs
+    {
 
+    }
 }
 
 public sealed class GunFireAttemptEvent : CancellableEntityEventArgs
