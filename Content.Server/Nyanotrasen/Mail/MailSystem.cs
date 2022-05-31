@@ -193,7 +193,7 @@ namespace Content.Server.Mail
                 return;
             }
 
-            for (int i = (candidateList.Count / 8) + 1; i < 3; i++)
+            for (int i = 0; i < ((candidateList.Count / 8) + 1); i++)
             {
                 var mail = EntityManager.SpawnEntity(_random.Pick(MailPrototypes), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
