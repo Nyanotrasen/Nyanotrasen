@@ -162,8 +162,9 @@ namespace Content.Server.ShrinkRay
             {
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
-                    fixture.Shape.Radius = component.OriginalRadii[fixture];
                     fixture.Mass /= (float) component.MassScale;
+                    if (component.OriginalRadii.TryGetValue(fixture, out var radius))
+                        fixture.Shape.Radius = component.OriginalRadii[fixture];
                 }
             }
 
