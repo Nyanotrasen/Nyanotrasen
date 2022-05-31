@@ -54,7 +54,6 @@ tilemap:
   47: floor_wood
   48: lattice
   49: plating
-  50: underplating
 grids:
 - settings:
     chunksize: 16
@@ -63,7 +62,7 @@ grids:
   - ind: -1,0
     tiles: MQAAADEAAAAxAAAAHwAAAB8AAAAfAAAAHwAAAB0AAAAxAAAAKwAAASsAAAMrAAAAKwAAACsAAAMrAAABMQAAADEAAAAxAAAAMQAAAB8AAAAfAAAAHwAAAB8AAAAdAAAAMQAAACsAAAArAAAAKwAAACsAAAMrAAABKwAAASsAAAExAAAAMQAAAB8AAAAfAAAAHwAAAB8AAAAfAAAAHwAAAB8AAAArAAABKwAAASsAAAIrAAADKwAAASsAAAErAAADMQAAADEAAAAxAAAAHwAAAB8AAAAfAAAAHwAAAB0AAAAxAAAAKwAAACsAAAMrAAADKwAAASsAAAIrAAACKwAAAzEAAAAxAAAAMQAAAB8AAAAfAAAAHwAAAB8AAAAdAAAAMQAAACsAAAMrAAACKwAAAisAAAMrAAABKwAAAjEAAAAxAAAAMQAAADEAAAAfAAAAHQAAAB0AAAAdAAAAHQAAACsAAAIrAAACKwAAASsAAAEvAAAALwAAAC8AAAAvAAAAMQAAADEAAAAxAAAAMQAAAB0AAAAdAAAAHQAAADEAAAAxAAAAKwAAACsAAAIxAAAALwAAAC8AAAAvAAAALwAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAKwAAACsAAAArAAACMQAAAC8AAAAvAAAALwAAAC8AAAAxAAAAMQAAADEAAAAxAAAAHQAAAB0AAAAdAAAAKwAAASsAAAArAAADKwAAATEAAAAYAAADGAAAAxgAAAAxAAAAMQAAADEAAAAxAAAAMQAAACsAAAMrAAABKwAAACsAAAMrAAABKwAAASsAAAAxAAAAIAAAACAAAAAgAAAAMQAAACsAAAErAAACKwAAAysAAAIrAAABKwAAAysAAAErAAADKwAAACsAAAIrAAACIAAAACAAAAAgAAAAIAAAADEAAAArAAABKwAAASsAAAErAAADKwAAAisAAAMrAAAAKwAAAisAAAMrAAABKwAAADEAAAAgAAAAIAAAACAAAAAxAAAAKwAAADEAAAAxAAAAMQAAADEAAAArAAAAMQAAADEAAAAxAAAAGAAAADEAAAAxAAAAIAAAACAAAAAgAAAAMQAAACsAAAExAAAAKwAAACsAAAArAAACKwAAACsAAAExAAAAGAAAABgAAAMYAAABMQAAACAAAAAgAAAAIAAAACAAAAArAAACMQAAACsAAAErAAACKwAAASsAAAIrAAAAMQAAABcAAAAXAAAAIwAAADEAAAAgAAAAIAAAACAAAAAxAAAAKwAAADEAAAArAAADKwAAAysAAAErAAABKwAAAzEAAAAXAAAAFwAAACMAAAAxAAAAIAAAACAAAAAgAAAAIAAAAA==
   - ind: -1,-1
-    tiles: MQAAADEAAAAxAAAAMQAAADIAAAAyAAAAMgAAADIAAAAyAAAAMQAAADEAAAAxAAAALwAAADEAAAAYAAAAGAAAABgAAAIYAAACGAAAAjEAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAxAAAAGAAAABgAAAAYAAADGAAAARgAAAExAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMQAAAC8AAAIYAAAAGAAAAhgAAAMYAAADMQAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAADEAAAAuAAAALgAAABgAAAEYAAADGAAAAjEAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAxAAAALgAAAC4AAAAYAAADGAAAARgAAAAxAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAADEAAAAxAAAAMQAAAC4AAAAuAAAAMQAAADEAAAAxAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMQAAAC4AAAAuAAACLgAAASsAAAIrAAACMQAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC4AAAIuAAAALgAAAi4AAAIrAAADKwAAATEAAAAxAAAAMQAAADEAAAAxAAAALwAAATEAAAAxAAAAMQAAADEAAAAxAAAALgAAAi4AAAEuAAAAKwAAACsAAAArAAADKwAAASsAAAErAAADKwAAAisAAAMrAAADKwAAAysAAAExAAAALgAAAi4AAAEuAAABMQAAACsAAAMrAAADKwAAAisAAAErAAACKwAAAisAAAIrAAABKwAAASsAAAArAAAAMQAAAC4AAAIuAAACLgAAAjEAAAAxAAAAMQAAADEAAAAxAAAAKwAAAisAAAArAAACKwAAASsAAAIrAAADKwAAATEAAAAuAAADLgAAAS4AAAExAAAAMQAAADEAAAAxAAAAMQAAAB0AAAAdAAAAHQAAACsAAAMrAAADKwAAACsAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAKwAAAisAAAArAAACMQAAACsAAAErAAACKwAAADEAAAAxAAAAMQAAADEAAAAxAAAAHQAAAB0AAAAdAAAAMQAAADEAAAArAAAAKwAAATEAAAArAAAAKwAAASsAAAMuAAABMQAAADEAAAAxAAAAHwAAAB0AAAAdAAAAHQAAAB0AAAArAAAAKwAAASsAAAErAAAAKwAAACsAAAMrAAAAMQAAAA==
+    tiles: MQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAALwAAADEAAAAYAAAAGAAAABgAAAIYAAACGAAAAjEAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAxAAAAGAAAABgAAAAYAAADGAAAARgAAAExAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMQAAAC8AAAIYAAAAGAAAAhgAAAMYAAADMQAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAADEAAAAuAAAALgAAABgAAAEYAAADGAAAAjEAAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAxAAAALgAAAC4AAAAYAAADGAAAARgAAAAxAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAADEAAAAxAAAAMQAAAC4AAAAuAAAAMQAAADEAAAAxAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAMQAAAC4AAAAuAAACLgAAASsAAAIrAAACMQAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC4AAAIuAAAALgAAAi4AAAIrAAADKwAAATEAAAAxAAAAMQAAADEAAAAxAAAALwAAATEAAAAxAAAAMQAAADEAAAAxAAAALgAAAi4AAAEuAAAAKwAAACsAAAArAAADKwAAASsAAAErAAADKwAAAisAAAMrAAADKwAAAysAAAExAAAALgAAAi4AAAEuAAABMQAAACsAAAMrAAADKwAAAisAAAErAAACKwAAAisAAAIrAAABKwAAASsAAAArAAAAMQAAAC4AAAIuAAACLgAAAjEAAAAxAAAAMQAAADEAAAAxAAAAKwAAAisAAAArAAACKwAAASsAAAIrAAADKwAAATEAAAAuAAADLgAAAS4AAAExAAAAMQAAADEAAAAxAAAAMQAAAB0AAAAdAAAAHQAAACsAAAMrAAADKwAAACsAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAKwAAAisAAAArAAACMQAAACsAAAErAAACKwAAADEAAAAxAAAAMQAAADEAAAAxAAAAHQAAAB0AAAAdAAAAMQAAADEAAAArAAAAKwAAATEAAAArAAAAKwAAASsAAAMuAAABMQAAADEAAAAxAAAAHwAAAB0AAAAdAAAAHQAAAB0AAAArAAAAKwAAASsAAAErAAAAKwAAACsAAAMrAAAAMQAAAA==
   - ind: 0,0
     tiles: MQAAAC4AAAIxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAACsAAAArAAABKwAAAisAAAArAAADKwAAAisAAAErAAABKwAAAisAAAArAAACKwAAASsAAAMrAAAAKwAAASsAAAArAAACKwAAAysAAAMrAAADKwAAAR0AAAAdAAAAHQAAAB0AAAAdAAAAHQAAAB0AAAArAAACKwAAACsAAAMrAAAAKwAAACsAAAArAAABKwAAACsAAAMrAAABKwAAACsAAAIrAAAAKwAAAysAAAArAAABKwAAACsAAAIrAAAAKwAAAzEAAAAxAAAAFAAAAxQAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAKwAAAzEAAAAUAAADFAAAABQAAAEUAAACFAAAAxQAAAIxAAAAGAAAAxgAAAEYAAADGAAAAhgAAAEYAAADMQAAACsAAAIrAAACFAAAAxQAAAIUAAABFAAAAhQAAAEUAAAAMQAAABgAAAEYAAABGAAAARgAAAMYAAAAGAAAAzEAAAArAAAAKwAAAxQAAAMUAAAAFAAAAxQAAAAUAAABFAAAATEAAAAxAAAAKAAAADEAAAAxAAAAGAAAAzEAAAAxAAAAKwAAAysAAAAUAAADFAAAAhQAAAAUAAADFAAAABQAAAMxAAAAGgAAABoAAAAxAAAAKwAAASsAAAArAAADMQAAACsAAAMxAAAAFAAAARQAAAIUAAAAFAAAARQAAAEUAAAAMQAAADEAAAAxAAAAMQAAACsAAAErAAADKwAAAysAAAArAAABKwAAAi8AAAMvAAADLwAAAS8AAAEvAAAALwAAADEAAAAnAAAAJwAAADEAAAArAAABKwAAACsAAAMrAAACKwAAACsAAAMvAAACLwAAAS8AAAMvAAABLwAAAS8AAAMxAAAAJwAAACcAAAAnAAAAKwAAAisAAAIrAAAAKwAAAisAAAArAAABLwAAAC8AAAMvAAABLwAAAy8AAAMvAAABMQAAADEAAAAxAAAAMQAAACsAAAMrAAACKwAAAysAAAErAAADKwAAAC8AAAAvAAAALwAAAS8AAAIvAAABLwAAAzEAAAArAAADKwAAAisAAAIrAAABKwAAASsAAAArAAAAKwAAAysAAAMvAAAAMQAAADEAAAAxAAAAMQAAADEAAAAxAAAAKwAAASsAAAErAAADKwAAAysAAAIrAAABKwAAACsAAAMrAAACGAAAABgAAAIYAAAAMQAAAC8AAAEvAAACMQAAADEAAAAoAAAAMQAAADEAAAAYAAABGAAAAxgAAAAxAAAAKwAAAQ==
   - ind: 1,0
@@ -6780,10 +6779,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 137.60529
+      temperature: 137.5521
       moles:
-      - 10.136999
-      - 38.13443
+      - 10.133003
+      - 38.119392
       - 0
       - 0
       - 0
@@ -6791,10 +6790,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 282.90338
+      temperature: 282.77774
       moles:
-      - 21.054935
-      - 79.20666
+      - 21.045492
+      - 79.171135
       - 0
       - 0
       - 0
@@ -6813,10 +6812,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 251.87112
+      temperature: 251.6584
       moles:
-      - 18.72312
-      - 70.43459
+      - 18.707134
+      - 70.37446
       - 0
       - 0
       - 0
@@ -6824,10 +6823,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 215.99922
+      temperature: 215.69785
       moles:
-      - 16.027645
-      - 60.29448
+      - 16.005001
+      - 60.20929
       - 0
       - 0
       - 0
@@ -6835,10 +6834,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 274.99686
+      temperature: 273.79138
       moles:
-      - 20.460825
-      - 76.97167
+      - 20.370243
+      - 76.63091
       - 0
       - 0
       - 0
@@ -8364,7 +8363,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 233
-  type: ComputerRadar
+  type: ComputerSurveillanceCameraMonitor
   components:
   - rot: 3.141592653589793 rad
     pos: 34.5,0.5
@@ -8660,11 +8659,21 @@ entities:
     parent: 4
     type: Transform
 - uid: 275
-  type: BannerNanotrasen
+  type: SurveillanceCameraRouterCommand
   components:
   - pos: 32.5,4.5
     parent: 4
     type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 276
   type: PosterLegitNanomichiAd
   components:
@@ -9318,41 +9327,49 @@ entities:
     parent: 4
     type: Transform
 - uid: 353
-  type: Table
+  type: SurveillanceCameraGeneral
   components:
-  - pos: 24.5,8.5
+  - rot: -1.5707963267948966 rad
+    pos: -6.5,3.5
     parent: 4
     type: Transform
 - uid: 354
-  type: Table
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -33.5,17.5
+    parent: 4
+    type: Transform
+- uid: 355
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -33.5,21.5
+    parent: 4
+    type: Transform
+- uid: 356
+  type: SurveillanceCameraGeneral
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -27.5,8.5
+    parent: 4
+    type: Transform
+- uid: 357
+  type: SurveillanceCameraRouterService
   components:
   - pos: 23.5,8.5
     parent: 4
     type: Transform
-- uid: 355
-  type: ClothingShoesBootsMag
-  components:
-  - pos: 23.575674,8.663017
-    parent: 4
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 356
-  type: ClothingShoesBootsMag
-  components:
-  - pos: 23.950674,8.663017
-    parent: 4
-    type: Transform
-  - canCollide: False
-    type: Physics
-- uid: 357
-  type: ClothingShoesBootsMag
-  components:
-  - pos: 24.31005,8.663017
-    parent: 4
-    type: Transform
-  - canCollide: False
-    type: Physics
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 358
   type: DoubleEmergencyOxygenTankFilled
   components:
@@ -9386,29 +9403,35 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 362
-  type: ClothingMaskBreath
+  type: SurveillanceCameraGeneral
   components:
-  - pos: 24.49755,8.241142
+  - rot: 1.5707963267948966 rad
+    pos: -9.5,14.5
     parent: 4
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 363
-  type: ClothingMaskBreath
+  type: SurveillanceCameraGeneral
   components:
-  - pos: 24.49755,8.116142
+  - rot: 3.141592653589793 rad
+    pos: 7.5,3.5
     parent: 4
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 364
-  type: ClothingMaskBreath
+  type: SurveillanceCameraRouterSupply
   components:
-  - pos: 24.49755,8.022392
+  - pos: 24.5,8.5
     parent: 4
     type: Transform
-  - canCollide: False
-    type: Physics
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 365
   type: SignEVA
   components:
@@ -10865,6 +10888,10 @@ entities:
   - pos: 32.5,10.5
     parent: 4
     type: Transform
+  - containers:
+      board: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 495
   type: SignBridge
   components:
@@ -15099,17 +15126,12 @@ entities:
     parent: 4
     type: Transform
 - uid: 943
-  type: LockerEvidence
+  type: WindoorSecurityLocked
   components:
-  - pos: 12.5,8.5
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,9.5
     parent: 4
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
-  - containers:
-      EntityStorageComponent: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 944
   type: ChairOfficeDark
   components:
@@ -15117,7 +15139,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 945
-  type: ComputerCriminalRecords
+  type: ComputerSurveillanceCameraMonitor
   components:
   - pos: 15.5,7.5
     parent: 4
@@ -15180,12 +15202,21 @@ entities:
       charger-slot: !type:ContainerSlot {}
     type: ContainerContainer
 - uid: 954
-  type: ChairOfficeDark
+  type: SurveillanceCameraRouterGeneral
   components:
-  - rot: 3.141592653589793 rad
-    pos: 10.5,8.5
+  - pos: 10.5,8.5
     parent: 4
     type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 955
   type: SignSecureSmallRed
   components:
@@ -17568,6 +17599,10 @@ entities:
   - pos: -2.5,26.5
     parent: 4
     type: Transform
+  - containers:
+      board: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 1252
   type: ComfyChair
   components:
@@ -21017,11 +21052,9 @@ entities:
 - uid: 1626
   type: FoodCondimentBottleEnzyme
   components:
-  - pos: -3.731837,12.794151
+  - pos: -3.3394427,12.760551
     parent: 4
     type: Transform
-  - canCollide: False
-    type: Physics
   - solution: food
     type: RefillableSolution
   - solution: food
@@ -27216,22 +27249,12 @@ entities:
     parent: 4
     type: Transform
 - uid: 2184
-  type: Poweredlight
+  type: Grille
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 10.5,9.5
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,10.5
     parent: 4
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2185
   type: Poweredlight
   components:
@@ -29393,17 +29416,11 @@ entities:
     parent: 4
     type: Transform
 - uid: 2437
-  type: LockerChemistry
+  type: TableGlass
   components:
   - pos: -1.5,-6.5
     parent: 4
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
-  - containers:
-      EntityStorageComponent: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2438
   type: DisposalBend
   components:
@@ -31714,22 +31731,13 @@ entities:
     parent: 4
     type: Transform
 - uid: 2635
-  type: MedicalScanner
+  type: CableApcExtension
   components:
-  - pos: 0.5,-4.5
+  - pos: 0.5,-5.5
     parent: 4
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
-  - containers:
-      MedicalScanner-bodyContainer: !type:ContainerSlot {}
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
+  - enabled: False
+    type: AmbientSound
 - uid: 2636
   type: TableGlass
   components:
@@ -31876,22 +31884,13 @@ entities:
     parent: 4
     type: Transform
 - uid: 2651
-  type: CloningPod
+  type: CableApcExtension
   components:
-  - pos: 2.5,-4.5
+  - pos: 0.5,-6.5
     parent: 4
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
-  - containers:
-      CloningPod-bodyContainer: !type:ContainerSlot {}
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
+  - enabled: False
+    type: AmbientSound
 - uid: 2652
   type: GasVentPump
   components:
@@ -79556,6 +79555,575 @@ entities:
   type: SpawnPointCyborg
   components:
   - pos: -20.5,1.5
+    parent: 4
+    type: Transform
+- uid: 7484
+  type: SurveillanceCameraSecurity
+  components:
+  - pos: 13.5,9.5
+    parent: 4
+    type: Transform
+- uid: 7485
+  type: SurveillanceCameraSecurity
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,5.5
+    parent: 4
+    type: Transform
+- uid: 7486
+  type: SurveillanceCameraSecurity
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,13.5
+    parent: 4
+    type: Transform
+- uid: 7487
+  type: SurveillanceCameraSecurity
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,17.5
+    parent: 4
+    type: Transform
+- uid: 7488
+  type: SurveillanceCameraMedical
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 8.5,-0.5
+    parent: 4
+    type: Transform
+- uid: 7489
+  type: SurveillanceCameraMedical
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 9.5,-7.5
+    parent: 4
+    type: Transform
+- uid: 7490
+  type: SurveillanceCameraMedical
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 8.5,-10.5
+    parent: 4
+    type: Transform
+- uid: 7491
+  type: SurveillanceCameraMedical
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 3.5,-11.5
+    parent: 4
+    type: Transform
+- uid: 7492
+  type: SurveillanceCameraMedical
+  components:
+  - pos: -0.5,-15.5
+    parent: 4
+    type: Transform
+- uid: 7493
+  type: SurveillanceCameraMedical
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -2.5,-7.5
+    parent: 4
+    type: Transform
+- uid: 7494
+  type: KitchenReagentGrinder
+  components:
+  - pos: -1.5225861,-6.2370687
+    parent: 4
+    type: Transform
+  - containers:
+      ReagentGrinder-reagentContainerContainer: !type:ContainerSlot {}
+      ReagentGrinder-entityContainerContainer: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7495
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-4.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7496
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-4.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7497
+  type: CableApcExtension
+  components:
+  - pos: 2.5,-4.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7498
+  type: SurveillanceCameraMedical
+  components:
+  - pos: 2.5,-5.5
+    parent: 4
+    type: Transform
+- uid: 7499
+  type: SurveillanceCameraMedical
+  components:
+  - pos: 4.5,-9.5
+    parent: 4
+    type: Transform
+- uid: 7500
+  type: CloningPod
+  components:
+  - pos: 2.5,-4.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      CloningPod-bodyContainer: !type:ContainerSlot {}
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7501
+  type: MedicalScanner
+  components:
+  - pos: 1.5,-4.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      MedicalScanner-bodyContainer: !type:ContainerSlot {}
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7502
+  type: SurveillanceCameraRouterMedical
+  components:
+  - pos: 0.5,-14.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7503
+  type: SurveillanceCameraCommand
+  components:
+  - pos: 36.5,0.5
+    parent: 4
+    type: Transform
+- uid: 7504
+  type: SurveillanceCameraCommand
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 28.5,6.5
+    parent: 4
+    type: Transform
+- uid: 7505
+  type: SurveillanceCameraCommand
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 22.5,8.5
+    parent: 4
+    type: Transform
+- uid: 7506
+  type: SurveillanceCameraCommand
+  components:
+  - pos: 27.5,0.5
+    parent: 4
+    type: Transform
+- uid: 7507
+  type: SurveillanceCameraCommand
+  components:
+  - pos: 23.5,1.5
+    parent: 4
+    type: Transform
+- uid: 7508
+  type: SurveillanceCameraCommand
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 30.5,7.5
+    parent: 4
+    type: Transform
+- uid: 7509
+  type: SurveillanceCameraCommand
+  components:
+  - pos: 35.5,6.5
+    parent: 4
+    type: Transform
+- uid: 7510
+  type: SurveillanceCameraCommand
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 34.5,-3.5
+    parent: 4
+    type: Transform
+- uid: 7511
+  type: SurveillanceCameraCommand
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 32.5,-1.5
+    parent: 4
+    type: Transform
+- uid: 7512
+  type: SurveillanceCameraCommand
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 25.5,-2.5
+    parent: 4
+    type: Transform
+- uid: 7513
+  type: SurveillanceCameraRouterScience
+  components:
+  - pos: -19.5,-9.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7514
+  type: CableApcExtension
+  components:
+  - pos: -21.5,-9.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7515
+  type: CableApcExtension
+  components:
+  - pos: -20.5,-9.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7516
+  type: CableApcExtension
+  components:
+  - pos: -19.5,-9.5
+    parent: 4
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+- uid: 7517
+  type: SurveillanceCameraScience
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -28.5,-12.5
+    parent: 4
+    type: Transform
+- uid: 7518
+  type: SurveillanceCameraScience
+  components:
+  - pos: -25.5,-14.5
+    parent: 4
+    type: Transform
+- uid: 7519
+  type: SurveillanceCameraScience
+  components:
+  - pos: -14.5,-14.5
+    parent: 4
+    type: Transform
+- uid: 7520
+  type: SurveillanceCameraScience
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -27.5,-18.5
+    parent: 4
+    type: Transform
+- uid: 7521
+  type: SurveillanceCameraScience
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -16.5,-21.5
+    parent: 4
+    type: Transform
+- uid: 7522
+  type: SurveillanceCameraScience
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -3.5,-13.5
+    parent: 4
+    type: Transform
+- uid: 7523
+  type: SurveillanceCameraScience
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -10.5,-13.5
+    parent: 4
+    type: Transform
+- uid: 7524
+  type: SurveillanceCameraScience
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -21.5,-8.5
+    parent: 4
+    type: Transform
+- uid: 7525
+  type: SurveillanceCameraService
+  components:
+  - pos: 22.5,-3.5
+    parent: 4
+    type: Transform
+- uid: 7526
+  type: SurveillanceCameraService
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 2.5,13.5
+    parent: 4
+    type: Transform
+- uid: 7527
+  type: SurveillanceCameraService
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -1.5,12.5
+    parent: 4
+    type: Transform
+- uid: 7528
+  type: SurveillanceCameraService
+  components:
+  - pos: 1.5,15.5
+    parent: 4
+    type: Transform
+- uid: 7529
+  type: SurveillanceCameraService
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -3.5,20.5
+    parent: 4
+    type: Transform
+- uid: 7530
+  type: SurveillanceCameraService
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,15.5
+    parent: 4
+    type: Transform
+- uid: 7531
+  type: SurveillanceCameraService
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -8.5,3.5
+    parent: 4
+    type: Transform
+- uid: 7532
+  type: SurveillanceCameraEngineering
+  components:
+  - pos: -38.5,15.5
+    parent: 4
+    type: Transform
+- uid: 7533
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -40.5,8.5
+    parent: 4
+    type: Transform
+- uid: 7534
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -37.5,6.5
+    parent: 4
+    type: Transform
+- uid: 7535
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -32.5,9.5
+    parent: 4
+    type: Transform
+- uid: 7536
+  type: SurveillanceCameraEngineering
+  components:
+  - pos: -33.5,-1.5
+    parent: 4
+    type: Transform
+- uid: 7537
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -33.5,-3.5
+    parent: 4
+    type: Transform
+- uid: 7538
+  type: SurveillanceCameraEngineering
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -43.5,0.5
+    parent: 4
+    type: Transform
+- uid: 7539
+  type: SurveillanceCameraRouterEngineering
+  components:
+  - pos: -40.5,8.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7540
+  type: SurveillanceCameraSupply
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -22.5,8.5
+    parent: 4
+    type: Transform
+- uid: 7541
+  type: SurveillanceCameraSupply
+  components:
+  - pos: -21.5,13.5
+    parent: 4
+    type: Transform
+- uid: 7542
+  type: SurveillanceCameraSupply
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -23.5,21.5
+    parent: 4
+    type: Transform
+- uid: 7543
+  type: SurveillanceCameraSupply
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -20.5,27.5
+    parent: 4
+    type: Transform
+- uid: 7544
+  type: SurveillanceCameraSupply
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -16.5,27.5
+    parent: 4
+    type: Transform
+- uid: 7545
+  type: SurveillanceCameraSupply
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -27.5,20.5
+    parent: 4
+    type: Transform
+- uid: 7546
+  type: SurveillanceCameraSupply
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -27.5,15.5
+    parent: 4
+    type: Transform
+- uid: 7547
+  type: SurveillanceCameraGeneral
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -31.5,-7.5
+    parent: 4
+    type: Transform
+- uid: 7548
+  type: SurveillanceCameraGeneral
+  components:
+  - pos: -35.5,-14.5
+    parent: 4
+    type: Transform
+- uid: 7549
+  type: SurveillanceCameraGeneral
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 19.5,17.5
+    parent: 4
+    type: Transform
+- uid: 7550
+  type: SurveillanceCameraGeneral
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 17.5,-8.5
+    parent: 4
+    type: Transform
+- uid: 7551
+  type: SurveillanceCameraGeneral
+  components:
+  - pos: 21.5,-12.5
+    parent: 4
+    type: Transform
+- uid: 7552
+  type: WindoorSecurityLocked
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 11.5,8.5
+    parent: 4
+    type: Transform
+- uid: 7553
+  type: SurveillanceCameraRouterSecurity
+  components:
+  - pos: 10.5,9.5
+    parent: 4
+    type: Transform
+  - containers:
+    - machine_parts
+    - machine_board
+    type: Construction
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7554
+  type: ReinforcedWindow
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,10.5
+    parent: 4
+    type: Transform
+- uid: 7555
+  type: Poweredlight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 12.5,8.5
+    parent: 4
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - containers:
+      light_bulb: !type:ContainerSlot {}
+    type: ContainerContainer
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 7556
+  type: SurveillanceCameraService
+  components:
+  - pos: 22.5,12.5
     parent: 4
     type: Transform
 ...
