@@ -8,6 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Destructible;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
@@ -56,6 +57,7 @@ namespace Content.Server.Mail
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
         }
 
         public override void Update(float frameTime)
@@ -161,6 +163,12 @@ namespace Content.Server.Mail
             }
 
             args.PushMarkup(Loc.GetString("mail-desc-close", ("name", component.Recipient), ("job", component.RecipientJob)));
+        }
+
+        private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
+        {
+            OpenMail(uid, component);
+            UpdateAntiTamperVisuals(uid, false);
         }
 
         public void SpawnMail(EntityUid uid)
