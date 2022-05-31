@@ -52,6 +52,9 @@
   - type: FloorTile
     outputs:
     - plating
+  - type: Tag
+    tags:
+    - SheetSteel
 
 - type: entity
   parent: SheetSteel

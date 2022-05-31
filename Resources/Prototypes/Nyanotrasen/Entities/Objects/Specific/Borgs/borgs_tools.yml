@@ -29,6 +29,47 @@
     unlimited: true
 
 - type: entity
+  parent: BaseItem
+  id: StackHolderSteel
+  name: steel sheet holder
+  description: Holds steel sheets inside this borg.
+  components:
+  - type: ItemSlots
+    slots:
+      stack_slot:
+        name: steel stack
+        startingItem: SheetSteel
+        whitelist:
+          tags:
+          - SheetSteel
+  - type: StackHolder
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: steel
+
+
+- type: entity
+  parent: BaseItem
+  id: StackHolderCable
+  name: cable holder
+  description: Holds cables inside this borg
+  components:
+  - type: ItemSlots
+    slots:
+      stack_slot:
+        name: cable stack
+        startingItem: CableApcStack
+        whitelist:
+          components:
+          - CablePlacer
+  - type: StackHolder
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Tools/cable-coils.rsi
+    state: coillv-30
+
+- type: entity
   parent: PartRodMetal
   id: PartRodMetalInfinite
   components:
