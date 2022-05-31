@@ -20,7 +20,16 @@
   - type: MailVisuals
     normalState: icon
     trashState: trash
-
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 - type: entity
   parent: BaseMail
   id: MailBikeHorn
@@ -216,7 +225,7 @@
   - type: Mail
     contents:
     - id: CigarCase
-    - id: Lighter 
+    - id: Lighter
 
 - type: entity
   parent: BaseMail
