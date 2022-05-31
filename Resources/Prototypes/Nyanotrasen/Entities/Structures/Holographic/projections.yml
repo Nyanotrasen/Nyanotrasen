@@ -8,8 +8,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Holo/wetfloor.rsi
     state: icon
-  - type: DeleteAfterTime
-    despawnTime: 30
+  - type: TimedDespawn
+    lifetime: 30
 
 
 - type: entity
@@ -20,8 +20,8 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Holo/eng.rsi
     state: icon
-  - type: DeleteAfterTime
-    despawnTime: 180
+  - type: TimedDespawn
+    lifetime: 180
 
 - type: entity
   id: HoloFan
@@ -37,7 +37,7 @@
     - shape:
         !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
-  - type: DeleteAfterTime
-    despawnTime: 180
+  - type: TimedDespawn
+    lifetime: 180
   - type: Airtight
     noAirWhenFullyAirBlocked: false
