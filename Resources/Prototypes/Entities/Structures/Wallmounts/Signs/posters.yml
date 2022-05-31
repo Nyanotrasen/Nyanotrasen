@@ -51,15 +51,6 @@
 # Contraband
 - type: entity
   parent: PosterBase
-  id: PosterAyaya
-  name: "Ayaya"
-  description: "Ayayayaya."
-  components:
-  - type: Sprite
-    state: poster_ayaya
-    
-- type: entity
-  parent: PosterBase
   id: PosterContrabandFreeTonto
   name: "Free Tonto"
   description: "A salvaged shred of a much larger flag, colors bled together and faded from age."
