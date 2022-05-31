@@ -1,6 +1,7 @@
 using Content.Shared.Item;
 using Content.Shared.Tag;
 using Content.Shared.Interaction;
+using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
@@ -121,7 +122,8 @@ namespace Content.Server.ShrinkRay
                 shrunken.MassScale = massScale;
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
-                    fixture.Shape.Radius *= (float) massScale;
+                    shrunken.OriginalRadii.Add(fixture, fixture.Shape.Radius);
+                    fixture.Shape.Radius = (float) FixedPoint2.Max((fixture.Shape.Radius *= (float) massScale), 0.05);
                     fixture.Mass *= (float) massScale;
                 }
             }
@@ -160,7 +162,7 @@ namespace Content.Server.ShrinkRay
             {
                 foreach (var fixture in fixtures.Fixtures.Values)
                 {
-                    fixture.Shape.Radius /= (float) component.MassScale;
+                    fixture.Shape.Radius = component.OriginalRadii[fixture];
                     fixture.Mass /= (float) component.MassScale;
                 }
             }
