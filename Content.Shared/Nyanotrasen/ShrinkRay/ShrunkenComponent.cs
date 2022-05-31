@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics.Dynamics;
 
 namespace Content.Shared.ShrinkRay
 {
@@ -8,6 +9,8 @@ namespace Content.Shared.ShrinkRay
     {
         public Vector2 ScaleFactor = (0.3f, 0.3f);
         public Vector2 OriginalScaleFactor = (1f, 1f);
+
+        public Dictionary<Fixture, float> OriginalRadii = new();
 
         [ViewVariables]
         public double MassScale = 0.027;
