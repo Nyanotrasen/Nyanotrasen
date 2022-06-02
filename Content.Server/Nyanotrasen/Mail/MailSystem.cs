@@ -40,12 +40,19 @@ namespace Content.Server.Mail
             "MailCigarettes",
             "MailFigurine",
             "MailBible",
-            "MailCapGun",
             "MailGatfruit",
             "MailCrayon",
             "MailPlushie",
             "MailPAI",
             "MailSunglasses",
+            "MailBlockGameDIY",
+            "MailSpaceVillainDIY",
+            "MailBooks",
+            "MailNoir",
+            "MailHighlander",
+            "MailFlashlight",
+            "MailKnife",
+            "MailCigars",
             "MailKatana"
         };
 
