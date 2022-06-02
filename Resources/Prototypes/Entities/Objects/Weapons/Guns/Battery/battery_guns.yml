@@ -43,6 +43,9 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
   - type: Appearance
     visuals:
     - type: MagVisualizer
@@ -272,11 +275,11 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BoltDecloner
+    proto: BulletTaser
     fireCost: 100
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 100
+    startingCharge: 100
   - type: Appearance
     visuals:
     - type: MagVisualizer

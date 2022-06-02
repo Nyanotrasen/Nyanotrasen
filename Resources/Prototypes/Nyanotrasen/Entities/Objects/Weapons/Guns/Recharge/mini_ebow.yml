@@ -14,9 +14,14 @@
   - type: Icon
     sprite: Nyanotrasen/Objects/Weapons/Guns/Recharge/mini-ebow.rsi
     state: icon
+  - type: Gun
+    fireRate: 0.4
   - type: ProjectileBatteryAmmoProvider
     proto: BoltEnergyCrossbow
-    fireCost: 20
+    fireCost: 100
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 400
+    startingCharge: 400
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100

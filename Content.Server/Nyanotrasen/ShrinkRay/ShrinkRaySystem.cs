@@ -5,9 +5,11 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.PowerCell;
+using Content.Server.Power.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
@@ -23,7 +25,6 @@ namespace Content.Server.ShrinkRay
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
-        [Dependency] private readonly PowerCellSystem _cellSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -74,6 +75,11 @@ namespace Content.Server.ShrinkRay
 
             if (args.Target == null || _tagSystem.HasAnyTag((EntityUid) args.Target, "Structure", "Wall", "Window"))
                 return;
+
+            if (TryComp<BatteryComponent>(uid, out var battery) && TryComp<BatteryAmmoProviderComponent>(uid, out var ammo))
+            {
+                battery.UseCharge(ammo.FireCost);
+            }
 
             ApplySizeChange((EntityUid) args.Target, component.ScaleFactor, component.ApplyItem);
         }
