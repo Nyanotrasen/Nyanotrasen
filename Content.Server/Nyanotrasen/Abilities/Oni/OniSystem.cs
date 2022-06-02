@@ -16,7 +16,7 @@ namespace Content.Server.Abilities.Oni
             SubscribeLocalEvent<OniComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<OniComponent, MeleeHitEvent>(OnOniMeleeHit);
             SubscribeLocalEvent<HeldByOniComponent, MeleeHitEvent>(OnHeldMeleeHit);
-            SubscribeLocalEvent<HeldByOniComponent, GunFireAttemptEvent>(OnHeldGunFire);
+            // SubscribeLocalEvent<HeldByOniComponent, GunFireAttemptEvent>(OnHeldGunFire);
         }
 
         private void OnEntInserted(EntityUid uid, OniComponent component, EntInsertedIntoContainerMessage args)
@@ -43,12 +43,12 @@ namespace Content.Server.Abilities.Oni
             args.ModifiersList.Add(oni.MeleeModifiers);
         }
 
-        private void OnHeldGunFire(EntityUid uid, HeldByOniComponent component, GunFireAttemptEvent args)
-        {
-            if (args.User != null)
-                _popupSystem.PopupEntity(Loc.GetString("oni-gun-fire"), uid, Filter.Entities(args.User.Value));
+        // private void OnHeldGunFire(EntityUid uid, HeldByOniComponent component, GunFireAttemptEvent args)
+        // {
+        //     if (args.User != null)
+        //         _popupSystem.PopupEntity(Loc.GetString("oni-gun-fire"), uid, Filter.Entities(args.User.Value));
 
-            args.Cancel();
-        }
+        //     args.Cancel();
+        // }
     }
 }

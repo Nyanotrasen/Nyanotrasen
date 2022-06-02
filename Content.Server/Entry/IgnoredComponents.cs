@@ -9,6 +9,7 @@ namespace Content.Server.Entry
             "StasisBedVisuals",
             "InteractionOutline",
             "MeleeWeaponArcAnimation",
+            "EffectVisuals",
             "AnimationsTest",
             "ItemStatus",
             "VehicleVisuals",
@@ -23,11 +24,12 @@ namespace Content.Server.Entry
             "LatheVisuals",
             "DiseaseMachineVisuals",
             "HandheldGPS",
+            "SpentAmmoVisuals",
             "ToggleableLightVisuals",
             "CableVisualizer",
             "PotencyVisuals",
             "PaperVisuals",
-            "SurveillanceCameraVisuals"
+            "SurveillanceCameraVisuals",
         };
     }
 }

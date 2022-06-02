@@ -1,12 +1,12 @@
 - type: entity
   name: energy crossbow bolt
   id: BoltEnergyCrossbow
-  parent: BulletBase
+  parent: BaseBullet
   noSpawn: true
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Projectiles/plasma.rsi
-    state: base
+    state: bullet
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -19,9 +19,6 @@
       layer:
       - MidImpassable
   - type: Ammo
-    isProjectile: true
-    ammoVelocity: 20
-    caliber: Energy
   - type: Projectile
     damage:
       types:
@@ -33,13 +30,13 @@
 - type: entity
   name: decloner bolt
   id: BoltDecloner
-  parent: BulletBase
+  parent: BaseBullet
   noSpawn: true
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Projectiles/plasma.rsi
     color: skyblue
-    state: base
+    state: bullet
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -52,25 +49,21 @@
       layer:
       - MidImpassable
   - type: Ammo
-    isProjectile: true
-    ammoVelocity: 20
-    caliber: Energy
   - type: Projectile
     damage:
       types:
         Cellular: 15
 
-
 - type: entity
   name: shrink ray bolt
   id: BoltShrinkRay
-  parent: BulletBase
+  parent: BaseBullet
   noSpawn: true
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Projectiles/plasma.rsi
     color: skyblue
-    state: base
+    state: bullet
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -83,9 +76,6 @@
       layer:
       - MidImpassable
   - type: Ammo
-    isProjectile: true
-    ammoVelocity: 20
-    caliber: Energy
   - type: Projectile
     damage:
       types:
