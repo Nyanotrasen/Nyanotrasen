@@ -1,5 +1,5 @@
 - type: entity
-  parent: BatteryGunSmall
+  parent: BaseWeaponBattery
   id: Decloner
   name: decloner
   description: A weapon that damages the target's genome, making it very hard to heal from
@@ -9,15 +9,15 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
     layers:
       - state: icon
-        map: ["enum.RangedBarrelVisualLayers.Base"]
   - type: Item
     size: 12
     sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
-  - type: RangedWeapon
-  - type: BatteryBarrel
-    minAngle: 10
-    fireCost: 60
-    ammoPrototype: BoltDecloner
+  - type: ProjectileBatteryAmmoProvider
+    proto: BoltDecloner
+    fireCost: 100
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
 
 - type: entity
   parent: Decloner
@@ -29,11 +29,12 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/shrinkray.rsi
   - type: Item
     size: 12
-  - type: BatteryBarrel
-    minAngle: 10
-    fireCost: 60
-    ammoPrototype: BoltShrinkRay
-  - type: ShrinkRay
+  - type: ProjectileBatteryAmmoProvider
+    proto: BoltShrinkRay
+    fireCost: 100
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
 
 - type: entity
   parent: ShrinkRay
@@ -41,10 +42,9 @@
   id: GrowthRay
   description: It grows people.
   components:
-  - type: BatteryBarrel
-    minAngle: 10
-    fireCost: 60
-    ammoPrototype: BoltGrowthRay
-  - type: ShrinkRay
-    scaleFactor: "1.5, 1.5"
-    applyItem: false
+  - type: ProjectileBatteryAmmoProvider
+    proto: BoltGrowthRay
+    fireCost: 100
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600

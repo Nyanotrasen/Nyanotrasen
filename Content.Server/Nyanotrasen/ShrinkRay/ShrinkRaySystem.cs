@@ -7,7 +7,6 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
 using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
-using Content.Server.Weapon.Ranged.Barrels.Components;
 using Content.Server.PowerCell;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
@@ -77,14 +76,6 @@ namespace Content.Server.ShrinkRay
                 return;
 
             ApplySizeChange((EntityUid) args.Target, component.ScaleFactor, component.ApplyItem);
-
-            if (TryComp<BatteryBarrelComponent>(uid, out var batBarrel) && _cellSystem.TryGetBatteryFromSlot(uid, out var battery))
-            {
-                if (battery.CurrentCharge < batBarrel.BaseFireCost)
-                    return;
-
-                battery.UseCharge(batBarrel.BaseFireCost);
-            }
         }
 
         private void OnStartCollide(EntityUid uid, ShrinkRayProjectileComponent component, StartCollideEvent args)

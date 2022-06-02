@@ -303,16 +303,16 @@
       - ShockCollar
       - CartridgePistol
       - ShellShotgun
-      - CartridgeLRifle
+      - CartridgeLightRifle
       - CartridgeMagnum
       - ShellShotgunBeanbag
       - ShellShotgunFlare
       - ShellShotgunFlash
       - CartridgePistolRubber
       - CartridgeMagnumRubber
-      - CartridgeClRifleRubber
-      - CartridgeLRifleRubber
-      - CartridgeSRifleRubber  #Everything below this is shared with other lathes
+      - CartridgeCaselessRifleRubber
+      - CartridgeLightRifleRubber
+      - CartridgeRifleRubber  #Everything below this is shared with other lathes
       - FlashlightLantern
       - Bucket
       - MopItem
@@ -327,6 +327,7 @@
       - CableStack
       - CableMVStack
       - CableHVStack
+
   - type: Machine
     board: SecurityTechFabCircuitboard
   - type: Lathe
