@@ -43,9 +43,6 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 100
   - type: Appearance
     visuals:
     - type: MagVisualizer
