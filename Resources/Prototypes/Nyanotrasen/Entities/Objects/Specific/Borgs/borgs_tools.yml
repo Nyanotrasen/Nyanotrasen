@@ -21,14 +21,6 @@
   - type: Hypospray
 
 - type: entity
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelInfinite
-  components:
-  - type: Stack
-    count: 1
-    unlimited: true
-
-- type: entity
   parent: BaseItem
   id: StackHolderSteel
   name: steel sheet holder
@@ -48,12 +40,31 @@
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel
 
+- type: entity
+  parent: BaseItem
+  id: StackHolderFloorTile
+  name: floor tile holder
+  description: Holds floor tiles inside this borg.
+  components:
+  - type: ItemSlots
+    slots:
+      stack_slot:
+        name: floor tile stack
+        startingItem: FloorTileItemSteelFull
+        whitelist:
+          tags:
+          - FloorTile
+  - type: StackHolder
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Tiles/tile.rsi
+    state: steel
 
 - type: entity
   parent: BaseItem
   id: StackHolderCable
   name: cable holder
-  description: Holds cables inside this borg
+  description: Holds cables inside this borg.
   components:
   - type: ItemSlots
     slots:
@@ -119,3 +130,11 @@
   - type: Tag
     tags:
     - NoAction
+
+- type: entity
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelFull
+  suffix: Full
+  components:
+  - type: Stack
+    count: 30
