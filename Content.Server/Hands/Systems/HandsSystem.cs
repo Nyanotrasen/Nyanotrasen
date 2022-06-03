@@ -9,6 +9,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Strip;
 using Content.Server.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -47,6 +48,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly StorageSystem _storageSystem = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public override void Initialize()
         {
@@ -148,8 +150,11 @@ namespace Content.Server.Hands.Systems
         #endregion
 
         #region pulling
-        private static void HandlePullAttempt(EntityUid uid, HandsComponent component, PullAttemptEvent args)
+        private void HandlePullAttempt(EntityUid uid, HandsComponent component, PullAttemptEvent args)
         {
+            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
+                return;
+
             if (args.Puller.Owner != uid)
                 return;
 
@@ -160,6 +165,9 @@ namespace Content.Server.Hands.Systems
 
         private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
         {
+            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
+                return;
+
             if (args.Puller.Owner != uid)
                 return;
 
@@ -171,6 +179,9 @@ namespace Content.Server.Hands.Systems
 
         private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
         {
+            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
+                return;
+
             if (args.Puller.Owner != uid)
                 return;
 
