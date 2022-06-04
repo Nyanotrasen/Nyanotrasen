@@ -145,6 +145,20 @@
       prototype: FoodMeatCorgi
 
 - type: objective
+  id: RCDStealObjective
+  issuer: syndicate
+  difficultyOverride: 2.5
+  prob: 0.2
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+  conditions:
+    - !type:StealCondition
+      prototype: RCD
+
+- type: objective
   id: CaptainGunStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
@@ -157,4 +171,18 @@
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
+
+- type: objective
+  id: PowerCellBluespaceStealObjective
+  issuer: syndicate
+  difficultyOverride: 2.75
+  prob: 0.1
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+  conditions:
+    - !type:StealCondition
+      prototype: PowerCellBluespace
 
