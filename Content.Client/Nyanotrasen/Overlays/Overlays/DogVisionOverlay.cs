@@ -4,17 +4,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Nyanotrasen.Overlays
 {
-    public sealed class GreyscaleOverlay : Overlay
+    public sealed class DogVisionOverlay : Overlay
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         public override bool RequestScreenTexture => true;
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
-        private readonly ShaderInstance _greyscaleShader;
+        private readonly ShaderInstance _dogVisionShader;
 
-        public GreyscaleOverlay()
+        public DogVisionOverlay()
         {
             IoCManager.InjectDependencies(this);
-            _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleS").Instance().Duplicate();
+            _dogVisionShader = _prototypeManager.Index<ShaderPrototype>("DogVision").Instance().Duplicate();
         }
 
         protected override void Draw(in OverlayDrawArgs args)
@@ -22,14 +22,14 @@ namespace Content.Client.Nyanotrasen.Overlays
             if (ScreenTexture == null)
                 return;
 
-            _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+            _dogVisionShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
 
             var worldHandle = args.WorldHandle;
-            var viewport = args.WorldAABB;
+            var viewport = args.WorldBounds;
             worldHandle.SetTransform(Matrix3.Identity);
-            worldHandle.UseShader(_greyscaleShader);
-            worldHandle.DrawRect(args.WorldAABB, Color.White);
+            worldHandle.UseShader(_dogVisionShader);
+            worldHandle.DrawRect(viewport, Color.White);
         }
     }
 }
