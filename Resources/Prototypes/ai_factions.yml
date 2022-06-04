@@ -15,6 +15,14 @@
   id: SimpleNeutral
 
 - type: aiFaction
+  id: Cat
+  hostile:
+  - Vermin
+
+- type: aiFaction
+  id: Vermin
+
+- type: aiFaction
   id: Syndicate
   hostile:
   - NanoTrasen

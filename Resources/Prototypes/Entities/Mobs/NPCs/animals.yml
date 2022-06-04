@@ -747,6 +747,9 @@
     bloodMaxVolume: 50
   - type: DiseaseCarrier #The other class lab animal and disease vector
   - type: CanEscapeInventory
+  - type: AiFactionTag
+    factions:
+    - Vermin
 
 
 - type: entity
