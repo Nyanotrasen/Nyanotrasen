@@ -50,6 +50,7 @@
 - type: job
   id: ERTEngineer
   name: "ERT engineer"
+  setPreference: false
   startingGear: ERTEngineerGearEVA
   departments:
   - Command
@@ -58,7 +59,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  
+
 - type: startingGear
   id: ERTEngineerGear
   equipment:
@@ -89,11 +90,12 @@
     id: ERTLeaderPDA
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-    
+
 # Security
 - type: job
   id: ERTSecurity
   name: "ERT security"
+  setPreference: false
   startingGear: ERTEngineerGearEVA
   departments:
   - Command
@@ -102,7 +104,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  
+
 - type: startingGear
   id: ERTSecurityGear
   equipment:
@@ -133,11 +135,12 @@
     id: ERTLeaderPDA
     belt: ClothingBeltSecurityWebbing
     pocket1: Flare
-    
+
 # Medical
 - type: job
   id: ERTMedical
   name: "ERT medic"
+  setPreference: false
   startingGear: ERTMedicalGearEVA
   departments:
   - Command
@@ -146,7 +149,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  
+
 - type: startingGear
   id: ERTMedicalGear
   equipment:
@@ -178,11 +181,12 @@
     belt: ClothingBeltMedicalFilled
     pocket1: HandheldHealthAnalyzer
     pocket2: Flare
-    
+
 # Janitor
 - type: job
   id: ERTJanitor
   name: "ERT janitor"
+  setPreference: false
   startingGear: ERTJanitorGearEVA
   departments:
   - Command
@@ -191,7 +195,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-  
+
 - type: startingGear
   id: ERTJanitorGear
   equipment:

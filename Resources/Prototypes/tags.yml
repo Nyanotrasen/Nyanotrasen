@@ -249,9 +249,6 @@
 # Magazines ordered by slot then caliber
 
 - type: Tag
-  id: MagazineBoxLightRifle
-
-- type: Tag
   id: MagazineCalico
 
 - type: Tag
@@ -265,6 +262,9 @@
 
 - type: Tag
   id: MagazineLightRifle
+
+- type: Tag
+  id: MagazineLightRifleBox
 
 - type: Tag
   id: MagazineLightRiflePan

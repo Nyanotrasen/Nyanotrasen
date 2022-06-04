@@ -15,17 +15,6 @@
   skinColoration: HumanToned
 
 - type: species
-  id: Reptilian
-  name: species-name-reptilian
-  roundStart: true
-  prototype: MobReptilian
-  dollPrototype: MobReptilianDummy
-  skinColoration: Hues
-  maleFirstNames: names_reptilian_male
-  femaleFirstNames: names_reptilian_female
-  naming: FirstDashFirst
-
-- type: species
   id: Oni
   name: Oni
   roundStart: true
