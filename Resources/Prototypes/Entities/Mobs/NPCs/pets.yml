@@ -251,6 +251,12 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: AiFactionTag
+    factions:
+    - Cat
+  - type: UtilityAI
+    behaviorSets:
+    - Hunt
 
 - type: entity
   name: Runtime
