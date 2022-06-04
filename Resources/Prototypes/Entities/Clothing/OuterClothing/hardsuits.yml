@@ -254,6 +254,8 @@
     resistance: 0.7
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
+  - type: StaticPrice
+    price: 750
 
 - type: entity
   parent: ClothingOuterHardsuitBase
