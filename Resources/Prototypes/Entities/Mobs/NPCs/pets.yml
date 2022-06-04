@@ -47,6 +47,7 @@
   - type: SentienceTarget
     flavorKind: corgi
   - type: Puller
+  - type: DogVision
 
 - type: entity
   name: corrupted corgi
@@ -541,6 +542,7 @@
     attributes:
       proper: true
       gender: male
+  - type: DogVision
 
 - type: entity
   name: Paperwork
@@ -618,3 +620,5 @@
     attributes:
       proper: true
       gender: male
+  - type: DogVision
+

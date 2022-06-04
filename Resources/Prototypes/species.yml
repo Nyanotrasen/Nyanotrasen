@@ -26,20 +26,20 @@
   naming: FirstDashFirst
 
 - type: species
-  id: Skeleton
-  name: Skeleton
-  roundStart: true
-  prototype: MobSkeletonPerson
-  dollPrototype: MobSkeletonPersonDummy
-  skinColoration: TintedHues
-
-- type: species
   id: Oni
   name: Oni
   roundStart: true
   prototype: MobOni
   dollPrototype: MobOniDummy
   skinColoration: Hues
+
+- type: species
+  id: Cynocephalus
+  name: Cynocephalus
+  roundStart: true
+  prototype: MobCynocephalus
+  dollPrototype: MobCynocephalusDummy
+  skinColoration: HumanToned
 
 - type: species
   id: Skeleton
