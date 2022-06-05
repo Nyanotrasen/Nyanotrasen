@@ -57,6 +57,21 @@
     layers:
       - state: box
       - state: latex
+      
+- type: entity
+  name: nitrile gloves box
+  parent: BoxCardboard
+  id: BoxNitrileGloves
+  description: Contains sterile nitrile gloves. Better than latex.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesNitrile
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: nitrile
 
 - type: entity
   name: nitrile gloves box

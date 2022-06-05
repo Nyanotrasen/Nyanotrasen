@@ -59,7 +59,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-
+  
 - type: startingGear
   id: ERTEngineerGear
   equipment:
@@ -90,7 +90,7 @@
     id: ERTLeaderPDA
     belt: ClothingBeltChiefEngineerFilled
     pocket1: Flare
-
+    
 # Security
 - type: job
   id: ERTSecurity
@@ -104,7 +104,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-
+  
 - type: startingGear
   id: ERTSecurityGear
   equipment:
@@ -135,7 +135,7 @@
     id: ERTLeaderPDA
     belt: ClothingBeltSecurityWebbing
     pocket1: Flare
-
+    
 # Medical
 - type: job
   id: ERTMedical
@@ -149,7 +149,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-
+  
 - type: startingGear
   id: ERTMedicalGear
   equipment:
@@ -181,7 +181,7 @@
     belt: ClothingBeltMedicalFilled
     pocket1: HandheldHealthAnalyzer
     pocket2: Flare
-
+    
 # Janitor
 - type: job
   id: ERTJanitor
@@ -195,7 +195,7 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
-
+  
 - type: startingGear
   id: ERTJanitorGear
   equipment:
