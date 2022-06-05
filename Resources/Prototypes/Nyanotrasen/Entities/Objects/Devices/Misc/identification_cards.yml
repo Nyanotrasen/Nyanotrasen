@@ -57,3 +57,14 @@
         - state: idroboticist
     - type: PresetIdCard
       job: Automaturge
+
+- type: entity
+  parent: IDCardStandard
+  id: SyndicateDiplomatIDCard
+  name: Syndicate Diplomat ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: syndie
+  - type: PresetIdCard
+    job: SyndicateDiplomat
