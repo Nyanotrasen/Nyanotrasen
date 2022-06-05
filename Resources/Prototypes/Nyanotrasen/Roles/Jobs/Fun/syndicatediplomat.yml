@@ -1,0 +1,34 @@
+- type: job
+  id: SyndicateDiplomat
+  name: "Syndicate Diplomat"
+  startingGear: SyndicateDiplomat
+  departments:
+  - Civilian
+  icon: "Lawyer"
+  supervisors: "The Syndicate"
+  access:
+  - Service
+#  - Brig (Yeah no)
+  setPreference: false
+
+- type: startingGear
+  id: SyndicateDiplomat
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackDuffelSyndicate # It's empty
+  # eyes: Night Vision Goggles whenever they're made
+    eyes: ClothingEyesGlassesBeer # They just look cool
+    ears: ClothingHeadsetAltSyndicate
+    head: ClothingHeadPyjamaSyndicateRed
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterCoatJensen # He never asked for this
+    neck: ClothingNeckLawyerbadge
+    shoes: ClothingShoesLeather
+    id: SyndicateDiplomatPDA
+    pocket1: RubberStampSyndicate
+    pocket2: CyberPen
+    belt: ClothingBeltUtility
+  #  belt: ClothingBeltMilitaryWebbing  (Ther really aren't any good civilian leather belts. The his combat vest looks overkill)
+  innerclothingskirt: ClothingUniformJumpsuitOperative
+  satchel: ClothingBackpackDuffelSyndicate
+  duffelbag: ClothingBackpackDuffelSyndicate
