@@ -15,10 +15,10 @@ namespace Content.Server.AI.Utility.Considerations.Bot
             if (target == null || !IoCManager.Resolve<IEntityManager>().TryGetComponent(target, out DamageableComponent? damageableComponent))
                 return 0;
 
-            if (IoCManager.Resolve<IEntityManager>().TryGetComponent(target, out RecentlyInjectedComponent recently))
+            if (IoCManager.Resolve<IEntityManager>().TryGetComponent(target, out RecentlyInjectedComponent? recently))
                 return 0f;
 
-            if (!IoCManager.Resolve<IEntityManager>().TryGetComponent(target, out MobStateComponent mobState) || mobState.IsDead())
+            if (!IoCManager.Resolve<IEntityManager>().TryGetComponent(target, out MobStateComponent? mobState) || mobState.IsDead())
                 return 0f;
 
             if (damageableComponent.TotalDamage == 0)
