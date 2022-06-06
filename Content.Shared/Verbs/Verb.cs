@@ -215,7 +215,7 @@ namespace Content.Shared.Verbs
             { typeof(Verb) },
             { typeof(InteractionVerb) },
             { typeof(UtilityVerb) },
-            { typeof(InnateVerb) },
+            { typeof(InnateVerb)},
             { typeof(AlternativeVerb) },
             { typeof(ActivationVerb) },
             { typeof(ExamineVerb) }
@@ -265,12 +265,11 @@ namespace Content.Shared.Verbs
 
     /// <summary>
     ///     This is for verbs facilitated by components on the user.
-    ///     Useful for verbs that might be added by abilities or
-    ///     clothing the user is wearing that are used on other objects
+    ///     Verbs from clothing, species, etc. rather than a held item.
     /// </summary>
     /// <remarks>
-    ///     You'll want to add or remove a component to the intent and subscribe
-    ///     to GetVerbsEvent<InnateVerb>
+    ///     Add a component to the user's entity and sub to the get verbs event
+    ///     and it'll appear in the verbs menu on any target.
     /// </summary>
     [Serializable, NetSerializable]
     public sealed class InnateVerb : Verb
