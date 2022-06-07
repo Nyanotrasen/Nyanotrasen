@@ -14,8 +14,8 @@ namespace Content.Server.GameTicking.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public string Command => "joingame";
-        public string Description => "";
-        public string Help => "";
+        public string Description => "Join the game with a certain role when it is already in progress. Convenient, right?";
+        public string Help => "Usage: joingame (RolePrototype) (StationID)";
 
         public JoinGameCommand()
         {

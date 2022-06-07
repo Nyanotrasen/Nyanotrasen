@@ -5,7 +5,7 @@
   departments:
   - Civilian
   icon: "Lawyer"
-  supervisors: "The Syndicate"
+  supervisors: "the Syndicate"
   access:
   - Service
 #  - Brig (Yeah no)
@@ -16,7 +16,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicate # It's empty
-  # eyes: Night Vision Goggles whenever they're made
     eyes: ClothingEyesGlassesBeer # They just look cool
     ears: ClothingHeadsetAltSyndicate
     head: ClothingHeadPyjamaSyndicateRed
@@ -28,7 +27,6 @@
     pocket1: RubberStampSyndicate
     pocket2: CyberPen
     belt: ClothingBeltUtility
-  #  belt: ClothingBeltMilitaryWebbing  (Ther really aren't any good civilian leather belts. The his combat vest looks overkill)
   innerclothingskirt: ClothingUniformJumpsuitOperative
   satchel: ClothingBackpackDuffelSyndicate
   duffelbag: ClothingBackpackDuffelSyndicate
