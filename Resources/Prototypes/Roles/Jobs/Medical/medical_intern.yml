@@ -1,6 +1,7 @@
 ﻿- type: job
   id: MedicalIntern
   name: "medical intern"
+  setPreference: false
   startingGear: MedicalInternGear
   departments:
   - Civilian
