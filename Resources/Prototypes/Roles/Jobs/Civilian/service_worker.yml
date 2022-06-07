@@ -1,6 +1,7 @@
 ﻿- type: job
   id: ServiceWorker
   name: "service worker"
+  setPreference: false
   startingGear: ServiceWorkerGear
   departments:
   - Civilian
