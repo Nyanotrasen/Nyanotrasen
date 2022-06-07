@@ -144,3 +144,11 @@
           CarbonDioxide: 1.0
           Nitrogen: -1.0
 
+- type: reagent
+  id: Miasma
+  name: miasma
+  desc: Uh oh, stinky!
+  physicalDesc: reagent-physical-desc-gaseous
+  color: "#56941E"
+  boilingPoint: -195.8
+  meltingPoint: -210.0
