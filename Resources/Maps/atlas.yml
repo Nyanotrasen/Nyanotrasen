@@ -55486,11 +55486,9 @@ entities:
     parent: 4
     type: Transform
 - uid: 5405
-  type: AirlockSalvageGlassLocked
+  type: AirlockCargoGlassLocked
   components:
-  - name: Cargo Common Room
-    type: MetaData
-  - pos: -26.5,13.5
+  - pos: -24.5,16.5
     parent: 4
     type: Transform
 - uid: 5406
@@ -55622,9 +55620,9 @@ entities:
     parent: 4
     type: Transform
 - uid: 5418
-  type: AirlockSalvageGlassLocked
+  type: AirlockCargoGlassLocked
   components:
-  - pos: -24.5,16.5
+  - pos: -26.5,13.5
     parent: 4
     type: Transform
 - uid: 5419
