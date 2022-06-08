@@ -1,6 +1,7 @@
 - type: job
   id: Automaturge
   name: "automaturge"
+  setPreference: false
   startingGear: AutomaturgeGear
   departments:
   - Epistemics
