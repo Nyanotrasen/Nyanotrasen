@@ -112,7 +112,7 @@
     access: [["Cargo"]]
 
 - type: entity
-  parent: AirlockCargo
+  parent: AirlockEngineering
   id: AirlockSalvageLocked
   suffix: Salvage, Locked
   components:
@@ -354,7 +354,7 @@
     access: [["Cargo"]]
 
 - type: entity
-  parent: AirlockCargoGlass
+  parent: AirlockEngineeringGlass
   id: AirlockSalvageGlassLocked
   suffix: Salvage, Locked
   components:

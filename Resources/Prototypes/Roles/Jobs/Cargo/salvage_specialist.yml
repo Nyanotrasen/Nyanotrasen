@@ -1,13 +1,12 @@
 - type: job
   id: SalvageSpecialist
-  name: "salvage specialist"
+  name: "salvage technician"
   icon: "ShaftMiner"
   startingGear: SalvageSpecialistGear
   departments:
-  - Cargo
-  supervisors: "the head of personnel"
+  - Engineering
+  supervisors: "the chief engineer"
   access:
-  - Cargo
   - Salvage
   - Maintenance
   - External
@@ -19,6 +18,6 @@
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsSalvage
     id: SalvagePDA
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetEngineering
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
