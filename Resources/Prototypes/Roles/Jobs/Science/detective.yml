@@ -1,6 +1,6 @@
 - type: job
   id: Detective
-  name: "areopagite"
+  name: "forensic mantis"
   startingGear: DetectiveGear
   departments:
   - Epistemics
@@ -15,15 +15,14 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitChaplain
+    jumpsuit: ClothingUniformJumpsuitColorBlue
     back: ClothingBackpackDetectiveFilled
-    shoes: ClothingShoesColorBlack
-    head: ClothingHeadAreopagite
+    shoes: ClothingShoesColorBlue
+    head: ClothingHeadHatFez
     id: DetectivePDA
-    outerClothing: ClothingOuterSuitAreopagite
+    eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetScience
-    pocket1: WeaponRevolverInspector
     pocket2: ForensicScanner
-  innerclothingskirt: ClothingUniformJumpskirtChaplain
+  innerclothingskirt: ClothingUniformJumpskirtColorBlue
   satchel: ClothingBackpackSatchelDetectiveFilled
   duffelbag: ClothingBackpackDuffelDetectiveFilled
