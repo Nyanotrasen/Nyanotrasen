@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Carrying
 {
-    [RegisterComponent, NetworkedComponent, Friend(typeof(CarryingSlowdownSystem))]
+    [RegisterComponent, NetworkedComponent, Access(typeof(CarryingSlowdownSystem))]
 
     public sealed class CarryingSlowdownComponent : Component
     {
