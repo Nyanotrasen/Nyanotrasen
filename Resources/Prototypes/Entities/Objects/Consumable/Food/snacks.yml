@@ -183,7 +183,7 @@
     color: white
   - type: Food
     trash: FoodPacketSyndiTrash
-    
+
 - type: entity
   name: chow mein
   parent: FoodSnackBase
@@ -205,7 +205,7 @@
           Quantity: 2
   - type: Food
     trash: FoodPacketChowMeinTrash
-          
+
 - type: entity
   name: dan dan noodles
   parent: FoodSnackBase
@@ -291,7 +291,7 @@
 
 - type: entity
   id: FoodSnackMREBrownie
-  parent: BaseItem  
+  parent: BaseItem
   name: brownie
   description: A precisely mixed brownie, made to withstand blunt trauma and harsh conditions. Tastes like shit.
   components:
@@ -305,7 +305,7 @@
       - id: FoodSnackMREBrownieOpen
     sound:
       path: /Audio/Effects/unwrap.ogg
-  
+
 
 - type: entity
   id: FoodSnackMREBrownieOpen
@@ -477,7 +477,7 @@
     state: chinese1
   - type: Item
     color: red
-    
+
 - type: entity
   noSpawn: true
   parent: FoodPacketTrash
@@ -488,7 +488,7 @@
     state: chinese2
   - type: Item
     color: white
-    
+
 - type: entity
   noSpawn: true
   parent: FoodPacketTrash
