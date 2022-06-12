@@ -52,7 +52,7 @@
         name: floor tile stack
         startingItem: FloorTileItemSteelFull
         whitelist:
-          tags:
+          components:
           - FloorTile
   - type: StackHolder
   - type: Sprite
