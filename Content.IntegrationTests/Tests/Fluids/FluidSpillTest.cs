@@ -1,4 +1,4 @@
-#nullable enable
+﻿#nullable enable
 using System;
 using System.Threading.Tasks;
 using Content.Server.Fluids.Components;
@@ -55,13 +55,13 @@ public sealed class FluidSpill : ContentIntegrationTest
         var spillSystem = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SpillableSystem>();
         var gameTiming = server.ResolveDependency<IGameTiming>();
         MapId mapId;
-        EntityUid gridId = default;
+        GridId gridId = default;
 
         await server.WaitPost(() =>
         {
             mapId = mapManager.CreateMap();
             var grid = mapManager.CreateGrid(mapId);
-            gridId = grid.GridEntityId;
+            gridId = grid.Index;
 
             for (var x = 0; x < 3; x++)
             {
@@ -118,7 +118,7 @@ public sealed class FluidSpill : ContentIntegrationTest
         var spillSystem = server.ResolveDependency<IEntitySystemManager>().GetEntitySystem<SpillableSystem>();
         var gameTiming = server.ResolveDependency<IGameTiming>();
         MapId mapId;
-        EntityUid gridId = default;
+        GridId gridId = default;
 
         await server.WaitPost(() =>
         {
@@ -133,7 +133,7 @@ public sealed class FluidSpill : ContentIntegrationTest
                 }
             }
 
-            gridId = grid.GridEntityId;
+            gridId = grid.Index;
         });
 
         await server.WaitAssertion(() =>

@@ -25,9 +25,8 @@ namespace Content.IntegrationTests.Tests
             var mapManager = server.ResolveDependency<IMapManager>();
             server.Post(() =>
             {
-                // TODO: Properly find the "main" station grid.
-                var grid0 = mapManager.GetAllGrids().First();
-                mapLoader.SaveBlueprint(grid0.GridEntityId, "save load save 1.yml");
+                // TODO: Un-hardcode the grid Id for this test.
+                mapLoader.SaveBlueprint(new GridId(1), "save load save 1.yml");
                 var mapId = mapManager.CreateMap();
                 var grid = mapLoader.LoadBlueprint(mapId, "save load save 1.yml").gridId;
                 mapLoader.SaveBlueprint(grid!.Value, "save load save 2.yml");
