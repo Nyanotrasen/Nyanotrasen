@@ -18,6 +18,7 @@ using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Hands.Components;
 using Content.Server.UserInterface;
+using Content.Server.SurveillanceCamera;
 using Robust.Shared.Player;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Storage;
@@ -39,6 +40,7 @@ namespace Content.Server.Drone
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<DroneComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -47,6 +49,15 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, MindRemovedMessage>(OnMindRemoved);
             SubscribeLocalEvent<DroneComponent, EmoteAttemptEvent>(OnEmoteAttempt);
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
+        }
+
+        private void OnInit(EntityUid uid, DroneComponent drone, ComponentInit args)
+        {
+            if (!TryComp<SurveillanceCameraComponent>(uid, out var camera))
+                return;
+
+            camera.Active = false;
+            camera.CameraId = MetaData(uid).EntityName;
         }
 
         private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
@@ -113,6 +124,9 @@ namespace Content.Server.Drone
             UpdateDroneAppearance(uid, DroneStatus.On);
             _popupSystem.PopupEntity(Loc.GetString("drone-activated"), uid, Filter.Pvs(uid));
 
+            if (TryComp<SurveillanceCameraComponent>(uid, out var camera))
+                camera.Active = true;
+
             if (drone.AlreadyAwoken == false)
             {
                 var spawnCoord = Transform(uid).Coordinates;
@@ -147,6 +161,8 @@ namespace Content.Server.Drone
 
         private void OnMindRemoved(EntityUid uid, DroneComponent drone, MindRemovedMessage args)
         {
+            if (TryComp<SurveillanceCameraComponent>(uid, out var camera))
+                camera.Active = false;
             UpdateDroneAppearance(uid, DroneStatus.Off);
             EnsureComp<GhostTakeoverAvailableComponent>(uid);
         }

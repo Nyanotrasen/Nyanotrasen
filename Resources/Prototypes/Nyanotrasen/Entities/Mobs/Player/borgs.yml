@@ -105,25 +105,16 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: Appearance
-  - type: UserInterface
-    interfaces:
-      - key: enum.CrewMonitoringUIKey.Key
-        type: CrewMonitoringBoundUserInterface
-  - type: CrewMonitoringConsole
+  - type: Eye
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: SuitSensor
+    receiveFrequencyId: SurveillanceCameraSilicon
+    transmitFrequencyId: SurveillanceCamera
   - type: WirelessNetworkConnection
     range: 500
-  - type: IntrinsicUI
-    uis:
-    - key: enum.CrewMonitoringUIKey.Key
-      toggleAction:
-        name: action-name-show-crew-monitoring-console
-        description: action-description-crew-monitoring-console
-        icon: Objects/Specific/Medical/handheldcrewmonitor.rsi/icon.png
-        keywords: [ "AI", "console", "interface" ]
-        priority: -1
-        event: !type:ToggleIntrinsicUIEvent
+  - type: SurveillanceCamera
+    id: borg
+    setupAvailableNetworks:
+      - SurveillanceCameraSilicon
   - type: RandomMetadata
     nameSet: names_autoborg
