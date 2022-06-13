@@ -1,0 +1,7 @@
+- type: entity
+  parent: SurveillanceCameraWirelessRouterBase
+  id: SurveillanceCameraRouterSilicon
+  suffix: Silicon
+  components:
+    - type: SurveillanceCameraRouter
+      subnetFrequency: SurveillanceCameraSilicon
