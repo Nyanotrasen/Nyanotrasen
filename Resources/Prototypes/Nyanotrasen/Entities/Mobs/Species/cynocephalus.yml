@@ -95,6 +95,20 @@
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
   - type: DogVision
+  - type: GasAnalyzer
+  - type: UserInterface
+    interfaces:
+    - key: enum.GasAnalyzerUiKey.Key
+      type: GasAnalyzerBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      - key: enum.GasAnalyzerUiKey.Key
+        toggleAction:
+          name: cyno-gas-analyzer
+          description: cyno-gas-analyzer-desc
+          icon: Objects/Specific/Atmos/gasanalyzer.rsi/icon.png
+          priority: -10
+          event: !type:ToggleIntrinsicUIEvent
 
 - type: entity
   save: false
