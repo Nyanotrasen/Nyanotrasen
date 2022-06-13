@@ -29,9 +29,15 @@
     - nodevis
     - nodevisfilter
 
+- Flags: FUN
+  Commands:
+    - tethergun
+    - griddrag
+
 - Flags: ADMIN
   Commands:
     - togglehealthoverlay
+    - togglelight
 
 - Flags: QUERY
   Commands:
