@@ -31,12 +31,12 @@
 
 - type: entity
   parent: BasePDA
-  id: DetectivePDA
-  name: detective PDA
+  id: ForensicMantisPDA
+  name: forensic mantis PDA
   description: Smells like tobacco, and justice.
   components:
   - type: PDA
-    id: DetectiveIDCard
+    id: ForensicMantisIDCard
   - type: Appearance
     visuals:
       - type: PDAVisualizer
