@@ -313,7 +313,7 @@
 - type: entity
   parent: BasePDA
   id: LibrarianPDA
-  name: librarian PDA
+  name: cataloguer PDA
   description: Smells like books.
   components:
   - type: PDA
@@ -479,7 +479,7 @@
 - type: entity
   parent: BasePDA
   id: RnDPDA
-  name: research director PDA
+  name: mystagogue PDA
   description: It appears surprisingly ordinary.
   components:
   - type: PDA
@@ -494,7 +494,7 @@
 - type: entity
   parent: BasePDA
   id: SciencePDA
-  name: science PDA
+  name: epistemics PDA
   description: It's covered with an unknown gooey substance.
   components:
   - type: PDA
