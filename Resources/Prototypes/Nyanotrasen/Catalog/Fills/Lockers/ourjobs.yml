@@ -1,0 +1,54 @@
+- type: entity
+  id: LockerMystagogueFilled
+  suffix: Filled
+  parent: LockerResearchDirector
+  name: mystagogue's locker
+  components:
+  - type: StorageFill
+    contents:
+      - id: ResearchComputerCircuitboard
+      - id: ProtolatheMachineCircuitboard
+      - id: CircuitImprinterMachineCircuitboard
+      - id: ClothingHeadsetMedicalScience
+      - id: ClothingOuterHardsuitRd
+      - id: PlushieSlime
+        prob: 0.1
+      - id: DoorRemoteResearch
+      - id: RubberStampRd
+      - id: Telebaton
+
+- type: entity
+  id: LockerEpistemicsFilled
+  suffix: Filled
+  parent: LockerScientist
+  name: epistemologist's locker
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadsetScience
+      - id: ClothingMaskSterile
+      - id: ClothingOuterRobeWhite
+      - id: Paper
+
+- type: entity
+  id: LockerForensicMantisFilled
+  suffix: Filled
+  parent: LockerDetective
+  name: forensic mantis' cabinet
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHatFez
+      - id: FlashlightSeclite
+      - id: ForensicScanner
+      - id: BoxForensicPad
+
+- type: entity
+  id: VendingMachineForensics
+  name: Forensics Wardrobe
+  description: A fez dispenser.
+  components:
+  - type: VendingMachine
+    pack: DetDrobeInventory
+  - type: AccessReader
+    access: [["Detective"]]

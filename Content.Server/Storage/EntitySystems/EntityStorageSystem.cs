@@ -13,6 +13,8 @@ public sealed class EntityStorageSystem : EntitySystem
 {
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
+    public const string ContainerName = "entity_storage";
+
     public override void Initialize()
     {
         base.Initialize();

@@ -35,12 +35,12 @@
       - state: mailcarrier
 
 - type: entity
-  id: SpawnPointDetective
+  id: SpawnPointForensicMantis
   parent: SpawnPointJobBase
-  name: detective
+  name: forensic mantis
   components:
   - type: SpawnPoint
-    job_id: Detective
+    job_id: ForensicMantis
   - type: Sprite
     layers:
       - state: green
@@ -69,3 +69,51 @@
     layers:
       - state: green
       - state: roboticist
+
+- type: entity
+  id: SpawnPointMystagogue
+  parent: SpawnPointJobBase
+  name: mystagogue
+  components:
+  - type: SpawnPoint
+    job_id: Mystagogue
+  - type: Sprite
+    layers:
+      - state: green
+      - state: rd
+
+- type: entity
+  id: SpawnPointEpistemologist
+  parent: SpawnPointJobBase
+  name: epistemologist
+  components:
+  - type: SpawnPoint
+    job_id: Epistemologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: scientist
+
+- type: entity
+  id: SpawnPointCataloguer
+  parent: SpawnPointJobBase
+  name: cataloguer
+  components:
+  - type: SpawnPoint
+    job_id: Cataloguer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: librarian
+
+- type: entity
+  id: SpawnPointSalvageTechnician
+  parent: SpawnPointJobBase
+  name: salvagetechnician
+  components:
+  - type: SpawnPoint
+    job_id: SalvageTechnician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: miner

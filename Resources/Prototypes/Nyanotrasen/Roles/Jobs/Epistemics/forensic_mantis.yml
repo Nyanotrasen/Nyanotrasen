@@ -1,0 +1,28 @@
+- type: job
+  id: ForensicMantis
+  name: "forensic mantis"
+  startingGear: ForensicMantisGear
+  departments:
+  - Epistemics
+  icon: "Detective"
+  supervisors: "the mystagogue"
+  access:
+  - Research
+  - Brig
+  - Detective
+  - Maintenance
+
+- type: startingGear
+  id: ForensicMantisGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlue
+    back: ClothingBackpackDetectiveFilled
+    shoes: ClothingShoesColorBlue
+    head: ClothingHeadHatFez
+    id: ForensicMantisPDA
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetScience
+    pocket2: ForensicScanner
+  innerclothingskirt: ClothingUniformJumpskirtColorBlue
+  satchel: ClothingBackpackSatchelDetectiveFilled
+  duffelbag: ClothingBackpackDuffelDetectiveFilled
