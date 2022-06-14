@@ -1,12 +1,11 @@
 - type: job
-  id: ResearchDirector
-  name: "research director"
-  setPreference: false
+  id: Mystagogue
+  name: "mystagogue"
   weight: 10
-  startingGear: ResearchDirectorGear
+  startingGear: MystagogueGear
   departments:
   - Command
-  - Science
+  - Epistemics
   icon: "ResearchDirector"
   requireAdminNotify: true
   supervisors: "the captain"
@@ -16,16 +15,19 @@
   - Command
   - Maintenance
   - ResearchDirector
+  - Detective
+  - Chapel
 
 - type: startingGear
-  id: ResearchDirectorGear
+  id: MystagogueGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitResearchDirector
+    jumpsuit: ClothingUniformJumpsuitColorWhite
     back: ClothingBackpackScienceFilled
-    shoes: ClothingShoesColorBrown
-    outerClothing: ClothingOuterCoatLab
+    shoes: ClothingShoesColorWhite
+    head: ClothingHeadHoodMystic
+    outerClothing: ClothingOuterRobeMystic
     id: RnDPDA
     ears: ClothingHeadsetScience
-  innerclothingskirt: ClothingUniformJumpskirtResearchDirector
+  innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled

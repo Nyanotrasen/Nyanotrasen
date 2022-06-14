@@ -1,25 +1,23 @@
 - type: job
-  id: Scientist
-  name: "scientist"
-  setPreference: false
-  startingGear: ScientistGear
+  id: Epistemologist
+  name: "epistemologist"
+  startingGear: EpistemologistGear
   departments:
-  - Science
+  - Epistemics
   icon: "Scientist"
-  supervisors: "the research director"
+  supervisors: "the mystagogue"
   access:
   - Research
-  - Maintenance
 
 - type: startingGear
-  id: ScientistGear
+  id: EpistemologistGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitScientist
+    jumpsuit: ClothingUniformJumpsuitColorWhite
     back: ClothingBackpackScienceFilled
     shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatLab
+    outerClothing: ClothingOuterRobeWhite
     id: SciencePDA
     ears: ClothingHeadsetScience
-  innerclothingskirt: ClothingUniformJumpskirtScientist
+  innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelScienceFilled
   duffelbag: ClothingBackpackDuffelScienceFilled

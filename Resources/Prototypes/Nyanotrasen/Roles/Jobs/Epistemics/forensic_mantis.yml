@@ -1,7 +1,7 @@
 - type: job
-  id: Detective
+  id: ForensicMantis
   name: "forensic mantis"
-  startingGear: DetectiveGear
+  startingGear: ForensicMantisGear
   departments:
   - Epistemics
   icon: "Detective"
@@ -13,7 +13,7 @@
   - Maintenance
 
 - type: startingGear
-  id: DetectiveGear
+  id: ForensicMantisGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlue
     back: ClothingBackpackDetectiveFilled

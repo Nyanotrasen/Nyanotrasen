@@ -112173,7 +112173,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 12594
-  type: SpawnPointScientist
+  type: SpawnPointEpistemologist
   components:
   - pos: -9.5,-8.5
     parent: 100
@@ -112261,13 +112261,13 @@ entities:
     parent: 100
     type: Transform
 - uid: 12607
-  type: SpawnPointScientist
+  type: SpawnPointEpistemologist
   components:
   - pos: -10.5,-8.5
     parent: 100
     type: Transform
 - uid: 12608
-  type: SpawnPointDetective
+  type: SpawnPointForensicMantis
   components:
   - pos: -10.5,-10.5
     parent: 100
@@ -112341,13 +112341,13 @@ entities:
     parent: 100
     type: Transform
 - uid: 12620
-  type: SpawnPointSalvageSpecialist
+  type: SpawnPointSalvageTechnician
   components:
   - pos: -37.5,-13.5
     parent: 100
     type: Transform
 - uid: 12621
-  type: SpawnPointSalvageSpecialist
+  type: SpawnPointSalvageTechnician
   components:
   - pos: -35.5,-13.5
     parent: 100
@@ -112375,7 +112375,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 12625
-  type: SpawnPointLibrarian
+  type: SpawnPointCataloguer
   components:
   - pos: -8.5,-10.5
     parent: 100
@@ -113386,7 +113386,7 @@ entities:
       id: docking
     type: Fixtures
 - uid: 12740
-  type: SpawnPointResearchDirector
+  type: SpawnPointMystagogue
   components:
   - pos: -11.5,57.5
     parent: 100
