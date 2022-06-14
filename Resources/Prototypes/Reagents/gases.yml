@@ -156,6 +156,10 @@
     Gas:
       effects:
       - !type:ChemCauseRandomDisease
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Miasma
+          min: 1
         diseases:
           - VentCough
           - AMIV
@@ -164,3 +168,13 @@
           - Bird Flew
           - VanAusdallsRobovirus
           - BleedersBite
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Miasma
+          min: 1
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 0.25
