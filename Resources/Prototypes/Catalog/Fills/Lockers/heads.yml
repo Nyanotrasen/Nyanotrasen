@@ -5,7 +5,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingNeckCloakQm
       - id: ClothingHeadsetCargo
       - id: PlushieLizard
         prob: 0.1
@@ -20,7 +19,6 @@
       - id: SupplyComputerCircuitboard
       - id: CigPackGreen
         prob: 0.50
-      - id: DoorRemoteCargo
       - id: RubberStampQm
 
 - type: entity
