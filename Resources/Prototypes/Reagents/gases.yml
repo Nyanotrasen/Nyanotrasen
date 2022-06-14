@@ -155,6 +155,12 @@
   metabolisms:
     Gas:
       effects:
-      - !type:ChemCauseDisease
-        causeChance: 0.6
-        disease: VentCough
+      - !type:ChemCauseRandomDisease
+        diseases:
+          - VentCough
+          - AMIV
+          - SpaceCold
+          - SpaceFlu
+          - Bird Flew
+          - VanAusdallsRobovirus
+          - BleedersBite
