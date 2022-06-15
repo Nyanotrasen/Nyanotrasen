@@ -310,6 +310,21 @@
     - SheetGlass1
 
 - type: technology
+  name: high-end material sheet printing
+  id: AdvSheets
+  description: Print those high-end sheets!
+  icon: Objects/Materials/Sheets/glass.rsi/titaniumglass.png
+  requiredPoints: 7500
+  requiredTechnologies:
+    - Sheets
+  unlockedRecipes:
+    - SheetPlasteel
+    - SheetTitanium
+    - SheetPlastitanium
+    - SheetTGLass
+    - SheetPTGlass
+
+- type: technology
   name: advanced atmospherics technology
   id: AdvancedAtmosTechnology
   description: As if it can get more advanced.
@@ -466,6 +481,39 @@
     - MicroManipulatorStockPart
     - ScanningModuleStockPart
     - ProximitySensor
+
+- type: technology
+  name: "advanced parts technology"
+  id: AdvancedPartsTechnology
+  description: NOW we're getting somewhere.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  requiredPoints: 5000
+  requiredTechnologies:
+    - BasicPartsTechnology
+  unlockedRecipes:
+    - AdvancedCapacitorStockPart
+    - AdvancedScanningModuleStockPart
+    - HighPowerMicroLaserStockPart
+    - AdvancedMatterBinStockPart
+    - NanoManipulatorStockPart
+
+- type: technology
+  name: "super parts technology"
+  id: SuperPartsTechnology
+  description: Nanotrasen-patented Super Part technology.
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: super_capacitor
+  requiredPoints: 8000
+  requiredTechnologies:
+    - AdvancedPartsTechnology
+  unlockedRecipes:
+    - SuperCapacitorStockPart
+    - PicoManipulatorStockPart
+    - SuperMatterBinStockPart
+    - PhasicScanningModuleStockPart
 
 # Bluespace Theory Technology Tree
 
