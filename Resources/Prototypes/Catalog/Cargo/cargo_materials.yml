@@ -71,6 +71,18 @@
   group: market
 
 - type: cargoProduct
+  name: "crate of titanium sheets"
+  id: MaterialPlasteel
+  description: "90 sheets of titanium."
+  icon:
+    sprite: Objects/Materials/Sheets/metal.rsi
+    state: titanium_3
+  product: CrateMaterialTitanium
+  cost: 5000
+  category: Materials
+  group: market
+
+- type: cargoProduct
   name: "crate of solid plasma"
   id: MaterialPlasma
   description: "90 sheets of plasma."
