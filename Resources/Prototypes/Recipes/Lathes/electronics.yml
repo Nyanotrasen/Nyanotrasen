@@ -128,6 +128,50 @@
      Glass: 900
 
 - type: latheRecipe
+  id: CyborgEntityCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: CyborgEntityCircuitboard
+  completetime: 4
+  materials:
+     Steel: 800
+     Glass: 750
+     Plastic: 200
+     Gold: 50
+
+- type: latheRecipe
+  id: MedibotEntityCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: MedibotEntityCircuitboard
+  completetime: 4
+  materials:
+     Steel: 400
+     Glass: 600
+     Plastic: 50
+     Gold: 50
+
+- type: latheRecipe
+  id: HonkbotEntityCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: HonkbotEntityCircuitboard
+  completetime: 4
+  materials:
+     Steel: 400
+     Glass: 600
+     Plastic: 50
+     Gold: 50
+
+- type: latheRecipe
+  id: JanibotEntityCircuitboard
+  icon: Objects/Misc/module.rsi/id_mod.png
+  result: JanibotEntityCircuitboard
+  completetime: 4
+  materials:
+     Steel: 400
+     Glass: 600
+     Plastic: 50
+     Gold: 50
+
+- type: latheRecipe
   id: VaccinatorMachineCircuitboard
   icon: Objects/Misc/module.rsi/id_mod.png
   result: VaccinatorMachineCircuitboard
