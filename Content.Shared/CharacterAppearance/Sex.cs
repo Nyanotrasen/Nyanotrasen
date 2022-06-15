@@ -28,6 +28,8 @@ namespace Content.Shared.CharacterAppearance
 
             switch (speciesProto.Naming)
             {
+                case SpeciesNaming.XnoY:
+                    return $"{GetLastName(sex, speciesProto, prototypeManager, random)}-no-{GetFirstName(sex, speciesProto, prototypeManager, random)}";
                 case SpeciesNaming.FirstDashFirst:
                     return $"{GetFirstName(sex, speciesProto, prototypeManager, random)}-{GetFirstName(sex, speciesProto, prototypeManager, random)}";
                 case SpeciesNaming.FirstLast:
