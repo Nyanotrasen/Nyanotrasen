@@ -97,3 +97,13 @@
     contents:
       - id: SheetPlasma
         amount: 3
+
+- type: entity
+  id: CrateMaterialTitanium
+  name:  titanium sheet crate
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: SheetTitanium
+        amount: 3
