@@ -35,8 +35,8 @@ namespace Content.Server.Atmos.Miasma
                 perishable.RotAccumulator -= 1f;
 
                 DamageSpecifier damage = new();
-                damage.DamageDict.Add("Blunt", 0.15); // Slowly accumulate enough to explode after like half an hour
-                damage.DamageDict.Add("Cellular", 0.15); // Cloning rework might use this eventually
+                damage.DamageDict.Add("Blunt", 0.25); // Slowly accumulate enough to explode after like half an hour
+                damage.DamageDict.Add("Cellular", 0.25); // Cloning rework might use this eventually
 
                 _damageableSystem.TryChangeDamage(perishable.Owner, damage, true, true);
 
