@@ -35,7 +35,7 @@
   components:
   - type: Sprite
     state: direction_chapel
-    
+
 - type: entity
   parent: BaseSign
   id: SignDirectionalCryo
@@ -62,7 +62,7 @@
   components:
   - type: Sprite
     state: direction_eng
-    
+
 - type: entity
   parent: BaseSign
   id: SignDirectionalEvac
@@ -112,8 +112,8 @@
 - type: entity
   parent: BaseSign
   id: SignDirectionalSci
-  name: science sign
-  description: A direction sign, pointing out which way the Science department is.
+  name: epistemics sign
+  description: A direction sign, pointing out which way the Epistemics department is.
   components:
   - type: Sprite
     state: direction_sci
@@ -144,7 +144,7 @@
   components:
   - type: Sprite
     state: direction_supply
-    
+
 - type: entity
   parent: BaseSign
   id: SignDirectionalWash
@@ -204,7 +204,7 @@
   components:
   - type: Sprite
     state: atmominsky
-    
+
 - type: entity
   parent: BaseSign
   id: SignBar
@@ -228,7 +228,7 @@
   components:
   - type: Sprite
     state: biohazard
-    
+
 - type: entity
   parent: BaseSign
   id: SignBridge
@@ -260,7 +260,7 @@
   components:
   - type: Sprite
     state: cargo_dock
-  
+
 - type: entity
   parent: BaseSign
   id: SignChapel
@@ -325,7 +325,7 @@
   components:
   - type: Sprite
     state: doors
- 
+
 - type: entity
   parent: BaseSign
   id: SignDrones
@@ -461,7 +461,7 @@
   components:
   - type: Sprite
     state: medbay
-    
+
 - type: entity
   parent: BaseSign
   id: SignMinerDock
@@ -501,7 +501,7 @@
   components:
   - type: Sprite
     state: rnd
-    
+
 - type: entity
   parent: BaseSign
   id: SignRobo
@@ -513,7 +513,7 @@
 - type: entity
   parent: BaseSign
   id: SignScience
-  name: science sign
+  name: epistemics sign
   components:
   - type: Sprite
     state: sci
@@ -521,7 +521,7 @@
 - type: entity
   parent: BaseSign
   id: SignScience1
-  name: science sign
+  name: epistemics sign
   components:
   - type: Sprite
     state: science1
@@ -529,7 +529,7 @@
 - type: entity
   parent: BaseSign
   id: SignScience2
-  name: science sign
+  name: epistemics sign
   components:
   - type: Sprite
     state: science2
@@ -645,7 +645,7 @@
   components:
   - type: Sprite
     state: laser
-    
+
 - type: entity
   parent: BaseSign
   id: SignMagnetics
@@ -677,7 +677,7 @@
   components:
   - type: Sprite
     state: securearea
-    
+
 - type: entity
   parent: BaseSign
   id: SignShock
@@ -911,7 +911,7 @@
   components:
   - type: Sprite
     state: atmos_plasma
-    
+
 - type: entity
   parent: BaseSign
   id: WarningTritium

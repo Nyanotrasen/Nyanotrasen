@@ -1,0 +1,23 @@
+- type: job
+  id: Cataloguer
+  name: "cataloguer"
+  startingGear: CataloguerGear
+  departments:
+  - Epistemics
+  icon: "Librarian"
+  supervisors: "the mystagogue"
+  access:
+  - Research
+
+- type: startingGear
+  id: CataloguerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBrown
+    back: ClothingBackpackBriefcaseFilled
+    shoes: ClothingShoesColorBlack
+    id: LibrarianPDA
+    outerClothing: ClothingOuterRobeBrown
+    head: ClothingHeadHoodBrown
+    ears: ClothingHeadsetScience
+    pocket1: d10Dice
+  innerclothingskirt: ClothingUniformJumpskirtColorBrown

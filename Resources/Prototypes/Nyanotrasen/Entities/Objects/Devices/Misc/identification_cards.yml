@@ -12,15 +12,15 @@
 
 - type: entity
   parent: IDCardStandard
-  id: DetectiveIDCard
-  name: detective ID card
+  id: ForensicMantisIDCard
+  name: forensic mantis ID card
   components:
     - type: Sprite
       layers:
         - state: default
         - state: iddetective
     - type: PresetIdCard
-      job: Detective
+      job: ForensicMantis
 
 - type: entity
   parent: IDCardStandard

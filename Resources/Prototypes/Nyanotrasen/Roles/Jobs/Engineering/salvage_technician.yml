@@ -1,0 +1,23 @@
+- type: job
+  id: SalvageTechnician
+  name: "salvage technician"
+  icon: "ShaftMiner"
+  startingGear: SalvageTechnicianGear
+  departments:
+  - Engineering
+  supervisors: "the chief engineer"
+  access:
+  - Salvage
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: SalvageTechnicianGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesBootsSalvage
+    id: SalvagePDA
+    ears: ClothingHeadsetEngineering
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

@@ -58,6 +58,7 @@
   - type: Access
     groups:
     - Service
+    - Cargo
 
 - type: entity
   parent: DoorRemoteDefault

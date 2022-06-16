@@ -16593,7 +16593,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 1304
-  type: SpawnPointResearchDirector
+  type: SpawnPointMystagogue
   components:
   - pos: 28.5,-3.5
     parent: 4
@@ -38561,7 +38561,7 @@ entities:
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 3778
-  type: LockerDetectiveFilled
+  type: LockerForensicMantisFilled
   components:
   - pos: -3.5,-11.5
     parent: 4
@@ -44519,7 +44519,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4555
-  type: SpawnPointLibrarian
+  type: SpawnPointCataloguer
   components:
   - pos: -23.5,-13.5
     parent: 4
@@ -44708,7 +44708,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4584
-  type: LockerResearchDirectorFilled
+  type: LockerMystagogueFilled
   components:
   - pos: -23.5,-8.5
     parent: 4
@@ -48256,25 +48256,25 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 4972
-  type: SpawnPointScientist
+  type: SpawnPointEpistemologist
   components:
   - pos: -21.5,-13.5
     parent: 4
     type: Transform
 - uid: 4973
-  type: SpawnPointScientist
+  type: SpawnPointEpistemologist
   components:
   - pos: -20.5,-13.5
     parent: 4
     type: Transform
 - uid: 4974
-  type: VendingMachineSciDrobe
+  type: VendingMachineEpiDrobe
   components:
   - pos: -19.5,-12.5
     parent: 4
     type: Transform
 - uid: 4975
-  type: VendingMachineRoboDrobe
+  type: VendingMachineAutomatrobe
   components:
   - pos: -20.5,-12.5
     parent: 4
@@ -53260,7 +53260,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 5586
-  type: SpawnPointSalvageSpecialist
+  type: SpawnPointSalvageTechnician
   components:
   - pos: -32.5,0.5
     parent: 4
@@ -53272,7 +53272,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 5588
-  type: SpawnPointSalvageSpecialist
+  type: SpawnPointSalvageTechnician
   components:
   - pos: -32.5,-0.5
     parent: 4
@@ -53290,7 +53290,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 5591
-  type: SpawnPointDetective
+  type: SpawnPointForensicMantis
   components:
   - pos: -24.5,-13.5
     parent: 4
