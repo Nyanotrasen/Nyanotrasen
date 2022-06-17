@@ -32,11 +32,14 @@
       0: !type:NormalMobState {}
       60: !type:DeadMobState {}
   - type: Appearance
-    visuals:
-    - type: DamageStateVisualizer
-      normal: produce
-      crit: produce_dead
-      dead: produce_dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: produce
+      Critical:
+        Base: produce_dead
+      Dead:
+        Base: produce_dead
   - type: Butcherable
     spawned:
     - id: FoodMeatTomato

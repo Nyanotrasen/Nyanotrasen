@@ -418,7 +418,7 @@
     layers:
       - state: green
       - state: ertleader
-      
+
 - type: entity
   id: SpawnPointERTEngineer
   parent: SpawnPointJobBase
@@ -430,7 +430,7 @@
     layers:
       - state: green
       - state: ertengineer
-      
+
 - type: entity
   id: SpawnPointERTMedical
   parent: SpawnPointJobBase
@@ -442,7 +442,7 @@
     layers:
       - state: green
       - state: ertmedical
-      
+
 - type: entity
   id: SpawnPointERTSecurity
   parent: SpawnPointJobBase
@@ -454,7 +454,7 @@
     layers:
       - state: green
       - state: ertsecurity
-      
+
 - type: entity
   id: SpawnPointERTJanitor
   parent: SpawnPointJobBase
@@ -466,3 +466,29 @@
     layers:
       - state: green
       - state: ertjanitor
+
+# STATION SPECIFIC
+
+- type: entity
+  id: SpawnPointReporter
+  parent: SpawnPointJobBase
+  name: reporter
+  components:
+  - type: SpawnPoint
+    job_id: Reporter
+  - type: Sprite
+    layers:
+      - state: green
+      - state: reporter
+
+- type: entity
+  id: SpawnPointPsychologist
+  parent: SpawnPointJobBase
+  name: psychologist
+  components:
+  - type: SpawnPoint
+    job_id: Psychologist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: psychologist

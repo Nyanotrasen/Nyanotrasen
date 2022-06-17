@@ -72,7 +72,7 @@ namespace Content.Server.Abilities.Felinid
             }
 
             _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", uid)), uid, Filter.Pvs(uid));
-            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/Species/hairball.ogg", uid, AudioHelpers.WithVariation(0.15f));
+            SoundSystem.Play("/Audio/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
             AddComp<CoughingUpHairballComponent>(uid);
             args.Handled = true;

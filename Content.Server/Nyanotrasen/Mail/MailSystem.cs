@@ -180,7 +180,7 @@ namespace Content.Server.Mail
 
         public void SpawnMail(EntityUid uid)
         {
-            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
+            SoundSystem.Play("/Audio/Effects/teleport_arrival.ogg", Filter.Pvs(uid), uid);
             /// This needs to be revisited for multistation
             List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
@@ -218,7 +218,7 @@ namespace Content.Server.Mail
             if (!Resolve(uid, ref component))
                 return;
 
-            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/packetrip.ogg", uid);
+            SoundSystem.Play("/Audio/Effects/packetrip.ogg", Filter.Pvs(uid), uid);
 
             var contentList = EntitySpawnCollection.GetSpawns(component.Contents, _random);
             if (user != null)

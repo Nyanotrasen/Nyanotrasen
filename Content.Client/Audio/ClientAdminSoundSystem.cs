@@ -9,7 +9,7 @@ namespace Content.Client.Audio;
 public sealed class ClientAdminSoundSystem : SharedAdminSoundSystem
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    
+
     private bool _adminAudioEnabled = true;
     private List<IPlayingAudioStream?> _adminAudio = new(1);
 
@@ -34,7 +34,7 @@ public sealed class ClientAdminSoundSystem : SharedAdminSoundSystem
     {
         if(!_adminAudioEnabled) return;
 
-        var stream = SoundSystem.Play(Filter.Local(), soundEvent.Filename, soundEvent.AudioParams);
+        var stream = SoundSystem.Play(soundEvent.Filename, Filter.Local(), soundEvent.AudioParams);
         _adminAudio.Add(stream);
     }
 

@@ -183,15 +183,9 @@
       - TimerTrigger
       - Signaller
       - SignalTrigger
-      - PowerCellSmallStandard
-      - PowerCellSmallHigh
-      - PowerCellSmallSuper
-      - PowerCellMediumStandard
-      - PowerCellMediumHigh
-      - PowerCellMediumSuper
-      - PowerCellLargeStandard
-      - PowerCellLargeHigh
-      - PowerCellLargeSuper
+      - PowerCellSmall
+      - PowerCellMedium
+      - PowerCellHigh
   - type: ActivatableUI
     key: enum.LatheUiKey.Key #Yes only having 1 of them here doesn't break anything
   - type: ActivatableUIRequiresPower
@@ -332,7 +326,6 @@
       - CableStack
       - CableMVStack
       - CableHVStack
-
   - type: Machine
     board: SecurityTechFabCircuitboard
   - type: Lathe
