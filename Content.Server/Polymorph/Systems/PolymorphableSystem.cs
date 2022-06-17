@@ -172,6 +172,7 @@ namespace Content.Server.Polymorph.Systems
                 _saw.Error("Invalid polymorph prototype");
                 return;
             }
+
             if (!TryComp<PolymorphableComponent>(target, out var polycomp))
                 return;
 

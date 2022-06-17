@@ -345,6 +345,7 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
+
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
@@ -553,6 +554,7 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
+
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintBarLocked
@@ -698,3 +700,11 @@
   components:
   - type: AccessReader
     access: [["Captain"]]
+
+- type: entity
+  parent: HighSecDoor
+  id: HighSecArmoryLocked
+  suffix: Armory, Locked
+  components:
+  - type: AccessReader
+    access: [["Armory"]]

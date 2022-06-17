@@ -10,7 +10,6 @@
       messagePerceivedByOthers: hugging-success-generic-others
     - type: Mind
       showExamineInfo: true
-    - type: MailReceiver
     - type: Input
       context: "human"
     - type: PlayerMobMover
@@ -27,4 +26,3 @@
     - type: AiFactionTag
       factions:
         - NanoTrasen
-    - type: CanEscapeInventory
