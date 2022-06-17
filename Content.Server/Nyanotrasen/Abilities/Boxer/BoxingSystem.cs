@@ -107,7 +107,7 @@ namespace Content.Server.Abilities.Boxer
                 {
                     if (_robustRandom.Prob(paralyzeChanceNoSlowdown * modifier))
                     {
-                        SoundSystem.Play(Filter.Pvs(entity), "/Audio/Weapons/boxingbell.ogg", entity);
+                        SoundSystem.Play("/Audio/Weapons/boxingbell.ogg", Filter.Pvs(entity), entity);
                         _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
                     }
                     else
@@ -117,7 +117,7 @@ namespace Content.Server.Abilities.Boxer
                 {
                     if (_robustRandom.Prob(paralyzeChanceWithSlowdown * modifier))
                     {
-                        SoundSystem.Play(Filter.Pvs(entity), "/Audio/Weapons/boxingbell.ogg", entity);
+                        SoundSystem.Play("/Audio/Weapons/boxingbell.ogg", Filter.Pvs(entity),  entity);
                         _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(paralyzeTime * modifier), true, status);
                     }
                     else

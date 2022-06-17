@@ -46,7 +46,7 @@ namespace Content.Server.QSI
             if (HasComp<BeingDisposedComponent>(component.Partner)) // This is way too glitchy
                 return;
 
-            SoundSystem.Play(Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), "/Audio/Effects/teleport_departure.ogg", uid);
+            SoundSystem.Play("/Audio/Effects/teleport_departure.ogg", Filter.Pvs(uid).RemoveWhereAttachedEntity(puid => puid == args.User), uid);
             if (_containerSystem.TryGetOuterContainer((EntityUid) component.Partner, Transform((EntityUid) component.Partner), out var container))
             {
                 Transform(args.User).AttachToGridOrMap();
@@ -57,7 +57,7 @@ namespace Content.Server.QSI
             }
 
 
-            SoundSystem.Play(Filter.Pvs(uid), "/Audio/Effects/teleport_arrival.ogg", uid);
+            SoundSystem.Play("/Audio/Effects/teleport_arrival.ogg", Filter.Pvs(uid), uid);
 
             EntityManager.QueueDeleteEntity(uid);
             EntityManager.QueueDeleteEntity((EntityUid) component.Partner);

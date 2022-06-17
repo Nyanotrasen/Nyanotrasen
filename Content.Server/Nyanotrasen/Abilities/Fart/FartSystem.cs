@@ -36,7 +36,7 @@ namespace Content.Server.Abilities.Fart
             if (farter.Stream != null)
                 farter.Stream.Stop();
 
-            farter.Stream = SoundSystem.Play(Filter.Pvs(farter.Owner), farter.FartSound.GetSound(), farter.Owner, AudioHelpers.WithVariation(0.3f));
+            farter.Stream = SoundSystem.Play(farter.FartSound.GetSound(), Filter.Pvs(farter.Owner), farter.Owner, AudioHelpers.WithVariation(0.3f));
             if (TryComp<SharedBodyComponent>(farter.Owner, out var body))
             {
                 foreach (var entity in Transform(farter.Owner).Coordinates.GetEntitiesInTile())
