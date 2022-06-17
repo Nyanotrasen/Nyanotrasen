@@ -76,6 +76,16 @@
     Plastic: 100
 
 - type: latheRecipe
+  id: NanoManipulatorStockPart
+  icon: Objects/Misc/stock_parts.rsi/nano_mani.png
+  result: NanoManipulatorStockPart
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
   id: HighMicroLaserStockPart
   icon: Objects/Misc/stock_parts.rsi/high_micro_laser.png
   result: HighMicroLaserStockPart
@@ -117,9 +127,9 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: FemtoManipulatorStockPart
-  icon: Objects/Misc/stock_parts.rsi/femto_mani.png
-  result: FemtoManipulatorStockPart
+  id: PicoManipulatorStockPart
+  icon: Objects/Misc/stock_parts.rsi/pico_mani.png
+  result: PicoManipulatorStockPart
   completetime: 1
   materials:
     Steel: 200
