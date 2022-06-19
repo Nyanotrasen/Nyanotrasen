@@ -27,7 +27,6 @@
       0: !type:NormalMobState {}
       300: !type:DeadMobState {}
   - type: NoSlip
-  - type: MovementIgnoreGravity
   - type: Fixtures
     fixtures:
     - shape:
@@ -39,8 +38,8 @@
       layer:
       - MobLayer
   - type: Repairable
-    fuelcost: 15
-    doAfterDelay: 8
+    fuelcost: 60
+    doAfterDelay: 32
   - type: Tag
     tags:
     - DoorBumpOpener
