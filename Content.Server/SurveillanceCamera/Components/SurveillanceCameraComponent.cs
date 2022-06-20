@@ -1,10 +1,11 @@
 using Content.Shared.DeviceNetwork;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Content.Server.Drone;
 
 namespace Content.Server.SurveillanceCamera;
 
 [RegisterComponent]
-[Access(typeof(SurveillanceCameraSystem))]
+[Access(typeof(SurveillanceCameraSystem), (typeof(DroneSystem)))]
 public sealed class SurveillanceCameraComponent : Component
 {
     // List of active viewers. This is for bookkeeping purposes,
