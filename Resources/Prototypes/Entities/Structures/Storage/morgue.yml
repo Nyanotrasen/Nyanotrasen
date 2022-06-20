@@ -49,7 +49,7 @@
       light_soul: morgue_soul_light
   - type: Transform
     anchored: true
-  - type: NoRotContainer
+  - type: AntiRottingContainer
 
 - type: entity
   id: MorgueTray
@@ -73,8 +73,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: MorgueTray
-  - type: NoRotContainer
-
+  - type: AntiRottingContainer
 
 - type: entity
   id: Crematorium

@@ -1,10 +1,13 @@
 using Content.Shared.MobState;
 using Content.Shared.Damage;
+using Content.Shared.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
-using Robust.Shared.Physics;
+using Content.Server.Popups;
+using Content.Shared.Examine;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 
 namespace Content.Server.Atmos.Miasma
 {
@@ -12,6 +15,8 @@ namespace Content.Server.Atmos.Miasma
     {
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
 
         public override void Update(float frameTime)
         {
@@ -35,24 +40,18 @@ namespace Content.Server.Atmos.Miasma
                 perishable.RotAccumulator -= 1f;
 
                 DamageSpecifier damage = new();
-                damage.DamageDict.Add("Blunt", 0.25); // Slowly accumulate enough to explode after like half an hour
-                damage.DamageDict.Add("Cellular", 0.25); // Cloning rework might use this eventually
+                damage.DamageDict.Add("Blunt", 0.3); // Slowly accumulate enough to gib after like half an hour
+                damage.DamageDict.Add("Cellular", 0.3); // Cloning rework might use this eventually
 
                 _damageableSystem.TryChangeDamage(perishable.Owner, damage, true, true);
 
-                if (!TryComp<FixturesComponent>(perishable.Owner, out var fixtures))
+                if (!TryComp<PhysicsComponent>(perishable.Owner, out var physics))
                     continue;
-
-                var mass = 0f;
-
-                foreach (var fixture in fixtures.Fixtures.Values)
-                {
-                    mass += fixture.Mass;
-                }
+                // We need a way to get the mass of the mob alone without armor etc in the future
 
                 var tileMix = _atmosphereSystem.GetTileMixture(Transform(perishable.Owner).Coordinates);
                 if (tileMix != null)
-                    tileMix.AdjustMoles(6, perishable.MolsPerSecondPerUnitMass * mass);
+                    tileMix.AdjustMoles(Gas.Miasma, perishable.MolsPerSecondPerUnitMass * physics.FixturesMass);
             }
         }
 
@@ -62,8 +61,9 @@ namespace Content.Server.Atmos.Miasma
             base.Initialize();
             SubscribeLocalEvent<PerishableComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<PerishableComponent, BeingGibbedEvent>(OnGibbed);
-            SubscribeLocalEvent<NoRotContainerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-            SubscribeLocalEvent<NoRotContainerComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+            SubscribeLocalEvent<PerishableComponent, ExaminedEvent>(OnExamined);
+            SubscribeLocalEvent<AntiRottingContainerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+            SubscribeLocalEvent<AntiRottingContainerComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         }
 
         private void OnMobStateChanged(EntityUid uid, PerishableComponent component, MobStateChangedEvent args)
@@ -74,29 +74,36 @@ namespace Content.Server.Atmos.Miasma
 
         private void OnGibbed(EntityUid uid, PerishableComponent component, BeingGibbedEvent args)
         {
-                if (!TryComp<FixturesComponent>(uid, out var fixtures))
-                    return;
+            if (!TryComp<PhysicsComponent>(uid, out var physics))
+                return;
 
-                var mass = 0f;
+            if (component.DeathAccumulator <= component.RotAfter.TotalSeconds)
+                return;
 
-                foreach (var fixture in fixtures.Fixtures.Values)
-                {
-                    mass += fixture.Mass;
-                }
+            var molsToDump = (component.MolsPerSecondPerUnitMass * physics.FixturesMass) * component.DeathAccumulator;
+            var tileMix = _atmosphereSystem.GetTileMixture(Transform(uid).Coordinates);
+            if (tileMix != null)
+                tileMix.AdjustMoles(Gas.Miasma, molsToDump);
 
-                var molsToDump = (component.MolsPerSecondPerUnitMass * mass) * component.DeathAccumulator;
-                var tileMix = _atmosphereSystem.GetTileMixture(Transform(uid).Coordinates);
-                if (tileMix != null)
-                    tileMix.AdjustMoles(6, molsToDump);
+            foreach (var part in args.GibbedParts)
+            {
+                EntityManager.QueueDeleteEntity(part);
+            }
         }
 
-        private void OnEntInserted(EntityUid uid, NoRotContainerComponent component, EntInsertedIntoContainerMessage args)
+        private void OnExamined(EntityUid uid, PerishableComponent component, ExaminedEvent args)
+        {
+            if (component.DeathAccumulator >= component.RotAfter.TotalSeconds)
+                args.PushMarkup(Loc.GetString("miasma-rotting"));
+        }
+
+        private void OnEntInserted(EntityUid uid, AntiRottingContainerComponent component, EntInsertedIntoContainerMessage args)
         {
             if (TryComp<PerishableComponent>(args.Entity, out var perishable))
                 perishable.Progressing = false;
         }
 
-        private void OnEntRemoved(EntityUid uid, NoRotContainerComponent component, EntRemovedFromContainerMessage args)
+        private void OnEntRemoved(EntityUid uid, AntiRottingContainerComponent component, EntRemovedFromContainerMessage args)
         {
             if (TryComp<PerishableComponent>(args.Entity, out var perishable))
                 perishable.Progressing = true;

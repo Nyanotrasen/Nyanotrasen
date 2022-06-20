@@ -60,7 +60,7 @@
       key: bag
     - type: BodyBagVisualizer
   - type: Pullable
-  - type: NoRotContainer
+  - type: AntiRottingContainer
 
 - type: entity
   id: BodyBag_Folded

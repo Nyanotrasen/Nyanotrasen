@@ -5,8 +5,7 @@ using Content.Server.Drone;
 namespace Content.Server.SurveillanceCamera;
 
 [RegisterComponent]
-[Access(typeof(SurveillanceCameraSystem), typeof(DroneSystem))]
-
+[Access(typeof(SurveillanceCameraSystem), (typeof(DroneSystem)))]
 public sealed class SurveillanceCameraComponent : Component
 {
     // List of active viewers. This is for bookkeeping purposes,
