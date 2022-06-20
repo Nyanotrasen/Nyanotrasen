@@ -109,7 +109,5 @@ namespace Content.Server.AI.EntitySystems
         SimpleNeutral = 1 << 2,
         Syndicate = 1 << 3,
         Xeno = 1 << 4,
-        Cat = 1 << 5,
-        Vermin = 1 << 6,
     }
 }

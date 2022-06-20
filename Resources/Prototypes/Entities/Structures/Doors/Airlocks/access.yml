@@ -345,7 +345,6 @@
   components:
   - type: AccessReader
     access: [["Atmospherics"]]
-
 - type: entity
   parent: AirlockCargoGlass
   id: AirlockCargoGlassLocked
