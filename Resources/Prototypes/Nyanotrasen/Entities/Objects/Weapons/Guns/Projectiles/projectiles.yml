@@ -12,12 +12,12 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
+        bounds: "-0.2,-0.2,0.2,0.2"
       hard: false
+      id: projectile
       mask:
       - Impassable
-      layer:
-      - MidImpassable
+      - BulletImpassable
   - type: Ammo
   - type: Projectile
     damage:
@@ -42,12 +42,12 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
+        bounds: "-0.2,-0.2,0.2,0.2"
       hard: false
+      id: projectile
       mask:
       - Impassable
-      layer:
-      - MidImpassable
+      - BulletImpassable
   - type: Ammo
   - type: Projectile
     damage:
@@ -69,12 +69,12 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-          bounds: "-0.2,-0.2,0.2,0.2"
+        bounds: "-0.2,-0.2,0.2,0.2"
       hard: false
+      id: projectile
       mask:
       - Impassable
-      layer:
-      - MidImpassable
+      - BulletImpassable
   - type: Ammo
   - type: Projectile
     damage:
