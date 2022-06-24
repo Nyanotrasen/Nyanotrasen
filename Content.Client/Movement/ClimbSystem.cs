@@ -9,7 +9,7 @@ namespace Content.Client.Movement;
 public sealed class ClimbSystem : SharedClimbSystem
 {
     [Dependency] private readonly InteractionSystem _interactionSystem = default!;
-    
+
     public override void Initialize()
     {
         base.Initialize();
