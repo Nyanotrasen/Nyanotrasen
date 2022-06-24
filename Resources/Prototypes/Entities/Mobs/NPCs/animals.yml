@@ -114,6 +114,8 @@
   - type: Bloodstream
     bloodMaxVolume: 0.1
   - type: NoSlip
+  - type: MobPrice
+    price: 50
 
 - type: entity
   name: bee
@@ -331,6 +333,8 @@
   - type: Bloodstream
     bloodMaxVolume: 0.1
   - type: NoSlip
+  - type: MobPrice
+    price: 50
 
 - type: entity
   name: cow

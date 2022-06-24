@@ -410,18 +410,6 @@
     HeldPrefix: gold
 
 - type: entity
-  parent: CentcomIDCard
-  id: ERTLeaderIDCard
-  name: ERT ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: gold
-    - state: ert_commander # we have the sprites but don't need individual ID entities for now.
-  - type: Clothing
-    HeldPrefix: gold
-
-- type: entity
   parent: IDCardStandard
   id: CentcomIDCardSyndie
   name: Centcom ID card
@@ -495,6 +483,9 @@
   - type: Sprite
     layers:
     - state: syndie
+  - type: Access
+    tags:
+    - NuclearOperative
 
 - type: entity
   parent: IDCardStandard

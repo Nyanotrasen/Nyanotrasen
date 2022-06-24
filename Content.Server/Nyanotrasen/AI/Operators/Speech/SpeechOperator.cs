@@ -1,4 +1,4 @@
-using Content.Server.Chat;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.AI.Operators.Speech
 {

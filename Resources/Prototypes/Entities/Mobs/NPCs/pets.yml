@@ -51,6 +51,8 @@
     flavorKind: corgi
   - type: Puller
   - type: DogVision
+  - type: MobPrice
+    price: 200
 
 - type: entity
   name: corrupted corgi
@@ -278,6 +280,8 @@
   - type: UtilityAI
     behaviorSets:
     - Hunt
+  - type: MobPrice
+    price: 200
 
 - type: entity
   name: Runtime

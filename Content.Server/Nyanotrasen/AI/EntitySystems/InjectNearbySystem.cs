@@ -2,7 +2,7 @@ using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.AI.Tracking;
 using Content.Server.Popups;
-using Content.Server.Chat;
+using Content.Server.Chat.Systems;
 using Content.Shared.MobState.Components;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
