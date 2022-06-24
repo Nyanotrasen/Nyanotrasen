@@ -24,7 +24,6 @@ namespace Content.Shared.Damage
         ///     If null, all damage types will be supported.
         /// </summary>
         [DataField("damageContainer", customTypeSerializer: typeof(PrototypeIdSerializer<DamageContainerPrototype>))]
-        [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
         public string? DamageContainerID;
 
         /// <summary>

@@ -9,7 +9,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Carrying;
-using Content.Shared.Movement;
+using Content.Shared.Movement.Events;
 using Content.Shared.Pulling;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;

@@ -156,10 +156,12 @@ namespace Content.Server.Mail
             /// This needs to be revisited for multistation
             /// For now let's just add the bounty to the first
             /// console we find.
-            foreach (var console in EntityQuery<CargoConsoleComponent>())
+            foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
-                if (console.BankAccount != null)
-                    console.BankAccount.Balance += component.Bounty;
+                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
+                        continue;
+
+                account.Balance += component.Bounty;
                 return;
             }
         }

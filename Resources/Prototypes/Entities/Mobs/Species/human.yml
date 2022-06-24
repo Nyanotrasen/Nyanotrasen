@@ -35,7 +35,6 @@
   - type: Hands
   - type: MovementSpeedModifier
   - type: MovedByPressure
-  - type: Carriable
   - type: Barotrauma
     damage:
       types:
@@ -91,7 +90,10 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - SeeingRainbows
     - Electrocution
+    - Drunk
+    - SlurredSpeech
     - PressureImmunity
     - Muted
   - type: DiseaseCarrier
@@ -264,10 +266,8 @@
       - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
-      40: 0.8
-      60: 0.6
-      80: 0.4
-      90: 0.2
+      60: 0.7
+      80: 0.5
   - type: HeatResistance
   - type: Appearance
     visuals:

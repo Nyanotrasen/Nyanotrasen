@@ -28348,20 +28348,6 @@ entities:
   - pos: 13.5,-8.5
     parent: 4
     type: Transform
-- uid: 2678
-  type: ComputerSupplyRequest
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 10.5,-13.5
-    parent: 4
-    type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
 - uid: 2679
   type: MedkitToxinFilled
   components:
@@ -51785,20 +51771,6 @@ entities:
       Off: []
       Toggle: []
     type: SignalReceiver
-- uid: 5403
-  type: ComputerSupplyRequest
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -16.5,15.5
-    parent: 4
-    type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
 - uid: 5404
   type: SignCargo
   components:
@@ -54079,31 +54051,6 @@ entities:
   - pos: 41.5,-2.5
     parent: 4
     type: Transform
-- uid: 5689
-  type: cargoTelepad
-  components:
-  - pos: -21.5,18.5
-    parent: 4
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - inputs:
-      OrderReceiver: []
-    type: SignalReceiver
-- uid: 5690
-  type: ComputerSupplyOrdering
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -22.5,18.5
-    parent: 4
-    type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
 - uid: 5691
   type: Grille
   components:
@@ -61352,20 +61299,6 @@ entities:
     type: Physics
   - fixtures: []
     type: Fixtures
-- uid: 6571
-  type: ComputerSupplyOrdering
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 47.5,0.5
-    parent: 4
-    type: Transform
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 6572
   type: SignDirectionalEng
   components:

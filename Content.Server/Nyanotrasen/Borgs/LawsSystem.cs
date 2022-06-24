@@ -1,5 +1,5 @@
 using Content.Shared.Actions;
-using Content.Server.Chat;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.Borgs
 {
