@@ -21,7 +21,7 @@ namespace Content.Server.Bots
                 bot.Accumulator -= bot.HonkRollInterval;
                 if (_random.Prob(0.5f))
                 {
-                    SoundSystem.Play(Filter.Pvs(bot.Owner), bot.HonkSound.GetSound(), bot.Owner, AudioHelpers.WithVariation(0.125f));
+                    SoundSystem.Play(bot.HonkSound.GetSound(), Filter.Pvs(bot.Owner),  bot.Owner, AudioHelpers.WithVariation(0.125f));
                 }
             }
         }

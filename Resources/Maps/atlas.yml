@@ -28349,19 +28349,16 @@ entities:
     parent: 4
     type: Transform
 - uid: 2678
-  type: ComputerSupplyRequest
+  type: CargoTelepad
   components:
-  - rot: 3.141592653589793 rad
-    pos: 10.5,-13.5
+  - pos: -22.5,16.5
     parent: 4
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
+  - canCollide: False
+    type: Physics
+  - inputs:
+      OrderReceiver: []
+    type: SignalReceiver
 - uid: 2679
   type: MedkitToxinFilled
   components:
@@ -49376,6 +49373,8 @@ entities:
   - pos: -22.945818,-10.580338
     parent: 4
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5104
   type: CableHV
   components:
@@ -51786,19 +51785,16 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 5403
-  type: ComputerSupplyRequest
+  type: ComputerCargoOrders
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -16.5,15.5
+  - rot: 3.141592653589793 rad
+    pos: -22.5,14.5
     parent: 4
     type: Transform
   - containers:
       board: !type:Container
         ents: []
     type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
 - uid: 5404
   type: SignCargo
   components:
@@ -54080,30 +54076,17 @@ entities:
     parent: 4
     type: Transform
 - uid: 5689
-  type: cargoTelepad
+  type: Crematorium
   components:
-  - pos: -21.5,18.5
-    parent: 4
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - inputs:
-      OrderReceiver: []
-    type: SignalReceiver
-- uid: 5690
-  type: ComputerSupplyOrdering
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -22.5,18.5
+  - rot: 3.141592653589793 rad
+    pos: 5.5,-13.5
     parent: 4
     type: Transform
   - containers:
-      board: !type:Container
+      entity_storage: !type:Container
         ents: []
+      morgue_tray: !type:ContainerSlot {}
     type: ContainerContainer
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
 - uid: 5691
   type: Grille
   components:
@@ -61352,20 +61335,6 @@ entities:
     type: Physics
   - fixtures: []
     type: Fixtures
-- uid: 6571
-  type: ComputerSupplyOrdering
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 47.5,0.5
-    parent: 4
-    type: Transform
-  - outputs:
-      OrderSender: []
-    type: SignalTransmitter
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 6572
   type: SignDirectionalEng
   components:

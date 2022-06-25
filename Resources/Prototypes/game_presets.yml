@@ -4,7 +4,7 @@
     - extended
     - shittersafari
   name: extended-title
-  showInVote: true
+  showInVote: false #2boring2vote
   description: extended-description
 
 - type: gamePreset
@@ -24,8 +24,8 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: true
-  maxPlayers: 5
+  showInVote: false
+  maxPlayers: 3
   rules:
     - Sandbox
 

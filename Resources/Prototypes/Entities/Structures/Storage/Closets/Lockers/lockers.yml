@@ -169,7 +169,7 @@
     access: [ [ "Kitchen" ] ]
   - type: ExplosionResistance
     resistance: 0.90
-  - type: NoRotContainer
+  - type: AntiRottingContainer
 
 # Botanist
 - type: entity

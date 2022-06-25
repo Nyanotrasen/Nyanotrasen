@@ -45,8 +45,11 @@ namespace Content.Server.Polymorph.Systems
         {
             if (Deleted(uid))
                 return;
-
+        
             if (!TryComp<PolymorphedEntityComponent>(uid, out var component))
+                return;
+
+            if (Deleted(component.Parent))
                 return;
 
             var proto = component.Prototype;
@@ -110,7 +113,7 @@ namespace Content.Server.Polymorph.Systems
                 Description = Loc.GetString("polymorph-revert-action-description"),
                 UseDelay = TimeSpan.FromSeconds(component.Prototype.Delay),
            };
-
+    
             _actions.AddAction(uid, act, null);
         }
 

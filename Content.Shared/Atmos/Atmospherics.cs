@@ -285,6 +285,6 @@ namespace Content.Shared.Atmos
         Plasma = 3,
         Tritium = 4,
         WaterVapor = 5,
-        Miasma = 6,
+        Miasma = 6
     }
 }

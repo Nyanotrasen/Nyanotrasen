@@ -5,7 +5,7 @@
   minPlayers: 12
   maxPlayers: 60
   stations:
-    Station:
+    lighthouse:
       mapNameTemplate: '{0} Pharos {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator

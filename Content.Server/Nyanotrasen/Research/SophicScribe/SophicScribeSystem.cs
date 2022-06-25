@@ -1,6 +1,5 @@
 using Content.Shared.Interaction;
-using Content.Server.Chat;
-using Content.Server.Weapon.Melee.Components;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.Research.SophicScribe
 {

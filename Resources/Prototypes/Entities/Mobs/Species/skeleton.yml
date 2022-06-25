@@ -21,7 +21,6 @@
       effects:
       - !type:WashCreamPieReaction
   - type: Flashable
-  - type: Carriable
   - type: Polymorphable
   - type: Hands
   - type: MovementSpeedModifier
@@ -199,7 +198,6 @@
     speedModifierThresholds:
       60: 0.9
       80: 0.7
-      90: 0.5
   - type: HeatResistance
   - type: Appearance
     visuals:
@@ -245,14 +243,6 @@
         Blunt: 5
   - type: Pullable
   - type: DoAfter
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Vitamin
-          Quantity: 30
-  - type: Extractable
-    grindableSolutionName: food
   - type: CreamPied
   - type: Stripping
   - type: Strippable
