@@ -21,7 +21,7 @@ namespace Content.Server.Borgs
 
         private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsActionEvent args)
         {
-            int i = 0;
+            int i = 1;
             foreach (var law in component.Laws)
             {
                 var message = ("Law " + i +": " + law);
