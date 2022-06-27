@@ -34,7 +34,6 @@
   components:
   - type: Headset
     channels:
-    - Command
     - Common
     - Supply
   - type: Sprite
@@ -167,7 +166,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetRD
-  name: rd headset
+  name: mystagogue headset
   description: Lamarr used to love chewing on this...
   components:
   - type: Headset
