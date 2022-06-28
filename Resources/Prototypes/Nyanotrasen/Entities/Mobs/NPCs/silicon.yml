@@ -136,6 +136,10 @@
     node: bot
   - type: SentienceTarget
     flavorKind: mechanical
+  - type: GhostTakeoverAvailable
+    makeSentient: true
+    name: Honkbot
+    description: An artificial being of pure evil.
 
 - type: entity
   parent: MobSiliconBase
