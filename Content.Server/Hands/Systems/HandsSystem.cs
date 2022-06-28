@@ -9,7 +9,6 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Strip;
 using Content.Server.Stunnable;
-using Content.Shared.Tag;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -48,7 +47,6 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly StorageSystem _storageSystem = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public override void Initialize()
         {
@@ -152,10 +150,10 @@ namespace Content.Server.Hands.Systems
         #region pulling
         private void HandlePullAttempt(EntityUid uid, HandsComponent component, PullAttemptEvent args)
         {
-            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
+            if (args.Puller.Owner != uid)
                 return;
 
-            if (args.Puller.Owner != uid)
+            if (TryComp<SharedPullerComponent>(args.Puller.Owner, out var pullerComp) && pullerComp.NeedsHands == false)
                 return;
 
             // Cancel pull if all hands full.
@@ -165,10 +163,10 @@ namespace Content.Server.Hands.Systems
 
         private void HandlePullStarted(EntityUid uid, HandsComponent component, PullStartedMessage args)
         {
-            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
+            if (args.Puller.Owner != uid)
                 return;
 
-            if (args.Puller.Owner != uid)
+            if (TryComp<SharedPullerComponent>(args.Puller.Owner, out var pullerComp) && pullerComp.NeedsHands == false)
                 return;
 
             if (!_virtualItemSystem.TrySpawnVirtualItemInHand(args.Pulled.Owner, uid))
@@ -179,9 +177,6 @@ namespace Content.Server.Hands.Systems
 
         private void HandlePullStopped(EntityUid uid, HandsComponent component, PullStoppedMessage args)
         {
-            if (_tagSystem.HasTag(uid, "PullIgnoreHands"))
-                return;
-
             if (args.Puller.Owner != uid)
                 return;
 

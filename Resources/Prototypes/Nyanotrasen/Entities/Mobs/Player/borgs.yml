@@ -13,6 +13,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 5
+  - type: Puller
+    needsHands: false
   - type: Speech
     speechSounds: Bass
   - type: SlowOnDamage
@@ -43,7 +45,6 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-    - PullIgnoreHands
   - type: Access
     groups:
     - AllAccess
