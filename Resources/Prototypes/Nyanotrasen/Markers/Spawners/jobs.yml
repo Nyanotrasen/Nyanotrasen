@@ -117,3 +117,15 @@
     layers:
       - state: green
       - state: miner
+
+- type: entity
+  id: SpawnPointSyndicateDiplomat
+  parent: SpawnPointJobBase
+  name: SyndicateDiplomat
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateDiplomat
+  - type: Sprite
+    layers:
+      - state: green
+      - state: librarian #That works, I guess?

@@ -8,25 +8,22 @@
   supervisors: "the Syndicate"
   access:
   - Service
-#  - Brig (Yeah no)
+  - Maintenance
   setPreference: false
 
 - type: startingGear
   id: SyndicateDiplomat
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
-    back: ClothingBackpackDuffelSyndicate # It's empty
+    back: ClothingBackpackDuffelSyndicateDiplomatFilled # It's no longer empty
     eyes: ClothingEyesGlassesBeer # They just look cool
     ears: ClothingHeadsetAltSyndicate
-    head: ClothingHeadPyjamaSyndicateRed
+    head: ClothingHeadHatHairflower
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterCoatJensen # He never asked for this
+    outerClothing: ClothingOuterVest
     neck: ClothingNeckLawyerbadge
     shoes: ClothingShoesLeather
     id: SyndicateDiplomatPDA
-    pocket1: RubberStampSyndicate
-    pocket2: CyberPen
-    belt: ClothingBeltUtility
-  innerclothingskirt: ClothingUniformJumpsuitOperative
-  satchel: ClothingBackpackDuffelSyndicate
-  duffelbag: ClothingBackpackDuffelSyndicate
+  innerclothingskirt: ClothingUniformJumpskirtOperative
+  satchel: ClothingBackpackSatchelSyndicateDiplomatFilled
+  duffelbag: ClothingBackpackDuffelSyndicateDiplomatFilled
