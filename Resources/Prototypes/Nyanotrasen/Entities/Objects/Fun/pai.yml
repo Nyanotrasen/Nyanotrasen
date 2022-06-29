@@ -1,0 +1,71 @@
+# Custom pAI types with different instruments
+
+# Making a nyanotrasen-specific copy of the entire pAI entity is necessary
+# because the base class's instrument component's bank and program must be unassigned
+# to allow for supersynth qualities. Without this, we would have to modify the original file.
+
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseNyanotrasenPersonalAI
+  name: personal ai device
+  description: Your electronic pal who's fun to be with!
+  components:
+  - type: Instrument
+  - type: UserInterface
+    interfaces:
+    - key: enum.InstrumentUiKey.Key
+      type: InstrumentBoundUserInterface
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Fun/pai.rsi
+    layers:
+    - state: pai-base
+    - state: pai-off-overlay
+      shader: unshaded
+  - type: Input
+    context: "human"
+  - type: PAI
+    midiAction:
+      name: action-name-pai-play-midi
+      checkCanInteract: false
+      icon: Interface/Actions/pai-midi.png
+      description: action-description-pai-play-midi
+      event: !type:OpenUiActionEvent
+        key: enum.InstrumentUiKey.Key
+  - type: Examiner
+  - type: GhostRadio
+  - type: DoAfter
+  - type: Actions
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechSounds: Pai
+    # This has to be installed because otherwise they're not "alive",
+    #  so they can ghost and come back.
+    # Note that the personal AI never "dies".
+  - type: MobState
+    thresholds:
+      0: !type:NormalMobState {}
+  - type: Appearance
+    visuals:
+      - type: GenericEnumVisualizer
+        key: enum.PAIVisuals.Status
+        layer: 1
+        states:
+          enum.PAIStatus.Off: pai-off-overlay
+          enum.PAIStatus.Searching: pai-searching-overlay
+          enum.PAIStatus.On: pai-on-overlay
+
+
+- type: entity
+  parent: BaseNyanotrasenPersonalAI
+  id: SupersynthNyanotrasenPersonalAI
+  name: personal ai device (supersynth)
+  description: Your electronic pal who's fun to be with! New and improved audio playback system indluded.
+  components:
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    respectMidiLimits: false
+
