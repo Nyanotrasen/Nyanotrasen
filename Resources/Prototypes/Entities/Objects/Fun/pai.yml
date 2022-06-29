@@ -1,16 +1,13 @@
 # Placeholder PAIs, aka semi-automatic ghost roles
 
 - type: entity
+  abstract: true
   parent: BaseItem
-  id: PersonalAI
+  id: BasePersonalAI
   name: personal ai device
   description: Your electronic pal who's fun to be with!
   components:
   - type: Instrument
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 2
   - type: UserInterface
     interfaces:
     - key: enum.InstrumentUiKey.Key
@@ -56,3 +53,25 @@
           enum.PAIStatus.Searching: pai-searching-overlay
           enum.PAIStatus.On: pai-on-overlay
 
+- type: entity
+  parent: BasePersonalAI
+  id: PersonalAI
+  name: personal ai device
+  description: Your electronic pal who's fun to be with!
+  components:
+  - type: Instrument
+    allowPercussion: false
+    handheld: false
+    bank: 1
+    program: 2
+
+- type: entity
+  parent: BasePersonalAI
+  id: SupersynthPersonalAI
+  name: personal ai device (supersynth)
+  description: Your electronic pal who's fun to be with! New and improved audio playback system.
+  components:
+  - type: Instrument
+    allowPercussion: true
+    handheld: false
+    respectMidiLimits: false
