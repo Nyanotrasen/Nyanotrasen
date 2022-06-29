@@ -1,16 +1,17 @@
-# Placeholder PAIs, aka semi-automatic ghost roles
+# Custom pAI types with different instruments
+
+# Making a nyanotrasen-specific copy of the entire pAI entity is necessary
+# because the base class's instrument component's bank and program must be unassigned
+# to allow for supersynth qualities. Without this, we would have to modify the original file.
 
 - type: entity
+  abstract: true
   parent: BaseItem
-  id: PersonalAI
+  id: BaseNyanotrasenPersonalAI
   name: personal ai device
   description: Your electronic pal who's fun to be with!
   components:
   - type: Instrument
-    allowPercussion: false
-    handheld: false
-    bank: 1
-    program: 2
   - type: UserInterface
     interfaces:
     - key: enum.InstrumentUiKey.Key
@@ -55,4 +56,16 @@
           enum.PAIStatus.Off: pai-off-overlay
           enum.PAIStatus.Searching: pai-searching-overlay
           enum.PAIStatus.On: pai-on-overlay
+
+
+- type: entity
+  parent: BaseNyanotrasenPersonalAI
+  id: SupersynthNyanotrasenPersonalAI
+  name: personal ai device (supersynth)
+  description: Your electronic pal who's fun to be with! New and improved audio playback system indluded.
+  components:
+  - type: Instrument
+    allowPercussion: true
+    allowProgramChange: true
+    respectMidiLimits: false
 
