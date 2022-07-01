@@ -11,6 +11,12 @@
         points: 1
         required: true
         defaultMarkings: [OniHornSingleCurved]
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - GunsDisabled
   - type: Speech
     speechSounds: Baritone
   - type: Sprite
