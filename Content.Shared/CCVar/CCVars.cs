@@ -1,5 +1,6 @@
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.CCVar
 {
@@ -838,8 +839,14 @@ namespace Content.Shared.CCVar
         ///     The required ratio of the server that must agree for a restart round vote to go through.
         /// </summary>
         public static readonly CVarDef<float> VoteRestartRequiredRatio =
-            CVarDef.Create("vote.restart_required_ratio", 0.7f, CVar.SERVERONLY);
+            CVarDef.Create("vote.restart_required_ratio", 0.85f, CVar.SERVERONLY);
 
+        /// <summary>
+        /// Whether or not to restrict the restart vote when there's online admins.
+        /// </summary>
+        public static readonly CVarDef<bool> VoteRestartNotAllowedWhenAdminOnline =
+            CVarDef.Create("vote.restart_not_allowed_when_admin_online", true, CVar.SERVERONLY);
+        
         /// <summary>
         ///     The delay which two votes of the same type are allowed to be made by separate people, in seconds.
         /// </summary>
@@ -900,6 +907,45 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> ShuttleIdleAngularDamping =
             CVarDef.Create("shuttle.idle_angular_damping", 100f, CVar.SERVERONLY);
 
+        /// <summary>
+        /// Whether cargo shuttles are enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> CargoShuttles =
+            CVarDef.Create("shuttle.cargo", true, CVar.SERVERONLY);
+
+        /*
+         * Emergency
+         */
+
+        /// <summary>
+        /// How long the emergency shuttle remains docked with the station, in seconds.
+        /// </summary>
+        public static readonly CVarDef<float> EmergencyShuttleDockTime =
+            CVarDef.Create("shuttle.emergency_dock_time", 180f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long after the console is authorized for the shuttle to early launch.
+        /// </summary>
+        public static readonly CVarDef<float> EmergencyShuttleAuthorizeTime =
+            CVarDef.Create("shuttle.emergency_authorize_time", 10f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long after the console is authorized for the shuttle to early launch.
+        /// </summary>
+        public static readonly CVarDef<float> EmergencyShuttleTransitTime =
+            CVarDef.Create("shuttle.emergency_transit_time", 120f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether the emergency shuttle is enabled or should the round just end.
+        /// </summary>
+        public static readonly CVarDef<bool> EmergencyShuttleEnabled =
+            CVarDef.Create("shuttle.emergency_enabled", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The map to load for centcomm for the emergency shuttle to dock to.
+        /// </summary>
+        public static readonly CVarDef<string> CentcommMap =
+            CVarDef.Create("shuttle.centcomm_map", "/Maps/centcomm.yml", CVar.SERVERONLY);
 
         /*
          * VIEWPORT

@@ -1,11 +1,11 @@
 - type: job
   id: Musician
-  name: "musician"
+  name: job-name-musician
   startingGear: MusicianGear
   departments:
   - Entertainment
   icon: "Musician"
-  supervisors: "whoever hires you"
+  supervisors: job-supervisors-hire
   access:
   - Theatre
   - Service

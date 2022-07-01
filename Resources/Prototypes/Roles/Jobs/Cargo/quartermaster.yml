@@ -1,15 +1,16 @@
 - type: job
   id: Quartermaster
-  name: "quartermaster"
+  name: job-name-qm
   startingGear: QuartermasterGear
   departments:
   - Cargo
   icon: "QuarterMaster"
-  supervisors: "the head of personnel"
+  supervisors: job-supervisors-hop
   access:
   - Cargo
   - Maintenance
   - External
+  - Command
 
 - type: startingGear
   id: QuartermasterGear

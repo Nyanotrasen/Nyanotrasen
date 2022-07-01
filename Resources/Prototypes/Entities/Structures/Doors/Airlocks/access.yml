@@ -683,6 +683,15 @@
   - type: AccessReader
     access: [["External"]]
 
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassShuttleEmergencyLocked
+  suffix: External, Emergency, Glass, Docking, Locked
+  components:
+    - type: EmergencyDock
+    - type: AccessReader
+      access: [["External"]]
+
 #HighSecDoors
 - type: entity
   parent: HighSecDoor
