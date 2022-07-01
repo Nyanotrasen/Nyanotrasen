@@ -155,6 +155,18 @@
   group: market
 
 - type: cargoProduct
+  name: "mice crate"
+  id: LivestockMouse
+  description: "A crate containing five -blind- mice"
+  icon:
+    sprite: Mobs/Animals/mouse.rsi
+    state: icon-0
+  product: CrateNPCMouse
+  cost: 1500
+  category: Livestock
+  group: market
+
+- type: cargoProduct
   name: "parrot crate"
   id: LivestockParrot
   description: "A crate containing three parrots"

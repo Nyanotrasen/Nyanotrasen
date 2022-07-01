@@ -1,13 +1,13 @@
 ﻿- type: job
   id: TechnicalAssistant
-  name: "technical assistant"
+  name: job-name-assistant
   setPreference: false
   startingGear: TechnicalAssistantGear
   departments:
   - Civilian
   - Engineering
   icon: "TechnicalAssistant"
-  supervisors: "station engineers, atmospheric technicians, and the chief engineer"
+  supervisors: job-supervisors-engineering
   canBeAntag: false
   access:
   - Maintenance

@@ -46,13 +46,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Hunger
-    damage:
-      types:
-        Blunt: 2
   - type: Thirst
-    damage:
-      types:
-        Blunt: 2
   # Organs
   - type: InjectableSolution
     solution: chemicals
@@ -320,7 +314,6 @@
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
   - type: Puller
-  - type: Fingerprint
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:
@@ -336,6 +329,7 @@
     attributes:
       proper: true
   - type: StandingState
+  - type: Fingerprint
   - type: MobPrice
     price: 1500 # Kidnapping a living person and selling them for cred is a good move.
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
