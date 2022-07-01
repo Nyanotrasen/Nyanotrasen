@@ -8,6 +8,8 @@
       Acidic: [Touch]
   - type: Input
     context: "human"
+  - type: PlayerInputMover
+  - type: PlayerMobMover
   - type: DamageOnHighSpeedImpact
     damage:
       types:

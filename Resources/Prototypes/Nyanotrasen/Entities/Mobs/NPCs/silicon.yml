@@ -81,6 +81,8 @@
       150: !type:DeadMobState {}
   - type: Input
     context: "human"
+  - type: PlayerInputMover
+  - type: PlayerMobMover
 
 - type: entity
   parent: MobSiliconBase
