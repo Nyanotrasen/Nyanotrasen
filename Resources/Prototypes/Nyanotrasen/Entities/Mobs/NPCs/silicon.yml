@@ -136,12 +136,11 @@
   - type: Construction
     graph: HonkBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: mechanical
   - type: GhostTakeoverAvailable
     makeSentient: true
     name: Honkbot
     description: An artificial being of pure evil.
+  - type: Farter
 
 - type: entity
   parent: MobSiliconBase
