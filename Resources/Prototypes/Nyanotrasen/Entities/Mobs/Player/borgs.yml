@@ -62,6 +62,13 @@
       - id: FireExtinguisher
       - id: StackHolderFloorTile
   - type: InnateItem
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
   - type: ItemSlots
     slots:
       analyzer_slot:
