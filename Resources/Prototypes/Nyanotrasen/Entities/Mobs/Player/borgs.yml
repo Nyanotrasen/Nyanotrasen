@@ -26,8 +26,8 @@
   - type: Bot
   - type: MobState
     thresholds:
-      0: !type:NormalMobState {}
-      300: !type:DeadMobState {}
+      0: Alive
+      300: Dead
   - type: NoSlip
   - type: Fixtures
     fixtures:
@@ -76,10 +76,6 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
-      headset_slot:
-        name: Headset
-        startingItem: ClothingHeadsetBorg
-        locked: True
   - type: Actions
   - type: CombatMode
     disarmAction:

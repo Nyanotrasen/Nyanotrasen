@@ -301,7 +301,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 12
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -0.5,-5.5
     parent: 100
@@ -391,7 +391,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 27
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 0.5,-5.5
     parent: 100
@@ -675,7 +675,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 72
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 1.5,-5.5
     parent: 100
@@ -25900,7 +25900,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 656
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 13.5,11.5
     parent: 100
@@ -25912,25 +25912,25 @@ entities:
     parent: 100
     type: Transform
 - uid: 658
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 12.5,16.5
     parent: 100
     type: Transform
 - uid: 659
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 12.5,15.5
     parent: 100
     type: Transform
 - uid: 660
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 6.5,16.5
     parent: 100
     type: Transform
 - uid: 661
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 11.5,16.5
     parent: 100
@@ -25948,13 +25948,13 @@ entities:
     parent: 100
     type: Transform
 - uid: 664
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 13.5,12.5
     parent: 100
     type: Transform
 - uid: 665
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 14.5,12.5
     parent: 100
@@ -25972,25 +25972,25 @@ entities:
     parent: 100
     type: Transform
 - uid: 668
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 14.5,15.5
     parent: 100
     type: Transform
 - uid: 669
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 13.5,15.5
     parent: 100
     type: Transform
 - uid: 670
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 5.5,16.5
     parent: 100
     type: Transform
 - uid: 671
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 5.5,15.5
     parent: 100
@@ -36840,7 +36840,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 2212
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 16.510326,45.837105
     parent: 100
@@ -36848,7 +36848,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 2213
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 16.525951,45.712105
     parent: 100
@@ -36856,7 +36856,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 2214
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 16.525951,45.587105
     parent: 100
@@ -111712,7 +111712,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 12207
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: -39.573,65.700195
     parent: 100
@@ -113412,7 +113412,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 12434
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 16.525951,45.47773
     parent: 100

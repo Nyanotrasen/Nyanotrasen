@@ -4202,7 +4202,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 152
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 25.599106,-3.305048
     parent: 4
@@ -4217,7 +4217,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 154
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: 26.317856,-3.508173
     parent: 4

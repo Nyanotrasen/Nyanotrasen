@@ -9,7 +9,7 @@
 
 - type: entity
   id: LeftHandDrone
-  name: "left borg arm"
+  name: "left drone hand"
   parent: PartSilicon
   components:
   - type: Sprite
@@ -27,12 +27,11 @@
   - type: Tag
     tags:
     - Trash
-    - BorgArm
   - type: Recyclable
 
 - type: entity
   id: RightHandDrone
-  name: "right borg arm"
+  name: "right drone hand"
   parent: PartSilicon
   components:
   - type: Sprite
@@ -50,5 +49,4 @@
   - type: Tag
     tags:
     - Trash
-    - BorgArm
   - type: Recyclable

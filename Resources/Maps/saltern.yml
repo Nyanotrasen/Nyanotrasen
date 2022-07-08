@@ -21763,7 +21763,7 @@ entities:
     parent: 852
     type: Transform
 - uid: 1549
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: -13.508065,16.49532
     parent: 852
@@ -44574,7 +44574,7 @@ entities:
       cell_slot: !type:ContainerSlot {}
     type: ContainerContainer
 - uid: 4706
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: -13.55494,16.74532
     parent: 852
@@ -44594,7 +44594,7 @@ entities:
     id: Bridge West
     type: SurveillanceCamera
 - uid: 4708
-  type: WeaponTaser
+  type: WeaponDisabler
   components:
   - pos: -13.508065,16.58907
     parent: 852

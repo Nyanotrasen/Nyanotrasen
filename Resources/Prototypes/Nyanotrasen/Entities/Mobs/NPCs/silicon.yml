@@ -77,8 +77,8 @@
   - type: Bot
   - type: MobState
     thresholds:
-      0: !type:NormalMobState {}
-      150: !type:DeadMobState {}
+      0: Alive
+      120: Dead
   - type: Input
     context: "human"
   - type: PlayerInputMover
