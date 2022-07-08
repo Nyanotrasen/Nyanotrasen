@@ -24999,7 +24999,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 2264
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -7.5,-7.5
     parent: 4
@@ -28259,7 +28259,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 2668
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: 8.5,-8.5
     parent: 4
@@ -28839,7 +28839,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 2742
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -12.5,-7.5
     parent: 4
@@ -28894,7 +28894,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 2749
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -13.5,-7.5
     parent: 4
@@ -41811,7 +41811,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4193
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -27.5,-8.5
     parent: 4
@@ -41903,7 +41903,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4207
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -31.5,-12.5
     parent: 4
@@ -42149,7 +42149,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4248
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -29.5,-11.5
     parent: 4
@@ -42342,7 +42342,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 4278
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -28.5,-11.5
     parent: 4
@@ -48170,7 +48170,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 4964
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -30.5,-11.5
     parent: 4
@@ -48318,7 +48318,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 4980
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -27.5,-11.5
     parent: 4
@@ -50077,7 +50077,7 @@ entities:
     parent: 4
     type: Transform
 - uid: 5181
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -24.5,18.5
     parent: 4
@@ -57023,7 +57023,7 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 6093
-  type: WallMetal
+  type: WallSolid
   components:
   - pos: -31.5,-11.5
     parent: 4

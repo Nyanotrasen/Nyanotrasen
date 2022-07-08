@@ -24,8 +24,8 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: false
-  maxPlayers: 3
+  showInVote: true
+  maxPlayers: 5
   rules:
     - Sandbox
 
@@ -79,6 +79,20 @@
   showInVote: false
   rules:
     - Nukeops
+
+- type: gamePreset
+  id: Zombie
+  alias:
+    - zombie
+    - zombies
+    - Zombies
+    - zz14
+    - zomber
+  name: zombie-title
+  description: zombie-description
+  showInVote: false
+  rules:
+    - Zombie
 
 - type: gamePreset
   id: Pirates

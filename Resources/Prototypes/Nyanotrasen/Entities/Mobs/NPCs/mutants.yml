@@ -29,8 +29,8 @@
       - MobLayer
   - type: MobState
     thresholds:
-      0: !type:NormalMobState {}
-      60: !type:DeadMobState {}
+      0: Alive
+      60: Dead
   - type: Appearance
   - type: DamageStateVisuals
     states:
