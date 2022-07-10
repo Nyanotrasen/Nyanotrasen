@@ -19,6 +19,9 @@
   - id: UraniumOre1
     prob: 0.025
     orGroup: Asteroid
+ - id: TitaniumOre1
+    prob: 0.20
+    orGroup: Asteroid
 
 - type: entityLootTable
   id: MiningLootTableLowYield
@@ -28,6 +31,9 @@
     orGroup: Asteroid
   - id: GoldOre1
     prob: 0.01
+    orGroup: Asteroid
+ - id: TitaniumOre1
+    prob: 0.05
     orGroup: Asteroid
   - id: SpaceQuartz1
     prob: 0.05
