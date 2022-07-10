@@ -34,6 +34,7 @@
   components:
   - type: Headset
     channels:
+    - Command
     - Common
     - Supply
   - type: Sprite
@@ -161,8 +162,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetScience
-  name: epistemics headset
-  description: Faithfully recreates the true essence of remote sound waves.
+  name: science headset
+  description: A sciency headset. Like usual.
   components:
   - type: Headset
     channels:
@@ -174,7 +175,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetRD
-  name: mystagogue headset
+  name: rd headset
+  description: Lamarr used to love chewing on this...
   components:
   - type: Headset
     channels:

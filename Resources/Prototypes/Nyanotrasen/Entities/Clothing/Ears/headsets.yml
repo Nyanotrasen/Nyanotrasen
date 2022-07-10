@@ -1,0 +1,40 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetEpistemics
+  name: epistemics headset
+  description: Faithfully recreates the true essence of remote sound waves.
+  components:
+  - type: Headset
+    channels:
+    - Common
+    - Science
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetMystagogue
+  name: mystagogue headset
+  description: Still useful to someone with psychic powers.
+  components:
+  - type: Headset
+    channels:
+    - Command
+    - Common
+    - Science
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetMantis
+  name: mantis headset
+  description: Specially fitted to be worn under a fez.
+  components:
+  - type: Headset
+    channels:
+    - Common
+    - Science
+    - Security
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
