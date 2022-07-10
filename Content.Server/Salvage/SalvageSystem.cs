@@ -310,7 +310,7 @@ namespace Content.Server.Salvage
             if (!TryComp<IntrinsicRadioComponent>(source, out var radio)) return;
 
             var message = args.Length == 0 ? Loc.GetString(messageKey) : Loc.GetString(messageKey, args);
-            var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+            var channel = _prototypeManager.Index<RadioChannelPrototype>("Supply");
             _radioSystem.SpreadMessage(radio, source, message, channel);
         }
 

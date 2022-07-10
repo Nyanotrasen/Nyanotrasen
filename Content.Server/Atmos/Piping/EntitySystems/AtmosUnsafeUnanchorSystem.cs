@@ -37,7 +37,8 @@ namespace Content.Server.Atmos.Piping.EntitySystems
                 if ((pipe.Air.Pressure - environment.Pressure) > 2 * Atmospherics.OneAtmosphere)
                 {
                     args.Delay += 1.5f;
-                    _popupSystem.PopupCursor(Loc.GetString("comp-atmos-unsafe-unanchor-warning"), Filter.Entities(args.User));
+                    _popupSystem.PopupCursor(Loc.GetString("comp-atmos-unsafe-unanchor-warning"),
+                        Filter.Entities(args.User), PopupType.MediumCaution);
                     return; // Show the warning only once.
                 }
             }
