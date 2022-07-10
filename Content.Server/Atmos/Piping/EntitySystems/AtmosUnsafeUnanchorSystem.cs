@@ -5,6 +5,7 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Components;
+using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 
