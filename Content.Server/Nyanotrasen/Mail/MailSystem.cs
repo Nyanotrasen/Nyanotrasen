@@ -3,6 +3,7 @@ using Content.Server.Power.Components;
 using Content.Server.Popups;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
+using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -29,7 +30,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
-
+        [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
 
         // TODO: YAML Serializer won't catch this.
@@ -161,7 +162,7 @@ namespace Content.Server.Mail
                 if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
                         continue;
 
-                account.Balance += component.Bounty;
+                _cargoSystem.UpdateBankAccount(account, component.Bounty);
                 return;
             }
         }
