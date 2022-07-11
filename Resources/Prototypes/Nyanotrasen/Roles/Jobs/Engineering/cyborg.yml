@@ -6,7 +6,12 @@
   icon: "Unknown"
   supervisors: "all humans"
   canBeAntag: false
-  special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Borg
+  jobEntity: PlayerCyborgBase
+  startingGear: CyborgGear # for char preview only
+
+- type: startingGear
+  id: CyborgGear
+  equipment:
+    head: ClothingHeadHatCardborg
+    outerClothing: ClothingOuterCardborg
+
