@@ -8,7 +8,7 @@
     sprite: Clothing/Back/Backpacks/backpack.rsi
     state: icon
   - type: Clothing
-    size: 500
+    size: 9999
     quickEquip: false
     Slots:
     - back
@@ -32,7 +32,7 @@
     sprite: Clothing/Back/Backpacks/clown.rsi
   - type: Storage
     storageOpenSound:
-      collection: BikeHorn
+      collection: BikeHorn  
 
 - type: entity
   parent: ClothingBackpack
@@ -91,8 +91,8 @@
     storageOpenSound:
       collection: null
     storageInsertSound:
-      collection: null
-
+      collection: null      
+      
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackChemistry
@@ -223,6 +223,4 @@
   - type: Clothing
     sprite: Clothing/Back/Backpacks/holding.rsi
   - type: Storage
-    popup: false
     capacity: 10000
-  - type: OfHolding

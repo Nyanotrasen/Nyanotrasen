@@ -8,17 +8,13 @@
     sprite: Clothing/Hands/Gloves/boxing.rsi
   - type: Clothing
     sprite: Clothing/Hands/Gloves/boxing.rsi
-  - type: BoxingGloves
-    damage:
-      types:
-        Blunt: 1
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-red
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesBoxingBlue
   name: blue boxing gloves
   description: Blue gloves for competitive boxing.
@@ -35,7 +31,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesBoxingGreen
   name: green boxing gloves
   description: Green gloves for competitive boxing.
@@ -52,7 +48,7 @@
   - type: FingerprintMask
 
 - type: entity
-  parent: ClothingHandsGlovesBoxingRed
+  parent: ClothingHandsBase
   id: ClothingHandsGlovesBoxingYellow
   name: yellow boxing gloves
   description: Yellow gloves for competitive boxing.

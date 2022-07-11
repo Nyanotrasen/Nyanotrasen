@@ -9,7 +9,7 @@
     state: icon
   - type: Clothing
     sprite: Clothing/Back/Duffels/duffel.rsi
-    size: 500
+    size: 9999
     quickEquip: false
     Slots:
     - back
@@ -102,9 +102,9 @@
   - type: Clothing
     sprite: Clothing/Back/Duffels/mime.rsi
     storageOpenSound:
-      collection: null
+      collection: null    
     storageInsertSound:
-      collection: null
+      collection: null      
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -168,6 +168,4 @@
   - type: Clothing
     sprite: Clothing/Back/Duffels/holding.rsi
   - type: Storage
-    popup: false
     capacity: 10000
-  - type: OfHolding
