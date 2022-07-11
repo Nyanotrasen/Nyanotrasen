@@ -17,6 +17,7 @@
     - Supply
   - type: SalvageMagnet
     offset: 0, -32
+    salvageChannel: Engineering
   - type: ApcPowerReceiver
     powerLoad: 2500 # TODO change this to a HV power draw that really hits the grid hard WHEN active
 
