@@ -1,6 +1,5 @@
 using Content.Shared.Interaction.Events;
 using Content.Shared.Collapsible;
-using Content.Server.Weapon.StunOnHit;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Content.Shared.Item;
@@ -33,9 +32,6 @@ namespace Content.Server.Collapsible
             component.Collapsed = !component.Collapsed;
             if (!component.Collapsed && component.ExtendSound != null)
                 SoundSystem.Play(component.ExtendSound.GetSound(), Filter.Pvs(uid), uid);
-
-            if (TryComp<StunOnHitComponent>(uid, out var stunComp))
-                stunComp.Disabled = component.Collapsed;
 
             if (TryComp<SharedItemComponent>(uid, out var item))
             {

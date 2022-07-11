@@ -16,7 +16,8 @@
   - type: Item
     size: 15
     sprite: Nyanotrasen/Objects/Weapons/Melee/telebaton.rsi
-  - type: StunOnHit
+  - type: StaminaDamageOnHit
+    damage: 35
   - type: Collapsible
   - type: Appearance
   - type: CollapsibleVisuals
