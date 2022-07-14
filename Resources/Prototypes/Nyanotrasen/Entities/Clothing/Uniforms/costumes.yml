@@ -72,3 +72,14 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/geisha.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/geisha.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNurse
+  name: nurse skirt
+  description: Time to carry the medical department.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/nurse.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/nurse.rsi
