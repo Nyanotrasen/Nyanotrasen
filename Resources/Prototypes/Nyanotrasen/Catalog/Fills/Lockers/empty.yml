@@ -1,0 +1,17 @@
+- type: entity
+  id: LockerMystagogue
+  parent: LockerResearchDirector
+  suffix: Empty
+  name: mystagogue's locker
+
+- type: entity
+  id: LockerEpistemics
+  parent: LockerScientist
+  suffix: Empty
+  name: epistemologist's locker
+
+- type: entity
+  id: LockerForensicMantis
+  parent: LockerDetective
+  suffix: Empty
+  name: forensic mantis' cabinet
