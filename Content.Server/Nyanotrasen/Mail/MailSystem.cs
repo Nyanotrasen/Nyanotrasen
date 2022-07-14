@@ -180,7 +180,8 @@ namespace Content.Server.Mail
 
         private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
         {
-            OpenMail(uid, component);
+            if (component.Enabled)
+                OpenMail(uid, component);
             UpdateAntiTamperVisuals(uid, false);
         }
 
