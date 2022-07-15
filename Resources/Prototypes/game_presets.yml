@@ -21,17 +21,6 @@
     - Secret
 
 - type: gamePreset
-  id: Secret
-  alias:
-    - secret
-    - sekrit
-  name: secret-title
-  showInVote: true
-  description: secret-description
-  rules:
-    - Secret
-
-- type: gamePreset
   id: Sandbox
   alias:
     - sandbox

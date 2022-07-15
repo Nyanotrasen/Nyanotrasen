@@ -320,6 +320,7 @@
   - IndustrialEngineering
   unlockedRecipes:
   - ThermomachineFreezerMachineCircuitBoard
+  - PortableScrubberMachineCircuitBoard
 
 # Avionics Circuitry Technology Tree
 
@@ -459,6 +460,21 @@
     - MicroManipulatorStockPart
     - ScanningModuleStockPart
     - ProximitySensor
+
+- type: technology
+  name: "robotics technology"
+  id: RoboticsTechnology
+  description: Robot parts.
+  icon:
+    sprite: Mobs/Silicon/Bots/honkbot.rsi
+    state: honkbot
+  requiredPoints: 10000
+  requiredTechnologies:
+    - CompactPowerTechnology
+  unlockedRecipes:
+    - ProximitySensor
+    - LeftArmBorg
+    - RightArmBorg
 
 # Bluespace Theory Technology Tree
 

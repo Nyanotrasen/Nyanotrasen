@@ -11,6 +11,7 @@
   conditions:
     - !type:StealCondition
       prototype: CaptainIDCard
+      owner: job-name-captain
 
 - type: objective
   id: KillRandomObjective
@@ -74,6 +75,7 @@
   conditions:
     - !type:StealCondition
       prototype: Hypospray
+      owner: job-name-cmo
 
 - type: objective
   id: RDHardsuitStealObjective
@@ -88,6 +90,7 @@
   conditions:
     - !type:StealCondition
       prototype: ClothingOuterHardsuitRd
+      owner: job-name-mystagogue
 
 - type: objective
   id: NukeDiskStealObjective
@@ -101,6 +104,7 @@
   conditions:
     - !type:StealCondition
       prototype: NukeDisk
+      owner: objective-condition-steal-station
 
 - type: objective
   id: IDComputerBoardStealObjective
@@ -114,6 +118,7 @@
   conditions:
     - !type:StealCondition
       prototype: IDComputerCircuitboard
+      owner: job-name-hop
 
 - type: objective
   id: MagbootsStealObjective
@@ -128,6 +133,21 @@
   conditions:
     - !type:StealCondition
       prototype: ClothingShoesBootsMagAdv
+      owner: job-name-ce
+
+- type: objective
+  id: SupplyConsoleBoardStealObjective
+  issuer: syndicate
+  prob: 0.2
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+  conditions:
+    - !type:StealCondition
+      prototype: SupplyComputerCircuitboard
+      owner: job-name-qm
 
 - type: objective
   id: CorgiMeatStealObjective
@@ -141,20 +161,7 @@
   conditions:
     - !type:StealCondition
       prototype: FoodMeatCorgi
-
-- type: objective
-  id: RCDStealObjective
-  issuer: syndicate
-  difficultyOverride: 2.5
-  prob: 0.2
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - DieCondition
-  conditions:
-    - !type:StealCondition
-      prototype: RCD
+      owner: objective-condition-steal-Ian
 
 - type: objective
   id: CaptainGunStealObjective
@@ -169,9 +176,10 @@
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
+      owner: job-name-captain
 
 - type: objective
-  id: PowerCellBluespaceStealObjective
+  id: CaptainJetpackStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
   prob: 0.1
@@ -182,5 +190,5 @@
         - DieCondition
   conditions:
     - !type:StealCondition
-      prototype: PowerCellBluespace
-
+      prototype: JetpackCaptainFilled
+      owner: job-name-captain
