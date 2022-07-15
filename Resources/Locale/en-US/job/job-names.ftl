@@ -38,3 +38,7 @@ job-name-ertengineer = ERT engineer
 job-name-ertsecurity = ERT security
 job-name-ertmedic = ERT medic
 job-name-ertjanitor = ERT janitor
+
+
+#Nyano
+job-name-mystagogue = mystagogue

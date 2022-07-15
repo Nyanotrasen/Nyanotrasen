@@ -68339,7 +68339,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 7365
-  type: LeftHandDrone
+  type: LeftArmBorg
   components:
   - pos: -15.00681,-14.28014
     parent: 4
@@ -68351,7 +68351,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 7366
-  type: LeftHandDrone
+  type: LeftArmBorg
   components:
   - pos: -14.084935,-14.59264
     parent: 4
@@ -68363,7 +68363,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 7367
-  type: RightHandDrone
+  type: RightArmBorg
   components:
   - pos: -14.647435,-14.65514
     parent: 4
@@ -68375,7 +68375,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 7368
-  type: RightHandDrone
+  type: RightArmBorg
   components:
   - pos: -13.97556,-14.15514
     parent: 4

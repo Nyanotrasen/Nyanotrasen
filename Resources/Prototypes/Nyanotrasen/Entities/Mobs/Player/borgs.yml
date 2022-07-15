@@ -23,11 +23,18 @@
       120: 0.6
       180: 0.4
       240: 0.2
-  - type: Bot
   - type: MobState
     thresholds:
       0: Alive
       300: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: NoSlip
   - type: Fixtures
     fixtures:
