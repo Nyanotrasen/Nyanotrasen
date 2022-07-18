@@ -3,7 +3,6 @@ using Content.Server.AI.EntitySystems;
 using Content.Server.AI.Utility.Actions;
 using Content.Server.AI.Utility.Actions.Bots;
 using Content.Server.AI.Utility.Considerations;
-using Content.Server.AI.Utility.Considerations.Combat.Melee;
 using Content.Server.AI.WorldState;
 using Content.Server.AI.WorldState.States;
 using Content.Server.AI.Utility.Considerations.ActionBlocker;

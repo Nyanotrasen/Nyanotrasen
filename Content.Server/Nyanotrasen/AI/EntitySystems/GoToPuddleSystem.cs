@@ -8,7 +8,7 @@ namespace Content.Server.AI.EntitySystems
 
         public EntityUid GetNearbyPuddle(EntityUid cleanbot, float range = 10)
         {
-            foreach (var entity in EntitySystem.Get<EntityLookupSystem>().GetEntitiesInRange(cleanbot, range))
+            foreach (var entity in _lookup.GetEntitiesInRange(cleanbot, range))
             {
                 if (HasComp<PuddleComponent>(entity))
                     return entity;

@@ -11,8 +11,7 @@
     state: cleanbot
   - type: UtilityAI
     behaviorSets:
-    # - CleanBot
-    - Idle
+    - CleanBot
   - type: Construction
     graph: CleanBot
     node: bot
@@ -27,8 +26,7 @@
   components:
   - type: UtilityAI
     behaviorSets:
-    # - MediBot
-    - Idle
+    - MediBot
   - type: Sprite
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Robots/medibot.rsi
