@@ -1,13 +1,21 @@
 using Robust.Shared.Physics;
 using Content.Shared.Lamiae;
 using Content.Shared.CharacterAppearance.Components;
+using Content.Shared.CharacterAppearance;
+using Content.Shared.CharacterAppearance.Systems;
+using Content.Shared.Species;
+using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Lamiae
 {
     public sealed class LamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
+        [Dependency] private readonly SharedHumanoidAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypes = default!;
+        [Dependency] private readonly IdCardSystem _idCardSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -45,6 +53,33 @@ namespace Content.Server.Lamiae
 
             if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var appearanceComponent))
             {
+                if (!HasComp<LamiaSexEnforcedComponent>(args.Lamia))
+                {
+                    if (appearanceComponent.Sex == Sex.Female)
+                    {
+                        AddComp<LamiaSexEnforcedComponent>(args.Lamia);
+                    }
+                    else
+                    {
+                        _appearanceSystem.UpdateSexGender(args.Lamia, Sex.Female, Robust.Shared.Enums.Gender.Female);
+                        var name = "";
+                        if (_prototypes.TryIndex<SpeciesPrototype>("Lamia", out var lamiaSpecies))
+                        {
+                            name += Sex.Female.GetFirstName(lamiaSpecies);
+                            name += " ";
+                            name += Sex.Female.GetLastName(lamiaSpecies);
+                            MetaData(args.Lamia).EntityName = name;
+
+                            if (_idCardSystem.TryFindIdCard(args.Lamia, out var card))
+                            {
+                                card.FullName = name;
+                            }
+                        }
+
+                        AddComp<LamiaSexEnforcedComponent>(args.Lamia);
+                    }
+                }
+
                 foreach (var marking in appearanceComponent.Appearance.Markings)
                 {
                     if (marking.MarkingId != "LamiaBottom")

@@ -11,6 +11,7 @@ namespace Content.Shared.Lamiae
     {
         public EntityUid AttachedToUid = default!;
 
+        public bool SexChanged = false;
         public EntityUid Lamia = default!;
         public int SegmentNumber = default!;
     }
