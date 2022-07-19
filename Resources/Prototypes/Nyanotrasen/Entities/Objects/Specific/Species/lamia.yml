@@ -1,14 +1,7 @@
 - type: entity
-  id: LamiaSegment
-  name: lamia segment
-  description: A tail segment, hopefully attached to a lamia.
+  id: LamiaInitialSegment
+  noSpawn: true
   components:
-  - type: Sprite
-    sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-    state: placeholder
-  - type: Transform
-    anchored: false
-  - type: Clickable
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
@@ -17,3 +10,17 @@
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
       mass: 30
+  - type: Transform
+    anchored: false
+
+- type: entity
+  id: LamiaSegment
+  parent: LamiaInitialSegment
+  name: lamia segment
+  noSpawn: true
+  description: A tail segment, hopefully attached to a lamia.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+    state: placeholder
+  - type: Clickable

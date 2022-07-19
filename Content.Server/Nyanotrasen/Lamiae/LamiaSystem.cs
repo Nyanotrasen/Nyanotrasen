@@ -39,7 +39,11 @@ namespace Content.Server.Lamiae
         {
             LamiaSegmentComponent segmentComponent = new();
             segmentComponent.AttachedToUid = uid;
-            var segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+            EntityUid segment;
+            if (segmentNumber == 1)
+                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+            else
+                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;
             EntityManager.AddComponent(segment, segmentComponent, true);
