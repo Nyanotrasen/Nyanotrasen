@@ -38,6 +38,17 @@
   lastNames: names_cyno_last
 
 - type: species
+  id: Lamia
+  name: Lamia
+  roundStart: true
+  prototype: MobLamia
+  dollPrototype: MobLamiaDummy
+  skinColoration: HumanToned
+  maleFirstNames: names_cyno_male
+  femaleFirstNames: names_cyno_female
+  lastNames: names_cyno_last
+
+- type: species
   id: Skeleton
   name: Skeleton
   roundStart: false #unspooky, change it in october

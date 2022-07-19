@@ -12,7 +12,8 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                _jointSystem.CreateDistanceJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
+                var joint = _jointSystem.CreateDistanceJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
+                joint.CollideConnected = false;
             }
             _segments.Clear();
         }
