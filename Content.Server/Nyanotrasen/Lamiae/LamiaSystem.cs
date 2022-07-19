@@ -25,8 +25,7 @@ namespace Content.Server.Lamiae
                 }
                 var joint = _jointSystem.CreateDistanceJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
                 joint.CollideConnected = false;
-                joint.Stiffness = 0.5f;
-                joint.Damping = 1f;
+                joint.Stiffness = 0.2f;
             }
             _segments.Clear();
         }
@@ -39,7 +38,6 @@ namespace Content.Server.Lamiae
 
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
         {
-            Logger.Error("Received event...");
             component.Lamia = args.Lamia;
 
             if (!TryComp<SpriteComponent>(uid, out var sprite))
@@ -76,11 +74,11 @@ namespace Content.Server.Lamiae
             segmentComponent.AttachedToUid = uid;
             EntityUid segment;
             if (segmentNumber == 1)
-                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates.Offset((0f, 0.15f)));
             else if (segmentNumber == lamiaComponent.NumberOfSegments)
-                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates.Offset((0f, 0.12f)));
             else
-                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.25f)));
+                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.15f)));
 
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;

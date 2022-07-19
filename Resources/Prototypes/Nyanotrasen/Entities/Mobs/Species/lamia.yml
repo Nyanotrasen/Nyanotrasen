@@ -88,6 +88,8 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
+      - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+        state: underscales
   - type: Body
     template: LamiaTemplate
     preset: LamiaPreset
@@ -96,7 +98,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 90
+      mass: 120
       restitution: 0.0
       mask:
       - MobMask

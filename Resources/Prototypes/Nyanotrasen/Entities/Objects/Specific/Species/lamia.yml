@@ -9,7 +9,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 30
+      mass: 20
   - type: Transform
     anchored: false
 
@@ -35,5 +35,4 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-    state: placeholder
-    scale: 0.7, 0.7
+    state: tip

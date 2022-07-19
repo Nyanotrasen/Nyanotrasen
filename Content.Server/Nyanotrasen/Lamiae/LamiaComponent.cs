@@ -9,6 +9,6 @@ namespace Content.Server.Lamiae
         public List<EntityUid> Segments = new();
 
         [DataField("numberOfSegments")]
-        public int NumberOfSegments = 4;
+        public int NumberOfSegments = 8;
     }
 }
