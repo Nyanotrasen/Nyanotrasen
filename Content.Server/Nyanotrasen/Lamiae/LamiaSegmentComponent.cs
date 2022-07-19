@@ -7,5 +7,6 @@ namespace Content.Server.Lamiae
     public sealed class LamiaSegmentComponent : Component
     {
         public EntityUid AttachedToUid = default!;
+        public int SegmentNumber = default!;
     }
 }
