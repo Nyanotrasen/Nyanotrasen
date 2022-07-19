@@ -50,7 +50,6 @@ namespace Content.Server.Lamiae
                     if (marking.MarkingId != "LamiaBottom")
                         continue;
 
-                    Logger.Error("Setting lamia bottom");
                     var color = marking.MarkingColors[0];
                     sprite.LayerSetColor(0, color);
                 }
@@ -59,23 +58,28 @@ namespace Content.Server.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
-            var segment1 = AddSegment(uid, uid, 1);
-            var segment2 = AddSegment(segment1, uid, 2);
-            var segment3 = AddSegment(segment2, uid, 3);
-            component.Segments.Add(segment1);
-            component.Segments.Add(segment2);
-            component.Segments.Add(segment3);
+            int i = 1;
+            var addTo = uid;
+            while (i < component.NumberOfSegments + 1)
+            {
+                var segment = AddSegment(addTo, uid, component, i);
+                addTo = segment;
+                i++;
+            }
         }
 
-        private EntityUid AddSegment(EntityUid uid, EntityUid lamia, int segmentNumber)
+        private EntityUid AddSegment(EntityUid uid, EntityUid lamia, LamiaComponent lamiaComponent, int segmentNumber)
         {
             LamiaSegmentComponent segmentComponent = new();
             segmentComponent.AttachedToUid = uid;
             EntityUid segment;
             if (segmentNumber == 1)
                 segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+            else if (segmentNumber == lamiaComponent.NumberOfSegments)
+                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates.Offset((0f, 0.35f)));
             else
                 segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.35f)));
+
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;
             EntityManager.AddComponent(segment, segmentComponent, true);

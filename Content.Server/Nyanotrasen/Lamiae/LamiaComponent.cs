@@ -7,5 +7,8 @@ namespace Content.Server.Lamiae
     public sealed class LamiaComponent : Component
     {
         public List<EntityUid> Segments = new();
+
+        [DataField("numberOfSegments")]
+        public int NumberOfSegments = 4;
     }
 }
