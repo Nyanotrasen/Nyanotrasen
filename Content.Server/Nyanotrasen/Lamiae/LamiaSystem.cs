@@ -1,6 +1,7 @@
 using Robust.Shared.Physics;
 using Content.Shared.Lamiae;
 using Content.Shared.CharacterAppearance.Components;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Lamiae
 {
@@ -14,12 +15,13 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
+                var ev = new SegmentSpawnedEvent(segment.lamia);
+                RaiseLocalEvent(segment.segment.Owner, ev, false);
+
                 if (segment.segment.SegmentNumber == 1)
                 {
                     var revoluteJoint = _jointSystem.CreateRevoluteJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
                     revoluteJoint.CollideConnected = false;
-                    var ev = new SegmentSpawnedEvent(segment.lamia);
-                    RaiseLocalEvent(segment.segment.Owner, ev, false);
                 }
                 var joint = _jointSystem.CreateDistanceJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
                 joint.CollideConnected = false;
@@ -30,6 +32,29 @@ namespace Content.Server.Lamiae
         {
             base.Initialize();
             SubscribeLocalEvent<LamiaComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
+        }
+
+        private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
+        {
+            Logger.Error("Received event...");
+            component.Lamia = args.Lamia;
+
+            if (!TryComp<SpriteComponent>(uid, out var sprite))
+                return;
+
+            if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var appearanceComponent))
+            {
+                foreach (var marking in appearanceComponent.Appearance.Markings)
+                {
+                    if (marking.MarkingId != "LamiaBottom")
+                        continue;
+
+                    Logger.Error("Setting lamia bottom");
+                    var color = marking.MarkingColors[0];
+                    sprite.LayerSetColor(0, color);
+                }
+            }
         }
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
