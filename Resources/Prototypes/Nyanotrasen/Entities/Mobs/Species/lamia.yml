@@ -95,6 +95,8 @@
       layer:
       - MobLayer
   - type: Lamia
+  - type: Inventory
+    templateId: lamia
 
 - type: entity
   save: false

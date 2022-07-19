@@ -12,6 +12,11 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
+                if (segment.SegmentNumber == 1)
+                {
+                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
+                    revoluteJoint.CollideConnected = false;
+                }
                 var joint = _jointSystem.CreateDistanceJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
                 joint.CollideConnected = false;
             }
