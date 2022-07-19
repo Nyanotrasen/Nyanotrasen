@@ -7,6 +7,7 @@ using Content.Shared.Species;
 using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
+using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Server.Lamiae
 {
@@ -55,7 +56,7 @@ namespace Content.Server.Lamiae
             {
                 if (!HasComp<LamiaSexEnforcedComponent>(args.Lamia))
                 {
-                    if (appearanceComponent.Sex == Sex.Female)
+                    if (appearanceComponent.Sex == Sex.Female && appearanceComponent.Gender == Robust.Shared.Enums.Gender.Female)
                     {
                         AddComp<LamiaSexEnforcedComponent>(args.Lamia);
                     }
@@ -69,6 +70,10 @@ namespace Content.Server.Lamiae
                             name += " ";
                             name += Sex.Female.GetLastName(lamiaSpecies);
                             MetaData(args.Lamia).EntityName = name;
+
+                            var grammar = EnsureComp<GrammarComponent>(args.Lamia);
+                            grammar.Gender = Robust.Shared.Enums.Gender.Female;
+                            grammar.ProperNoun = true;
 
                             if (_idCardSystem.TryFindIdCard(args.Lamia, out var card))
                             {
