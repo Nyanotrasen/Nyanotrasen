@@ -1,4 +1,6 @@
 using Robust.Shared.Physics;
+using Content.Shared.Lamiae;
+using Content.Shared.CharacterAppearance.Components;
 
 namespace Content.Server.Lamiae
 {
@@ -6,18 +8,20 @@ namespace Content.Server.Lamiae
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
 
-        Queue<LamiaSegmentComponent> _segments = new();
+        Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (segment.SegmentNumber == 1)
+                if (segment.segment.SegmentNumber == 1)
                 {
-                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
+                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
                     revoluteJoint.CollideConnected = false;
+                    var ev = new SegmentSpawnedEvent(segment.lamia);
+                    RaiseLocalEvent(segment.segment.Owner, ev, false);
                 }
-                var joint = _jointSystem.CreateDistanceJoint(segment.AttachedToUid, segment.Owner, id: ("Segment" + segment.SegmentNumber));
+                var joint = _jointSystem.CreateDistanceJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
                 joint.CollideConnected = false;
             }
             _segments.Clear();
@@ -30,12 +34,15 @@ namespace Content.Server.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
-            var segment1 = AddSegment(uid, 1);
-            var segment2 = AddSegment(segment1, 2);
-            AddSegment(segment2, 3);
+            var segment1 = AddSegment(uid, uid, 1);
+            var segment2 = AddSegment(segment1, uid, 2);
+            var segment3 = AddSegment(segment2, uid, 3);
+            component.Segments.Add(segment1);
+            component.Segments.Add(segment2);
+            component.Segments.Add(segment3);
         }
 
-        private EntityUid AddSegment(EntityUid uid, int segmentNumber)
+        private EntityUid AddSegment(EntityUid uid, EntityUid lamia, int segmentNumber)
         {
             LamiaSegmentComponent segmentComponent = new();
             segmentComponent.AttachedToUid = uid;
@@ -47,7 +54,7 @@ namespace Content.Server.Lamiae
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;
             EntityManager.AddComponent(segment, segmentComponent, true);
-            _segments.Enqueue(segmentComponent);
+            _segments.Enqueue((segmentComponent, lamia));
             return segment;
         }
     }

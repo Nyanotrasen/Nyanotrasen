@@ -5,5 +5,7 @@ namespace Content.Server.Lamiae
     /// </summary>
     [RegisterComponent]
     public sealed class LamiaComponent : Component
-    {}
+    {
+        public List<EntityUid> Segments = new();
+    }
 }
