@@ -63,7 +63,6 @@ namespace Content.Shared.CharacterAppearance.Systems
 
             component.Sex = sex;
             component.Gender = gender;
-            Logger.Error("Sex: " + component.Sex);
 
             component.Dirty();
             RaiseLocalEvent(uid, new ChangedHumanoidAppearanceEvent(component.Appearance, component.Sex, component.Gender, component.Species), true);
