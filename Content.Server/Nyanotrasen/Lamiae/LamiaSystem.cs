@@ -8,7 +8,7 @@ using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Server.Disposal.Unit.Components;
+using Content.Shared.Gravity;
 using Robust.Shared.Containers;
 using Content.Shared.Damage;
 
@@ -48,6 +48,7 @@ namespace Content.Server.Lamiae
             SubscribeLocalEvent<LamiaComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<LamiaComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
+            SubscribeLocalEvent<GravityChangedMessage>(OnGravityChanged);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
@@ -100,6 +101,23 @@ namespace Content.Server.Lamiae
 
                     var color = marking.MarkingColors[0];
                     sprite.LayerSetColor(0, color);
+                }
+            }
+        }
+
+        private void OnGravityChanged(GravityChangedMessage ev)
+        {
+            var gridUid = ev.ChangedGridIndex;
+            var jetpackQuery = GetEntityQuery<LamiaSegmentComponent>();
+
+            foreach (var (segment, transform) in EntityQuery<LamiaSegmentComponent, TransformComponent>(true))
+            {
+                if (TryComp<FixturesComponent>(segment.Owner, out var fixtures))
+                {
+                    foreach (var fixture in fixtures.Fixtures)
+                    {
+                        fixture.Value.Hard = !ev.HasGravity;
+                    }
                 }
             }
         }
