@@ -33,6 +33,9 @@ namespace Content.Server.Lamiae
                 || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized)
                     continue;
 
+                EnsureComp<PhysicsComponent>(segment.segment.Owner);
+                EnsureComp<PhysicsComponent>(segment.segment.AttachedToUid); // Hello I hate tests
+
                 var ev = new SegmentSpawnedEvent(segment.lamia);
                 RaiseLocalEvent(segment.segment.Owner, ev, false);
 
