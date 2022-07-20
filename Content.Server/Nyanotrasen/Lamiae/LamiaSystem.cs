@@ -28,6 +28,9 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
+                if (!HasComp<PhysicsComponent>(segment.segment.Owner)) // Make tests not fail
+                    continue;
+
                 var ev = new SegmentSpawnedEvent(segment.lamia);
                 RaiseLocalEvent(segment.segment.Owner, ev, false);
 
