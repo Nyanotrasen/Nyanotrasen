@@ -28,9 +28,6 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (!HasComp<PhysicsComponent>(segment.segment.Owner)) // Make tests not fail
-                    continue;
-
                 var ev = new SegmentSpawnedEvent(segment.lamia);
                 RaiseLocalEvent(segment.segment.Owner, ev, false);
 
@@ -116,8 +113,10 @@ namespace Content.Server.Lamiae
         {
             foreach (var segment in component.Segments)
             {
-                QueueDel(segment);
+                Del(segment);
             }
+
+            component.Segments.Clear();
         }
 
         private void OnJointRemoved(EntityUid uid, LamiaComponent component, JointRemovedEvent args)
@@ -126,7 +125,9 @@ namespace Content.Server.Lamiae
                 return;
 
             foreach (var segment in component.Segments)
-                QueueDel(segment);
+                Del(segment);
+
+            component.Segments.Clear();
         }
 
         private void OnRemovedFromContainer(EntityUid uid, LamiaComponent component, EntGotRemovedFromContainerMessage args)

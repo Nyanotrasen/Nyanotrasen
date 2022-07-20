@@ -27,6 +27,14 @@
   - type: Damageable
   - type: ExplosionResistance #This looks stupid but remember that bombs are likely to damage every segment, we want them to be decent but not instagib the poor lamia.
     damageCoefficient: 0.2
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.35,-0.35,0.35,0.35"
+      mass: 20
+      mask:
+      - Impassable
 
 - type: entity
   id: LamiaSegmentEnd
