@@ -28,9 +28,7 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid)
-                || MetaData(segment.segment.Owner).EntityLifeStage > EntityLifeStage.MapInitialized
-                || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized)
+                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid))
                     continue;
 
                 EnsureComp<PhysicsComponent>(segment.segment.Owner);
@@ -139,7 +137,7 @@ namespace Content.Server.Lamiae
         {
             foreach (var segment in component.Segments)
             {
-                Del(segment);
+                QueueDel(segment);
             }
 
             component.Segments.Clear();
@@ -151,7 +149,7 @@ namespace Content.Server.Lamiae
                 return;
 
             foreach (var segment in component.Segments)
-                Del(segment);
+                QueueDel(segment);
 
             component.Segments.Clear();
         }
