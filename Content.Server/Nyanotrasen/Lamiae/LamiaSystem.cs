@@ -11,6 +11,7 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.Gravity;
 using Robust.Shared.Containers;
 using Content.Shared.Damage;
+using Robust.Shared.Map;
 
 namespace Content.Server.Lamiae
 {
@@ -28,9 +29,11 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid)
+                if (!Initialized(segment.segment.Owner) || !Initialized(segment.segment.AttachedToUid)
                 || MetaData(segment.segment.Owner).EntityLifeStage > EntityLifeStage.MapInitialized
-                || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized)
+                || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized
+                || Transform(segment.segment.Owner).MapID == MapId.Nullspace
+                || Transform(segment.segment.AttachedToUid).MapID == MapId.Nullspace)
                     continue;
 
                 EnsureComp<PhysicsComponent>(segment.segment.Owner);
