@@ -28,7 +28,9 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid))
+                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid)
+                || MetaData(segment.segment.Owner).EntityLifeStage > EntityLifeStage.MapInitialized
+                || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized)
                     continue;
 
                 EnsureComp<PhysicsComponent>(segment.segment.Owner);
