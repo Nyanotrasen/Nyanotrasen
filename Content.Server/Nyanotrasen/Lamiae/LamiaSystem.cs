@@ -8,7 +8,7 @@ using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization;
-using Robust.Shared.Physics.Dynamics;
+using Content.Server.Disposal.Unit.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Damage;
 
@@ -119,7 +119,6 @@ namespace Content.Server.Lamiae
 
         private void OnJointRemoved(EntityUid uid, LamiaComponent component, JointRemovedEvent args)
         {
-            Logger.Error("Received event.");
             if (!component.Segments.Contains(args.OtherBody.Owner))
                 return;
 
