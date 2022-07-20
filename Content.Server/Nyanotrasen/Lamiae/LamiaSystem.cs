@@ -29,25 +29,27 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (!Exists(segment.segment.Owner) || !Exists(segment.segment.AttachedToUid)
-                || MetaData(segment.segment.Owner).EntityLifeStage > EntityLifeStage.MapInitialized
-                || MetaData(segment.segment.AttachedToUid).EntityLifeStage > EntityLifeStage.MapInitialized
-                || Transform(segment.segment.Owner).MapID == MapId.Nullspace
-                || Transform(segment.segment.AttachedToUid).MapID == MapId.Nullspace)
+                var segmentUid = segment.segment.Owner;
+                var attachedUid = segment.segment.AttachedToUid;
+                if (!Exists(segmentUid) || !Exists(attachedUid)
+                || MetaData(segmentUid).EntityLifeStage > EntityLifeStage.MapInitialized
+                || MetaData(attachedUid).EntityLifeStage > EntityLifeStage.MapInitialized
+                || Transform(segmentUid).MapID == MapId.Nullspace
+                || Transform(attachedUid).MapID == MapId.Nullspace)
                     continue;
 
-                EnsureComp<PhysicsComponent>(segment.segment.Owner);
-                EnsureComp<PhysicsComponent>(segment.segment.AttachedToUid); // Hello I hate tests
+                EnsureComp<PhysicsComponent>(segmentUid);
+                EnsureComp<PhysicsComponent>(attachedUid); // Hello I hate tests
 
                 var ev = new SegmentSpawnedEvent(segment.lamia);
-                RaiseLocalEvent(segment.segment.Owner, ev, false);
+                RaiseLocalEvent(segmentUid, ev, false);
 
                 if (segment.segment.SegmentNumber == 1)
                 {
-                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
+                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber));
                     revoluteJoint.CollideConnected = false;
                 }
-                var joint = _jointSystem.CreateDistanceJoint(segment.segment.AttachedToUid, segment.segment.Owner, id: ("Segment" + segment.segment.SegmentNumber));
+                var joint = _jointSystem.CreateDistanceJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber));
                 joint.CollideConnected = false;
                 joint.Stiffness = 0.2f;
             }
