@@ -20,7 +20,7 @@
     netsync: false
     noRot: true
     drawdepth: Mobs
-    scale: 1, 1
+    scale: 0.8, 0.8
     layers:
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
@@ -108,6 +108,17 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.28
+      mass: 35
+      restitution: 0.0
+      mask:
+      - MobMask
+      layer:
+      - MobLayer
   - type: Body
     template: HumanoidTemplate
     preset: FelinidPreset
@@ -117,7 +128,7 @@
   - type: MeleeWeapon
     hitSound:
       collection: Punch
-    range: 0.8
+    range: 0.65
     arcwidth: 30
     arc: claw
     damage:
@@ -128,6 +139,9 @@
   - type: DiseaseCarrier
     naturalImmunities:
     - OwOnavirus
+  - type: Thieving
+    stealthy: true
+    stealTime: 2
 
 - type: entity
   save: false
