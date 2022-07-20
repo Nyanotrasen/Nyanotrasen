@@ -28,7 +28,7 @@ namespace Content.Server.Lamiae
             base.Update(frameTime);
             foreach (var segment in _segments)
             {
-                if (Deleted(segment.segment.Owner) || Deleted(segment.segment.AttachedToUid))
+                if (!Initialized(segment.segment.Owner) || Initialized(segment.segment.AttachedToUid))
                     continue;
 
                 var ev = new SegmentSpawnedEvent(segment.lamia);
