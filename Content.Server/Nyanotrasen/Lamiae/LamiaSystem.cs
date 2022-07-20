@@ -8,6 +8,9 @@ using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization;
+using Robust.Shared.Physics.Dynamics;
+using Robust.Shared.Containers;
+using Content.Shared.Damage;
 
 namespace Content.Server.Lamiae
 {
@@ -17,6 +20,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly SharedHumanoidAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -42,7 +46,11 @@ namespace Content.Server.Lamiae
         {
             base.Initialize();
             SubscribeLocalEvent<LamiaComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<LamiaComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
+            SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
+            SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
         }
 
         private void OnSegmentSpawned(EntityUid uid, LamiaSegmentComponent component, SegmentSpawnedEvent args)
@@ -98,6 +106,41 @@ namespace Content.Server.Lamiae
 
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
+            SpawnSegments(uid, component);
+        }
+
+        private void OnShutdown(EntityUid uid, LamiaComponent component, ComponentShutdown args)
+        {
+            foreach (var segment in component.Segments)
+            {
+                QueueDel(segment);
+            }
+        }
+
+        private void OnJointRemoved(EntityUid uid, LamiaComponent component, JointRemovedEvent args)
+        {
+            Logger.Error("Received event.");
+            if (!component.Segments.Contains(args.OtherBody.Owner))
+                return;
+
+            foreach (var segment in component.Segments)
+                QueueDel(segment);
+        }
+
+        private void OnRemovedFromContainer(EntityUid uid, LamiaComponent component, EntGotRemovedFromContainerMessage args)
+        {
+            SpawnSegments(uid, component);
+        }
+
+        private void HandleSegmentDamage(EntityUid uid, LamiaSegmentComponent component, DamageModifyEvent args)
+        {
+            _damageableSystem.TryChangeDamage(component.Lamia, args.Damage);
+
+            args.Damage *= 0;
+        }
+
+        private void SpawnSegments(EntityUid uid, LamiaComponent component)
+        {
             int i = 1;
             var addTo = uid;
             while (i < component.NumberOfSegments + 1)
@@ -124,6 +167,7 @@ namespace Content.Server.Lamiae
             segmentComponent.SegmentNumber = segmentNumber;
             EntityManager.AddComponent(segment, segmentComponent, true);
             _segments.Enqueue((segmentComponent, lamia));
+            lamiaComponent.Segments.Add(segmentComponent.Owner);
             return segment;
         }
     }
