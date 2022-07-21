@@ -1,3 +1,4 @@
+using Content.Shared.Verbs;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Actions;
@@ -27,12 +28,33 @@ namespace Content.Server.Lamiae
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuccVerb);
             SubscribeLocalEvent<BloodSuckerComponent, DidEquipHandEvent>(OnEquippedHand);
             SubscribeLocalEvent<BloodSuckerComponent, DidUnequipHandEvent>(OnUnequippedHand);
             SubscribeLocalEvent<BloodSuckerComponent, SuckBloodActionEvent>(OnSuckBlood);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<TargetSuckSuccessfulEvent>(OnSuckSuccessful);
             SubscribeLocalEvent<SuckCancelledEvent>(OnSuckCancelled);
+        }
+
+        private void AddSuccVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
+        {
+            if (args.User == args.Target)
+                return;
+            if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
+                return;
+
+            InnateVerb verb = new()
+            {
+                Act = () =>
+                {
+                    StartSuccDoAfter(uid, args.Target, component, bloodstream); // start doafter
+                },
+                Text = Loc.GetString("action-name-suck-blood"),
+                IconTexture = "/Textures/Interface/VerbIcons/drink.svg.192dpi.png",
+                Priority = 2
+            };
+            args.Verbs.Add(verb);
         }
 
         private void OnEquippedHand(EntityUid uid, BloodSuckerComponent component, DidEquipHandEvent args)
@@ -76,15 +98,15 @@ namespace Content.Server.Lamiae
             args.Message.AddMarkup(Loc.GetString("bloodsucked-health-examine", ("target", uid)));
         }
 
-        private void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null)
+        private void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null)
         {
-            if (!Resolve<BloodSuckerComponent>(bloodsucker, ref bloodSuckerComponent))
+            if (!Resolve(bloodsucker, ref bloodSuckerComponent))
+                return;
+
+            if (!Resolve(victim, ref stream))
                 return;
 
             if (bloodSuckerComponent.CancelToken != null)
-                return;
-
-            if (!TryComp<BloodstreamComponent>(victim, out var stream))
                 return;
 
             if (stream.BloodReagent != "Blood")
@@ -167,7 +189,7 @@ namespace Content.Server.Lamiae
 
             if (unitsToDrain <= 2)
             {
-                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, Filter.Pvs(bloodsucker), Shared.Popups.PopupType.MediumCaution);
+                _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.MediumCaution);
                 return;
             }
             // All good, succ time.

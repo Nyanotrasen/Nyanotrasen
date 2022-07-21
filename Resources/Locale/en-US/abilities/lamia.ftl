@@ -1,4 +1,4 @@
-action-name-suck-blood = Suck blood.
+action-name-suck-blood = Suck Blood
 action-description-suck-blood = Suck the blood of the victim in your hand.
 
 bloodsucker-fail-not-blood = { CAPITALIZE(SUBJECT($target)) } doesn't have delicious, nourishing mortal blood.
