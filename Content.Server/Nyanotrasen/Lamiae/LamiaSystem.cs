@@ -46,10 +46,10 @@ namespace Content.Server.Lamiae
 
                 if (segment.segment.SegmentNumber == 1)
                 {
-                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber));
+                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                     revoluteJoint.CollideConnected = false;
                 }
-                var joint = _jointSystem.CreateDistanceJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber));
+                var joint = _jointSystem.CreateDistanceJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                 joint.CollideConnected = false;
                 joint.Stiffness = 0.2f;
             }
