@@ -135,7 +135,7 @@ namespace Content.Server.Lamiae
                 BroadcastFinishedEvent = new TargetSuckSuccessfulEvent(bloodsucker, victim),
                 BroadcastCancelledEvent = new SuckCancelledEvent(bloodsucker),
                 BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnUserMove = false,
                 BreakOnStun = true,
                 NeedHand = false
             });
