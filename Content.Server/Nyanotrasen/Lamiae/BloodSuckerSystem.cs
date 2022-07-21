@@ -5,6 +5,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Robust.Shared.Player;
+using Content.Server.HealthExaminable;
 
 namespace Content.Server.Lamiae
 {
@@ -17,6 +18,7 @@ namespace Content.Server.Lamiae
         {
             base.Initialize();
             SubscribeLocalEvent<BloodSuckerComponent, DidEquipHandEvent>(OnEquippedHand);
+            SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
         }
 
         private void OnEquippedHand(EntityUid uid, BloodSuckerComponent component, EquippedHandEvent args)
@@ -31,6 +33,12 @@ namespace Content.Server.Lamiae
                 return;
 
             Succ(uid, succEntity.Value, component);
+        }
+
+        private void OnHealthExamined(EntityUid uid, BloodSuckedComponent component, HealthBeingExaminedEvent args)
+        {
+            args.Message.PushNewline();
+            args.Message.AddMarkup(Loc.GetString("bloodsucked-health-examine", ("target", uid)));
         }
 
         public void Succ(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
@@ -58,6 +66,7 @@ namespace Content.Server.Lamiae
                 return;
 
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, Filter.Pvs(bloodsucker), Shared.Popups.PopupType.Medium);
+            EnsureComp<BloodSuckedComponent>(victim);
 
             var temp = _solutionSystem.SplitSolution(victim, bloodstream.BloodSolution, bloodsuckerComp.UnitsToSucc);
             _solutionSystem.TryAddSolution(bloodsucker, stomachSolution, temp);
