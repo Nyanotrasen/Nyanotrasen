@@ -1,0 +1,6 @@
+- type: instantAction
+  id: SuckBlood
+  name: action-name-suck-blood
+  description: action-description-suck-blood
+  icon: Structures/Furniture/Altars/Cults/fangs.rsi/blood.png
+  serverEvent: !type:SuckBloodActionEvent
