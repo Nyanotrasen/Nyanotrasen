@@ -100,6 +100,8 @@
     interfaces:
     - key: enum.GasAnalyzerUiKey.Key
       type: GasAnalyzerBoundUserInterface
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
   - type: IntrinsicUI
     uis:
       - key: enum.GasAnalyzerUiKey.Key

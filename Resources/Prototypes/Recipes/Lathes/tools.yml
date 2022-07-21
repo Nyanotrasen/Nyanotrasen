@@ -114,17 +114,6 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: RCD
-  icon:
-    sprite: Objects/Tools/rcd.rsi
-    state: icon
-  result: RCD
-  completetime: 4
-  materials:
-    Steel: 1000
-    Plastic: 300
-
-- type: latheRecipe
   id: RCDAmmo
   icon:
     sprite: Objects/Tools/rcd.rsi
