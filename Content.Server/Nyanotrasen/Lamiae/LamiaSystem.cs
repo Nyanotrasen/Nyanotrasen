@@ -22,6 +22,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -168,6 +169,13 @@ namespace Content.Server.Lamiae
 
         private void OnRemovedFromContainer(EntityUid uid, LamiaComponent component, EntGotRemovedFromContainerMessage args)
         {
+            if (component.Segments.Count != 0)
+            {
+                foreach (var segment in component.Segments)
+                QueueDel(segment);
+                component.Segments.Clear();
+            }
+
             SpawnSegments(uid, component);
         }
 

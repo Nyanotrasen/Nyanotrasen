@@ -51,7 +51,7 @@ namespace Content.Server.Lamiae
                     StartSuccDoAfter(uid, args.Target, component, bloodstream); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Interface/VerbIcons/drink.svg.192dpi.png",
+                IconTexture = "/Textures/Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png",
                 Priority = 2
             };
             args.Verbs.Add(verb);
