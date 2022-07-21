@@ -20,6 +20,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private readonly StomachSystem _stomachSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -82,9 +83,7 @@ namespace Content.Server.Lamiae
             // Does bloodsucker have a stomach?
             var stomachList = _bodySystem.GetComponentsOnMechanisms<StomachComponent>(bloodsucker);
             if (stomachList.Count == 0)
-            {
                 return;
-            }
 
             if (!_solutionSystem.TryGetSolution(stomachList[0].Comp.Owner, StomachSystem.DefaultSolutionName, out var stomachSolution))
                 return;
@@ -105,7 +104,8 @@ namespace Content.Server.Lamiae
             EnsureComp<BloodSuckedComponent>(victim);
 
             var temp = _solutionSystem.SplitSolution(victim, bloodstream.BloodSolution, unitsToDrain);
-            _solutionSystem.TryAddSolution(bloodsucker, stomachSolution, temp);
+            temp.DoEntityReaction(bloodsucker, Shared.Chemistry.Reagent.ReactionMethod.Ingestion);
+            _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
         }
     }
 

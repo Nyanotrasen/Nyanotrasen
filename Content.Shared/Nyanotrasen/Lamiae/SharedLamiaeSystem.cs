@@ -9,3 +9,4 @@ public sealed class SegmentSpawnedEvent : EntityEventArgs
         Lamia = lamia;
     }
 }
+
