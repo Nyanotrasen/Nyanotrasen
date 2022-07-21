@@ -46,9 +46,15 @@ namespace Content.Server.Lamiae
 
                 if (segment.segment.SegmentNumber == 1)
                 {
-                    var revoluteJoint = _jointSystem.CreateRevoluteJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
+                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates;
+                    var revoluteJoint = _jointSystem.CreateWeldJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                     revoluteJoint.CollideConnected = false;
                 }
+                if (segment.segment.SegmentNumber < 8)
+                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset((0, 0.15f));
+                else
+                    Transform(segmentUid).Coordinates = Transform(attachedUid).Coordinates.Offset((0, 0.1f));
+
                 var joint = _jointSystem.CreateDistanceJoint(attachedUid, segmentUid, id: ("Segment" + segment.segment.SegmentNumber + segment.segment.Lamia));
                 joint.CollideConnected = false;
                 joint.Stiffness = 0.2f;
@@ -134,7 +140,6 @@ namespace Content.Server.Lamiae
                 }
             }
         }
-
         private void OnInit(EntityUid uid, LamiaComponent component, ComponentInit args)
         {
             SpawnSegments(uid, component);
@@ -191,11 +196,11 @@ namespace Content.Server.Lamiae
             segmentComponent.AttachedToUid = uid;
             EntityUid segment;
             if (segmentNumber == 1)
-                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates.Offset((0f, 0.15f)));
+                segment = EntityManager.SpawnEntity("LamiaInitialSegment", Transform(uid).Coordinates);
             else if (segmentNumber == lamiaComponent.NumberOfSegments)
-                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates.Offset((0f, 0.12f)));
+                segment = EntityManager.SpawnEntity("LamiaSegmentEnd", Transform(uid).Coordinates);
             else
-                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates.Offset((0f, 0.15f)));
+                segment = EntityManager.SpawnEntity("LamiaSegment", Transform(uid).Coordinates);
 
             segmentComponent.Owner = segment;
             segmentComponent.SegmentNumber = segmentNumber;

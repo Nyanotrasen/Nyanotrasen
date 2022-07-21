@@ -53,8 +53,13 @@ namespace Content.Server.Lamiae
 
         private void OnUnequippedHand(EntityUid uid, BloodSuckerComponent component, DidUnequipHandEvent args)
         {
-            if (args.Unequipped == component.PotentialTarget && _prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
-                _actionsSystem.RemoveAction(uid, suckBlood);
+            if (args.Unequipped == component.PotentialTarget
+            || TryComp<HandVirtualItemComponent>(args.Unequipped, out var virtualItem) && virtualItem.BlockingEntity == component.PotentialTarget)
+            {
+                component.PotentialTarget = null;
+                 if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
+                    _actionsSystem.RemoveAction(uid, suckBlood);
+            }
         }
 
         private void OnSuckBlood(EntityUid uid, BloodSuckerComponent component, SuckBloodActionEvent args)
@@ -78,6 +83,26 @@ namespace Content.Server.Lamiae
 
             if (bloodSuckerComponent.CancelToken != null)
                 return;
+
+            if (!TryComp<BloodstreamComponent>(victim, out var stream))
+                return;
+
+            if (stream.BloodReagent != "Blood")
+            {
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-not-blood", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                return;
+            }
+
+            if (stream.BloodSolution.CurrentVolume <= 1)
+            {
+                if (HasComp<BloodSuckedComponent>(victim))
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood-bloodsucked", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                else
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+
+                return;
+            }
+
 
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);

@@ -64,6 +64,7 @@
     - Heat
     - Shock
   - type: Bloodstream
+    bloodReagent: DemonsBlood
     bloodlossDamage:
       types:
         Bloodloss:
@@ -74,6 +75,8 @@
           -0.25
   - type: Stamina
   - type: DiseaseCarrier
+    naturalImmunities:
+    - BleedersBite
   - type: Blindable
   - type: Clickable
   - type: InteractionOutline
@@ -311,6 +314,7 @@
     deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
   - type: Perishable
   - type: BloodSucker
+
 
 - type: entity
   save: false
