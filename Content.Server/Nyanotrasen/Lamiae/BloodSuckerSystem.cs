@@ -7,9 +7,10 @@ using Content.Server.Body.Systems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.HealthExaminable;
+using Content.Server.DoAfter;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
-
+using Robust.Shared.Audio;
 
 namespace Content.Server.Lamiae
 {
@@ -18,9 +19,11 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
+        [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -28,6 +31,8 @@ namespace Content.Server.Lamiae
             SubscribeLocalEvent<BloodSuckerComponent, DidUnequipHandEvent>(OnUnequippedHand);
             SubscribeLocalEvent<BloodSuckerComponent, SuckBloodActionEvent>(OnSuckBlood);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
+            SubscribeLocalEvent<TargetSuckSuccessfulEvent>(OnSuckSuccessful);
+            SubscribeLocalEvent<SuckCancelledEvent>(OnSuckCancelled);
         }
 
         private void OnEquippedHand(EntityUid uid, BloodSuckerComponent component, DidEquipHandEvent args)
@@ -57,13 +62,54 @@ namespace Content.Server.Lamiae
             if (component.PotentialTarget == null)
                 return;
 
-            Succ(uid, component.PotentialTarget.Value, component);
+            StartSuccDoAfter(uid, component.PotentialTarget.Value, component);
         }
 
         private void OnHealthExamined(EntityUid uid, BloodSuckedComponent component, HealthBeingExaminedEvent args)
         {
             args.Message.PushNewline();
             args.Message.AddMarkup(Loc.GetString("bloodsucked-health-examine", ("target", uid)));
+        }
+
+        private void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null)
+        {
+            if (!Resolve<BloodSuckerComponent>(bloodsucker, ref bloodSuckerComponent))
+                return;
+
+            if (bloodSuckerComponent.CancelToken != null)
+                return;
+
+            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+
+            bloodSuckerComponent.CancelToken = new System.Threading.CancellationTokenSource();
+            _doAfter.DoAfter(new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, bloodSuckerComponent.CancelToken.Token, target: victim)
+            {
+                BroadcastFinishedEvent = new TargetSuckSuccessfulEvent(bloodsucker, victim),
+                BroadcastCancelledEvent = new SuckCancelledEvent(bloodsucker),
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                BreakOnStun = true,
+                NeedHand = false
+            });
+        }
+
+        private void OnSuckSuccessful(TargetSuckSuccessfulEvent ev)
+        {
+            if (!TryComp<BloodSuckerComponent>(ev.Sucker, out var succComp))
+                return;
+
+            succComp.CancelToken = null;
+
+            Succ(ev.Sucker, ev.Target, succComp);
+        }
+
+        private void OnSuckCancelled(SuckCancelledEvent ev)
+        {
+            if (!TryComp<BloodSuckerComponent>(ev.Sucker, out var succComp))
+                return;
+
+            succComp.CancelToken = null;
         }
 
         public void Succ(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
@@ -100,12 +146,36 @@ namespace Content.Server.Lamiae
                 return;
             }
             // All good, succ time.
-            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, Filter.Pvs(bloodsucker), Shared.Popups.PopupType.Medium);
+            SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker));
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
             EnsureComp<BloodSuckedComponent>(victim);
 
+            // Make everything actually ingest.
             var temp = _solutionSystem.SplitSolution(victim, bloodstream.BloodSolution, unitsToDrain);
             temp.DoEntityReaction(bloodsucker, Shared.Chemistry.Reagent.ReactionMethod.Ingestion);
             _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
+        }
+
+        private sealed class SuckCancelledEvent : EntityEventArgs
+        {
+            public EntityUid Sucker;
+
+            public SuckCancelledEvent(EntityUid sucker)
+            {
+                Sucker = sucker;
+            }
+        }
+
+        private sealed class TargetSuckSuccessfulEvent : EntityEventArgs
+        {
+            public EntityUid Sucker;
+            public EntityUid Target;
+            public TargetSuckSuccessfulEvent(EntityUid sucker, EntityUid target)
+            {
+                Sucker = sucker;
+                Target = target;
+            }
         }
     }
 
