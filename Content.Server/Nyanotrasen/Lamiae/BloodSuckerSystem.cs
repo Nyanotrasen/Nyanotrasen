@@ -3,6 +3,8 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Inventory;
+using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.EntitySystems;
@@ -24,7 +26,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
-
+        [Dependency] private readonly InventorySystem _inventorySystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -105,6 +107,12 @@ namespace Content.Server.Lamiae
 
             if (!Resolve(victim, ref stream))
                 return;
+
+            if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
+            {
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                return;
+            }
 
             if (bloodSuckerComponent.CancelToken != null)
                 return;
