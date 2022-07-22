@@ -28,7 +28,6 @@ namespace Content.Shared.CharacterAppearance.Systems
             if (!Resolve(uid, ref component)) return;
             component.Dirty();
         }
-
         private void UpdateAppearance(EntityUid uid, HumanoidCharacterAppearance appearance, Sex sex, Gender gender, string species, int age, HumanoidAppearanceComponent? component = null)
         {
             if (!Resolve(uid, ref component)) return;
@@ -56,6 +55,17 @@ namespace Content.Shared.CharacterAppearance.Systems
             component.Dirty();
 
             RaiseLocalEvent(uid, new ChangedHumanoidAppearanceEvent(appearance, component.Sex, component.Gender, component.Species), true);
+        }
+
+        public void UpdateSexGender(EntityUid uid, Sex sex, Gender gender, HumanoidAppearanceComponent? component = null)
+        {
+            if (!Resolve(uid, ref component)) return;
+
+            component.Sex = sex;
+            component.Gender = gender;
+
+            component.Dirty();
+            RaiseLocalEvent(uid, new ChangedHumanoidAppearanceEvent(component.Appearance, component.Sex, component.Gender, component.Species), true);
         }
 
         private void OnAppearanceGetState(EntityUid uid, HumanoidAppearanceComponent component, ref ComponentGetState args)

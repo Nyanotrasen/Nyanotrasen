@@ -1,0 +1,21 @@
+- type: bodyTemplate
+  id: LamiaTemplate
+  name: "lamia"
+  centerSlot: "torso"
+  slots:
+    head: Head
+    torso: Torso
+    left arm: Arm
+    left hand: Hand
+    right arm: Arm
+    right hand: Hand
+  connections:
+    head:
+    - torso
+    torso:
+    - left arm
+    - right arm
+    left arm:
+    - left hand
+    right arm:
+    - right hand

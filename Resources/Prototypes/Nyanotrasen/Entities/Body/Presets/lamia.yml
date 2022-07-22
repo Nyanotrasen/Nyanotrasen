@@ -1,0 +1,10 @@
+- type: bodyPreset
+  name: "lamia"
+  id: LamiaPreset
+  partIDs:
+    head: HeadHuman
+    torso: TorsoLamia
+    right arm: RightArmHuman
+    left arm: LeftArmHuman
+    right hand: RightHandHuman
+    left hand: LeftHandHuman

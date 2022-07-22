@@ -9,6 +9,7 @@ using Content.Server.Power.Components;
 using Content.Server.UserInterface;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Server.Lamiae;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Components;
@@ -19,7 +20,6 @@ using Content.Shared.DragDrop;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
-using Content.Shared.Movement;
 using Content.Shared.Movement.Events;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
@@ -505,6 +505,12 @@ namespace Content.Server.Disposal.Unit.EntitySystems
             if (component.Deleted || !CanFlush(component))
             {
                 return false;
+            }
+
+            foreach (var entity in component.Container.ContainedEntities)
+            {
+                if (HasComp<LamiaComponent>(entity))
+                    return false;
             }
 
             var xform = Transform(component.Owner);

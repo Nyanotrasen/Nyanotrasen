@@ -1,0 +1,9 @@
+- type: marking
+  id: LamiaBottom
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: false
+  speciesRestriction: [Lamia]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+    state: bottom

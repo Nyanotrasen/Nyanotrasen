@@ -30,6 +30,8 @@ namespace Content.Shared.CharacterAppearance
         public Color FacialHairColor { get; }
         public Color EyeColor { get; }
         public Color SkinColor { get; }
+
+        [ViewVariables]
         public MarkingsSet Markings { get; }
 
         public HumanoidCharacterAppearance WithHairStyleName(string newName)

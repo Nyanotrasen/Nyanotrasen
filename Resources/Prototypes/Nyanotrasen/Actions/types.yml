@@ -1,0 +1,6 @@
+- type: instantAction
+  id: SuckBlood
+  name: action-name-suck-blood
+  description: action-description-suck-blood
+  icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
+  serverEvent: !type:SuckBloodActionEvent

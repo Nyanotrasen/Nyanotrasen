@@ -21,7 +21,7 @@ namespace Content.Server.AI.EntitySystems
 
         public EntityUid GetNearbyInjectable(EntityUid medibot, float range = 4)
         {
-            foreach (var entity in EntitySystem.Get<EntityLookupSystem>().GetEntitiesInRange(medibot, range))
+            foreach (var entity in _lookup.GetEntitiesInRange(medibot, range))
             {
                 if (HasComp<InjectableSolutionComponent>(entity) && HasComp<MobStateComponent>(entity))
                     return entity;
