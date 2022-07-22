@@ -1,4 +1,6 @@
 using Content.Shared.Verbs;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Actions;
@@ -26,6 +28,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         public override void Initialize()
         {
@@ -35,6 +38,7 @@ namespace Content.Server.Lamiae
             SubscribeLocalEvent<BloodSuckerComponent, DidUnequipHandEvent>(OnUnequippedHand);
             SubscribeLocalEvent<BloodSuckerComponent, SuckBloodActionEvent>(OnSuckBlood);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
+            SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<TargetSuckSuccessfulEvent>(OnSuckSuccessful);
             SubscribeLocalEvent<SuckCancelledEvent>(OnSuckCancelled);
         }
@@ -98,6 +102,19 @@ namespace Content.Server.Lamiae
         {
             args.Message.PushNewline();
             args.Message.AddMarkup(Loc.GetString("bloodsucked-health-examine", ("target", uid)));
+        }
+
+        private void OnDamageChanged(EntityUid uid, BloodSuckedComponent component, DamageChangedEvent args)
+        {
+            if (args.DamageIncreased)
+                return;
+
+            if (_prototypeManager.TryIndex<DamageGroupPrototype>("Brute", out var brute) && args.Damageable.Damage.TryGetDamageInGroup(brute, out var bruteTotal)
+                && _prototypeManager.TryIndex<DamageGroupPrototype>("Airloss", out var airloss) && args.Damageable.Damage.TryGetDamageInGroup(airloss, out var airlossTotal))
+            {
+                if (bruteTotal == 0 && airlossTotal == 0)
+                    RemComp<BloodSuckedComponent>(uid);
+            }
         }
 
         private void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null)
@@ -210,6 +227,12 @@ namespace Content.Server.Lamiae
             var temp = _solutionSystem.SplitSolution(victim, bloodstream.BloodSolution, unitsToDrain);
             temp.DoEntityReaction(bloodsucker, Shared.Chemistry.Reagent.ReactionMethod.Ingestion);
             _stomachSystem.TryTransferSolution(stomachList[0].Comp.Owner, temp, stomachList[0].Comp);
+
+            // Add a little pierce
+            DamageSpecifier damage = new();
+            damage.DamageDict.Add("Piercing", 1); // Slowly accumulate enough to gib after like half an hour
+
+            _damageableSystem.TryChangeDamage(victim, damage, true, true);
         }
 
         private sealed class SuckCancelledEvent : EntityEventArgs
