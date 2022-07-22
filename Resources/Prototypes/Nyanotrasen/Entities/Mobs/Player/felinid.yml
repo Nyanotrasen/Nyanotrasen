@@ -21,6 +21,11 @@
       types:
         Asphyxiation: -1.5
   - type: Alerts
+  - type: Vocal
+    maleScream:
+      collection: FelinidScreams
+    femaleScream:
+      collection: FelinidScreams
   - type: Actions
   - type: Eye
   - type: CameraRecoil
