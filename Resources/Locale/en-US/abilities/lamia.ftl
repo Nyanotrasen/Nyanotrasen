@@ -1,6 +1,8 @@
 action-name-suck-blood = Suck Blood
 action-description-suck-blood = Suck the blood of the victim in your hand.
 
+bloodsucker-fail-helmet = You'd need to remove {THE($helmet)}.
+
 bloodsucker-fail-not-blood = { CAPITALIZE(SUBJECT($target)) } doesn't have delicious, nourishing mortal blood.
 bloodsucker-fail-no-blood = { CAPITALIZE(SUBJECT($target)) } has no blood in { POSS-ADJ($target) } body.
 bloodsucker-fail-no-blood-bloodsucked = { CAPITALIZE(SUBJECT($target)) } has been sucked dry.
