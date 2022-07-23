@@ -1,12 +1,14 @@
 using Content.Server.Weapon.Melee;
-using Content.Server.Popups;
+using Content.Server.Tools;
+using Content.Shared.Tools.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Abilities.Oni
 {
     public sealed class OniSystem : EntitySystem
     {
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly ToolSystem _toolSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -20,10 +22,16 @@ namespace Content.Server.Abilities.Oni
         {
             var heldComp = EnsureComp<HeldByOniComponent>(args.Entity);
             heldComp.Holder = uid;
+
+            if (TryComp<ToolComponent>(args.Entity, out var tool) && _toolSystem.HasQuality(args.Entity, "Prying", tool))
+                tool.SpeedModifier *= 1.66f;
         }
 
         private void OnEntRemoved(EntityUid uid, OniComponent component, EntRemovedFromContainerMessage args)
         {
+            if (TryComp<ToolComponent>(args.Entity, out var tool) && _toolSystem.HasQuality(args.Entity, "Prying", tool))
+                tool.SpeedModifier /= 1.66f;
+
             RemComp<HeldByOniComponent>(args.Entity);
         }
 
