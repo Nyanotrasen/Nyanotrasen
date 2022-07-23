@@ -44,7 +44,6 @@ namespace Content.Server.Mail
             "MailCigarettes",
             "MailFigurine",
             "MailBible",
-            "MailGatfruit",
             "MailCrayon",
             "MailPlushie",
             "MailPAI",

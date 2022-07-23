@@ -57,8 +57,6 @@
   - type: Mail
     contents:
     - id: UniformSchoolgirlBlue
-    - id: ClothingMaskMuzzle
-    - id: Handcuffs
 
 - type: entity
   parent: BaseMail
@@ -131,15 +129,6 @@
   - type: Mail
     contents:
     - id: Bible
-
-- type: entity
-  parent: BaseMail
-  id: MailGatfruit
-  suffix: Gatfruit
-  components:
-  - type: Mail
-    contents:
-    - id: GatfruitSeeds
 
 - type: entity
   parent: BaseMail
