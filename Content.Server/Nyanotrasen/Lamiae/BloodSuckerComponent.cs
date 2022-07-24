@@ -10,6 +10,7 @@ namespace Content.Server.Lamiae
         /// <summary>
         /// How much to succ each time we succ.
         /// </summary>
+        [DataField("unitsToSucc")]
         public float UnitsToSucc = 20f;
 
         /// <summary>
