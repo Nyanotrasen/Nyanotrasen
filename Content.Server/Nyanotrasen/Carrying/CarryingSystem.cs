@@ -137,6 +137,7 @@ namespace Content.Server.Carrying
             EnsureComp<CarryingComponent>(carrier);
             ApplyCarrySlowdown(carrier, carried);
             var carriedComp = EnsureComp<BeingCarriedComponent>(carried);
+            EnsureComp<KnockedDownComponent>(carried);
             carriedComp.Carrier = carrier;
             _actionBlockerSystem.UpdateCanMove(carried);
         }
@@ -146,6 +147,7 @@ namespace Content.Server.Carrying
             RemComp<CarryingComponent>(carrier); // get rid of this first so we don't recusrively fire that event
             RemComp<CarryingSlowdownComponent>(carrier);
             RemComp<BeingCarriedComponent>(carried);
+            RemComp<KnockedDownComponent>(carried);
             _actionBlockerSystem.UpdateCanMove(carried);
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             Transform(carried).AttachToGridOrMap();
