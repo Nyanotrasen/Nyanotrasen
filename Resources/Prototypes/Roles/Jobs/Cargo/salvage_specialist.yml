@@ -5,12 +5,12 @@
   icon: "ShaftMiner"
   startingGear: SalvageSpecialistGear
   departments:
-  - Engineering
+  - Cargo
   supervisors: job-supervisors-hop-qm
   access:
-  - Engineering
-  - Maintenance
+  - Cargo
   - Salvage
+  - Maintenance
   - External
 
 - type: startingGear
