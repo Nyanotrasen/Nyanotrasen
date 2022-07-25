@@ -2,14 +2,10 @@
   id: Cargo
 
 - type: accessLevel
-  id: Salvage
-
-- type: accessLevel
   id: Mail
 
 - type: accessGroup
   id: Cargo
   tags:
-  - Salvage
   - Cargo
   - Mail
