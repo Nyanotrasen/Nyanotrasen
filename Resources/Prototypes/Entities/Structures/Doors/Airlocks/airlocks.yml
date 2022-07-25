@@ -240,6 +240,14 @@
 
 - type: entity
   parent: Airlock
+  id: AirlockAtmospherics
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+
+- type: entity
+  parent: Airlock
   id: AirlockCargo
   suffix: Cargo
   components:
@@ -253,6 +261,14 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/medical.rsi
+
+- type: entity
+  parent: Airlock
+  id: AirlockVirology
+  suffix: Virology
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/virology.rsi
 
 - type: entity
   parent: Airlock
@@ -620,6 +636,26 @@
 
 - type: entity
   parent: AirlockGlass
+  id: AirlockMaintGlass
+  suffix: Maintenance
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/maint.rsi
+  - type: PaintableAirlock
+    group: Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockAtmosphericsGlass
+  suffix: Atmospherics
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+  - type: PaintableAirlock
+    group: Glass
+
+- type: entity
+  parent: AirlockGlass
   id: AirlockCargoGlass
   suffix: Cargo
   components:
@@ -635,6 +671,16 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/medical.rsi
+  - type: PaintableAirlock
+    group: Glass
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockVirologyGlass
+  suffix: Virology
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/virology.rsi
   - type: PaintableAirlock
     group: Glass
 

@@ -83,9 +83,9 @@
       types:
         Piercing: 5
         Slash: 5
-  - type: PlayerInputMover
-  - type: PlayerMobMover
-  - type: UtilityAI
+  - type: InputMover
+  - type: MobMover
+  - type: UtilityNPC
     behaviorSets:
     - UnarmedAttackHostiles
   - type: AiFactionTag
@@ -279,7 +279,7 @@
   - type: AiFactionTag
     factions:
     - Cat
-  - type: UtilityAI
+  - type: UtilityNPC
     behaviorSets:
     - Hunt
   - type: MobPrice

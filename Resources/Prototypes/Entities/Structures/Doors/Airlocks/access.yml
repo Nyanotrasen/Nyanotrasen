@@ -144,6 +144,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockVirology
+  id: AirlockVirologyLocked
+  suffix: Virology, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
   parent: AirlockChemistry
   id: AirlockChemistryLocked
   suffix: Chemistry, Locked
@@ -386,6 +394,14 @@
     access: [["Medical"]]
 
 - type: entity
+  parent: AirlockVirologyGlass
+  id: AirlockVirologyGlassLocked
+  suffix: Virology, Locked
+  components:
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
   parent: AirlockScienceGlass
   id: AirlockScienceGlassLocked
   suffix: Science, Locked
@@ -501,6 +517,14 @@
 - type: entity
   parent: AirlockMaint
   id: AirlockMaintLocked
+  suffix: Locked
+  components:
+  - type: AccessReader
+    access: [["Maintenance"]]
+
+- type: entity
+  parent: AirlockMaintGlass
+  id: AirlockMaintGlassLocked
   suffix: Locked
   components:
   - type: AccessReader
