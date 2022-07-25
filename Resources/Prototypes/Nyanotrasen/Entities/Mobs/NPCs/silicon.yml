@@ -1,34 +1,12 @@
 - type: entity
   parent: MobSiliconBase
-  id: MobCleanBot
-  name: cleanbot
-  description: The creep of automation now threatening space janitors.
-  components:
-  - type: FloorBuffer
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: Nyanotrasen/Mobs/Robots/cleanbot.rsi
-    state: cleanbot
-  - type: UtilityAI
-    behaviorSets:
-    # - CleanBot
-    - Idle
-  - type: Construction
-    graph: CleanBot
-    node: bot
-  - type: SentienceTarget
-    flavorKind: mechanical
-
-- type: entity
-  parent: MobSiliconBase
   id: MobMedibot
   name: medibot
   description: No substitute for a doctor, but better than nothing.
   components:
-  - type: UtilityAI
+  - type: UtilityNPC
     behaviorSets:
-    # - MediBot
-    - Idle
+    - MediBot
   - type: Sprite
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Robots/medibot.rsi
