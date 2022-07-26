@@ -144,6 +144,12 @@
     stealTime: 1.5
   - type: Speech
     speechSounds: Alto
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 1
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
 
 - type: entity
   save: false

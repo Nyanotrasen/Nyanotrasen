@@ -2,7 +2,8 @@ using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
-using Content.Shared.MobState.Components;
+using Content.Server.MobState;
+using Content.Server.Resist;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
@@ -14,6 +15,7 @@ using Content.Shared.Pulling;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Throwing;
 using Robust.Shared.Physics;
 
 namespace Content.Server.Carrying
@@ -26,11 +28,15 @@ namespace Content.Server.Carrying
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
+        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+            SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
+            SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
@@ -50,7 +56,7 @@ namespace Content.Server.Carrying
             if (HasComp<CarryingComponent>(args.User)) // yeah not dealing with that
                 return;
 
-            if (!HasComp<KnockedDownComponent>(uid) && !(TryComp<MobStateComponent>(uid, out var state) && (state.IsCritical() || state.IsDead() || state.IsIncapacitated())))
+            if (!_mobStateSystem.IsAlive(args.User))
                 return;
 
             AlternativeVerb verb = new()
@@ -73,6 +79,28 @@ namespace Content.Server.Carrying
             DropCarried(uid, args.BlockingEntity);
         }
 
+        private void OnThrow(EntityUid uid, CarryingComponent component, BeforeThrowEvent args)
+        {
+            if (!TryComp<HandVirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
+                return;
+
+            args.ItemUid = virtItem.BlockingEntity;
+
+            if (!TryComp<PhysicsComponent>(args.ItemUid, out var itemPhysics) || !TryComp<PhysicsComponent>(args.PlayerUid, out var playerPhysics))
+                return;
+
+            var multiplier = (playerPhysics.FixturesMass / itemPhysics.FixturesMass);
+            args.ThrowStrength = 5f * multiplier;
+        }
+
+        private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
+        {
+            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.IsResisting)
+                return;
+
+            if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape);
+        }
         private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
         {
             args.Cancel();
@@ -105,13 +133,20 @@ namespace Content.Server.Carrying
             ev.Component.CancelToken = null;
         }
 
-        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
+        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component, float length = 3f)
         {
             if (component.CancelToken != null)
             {
                 component.CancelToken.Cancel();
                 component.CancelToken = null;
             }
+
+            if (!HasComp<KnockedDownComponent>(carried))
+                length *= 2f;
+
+            if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
+                length /= (carrierPhysics.FixturesMass - carriedPhysics.FixturesMass);
+
 
             component.CancelToken = new CancellationTokenSource();
             _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, 3f, component.CancelToken.Token, target: carried)

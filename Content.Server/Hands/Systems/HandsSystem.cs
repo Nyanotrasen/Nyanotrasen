@@ -9,6 +9,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Strip;
 using Content.Server.Stunnable;
+using Content.Server.Carrying;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -205,8 +206,6 @@ namespace Content.Server.Hands.Systems
 
                 throwEnt = splitStack.Value;
             }
-            else if (!TryDrop(player, throwEnt, handsComp: hands))
-                return false;
 
             var direction = coords.ToMapPos(EntityManager) - Transform(player).WorldPosition;
             if (direction == Vector2.Zero)
@@ -215,7 +214,20 @@ namespace Content.Server.Hands.Systems
             direction = direction.Normalized * Math.Min(direction.Length, hands.ThrowRange);
 
             var throwStrength = hands.ThrowForceMultiplier;
-            _throwingSystem.TryThrow(throwEnt, direction, throwStrength, player);
+
+            // Let other systems change the thrown entity (useful for virtual items)
+            // or the throw strength.
+            var ev = new BeforeThrowEvent(throwEnt, direction, throwStrength, player);
+            RaiseLocalEvent(player, ev, false);
+
+            if (ev.Handled)
+                return true;
+
+            // This can grief the above event so we raise it afterwards
+            if (!TryDrop(player, throwEnt, handsComp: hands))
+                return false;
+
+            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowStrength, ev.PlayerUid);
 
             return true;
         }
