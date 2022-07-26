@@ -193,7 +193,7 @@ namespace Content.Server.Hands.Systems
                 player.IsInContainer() ||
                 !TryComp(player, out SharedHandsComponent? hands) ||
                 hands.ActiveHandEntity is not EntityUid throwEnt ||
-                !_actionBlockerSystem.CanThrow(player))
+                !_actionBlockerSystem.CanThrow(player, throwEnt))
                 return false;
 
             if (EntityManager.TryGetComponent(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
