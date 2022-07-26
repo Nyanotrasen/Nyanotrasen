@@ -23,6 +23,13 @@
       job: ForensicMantis
 
 - type: entity
+  parent: SalvageIDCard
+  id: SalvageTechIDCard
+  components:
+  - type: PresetIdCard
+    job: SalvageTechnician
+
+- type: entity
   parent: IDCardStandard
   id: ParamedicIDCard
   name: paramedic ID card
