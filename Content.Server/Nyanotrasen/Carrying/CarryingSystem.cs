@@ -58,6 +58,9 @@ namespace Content.Server.Carrying
             if (HasComp<CarryingComponent>(args.User)) // yeah not dealing with that
                 return;
 
+            if (HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target))
+                return;
+
             if (!_mobStateSystem.IsAlive(args.User))
                 return;
 
