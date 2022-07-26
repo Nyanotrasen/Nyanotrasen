@@ -5,12 +5,12 @@
         public ThrowAttemptEvent(EntityUid uid, EntityUid itemUid)
         {
             Uid = uid;
-            itemUid = uid;
+            ItemUid = itemUid;
         }
 
         public EntityUid Uid { get; }
 
-        public EntityUid itemUid { get; }
+        public EntityUid ItemUid { get; }
     }
 
     /// <summary>
