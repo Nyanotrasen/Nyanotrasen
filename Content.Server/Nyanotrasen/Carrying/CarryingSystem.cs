@@ -145,7 +145,7 @@ namespace Content.Server.Carrying
                 length *= 2f;
 
             if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
-                length /= (carrierPhysics.FixturesMass - carriedPhysics.FixturesMass);
+                length /= (carrierPhysics.FixturesMass / carriedPhysics.FixturesMass);
 
 
             component.CancelToken = new CancellationTokenSource();
