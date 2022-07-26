@@ -61,6 +61,9 @@ namespace Content.Server.Carrying
             if (!_mobStateSystem.IsAlive(args.User))
                 return;
 
+            if (args.User == args.Target)
+                return;
+
             AlternativeVerb verb = new()
             {
                 Act = () =>
