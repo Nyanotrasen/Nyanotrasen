@@ -4,6 +4,7 @@ using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
 using Content.Server.MobState;
 using Content.Server.Resist;
+using Content.Server.Speech;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
@@ -30,6 +31,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
+        [Dependency] private readonly VocalSystem _vocalSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -91,6 +93,8 @@ namespace Content.Server.Carrying
 
             var multiplier = (playerPhysics.FixturesMass / itemPhysics.FixturesMass);
             args.ThrowStrength = 5f * multiplier;
+
+            _vocalSystem.TryScream(args.ItemUid);
         }
 
         private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
@@ -145,7 +149,7 @@ namespace Content.Server.Carrying
                 length *= 2f;
 
             if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
-                length /= (carrierPhysics.FixturesMass - carriedPhysics.FixturesMass);
+                length /= (carrierPhysics.FixturesMass / carriedPhysics.FixturesMass);
 
 
             component.CancelToken = new CancellationTokenSource();
