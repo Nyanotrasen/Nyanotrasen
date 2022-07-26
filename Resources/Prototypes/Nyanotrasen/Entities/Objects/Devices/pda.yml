@@ -30,6 +30,13 @@
     state: pda-mailcarrier
 
 - type: entity
+  parent: SalvagePDA
+  id: SalvageTechPDA
+  components:
+  - type: PDA
+    id: SalvageTechIDCard
+
+- type: entity
   parent: BasePDA
   id: ForensicMantisPDA
   name: forensic mantis PDA
