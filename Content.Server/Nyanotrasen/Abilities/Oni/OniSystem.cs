@@ -2,6 +2,17 @@ using Content.Server.Weapon.Melee;
 using Content.Server.Tools;
 using Content.Shared.Tools.Components;
 using Robust.Shared.Containers;
+using Content.Server.Weapon.Melee;
+using Content.Server.Stunnable;
+using Content.Shared.Inventory.Events;
+using Content.Server.Weapon.Melee.Components;
+using Content.Server.Clothing.Components;
+using Content.Server.Damage.Components;
+using Content.Server.Damage.Events;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Abilities.Oni
 {
@@ -16,6 +27,8 @@ namespace Content.Server.Abilities.Oni
             SubscribeLocalEvent<OniComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<OniComponent, MeleeHitEvent>(OnOniMeleeHit);
             SubscribeLocalEvent<HeldByOniComponent, MeleeHitEvent>(OnHeldMeleeHit);
+            SubscribeLocalEvent<HeldByOniComponent, StaminaMeleeHitEvent>(OnStamHit);
+
         }
 
         private void OnEntInserted(EntityUid uid, OniComponent component, EntInsertedIntoContainerMessage args)
@@ -46,6 +59,14 @@ namespace Content.Server.Abilities.Oni
                 return;
 
             args.ModifiersList.Add(oni.MeleeModifiers);
+        }
+
+        private void OnStamHit(EntityUid uid, HeldByOniComponent component, StaminaMeleeHitEvent args)
+        {
+            if (!TryComp<OniComponent>(component.Holder, out var oni))
+                return;
+
+            args.Multiplier *= oni.StamDamageMultiplier;
         }
     }
 }
