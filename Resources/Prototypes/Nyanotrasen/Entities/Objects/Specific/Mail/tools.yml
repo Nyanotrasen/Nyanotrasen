@@ -2,7 +2,7 @@
   name: mail bag
   id: MailBag
   parent: BaseStorageItem
-  description: Holds mail
+  description: Here's the mail, it never fails...
   components:
   - type: Sprite
     netsync: false
@@ -11,8 +11,7 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Belt/mailbag.rsi
     quickEquip: false
-    Slots:
-    - belt
+    slots: [belt]
     size: 120
   - type: Storage
     capacity: 120

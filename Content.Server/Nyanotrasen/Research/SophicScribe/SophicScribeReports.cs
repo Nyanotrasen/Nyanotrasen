@@ -32,7 +32,7 @@ namespace Content.Server.Research.SophicScribe
 
             scribeComponent.SpeechQueue.Enqueue(Loc.GetString("sophic-entity-name", ("item", item)));
 
-            if (TryComp<SharedItemComponent>(item, out var itemComp))
+            if (TryComp<ItemComponent>(item, out var itemComp))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(itemComp));
 
             if (TryComp<ClothingSpeedModifierComponent>(item, out var clothingMvMod))
@@ -154,17 +154,17 @@ namespace Content.Server.Research.SophicScribe
             return report;
         }
 
-        private string AssembleReport(SharedItemComponent item)
+        private string AssembleReport(ItemComponent item)
         {
             string report = ("It has a size of " + item.Size.ToString() + ". ");
 
-            var slot = item.SlotFlags.ToString().ToLower();
+            // var slot = item.SlotFlags.ToString().ToLower();
 
-            if (slot != "preventequip")
-                if (slot != "outerclothing")
-                    report += "It can be equipped on the " + slot + ". ";
-                else
-                    report += "It can be worn over other clothes. ";
+            // if (slot != "preventequip")
+            //     if (slot != "outerclothing")
+            //         report += "It can be equipped on the " + slot + ". ";
+            //     else
+            //         report += "It can be worn over other clothes. ";
 
             return report;
         }

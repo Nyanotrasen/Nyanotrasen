@@ -145,7 +145,7 @@
   id: Dice
 
 - type: Tag
-  id: DiscreteHealthAnalyzer
+  id: DiscreteHealthAnalyzer #So construction recipes don't eat medical PDAs
 
 - type: Tag
   id: Document
@@ -303,10 +303,10 @@
   id: MagazinePistolSubMachineGun
 
 - type: Tag
-  id: Medkit
+  id: Matchstick
 
 - type: Tag
-  id: Matchstick
+  id: Medkit
 
 - type: Tag
   id: Metal
