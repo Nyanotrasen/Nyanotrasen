@@ -19,6 +19,7 @@ using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Throwing;
+using Content.Shared.Physics.Pull;
 using Robust.Shared.Player;
 
 
@@ -48,6 +49,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
+            SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
             SubscribeLocalEvent<CarryCancelledEvent>(OnCarryCancelled);
         }
@@ -131,6 +133,11 @@ namespace Content.Server.Carrying
         {
             if (args.Uid != component.Carrier)
                 args.Cancel();
+        }
+
+        private void OnPullAttempt(EntityUid uid, BeingCarriedComponent component, PullAttemptEvent args)
+        {
+            args.Cancelled = true;
         }
 
         private void OnCarrySuccess(CarrySuccessfulEvent ev)
