@@ -131,6 +131,8 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Stamina
+    excess: 115
 
 - type: entity
   save: false
