@@ -5,6 +5,7 @@ using Content.Server.Hands.Components;
 using Content.Server.MobState;
 using Content.Server.Resist;
 using Content.Server.Speech;
+using Content.Server.Popups;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
@@ -12,12 +13,14 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Carrying;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Throwing;
-using Robust.Shared.Physics;
+using Robust.Shared.Player;
+
 
 namespace Content.Server.Carrying
 {
@@ -32,6 +35,9 @@ namespace Content.Server.Carrying
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly VocalSystem _vocalSystem = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -143,7 +149,7 @@ namespace Content.Server.Carrying
             ev.Component.CancelToken = null;
         }
 
-        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component, float length = 3f)
+        private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
             if (component.CancelToken != null)
             {
@@ -151,11 +157,23 @@ namespace Content.Server.Carrying
                 component.CancelToken = null;
             }
 
-            if (!HasComp<KnockedDownComponent>(carried))
-                length *= 2f;
+            float length = 3f;
 
             if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
+            {
                 length /= (carrierPhysics.FixturesMass / carriedPhysics.FixturesMass);
+                if (length >= 9)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, Filter.Entities(carrier), Shared.Popups.PopupType.SmallCaution);
+                    return;
+                }
+            } else
+            {
+                return;
+            }
+
+            if (!HasComp<KnockedDownComponent>(carried))
+                length *= 2f;
 
             component.CancelToken = new CancellationTokenSource();
             _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
@@ -196,27 +214,18 @@ namespace Content.Server.Carrying
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             Transform(carried).AttachToGridOrMap();
             _standingState.Stand(carried);
+            _movementSpeed.RefreshMovementSpeedModifiers(carrier);
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
         {
-            if (!TryComp<FixturesComponent>(carrier, out var carrierFixtures))
+            if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics))
                 return;
-            if (!TryComp<FixturesComponent>(carried, out var carriedFixtures))
-                return;
-            if (carrierFixtures.Fixtures.Count == 0 || carriedFixtures.Fixtures.Count == 0)
+            if (!TryComp<PhysicsComponent>(carried, out var carriedPhysics))
                 return;
 
-            float carrierMass = 0f;
-            float carriedMass = 0f;
-            foreach (var fixture in carrierFixtures.Fixtures.Values)
-            {
-                carrierMass += fixture.Mass;
-            }
-            foreach (var fixture in carriedFixtures.Fixtures.Values)
-            {
-                carriedMass += fixture.Mass;
-            }
+            var carrierMass = carrierPhysics.FixturesMass;
+            var carriedMass = carriedPhysics.FixturesMass;
 
             if (carrierMass == 0f)
                 carrierMass = 70f;
