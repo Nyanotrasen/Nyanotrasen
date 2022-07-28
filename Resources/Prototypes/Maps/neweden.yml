@@ -2,8 +2,9 @@
   id: NewEden
   mapName: 'New Eden'
   mapPath: /Maps/neweden.yml
-  minPlayers: 25
+  minPlayers: 40
   maxPlayers: 70
+  votable: false
   stations:
     NewEden:
       mapNameTemplate: '{0} New Eden {1}'
