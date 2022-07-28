@@ -2,8 +2,9 @@
   id: NewEden
   mapName: 'New Eden'
   mapPath: /Maps/neweden.yml
-  minPlayers: 25
+  minPlayers: 40
   maxPlayers: 70
+  votable: false
   stations:
     NewEden:
       mapNameTemplate: '{0} New Eden {1}'
@@ -14,7 +15,7 @@
         - Passenger
       availableJobs:
         Passenger: [ -1, -1 ]
-        Bartender: [ 2, 2 ]
+        Bartender: [ 1, 2 ]
         Botanist: [ 3, 5 ]
         Chef: [ 2, 3 ]
         Clown: [ 1, 1 ]
@@ -23,11 +24,12 @@
         Captain: [ 1, 1 ]
         HeadOfPersonnel: [ 1, 1 ]
         ChiefEngineer: [ 1, 1 ]
+        StationEngineer: [ 3, 7 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MedicalDoctor: [ 3, 7 ]
-        Chemist: [ 2, 3 ]
+        Chemist: [ 2, 2 ]
         HeadOfSecurity: [ 1, 1 ]
-        SecurityOfficer: [ 5, 8 ]
+        SecurityOfficer: [ 4, 8 ]
         Chaplain: [ 1, 1 ]
         Warden: [ 1, 1 ]
         Lawyer: [ 2, 2 ]
@@ -44,4 +46,3 @@
         Epistemologist: [ 3, 7 ]
         Cataloguer: [ 1, 1 ]
         Boxer: [ 2, 2 ]
-        # Automaturge: [ 1, 1 ]

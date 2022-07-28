@@ -262,8 +262,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("traitor.min_players", 5);
 
         public static readonly CVarDef<int> TraitorMaxTraitors =
-            CVarDef.Create("traitor.max_traitors", 7);
-
+             CVarDef.Create("traitor.max_traitors", 15); // Assuming average server maxes somewhere from like 50-80 people
         public static readonly CVarDef<int> TraitorPlayersPerTraitor =
             CVarDef.Create("traitor.players_per_traitor", 5);
 
@@ -294,7 +293,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("nukeops.min_players", 15);
 
         public static readonly CVarDef<int> NukeopsMaxOps =
-            CVarDef.Create("nukeops.max_ops", 6);
+            CVarDef.Create("nukeops.max_ops", 5);
 
         public static readonly CVarDef<int> NukeopsPlayersPerOp =
             CVarDef.Create("nukeops.players_per_op", 5);
@@ -772,6 +771,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> AdminLoocEnabled =
             CVarDef.Create("looc.enabled_admin", true, CVar.NOTIFY);
 
+        /// <summary>
+        /// True: Dead players can use LOOC
+        /// False: Dead player LOOC gets redirected to dead chat
+        /// </summary>
+        public static readonly CVarDef<bool> DeadLoocEnabled = CVarDef.Create("looc.enabled_dead", false, CVar.NOTIFY | CVar.REPLICATED);
+
         /*
          * Entity Menu Grouping Types
          */
@@ -912,7 +917,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.recall_turning_point", 0.5f, CVar.SERVERONLY);
 
         /// <summary>
-        /// The map to load for centcomm for the emergency shuttle to dock to.
+        /// The map to load for CentCom for the emergency shuttle to dock to.
         /// </summary>
         public static readonly CVarDef<string> CentcommMap =
             CVarDef.Create("shuttle.centcomm_map", "/Maps/centcomm.yml", CVar.SERVERONLY);

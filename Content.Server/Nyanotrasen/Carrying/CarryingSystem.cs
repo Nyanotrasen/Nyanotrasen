@@ -2,7 +2,10 @@ using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
-using Content.Shared.MobState.Components;
+using Content.Server.MobState;
+using Content.Server.Resist;
+using Content.Server.Speech;
+using Content.Server.Popups;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
@@ -10,11 +13,15 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Carrying;
 using Content.Shared.Movement.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
-using Robust.Shared.Physics;
+using Content.Shared.Throwing;
+using Content.Shared.Physics.Pull;
+using Robust.Shared.Player;
+
 
 namespace Content.Server.Carrying
 {
@@ -26,14 +33,23 @@ namespace Content.Server.Carrying
         [Dependency] private readonly StandingStateSystem _standingState = default!;
         [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
         [Dependency] private readonly SharedPullingSystem _pullingSystem = default!;
+        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
+        [Dependency] private readonly VocalSystem _vocalSystem = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+            SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
+            SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
+            SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
             SubscribeLocalEvent<CarryCancelledEvent>(OnCarryCancelled);
         }
@@ -50,7 +66,13 @@ namespace Content.Server.Carrying
             if (HasComp<CarryingComponent>(args.User)) // yeah not dealing with that
                 return;
 
-            if (!HasComp<KnockedDownComponent>(uid) && !(TryComp<MobStateComponent>(uid, out var state) && (state.IsCritical() || state.IsDead() || state.IsIncapacitated())))
+            if (HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target))
+                return;
+
+            if (!_mobStateSystem.IsAlive(args.User))
+                return;
+
+            if (args.User == args.Target)
                 return;
 
             AlternativeVerb verb = new()
@@ -73,6 +95,30 @@ namespace Content.Server.Carrying
             DropCarried(uid, args.BlockingEntity);
         }
 
+        private void OnThrow(EntityUid uid, CarryingComponent component, BeforeThrowEvent args)
+        {
+            if (!TryComp<HandVirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
+                return;
+
+            args.ItemUid = virtItem.BlockingEntity;
+
+            if (!TryComp<PhysicsComponent>(args.ItemUid, out var itemPhysics) || !TryComp<PhysicsComponent>(args.PlayerUid, out var playerPhysics))
+                return;
+
+            var multiplier = (playerPhysics.FixturesMass / itemPhysics.FixturesMass);
+            args.ThrowStrength = 5f * multiplier;
+
+            _vocalSystem.TryScream(args.ItemUid);
+        }
+
+        private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
+        {
+            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.IsResisting)
+                return;
+
+            if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape);
+        }
         private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
         {
             args.Cancel();
@@ -87,6 +133,11 @@ namespace Content.Server.Carrying
         {
             if (args.Uid != component.Carrier)
                 args.Cancel();
+        }
+
+        private void OnPullAttempt(EntityUid uid, BeingCarriedComponent component, PullAttemptEvent args)
+        {
+            args.Cancelled = true;
         }
 
         private void OnCarrySuccess(CarrySuccessfulEvent ev)
@@ -113,8 +164,26 @@ namespace Content.Server.Carrying
                 component.CancelToken = null;
             }
 
+            float length = 3f;
+
+            if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
+            {
+                length /= (carrierPhysics.FixturesMass / carriedPhysics.FixturesMass);
+                if (length >= 9)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, Filter.Entities(carrier), Shared.Popups.PopupType.SmallCaution);
+                    return;
+                }
+            } else
+            {
+                return;
+            }
+
+            if (!HasComp<KnockedDownComponent>(carried))
+                length *= 2f;
+
             component.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, 3f, component.CancelToken.Token, target: carried)
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
             {
                 BroadcastFinishedEvent = new CarrySuccessfulEvent(carrier, carried, component),
                 BroadcastCancelledEvent = new CarryCancelledEvent(carrier, component),
@@ -152,27 +221,18 @@ namespace Content.Server.Carrying
             _virtualItemSystem.DeleteInHandsMatching(carrier, carried);
             Transform(carried).AttachToGridOrMap();
             _standingState.Stand(carried);
+            _movementSpeed.RefreshMovementSpeedModifiers(carrier);
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
         {
-            if (!TryComp<FixturesComponent>(carrier, out var carrierFixtures))
+            if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics))
                 return;
-            if (!TryComp<FixturesComponent>(carried, out var carriedFixtures))
-                return;
-            if (carrierFixtures.Fixtures.Count == 0 || carriedFixtures.Fixtures.Count == 0)
+            if (!TryComp<PhysicsComponent>(carried, out var carriedPhysics))
                 return;
 
-            float carrierMass = 0f;
-            float carriedMass = 0f;
-            foreach (var fixture in carrierFixtures.Fixtures.Values)
-            {
-                carrierMass += fixture.Mass;
-            }
-            foreach (var fixture in carriedFixtures.Fixtures.Values)
-            {
-                carriedMass += fixture.Mass;
-            }
+            var carrierMass = carrierPhysics.FixturesMass;
+            var carriedMass = carriedPhysics.FixturesMass;
 
             if (carrierMass == 0f)
                 carrierMass = 70f;
