@@ -105,7 +105,7 @@
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
+        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
         state: torso_m
       - map: [ "enum.HumanoidVisualLayers.Head" ]
         color: "#e8b59b"
@@ -125,7 +125,7 @@
         state: l_arm
       - shader: StencilMask
         map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
+        sprite: Nyanotrasen/Mobs/Customization/lamia_masking_helpers.rsi
         state: female_full
         visible: false
       - map: [ "jumpsuit" ]
@@ -151,9 +151,6 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        state: shaved
-        sprite: Mobs/Customization/human_facial_hair.rsi
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
         state: bald
         sprite: Mobs/Customization/human_hair.rsi
@@ -340,7 +337,7 @@
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
         color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
+        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
         state: torso_m
       - map: [ "enum.HumanoidVisualLayers.Head" ]
         color: "#e8b59b"
@@ -360,7 +357,7 @@
         state: l_arm
       - shader: StencilMask
         map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
+        sprite: Nyanotrasen/Mobs/Customization/lamia_masking_helpers.rsi
         state: female_full
         visible: false
       - map: [ "jumpsuit" ]
@@ -386,9 +383,6 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        state: shaved
-        sprite: Mobs/Customization/human_facial_hair.rsi
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
         state: bald
         sprite: Mobs/Customization/human_hair.rsi
@@ -404,3 +398,5 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
+      - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
+        state: underscales
