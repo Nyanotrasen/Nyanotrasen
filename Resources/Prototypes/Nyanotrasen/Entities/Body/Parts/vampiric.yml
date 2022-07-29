@@ -1,0 +1,18 @@
+- type: entity
+  id: TorsoAnimalVampiric
+  name: "animal torso"
+  parent: TorsoAnimal
+  noSpawn: true
+  components:
+  - type: BodyPart
+    partType: Torso
+    size: 7
+    compatibility: Biological
+    mechanisms:
+    - OrganAnimalLungs
+    - OrganVampiricStomach
+    - OrganAnimalLiver
+    - OrganAnimalHeart
+    - OrganAnimalKidneys
+  - type: Damageable
+    damageContainer: Biological

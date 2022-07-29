@@ -1,12 +1,14 @@
 using Content.Shared.CharacterAppearance;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Shared.Markings
 {
     [RegisterComponent]
+    [NetworkedComponent]
     public sealed class MarkingsComponent : Component
     {
+        [ViewVariables]
         public Dictionary<HumanoidVisualLayers, List<Marking>> ActiveMarkings = new();
 
         // Layer points for the attached mob. This is verified client side (but should be verified server side, eventually as well),
