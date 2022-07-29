@@ -228,7 +228,6 @@ namespace Content.Server.Hands.Systems
 
             return true;
         }
-
         private void HandleSmartEquipBackpack(ICommonSession? session)
         {
             HandleSmartEquip(session, "back");
