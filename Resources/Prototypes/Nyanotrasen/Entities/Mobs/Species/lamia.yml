@@ -28,6 +28,8 @@
   - type: Identity
   - type: Hands
   - type: MovementSpeedModifier
+    baseWalkSpeed : 4
+    baseSprintSpeed : 6
   - type: MovedByPressure
   - type: Barotrauma
     damage:
@@ -300,6 +302,7 @@
     - SlurredSpeech
     - PressureImmunity
     - Muted
+    - KnockedDown
   - type: Speech
     speechSounds: Alto
   - type: Vocal
