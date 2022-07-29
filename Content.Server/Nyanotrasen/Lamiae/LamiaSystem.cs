@@ -85,7 +85,7 @@ namespace Content.Server.Lamiae
             {
                 if (!HasComp<LamiaSexEnforcedComponent>(args.Lamia))
                 {
-                    if (appearanceComponent.Sex == Sex.Female && appearanceComponent.Gender == Robust.Shared.Enums.Gender.Female)
+                    if (appearanceComponent.Sex == Sex.Female)
                     {
                         AddComp<LamiaSexEnforcedComponent>(args.Lamia);
                     }
