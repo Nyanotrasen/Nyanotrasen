@@ -74,5 +74,6 @@ public enum LogType
     Emag = 69,
     Gib = 70,
     BagOfHolding = 420,
-    Identity = 71
+    Identity = 71,
+    CableCut = 72,
 }

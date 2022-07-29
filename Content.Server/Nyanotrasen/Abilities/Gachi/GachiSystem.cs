@@ -79,7 +79,7 @@ namespace Content.Server.Abilities.Gachi
         {
             if (!TryComp<ClothingComponent>(uid, out var clothing))
                 return;
-            if (!clothing.SlotFlags.HasFlag(args.SlotFlags))
+            if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
             EnsureComp<GachiComponent>(args.Equipee);
             component.IsActive = true;

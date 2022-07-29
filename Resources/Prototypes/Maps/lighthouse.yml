@@ -5,7 +5,7 @@
   minPlayers: 20
   maxPlayers: 60
   stations:
-    lighthouse:
+    Lighthouse:
       mapNameTemplate: '{0} Pharos {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator
@@ -45,3 +45,4 @@
         SalvageTechnician: [ 2, 3 ]
         Musician: [1, 1]
         AtmosphericTechnician: [ 1, 2 ]
+        Reporter: [ 1, 2 ]

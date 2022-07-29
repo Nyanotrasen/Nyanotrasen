@@ -16,7 +16,7 @@
     - trigger:
         !type:DamageTrigger
         damage: 1000
-      behaviors: 
+      behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
@@ -38,9 +38,6 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     base: swindow
-  - type: Construction
-    graph: Window
-    node: shuttleWindow
   - type: Appearance
     visuals:
     - type: DamageVisualizer

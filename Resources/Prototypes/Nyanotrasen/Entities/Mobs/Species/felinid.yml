@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Uwist McHands
-  parent: MobHumanBase
+  parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
   description: A miserable pile of nyaas.
@@ -141,7 +141,17 @@
     - OwOnavirus
   - type: Thieving
     stealthy: true
-    stealTime: 2
+    stealTime: 1.5
+  - type: Speech
+    speechSounds: Alto
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 1
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Stamina
+    excess: 85
 
 - type: entity
   save: false
