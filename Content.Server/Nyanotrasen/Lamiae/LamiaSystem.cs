@@ -68,7 +68,7 @@ namespace Content.Server.Lamiae
             SubscribeLocalEvent<LamiaComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<LamiaComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
-            SubscribeLocalEvent<GravityChangedMessage>(OnGravityChanged);
+            SubscribeLocalEvent<GravityChangedEvent>(OnGravityChanged);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
@@ -125,7 +125,7 @@ namespace Content.Server.Lamiae
             }
         }
 
-        private void OnGravityChanged(GravityChangedMessage ev)
+        private void OnGravityChanged(GravityChangedEvent ev)
         {
             var gridUid = ev.ChangedGridIndex;
             var jetpackQuery = GetEntityQuery<LamiaSegmentComponent>();
