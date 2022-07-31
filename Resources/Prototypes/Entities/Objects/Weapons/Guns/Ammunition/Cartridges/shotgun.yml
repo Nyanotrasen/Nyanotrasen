@@ -71,17 +71,11 @@
 - type: entity
   id: ShellShotgunUnmatchedPowerOfTheSun
   name: shell (.50 unmatched power of the sun)
-  parent: BaseShellShotgun
+  parent: ShellShotgunFlare
   components:
-  - type: Sprite
-    layers:
-      - state: flare
-        map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunUnmatchedPowerOfTheSun
     count: 1
-  - type: SpentAmmoVisuals
-    state: "flare"
 
 - type: entity
   id: ShellShotgun
