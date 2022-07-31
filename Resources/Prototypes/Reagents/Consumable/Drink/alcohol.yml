@@ -4,19 +4,11 @@
 - type: reagent
   id: Absinthe
   name: reagent-name-absinthe
-  parent: BaseAlcohol
+  parent: RobustAlcohol
   desc: reagent-desc-absinthe
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#33EE00"
   spritePath: absintheglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.3
 
 - type: reagent
   id: Ale
@@ -39,105 +31,43 @@
 - type: reagent
   id: BlueCuracao
   name: reagent-name-blue-curacao
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-blue-curacao
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#0000CD"
   spritePath: curacaoglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.1
 
 - type: reagent
   id: Cognac
   name: reagent-name-cognac
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-cognac
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#AB3C05"
   spritePath: cognacglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: DeadRum
   name: reagent-name-dead-rum
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-dead-rum
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: rumglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
-
-- type: reagent
-  id: Ethanol
-  name: reagent-name-ethanol
-  parent: BaseAlcohol
-  desc: reagent-desc-ethanol
-  physicalDesc: reagent-physical-desc-strong-smelling
-  color: "#b05b3c"
-  boilingPoint: 78.2
-  meltingPoint: -114.1
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
-        damage:
-          groups:
-            Caustic: 1
-      - !type:ChemVomit
-        probability: 0.04
-        conditions:
-        - !type:ReagentThreshold
-          reagent: Ethanol
-          min: 3
-    Alcohol:
-      effects:
-      - !type:Drunk
-        boozePower: 3
 
 - type: reagent
   id: Gin
   name: reagent-name-gin
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-gin
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: ginvodkaglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Kahlua
   name: reagent-name-kahlua
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-kahlua
   physicalDesc: reagent-physical-desc-cloudy
   color: "#664300"
@@ -146,7 +76,7 @@
 - type: reagent
   id: MelonLiquor
   name: reagent-name-melon-liquor
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-melon-liquor
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#138808"
@@ -176,7 +106,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.05
+        amount: 0.1
     Poison:
       effects:
       - !type:HealthChange
@@ -187,24 +117,16 @@
 - type: reagent
   id: Rum
   name: reagent-name-rum
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-rum
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: rumglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Sake
   name: reagent-name-sake
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-sake
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#DDDDDD"
@@ -212,23 +134,15 @@
 - type: reagent
   id: Tequila
   name: reagent-name-tequila
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-tequila
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#d7d1d155"
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Vermouth
   name: reagent-name-vermouth
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-vermouth
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#91FF91"
@@ -237,36 +151,20 @@
 - type: reagent
   id: Vodka
   name: reagent-name-vodka
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-vodka
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#d1d1d155"
   spritePath: ginvodkaglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Whiskey
   name: reagent-name-whiskey
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-whiskey
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: whiskeyglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Wine
@@ -280,7 +178,7 @@
 # Mixed Alcohol
 
 - type: reagent
-  id: AcidSpit
+  id: AcidSpit # To be implemented
   name: reagent-name-acid-spit
   parent: BaseAlcohol
   desc: reagent-desc-acid-spit
@@ -289,16 +187,16 @@
   spritePath: acidspitglass.rsi
 
 - type: reagent
-  id: AlliesCocktail #haha, cock. that's hot
-  name: reagent-name-allies-cocktail #haha, cock. that's hot
+  id: AlliesCocktail # To be implemented
+  name: reagent-name-allies-cocktail
   parent: BaseAlcohol
-  desc: reagent-desc-allies-cocktail #haha, cock. that's hot
+  desc: reagent-desc-allies-cocktail
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#00664d"
   spritePath: alliescocktail.rsi
 
 - type: reagent
-  id: Aloe
+  id: Aloe # To be implemented
   name: reagent-name-aloe
   parent: BaseAlcohol
   desc: reagent-desc-aloe
@@ -307,7 +205,7 @@
   spritePath: aloe.rsi
 
 - type: reagent
-  id: Amasec
+  id: Amasec # To be implemented
   name: reagent-name-amasec
   parent: BaseAlcohol
   desc: reagent-desc-amasec
@@ -316,7 +214,7 @@
   spritePath: amasecglass.rsi
 
 - type: reagent
-  id: Andalusia
+  id: Andalusia # To be implemented
   name: reagent-name-andalusia
   parent: BaseAlcohol
   desc: reagent-desc-andalusia
@@ -327,24 +225,16 @@
 - type: reagent
   id: Antifreeze
   name: reagent-name-antifreeze
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-antifreeze
   physicalDesc: reagent-physical-desc-translucent
   color: "#ff7d63"
   spritePath: antifreeze.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: AtomicBomb
   name: reagent-name-atomic-bomb
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-atomic-bomb
   physicalDesc: reagent-physical-desc-cloudy
   color: "#666300"
@@ -353,10 +243,10 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 2
+        factor: 1.5
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.15
+        amount: 0.2
       - !type:AdjustReagent
         reagent: Radium
         amount: 0.05
@@ -364,22 +254,14 @@
 - type: reagent
   id: B52
   name: reagent-name-b52
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-b52
   physicalDesc: reagent-physical-desc-bubbly
   color: "#664300"
   spritePath: b52glass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: BahamaMama
+  id: BahamaMama # To be implemented
   name: reagent-name-bahama-mama
   parent: BaseAlcohol
   desc: reagent-desc-bahama-mama
@@ -397,7 +279,7 @@
   spritePath: bananahonkglass.rsi
 
 - type: reagent
-  id: Barefoot
+  id: Barefoot # To be implemented
   name: reagent-name-barefoot
   parent: BaseAlcohol
   desc: reagent-desc-barefoot
@@ -408,19 +290,11 @@
 - type: reagent
   id: BeepskySmash
   name: reagent-name-beepsky-smash
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-beepsky-smash
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: beepskysmashglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: Bilk
@@ -434,24 +308,16 @@
 - type: reagent
   id: BlackRussian
   name: reagent-name-black-russian
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-black-russian
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#360000"
   spritePath: blackrussianglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: BloodyMary
   name: reagent-name-bloody-mary
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-bloody-mary
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#660000"
@@ -469,48 +335,32 @@
 - type: reagent
   id: BraveBull
   name: reagent-name-brave-bull
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-brave-bull
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: bravebullglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: CubaLibre
   name: reagent-name-cuba-libre
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-cuba-libre
   physicalDesc: reagent-physical-desc-bubbly
   color: "#3E1B00"
   spritePath: cubalibreglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: DemonsBlood
+  id: DemonsBlood # To be implemented
   name: reagent-name-demons-blood
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-demons-blood
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#a70000"
   spritePath: demonsblood.rsi
 
 - type: reagent
-  id: DevilsKiss
+  id: DevilsKiss # To be implemented
   name: reagent-name-devils-kiss
   parent: BaseAlcohol
   desc: reagent-desc-devils-kiss
@@ -549,7 +399,7 @@
 - type: reagent
   id: DriestMartini
   name: reagent-name-driest-martini
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-driest-martini
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#2E6671"
@@ -558,10 +408,10 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 2
+        factor: -1
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.15
+        amount: 0.35
 
 - type: reagent
   id: ErikaSuprise
@@ -575,7 +425,7 @@
 - type: reagent
   id: GargleBlaster
   name: reagent-name-gargle-blaster
-  parent: BaseAlcohol
+  parent: RobustAlcohol
   desc: reagent-desc-gargle-blaster
   physicalDesc: reagent-physical-desc-volatile
   color: "#9cc8b4"
@@ -587,58 +437,34 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 1
 
 - type: reagent
   id: GinFizz
   name: reagent-name-gin-fizz
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-gin-fizz
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: ginfizzglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: GinTonic
   name: reagent-name-gin-tonic
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-gin-tonic
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#004166"
   spritePath: gintonicglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: Goldschlager
   name: reagent-name-goldschlager
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-goldschlager
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#FFFF91"
   spritePath: goldschlagerglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: Grog
@@ -650,7 +476,7 @@
   spritePath: grogglass.rsi
 
 - type: reagent
-  id: HippiesDelight
+  id: HippiesDelight # To be implemented
   name: reagent-name-hippies-delight
   parent: BaseAlcohol
   desc: reagent-desc-hippies-delight
@@ -659,7 +485,7 @@
   spritePath: hippiesdelightglass.rsi
 
 - type: reagent
-  id: Hooch
+  id: Hooch # To be implemented
   name: reagent-name-hooch
   parent: BaseAlcohol
   desc: reagent-desc-hooch
@@ -668,7 +494,7 @@
   spritePath: glass_brown2.rsi
 
 - type: reagent
-  id: IcedBeer
+  id: IcedBeer # To be implemented
   name: reagent-name-iced-beer
   parent: BaseAlcohol
   desc: reagent-desc-iced-beer
@@ -679,73 +505,41 @@
 - type: reagent
   id: IrishCarBomb
   name: reagent-name-irish-car-bomb
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-irish-car-bomb
   physicalDesc: reagent-physical-desc-bubbly
   color: "#2E6671"
   spritePath: irishcarbomb.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: IrishCream
   name: reagent-name-irish-cream
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-irish-cream
   physicalDesc: reagent-physical-desc-creamy
   color: "#664300"
   spritePath: irishcreamglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: IrishCoffee
   name: reagent-name-irish-coffee
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-irish-coffee
   physicalDesc: reagent-physical-desc-cloudy
   color: "#664300"
   spritePath: irishcoffeeglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: LongIslandIcedTea
   name: reagent-name-long-island-iced-tea
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-long-island-iced-tea
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: longislandicedteaglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: Manhattan
+  id: Manhattan # To be implemented
   name: reagent-name-manhattan
   parent: BaseAlcohol
   desc: reagent-desc-manhattan
@@ -754,7 +548,7 @@
   spritePath: manhattanglass.rsi
 
 - type: reagent
-  id: ManhattanProject
+  id: ManhattanProject # To be implemented
   name: reagent-name-manhattan-project
   parent: BaseAlcohol
   desc: reagent-desc-manhattan-project
@@ -772,7 +566,7 @@
   spritePath: manlydorfglass.rsi
 
 - type: reagent
-  id: Margarita
+  id: Margarita # To be implemented
   name: reagent-name-margarita
   parent: BaseAlcohol
   desc: reagent-desc-margarita
@@ -783,22 +577,14 @@
 - type: reagent
   id: Martini
   name: reagent-name-martini
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-martini
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#664300"
   spritePath: martiniglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: Mead
+  id: Mead # To be implemented
   name: reagent-name-mead
   parent: BaseAlcohol
   desc: reagent-desc-mead
@@ -818,21 +604,13 @@
 - type: reagent
   id: Moonshine
   name: reagent-name-moonshine
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-moonshine
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#d1d7d155"
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.25
 
 - type: reagent
-  id: Neurotoxin
+  id: Neurotoxin # To be implemented
   name: reagent-name-neurotoxin
   parent: BaseAlcohol
   desc: reagent-desc-neurotoxin
@@ -857,22 +635,14 @@
 - type: reagent
   id: Patron
   name: reagent-name-patron
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-patron
   physicalDesc: reagent-physical-desc-metallic
   color: "#585840"
   spritePath: patronglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
-  id: RedMead
+  id: RedMead # To be implemented
   name: reagent-name-red-mead
   parent: BaseAlcohol
   desc: reagent-desc-red-mead
@@ -881,7 +651,7 @@
   spritePath: red_meadglass.rsi
 
 - type: reagent
-  id: Sbiten
+  id: Sbiten # To be implemented
   name: reagent-name-sbiten
   parent: BaseAlcohol
   desc: reagent-desc-sbiten
@@ -892,22 +662,14 @@
 - type: reagent
   id: ScrewdriverCocktail
   name: reagent-name-screwdriver-cocktail
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-screwdriver-cocktail
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#A68310"
   spritePath: screwdriverglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: Silencer
+  id: Silencer # To be implemented
   name: reagent-name-silencer
   parent: BaseAlcohol
   desc: reagent-desc-silencer
@@ -924,7 +686,7 @@
         factor: 2
 
 - type: reagent
-  id: Singulo
+  id: Singulo # To be implemented
   name: reagent-name-singulo
   parent: BaseAlcohol
   desc: reagent-desc-singulo
@@ -933,7 +695,7 @@
   spritePath: singulo.rsi
 
 - type: reagent
-  id: SnowWhite
+  id: SnowWhite # To be implemented
   name: reagent-name-snow-white
   parent: BaseAlcohol
   desc: reagent-desc-snow-white
@@ -942,7 +704,7 @@
   spritePath: snowwhite.rsi
 
 - type: reagent
-  id: SuiDream
+  id: SuiDream # To be implemented
   name: reagent-name-sui-dream
   parent: BaseAlcohol
   desc: reagent-desc-sui-dream
@@ -962,24 +724,16 @@
 - type: reagent
   id: TequilaSunrise
   name: reagent-name-tequila-sunrise
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-tequila-sunrise
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#FFE48C"
   spritePath: tequillasunriseglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: ThreeMileIsland
   name: reagent-name-three-mile-island
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-three-mile-island
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#666340"
@@ -988,16 +742,16 @@
     Drink:
       effects:
       - !type:SatiateThirst
-        factor: 2
+        factor: 1
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.15
+        amount: 0.4
       - !type:AdjustReagent
         reagent: Uranium
         amount: 0.05
 
 - type: reagent
-  id: ToxinsSpecial
+  id: ToxinsSpecial # To be implemented
   name: reagent-name-toxins-special
   parent: BaseAlcohol
   desc: reagent-desc-toxins-special
@@ -1008,22 +762,14 @@
 - type: reagent
   id: VodkaMartini
   name: reagent-name-vodka-martini
-  parent: BaseAlcohol
+  parent: StrongAlcohol
   desc: reagent-desc-vodka-martini
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#004666"
   spritePath: martiniglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: VodkaTonic
+  id: VodkaTonic # To be implemented
   name: reagent-name-vodka-tonic
   parent: BaseAlcohol
   desc: reagent-desc-vodka-tonic
@@ -1042,50 +788,26 @@
 - type: reagent
   id: WhiskeyCola
   name: reagent-name-whiskey-cola
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-whiskey-cola
   physicalDesc: reagent-physical-desc-bubbly
   color: "#3E1B00"
   spritePath: whiskeycolaglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
-  id: WhiskeySoda
+  id: WhiskeySoda # To be implemented
   name: reagent-name-whiskey-soda
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-whiskey-soda
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#533600"
   spritePath: whiskeysodaglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
 
 - type: reagent
   id: WhiteRussian
   name: reagent-name-white-russian
-  parent: BaseAlcohol
+  parent: ModerateAlcohol
   desc: reagent-desc-white-russian
   physicalDesc: reagent-physical-desc-strong-smelling
   color: "#A68340"
   spritePath: whiterussianglass.rsi
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
