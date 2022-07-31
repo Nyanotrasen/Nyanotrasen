@@ -128,11 +128,8 @@
   id: PelletShotgunUnmatchedPowerOfTheSun
   name: pellet (.50 unmatched power of the sun)
   noSpawn: true
-  parent: BaseBullet
+  parent: PelletShotgunFlare
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: buckshot-flare
   - type: Projectile
     damage:
       groups:
@@ -143,4 +140,5 @@
     radius: 100.0
     energy: 10.0
   - type: IgniteOnCollide
-    fireStacks: 10000
+    fireStacks: 4
+    # above doesnt really matter since 10k burn will insta-gib
