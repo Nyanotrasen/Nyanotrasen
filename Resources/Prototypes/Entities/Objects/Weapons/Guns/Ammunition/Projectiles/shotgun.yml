@@ -123,3 +123,24 @@
     energy: 9.0
   - type: IgniteOnCollide
     fireStacks: 4
+    
+- type: entity
+  id: PelletShotgunUnmatchedPowerOfTheSun
+  name: pellet (.50 unmatched power of the sun)
+  noSpawn: true
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot-flare
+  - type: Projectile
+    damage:
+      groups:
+        Burn: 10000
+  - type: PointLight
+    enabled: true
+    color: "#FFFFFF"
+    radius: 100.0
+    energy: 10.0
+  - type: IgniteOnCollide
+    fireStacks: 10000
