@@ -194,6 +194,7 @@
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
   - type: LizardAccent
+  - type: NoSlip
   - type: ThermalRegulator
     metabolismHeat: 800
     radiatedHeat: 100
