@@ -15,6 +15,7 @@ using Content.Server.Popups;
 using Content.Server.HealthExaminable;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
+using Content.Server.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
@@ -141,6 +142,14 @@ namespace Content.Server.Lamiae
             if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
             {
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                return;
+            }
+
+            if (_inventorySystem.TryGetSlotEntity(bloodsucker, "mask", out var maskUid) &&
+                EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+                blocker.Enabled)
+            {
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
                 return;
             }
 
