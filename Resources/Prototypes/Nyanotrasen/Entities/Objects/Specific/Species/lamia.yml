@@ -9,7 +9,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 20
+      mass: 10
   - type: Transform
     anchored: false
 
@@ -32,7 +32,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 20
+      mass: 10
       mask:
       - Impassable
       hard: false
