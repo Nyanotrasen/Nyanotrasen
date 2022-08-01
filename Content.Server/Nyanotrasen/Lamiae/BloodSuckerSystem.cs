@@ -3,6 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Inventory;
@@ -13,6 +14,8 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.HealthExaminable;
 using Content.Server.DoAfter;
+using Content.Server.Hands.Systems;
+using Content.Server.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
@@ -21,6 +24,7 @@ namespace Content.Server.Lamiae
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {
+        [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
@@ -30,6 +34,7 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -49,6 +54,8 @@ namespace Content.Server.Lamiae
                 return;
             if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
                 return;
+            if (!args.CanAccess)
+                return;
 
             InnateVerb verb = new()
             {
@@ -66,6 +73,7 @@ namespace Content.Server.Lamiae
         private void OnEquippedHand(EntityUid uid, BloodSuckerComponent component, DidEquipHandEvent args)
         {
             EntityUid? succEntity = null;
+
             if (HasComp<BloodstreamComponent>(args.Equipped))
                 succEntity = args.Equipped;
             if (TryComp<HandVirtualItemComponent>(args.Equipped, out var virtualItem) && HasComp<BloodstreamComponent>(virtualItem.BlockingEntity))
@@ -125,9 +133,23 @@ namespace Content.Server.Lamiae
             if (!Resolve(victim, ref stream))
                 return;
 
+            if (!_interactionSystem.InRangeUnobstructed(bloodsucker, victim))
+            {
+                _virtualItemSystem.DeleteInHandsMatching(bloodsucker, victim);
+                return;
+            }
+
             if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
             {
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                return;
+            }
+
+            if (_inventorySystem.TryGetSlotEntity(bloodsucker, "mask", out var maskUid) &&
+                EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+                blocker.Enabled)
+            {
+                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
                 return;
             }
 
@@ -161,6 +183,7 @@ namespace Content.Server.Lamiae
                 BroadcastCancelledEvent = new SuckCancelledEvent(bloodsucker),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
+                DistanceThreshold = 2f,
                 BreakOnStun = true,
                 NeedHand = false
             });
