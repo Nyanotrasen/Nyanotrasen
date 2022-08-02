@@ -8,6 +8,7 @@ namespace Content.Server.Collapsible
 {
     public sealed class CollapsibleSystem : EntitySystem
     {
+        [Dependency] private readonly SharedItemSystem _itemSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -33,14 +34,14 @@ namespace Content.Server.Collapsible
             if (!component.Collapsed && component.ExtendSound != null)
                 SoundSystem.Play(component.ExtendSound.GetSound(), Filter.Pvs(uid), uid);
 
-            if (TryComp<SharedItemComponent>(uid, out var item))
+            if (TryComp<ItemComponent>(uid, out var item))
             {
                 if (!component.Collapsed)
                 {
-                    item.Size *= 15;
+                    _itemSystem.SetSize(uid, item.Size * 15, item);
                 } else
                 {
-                    item.Size /= 15;
+                    _itemSystem.SetSize(uid, item.Size / 15, item);
                 }
             }
 

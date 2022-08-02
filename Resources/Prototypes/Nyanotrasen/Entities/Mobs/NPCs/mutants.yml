@@ -4,7 +4,7 @@
   parent: SimpleSpaceMobBase
   description: This is really going to let you own some vegans in your next online debate.
   components:
-  - type: UtilityAI
+  - type: UtilityNPC
     behaviorSets:
     - Idle
     - UnarmedAttackHostiles

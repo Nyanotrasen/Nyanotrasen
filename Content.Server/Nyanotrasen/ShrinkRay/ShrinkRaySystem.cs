@@ -6,9 +6,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.ShrinkRay;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Server.Clothing.Components;
 using Content.Server.Disposal.Unit.Components;
-using Content.Server.PowerCell;
 using Content.Server.Power.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
@@ -24,6 +22,7 @@ namespace Content.Server.ShrinkRay
         [Dependency] private readonly SharedShrinkRaySystem _sharedShrink = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly SharedItemSystem _itemSystem = default!;
 
         public override void Initialize()
         {
@@ -132,11 +131,11 @@ namespace Content.Server.ShrinkRay
 
             if (applyItem)
             {
-                if (!HasComp<ItemComponent>(target) && !HasComp<SharedItemComponent>(target)) // yes it will crash without both of these
+                if (!HasComp<ItemComponent>(target))
                 {
                     shrunken.ShouldHaveItemComp = false;
                     var item = AddComp<ItemComponent>(target);
-                    item.Size = 5;
+                    _itemSystem.SetSize(target, 5, item);
                 }
             }
         }

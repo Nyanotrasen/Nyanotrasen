@@ -7,8 +7,8 @@
   - type: GhostTakeoverAvailable
     makeSentient: true
     name: Remilia, the chaplain's familiar
-    description: Obey your master. Eat fruit.
-    rules: You are an intelligent fruit bat. Follow the chaplain around. Don't cause any trouble unless the chaplain tells you to.
+    description: Obey your master. Drink blood.
+    rules: You are an intelligent vampire bat. Follow the chaplain around. Don't cause any trouble unless the chaplain tells you to.
   - type: Grammar
     attributes:
       gender: female
@@ -23,6 +23,11 @@
     showExamineInfo: true
   - type: Alerts
   - type: Familiar
+  - type: BloodSucker
+    unitsToSucc: 5
+  - type: Body
+    template: AnimalTemplate
+    preset: VampiricAnimalPreset
 
 - type: entity
   name: Cerberus
@@ -43,9 +48,9 @@
       types:
         Piercing: 8
         Slash: 7
-  - type: PlayerInputMover
-  - type: PlayerMobMover
-  - type: UtilityAI
+  - type: InputMover
+  - type: MobMover
+  - type: UtilityNPC
     behaviorSets:
     - Idle
   - type: AiFactionTag

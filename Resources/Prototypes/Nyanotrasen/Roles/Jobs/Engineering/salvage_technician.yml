@@ -8,6 +8,7 @@
   supervisors: "the chief engineer"
   access:
   - Salvage
+  - Engineering
   - Maintenance
   - External
 
@@ -17,7 +18,7 @@
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsSalvage
-    id: SalvagePDA
+    id: SalvageTechPDA
     ears: ClothingHeadsetEngineering
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

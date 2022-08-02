@@ -1,5 +1,5 @@
 - type: entity
-  parent: MobHumanBase
+  parent: BaseMobHuman
   name: Urist-ni-Kanabou
   id: MobOniBase
   abstract: true
@@ -131,6 +131,8 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Stamina
+    excess: 115
 
 - type: entity
   save: false
