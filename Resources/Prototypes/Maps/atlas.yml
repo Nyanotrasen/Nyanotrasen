@@ -3,8 +3,7 @@
   mapName: 'Atlas'
   mapPath: /Maps/atlas.yml
   minPlayers: 0
-  maxPlayers: 29
-  votable: false
+  maxPlayers: 15
   stations:
     Atlas: #TODO: Mapper, add a BecomesStation component to the primary grid of the map.
       mapNameTemplate: '{0} Atlas {1}'
@@ -30,6 +29,7 @@
         ChiefMedicalOfficer: [ 1, 1 ]
         MedicalDoctor: [ 1, 2 ]
         Chemist: [ 1, 1 ]
+        Paramedic: [ 1, 1 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 1, 2 ]
         HeadOfSecurity: [ 1, 1 ]
@@ -37,8 +37,8 @@
         Chaplain: [ 1, 1 ]
         Boxer: [ 1, 2 ]
         Lawyer: [ 1, 1 ]
-        Quartermaster: [ 1, 1 ]
+        Quartermaster: [ 1, 2 ]
         SalvageTechnician: [ 2, 2 ]
-        Musician: [ 1, 1 ]
+        Musician: [ 1, 2 ]
         ForensicMantis: [1, 1]
         Cyborg: [1, 1]
