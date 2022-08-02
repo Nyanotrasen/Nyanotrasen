@@ -9005,7 +9005,7 @@ entities:
       14,-19: 11
       14,-18: 11
       23,-20: 11
-      23,-19: 11
+      23,-19: 15
       23,-18: 11
       24,-20: 11
       24,-19: 11
@@ -9236,6 +9236,21 @@ entities:
       - 0
       - 0
       - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 5.4562197
+      - 20.52578
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
     type: GridAtmosphere
   - id: Atlas
     type: BecomesStation
@@ -9408,7 +9423,7 @@ entities:
     type: Transform
 - uid: 101
   components:
-  - index: 6
+  - index: 8
     type: Map
 - uid: 102
   type: WallReinforced
@@ -9423,15 +9438,14 @@ entities:
     parent: 73
     type: Transform
 - uid: 104
-  type: Firelock
+  type: FirelockEdge
   components:
-  - pos: -24.5,19.5
+  - rot: 1.5707963267948966 rad
+    pos: -24.5,19.5
     parent: 73
     type: Transform
   - airBlocked: False
     type: Airtight
-  - enabled: False
-    type: Occluder
   - canCollide: False
     type: Physics
 - uid: 105
@@ -15555,6 +15569,16 @@ entities:
   - pos: 1.5,7.5
     parent: 73
     type: Transform
+- uid: 929
+  type: ComputerRadar
+  components:
+  - pos: -35.5,17.5
+    parent: 73
+    type: Transform
+  - containers:
+      board: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 930
   type: GasVentScrubber
   components:
@@ -25384,6 +25408,8 @@ entities:
   - pos: -7.5,16.5
     parent: 73
     type: Transform
+  - chance: 0.75
+    type: RandomSpawner
 - uid: 2278
   type: DonkpocketBoxSpawner
   components:
@@ -44303,13 +44329,26 @@ entities:
     parent: 73
     type: Transform
 - uid: 4712
-  type: ComputerCargoOrders
+  type: ScienceTechFab
   components:
-  - pos: -35.5,17.5
+  - pos: -17.5,-11.5
     parent: 73
     type: Transform
   - containers:
-      board: !type:Container
+    - machine_parts
+    - machine_board
+    type: Construction
+  - materialWhiteList:
+    - Bluespace
+    - Glass
+    - Plastic
+    - Steel
+    - Durathread
+    type: Lathe
+  - containers:
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
         ents: []
     type: ContainerContainer
 - uid: 4713
@@ -54017,7 +54056,7 @@ entities:
   - pos: -39.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -50783.23
+  - SecondsUntilStateChange: -52700.41
     state: Closing
     type: Door
   - enabled: False
@@ -54043,7 +54082,7 @@ entities:
   - pos: -40.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -50783.23
+  - SecondsUntilStateChange: -52700.41
     state: Closing
     type: Door
   - enabled: False
@@ -54069,7 +54108,7 @@ entities:
   - pos: -41.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -50783.23
+  - SecondsUntilStateChange: -52700.41
     state: Closing
     type: Door
   - enabled: False
@@ -54095,7 +54134,7 @@ entities:
   - pos: -42.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -50783.23
+  - SecondsUntilStateChange: -52700.41
     state: Closing
     type: Door
   - enabled: False
@@ -54121,7 +54160,7 @@ entities:
   - pos: -43.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -50783.23
+  - SecondsUntilStateChange: -52700.41
     state: Closing
     type: Door
   - enabled: False
@@ -66160,8 +66199,8 @@ entities:
 - uid: 7480
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -4.5,-9.5
+  - rot: 1.5707963267948966 rad
+    pos: -3.5,-8.5
     parent: 73
     type: Transform
   - powerLoad: 0
@@ -66625,13 +66664,15 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 7539
-  type: FirelockGlass
+  type: Firelock
   components:
-  - pos: 21.5,-15.5
+  - pos: 23.5,-18.5
     parent: 73
     type: Transform
   - airBlocked: False
     type: Airtight
+  - enabled: False
+    type: Occluder
   - canCollide: False
     type: Physics
 - uid: 7540
@@ -67916,6 +67957,18 @@ entities:
     pos: -19.5,22.5
     parent: 73
     type: Transform
+- uid: 7689
+  type: Firelock
+  components:
+  - pos: 21.5,-15.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - enabled: False
+    type: Occluder
+  - canCollide: False
+    type: Physics
 - uid: 7690
   type: BookRandom
   components:
@@ -67941,4 +67994,93 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+- uid: 7693
+  type: FirelockGlass
+  components:
+  - pos: -0.5,-7.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7694
+  type: DonkpocketBoxSpawner
+  components:
+  - pos: -20.5,-0.5
+    parent: 73
+    type: Transform
+- uid: 7695
+  type: DonkpocketBoxSpawner
+  components:
+  - pos: -16.5,23.5
+    parent: 73
+    type: Transform
+- uid: 7696
+  type: DonkpocketBoxSpawner
+  components:
+  - pos: 12.5,11.5
+    parent: 73
+    type: Transform
+- uid: 7697
+  type: Sink
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -18.5,4.5
+    parent: 73
+    type: Transform
+- uid: 7698
+  type: SinkWide
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -16.5,0.5
+    parent: 73
+    type: Transform
+- uid: 7699
+  type: DrinkFlask
+  components:
+  - desc: A metal flask belonging to the long dead Captain Roger Hirleman, known widely as an embarrassment to the force.
+    name: rusted flask
+    type: MetaData
+  - rot: -1.5707963267948966 rad
+    pos: 1.8555927,26.225706
+    parent: 73
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - solution: drink
+    type: DrainableSolution
+- uid: 7700
+  type: SignMail
+  components:
+  - pos: -21.5,12.5
+    parent: 73
+    type: Transform
+- uid: 7701
+  type: SpawnPointMailCarrier
+  components:
+  - pos: -25.5,20.5
+    parent: 73
+    type: Transform
+- uid: 7702
+  type: SpawnPointMailCarrier
+  components:
+  - pos: -29.5,20.5
+    parent: 73
+    type: Transform
+- uid: 7703
+  type: IDComputerCircuitboard
+  components:
+  - pos: 35.696136,-3.2752833
+    parent: 73
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 7704
+  type: SinkStemlessWater
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -3.5,-9.5
+    parent: 73
+    type: Transform
 ...
