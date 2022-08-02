@@ -1,17 +1,5 @@
 - type: entity
   parent: IDCardStandard
-  id: BoxerIDCard
-  name: boxer ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: default
-    - state: idboxer
-  - type: PresetIdCard
-    job: Boxer
-
-- type: entity
-  parent: IDCardStandard
   id: ForensicMantisIDCard
   name: forensic mantis ID card
   components:
@@ -21,6 +9,13 @@
         - state: iddetective
     - type: PresetIdCard
       job: ForensicMantis
+
+- type: entity
+  parent: SalvageIDCard
+  id: SalvageTechIDCard
+  components:
+  - type: PresetIdCard
+    job: SalvageTechnician
 
 - type: entity
   parent: IDCardStandard

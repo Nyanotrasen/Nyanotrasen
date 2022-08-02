@@ -107,8 +107,13 @@ namespace Content.Server.Research.Oracle
 
             EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
 
-            if (_random.Prob(0.15f))
+            int i = ((_random.Next() % 4) + 1);
+
+            while (i != 0)
+            {
                 EntityManager.SpawnEntity("MaterialBluespace", Transform(uid).Coordinates);
+                i--;
+            }
 
             if (nextItem)
                 NextItem(component);

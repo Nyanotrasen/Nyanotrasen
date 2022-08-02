@@ -3,10 +3,15 @@
   name: Chief Engineer
 
 - type: accessLevel
+  id: Salvage
+
+- type: accessLevel
   id: Engineering
-  
+  name: Engineering
+
 - type: accessLevel
   id: Atmospherics
+  name: Atmospherics
 
 - type: accessGroup
   id: Engineering
@@ -14,3 +19,4 @@
   - ChiefEngineer
   - Engineering
   - Atmospherics
+  - Salvage
