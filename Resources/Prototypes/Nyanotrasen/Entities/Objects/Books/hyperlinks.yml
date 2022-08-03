@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  id: HyperlinkBookSpaceLaw
+  name: space law
+  description: A big book of laws for space courts.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: book_space_law
+  - type: HyperlinkBook
+    url: https://wiki.spacestation14.io/wiki/Space_Law
+
+- type: entity
+  parent: HyperlinkBookSpaceLaw
+  id: HyperlinkBookSupernanny
+  name: book of unsanctioned space punishments
+  description: The ravings of a madman.
+  components:
+  - type: HyperlinkBook
+    url: https://supernannyfanon.fandom.com/wiki/Category:Discipline_Techniques
