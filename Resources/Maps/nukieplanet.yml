@@ -229,7 +229,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 18
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: -1.5707963267948966 rad
     pos: 7.5,-2.5
@@ -304,7 +304,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 29
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: -1.5707963267948966 rad
     pos: 7.5,-1.5
@@ -624,7 +624,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 81
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: -1.5707963267948966 rad
     pos: 7.5,-4.5
@@ -719,7 +719,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 96
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: 3.141592653589793 rad
     pos: 0.5,-8.5
@@ -5764,7 +5764,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 107
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: -1.5707963267948966 rad
     pos: 7.5,-3.5
@@ -5775,7 +5775,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 108
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - rot: 3.141592653589793 rad
     pos: 1.5,-8.5
@@ -5798,7 +5798,7 @@ entities:
     parent: 104
     type: Transform
 - uid: 111
-  type: computerBodyScanner
+  type:ComputerCloningConsole
   components:
   - pos: -0.5,-0.5
     parent: 104
