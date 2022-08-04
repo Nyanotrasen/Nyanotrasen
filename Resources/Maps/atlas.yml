@@ -9441,7 +9441,7 @@ entities:
     type: Transform
 - uid: 101
   components:
-  - index: 6
+  - index: 5
     type: Map
 - uid: 102
   type: WallReinforced
@@ -25686,7 +25686,9 @@ entities:
       System.Func`3[Robust.Shared.GameObjects.EntityUid,Robust.Shared.GameObjects.MetaDataComponent,System.String]-bodyContainer: !type:ContainerSlot {}
     type: ContainerContainer
   - inputs:
-      CloningPodReceiver: []
+      CloningPodReceiver:
+      - port: CloningPodSender
+        uid: 2330
     type: SignalReceiver
 - uid: 2319
   type: Grille
@@ -25755,12 +25757,20 @@ entities:
     parent: 73
     type: Transform
 - uid: 2330
-  type: computerBodyScanner
+  type: ComputerCloningConsole
   components:
   - rot: 3.141592653589793 rad
     pos: 13.5,-8.5
     parent: 73
     type: Transform
+  - outputs:
+      MedicalScannerSender:
+      - port: MedicalScannerReceiver
+        uid: 2481
+      CloningPodSender:
+      - port: CloningPodReceiver
+        uid: 2318
+    type: SignalTransmitter
   - containers:
       board: !type:Container
         ents: []
@@ -26801,7 +26811,9 @@ entities:
         ents: []
     type: ContainerContainer
   - inputs:
-      MedicalScannerReceiver: []
+      MedicalScannerReceiver:
+      - port: MedicalScannerSender
+        uid: 2330
     type: SignalReceiver
 - uid: 2482
   type: Grille
@@ -54110,7 +54122,7 @@ entities:
   - pos: -39.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -59103.582
+  - SecondsUntilStateChange: -59242.348
     state: Closing
     type: Door
   - enabled: False
@@ -54136,7 +54148,7 @@ entities:
   - pos: -40.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -59103.582
+  - SecondsUntilStateChange: -59242.348
     state: Closing
     type: Door
   - enabled: False
@@ -54162,7 +54174,7 @@ entities:
   - pos: -41.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -59103.582
+  - SecondsUntilStateChange: -59242.348
     state: Closing
     type: Door
   - enabled: False
@@ -54188,7 +54200,7 @@ entities:
   - pos: -42.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -59103.582
+  - SecondsUntilStateChange: -59242.348
     state: Closing
     type: Door
   - enabled: False
@@ -54214,7 +54226,7 @@ entities:
   - pos: -43.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -59103.582
+  - SecondsUntilStateChange: -59242.348
     state: Closing
     type: Door
   - enabled: False
