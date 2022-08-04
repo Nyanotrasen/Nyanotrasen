@@ -3,7 +3,7 @@
   mapName: 'Atlas'
   mapPath: /Maps/atlas.yml
   minPlayers: 0
-  maxPlayers: 29
+  maxPlayers: 30
   stations:
     Atlas: #TODO: Mapper, add a BecomesStation component to the primary grid of the map.
       mapNameTemplate: '{0} Atlas {1}'
