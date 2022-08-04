@@ -25780,7 +25780,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 2330
-  type:ComputerCloningConsole
+  type: computerBodyScanner
   components:
   - rot: 3.141592653589793 rad
     pos: 13.5,-8.5
@@ -67094,7 +67094,7 @@ entities:
 
       Labeling scheme should be similar to as follows: Chemical name - Dosage_u - Damage type
 
-      Further more, please consider naming the drugs something catchy- the patients prefer when they can read the drug names in their native tongue.
+      Further more, please consider naming the drugs something catchy- the patients prefer when they can read the drug names in their native tongue. 
     type: Paper
   - canCollide: False
     type: Physics

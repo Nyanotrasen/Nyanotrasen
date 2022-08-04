@@ -31773,7 +31773,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 1313
-  type:ComputerCloningConsole
+  type: computerBodyScanner
   components:
   - rot: -1.5707963267948966 rad
     pos: -27.5,46.5
@@ -33078,7 +33078,7 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 1489
-  type:ComputerCloningConsole
+  type: computerBodyScanner
   components:
   - rot: 1.5707963267948966 rad
     pos: -20.5,49.5
@@ -148076,7 +148076,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 16762
-  type:ComputerCloningConsole
+  type: computerBodyScanner
   components:
   - rot: 3.141592653589793 rad
     pos: -23.5,-45.5
