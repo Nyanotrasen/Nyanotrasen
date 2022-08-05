@@ -1,10 +1,14 @@
 using Content.Server.Cloning.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.CharacterAppearance.Systems;
 using Content.Shared.CharacterAppearance.Components;
 using Content.Shared.Species;
+using Content.Shared.Damage;
+using Content.Shared.Stacks;
+using Content.Shared.Examine;
 using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.EUI;
@@ -14,6 +18,13 @@ using Content.Shared.Cloning;
 using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
 using Content.Server.MobState;
+using Content.Server.Lathe.Components;
+using Content.Shared.Atmos;
+using Robust.Server.GameObjects;
+using Robust.Shared.Random;
+using Content.Shared.Chemistry.Components;
+using Content.Server.Fluids.EntitySystems;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.Cloning.Systems
 {
@@ -28,6 +39,14 @@ namespace Content.Server.Cloning.Systems
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
+        [Dependency] private readonly IRobustRandom _robustRandom = default!;
+        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+        [Dependency] private readonly TransformSystem _transformSystem = default!;
+        [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
+
+
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
 
         public override void Initialize()
@@ -39,6 +58,7 @@ namespace Content.Server.Cloning.Systems
             SubscribeLocalEvent<BeingClonedComponent, MindAddedMessage>(HandleMindAdded);
             SubscribeLocalEvent<CloningPodComponent, PortDisconnectedEvent>(OnPortDisconnected);
             SubscribeLocalEvent<CloningPodComponent, AnchorStateChangedEvent>(OnAnchor);
+            SubscribeLocalEvent<CloningPodComponent, ExaminedEvent>(OnExamined);
         }
 
         private void OnComponentInit(EntityUid uid, CloningPodComponent clonePod, ComponentInit args)
@@ -97,6 +117,15 @@ namespace Content.Server.Cloning.Systems
             _cloningConsoleSystem.UpdateUserInterface(console);
         }
 
+        private void OnExamined(EntityUid uid, CloningPodComponent component, ExaminedEvent args)
+        {
+            if (!args.IsInDetailsRange || !_powerReceiverSystem.IsPowered(uid))
+                return;
+
+            if (TryComp<MaterialStorageComponent>(uid, out var storage))
+                args.PushMarkup(Loc.GetString("cloning-pod-biomass", ("number", storage.GetMaterialAmount("Biomass"))));
+        }
+
         public bool TryCloning(EntityUid uid, EntityUid bodyToClone, Mind.Mind mind, CloningPodComponent? clonePod)
         {
             if (!Resolve(uid, ref clonePod) || bodyToClone == null)
@@ -120,11 +149,48 @@ namespace Content.Server.Cloning.Systems
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
                 return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
 
+            if (!TryComp<MaterialStorageComponent>(clonePod.Owner, out var podStorage))
+                return false;
+
             if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
 
-            var speciesProto = _prototype.Index<SpeciesPrototype>(humanoid.Species).Prototype;
-            var mob = Spawn(speciesProto, Transform(clonePod.Owner).MapPosition);
+            if (!_prototype.TryIndex<SpeciesPrototype>(humanoid.Species, out var speciesPrototype))
+                return false;
+
+            // biomass checks
+            var biomassAmount = podStorage.GetMaterialAmount("Biomass");
+
+            if (biomassAmount < speciesPrototype.CloningCost)
+            {
+                if (clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-error", ("units", speciesPrototype.CloningCost)), InGameICChatType.Speak, false);
+                return false;
+            }
+
+            podStorage.RemoveMaterial("Biomass", speciesPrototype.CloningCost);
+            clonePod.UsedBiomass = speciesPrototype.CloningCost;
+            // end of biomass checks
+
+            // genetic damage checks
+            if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
+                damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
+            {
+                if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning"), InGameICChatType.Speak, false);
+
+                var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
+                if (_robustRandom.Prob(chance))
+                {
+                    UpdateStatus(CloningPodStatus.Gore, clonePod);
+                    clonePod.FailedClone = true;
+                    AddComp<ActiveCloningPodComponent>(uid);
+                    return true;
+                }
+            }
+            // end of genetic damage checks
+
+            var mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
             _appearanceSystem.UpdateAppearance(mob, humanoid.Appearance);
             _appearanceSystem.UpdateSexGender(mob, humanoid.Sex, humanoid.Gender);
 
@@ -156,6 +222,15 @@ namespace Content.Server.Cloning.Systems
                 if (!_powerReceiverSystem.IsPowered(cloning.Owner))
                     continue;
 
+                if (cloning.FailedClone)
+                {
+                    cloning.CloningProgress += frameTime;
+                    if (cloning.CloningProgress < cloning.CloningTime)
+                        continue;
+
+                    EndFailedCloning(cloning.Owner, cloning);
+                }
+
                 if (cloning.BodyContainer.ContainedEntity != null)
                 {
                     cloning.CloningProgress += frameTime;
@@ -181,7 +256,37 @@ namespace Content.Server.Cloning.Systems
             clonePod.BodyContainer.Remove(entity);
             clonePod.CapturedMind = null;
             clonePod.CloningProgress = 0f;
+            clonePod.UsedBiomass = 0;
             UpdateStatus(CloningPodStatus.Idle, clonePod);
+            RemCompDeferred<ActiveCloningPodComponent>(uid);
+        }
+
+        private void EndFailedCloning(EntityUid uid, CloningPodComponent clonePod)
+        {
+            clonePod.FailedClone = false;
+            clonePod.CloningProgress = 0f;
+            UpdateStatus(CloningPodStatus.Idle, clonePod);
+            var transform = Transform(uid);
+            var indices = _transformSystem.GetGridOrMapTilePosition(uid);
+
+            var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
+
+            Solution bloodSolution = new();
+
+            int i = 0;
+            while (i < 1)
+            {
+                tileMix?.AdjustMoles(Gas.Miasma, 6f);
+                bloodSolution.AddReagent("Blood", 50);
+                if (_robustRandom.Prob(0.2f))
+                    i++;
+            }
+            _spillableSystem.SpillAt(uid, bloodSolution, "PuddleBlood");
+
+            var biomassStack = Spawn("MaterialBiomass", transform.Coordinates);
+            _stackSystem.SetCount(biomassStack, _robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)));
+
+            clonePod.UsedBiomass = 0;
             RemCompDeferred<ActiveCloningPodComponent>(uid);
         }
 
