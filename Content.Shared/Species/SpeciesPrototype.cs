@@ -53,6 +53,13 @@ public sealed class SpeciesPrototype : IPrototype
 
     [DataField("naming")]
     public SpeciesNaming Naming { get; } = SpeciesNaming.FirstLast;
+
+    /// <summary>
+    /// How much biomass it takes to clone. Should be equal to mass.
+    /// Finally being lower mass is a positive for something.
+    /// </summary>
+    [DataField("cloningCost")]
+    public int CloningCost = 70;
 }
 
 public enum SpeciesSkinColor : byte
