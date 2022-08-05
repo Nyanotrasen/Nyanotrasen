@@ -12,6 +12,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Shared.Throwing;
+using Content.Shared.Construction.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -52,7 +53,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                             blood.AddReagent(reclaimer.BloodReagent, 50);
                             _spillableSystem.SpillAt(reclaimer.Owner, blood, "PuddleBlood");
                         }
-                        if (_robustRandom.Prob(0.2f) && reclaimer.SpawnedEntities.Count > 0)
+                        if (_robustRandom.Prob(0.1f) && reclaimer.SpawnedEntities.Count > 0)
                         {
                             var thrown = Spawn(_robustRandom.Pick(reclaimer.SpawnedEntities).PrototypeId, Transform(reclaimer.Owner).Coordinates);
                             Vector2 direction = (_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
@@ -81,6 +82,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             base.Initialize();
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<ActiveBiomassReclaimerComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
             SubscribeLocalEvent<BiomassReclaimerComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<ReclaimSuccessfulEvent>(OnReclaimSuccessful);
@@ -100,6 +102,10 @@ namespace Content.Server.Medical.BiomassReclaimer
             _ambientSoundSystem.SetAmbience(uid, false);
         }
 
+        private void OnUnanchorAttempt(EntityUid uid, ActiveBiomassReclaimerComponent component, UnanchorAttemptEvent args)
+        {
+            args.Cancel();
+        }
         private void OnAfterInteractUsing(EntityUid uid, BiomassReclaimerComponent component, AfterInteractUsingEvent args)
         {
             if (!args.CanReach)
@@ -141,6 +147,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             if (!TryComp<BiomassReclaimerComponent>(args.Reclaimer, out var reclaimer))
                 return;
 
+            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} used a biomass reclaimer to gib {ToPrettyString(args.Target):target} in {ToPrettyString(args.Reclaimer):reclaimer}");
             reclaimer.CancelToken = null;
             StartProcessing(args.Target, reclaimer);
         }
