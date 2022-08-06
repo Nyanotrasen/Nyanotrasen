@@ -1521,7 +1521,7 @@ entities:
     type: ContainerContainer
 - uid: 179
   components:
-  - index: 2
+  - index: 5
     type: Map
 - uid: 180
   type: DisposalJunction
@@ -27688,9 +27688,10 @@ entities:
     parent: 852
     type: Transform
 - uid: 2385
-  type: CableApcExtension
+  type: WindowReinforcedDirectional
   components:
-  - pos: -7.5,-21.5
+  - rot: 3.141592653589793 rad
+    pos: -25.5,-14.5
     parent: 852
     type: Transform
 - uid: 2386
@@ -37145,10 +37146,10 @@ entities:
     parent: 852
     type: Transform
 - uid: 3728
-  type: CableMV
+  type: WindowReinforcedDirectional
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: -1.5,-19.5
+  - rot: 3.141592653589793 rad
+    pos: -24.5,-14.5
     parent: 852
     type: Transform
 - uid: 3729
@@ -56804,6 +56805,13 @@ entities:
   - pos: -4.5,-24.5
     parent: 852
     type: Transform
+- uid: 6181
+  type: Railing
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -24.5,-16.5
+    parent: 852
+    type: Transform
 - uid: 6182
   type: CrowbarRed
   components:
@@ -64554,6 +64562,36 @@ entities:
   - pos: 22.5,-4.5
     parent: 852
     type: Transform
+- uid: 7246
+  type: Railing
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -25.5,-16.5
+    parent: 852
+    type: Transform
+- uid: 7247
+  type: WindoorSecure
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -23.5,-13.5
+    parent: 852
+    type: Transform
+- uid: 7248
+  type: WindowReinforcedDirectional
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -23.5,-14.5
+    parent: 852
+    type: Transform
+- uid: 7249
+  type: CableApcStack1
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -9.538584,-23.454187
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7250
   type: ClothingUniformJumpskirtParamedic
   components:
@@ -64903,6 +64941,14 @@ entities:
   - pos: 9.5,-27.5
     parent: 852
     type: Transform
+- uid: 7295
+  type: CableApcStack1
+  components:
+  - pos: -9.642751,-23.579273
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7296
   type: SpawnMobMouse
   components:
@@ -65433,6 +65479,36 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+- uid: 7367
+  type: LeftArmBorg
+  components:
+  - pos: -9.528168,-23.256132
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - containers:
+      BodyPart-BodyPartComponent: !type:Container
+        ents: []
+    type: ContainerContainer
+- uid: 7368
+  type: CableApcExtension
+  components:
+  - pos: -8.5,-20.5
+    parent: 852
+    type: Transform
+- uid: 7369
+  type: CableApcExtension
+  components:
+  - pos: -7.5,-20.5
+    parent: 852
+    type: Transform
+- uid: 7370
+  type: CableApcExtension
+  components:
+  - pos: -7.5,-21.5
+    parent: 852
+    type: Transform
 - uid: 7371
   type: CableHV
   components:
@@ -66645,31 +66721,6 @@ entities:
       - port: Toggle
         uid: 7536
     type: SignalTransmitter
-- uid: 7553
-  type: WindowReinforcedDirectional
-  components:
-  - pos: -25.5,-13.5
-    parent: 852
-    type: Transform
-- uid: 7554
-  type: WindowReinforcedDirectional
-  components:
-  - pos: -24.5,-13.5
-    parent: 852
-    type: Transform
-- uid: 7555
-  type: WindowReinforcedDirectional
-  components:
-  - pos: -23.5,-13.5
-    parent: 852
-    type: Transform
-- uid: 7556
-  type: WindoorSecure
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -22.5,-13.5
-    parent: 852
-    type: Transform
 - uid: 7557
   type: GasPipeStraight
   components:
