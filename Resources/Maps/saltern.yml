@@ -268,7 +268,7 @@ entities:
     - Steel
     - Plastic
     - Glass
-    type: Lathe
+    type: MaterialStorage
   - containers:
     - machine_parts
     - machine_board
@@ -502,11 +502,10 @@ entities:
         ents: []
       machine_parts: !type:Container
         ents: []
+      scanner-bodyContainer: !type:ContainerSlot {}
     type: ContainerContainer
   - inputs:
-      MedicalScannerReceiver:
-      - port: MedicalScannerSender
-        uid: 2841
+      MedicalScannerReceiver: []
     type: SignalReceiver
 - uid: 45
   type: BoxSterileMask
@@ -1076,6 +1075,8 @@ entities:
     type: Transform
   - solution: drink
     type: DrainableSolution
+  - tags: []
+    type: Tag
 - uid: 124
   type: AirlockMedicalGlassLocked
   components:
@@ -1154,13 +1155,15 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 135
-  type: ClothingBackpackDuffelSurgeryFilled
+  type: BiomassReclaimer
   components:
-  - pos: 19.48091,-22.183224
+  - pos: 18.5,-21.5
     parent: 852
     type: Transform
   - containers:
-      storagebase: !type:Container
+      machine_board: !type:Container
+        ents: []
+      machine_parts: !type:Container
         ents: []
     type: ContainerContainer
 - uid: 136
@@ -1518,7 +1521,7 @@ entities:
     type: ContainerContainer
 - uid: 179
   components:
-  - index: 5
+  - index: 2
     type: Map
 - uid: 180
   type: DisposalJunction
@@ -4184,7 +4187,7 @@ entities:
     - Bluespace
     - Durathread
     - Wood
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -4604,11 +4607,10 @@ entities:
         ents: []
       machine_parts: !type:Container
         ents: []
+      clonepod-bodyContainer: !type:ContainerSlot {}
     type: ContainerContainer
   - inputs:
-      CloningPodReceiver:
-      - port: CloningPodSender
-        uid: 2841
+      CloningPodReceiver: []
     type: SignalReceiver
 - uid: 504
   type: CableHV
@@ -5424,7 +5426,7 @@ entities:
     - Glass
     - Plastic
     - Steel
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -5754,12 +5756,20 @@ entities:
     parent: 852
     type: Transform
 - uid: 662
-  type: Table
+  type: ComputerCloningConsole
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: 19.5,-22.5
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-15.5
     parent: 852
     type: Transform
+  - outputs:
+      MedicalScannerSender: []
+      CloningPodSender: []
+    type: SignalTransmitter
+  - containers:
+      board: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 663
   type: WallSolid
   components:
@@ -5787,12 +5797,13 @@ entities:
     parent: 852
     type: Transform
 - uid: 666
-  type: Table
+  type: FloorDrain
   components:
-  - rot: 4.371139006309477E-08 rad
-    pos: 19.5,-21.5
+  - pos: 18.5,-22.5
     parent: 852
     type: Transform
+  - fixtures: []
+    type: Fixtures
 - uid: 667
   type: GasPipeBend
   components:
@@ -16659,7 +16670,7 @@ entities:
     - Plastic
     - Wood
     - Glass
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -16686,9 +16697,8 @@ entities:
     - Steel
     - Glass
     - Plastic
-    - Wood
     - Gold
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -18810,6 +18820,8 @@ entities:
     type: Physics
   - solution: drink
     type: DrainableSolution
+  - tags: []
+    type: Tag
 - uid: 1159
   type: CableApcExtension
   components:
@@ -30883,24 +30895,13 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 2841
-  type: ComputerCloningConsole
+  type: Multitool
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 7.5,-15.5
+  - pos: 8.860561,-15.427243
     parent: 852
     type: Transform
-  - outputs:
-      MedicalScannerSender:
-      - port: MedicalScannerReceiver
-        uid: 44
-      CloningPodSender:
-      - port: CloningPodReceiver
-        uid: 503
-    type: SignalTransmitter
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
+  - canCollide: False
+    type: Physics
 - uid: 2842
   type: CableApcExtension
   components:
@@ -37160,6 +37161,8 @@ entities:
     type: Physics
   - solution: drink
     type: RefillableSolution
+  - tags: []
+    type: Tag
 - uid: 3730
   type: CableMV
   components:
@@ -38662,7 +38665,7 @@ entities:
     - Plastic
     - Wood
     - Glass
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -43675,7 +43678,7 @@ entities:
     - Steel
     - Glass
     - Gold
-    type: Lathe
+    type: MaterialStorage
   - containers:
     - machine_parts
     - machine_board
@@ -43740,7 +43743,7 @@ entities:
     - Uranium
     - Gold
     - Silver
-    type: Lathe
+    type: MaterialStorage
   - containers:
     - machine_parts
     - machine_board
@@ -53232,6 +53235,8 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - tags: []
+    type: Tag
 - uid: 5769
   type: AirlockMaintLocked
   components:
@@ -56797,12 +56802,6 @@ entities:
   type: TableStone
   components:
   - pos: -4.5,-24.5
-    parent: 852
-    type: Transform
-- uid: 6181
-  type: OperatingTable
-  components:
-  - pos: 18.5,-20.5
     parent: 852
     type: Transform
 - uid: 6182
@@ -61687,7 +61686,7 @@ entities:
     - Glass
     - Plastic
     - Gold
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -61760,7 +61759,7 @@ entities:
     - Plastic
     - Steel
     - Durathread
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -64555,36 +64554,6 @@ entities:
   - pos: 22.5,-4.5
     parent: 852
     type: Transform
-- uid: 7246
-  type: CrateSurgery
-  components:
-  - pos: 18.5,-22.5
-    parent: 852
-    type: Transform
-  - containers:
-    - EntityStorageComponent
-    type: Construction
-  - isPlaceable: False
-    type: PlaceableSurface
-- uid: 7247
-  type: CrateMedicalSurgery
-  components:
-  - pos: 17.5,-22.5
-    parent: 852
-    type: Transform
-  - containers:
-    - EntityStorageComponent
-    type: Construction
-  - isPlaceable: False
-    type: PlaceableSurface
-- uid: 7248
-  type: ClothingHandsGlovesLatex
-  components:
-  - pos: 19.465284,-21.526974
-    parent: 852
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7250
   type: ClothingUniformJumpskirtParamedic
   components:
@@ -72155,7 +72124,7 @@ entities:
   - materialWhiteList:
     - Cloth
     - Durathread
-    type: Lathe
+    type: MaterialStorage
   - containers:
     - machine_parts
     - machine_board
@@ -72398,6 +72367,9 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - tags:
+    - Trash
+    type: Tag
 - uid: 8441
   type: FoodCondimentBottleEnzyme
   components:
@@ -72410,6 +72382,8 @@ entities:
     type: RefillableSolution
   - solution: food
     type: DrainableSolution
+  - tags: []
+    type: Tag
 - uid: 8442
   type: DisposalPipe
   components:
@@ -77069,7 +77043,7 @@ entities:
     - Plastic
     - Durathread
     - Cloth
-    type: Lathe
+    type: MaterialStorage
   - containers:
       machine_board: !type:Container
         ents: []
@@ -77382,6 +77356,8 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
+  - tags: []
+    type: Tag
 - uid: 9145
   type: VendingMachineChang
   components:
