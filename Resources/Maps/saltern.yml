@@ -5264,7 +5264,7 @@ entities:
     parent: 852
     type: Transform
 - uid: 595
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 16.5,-0.5
     parent: 852
@@ -25920,7 +25920,7 @@ entities:
     parent: 852
     type: Transform
 - uid: 2128
-  type: AirlockChemistryLocked
+  type: AirlockMedicalLocked
   components:
   - pos: 17.5,-3.5
     parent: 852

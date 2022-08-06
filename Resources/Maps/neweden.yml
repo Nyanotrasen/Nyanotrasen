@@ -68906,7 +68906,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 5867
-  type: AirlockChemistryLocked
+  type: AirlockMedicalLocked
   components:
   - pos: 21.5,102.5
     parent: 35
@@ -69183,7 +69183,7 @@ entities:
     parent: 35
     type: Transform
 - uid: 5904
-  type: AirlockMaintChemLocked
+  type: AirlockMaintMedLocked
   components:
   - pos: 25.5,100.5
     parent: 35
@@ -103809,7 +103809,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 10417
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 23.5,98.5
     parent: 35
@@ -180923,7 +180923,7 @@ entities:
     parent: 35
     type: Transform
 - uid: 20509
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 10.5,97.5
     parent: 35
@@ -187735,7 +187735,7 @@ entities:
     parent: 35
     type: Transform
 - uid: 21483
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 18.5,96.5
     parent: 35
@@ -189864,7 +189864,7 @@ entities:
     parent: 35
     type: Transform
 - uid: 23653
-  type: SpawnPointParamedic
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 1.5,102.5
     parent: 35

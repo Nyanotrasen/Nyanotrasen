@@ -12,8 +12,8 @@
     layers:
     - state: robot
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
   - type: Puller
     needsHands: false
   - type: Speech
@@ -70,6 +70,12 @@
     - Medical
     - Science
     - Service
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+  - type: Flashable
   - type: ItemSlots
   - type: CombatMode
     disarmAction:

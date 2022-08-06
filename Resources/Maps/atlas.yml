@@ -25651,7 +25651,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 2299
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: -2.5,-6.5
     parent: 73
@@ -26282,7 +26282,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 2392
-  type: SpawnPointChemist
+  type: SpawnPointMedicalDoctor
   components:
   - pos: -1.5,-7.5
     parent: 73
@@ -31284,7 +31284,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 3043
-  type: AirlockChemistryLocked
+  type: AirlockMedicalLocked
   components:
   - pos: -0.5,-7.5
     parent: 73
@@ -66902,19 +66902,19 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 7558
-  type: SpawnPointParamedic
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 12.5,-11.5
     parent: 73
     type: Transform
 - uid: 7559
-  type: SpawnPointParamedic
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 11.5,-12.5
     parent: 73
     type: Transform
 - uid: 7560
-  type: SpawnPointParamedic
+  type: SpawnPointMedicalDoctor
   components:
   - pos: 9.5,-12.5
     parent: 73
@@ -67098,7 +67098,7 @@ entities:
 
       Labeling scheme should be similar to as follows: Chemical name - Dosage_u - Damage type
 
-      Further more, please consider naming the drugs something catchy- the patients prefer when they can read the drug names in their native tongue. 
+      Further more, please consider naming the drugs something catchy- the patients prefer when they can read the drug names in their native tongue.
     type: Paper
   - canCollide: False
     type: Physics
