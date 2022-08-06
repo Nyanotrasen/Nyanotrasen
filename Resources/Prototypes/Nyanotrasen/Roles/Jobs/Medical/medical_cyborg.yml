@@ -1,0 +1,16 @@
+- type: job
+  id: MedicalCyborg
+  name: "medical cyborg"
+  departments:
+  - Medical
+  icon: "Unknown"
+  supervisors: "all crew"
+  canBeAntag: false
+  jobEntity: PlayerCyborgMedical
+  startingGear: CyborgGear # for char preview only
+
+- type: startingGear
+  id: CyborgGear
+  equipment:
+    head: ClothingHeadHatCardborg
+    outerClothing: ClothingOuterCardborg
