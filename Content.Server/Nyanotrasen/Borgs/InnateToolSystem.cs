@@ -18,11 +18,11 @@ namespace Content.Server.Borgs
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<InnateToolComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<InnateToolComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<InnateToolComponent, ComponentShutdown>(OnShutdown);
         }
 
-        private void OnInit(EntityUid uid, InnateToolComponent component, ComponentInit args)
+        private void OnStartup(EntityUid uid, InnateToolComponent component, ComponentStartup args)
         {
             if (component.Tools.Count == 0)
                 return;
@@ -39,7 +39,6 @@ namespace Content.Server.Borgs
                     if (!_handsSystem.TryPickupAnyHand(uid, item, checkActionBlocker: false))
                     {
                         QueueDel(item);
-                        Logger.Error($"component ({ToPrettyString(uid)}) failed to pick up innate item ({ToPrettyString(item)})");
                         continue;
                     }
                     component.ToolUids.Add(item);
