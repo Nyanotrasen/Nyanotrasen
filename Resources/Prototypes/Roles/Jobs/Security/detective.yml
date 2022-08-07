@@ -2,9 +2,8 @@
   id: Detective
   name: job-name-detective
   setPreference: false
+  playTimeTracker: JobDetective
   startingGear: DetectiveGear
-  departments:
-  - Security
   icon: "Detective"
   supervisors: job-supervisors-hos
   canBeAntag: false
