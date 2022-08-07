@@ -1,8 +1,10 @@
 - type: job
   id: Cyborg
   name: "cyborg"
-  departments:
-  - Engineering
+  playTimeTracker: JobCyborg
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 24000
   icon: "Unknown"
   supervisors: "all humans"
   canBeAntag: false

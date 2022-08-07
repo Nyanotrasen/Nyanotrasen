@@ -2,8 +2,7 @@
   id: Chaplain
   name: "cleric"
   startingGear: ChaplainGear
-  departments:
-  - Epistemics
+  playTimeTracker: JobChaplain
   icon: "Chaplain"
   supervisors: "the mystagogue"
   access:

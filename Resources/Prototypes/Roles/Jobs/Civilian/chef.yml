@@ -1,9 +1,8 @@
 - type: job
   id: Chef
   name: job-name-chef
+  playTimeTracker: JobChef
   startingGear: ChefGear
-  departments:
-  - Catering
   icon: "Chef"
   supervisors: job-supervisors-hop
   access:
