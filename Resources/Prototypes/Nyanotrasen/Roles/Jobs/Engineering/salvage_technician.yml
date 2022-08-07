@@ -3,8 +3,11 @@
   name: "salvage technician"
   icon: "ShaftMiner"
   startingGear: SalvageTechnicianGear
-  departments:
-  - Engineering
+  playTimeTracker: JobStationEngineer
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 1800
   supervisors: "the chief engineer"
   access:
   - Salvage

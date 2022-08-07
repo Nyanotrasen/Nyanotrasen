@@ -1,8 +1,10 @@
 - type: job
   id: MedicalCyborg
   name: "medical cyborg"
-  departments:
-  - Medical
+  playTimeTracker: JobCyborg
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 24000
   icon: "Unknown"
   supervisors: "all crew"
   canBeAntag: false

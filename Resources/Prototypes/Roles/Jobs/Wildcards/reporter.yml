@@ -1,9 +1,9 @@
 - type: job
   id: Reporter
   name: job-name-reporter
+  playTimeTracker: JobReporter
+  setPreference: false
   startingGear: ReporterGear
-  departments:
-  - Civilian
   icon: "Reporter"
   supervisors: job-supervisors-hop
   access:

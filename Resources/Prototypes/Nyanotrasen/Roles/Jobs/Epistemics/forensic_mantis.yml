@@ -1,9 +1,16 @@
 - type: job
   id: ForensicMantis
   name: "forensic mantis"
-  startingGear: ForensicMantisGear
-  departments:
-  - Epistemics
+  playTimeTracker: JobForensicMantis
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600
   icon: "Detective"
   supervisors: "the mystagogue"
   access:
