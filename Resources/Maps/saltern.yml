@@ -1536,7 +1536,7 @@ entities:
     type: ContainerContainer
 - uid: 179
   components:
-  - index: 7
+  - index: 5
     type: Map
 - uid: 180
   type: DisposalJunction
@@ -13766,10 +13766,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.39218
+      temperature: 293.03137
       moles:
-      - 17.507324
-      - 65.860886
+      - 17.539444
+      - 65.98172
       - 0
       - 0
       - 0
@@ -13886,10 +13886,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 291.44815
+      temperature: 292.8841
       moles:
-      - 6.180874
-      - 23.25186
+      - 6.2514744
+      - 23.517452
       - 0
       - 0
       - 0
@@ -13901,7 +13901,97 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 289.7463
+      temperature: 292.72455
+      moles:
+      - 1.5452185
+      - 5.812965
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.03036
+      moles:
+      - 1.6707674
+      - 6.2852683
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.1035
+      moles:
+      - 0.4460819
+      - 1.6781178
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 291.62064
+      moles:
+      - 0.3463143
+      - 1.3028016
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 292.00983
+      moles:
+      - 1.2252424
+      - 4.6092453
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 292.6755
+      moles:
+      - 4.6831417
+      - 17.617533
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
       moles:
       - 1.4493084
       - 5.4521604
@@ -13916,100 +14006,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.5118
-      moles:
-      - 1.6358002
-      - 6.153725
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 292.9373
-      moles:
-      - 0.4315955
-      - 1.6236213
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.08353
-      moles:
-      - 0.11356024
-      - 0.42720285
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 287.07904
-      moles:
-      - 0.9391753
-      - 3.5330884
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 290.11868
-      moles:
-      - 4.554655
-      - 17.13418
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
       temperature: 293.15
       moles:
-      - 1.3640549
-      - 5.131445
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 5.7972336
-      - 21.808641
+      - 5.818547
+      - 21.88882
       - 0
       - 0
       - 0
@@ -14583,135 +14583,135 @@ entities:
           color: '#FFFFFFFF'
           id: Bot
           coordinates: 30,9
-        653:
+        645:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 24,13
-        654:
+        646:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 24,12
-        655:
+        647:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 24,11
-        656:
+        648:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 24,10
-        657:
+        649:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 25,10
-        658:
+        650:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 26,10
-        659:
+        651:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 27,10
-        660:
+        652:
           color: '#9FED5896'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: 28,10
-        661:
+        653:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 28,9
-        662:
+        654:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 28,8
-        663:
+        655:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 23,5
-        664:
+        656:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 22,5
-        665:
+        657:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 20,5
-        666:
+        658:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 21,5
-        667:
+        659:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 19,5
-        668:
+        660:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 18,5
-        669:
+        661:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 17,5
-        670:
+        662:
           color: '#9FED5896'
           id: QuarterTileOverlayGreyscale90
           coordinates: 16,5
-        671:
+        663:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 16,6
-        672:
+        664:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 16,7
-        673:
+        665:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 16,11
-        674:
+        666:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 16,10
-        675:
+        667:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
           coordinates: 16,9
-        676:
+        668:
           color: '#9FED5896'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: 16,12
-        677:
+        669:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 15,12
-        678:
+        670:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 14,12
-        679:
+        671:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale
           coordinates: 13,12
-        680:
+        672:
           color: '#9FED5896'
           id: ThreeQuarterTileOverlayGreyscale
           coordinates: 12,12
-        681:
+        673:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale270
           coordinates: 12,9
-        682:
+        674:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale270
           coordinates: 12,10
-        683:
+        675:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale270
           coordinates: 12,11
-        684:
+        676:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale270
           coordinates: 12,7
-        685:
+        677:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale270
           coordinates: 12,6
@@ -82194,7 +82194,7 @@ entities:
   type: DrinkBottleWhiskey
   components:
   - rot: -1.5707963267948966 rad
-    pos: 25.213673,8.201866
+    pos: 23.98587,8.160632
     parent: 852
     type: Transform
   - canCollide: False
@@ -82621,6 +82621,12 @@ entities:
   type: RandomPosterLegit
   components:
   - pos: 10.5,-37.5
+    parent: 852
+    type: Transform
+- uid: 9644
+  type: LockerQuarterMasterFilled
+  components:
+  - pos: 25.5,8.5
     parent: 852
     type: Transform
 ...
