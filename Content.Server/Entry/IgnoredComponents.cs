@@ -28,6 +28,7 @@ namespace Content.Server.Entry
             "HandheldGPS",
             "SpentAmmoVisuals",
             "MagazineVisuals",
+            "SolutionContainerVisuals",
             "PowerCellVisuals",
             "ToggleableLightVisuals",
             "CableVisualizer",
