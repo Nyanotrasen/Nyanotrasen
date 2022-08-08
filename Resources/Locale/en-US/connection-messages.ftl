@@ -10,4 +10,4 @@ command-kicknonwhitelisted-description = Kicks all non-whitelisted players from 
 command-kicknonwhitelisted-help = kicknonwhitelisted
 
 soft-player-cap-full = The server is full!
-panic-bunker-account-denied = This server is in Panic mode and you were rejected. Contact the server administrator for help.
+panic-bunker-account-denied = We are not accepting new accounts without whitelisting. Connect the Nyanotrasen discord at www.nyanotrasen.moe.
