@@ -105,10 +105,10 @@ The ban reason is: ""{ban.Reason}""
             if (_cfg.GetCVar(CCVars.PanicBunkerEnabled))
             {
                 var record = await _dbManager.GetPlayerRecordByUserId(userId);
+                // If they have no record OR the record is both under the minimum age and not whitelisted, reject
                 if ((record is null ||
-                    record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) < 0)
-                    && !await _db.GetWhitelistStatusAsync(userId)
-                    )
+                    (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) < 0)
+                    && !await _db.GetWhitelistStatusAsync(userId)))
                 {
                     return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-account-denied"), null);
                 }
