@@ -1536,7 +1536,7 @@ entities:
     type: ContainerContainer
 - uid: 179
   components:
-  - index: 5
+  - index: 7
     type: Map
 - uid: 180
   type: DisposalJunction
@@ -13766,10 +13766,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.03137
+      temperature: 293.14612
       moles:
-      - 17.539444
-      - 65.98172
+      - 17.545792
+      - 66.0056
       - 0
       - 0
       - 0
@@ -13886,10 +13886,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.8841
+      temperature: 293.1413
       moles:
-      - 6.2514744
-      - 23.517452
+      - 6.2671785
+      - 23.576529
       - 0
       - 0
       - 0
@@ -13901,10 +13901,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.72455
+      temperature: 293.13837
       moles:
-      - 1.5452185
-      - 5.812965
+      - 1.5661571
+      - 5.891734
       - 0
       - 0
       - 0
@@ -13916,10 +13916,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.03036
+      temperature: 293.05078
       moles:
-      - 1.6707674
-      - 6.2852683
+      - 1.6932942
+      - 6.3700113
       - 0
       - 0
       - 0
@@ -13931,10 +13931,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.1035
+      temperature: 293.0297
       moles:
-      - 0.4460819
-      - 1.6781178
+      - 0.5315261
+      - 1.9995505
       - 0
       - 0
       - 0
@@ -13946,10 +13946,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 291.62064
+      temperature: 293.0664
       moles:
-      - 0.3463143
-      - 1.3028016
+      - 0.45262852
+      - 1.7027453
       - 0
       - 0
       - 0
@@ -13961,10 +13961,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.00983
+      temperature: 293.1083
       moles:
-      - 1.2252424
-      - 4.6092453
+      - 1.2893091
+      - 4.8502584
       - 0
       - 0
       - 0
@@ -13976,25 +13976,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 292.6755
+      temperature: 293.1344
       moles:
-      - 4.6831417
-      - 17.617533
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 1.4493084
-      - 5.4521604
+      - 4.70853
+      - 17.713041
       - 0
       - 0
       - 0
@@ -14008,8 +13993,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 5.818547
-      - 21.88882
+      - 1.4549698
+      - 5.473458
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 5.819962
+      - 21.894144
       - 0
       - 0
       - 0
@@ -26911,21 +26911,13 @@ entities:
     parent: 852
     type: Transform
 - uid: 2219
-  type: BoxShotgunFlare
+  type: ClothingShoesSlippers
   components:
-  - pos: -10.5,-6.5
+  - pos: 29.861837,-10.766206
     parent: 852
     type: Transform
-  - unspawnedCount: 12
-    type: BallisticAmmoProvider
   - canCollide: False
     type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-      ballistic-ammo: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2220
   type: TableGlass
   components:
@@ -42782,17 +42774,13 @@ entities:
     parent: 852
     type: Transform
 - uid: 4382
-  type: ClothingBackpackDuffelSyndicatePyjamaBundle
+  type: ClothingShoesSlippers
   components:
-  - pos: 30.177582,-10.669153
+  - pos: 29.382671,-10.661966
     parent: 852
     type: Transform
   - canCollide: False
     type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 4383
   type: CableApcExtension
   components:
@@ -43722,13 +43710,19 @@ entities:
     parent: 852
     type: Transform
 - uid: 4514
-  type: ClothingHeadPyjamaSyndicateBlack
+  type: PuddleBlood
   components:
-  - pos: 30.851093,-9.544153
+  - pos: 50.5,-12.5
     parent: 852
     type: Transform
-  - canCollide: False
-    type: Physics
+  - solutions:
+      puddle:
+        reagents:
+        - Quantity: 40
+          ReagentId: Blood
+    type: SolutionContainerManager
+  - active: False
+    type: StepTrigger
 - uid: 4515
   type: ReinforcedWindow
   components:
@@ -43918,19 +43912,17 @@ entities:
     parent: 852
     type: Transform
 - uid: 4537
-  type: PuddleBlood
+  type: RevolverCapGun
   components:
-  - pos: 50.5,-12.5
+  - pos: 48.591553,-12.728807
     parent: 852
     type: Transform
-  - solutions:
-      puddle:
-        reagents:
-        - Quantity: 50
-          ReagentId: Blood
-    type: SolutionContainerManager
-  - active: False
-    type: StepTrigger
+  - canCollide: False
+    type: Physics
+  - containers:
+      ballistic-ammo: !type:Container
+        ents: []
+    type: ContainerContainer
 - uid: 4538
   type: Screwdriver
   components:
@@ -58207,9 +58199,10 @@ entities:
     parent: 852
     type: Transform
 - uid: 6316
-  type: WeaponRifleLecter
+  type: VehicleKeySecway
   components:
-  - pos: 48.581074,-12.741144
+  - rot: 1.5707963267948966 rad
+    pos: -13.2474,15.726325
     parent: 852
     type: Transform
   - canCollide: False
@@ -75740,6 +75733,9 @@ entities:
 - uid: 8751
   type: WardrobeChapel
   components:
+  - desc: It's a storage unit for Nanotrasen-approved judicial attire.
+    name: judge's wardrobe
+    type: MetaData
   - pos: 6.5,-37.5
     parent: 852
     type: Transform
@@ -75752,11 +75748,9 @@ entities:
 - uid: 8753
   type: ClothingOuterRobesJudge
   components:
-  - pos: 6.496269,-37.776325
+  - pos: 6.52558,-37.593636
     parent: 852
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 8754
   type: MaintenanceToolSpawner
   components:
@@ -76535,19 +76529,15 @@ entities:
 - uid: 8844
   type: ClothingHeadHatPwig
   components:
-  - pos: 6.5066857,-37.33852
+  - pos: 6.5464134,-37.166256
     parent: 852
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 8845
   type: HyperlinkBookSpaceLaw
   components:
-  - pos: 6.652519,-37.734627
+  - pos: 6.348497,-37.697876
     parent: 852
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 8846
   type: Rack
   components:
@@ -78607,7 +78597,8 @@ entities:
 - uid: 9112
   type: VehicleKeySecway
   components:
-  - pos: -6.5508122,14.494105
+  - rot: 1.5707963267948966 rad
+    pos: -13.27865,15.893107
     parent: 852
     type: Transform
   - canCollide: False
@@ -78619,29 +78610,33 @@ entities:
     parent: 852
     type: Transform
 - uid: 9114
-  type: CrowbarRed
+  type: ClothingShoesSlippers
   components:
-  - pos: -10.463156,-6.5336485
+  - pos: 30.570171,-10.651543
     parent: 852
     type: Transform
   - canCollide: False
     type: Physics
 - uid: 9115
-  type: SpawnVehicleSecway
+  type: ClothingOuterWizardRed
   components:
-  - pos: -9.5,17.5
+  - pos: 29.382671,-10.172043
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9116
-  type: SpawnVehicleSecway
+  type: ClothingOuterWizardRed
   components:
-  - pos: -9.5,16.5
+  - pos: 29.913921,-10.24501
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9117
-  type: VehicleKeySecway
+  type: ClothingOuterWizardRed
   components:
-  - pos: -6.491432,14.10022
+  - pos: 30.580587,-10.130347
     parent: 852
     type: Transform
   - canCollide: False
@@ -80609,11 +80604,9 @@ entities:
 - uid: 9372
   type: ClothingEyesBlindfold
   components:
-  - pos: 6.534162,-37.48707
+  - pos: 6.5151634,-37.291344
     parent: 852
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 9373
   type: Poweredlight
   components:
@@ -82629,4 +82622,45 @@ entities:
   - pos: 25.5,8.5
     parent: 852
     type: Transform
+- uid: 9645
+  type: ClothingShoesLeather
+  components:
+  - desc: Very odd pair of heavy shoes, made of the finest woods.
+    name: wooden shoes
+    type: MetaData
+  - pos: 6.535997,-37.9689
+    parent: 852
+    type: Transform
+- uid: 9646
+  type: ClothingHeadHelmetSpaceNinja
+  components:
+  - pos: -28.696753,-32.02635
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 9647
+  type: ClothingShoesSpaceNinja
+  components:
+  - pos: -20.205084,-34.432095
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 9648
+  type: ClothingOuterSuitSpaceninja
+  components:
+  - pos: -13.418824,-25.27058
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 9649
+  type: ClothingHandsGlovesSpaceNinja
+  components:
+  - pos: -42.47655,-28.517511
+    parent: 852
+    type: Transform
+  - canCollide: False
+    type: Physics
 ...
