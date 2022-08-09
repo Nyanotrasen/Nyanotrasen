@@ -1536,7 +1536,7 @@ entities:
     type: ContainerContainer
 - uid: 179
   components:
-  - index: 7
+  - index: 5
     type: Map
 - uid: 180
   type: DisposalJunction
@@ -13766,10 +13766,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.14612
+      temperature: 293.14923
       moles:
-      - 17.545792
-      - 66.0056
+      - 17.545982
+      - 66.00632
       - 0
       - 0
       - 0
@@ -13886,10 +13886,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.1413
+      temperature: 293.12466
       moles:
-      - 6.2671785
-      - 23.576529
+      - 6.271242
+      - 23.591816
       - 0
       - 0
       - 0
@@ -13901,10 +13901,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.13837
+      temperature: 293.14783
       moles:
-      - 1.5661571
-      - 5.891734
+      - 1.5667946
+      - 5.894132
       - 0
       - 0
       - 0
@@ -13916,10 +13916,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.05078
+      temperature: 293.1136
       moles:
-      - 1.6932942
-      - 6.3700113
+      - 1.700692
+      - 6.3978415
       - 0
       - 0
       - 0
@@ -13931,10 +13931,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.0297
+      temperature: 293.12
       moles:
-      - 0.5315261
-      - 1.9995505
+      - 0.53833014
+      - 2.0251467
       - 0
       - 0
       - 0
@@ -13946,10 +13946,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.0664
+      temperature: 293.13208
       moles:
-      - 0.45262852
-      - 1.7027453
+      - 0.45690984
+      - 1.7188513
       - 0
       - 0
       - 0
@@ -13961,10 +13961,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.1083
+      temperature: 293.14163
       moles:
-      - 1.2893091
-      - 4.8502584
+      - 1.2913599
+      - 4.857973
       - 0
       - 0
       - 0
@@ -13976,25 +13976,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.1344
+      temperature: 293.14694
       moles:
-      - 4.70853
-      - 17.713041
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 1.4549698
-      - 5.473458
+      - 4.7092876
+      - 17.715893
       - 0
       - 0
       - 0
@@ -14008,8 +13993,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 5.819962
-      - 21.894144
+      - 1.4549905
+      - 5.473536
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 5.8199673
+      - 21.894163
       - 0
       - 0
       - 0
@@ -46706,12 +46706,6 @@ entities:
   - containers:
       ItemCabinet: !type:ContainerSlot {}
     type: ContainerContainer
-- uid: 4903
-  type: SpawnPointGhostRatKing
-  components:
-  - pos: -37.5,17.5
-    parent: 852
-    type: Transform
 - uid: 4904
   type: Grille
   components:
@@ -75751,6 +75745,8 @@ entities:
   - pos: 6.52558,-37.593636
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8754
   type: MaintenanceToolSpawner
   components:
@@ -76532,12 +76528,16 @@ entities:
   - pos: 6.5464134,-37.166256
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8845
   type: HyperlinkBookSpaceLaw
   components:
   - pos: 6.348497,-37.697876
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8846
   type: Rack
   components:
@@ -80607,6 +80607,8 @@ entities:
   - pos: 6.5151634,-37.291344
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9373
   type: Poweredlight
   components:
@@ -82631,6 +82633,8 @@ entities:
   - pos: 6.535997,-37.9689
     parent: 852
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 9646
   type: ClothingHeadHelmetSpaceNinja
   components:
