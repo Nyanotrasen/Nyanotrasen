@@ -75632,14 +75632,6 @@ entities:
   - pos: -32.5,-27.5
     parent: 852
     type: Transform
-- uid: 8740
-  type: RedOxygenTankFilled
-  components:
-  - pos: -32.388412,-27.529545
-    parent: 852
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 8741
   type: YellowOxygenTankFilled
   components:
