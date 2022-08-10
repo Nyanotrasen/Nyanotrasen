@@ -11,6 +11,7 @@ using Content.Server.UserInterface;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Lamiae;
+using Content.Server.Carrying;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Components;
@@ -476,6 +477,9 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                 _popupSystem.PopupEntity(Loc.GetString("disposal-unit-no-hands"), userId.Value, Filter.Entities(userId.Value), PopupType.SmallCaution);
                 return false;
             }
+
+            if (HasComp<CarryingComponent>(toInsertId))
+                return false;
 
             if (!CanInsert(unit, toInsertId))
                 return false;
