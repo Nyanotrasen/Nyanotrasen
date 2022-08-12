@@ -53,13 +53,7 @@
       - steel_3
   - type: FloorTile
     outputs:
-    - plating
-  - type: Tag
-    tags:
-    - Sheet
-    - Metal
-    - DroneUsable
-    - SheetSteel
+    - Plating
 
 - type: entity
   parent: SheetSteel
