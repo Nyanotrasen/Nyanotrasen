@@ -6,6 +6,7 @@ using Content.Server.MobState;
 using Content.Server.Resist;
 using Content.Server.Speech;
 using Content.Server.Popups;
+using Content.Server.Contests;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Stunnable;
@@ -22,7 +23,6 @@ using Content.Shared.Throwing;
 using Content.Shared.Physics.Pull;
 using Robust.Shared.Player;
 
-
 namespace Content.Server.Carrying
 {
     public sealed class CarryingSystem : EntitySystem
@@ -37,6 +37,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly EscapeInventorySystem _escapeInventorySystem = default!;
         [Dependency] private readonly VocalSystem _vocalSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
 
         public override void Initialize()
@@ -45,6 +46,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
             SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
+            SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StandAttemptEvent>(OnStandAttempt);
@@ -87,6 +89,9 @@ namespace Content.Server.Carrying
             args.Verbs.Add(verb);
         }
 
+        /// <summary>
+        /// Since the carried entity is stored as 2 virtual items, when deleted we want to drop them.
+        /// </summary>
         private void OnVirtualItemDeleted(EntityUid uid, CarryingComponent component, VirtualItemDeletedEvent args)
         {
             if (!HasComp<CarriableComponent>(args.BlockingEntity))
@@ -95,6 +100,10 @@ namespace Content.Server.Carrying
             DropCarried(uid, args.BlockingEntity);
         }
 
+        /// <summary>
+        /// Basically using virtual item passthrough to throw the carried person. A new age!
+        /// Maybe other things besides throwing should use virt items like this...
+        /// </summary>
         private void OnThrow(EntityUid uid, CarryingComponent component, BeforeThrowEvent args)
         {
             if (!TryComp<HandVirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
@@ -102,23 +111,40 @@ namespace Content.Server.Carrying
 
             args.ItemUid = virtItem.BlockingEntity;
 
-            if (!TryComp<PhysicsComponent>(args.ItemUid, out var itemPhysics) || !TryComp<PhysicsComponent>(args.PlayerUid, out var playerPhysics))
-                return;
-
-            var multiplier = (playerPhysics.FixturesMass / itemPhysics.FixturesMass);
+            var multiplier = _contests.MassContest(uid, virtItem.BlockingEntity);
             args.ThrowStrength = 5f * multiplier;
 
             _vocalSystem.TryScream(args.ItemUid);
         }
 
+        /// <summary>
+        /// Only let the person being carried interact with their carrier and things on their person.
+        /// </summary>
+        private void OnInteractionAttempt(EntityUid uid, BeingCarriedComponent component, InteractionAttemptEvent args)
+        {
+            if (args.Target == null)
+                return;
+
+            var targetParent = Transform(args.Target.Value).ParentUid;
+
+            if (args.Target.Value != component.Carrier && targetParent != component.Carrier && targetParent != uid)
+                args.Cancel();
+        }
+
+        /// <summary>
+        /// Try to escape via the escape inventory system.
+        /// </summary>
         private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
         {
-            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.IsResisting)
+            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.CancelToken != null)
                 return;
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
-                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape);
+            {
+                _escapeInventorySystem.AttemptEscape(uid, component.Carrier, escape, _contests.MassContest(uid, component.Carrier));
+            }
         }
+
         private void OnMoveAttempt(EntityUid uid, BeingCarriedComponent component, UpdateCanMoveEvent args)
         {
             args.Cancel();
@@ -166,16 +192,14 @@ namespace Content.Server.Carrying
 
             float length = 3f;
 
-            if (TryComp<PhysicsComponent>(carrier, out var carrierPhysics) && TryComp<PhysicsComponent>(carried, out var carriedPhysics))
+            var mod = _contests.MassContest(carrier, carried);
+
+            if (mod != 0)
+                length /= mod;
+
+            if (length >= 9)
             {
-                length /= (carrierPhysics.FixturesMass / carriedPhysics.FixturesMass);
-                if (length >= 9)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, Filter.Entities(carrier), Shared.Popups.PopupType.SmallCaution);
-                    return;
-                }
-            } else
-            {
+                _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, Filter.Entities(carrier), Shared.Popups.PopupType.SmallCaution);
                 return;
             }
 
@@ -226,20 +250,12 @@ namespace Content.Server.Carrying
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
         {
-            if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics))
-                return;
-            if (!TryComp<PhysicsComponent>(carried, out var carriedPhysics))
-                return;
+            var massRatio = _contests.MassContest(carrier, carried);
 
-            var carrierMass = carrierPhysics.FixturesMass;
-            var carriedMass = carriedPhysics.FixturesMass;
+            if (massRatio == 0)
+                massRatio = 1;
 
-            if (carrierMass == 0f)
-                carrierMass = 70f;
-            if (carriedMass == 0f)
-                carriedMass = 70f;
-
-            var massRatioSq = Math.Pow((carriedMass / carrierMass), 2);
+            var massRatioSq = Math.Pow(massRatio, 2);
             var modifier = (1 - (massRatioSq * 0.15));
             var slowdownComp = EnsureComp<CarryingSlowdownComponent>(carrier);
             _slowdown.SetModifier(carrier, (float) modifier, (float) modifier, slowdownComp);
