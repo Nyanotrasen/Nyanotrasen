@@ -819,6 +819,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> WhitelistReason =
             CVarDef.Create("whitelist.reason", "whitelist-not-whitelisted", CVar.SERVERONLY);
 
+        /// <summary>
+        ///     How many players are let in before a whitelist is required to join.
+        /// </summary>
+        public static readonly CVarDef<int> WhitelistMinPlayers =
+            CVarDef.Create("whitelist.min_players", 35, CVar.SERVERONLY | CVar.ARCHIVE);
+
         /*
          * VOTE
          */
