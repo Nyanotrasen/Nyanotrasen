@@ -128,6 +128,7 @@ The ban reason is: ""{ban.Reason}""
             }
 
             if (_cfg.GetCVar(CCVars.WhitelistEnabled)
+                && _plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.WhitelistMinPlayers)
                 && await _db.GetWhitelistStatusAsync(userId) == false
                 && adminData is null)
             {

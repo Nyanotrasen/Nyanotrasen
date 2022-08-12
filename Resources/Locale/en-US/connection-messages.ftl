@@ -1,4 +1,4 @@
-﻿whitelist-not-whitelisted = You are not whitelisted. Connect to the Nyanotrasen Discord at www.nyanotrasen.moe.
+﻿whitelist-not-whitelisted = Nyanotrasen requires whitelisting above 35 players. Connect to the Discord at www.nyanotrasen.moe
 
 command-whitelistadd-description = Adds the player with the given username to the server whitelist.
 command-whitelistadd-help = whitelistadd <username>
