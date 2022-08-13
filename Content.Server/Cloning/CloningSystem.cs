@@ -1,7 +1,3 @@
-using Content.Server.Cloning.Components;
-using Content.Server.Mind.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Atmos.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.CharacterAppearance.Systems;
 using Content.Shared.CharacterAppearance.Components;
@@ -9,23 +5,31 @@ using Content.Shared.Species;
 using Content.Shared.Damage;
 using Content.Shared.Stacks;
 using Content.Shared.Examine;
-using Robust.Server.Player;
-using Robust.Shared.Prototypes;
-using Content.Server.EUI;
-using Robust.Shared.Containers;
-using Robust.Server.Containers;
 using Content.Shared.Cloning;
+using Content.Shared.Atmos;
+using Content.Shared.CCVar;
+using Content.Server.Cloning.Components;
+using Content.Server.Mind.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.EUI;
 using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
 using Content.Server.MobState;
 using Content.Server.Lathe.Components;
-using Content.Shared.Atmos;
-using Content.Server.Physics;
-using Robust.Server.GameObjects;
-using Robust.Shared.Random;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.Construction.Components;
+using Content.Server.Stack;
+using Robust.Server.GameObjects;
+using Robust.Server.Containers;
+using Robust.Server.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
+
 
 namespace Content.Server.Cloning.Systems
 {
@@ -44,17 +48,20 @@ namespace Content.Server.Cloning.Systems
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedStackSystem _stackSystem = default!;
+        [Dependency] private readonly StackSystem _serverStackSystem = default!;
         [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
-
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
+        public const float EasyModeCloningCost = 0.7f;
 
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<CloningPodComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<CloningPodComponent, MachineDeconstructedEvent>(OnDeconstruct);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
             SubscribeLocalEvent<BeingClonedComponent, MindAddedMessage>(HandleMindAdded);
             SubscribeLocalEvent<CloningPodComponent, PortDisconnectedEvent>(OnPortDisconnected);
@@ -66,6 +73,14 @@ namespace Content.Server.Cloning.Systems
         {
             clonePod.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(clonePod.Owner, "clonepod-bodyContainer");
             _signalSystem.EnsureReceiverPorts(uid, CloningPodComponent.PodPort);
+        }
+
+        private void OnDeconstruct(EntityUid uid, CloningPodComponent component, MachineDeconstructedEvent args)
+        {
+            if (!TryComp<MaterialStorageComponent>(uid, out var storage))
+                return;
+
+            _serverStackSystem.SpawnMultiple(storage.GetMaterialAmount("Biomass"), 100, "Biomass", Transform(uid).Coordinates);
         }
 
         private void UpdateAppearance(CloningPodComponent clonePod)
@@ -164,6 +179,9 @@ namespace Content.Server.Cloning.Systems
 
             int cloningCost = (int) physics.FixturesMass;
 
+            if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+                cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+
             // biomass checks
             var biomassAmount = podStorage.GetMaterialAmount("Biomass");
 
@@ -182,10 +200,10 @@ namespace Content.Server.Cloning.Systems
             if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
                 damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
             {
-                if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
-                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning"), InGameICChatType.Speak, false);
-
                 var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
+                if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning", ("percent", Math.Round(100 - (chance * 100)))), InGameICChatType.Speak, false);
+
                 if (_robustRandom.Prob(chance))
                 {
                     UpdateStatus(CloningPodStatus.Gore, clonePod);
@@ -228,25 +246,17 @@ namespace Content.Server.Cloning.Systems
                 if (!_powerReceiverSystem.IsPowered(cloning.Owner))
                     continue;
 
+                if (cloning.BodyContainer.ContainedEntity == null && !cloning.FailedClone)
+                    continue;
+
+                cloning.CloningProgress += frameTime;
+                if (cloning.CloningProgress < cloning.CloningTime)
+                    continue;
+
                 if (cloning.FailedClone)
-                {
-                    cloning.CloningProgress += frameTime;
-                    if (cloning.CloningProgress < cloning.CloningTime)
-                        continue;
-
                     EndFailedCloning(cloning.Owner, cloning);
-                }
-
-                if (cloning.BodyContainer.ContainedEntity != null)
-                {
-                    cloning.CloningProgress += frameTime;
-                    cloning.CloningProgress = MathHelper.Clamp(cloning.CloningProgress, 0f, cloning.CloningTime);
-                }
-
-                if (cloning.CapturedMind?.Session?.AttachedEntity == cloning.BodyContainer.ContainedEntity)
-                {
+                else
                     Eject(cloning.Owner, cloning);
-                }
             }
         }
 

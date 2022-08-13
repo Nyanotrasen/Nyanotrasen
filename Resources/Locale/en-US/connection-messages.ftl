@@ -1,4 +1,4 @@
-﻿whitelist-not-whitelisted = You are not whitelisted.
+﻿whitelist-not-whitelisted = Nyanotrasen requires whitelisting above 35 players. Connect to the Discord at www.nyanotrasen.moe
 
 command-whitelistadd-description = Adds the player with the given username to the server whitelist.
 command-whitelistadd-help = whitelistadd <username>
@@ -10,4 +10,4 @@ command-kicknonwhitelisted-description = Kicks all non-whitelisted players from 
 command-kicknonwhitelisted-help = kicknonwhitelisted
 
 soft-player-cap-full = The server is full!
-panic-bunker-account-denied = This server is in Panic mode and you were rejected. Contact the server administrator for help.
+panic-bunker-account-denied = We are not accepting new accounts without whitelisting. Connect to the Nyanotrasen Discord at www.nyanotrasen.moe.

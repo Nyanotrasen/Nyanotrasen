@@ -2,10 +2,8 @@
   id: SecurityCadet
   name: job-name-cadet
   setPreference: false
+  playTimeTracker: JobSecurityCadet
   startingGear: SecurityCadetGear
-  departments:
-  - Civilian
-  - Security
   icon: "SecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false

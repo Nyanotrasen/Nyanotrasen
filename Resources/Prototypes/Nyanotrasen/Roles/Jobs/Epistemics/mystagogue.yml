@@ -3,9 +3,11 @@
   name: "mystagogue"
   weight: 10
   startingGear: MystagogueGear
-  departments:
-  - Command
-  - Epistemics
+  playTimeTracker: JobMystagogue
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 18000
   icon: "ResearchDirector"
   requireAdminNotify: true
   supervisors: "the captain"

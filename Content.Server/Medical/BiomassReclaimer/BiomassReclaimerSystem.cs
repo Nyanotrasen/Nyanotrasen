@@ -2,29 +2,35 @@ using System.Threading;
 using Content.Shared.MobState.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Audio;
-using Content.Shared.Stacks;
 using Content.Shared.Jittering;
-using Content.Server.MobState;
-using Content.Server.Power.Components;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
-using Content.Server.Body.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Construction.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Administration.Logs;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared.CharacterAppearance.Components;
+using Content.Server.MobState;
+using Content.Server.Power.Components;
+using Content.Server.Fluids.EntitySystems;
+using Content.Server.Body.Components;
 using Content.Server.Climbing;
 using Content.Server.DoAfter;
+using Content.Server.Mind.Components;
+using Content.Server.Stack;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Configuration;
+using Robust.Server.Player;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
     public sealed class BiomassReclaimerSystem : EntitySystem
     {
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
+        [Dependency] private readonly StackSystem _stackSystem = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
-        [Dependency] private readonly SharedStackSystem _stackSystem = default!;
         [Dependency] private readonly SharedJitteringSystem _jitteringSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
         [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
@@ -33,6 +39,7 @@ namespace Content.Server.Medical.BiomassReclaimer
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public override void Update(float frameTime)
         {
@@ -69,9 +76,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                 }
                 reclaimer.Accumulator = 0;
 
-                var stackEnt = EntityManager.SpawnEntity("MaterialBiomass1", Transform(reclaimer.Owner).Coordinates);
-                if (TryComp<SharedStackComponent>(stackEnt, out var stack))
-                    _stackSystem.SetCount(stackEnt, (int) Math.Round(reclaimer.CurrentExpectedYield));
+                _stackSystem.SpawnMultiple((int) reclaimer.CurrentExpectedYield, 100, "Biomass", Transform(reclaimer.Owner).Coordinates);
 
                 reclaimer.SpawnedEntities.Clear();
                 RemCompDeferred<ActiveBiomassReclaimerComponent>(reclaimer.Owner);
@@ -172,7 +177,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             }
 
             component.CurrentExpectedYield = CalculateYield(toProcess, component);
-            component.CurrentProcessingTime = component.CurrentExpectedYield / component.YieldPerUnitMass;
+            component.CurrentProcessingTime = component.CurrentExpectedYield / component.YieldPerUnitMass * component.ProcessingSpeedMultiplier;
             EntityManager.QueueDeleteEntity(toProcess);
         }
         private float CalculateYield(EntityUid uid, BiomassReclaimerComponent component)
@@ -202,6 +207,14 @@ namespace Content.Server.Medical.BiomassReclaimer
 
             if (component.SafetyEnabled && !_mobState.IsDead(dragged))
                 return false;
+
+            // Reject souled bodies in easy mode.
+            if (_configManager.GetCVar(CCVars.BiomassEasyMode) && HasComp<HumanoidAppearanceComponent>(dragged) &&
+                TryComp<MindComponent>(dragged, out var mindComp))
+                {
+                    if (mindComp.Mind?.UserId != null && _playerManager.TryGetSessionById(mindComp.Mind.UserId.Value, out var client))
+                        return false;
+                }
 
             return true;
         }

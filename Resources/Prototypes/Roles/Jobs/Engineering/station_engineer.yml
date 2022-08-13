@@ -1,9 +1,8 @@
 - type: job
   id: StationEngineer
   name: job-name-engineer
+  playTimeTracker: JobStationEngineer
   startingGear: StationEngineerGear
-  departments:
-  - Engineering
   icon: "StationEngineer"
   supervisors: job-supervisors-ce
   access:

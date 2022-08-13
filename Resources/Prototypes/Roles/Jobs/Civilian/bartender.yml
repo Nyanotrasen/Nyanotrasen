@@ -1,9 +1,8 @@
 - type: job
   id: Bartender
   name: job-name-bartender
+  playTimeTracker: JobBartender
   startingGear: BartenderGear
-  departments:
-  - Catering
   icon: "Bartender"
   supervisors: job-supervisors-hop
   access:

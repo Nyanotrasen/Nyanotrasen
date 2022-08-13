@@ -4,13 +4,13 @@ using Content.Shared.CharacterAppearance.Components;
 using Content.Shared.CharacterAppearance;
 using Content.Shared.CharacterAppearance.Systems;
 using Content.Shared.Species;
+using Content.Shared.Gravity;
+using Content.Shared.Damage;
 using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization;
-using Content.Shared.Gravity;
 using Robust.Shared.Containers;
-using Content.Shared.Damage;
 using Robust.Shared.Map;
 
 namespace Content.Server.Lamiae
@@ -22,7 +22,6 @@ namespace Content.Server.Lamiae
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         Queue<(LamiaSegmentComponent segment, EntityUid lamia)> _segments = new();
         public override void Update(float frameTime)
@@ -181,6 +180,7 @@ namespace Content.Server.Lamiae
 
         private void HandleSegmentDamage(EntityUid uid, LamiaSegmentComponent component, DamageModifyEvent args)
         {
+            args.Damage.DamageDict["Radiation"] = Shared.FixedPoint.FixedPoint2.Zero;
             _damageableSystem.TryChangeDamage(component.Lamia, args.Damage);
 
             args.Damage *= 0;
