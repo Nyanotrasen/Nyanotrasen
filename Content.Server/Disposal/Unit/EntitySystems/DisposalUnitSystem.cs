@@ -478,7 +478,9 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                 return false;
             }
 
-            if (HasComp<CarryingComponent>(toInsertId))
+            // holy shit I hate disposals I tried basically every other way of doing this
+            // if this shit was ECS and actually raised some events then the carriable would be fine to insert
+            if (HasComp<CarryingComponent>(toInsertId) || HasComp<CarriableComponent>(toInsertId))
                 return false;
 
             if (!CanInsert(unit, toInsertId))
