@@ -54,3 +54,32 @@
   components:
   - type: VendingMachine
     pack: AutomatrobeInventory
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineRepDrobe
+  name: RepDrobe
+  description: A machine for all your reporting needs, as long as you need clothes.
+  components:
+  - type: VendingMachine
+    pack: RepDrobeInventory
+  - type: Advertise
+    pack: DetDrobeAds
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/detdrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Unlit"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Appearance
+    visuals:
+    - type: VendingMachineVisualizer
+      normalUnshaded: true
+      broken: true
+    - type: WiresVisualizer
+  - type: AccessReader
+    access: [["Service"]]

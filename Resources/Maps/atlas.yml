@@ -17948,21 +17948,28 @@ entities:
       toggleable-clothing: !type:ContainerSlot {}
     type: ContainerContainer
 - uid: 1208
-  type: WeaponRifleLecter
+  type: VendingMachineRepDrobe
   components:
-  - pos: 3.4748964,16.853563
+  - pos: -6.5,16.5
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 1209
-  type: MagazineRifleHighVelocity
+  type: WeaponDisabler
   components:
-  - pos: 3.2793722,16.488728
+  - desc: "A self-defense weapon that exhausts organic targets, weakening them until they collapse. Juiced up and ready to take down the Syndicate's #1."
+    name: head of security's disabler
+    type: MetaData
+  - rot: -1.5707963267948966 rad
+    pos: 3.2538056,16.707184
     parent: 73
     type: Transform
-  - unspawnedCount: 25
-    type: BallisticAmmoProvider
+  - projectileSpeed: 30
+    fireRate: 3
+    maxAngle: 0.026179938779914945 rad
+    type: Gun
+  - startingCharge: 1200
+    maxCharge: 1200
+    type: Battery
   - canCollide: False
     type: Physics
 - uid: 1210
@@ -19900,7 +19907,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 1475
-  type: ClosetL3SecurityFilled
+  type: LockerWardenFilled
   components:
   - pos: 12.5,17.5
     parent: 73
@@ -20962,14 +20969,6 @@ entities:
       storagebase: !type:Container
         ents: []
     type: ContainerContainer
-- uid: 1594
-  type: VendingMachineDetDrobe
-  components:
-  - desc: A machine for all your reporting needs, as long as you need clothes.
-    type: MetaData
-  - pos: -6.5,16.5
-    parent: 73
-    type: Transform
 - uid: 1595
   type: CableApcExtension
   components:
@@ -50250,16 +50249,6 @@ entities:
     pos: -15.5,-14.5
     parent: 73
     type: Transform
-- uid: 5430
-  type: MagazineBoxRifleHighVelocity
-  components:
-  - pos: 3.6311464,16.499151
-    parent: 73
-    type: Transform
-  - unspawnedCount: 60
-    type: BallisticAmmoProvider
-  - canCollide: False
-    type: Physics
 - uid: 5431
   type: Chair
   components:
@@ -54624,7 +54613,7 @@ entities:
   - pos: -39.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -76411.586
+  - SecondsUntilStateChange: -77779.26
     state: Closing
     type: Door
   - enabled: False
@@ -54650,7 +54639,7 @@ entities:
   - pos: -40.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -76411.586
+  - SecondsUntilStateChange: -77779.26
     state: Closing
     type: Door
   - enabled: False
@@ -54676,7 +54665,7 @@ entities:
   - pos: -41.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -76411.586
+  - SecondsUntilStateChange: -77779.26
     state: Closing
     type: Door
   - enabled: False
@@ -54702,7 +54691,7 @@ entities:
   - pos: -42.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -76411.586
+  - SecondsUntilStateChange: -77779.26
     state: Closing
     type: Door
   - enabled: False
@@ -54728,7 +54717,7 @@ entities:
   - pos: -43.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -76411.586
+  - SecondsUntilStateChange: -77779.26
     state: Closing
     type: Door
   - enabled: False
