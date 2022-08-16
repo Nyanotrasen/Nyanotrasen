@@ -2,7 +2,7 @@
   id: boxstation
   mapName: 'Box Station'
   mapPath: /Maps/box.yml
-  minPlayers: 35
+  minPlayers: 30
   stations:
     Boxstation:
       mapNameTemplate: '{0} Box Station {1}'
@@ -42,3 +42,5 @@
         MailCarrier: [ 2, 2 ]
         Cyborg: [ 2, 3 ]
         ForensicMantis: [ 1, 1 ]
+        Reporter: [ 2, 2 ]
+        Psychologist: [ 1, 1 ]

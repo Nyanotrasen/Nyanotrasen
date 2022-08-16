@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/austation/austation/tree/30f0ba9c2dab3ec8e55ab6fae03bde1566a154ca",
+  "copyright": "Taken from https://github.com/austation/austation/tree/30f0ba9c2dab3ec8e55ab6fae03bde1566a154ca. kangaroo-judge by Hyenh",
   "states": [
     {
       "name": "kangaroo",
@@ -27,6 +27,10 @@
     },
     {
       "name": "kangaroo-space-dead"
+    },
+    {
+      "name": "kangaroo-judge",
+      "directions": 4
     }
   ]
 }
