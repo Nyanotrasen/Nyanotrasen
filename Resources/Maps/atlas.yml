@@ -2985,6 +2985,30 @@ entities:
           color: '#FFFFFFFF'
           id: Flowerspv1
           coordinates: -13.882145,-8.347635
+        1050:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale270
+          coordinates: -18,-3
+        1051:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale270
+          coordinates: -18,-2
+        1070:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale180
+          coordinates: -19,-1
+        1066:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale270
+          coordinates: -22,-1
+        1067:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale180
+          coordinates: -21,-1
+        1068:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale180
+          coordinates: -20,-1
       -1,0:
         44:
           color: '#9FED5896'
@@ -4149,6 +4173,50 @@ entities:
           color: '#9FED5896'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: -6,11
+        1069:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale90
+          coordinates: -19,5
+        1057:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale
+          coordinates: -21,5
+        1056:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale
+          coordinates: -20,5
+        1058:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale
+          coordinates: -22,5
+        1059:
+          color: '#9FED5896'
+          id: QuarterTileOverlayGreyscale
+          coordinates: -22,4
+        1060:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale
+          coordinates: -23,4
+        1061:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale270
+          coordinates: -23,3
+        1062:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale270
+          coordinates: -23,2
+        1063:
+          color: '#9FED5896'
+          id: HalfTileOverlayGreyscale270
+          coordinates: -23,1
+        1064:
+          color: '#9FED5896'
+          id: ThreeQuarterTileOverlayGreyscale270
+          coordinates: -23,0
+        1065:
+          color: '#9FED5896'
+          id: QuarterTileOverlayGreyscale270
+          coordinates: -22,0
       -2,0:
         211:
           angle: -3.141592653589793 rad
@@ -9529,10 +9597,9 @@ entities:
     parent: 73
     type: Transform
 - uid: 82
-  type: WindoorKitchenHydroponicsLocked
+  type: SpawnPointAssistant
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -13.5,1.5
+  - pos: 25.5,-3.5
     parent: 73
     type: Transform
 - uid: 83
@@ -9645,7 +9712,7 @@ entities:
     type: Transform
 - uid: 101
   components:
-  - index: 5
+  - index: 4
     type: Map
 - uid: 102
   type: WallReinforced
@@ -20969,6 +21036,12 @@ entities:
       storagebase: !type:Container
         ents: []
     type: ContainerContainer
+- uid: 1594
+  type: CableApcExtension
+  components:
+  - pos: -33.5,-10.5
+    parent: 73
+    type: Transform
 - uid: 1595
   type: CableApcExtension
   components:
@@ -24675,17 +24748,12 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 2156
-  type: ClothingBeltUtilityFilled
+  type: WindoorBarKitchenLocked
   components:
-  - pos: -23.60827,13.807444
+  - rot: -1.5707963267948966 rad
+    pos: -17.5,-2.5
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2157
   type: WallReinforced
   components:
@@ -41857,9 +41925,10 @@ entities:
     parent: 73
     type: Transform
 - uid: 4307
-  type: AirlockServiceGlassLocked
+  type: WindoorBarKitchenLocked
   components:
-  - pos: -17.5,-2.5
+  - rot: -1.5707963267948966 rad
+    pos: -17.5,-1.5
     parent: 73
     type: Transform
 - uid: 4308
@@ -44762,12 +44831,16 @@ entities:
         ents: []
     type: ContainerContainer
 - uid: 4713
-  type: Windoor
+  type: FirelockEdge
   components:
   - rot: -1.5707963267948966 rad
-    pos: -17.5,1.5
+    pos: -22.5,1.5
     parent: 73
     type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
 - uid: 4714
   type: ChairOfficeDark
   components:
@@ -50249,6 +50322,12 @@ entities:
     pos: -15.5,-14.5
     parent: 73
     type: Transform
+- uid: 5430
+  type: CableApcExtension
+  components:
+  - pos: -32.5,-10.5
+    parent: 73
+    type: Transform
 - uid: 5431
   type: Chair
   components:
@@ -50790,9 +50869,10 @@ entities:
     parent: 73
     type: Transform
 - uid: 5504
-  type: AirlockServiceGlassLocked
+  type: WindoorKitchenHydroponicsLocked
   components:
-  - pos: -17.5,-1.5
+  - rot: 1.5707963267948966 rad
+    pos: -13.5,1.5
     parent: 73
     type: Transform
 - uid: 5505
@@ -51894,8 +51974,7 @@ entities:
 - uid: 5622
   type: DrinkGlass
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -19.60329,2.1370866
+  - pos: -19.750788,2.4053278
     parent: 73
     type: Transform
   - canCollide: False
@@ -53956,14 +54035,12 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 5900
-  type: GasPressurePump
+  type: GasPipeStraight
   components:
   - rot: 1.5707963267948966 rad
     pos: -17.5,6.5
     parent: 73
     type: Transform
-  - color: '#0000FFFF'
-    type: AtmosPipeColor
 - uid: 5901
   type: CableApcExtension
   components:
@@ -54613,7 +54690,7 @@ entities:
   - pos: -39.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -77779.26
+  - SecondsUntilStateChange: -80553.625
     state: Closing
     type: Door
   - enabled: False
@@ -54639,7 +54716,7 @@ entities:
   - pos: -40.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -77779.26
+  - SecondsUntilStateChange: -80553.625
     state: Closing
     type: Door
   - enabled: False
@@ -54665,7 +54742,7 @@ entities:
   - pos: -41.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -77779.26
+  - SecondsUntilStateChange: -80553.625
     state: Closing
     type: Door
   - enabled: False
@@ -54691,7 +54768,7 @@ entities:
   - pos: -42.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -77779.26
+  - SecondsUntilStateChange: -80553.625
     state: Closing
     type: Door
   - enabled: False
@@ -54717,7 +54794,7 @@ entities:
   - pos: -43.5,21.5
     parent: 73
     type: Transform
-  - SecondsUntilStateChange: -77779.26
+  - SecondsUntilStateChange: -80553.625
     state: Closing
     type: Door
   - enabled: False
@@ -54978,13 +55055,15 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 6012
-  type: FirelockGlass
+  type: Firelock
   components:
-  - pos: -49.5,4.5
+  - pos: -47.5,5.5
     parent: 73
     type: Transform
   - airBlocked: False
     type: Airtight
+  - enabled: False
+    type: Occluder
   - canCollide: False
     type: Physics
 - uid: 6013
@@ -55380,7 +55459,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 6074
-  type: AirlockServiceGlassLocked
+  type: AirlockKitchenGlassLocked
   components:
   - pos: -13.5,2.5
     parent: 73
@@ -55759,12 +55838,16 @@ entities:
     parent: 73
     type: Transform
 - uid: 6134
-  type: GasPipeTJunction
+  type: GasPressurePump
   components:
-  - rot: 3.141592653589793 rad
-    pos: -16.5,6.5
+  - rot: 1.5707963267948966 rad
+    pos: -18.5,6.5
     parent: 73
     type: Transform
+  - enabled: False
+    type: GasPressurePump
+  - color: '#0000FFFF'
+    type: AtmosPipeColor
 - uid: 6135
   type: CableHV
   components:
@@ -56725,6 +56808,8 @@ entities:
     pos: -36.5,-11.5
     parent: 73
     type: Transform
+  - color: '#0000FFFF'
+    type: AtmosPipeColor
 - uid: 6260
   type: GasPipeBend
   components:
@@ -56949,6 +57034,8 @@ entities:
 - uid: 6284
   type: UniformGeisha
   components:
+  - desc: For a good beb.
+    type: MetaData
   - pos: -44.58761,-10.203859
     parent: 73
     type: Transform
@@ -60425,15 +60512,28 @@ entities:
     parent: 73
     type: Transform
 - uid: 6708
-  type: FirelockGlass
+  type: BlastDoorOpen
   components:
-  - pos: -49.5,0.5
+  - pos: -49.5,4.5
     parent: 73
     type: Transform
-  - airBlocked: False
-    type: Airtight
+  - enabled: False
+    type: Occluder
   - canCollide: False
     type: Physics
+  - airBlocked: False
+    type: Airtight
+  - inputs:
+      Open:
+      - port: Middle
+        uid: 7874
+      Close:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Toggle: []
+    type: SignalReceiver
 - uid: 6709
   type: WindowReinforcedDirectional
   components:
@@ -60478,11 +60578,15 @@ entities:
     parent: 73
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 7020
+      Open:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Close:
+      - port: Middle
+        uid: 7874
+      Toggle: []
     type: SignalReceiver
 - uid: 6714
   type: WallReinforced
@@ -60497,11 +60601,15 @@ entities:
     parent: 73
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 7020
+      Open:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Close:
+      - port: Middle
+        uid: 7874
+      Toggle: []
     type: SignalReceiver
 - uid: 6716
   type: CableApcExtension
@@ -62294,11 +62402,15 @@ entities:
     parent: 73
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 7020
+      Open:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Close:
+      - port: Middle
+        uid: 7874
+      Toggle: []
     type: SignalReceiver
 - uid: 6976
   type: BlastDoor
@@ -62307,11 +62419,15 @@ entities:
     parent: 73
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 7020
+      Open:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Close:
+      - port: Middle
+        uid: 7874
+      Toggle: []
     type: SignalReceiver
 - uid: 6977
   type: BlastDoor
@@ -62320,11 +62436,15 @@ entities:
     parent: 73
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 7020
+      Open:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Close:
+      - port: Middle
+        uid: 7874
+      Toggle: []
     type: SignalReceiver
 - uid: 6978
   type: Catwalk
@@ -62690,29 +62810,13 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 7020
-  type: SignalButton
+  type: ClothingHeadHatCone
   components:
-  - desc: Exposes atmos tanks to vacuum. The 'oh shit' button.
-    name: emergency atmos vac
-    type: MetaData
-  - pos: -44.5,0.5
+  - pos: 25.902899,-15.6018505
     parent: 73
     type: Transform
-  - fixtures: []
-    type: Fixtures
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 6715
-      - port: Toggle
-        uid: 6713
-      - port: Toggle
-        uid: 6975
-      - port: Toggle
-        uid: 6976
-      - port: Toggle
-        uid: 6977
-    type: SignalTransmitter
+  - canCollide: False
+    type: Physics
 - uid: 7021
   type: Chair
   components:
@@ -65029,14 +65133,12 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 7297
-  type: GasPipeStraight
+  type: GasPipeTJunction
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -18.5,6.5
+  - rot: 3.141592653589793 rad
+    pos: -16.5,6.5
     parent: 73
     type: Transform
-  - color: '#0000FFFF'
-    type: AtmosPipeColor
 - uid: 7298
   type: GasPipeStraight
   components:
@@ -65254,11 +65356,16 @@ entities:
   - fixtures: []
     type: Fixtures
 - uid: 7324
-  type: AirlockFreezerKitchenHydroLocked
+  type: FirelockEdge
   components:
-  - pos: -17.5,6.5
+  - rot: -1.5707963267948966 rad
+    pos: -22.5,0.5
     parent: 73
     type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
 - uid: 7325
   type: StoolBar
   components:
@@ -66845,17 +66952,34 @@ entities:
     parent: 73
     type: Transform
 - uid: 7505
-  type: SpawnPointBoxer
+  type: MaintenanceFluffSpawner
   components:
-  - pos: 26.5,15.5
+  - pos: -23.5,13.5
     parent: 73
     type: Transform
 - uid: 7506
-  type: SpawnPointBoxer
+  type: BlastDoorOpen
   components:
-  - pos: 26.5,13.5
+  - pos: -49.5,0.5
     parent: 73
     type: Transform
+  - enabled: False
+    type: Occluder
+  - canCollide: False
+    type: Physics
+  - airBlocked: False
+    type: Airtight
+  - inputs:
+      Open:
+      - port: Middle
+        uid: 7874
+      Close:
+      - port: Left
+        uid: 7874
+      - port: Right
+        uid: 7874
+      Toggle: []
+    type: SignalReceiver
 - uid: 7507
   type: SpawnPointChiefEngineer
   components:
@@ -69620,4 +69744,440 @@ entities:
       board: !type:Container
         ents: []
     type: ContainerContainer
+- uid: 7836
+  type: Firelock
+  components:
+  - pos: -33.5,-10.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - enabled: False
+    type: Occluder
+  - canCollide: False
+    type: Physics
+- uid: 7837
+  type: FirelockGlass
+  components:
+  - pos: -37.5,-13.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7838
+  type: SpawnPointAssistant
+  components:
+  - pos: 9.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7839
+  type: SpawnPointAssistant
+  components:
+  - pos: -25.5,-2.5
+    parent: 73
+    type: Transform
+- uid: 7840
+  type: SpawnPointAssistant
+  components:
+  - pos: -24.5,-1.5
+    parent: 73
+    type: Transform
+- uid: 7841
+  type: SpawnPointAssistant
+  components:
+  - pos: -25.5,-0.5
+    parent: 73
+    type: Transform
+- uid: 7842
+  type: SpawnPointAssistant
+  components:
+  - pos: -25.5,6.5
+    parent: 73
+    type: Transform
+- uid: 7843
+  type: SpawnPointAssistant
+  components:
+  - pos: -24.5,7.5
+    parent: 73
+    type: Transform
+- uid: 7844
+  type: SpawnPointAssistant
+  components:
+  - pos: -18.5,7.5
+    parent: 73
+    type: Transform
+- uid: 7845
+  type: SpawnPointAssistant
+  components:
+  - pos: -20.5,7.5
+    parent: 73
+    type: Transform
+- uid: 7846
+  type: SpawnPointAssistant
+  components:
+  - pos: -31.5,17.5
+    parent: 73
+    type: Transform
+- uid: 7847
+  type: SpawnPointAssistant
+  components:
+  - pos: -20.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7848
+  type: SpawnPointAssistant
+  components:
+  - pos: -18.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7849
+  type: SpawnPointAssistant
+  components:
+  - pos: -16.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7850
+  type: SpawnPointAssistant
+  components:
+  - pos: -15.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7851
+  type: SpawnPointAssistant
+  components:
+  - pos: -14.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7852
+  type: SpawnPointAssistant
+  components:
+  - pos: -17.5,-8.5
+    parent: 73
+    type: Transform
+- uid: 7853
+  type: SpawnPointAssistant
+  components:
+  - pos: -5.5,-4.5
+    parent: 73
+    type: Transform
+- uid: 7854
+  type: SpawnPointAssistant
+  components:
+  - pos: -3.5,-1.5
+    parent: 73
+    type: Transform
+- uid: 7855
+  type: SpawnPointAssistant
+  components:
+  - pos: 15.5,-2.5
+    parent: 73
+    type: Transform
+- uid: 7856
+  type: SpawnPointAssistant
+  components:
+  - pos: 16.5,-2.5
+    parent: 73
+    type: Transform
+- uid: 7857
+  type: SpawnPointAssistant
+  components:
+  - pos: 16.5,-0.5
+    parent: 73
+    type: Transform
+- uid: 7858
+  type: SpawnPointAssistant
+  components:
+  - pos: 23.5,-8.5
+    parent: 73
+    type: Transform
+- uid: 7859
+  type: SpawnPointAssistant
+  components:
+  - pos: 23.5,-6.5
+    parent: 73
+    type: Transform
+- uid: 7860
+  type: SpawnPointAssistant
+  components:
+  - pos: 21.5,-7.5
+    parent: 73
+    type: Transform
+- uid: 7861
+  type: SpawnPointAssistant
+  components:
+  - pos: 22.5,-13.5
+    parent: 73
+    type: Transform
+- uid: 7862
+  type: SpawnPointAssistant
+  components:
+  - pos: 21.5,-12.5
+    parent: 73
+    type: Transform
+- uid: 7863
+  type: SpawnPointAssistant
+  components:
+  - pos: 21.5,-8.5
+    parent: 73
+    type: Transform
+- uid: 7864
+  type: SpawnPointAssistant
+  components:
+  - pos: 21.5,-6.5
+    parent: 73
+    type: Transform
+- uid: 7865
+  type: SpawnPointAssistant
+  components:
+  - pos: 23.5,-7.5
+    parent: 73
+    type: Transform
+- uid: 7866
+  type: SpawnPointAssistant
+  components:
+  - pos: 22.5,13.5
+    parent: 73
+    type: Transform
+- uid: 7867
+  type: SpawnPointAssistant
+  components:
+  - pos: 22.5,14.5
+    parent: 73
+    type: Transform
+- uid: 7868
+  type: SpawnPointAssistant
+  components:
+  - pos: 23.5,15.5
+    parent: 73
+    type: Transform
+- uid: 7869
+  type: SpawnPointAssistant
+  components:
+  - pos: 23.5,14.5
+    parent: 73
+    type: Transform
+- uid: 7870
+  type: SpawnPointAssistant
+  components:
+  - pos: 17.5,14.5
+    parent: 73
+    type: Transform
+- uid: 7871
+  type: SpawnPointAssistant
+  components:
+  - pos: 20.5,24.5
+    parent: 73
+    type: Transform
+- uid: 7872
+  type: SpawnPointAssistant
+  components:
+  - pos: 17.5,23.5
+    parent: 73
+    type: Transform
+- uid: 7873
+  type: Firelock
+  components:
+  - pos: -47.5,-0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - enabled: False
+    type: Occluder
+  - canCollide: False
+    type: Physics
+- uid: 7874
+  type: TwoWayLever
+  components:
+  - pos: -41.75389,1.4740317
+    parent: 73
+    type: Transform
+  - outputs:
+      Left:
+      - port: Open
+        uid: 6715
+      - port: Open
+        uid: 6713
+      - port: Open
+        uid: 6977
+      - port: Open
+        uid: 6976
+      - port: Open
+        uid: 6975
+      - port: Close
+        uid: 7506
+      - port: Close
+        uid: 6708
+      Right:
+      - port: Open
+        uid: 6715
+      - port: Open
+        uid: 6713
+      - port: Open
+        uid: 6977
+      - port: Open
+        uid: 6976
+      - port: Open
+        uid: 6975
+      - port: Close
+        uid: 7506
+      - port: Close
+        uid: 6708
+      Middle:
+      - port: Close
+        uid: 6715
+      - port: Close
+        uid: 6713
+      - port: Close
+        uid: 6977
+      - port: Close
+        uid: 6976
+      - port: Close
+        uid: 6975
+      - port: Open
+        uid: 7506
+      - port: Open
+        uid: 6708
+    type: SignalTransmitter
+- uid: 7875
+  type: ClothingHeadHatCone
+  components:
+  - pos: 26.788317,-15.080654
+    parent: 73
+    type: Transform
+  - canCollide: False
+    type: Physics
+- uid: 7876
+  type: WarningO2
+  components:
+  - pos: 24.5,-16.5
+    parent: 73
+    type: Transform
+- uid: 7877
+  type: VendingMachineCargoDrobe
+  components:
+  - pos: -19.5,18.5
+    parent: 73
+    type: Transform
+- uid: 7878
+  type: WindoorBarKitchenLocked
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -17.5,1.5
+    parent: 73
+    type: Transform
+- uid: 7879
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -22.5,2.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7880
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -22.5,3.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7881
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -22.5,4.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7882
+  type: FirelockEdge
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -22.5,4.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7883
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -21.5,5.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7884
+  type: FirelockEdge
+  components:
+  - pos: -19.5,-0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7885
+  type: FirelockEdge
+  components:
+  - pos: -20.5,-0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7886
+  type: FirelockEdge
+  components:
+  - pos: -21.5,-0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7887
+  type: FirelockEdge
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -21.5,-0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7888
+  type: FirelockEdge
+  components:
+  - pos: -22.5,0.5
+    parent: 73
+    type: Transform
+  - airBlocked: False
+    type: Airtight
+  - canCollide: False
+    type: Physics
+- uid: 7889
+  type: WallSolid
+  components:
+  - pos: -17.5,6.5
+    parent: 73
+    type: Transform
 ...
