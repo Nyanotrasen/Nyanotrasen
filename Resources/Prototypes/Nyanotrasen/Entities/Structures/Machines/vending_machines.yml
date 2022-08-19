@@ -24,7 +24,7 @@
       normalUnshaded: true
       denyUnshaded: true
       broken: true
-    - type: WiresVisualizer
+  - type: WiresVisuals
 
 - type: entity
   parent: VendingMachineDetDrobe
@@ -80,6 +80,6 @@
     - type: VendingMachineVisualizer
       normalUnshaded: true
       broken: true
-    - type: WiresVisualizer
+  - type: WiresVisuals
   - type: AccessReader
     access: [["Service"]]
