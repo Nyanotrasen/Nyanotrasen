@@ -25,6 +25,12 @@
       - MachineMask
       layer:
       - MachineLayer
+  - type: Construction
+    graph: Machine
+    node: machine
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - clonepod-bodyContainer
   - type: Destructible
     thresholds:
     - trigger:
