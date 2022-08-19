@@ -554,15 +554,14 @@
 #  categories:
 #  - UplinkMisc
 
-# - type: listing
+# Disabled until rebalance post-biomass
+# - type: uplinkListing
 #   id: UplinkGigacancerScanner
-#   name: Ultragigacancer Health Analyzer
+#   category: Misc
+#   itemId: HandheldHealthAnalyzerGigacancer
+#   listingName: Ultragigacancer Health Analyzer
 #   description: Works like a normal health analyzer, other than giving everyone it scans ultragigacancer.
-#   productEntity: HandheldHealthAnalyzerGigacancer
-#   cost:
-#     Telecrystal: 5
-#   categories:
-#   - UplinkMisc
+#   price: 5
 
 - type: listing
   id: UplinkNocturineChemistryBottle
