@@ -76,4 +76,5 @@ public enum LogType
     BagOfHolding = 420,
     Identity = 71,
     CableCut = 72,
+    StorePurchase = 73,
 }

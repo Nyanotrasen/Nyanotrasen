@@ -1,7 +1,8 @@
-- type: uplinkListing
+- type: listing
   id: UplinkKanabou
-  category: Weapons
-  itemId: Kanabou
-  listingName: Kanabou
+  name: Kanabou
   description: A weapon for those who wish to forgo subtlety. Particularly suited to oni.
-  price: 10
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeapons
