@@ -161,7 +161,8 @@ public sealed class PrototypeSaveTest
         "Bucket",
         "CableTerminal",
         "AirlockShuttle",
-        "AirlockGlassShuttle"
+        "AirlockGlassShuttle",
+        "EngineeringTechFab",
     };
 
     [Test]
@@ -235,7 +236,7 @@ public sealed class PrototypeSaveTest
                 {
                     uid = entityMan.SpawnEntity(prototype.ID, testLocation);
                     server.RunTicks(1);
-                    
+
                     // get default prototype data
                     Dictionary<string, MappingDataNode> protoData = new();
                     try
