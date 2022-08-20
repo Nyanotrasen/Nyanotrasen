@@ -95,6 +95,7 @@ namespace Content.Server.Item.PseudoItem
                 return;
 
             pseudoItem.CancelToken?.Cancel();
+            pseudoItem.CancelToken = null;
         }
 
         private void OnInsertSuccessful(InsertSuccessfulEvent ev)
@@ -102,6 +103,7 @@ namespace Content.Server.Item.PseudoItem
             if (!TryComp<PseudoItemComponent>(ev.ToInsert, out var pseudoItem))
                 return;
             pseudoItem.CancelToken?.Cancel();
+            pseudoItem.CancelToken = null;
 
             TryInsert(ev.TargetStorage, ev.ToInsert, pseudoItem);
         }
