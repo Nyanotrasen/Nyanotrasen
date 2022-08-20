@@ -130,12 +130,13 @@ The ban reason is: ""{ban.Reason}""
                 return (ConnectionDenyReason.Ban, firstBan.DisconnectMessage, bans);
             }
 
+            var minPlayers = _cfg.GetCVar(CCVars.WhitelistMinPlayers);
             if (_cfg.GetCVar(CCVars.WhitelistEnabled)
-                && _plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.WhitelistMinPlayers)
+                && _plyMgr.PlayerCount >= minPlayers
                 && await _db.GetWhitelistStatusAsync(userId) == false
                 && adminData is null)
             {
-                return (ConnectionDenyReason.Whitelist, Loc.GetString(_cfg.GetCVar(CCVars.WhitelistReason)), null);
+                return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-not-whitelisted", ("num", minPlayers)), null);
             }
 
             return null;
