@@ -1,6 +1,7 @@
 using System.Threading;
 using Content.Shared.Verbs;
 using Content.Shared.Item;
+using Content.Shared.DragDrop;
 using Content.Shared.IdentityManagement;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
@@ -21,6 +22,7 @@ namespace Content.Server.Item.PseudoItem
             SubscribeLocalEvent<PseudoItemComponent, GetVerbsEvent<AlternativeVerb>>(AddInsertAltVerb);
             SubscribeLocalEvent<PseudoItemComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
+            SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
 
             SubscribeLocalEvent<InsertSuccessfulEvent>(OnInsertSuccessful);
             SubscribeLocalEvent<InsertCancelledEvent>(OnInsertCancelled);
@@ -78,6 +80,7 @@ namespace Content.Server.Item.PseudoItem
         private void OnEntRemoved(EntityUid uid, PseudoItemComponent component, EntGotRemovedFromContainerMessage args)
         {
             RemComp<ItemComponent>(uid);
+            component.Active = false;
         }
 
         private void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
@@ -87,6 +90,12 @@ namespace Content.Server.Item.PseudoItem
 
             Transform(uid).AttachToGridOrMap();
             args.Cancel();
+        }
+
+        private void OnDropAttempt(EntityUid uid, PseudoItemComponent component, DropAttemptEvent args)
+        {
+            if (component.Active)
+                args.Cancel();
         }
 
         private void OnInsertCancelled(InsertCancelledEvent ev)
@@ -118,6 +127,8 @@ namespace Content.Server.Item.PseudoItem
 
             var item = EnsureComp<ItemComponent>(toInsert);
             _itemSystem.SetSize(toInsert, component.Size, item);
+
+            component.Active = true;
 
             _storageSystem.Insert(storage.Owner, toInsert, storage);
         }

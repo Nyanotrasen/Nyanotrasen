@@ -13,5 +13,7 @@ namespace Content.Server.Item.PseudoItem
 
         [DataField("size")]
         public int Size = 120;
+
+        public bool Active = false;
     }
 }
