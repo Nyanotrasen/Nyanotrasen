@@ -1,6 +1,7 @@
 - type: job
   id: Cataloguer
   name: "cataloguer"
+  setPreference: false
   startingGear: CataloguerGear
   playTimeTracker: JobCataloguer
   icon: "Librarian"
