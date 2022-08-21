@@ -16,7 +16,7 @@
     fixtures:
     - shape:
         !type:PhysShapeAabb
-        bounds: "-0.49,-0.49,0.49,-0.3"
+        bounds: "-0.49,-0.49,0.49,-0.45"
       mass: 50
       mask:
       - TabletopMachineMask
@@ -101,7 +101,7 @@
         denyAnimationTime: 0.4
         animatedPanel: false
         openUnlitVisible: true
-      - type: WiresVisualizer
+  - type: WiresVisuals
   - type: Airtight
     fixVacuum: true
     noAirWhenFullyAirBlocked: false
