@@ -4,3 +4,10 @@
   description: action-description-suck-blood
   icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
   serverEvent: !type:SuckBloodActionEvent
+
+- type: instantAction
+  id: EatMouse
+  name: action-name-eat-mouse
+  description: action-description-eat-mouse
+  icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
+  serverEvent: !type:EatMouseActionEvent

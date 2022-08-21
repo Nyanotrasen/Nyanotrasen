@@ -3,15 +3,19 @@ using Content.Shared.Audio;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Item;
+using Content.Shared.Inventory;
+using Content.Shared.Hands;
+using Content.Shared.Actions.ActionTypes;
 using Content.Server.Body.Components;
 using Content.Server.Medical;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Nutrition.Components;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Shared.Inventory;
 using Content.Server.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Abilities.Felinid
 {
@@ -24,11 +28,16 @@ namespace Content.Server.Abilities.Felinid
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<FelinidComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<FelinidComponent, HairballActionEvent>(OnHairball);
+            SubscribeLocalEvent<FelinidComponent, EatMouseActionEvent>(OnEatMouse);
+            SubscribeLocalEvent<FelinidComponent, DidEquipHandEvent>(OnEquipped);
+            SubscribeLocalEvent<FelinidComponent,DidUnequipHandEvent>(OnUnequipped);
             SubscribeLocalEvent<HairballComponent, ThrowDoHitEvent>(OnHairballHit);
             SubscribeLocalEvent<HairballComponent, GettingPickedUpAttemptEvent>(OnHairballPickupAttempt);
         }
@@ -61,6 +70,27 @@ namespace Content.Server.Abilities.Felinid
             _actionsSystem.AddAction(uid, component.HairballAction, uid);
         }
 
+        private void OnEquipped(EntityUid uid, FelinidComponent component, DidEquipHandEvent args)
+        {
+            if (!HasComp<FelinidFoodComponent>(args.Equipped))
+                return;
+
+            component.PotentialTarget = args.Equipped;
+
+            if (_prototypeManager.TryIndex<InstantActionPrototype>("EatMouse", out var eatMouse))
+                _actionsSystem.AddAction(uid, new InstantAction(eatMouse), null);
+        }
+
+        private void OnUnequipped(EntityUid uid, FelinidComponent component, DidUnequipHandEvent args)
+        {
+            if (args.Unequipped == component.PotentialTarget)
+            {
+                component.PotentialTarget = null;
+                if (_prototypeManager.TryIndex<InstantActionPrototype>("EatMouse", out var eatMouse))
+                    _actionsSystem.RemoveAction(uid, eatMouse);
+            }
+        }
+
         private void OnHairball(EntityUid uid, FelinidComponent component, HairballActionEvent args)
         {
             if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
@@ -76,6 +106,33 @@ namespace Content.Server.Abilities.Felinid
 
             AddComp<CoughingUpHairballComponent>(uid);
             args.Handled = true;
+        }
+
+        private void OnEatMouse(EntityUid uid, FelinidComponent component, EatMouseActionEvent args)
+        {
+            if (component.PotentialTarget == null)
+                return;
+
+            if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+            blocker.Enabled)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, Filter.Entities(uid));
+                return;
+            }
+
+            _actionsSystem.SetCharges(component.HairballAction, component.HairballAction.Charges + 1);
+            _actionsSystem.SetEnabled(component.HairballAction, true);
+            Del(component.PotentialTarget.Value);
+            component.PotentialTarget = null;
+
+            SoundSystem.Play("/Audio/Items/eatfood.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
+
+            if (TryComp<HungerComponent>(uid, out var hunger))
+                hunger.UpdateFood(50f);
+
+            if (_prototypeManager.TryIndex<InstantActionPrototype>("EatMouse", out var eatMouse))
+                    _actionsSystem.RemoveAction(uid, eatMouse);
         }
 
         private void SpawnHairball(EntityUid uid, FelinidComponent component)
@@ -115,4 +172,5 @@ namespace Content.Server.Abilities.Felinid
     }
 
     public sealed class HairballActionEvent : InstantActionEvent {}
+    public sealed class EatMouseActionEvent : InstantActionEvent {}
 }

@@ -870,6 +870,7 @@
     - Vermin
   - type: MobPrice
     price: 50
+  - type: FelinidFood
 
 - type: entity
   parent: MobMouse
@@ -895,7 +896,6 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: DiseaseCarrier #Why doesn't this save if it's only on the parent wtf
-
 
 - type: entity
   parent: MobMouse
