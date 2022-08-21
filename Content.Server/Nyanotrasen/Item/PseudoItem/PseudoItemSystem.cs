@@ -39,6 +39,9 @@ namespace Content.Server.Item.PseudoItem
             if (component.Size > targetStorage.StorageCapacityMax - targetStorage.StorageUsed)
                 return;
 
+            if (Transform(args.Target).ParentUid == uid)
+                return;
+
             InnateVerb verb = new()
             {
                 Act = () =>
@@ -130,7 +133,11 @@ namespace Content.Server.Item.PseudoItem
 
             component.Active = true;
 
-            _storageSystem.Insert(storage.Owner, toInsert, storage);
+            if (!_storageSystem.Insert(storage.Owner, toInsert, storage))
+            {
+                component.Active = false;
+                RemComp<ItemComponent>(toInsert);
+            }
         }
         private void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity, PseudoItemComponent? pseudoItem = null)
         {
