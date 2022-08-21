@@ -93,7 +93,7 @@ namespace Content.Server.Lamiae
             || TryComp<HandVirtualItemComponent>(args.Unequipped, out var virtualItem) && virtualItem.BlockingEntity == component.PotentialTarget)
             {
                 component.PotentialTarget = null;
-                 if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
+                if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
                     _actionsSystem.RemoveAction(uid, suckBlood);
             }
         }
