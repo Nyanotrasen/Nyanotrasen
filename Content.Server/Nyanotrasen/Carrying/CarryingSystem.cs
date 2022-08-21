@@ -282,7 +282,8 @@ namespace Content.Server.Carrying
                 massRatio = 1;
 
             var massRatioSq = Math.Pow(massRatio, 2);
-            var modifier = (1 - (massRatioSq * 0.15));
+            var modifier = (1 - (0.15 / massRatioSq));
+            modifier = Math.Max(0.1, modifier);
             var slowdownComp = EnsureComp<CarryingSlowdownComponent>(carrier);
             _slowdown.SetModifier(carrier, (float) modifier, (float) modifier, slowdownComp);
         }
