@@ -24,7 +24,7 @@
       - shape:
           !type:PhysShapeCircle
           radius: 0.35
-        mass: 85
+        mass: 10
         mask:
           - FlyingMobMask
         layer:
@@ -41,7 +41,7 @@
   - type: MobState
     thresholds:
       0: Alive
-      150: Dead
+      120: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -62,9 +62,3 @@
     damageModifierSet: Infernal
   - type: Speech
     speechSounds: Bass
-  - type: Puller
-    needsHands: false
-  - type: Tag
-    tags:
-      - CannotSuicide
-      - DoorBumpOpener
