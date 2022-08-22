@@ -21,6 +21,7 @@ using Content.Client.Singularity;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
+using Content.Client.Nyanotrasen.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.AME;
