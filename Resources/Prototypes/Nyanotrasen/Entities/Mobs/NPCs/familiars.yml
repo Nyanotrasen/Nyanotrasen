@@ -24,7 +24,7 @@
       - shape:
           !type:PhysShapeCircle
           radius: 0.35
-        mass: 10
+        mass: 85
         mask:
           - FlyingMobMask
         layer:
@@ -46,7 +46,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 120
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -62,3 +62,9 @@
     damageModifierSet: Infernal
   - type: Speech
     speechSounds: Bass
+  - type: Puller
+    needsHands: false
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
