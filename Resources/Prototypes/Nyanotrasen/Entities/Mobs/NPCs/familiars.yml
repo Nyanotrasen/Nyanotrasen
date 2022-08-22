@@ -41,7 +41,7 @@
   - type: MobState
     thresholds:
       0: Alive
-      150: Dead
+      120: Dead
   - type: Destructible
     thresholds:
     - trigger:
