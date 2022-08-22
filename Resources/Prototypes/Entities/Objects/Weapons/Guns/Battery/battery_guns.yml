@@ -58,29 +58,6 @@
   - type: Appearance
 
 - type: entity
-  name: makeshift laser gun
-  parent: BaseWeaponBatterySmall
-  id: WeaponMakeshiftLaser
-  description: Better pray it won't burn your hands off.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-4
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: Item
-    sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
-  - type: Battery
-    maxCharge: 500
-    startingCharge: 500
-
-- type: entity
   name: laser gun
   parent: BaseWeaponBattery
   id: WeaponLaserCarbine

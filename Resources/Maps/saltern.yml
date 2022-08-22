@@ -40919,20 +40919,6 @@ entities:
     pos: 10.5,-14.5
     parent: 852
     type: Transform
-- uid: 4137
-  type: WeaponMakeshiftLaser
-  components:
-  - desc: A mess of wires and heat designed by the Mystagogue for raining down "cleansing fire." Certainly not registered.
-    name: prototype laser gun
-    type: MetaData
-  - pos: -9.526072,-23.193087
-    parent: 852
-    type: Transform
-  - startingCharge: 1500
-    maxCharge: 1500
-    type: Battery
-  - canCollide: False
-    type: Physics
 - uid: 4138
   type: CableApcExtension
   components:
