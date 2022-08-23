@@ -11,3 +11,18 @@
   description: action-description-eat-mouse
   icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
   serverEvent: !type:EatMouseActionEvent
+
+- type: entityTargetAction
+  id: Pacify
+  name: action-name-pacify
+  description: action-description-pacify
+  useDelay: 30
+  checkCanAccess: false
+  range: 8
+  whitelist:
+    components:
+    - CombatMode
+    - StatusEffects
+  canTargetSelf: false
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  event: !type:PacificationPowerActionEvent

@@ -1,3 +1,4 @@
+using Content.Shared.Abilities.Psionics;
 using Robust.Shared.Random;
 
 namespace Content.Server.Psionics
@@ -5,6 +6,7 @@ namespace Content.Server.Psionics
     public sealed class PsionicsSystem : EntitySystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -14,7 +16,7 @@ namespace Content.Server.Psionics
         private void OnInit(EntityUid uid, PotentialPsionicComponent component, ComponentInit args)
         {
             if (_random.Prob(component.Chance))
-                AddComp<PsionicComponent>(uid);
+                _psionicAbilitiesSystem.AddPsionics(uid);
         }
     }
 }
