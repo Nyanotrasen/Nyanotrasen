@@ -23,9 +23,10 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
             {
                 _quickDialogSystem.OpenDialog(actor.PlayerSession, "Psionic!", "You've rolled a psionic power. The forensic mantis may hunt you, so you'll want to keep it a secret. Do you still want to be psychic?", (string response) => AddRandomPsionicPower(uid), null);
+                return;
             }
 
-
+            AddRandomPsionicPower(uid);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)
