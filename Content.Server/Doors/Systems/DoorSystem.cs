@@ -1,4 +1,4 @@
-gusing Content.Server.Access;
+using Content.Server.Access;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction;
@@ -31,6 +31,8 @@ public sealed class DoorSystem : SharedDoorSystem
     [Dependency] private readonly AirtightSystem _airtightSystem = default!;
     [Dependency] private readonly ConstructionSystem _constructionSystem = default!;
     [Dependency] private readonly ToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
 
     public override void Initialize()
     {
