@@ -9,6 +9,7 @@ namespace Content.Shared.Abilities.Psionics
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
             "PacificationPower",
+            "MetapsionicPower",
         };
         public void AddPsionics(EntityUid uid)
         {

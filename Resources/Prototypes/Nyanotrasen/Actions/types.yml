@@ -26,3 +26,11 @@
   canTargetSelf: false
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   event: !type:PacificationPowerActionEvent
+
+- type: instantAction
+  id: MetapsionicPulse
+  name: action-name-metapsionic
+  description: action-description-metapsionic
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  event: !type:MetapsionicPowerActionEvent
