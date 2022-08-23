@@ -4,6 +4,6 @@ namespace Content.Shared.Abilities.Psionics
     public sealed class PacificationPowerComponent : Component
     {
         [DataField("pacifyTime")]
-        public TimeSpan PacifyTime = TimeSpan.FromSeconds(30);
+        public TimeSpan PacifyTime = TimeSpan.FromSeconds(20);
     }
 }
