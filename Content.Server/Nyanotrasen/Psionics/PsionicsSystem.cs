@@ -2,8 +2,8 @@ using Content.Shared.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Stunnable;
 using Content.Server.Damage.Events;
+using Content.Server.GameTicking;
 using Robust.Shared.Random;
-
 
 namespace Content.Server.Psionics
 {
@@ -15,22 +15,38 @@ namespace Content.Server.Psionics
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<GuaranteedPsionicComponent, ComponentInit>(OnGuaranteedInit);
+            SubscribeLocalEvent<PotentialPsionicComponent, PlayerSpawnCompleteEvent>(OnStartup);
+            SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
         }
 
-        private void OnInit(EntityUid uid, PotentialPsionicComponent component, ComponentInit args)
+        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
         {
             if (HasComp<GuaranteedPsionicComponent>(uid))
                 return;
-            if (_random.Prob(component.Chance))
+
+            var chance = component.Chance;
+
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
+            {
+                chance *= bonus.Multiplier;
+                chance += bonus.FlatBonus;
+            }
+
+            chance = Math.Clamp(chance, 0, 1);
+            if (_random.Prob(chance))
                 _psionicAbilitiesSystem.AddPsionics(uid);
         }
 
-        private void OnGuaranteedInit(EntityUid uid, GuaranteedPsionicComponent component, ComponentInit args)
+        private void OnGuaranteedStartup(EntityUid uid, GuaranteedPsionicComponent component, PlayerSpawnCompleteEvent args)
         {
+            if (component.PowerComponent == null)
+            {
+                _psionicAbilitiesSystem.AddPsionics(uid);
+                return;
+            }
+
             _psionicAbilitiesSystem.AddPsionics(uid, component.PowerComponent);
         }
 
