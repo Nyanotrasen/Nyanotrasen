@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Stunnable;
 using Content.Server.Damage.Events;
