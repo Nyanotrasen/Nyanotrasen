@@ -36,10 +36,28 @@
     state: pda-detective
 
 - type: entity
+  parent: SciencePDA
+  id: EpistemicsPDA
+  name: epistemologist PDA
+  description: Preinstalled with plenty of brain teasers and religious conversion booklets.
+  components:
+  - type: PDA
+    id: EpistemicsIDCard
+  
+- type: entity
+  parent: RnDPDA
+  id: MystaPDA
+  name: mystagogue PDA
+  description: Practically radiating psychic energies... They actually have the Pope on speed dial!
+  components:
+  - type: PDA
+    id: MystaIDCard
+
+- type: entity
   parent: BasePDA
   id: ParamedicPDA
   name: paramedic PDA
-  description: Sweaty. Whoever uses this must be noided. Has a bult-in health analyzer.
+  description: Sweaty. Whoever uses this must be noided. Has a built-in health analyzer.
   components:
   - type: PDA
     id: ParamedicIDCard

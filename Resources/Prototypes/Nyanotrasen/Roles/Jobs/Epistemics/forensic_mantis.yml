@@ -19,6 +19,11 @@
   - Brig
   - Detective
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
+      power: MetapsionicPower
 
 - type: startingGear
   id: ForensicMantisGear
@@ -30,6 +35,7 @@
     id: ForensicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetMantis
+    pocket1: AntiPsychicKnife
     pocket2: ForensicScanner
   innerclothingskirt: ClothingUniformJumpskirtColorBlue
   satchel: ClothingBackpackSatchelDetectiveFilled

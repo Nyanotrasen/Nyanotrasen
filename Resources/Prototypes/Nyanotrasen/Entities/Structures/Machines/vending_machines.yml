@@ -17,7 +17,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Engineering"]]
   - type: Appearance
     visuals:
     - type: VendingMachineVisualizer

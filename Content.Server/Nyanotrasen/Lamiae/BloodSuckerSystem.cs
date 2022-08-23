@@ -93,7 +93,7 @@ namespace Content.Server.Lamiae
             || TryComp<HandVirtualItemComponent>(args.Unequipped, out var virtualItem) && virtualItem.BlockingEntity == component.PotentialTarget)
             {
                 component.PotentialTarget = null;
-                 if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
+                if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
                     _actionsSystem.RemoveAction(uid, suckBlood);
             }
         }
@@ -241,7 +241,7 @@ namespace Content.Server.Lamiae
                 return;
             }
             // All good, succ time.
-            SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker));
+            SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker), bloodsucker);
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked", ("target", victim)), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
             EnsureComp<BloodSuckedComponent>(victim);

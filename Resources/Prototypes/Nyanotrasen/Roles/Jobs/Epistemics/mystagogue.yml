@@ -23,16 +23,20 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
 
 - type: startingGear
   id: MystagogueGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorWhite
+    jumpsuit: ClothingUniformJumpsuitMystagogue
     back: ClothingBackpackScienceFilled
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHoodMystic
     outerClothing: ClothingOuterRobeMystic
-    id: RnDPDA
+    belt: BibleMystagogue
+    id: MystaPDA
     ears: ClothingHeadsetMystagogue
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelScienceFilled
