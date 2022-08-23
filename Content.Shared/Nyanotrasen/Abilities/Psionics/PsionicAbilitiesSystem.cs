@@ -23,5 +23,18 @@ namespace Content.Shared.Abilities.Psionics
 
             EntityManager.AddComponent(uid, newComponent);
         }
+
+        public void AddPsionics(EntityUid uid, string powerComp)
+        {
+            if (HasComp<PsionicComponent>(uid))
+                return;
+
+            AddComp<PsionicComponent>(uid);  
+
+            var newComponent = (Component) _componentFactory.GetComponent(powerComp);
+            newComponent.Owner = uid;
+
+            EntityManager.AddComponent(uid, newComponent);
+        }
     }
 }

@@ -19,6 +19,11 @@
   - Brig
   - Detective
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
+      power: PacificationPower
 
 - type: startingGear
   id: ForensicMantisGear

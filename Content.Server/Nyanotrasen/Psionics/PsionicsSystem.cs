@@ -16,14 +16,22 @@ namespace Content.Server.Psionics
         {
             base.Initialize();
             SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<GuaranteedPsionicComponent, ComponentInit>(OnGuaranteedInit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
         }
 
         private void OnInit(EntityUid uid, PotentialPsionicComponent component, ComponentInit args)
         {
+            if (HasComp<GuaranteedPsionicComponent>(uid))
+                return;
             if (_random.Prob(component.Chance))
                 _psionicAbilitiesSystem.AddPsionics(uid);
+        }
+
+        private void OnGuaranteedInit(EntityUid uid, GuaranteedPsionicComponent component, ComponentInit args)
+        {
+            _psionicAbilitiesSystem.AddPsionics(uid, component.PowerComponent);
         }
 
         private void OnMeleeHit(EntityUid uid, AntiPsionicWeaponComponent component, MeleeHitEvent args)
