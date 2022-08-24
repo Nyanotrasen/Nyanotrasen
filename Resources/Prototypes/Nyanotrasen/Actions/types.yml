@@ -22,7 +22,6 @@
   whitelist:
     components:
     - CombatMode
-    - StatusEffects
   canTargetSelf: false
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   event: !type:PacificationPowerActionEvent
@@ -34,3 +33,17 @@
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 45
   event: !type:MetapsionicPowerActionEvent
+
+- type: entityTargetAction
+  id: Dispel
+  name: action-name-dispel
+  description: action-description-dispel
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  checkCanAccess: false
+  range: 8
+  whitelist:
+    components:
+    - Dispellable
+  canTargetSelf: false
+  serverEvent: !type:DispelPowerActionEvent
