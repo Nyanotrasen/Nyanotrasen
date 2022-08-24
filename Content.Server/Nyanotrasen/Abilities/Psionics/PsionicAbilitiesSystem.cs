@@ -14,7 +14,9 @@ namespace Content.Server.Abilities.Psionics
         {
             "PacificationPower",
             "MetapsionicPower",
+            "DispelPower",
         };
+
         public void AddPsionics(EntityUid uid)
         {
             if (HasComp<PsionicComponent>(uid))

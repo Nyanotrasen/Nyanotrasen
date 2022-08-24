@@ -26,6 +26,7 @@
   - !type:AddComponentSpecial
     components:
     - type: GuaranteedPsionic
+      power: DispelPower
 
 - type: startingGear
   id: MystagogueGear
