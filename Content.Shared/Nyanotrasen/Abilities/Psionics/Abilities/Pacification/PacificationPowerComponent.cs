@@ -1,3 +1,5 @@
+using Content.Shared.Actions.ActionTypes;
+
 namespace Content.Shared.Abilities.Psionics
 {
     [RegisterComponent]
@@ -5,5 +7,6 @@ namespace Content.Shared.Abilities.Psionics
     {
         [DataField("pacifyTime")]
         public TimeSpan PacifyTime = TimeSpan.FromSeconds(20);
+        public EntityTargetAction? PacificationPowerAction = null;
     }
 }
