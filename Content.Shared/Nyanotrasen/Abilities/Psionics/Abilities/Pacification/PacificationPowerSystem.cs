@@ -21,8 +21,14 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PacificationPowerComponent component, ComponentInit args)
         {
-            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("Pacify", out var pacify))
-                _actions.AddAction(uid, new EntityTargetAction(pacify), null);
+            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("Pacify", out var pacify))
+                return;
+
+            component.PacificationPowerAction = new EntityTargetAction(pacify);
+            _actions.AddAction(uid, component.PacificationPowerAction, null);
+
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+                psionic.PsionicAbility = component.PacificationPowerAction;
         }
 
         private void OnShutdown(EntityUid uid, PacificationPowerComponent component, ComponentShutdown args)
@@ -33,6 +39,9 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, PacificationPowerComponent component, PacificationPowerActionEvent args)
         {
+            if (HasComp<PsionicInsulationComponent>(args.Target))
+                return;
+
             if (_statusEffects.TryAddStatusEffect(args.Target, "Pacified", component.PacifyTime, false, "Pacified"))
                 args.Handled = true;
         }
