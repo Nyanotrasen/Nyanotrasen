@@ -19,6 +19,7 @@ namespace Content.Server.Entry
             "CharacterInfo",
             "HandheldGPS",
             "CableVisualizer",
+            "EnsnareableVisualizer",
         };
     }
 }
