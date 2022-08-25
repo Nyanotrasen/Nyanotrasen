@@ -9,3 +9,6 @@ metapsionic-pulse-failure = You don't detect any psychic presence nearby.
 
 action-name-dispel = Dispel
 action-description-dispel = Dispel summoned entities such as familiars or forcewalls.
+
+action-name-mass-sleep = Mass Sleep
+action-description-mass-sleep = Put targets in a small area to sleep.
