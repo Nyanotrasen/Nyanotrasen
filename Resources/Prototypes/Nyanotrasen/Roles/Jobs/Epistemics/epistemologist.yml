@@ -7,6 +7,11 @@
   supervisors: "the mystagogue"
   access:
   - Research
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      multiplier: 3
 
 - type: startingGear
   id: EpistemologistGear

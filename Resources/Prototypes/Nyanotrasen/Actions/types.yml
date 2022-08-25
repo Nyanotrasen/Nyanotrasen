@@ -11,3 +11,49 @@
   description: action-description-eat-mouse
   icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
   serverEvent: !type:EatMouseActionEvent
+
+- type: entityTargetAction
+  id: Pacify
+  name: action-name-pacify
+  description: action-description-pacify
+  useDelay: 45
+  checkCanAccess: false
+  range: 8
+  whitelist:
+    components:
+    - CombatMode
+  canTargetSelf: false
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  event: !type:PacificationPowerActionEvent
+
+- type: instantAction
+  id: MetapsionicPulse
+  name: action-name-metapsionic
+  description: action-description-metapsionic
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  event: !type:MetapsionicPowerActionEvent
+
+- type: entityTargetAction
+  id: Dispel
+  name: action-name-dispel
+  description: action-description-dispel
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  checkCanAccess: false
+  range: 8
+  whitelist:
+    components:
+    - Dispellable
+  canTargetSelf: false
+  serverEvent: !type:DispelPowerActionEvent
+
+- type: worldTargetAction
+  id: MassSleep
+  name: action-name-mass-sleep
+  description: action-description-mass-sleep
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 60
+  checkCanAccess: false
+  range: 8
+  event: !type:MassSleepPowerActionEvent

@@ -36,6 +36,11 @@
   - Hydroponics
   - Detective
   # I mean they'll give themselves the rest of the access levels *anyways*.
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      flatBonus: 0.025
 
 - type: startingGear
   id: HoPGear
