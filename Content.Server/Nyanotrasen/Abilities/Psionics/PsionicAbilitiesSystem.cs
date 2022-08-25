@@ -15,6 +15,7 @@ namespace Content.Server.Abilities.Psionics
             "PacificationPower",
             "MetapsionicPower",
             "DispelPower",
+            "MassSleepPower",
         };
 
         public void AddPsionics(EntityUid uid)

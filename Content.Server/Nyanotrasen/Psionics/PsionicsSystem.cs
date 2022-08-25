@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.StatusEffect;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Stunnable;
@@ -12,7 +13,7 @@ namespace Content.Server.Psionics
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
-        [Dependency] private readonly StunSystem _stunSystem = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -24,20 +25,7 @@ namespace Content.Server.Psionics
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
         {
-            if (HasComp<GuaranteedPsionicComponent>(uid))
-                return;
-
-            var chance = component.Chance;
-
-            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
-            {
-                chance *= bonus.Multiplier;
-                chance += bonus.FlatBonus;
-            }
-
-            chance = Math.Clamp(chance, 0, 1);
-            if (_random.Prob(chance))
-                _psionicAbilitiesSystem.AddPsionics(uid);
+            RollPsionics(uid, component);
         }
 
         private void OnGuaranteedStartup(EntityUid uid, GuaranteedPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -58,8 +46,8 @@ namespace Content.Server.Psionics
                 if (HasComp<PsionicComponent>(entity))
                 {
                     args.ModifiersList.Add(component.Modifiers);
-                    if (_random.Prob(component.StunChance))
-                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(2f), false);
+                    if (_random.Prob(component.DisableChance))
+                        _statusEffects.TryAddStatusEffect(entity, "PsionicsDisabled", TimeSpan.FromSeconds(10), true, "PsionicsDisabled");
                 }
             }
         }
@@ -67,6 +55,36 @@ namespace Content.Server.Psionics
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
             args.Multiplier *= component.PsychicDamageMultiplier;
+        }
+
+        private void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
+        {
+            if (HasComp<GuaranteedPsionicComponent>(uid))
+                return;
+
+            var chance = component.Chance;
+
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
+            {
+                chance *= bonus.Multiplier;
+                chance += bonus.FlatBonus;
+            }
+
+            chance = Math.Clamp(chance, 0, 1);
+            if (_random.Prob(chance))
+                _psionicAbilitiesSystem.AddPsionics(uid);
+        }
+
+        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        {
+            if (!Resolve(uid, ref psionic, false))
+                return;
+
+            if (psionic.Rerolled)
+                return;
+
+            RollPsionics(uid, psionic);
+            psionic.Rerolled = true;
         }
     }
 }

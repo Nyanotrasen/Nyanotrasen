@@ -47,3 +47,13 @@
     - Dispellable
   canTargetSelf: false
   serverEvent: !type:DispelPowerActionEvent
+
+- type: worldTargetAction
+  id: MassSleep
+  name: action-name-mass-sleep
+  description: action-description-mass-sleep
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 60
+  checkCanAccess: false
+  range: 8
+  event: !type:MassSleepPowerActionEvent
