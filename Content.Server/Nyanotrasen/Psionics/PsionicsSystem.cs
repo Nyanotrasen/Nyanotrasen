@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.StatusEffect;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Stunnable;
@@ -12,7 +13,7 @@ namespace Content.Server.Psionics
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
-        [Dependency] private readonly StunSystem _stunSystem = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -45,8 +46,8 @@ namespace Content.Server.Psionics
                 if (HasComp<PsionicComponent>(entity))
                 {
                     args.ModifiersList.Add(component.Modifiers);
-                    if (_random.Prob(component.StunChance))
-                        _stunSystem.TryParalyze(entity, TimeSpan.FromSeconds(2f), false);
+                    if (_random.Prob(component.DisableChance))
+                        _statusEffects.TryAddStatusEffect(entity, "PsionicsDisabled", TimeSpan.FromSeconds(10), true, "PsionicsDisabled");
                 }
             }
         }

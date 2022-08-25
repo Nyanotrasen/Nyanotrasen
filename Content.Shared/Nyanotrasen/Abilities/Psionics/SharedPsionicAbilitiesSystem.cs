@@ -12,6 +12,8 @@ namespace Content.Shared.Abilities.Psionics
             base.Initialize();
             SubscribeLocalEvent<TinfoilHatComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnUnequipped);
+            SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
         }
 
         private void OnEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
@@ -34,10 +36,23 @@ namespace Content.Shared.Abilities.Psionics
                 return;
 
             RemComp<PsionicInsulationComponent>(args.Equipee);
-            TogglePsionics(args.Equipee, true);
             component.IsActive = false;
+
+            if (!HasComp<PsionicsDisabledComponent>(args.Equipee))
+                TogglePsionics(args.Equipee, true);
         }
 
+
+        private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
+        {
+            TogglePsionics(uid, false);
+        }
+
+        private void OnShutdown(EntityUid uid, PsionicsDisabledComponent component, ComponentShutdown args)
+        {
+            if (!HasComp<PsionicInsulationComponent>(uid))
+                TogglePsionics(uid, true);
+        }
         public void TogglePsionics(EntityUid uid, bool toggle, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))

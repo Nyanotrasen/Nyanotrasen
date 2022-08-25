@@ -10,9 +10,9 @@ namespace Content.Server.Psionics
         public DamageModifierSet Modifiers = default!;
 
         [DataField("psychicDamageMultiplier")]
-        public float PsychicDamageMultiplier = 2f;
+        public float PsychicDamageMultiplier = 1.5f;
 
-        [DataField("stunChance")]
-        public float StunChance = 0.2f;
+        [DataField("disableChance")]
+        public float DisableChance = 0.3f;
     }
 }
