@@ -7,6 +7,6 @@ namespace Content.Shared.Abilities.Psionics
     {
         public WorldTargetAction? MassSleepPowerAction = null;
 
-        public float Radius = 3.5f;
+        public float Radius = 2.5f;
     }
 }
