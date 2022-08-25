@@ -24,20 +24,7 @@ namespace Content.Server.Psionics
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
         {
-            if (HasComp<GuaranteedPsionicComponent>(uid))
-                return;
-
-            var chance = component.Chance;
-
-            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
-            {
-                chance *= bonus.Multiplier;
-                chance += bonus.FlatBonus;
-            }
-
-            chance = Math.Clamp(chance, 0, 1);
-            if (_random.Prob(chance))
-                _psionicAbilitiesSystem.AddPsionics(uid);
+            RollPsionics(uid, component);
         }
 
         private void OnGuaranteedStartup(EntityUid uid, GuaranteedPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -67,6 +54,36 @@ namespace Content.Server.Psionics
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
             args.Multiplier *= component.PsychicDamageMultiplier;
+        }
+
+        private void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
+        {
+            if (HasComp<GuaranteedPsionicComponent>(uid))
+                return;
+
+            var chance = component.Chance;
+
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
+            {
+                chance *= bonus.Multiplier;
+                chance += bonus.FlatBonus;
+            }
+
+            chance = Math.Clamp(chance, 0, 1);
+            if (_random.Prob(chance))
+                _psionicAbilitiesSystem.AddPsionics(uid);
+        }
+
+        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        {
+            if (!Resolve(uid, ref psionic, false))
+                return;
+
+            if (psionic.Rerolled)
+                return;
+
+            RollPsionics(uid, psionic);
+            psionic.Rerolled = true;
         }
     }
 }
