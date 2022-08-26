@@ -95,6 +95,7 @@ namespace Content.Server.Abilities.Psionics
                 _actions.RemoveAction(uid, new InstantAction(invis), null);
 
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+            Dirty(uid);
         }
 
         private void OnDamageChanged(EntityUid uid, PsionicInvisibilityUsedComponent component, DamageChangedEvent args)
@@ -112,8 +113,7 @@ namespace Content.Server.Abilities.Psionics
                 EnsureComp<PsionicInvisibilityUsedComponent>(uid);
             } else
             {
-                _invisibilitySystem.SetCanSeePsionicInvisiblity(uid, false);
-                RemCompDeferred<PsionicInvisibilityUsedComponent>(uid);
+                RemComp<PsionicInvisibilityUsedComponent>(uid);
             }
         }
     }
