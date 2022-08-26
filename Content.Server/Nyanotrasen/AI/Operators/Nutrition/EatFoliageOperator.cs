@@ -1,10 +1,11 @@
+using Content.Server.AI.Operators;
 using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Nyanotrasen.Nutrition.Components;
 using Content.Server.Weapon.Melee.Components;
 using Content.Shared.Damage;
 using Content.Shared.Nutrition.Components;
 
-namespace Content.Server.AI.Operators.Nutrition
+namespace Content.Server.Nyanotrasen.AI.Operators.Nutrition
 {
     public sealed class EatFoliageOperator : AiOperator
     {
@@ -34,7 +35,7 @@ namespace Content.Server.AI.Operators.Nutrition
                 return Outcome.Success;
             }
 
-            if(entities.HasComponent<FoliageComponent>(_target) &&
+            if (entities.HasComponent<FoliageComponent>(_target) &&
                 entities.TryGetComponent<DamageableComponent>(_target, out var damageComponent) &&
                 entities.TryGetComponent<HungerComponent>(_owner, out var hungerComponent) &&
                 entities.TryGetComponent<MeleeWeaponComponent>(_owner, out var weaponComponent))

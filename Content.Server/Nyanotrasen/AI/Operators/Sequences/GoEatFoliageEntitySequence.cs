@@ -1,7 +1,9 @@
+using Content.Server.AI.Operators;
 using Content.Server.AI.Operators.Movement;
-using Content.Server.AI.Operators.Nutrition;
+using Content.Server.AI.Operators.Sequences;
+using Content.Server.Nyanotrasen.AI.Operators.Nutrition;
 
-namespace Content.Server.AI.Operators.Sequences
+namespace Content.Server.Nyanotrasen.AI.Operators.Sequences
 {
     public sealed class GoEatFoliageEntitySequence : SequenceOperator
     {

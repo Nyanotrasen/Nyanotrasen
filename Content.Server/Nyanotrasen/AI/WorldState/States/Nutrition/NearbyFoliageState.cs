@@ -1,6 +1,6 @@
 using Content.Server.AI.Components;
 using Content.Server.AI.Utils;
-using Content.Server.Nutrition.Components;
+using Content.Server.Nyanotrasen.Nutrition.Components;
 
 namespace Content.Server.AI.WorldState.States.Nutrition
 {
