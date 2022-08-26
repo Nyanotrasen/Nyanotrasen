@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Actions;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind.Components;
@@ -12,6 +13,7 @@ namespace Content.Server.Abilities.Psionics
     {
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
 
@@ -60,6 +62,24 @@ namespace Content.Server.Abilities.Psionics
             newComponent.Owner = uid;
 
             EntityManager.AddComponent(uid, newComponent);
+        }
+
+        public void RemovePsionics(EntityUid uid)
+        {
+            if (!TryComp<PsionicComponent>(uid, out var psionic))
+                return;
+
+            foreach (var compName in PsionicPowerPool)
+            {
+                // component moment
+                var comp = _componentFactory.GetComponent(compName);
+                if (EntityManager.TryGetComponent(uid, comp.GetType(), out var psionicPower))
+                    RemComp(uid, psionicPower);
+            }
+            if (psionic.PsionicAbility != null)
+                _actionsSystem.RemoveAction(uid, psionic.PsionicAbility);
+
+            RemComp<PsionicComponent>(uid);
         }
     }
 }

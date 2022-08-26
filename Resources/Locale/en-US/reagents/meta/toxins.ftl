@@ -29,7 +29,7 @@ reagent-name-lexorin = lexorin
 reagent-desc-lexorin = Temporarily stops respiration and causes tissue damage. Large doses are fatal, and will cause people to pass out very quickly. Dexalin and Dexalin Plus will both remove it, however.
 
 reagent-name-mindbreaker-toxin = mindbreaker toxin
-reagent-desc-mindbreaker-toxin = A potent hallucinogenic compound that is illegal under space law. Formerly known as LSD.
+reagent-desc-mindbreaker-toxin = A potent, brain damaging poison that can remove psionics.
 
 reagent-name-histamine = histamine
 reagent-desc-histamine = Histamine's effects become more dangerous depending on the dosage amount. They range from mildly annoying to incredibly lethal.
