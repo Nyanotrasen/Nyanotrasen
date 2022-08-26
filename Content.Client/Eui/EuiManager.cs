@@ -43,6 +43,8 @@ namespace Content.Client.Eui
                     var instance = _dtf.CreateInstance<BaseEui>(euiType);
                     instance.Initialize(this, message.Id);
                     instance.Opened();
+                    if (_openUis.ContainsKey(message.Id))
+                        message.Id++;
                     _openUis.Add(message.Id, new EuiData(instance));
                     break;
 
