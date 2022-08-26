@@ -8,8 +8,12 @@ namespace Content.Server.Chemistry.AutoRegenReagent
         [DataField("solution", required: true)]
         public string? SolutionName = null; // we'll fail during tests otherwise
 
-        [DataField("reagent", required: true)]
-        public string Reagent = default!;
+        [DataField("reagents", required: true)]
+        public List<string> Reagents = default!;
+
+        public string CurrentReagent = "";
+
+        public int CurrentIndex = 0;
 
         public Solution? Solution = default!;
 

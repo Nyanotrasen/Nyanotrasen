@@ -1,9 +1,17 @@
 - type: job
   id: ForensicMantis
   name: "forensic mantis"
+  playTimeTracker: JobForensicMantis
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600
   startingGear: ForensicMantisGear
-  departments:
-  - Epistemics
   icon: "Detective"
   supervisors: "the mystagogue"
   access:
@@ -11,6 +19,10 @@
   - Brig
   - Detective
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
 
 - type: startingGear
   id: ForensicMantisGear
@@ -22,6 +34,7 @@
     id: ForensicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetMantis
+    pocket1: AntiPsychicKnife
     pocket2: ForensicScanner
   innerclothingskirt: ClothingUniformJumpskirtColorBlue
   satchel: ClothingBackpackSatchelDetectiveFilled

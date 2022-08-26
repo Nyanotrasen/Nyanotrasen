@@ -3,6 +3,7 @@
   id: PlayerCyborgBase
   name: cyborg
   description: A miserable pile of electronics.
+  noSpawn: True
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -11,8 +12,8 @@
     layers:
     - state: robot
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4
   - type: Puller
     needsHands: false
   - type: Speech
@@ -52,6 +53,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - ShoesRequiredStepTriggerImmune
   - type: Access
     groups:
     - AllAccess
@@ -61,13 +63,6 @@
     template: DroneTemplate
     preset: DronePreset
   - type: InnateTool
-    tools:
-      - id: WelderIndustrial
-      - id: HoloprojectorEngineering
-      - id: BorgToolStandard
-      - id: MopItem
-      - id: FireExtinguisher
-      - id: StackHolderFloorTile
   - type: InnateItem
   - type: IntrinsicRadio
     channels:
@@ -76,21 +71,13 @@
     - Medical
     - Science
     - Service
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+  - type: Flashable
   - type: ItemSlots
-    slots:
-      analyzer_slot:
-        name: HealthAnalyzer
-        startingItem: HandheldHealthAnalyzer
-        locked: true
-      hypospray_slot:
-        name: Hypospray
-        startingItem: HyposprayBorgStandard
-        locked: true
-      wrench_slot:
-        name: TrashBag
-        startingItem: TrashBag
-        locked: true
-  - type: Actions
   - type: CombatMode
     disarmAction:
       enabled: false
@@ -129,3 +116,80 @@
       - SurveillanceCameraSilicon
   - type: RandomMetadata
     nameSet: names_autoborg
+
+- type: entity
+  parent: PlayerCyborgBase
+  id: PlayerCyborgStandard
+  name: standard cyborg
+  components:
+  - type: InnateTool
+    tools:
+      - id: WelderIndustrial
+      - id: HoloprojectorEngineering
+      - id: BorgToolStandard
+      - id: MopItem
+      - id: FireExtinguisher
+      - id: StackHolderFloorTile
+  - type: InnateItem
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+  - type: ItemSlots
+    slots:
+      analyzer_slot:
+        name: HealthAnalyzer
+        startingItem: HandheldHealthAnalyzer
+        locked: true
+      hypospray_slot:
+        name: Hypospray
+        startingItem: HyposprayBorgStandard
+        locked: true
+      wrench_slot:
+        name: TrashBag
+        startingItem: TrashBag
+        locked: true
+
+- type: entity
+  parent: PlayerCyborgBase
+  id: PlayerCyborgMedical
+  name: medical cyborg
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    netsync: false
+    sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
+    layers:
+    - state: robot
+  - type: InnateTool
+    tools:
+      - id: HyposprayBorgMedical
+      - id: Syringe
+      - id: HandheldHealthAnalyzer
+      - id: HandheldCrewMonitor
+      - id: FireExtinguisher
+      - id: StackHolderHealingItem
+  - type: ItemSlots
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Medical
+  - type: Laws
+    laws:
+      - First, do no harm.
+      - Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
+      - Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+      - In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
+      - Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
+  - type: CombatMode
+    combatToggleAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-combat
+    disarmAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-disarm

@@ -122,6 +122,7 @@
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+  - type: Dispellable
 
 - type: entity
   name: Ian

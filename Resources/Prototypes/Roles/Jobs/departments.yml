@@ -1,0 +1,89 @@
+- type: department
+  id: Cargo
+  roles:
+  - CargoTechnician
+  - SalvageSpecialist
+
+- type: department
+  id: Service
+  roles:
+  - Bartender
+  - Botanist
+  - Boxer
+  - Chef
+  - Clown
+  - HeadOfPersonnel
+  - Janitor
+  - Lawyer
+  - Librarian
+  - MailCarrier
+  - MedicalIntern
+  - Mime
+  - Musician
+  - Passenger
+  - Reporter
+  - SecurityCadet
+  - ServiceWorker
+  - TechnicalAssistant
+  - Quartermaster
+
+- type: department
+  id: Command
+  roles:
+  - Captain
+  - CentralCommandOfficial
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - ERTEngineer
+  - ERTJanitor
+  - ERTLeader
+  - ERTMedical
+  - ERTSecurity
+  - HeadOfPersonnel
+  - HeadOfSecurity
+  - ResearchDirector
+  - Mystagogue
+
+- type: department
+  id: Engineering
+  roles:
+  - AtmosphericTechnician
+  - ChiefEngineer
+  - StationEngineer
+  - TechnicalAssistant
+  - SalvageTechnician
+
+- type: department
+  id: Medical
+  roles:
+  - Chemist
+  - ChiefMedicalOfficer
+  - MedicalDoctor
+  - MedicalIntern
+  - Psychologist
+  - MedicalCyborg
+  - Paramedic
+
+- type: department
+  id: Security
+  roles:
+  - HeadOfSecurity
+  - SecurityCadet
+  - SecurityOfficer
+  - Detective
+  - Warden
+
+- type: department
+  id: Epistemics
+  roles:
+  - Mystagogue
+  - ForensicMantis
+  - Epistemologist
+  - Chaplain
+  - Cataloguer
+
+- type: department
+  id: Silicon
+  roles:
+  - Cyborg
+  - MedicalCyborg

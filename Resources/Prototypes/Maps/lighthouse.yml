@@ -14,7 +14,6 @@
         - Passenger
       availableJobs:
         Passenger: [ -1, -1 ]
-        # Automaturge: [ 1, 1 ]
         Bartender: [ 1, 2 ]
         Botanist: [ 2, 2 ]
         Boxer: [ 2, 2 ]
@@ -30,9 +29,8 @@
         StationEngineer: [ 3, 5 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MailCarrier: [ 2, 2 ]
-        MedicalDoctor: [ 2, 3 ]
-        Paramedic: [ 1, 1 ]
-        Chemist: [ 1, 2 ]
+        MedicalDoctor: [ 5, 7 ]
+        MedicalCyborg: [ 1, 1 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 3, 3 ]
         HeadOfSecurity: [ 1, 1 ]

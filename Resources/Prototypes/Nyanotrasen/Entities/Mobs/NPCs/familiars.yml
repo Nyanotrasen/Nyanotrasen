@@ -1,0 +1,71 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobIfritFamiliar
+  name: Ifrit
+  description: The mystagogue's servant.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Guardians/guardians.rsi
+    netsync: false
+    layers:
+      - state: magic_base
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: magic_flare
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        color: "#40a7d7"
+        shader: unshaded
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.BaseUnshaded:
+          magic_flare: Sixteen
+  - type: Fixtures
+    fixtures:
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        mass: 85
+        mask:
+          - FlyingMobMask
+        layer:
+          - FlyingMobLayer
+  - type: Bloodstream
+    bloodReagent: Phlogiston
+  - type: MeleeWeapon
+    range: 1.5
+    arcwidth: 0
+    arc: punch
+    damage:
+      groups:
+        Burn: 10
+  - type: MobState
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Access
+    tags:
+    - Chapel
+    - Research
+  - type: Mind
+    showExamineInfo: true
+  - type: Familiar
+  - type: Dispellable
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Infernal
+  - type: Speech
+    speechSounds: Bass
+  - type: Puller
+    needsHands: false
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener

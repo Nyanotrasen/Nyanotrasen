@@ -15,10 +15,26 @@
         maxVol: 30
   - type: AutoRegenReagent
     solution: hypospray
-    reagent: Epinephrine
+    reagents:
+      - Epinephrine
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
+
+- type: entity
+  parent: HyposprayBorgStandard
+  id: HyposprayBorgMedical
+  name: medical cyborg hypospray
+  description: A hypospray that can switch through several reagents.
+  components:
+  - type: AutoRegenReagent
+    solution: hypospray
+    reagents:
+      - Epinephrine
+      - Tricordrazine
+      - Dylovene
+      - Bicaridine
+      - Kelotane
 
 - type: entity
   parent: BaseItem
@@ -39,6 +55,35 @@
     netsync: false
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel
+  - type: ContainerContainer
+    containers:
+      stack_slot: !type:ContainerSlot
+
+- type: entity
+  parent: BaseItem
+  id: StackHolderHealingItem
+  name: healing item holder
+  description: Holds healing items inside this borg
+  components:
+  - type: ItemSlots
+    slots:
+      stack_slot:
+        name: healing item
+        startingItem: Brutepack
+        whitelist:
+          tags:
+          - Brutepack
+          - Ointment
+          - Gauze
+  - type: StackHolder
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: brutepack
+  - type: ContainerContainer
+    containers:
+      stack_slot: !type:ContainerSlot
+
 
 - type: entity
   parent: BaseItem
@@ -59,6 +104,9 @@
     netsync: false
     sprite: Objects/Tiles/tile.rsi
     state: steel
+  - type: ContainerContainer
+    containers:
+      stack_slot: !type:ContainerSlot
 
 - type: entity
   parent: BaseItem
@@ -79,6 +127,9 @@
     netsync: false
     sprite: Objects/Tools/cable-coils.rsi
     state: coillv-30
+  - type: ContainerContainer
+    containers:
+      stack_slot: !type:ContainerSlot
 
 - type: entity
   parent: PartRodMetal
@@ -101,6 +152,8 @@
     size: 20
   - type: TilePrying
   - type: Tool
+    useSound: !type:SoundPathSpecifier
+      path: /Audio/Items/jaws_pry.ogg
     qualities:
       - Prying
   - type: MultipleTool

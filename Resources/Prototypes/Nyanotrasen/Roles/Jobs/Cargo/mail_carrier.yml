@@ -2,8 +2,7 @@
   id: MailCarrier
   name: "mail carrier"
   startingGear: MailCarrierGear
-  departments:
-  - Cargo
+  playTimeTracker: JobMailCarrier
   icon: "MailCarrier"
   supervisors: "the head of personnel"
   access:

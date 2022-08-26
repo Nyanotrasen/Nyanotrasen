@@ -59,7 +59,7 @@ public enum SpeciesSkinColor : byte
 {
     HumanToned,
     Hues,
-    TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
+    TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range). 
 }
 
 public enum SpeciesNaming : byte

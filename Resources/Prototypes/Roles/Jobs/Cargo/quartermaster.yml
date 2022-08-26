@@ -1,9 +1,8 @@
 - type: job
   id: Quartermaster
   name: job-name-qm
+  playTimeTracker: JobQuartermaster
   startingGear: QuartermasterGear
-  departments:
-  - Cargo
   icon: "QuarterMaster"
   supervisors: job-supervisors-hop
   access:
@@ -14,7 +13,7 @@
 - type: startingGear
   id: QuartermasterGear
   equipment:
-    head: ClothingHeadHatCargosoft
+    head: ClothingHeadHatQMsoft
     jumpsuit: ClothingUniformJumpsuitQM
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBrown

@@ -2,9 +2,8 @@
   id: Scientist
   name: job-name-scientist
   setPreference: false
+  playTimeTracker: JobScientist
   startingGear: ScientistGear
-  departments:
-  - Science
   icon: "Scientist"
   supervisors: job-supervisors-rd
   access:

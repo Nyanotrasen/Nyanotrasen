@@ -9,6 +9,7 @@ namespace Content.Shared.Eye.Blinding
 {
     public sealed class SharedBlindingSystem : EntitySystem
     {
+        public const string BlindingStatusEffect = "TemporaryBlindness";
         public override void Initialize()
         {
             base.Initialize();
@@ -102,16 +103,7 @@ namespace Content.Shared.Eye.Blinding
                 blindable.Sources--;
             }
 
-            if (blindable.Sources > 0)
-            {
-                // used for examining here...
-                var blurry = EnsureComp<BlurryVisionComponent>(uid);
-                blurry.Magnitude = 1;
-                blurry.Dirty();
-            } else
-            {
-                blindable.Sources = 0;
-            }
+            blindable.Sources = Math.Max(blindable.Sources, 0);
         }
 
         public void AdjustEyeDamage(EntityUid uid, bool add, BlindableComponent? blindable = null)

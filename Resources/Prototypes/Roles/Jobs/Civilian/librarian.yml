@@ -2,9 +2,8 @@
   id: Librarian
   name: job-name-librarian
   setPreference: false
+  playTimeTracker: JobLibrarian
   startingGear: LibrarianGear
-  departments:
-  - Civilian
   icon: "Librarian"
   supervisors: job-supervisors-hop
   access:

@@ -2,8 +2,8 @@
   id: Paramedic
   name: "paramedic"
   startingGear: ParamedicGear
-  departments:
-  - Medical
+  setPreference: false
+  playTimeTracker: JobParamedic
   icon: "Paramedic"
   supervisors: "the chief medical officer"
   access:

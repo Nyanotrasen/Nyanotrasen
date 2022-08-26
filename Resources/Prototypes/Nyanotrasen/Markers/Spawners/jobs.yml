@@ -47,24 +47,24 @@
       - state: detective
 
 - type: entity
-  id: SpawnPointAutomaturge
-  parent: SpawnPointJobBase
-  name: automaturge
-  components:
-  - type: SpawnPoint
-    job_id: Automaturge
-  - type: Sprite
-    layers:
-      - state: green
-      - state: roboticist
-
-- type: entity
   id: SpawnPointCyborg
   parent: SpawnPointJobBase
   name: cyborg
   components:
   - type: SpawnPoint
     job_id: Cyborg
+  - type: Sprite
+    layers:
+      - state: green
+      - state: roboticist
+
+- type: entity
+  id: SpawnPointMedicalCyborg
+  parent: SpawnPointJobBase
+  name: medical cyborg
+  components:
+  - type: SpawnPoint
+    job_id: MedicalCyborg
   - type: Sprite
     layers:
       - state: green
@@ -117,15 +117,3 @@
     layers:
       - state: green
       - state: miner
-
-- type: entity
-  id: SpawnPointSyndicateDiplomat
-  parent: SpawnPointJobBase
-  name: SyndicateDiplomat
-  components:
-  - type: SpawnPoint
-    job_id: SyndicateDiplomat
-  - type: Sprite
-    layers:
-      - state: green
-      - state: librarian #That works, I guess?

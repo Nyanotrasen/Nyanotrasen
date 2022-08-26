@@ -36,10 +36,28 @@
     state: pda-detective
 
 - type: entity
+  parent: SciencePDA
+  id: EpistemicsPDA
+  name: epistemologist PDA
+  description: Preinstalled with plenty of brain teasers and religious conversion booklets.
+  components:
+  - type: PDA
+    id: EpistemicsIDCard
+  
+- type: entity
+  parent: RnDPDA
+  id: MystaPDA
+  name: mystagogue PDA
+  description: Practically radiating psychic energies... They actually have the Pope on speed dial!
+  components:
+  - type: PDA
+    id: MystaIDCard
+
+- type: entity
   parent: BasePDA
   id: ParamedicPDA
   name: paramedic PDA
-  description: Sweaty. Whoever uses this must be noided. Has a bult-in health analyzer.
+  description: Sweaty. Whoever uses this must be noided. Has a built-in health analyzer.
   components:
   - type: PDA
     id: ParamedicIDCard
@@ -51,33 +69,3 @@
     state: pda-genetics
   - type: HealthAnalyzer
     scanDelay: 1.2
-
-- type: entity
-  parent: BasePDA
-  id: AutomaturgePDA
-  name: automaturge PDA
-  description: It looks like the corner has melted slightly from a sautering iron.
-  components:
-  - type: PDA
-    id: AutomaturgeIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-roboticist
-  - type: Icon
-    state: pda-roboticist
-
-- type: entity
-  parent: BasePDA
-  id: SyndicateDiplomatPDA
-  name: Syndicate Diplomat PDA
-  description: The fact that they even allow this on the ship is a milestone...
-  components:
-  - type: PDA
-    id: SyndicateDiplomatIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-syndi
-  - type: Icon
-    state: pda-syndi

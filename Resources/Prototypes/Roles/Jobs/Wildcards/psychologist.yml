@@ -1,9 +1,9 @@
 - type: job
   id: Psychologist
   name: job-name-psychologist
+  playTimeTracker: JobPsychologist
   startingGear: PsychologistGear
-  departments:
-  - Medical
+  setPreference: false
   icon: "Psychologist"
   supervisors: job-supervisors-cmo
   access:

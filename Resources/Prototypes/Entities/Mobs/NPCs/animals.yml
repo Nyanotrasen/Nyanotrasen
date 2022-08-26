@@ -307,6 +307,7 @@
     baseSprintSpeed : 6
   - type: Sprite
     drawdepth: Mobs
+    netsync: false
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: butterfly
@@ -327,16 +328,10 @@
       0: Alive
       5: Critical
       10: Dead
-  - type: RandomSpriteColor
-    state: butterfly
-    colors:
-      blue: "#1861d5"
-      red: "#951710"
-      pink: "#d5188d"
-      brown: "#a05212"
-      green: "#0e7f1b"
-      cyan: "#18a2d5"
-      yellow: "#d58c18"
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          butterfly: Rainbow
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -678,6 +673,28 @@
     - SimpleHostile
 
 - type: entity
+  name: judge kangaroo
+  parent: MobKangaroo
+  id: MobKangarooJudge
+  description: This case is in the bag... or, pouch...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: kangaroo-judge
+        sprite: Mobs/Animals/kangaroo.rsi
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: kangaroo-judge
+      Critical:
+        Base: kangaroo-dead
+      Dead:
+        Base: kangaroo-dead
+
+- type: entity
   name: monkey
   id: MobMonkey
   parent: SimpleMobBase
@@ -853,6 +870,7 @@
     - Vermin
   - type: MobPrice
     price: 50
+  - type: FelinidFood
 
 - type: entity
   parent: MobMouse
@@ -878,7 +896,6 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: DiseaseCarrier #Why doesn't this save if it's only on the parent wtf
-
 
 - type: entity
   parent: MobMouse

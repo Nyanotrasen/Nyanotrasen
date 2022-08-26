@@ -4,9 +4,7 @@
   setPreference: false
   weight: 10
   startingGear: ResearchDirectorGear
-  departments:
-  - Command
-  - Science
+  playTimeTracker: JobResearchDirector
   icon: "ResearchDirector"
   requireAdminNotify: true
   supervisors: job-supervisors-captain

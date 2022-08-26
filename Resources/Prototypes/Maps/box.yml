@@ -2,7 +2,7 @@
   id: boxstation
   mapName: 'Box Station'
   mapPath: /Maps/box.yml
-  minPlayers: 35
+  minPlayers: 30
   stations:
     Boxstation:
       mapNameTemplate: '{0} Box Station {1}'
@@ -24,8 +24,8 @@
         ChiefEngineer: [ 1, 1 ]
         StationEngineer: [ 4, 5 ]
         ChiefMedicalOfficer: [ 1, 1 ]
-        MedicalDoctor: [ 3, 3 ]
-        Chemist: [ 2, 3 ]
+        MedicalDoctor: [ 6, 7 ]
+        MedicalCyborg: [ 1, 2 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 4, 4 ]
         HeadOfSecurity: [ 1, 1 ]
@@ -40,5 +40,7 @@
         AtmosphericTechnician: [ 2, 3 ]
         Boxer: [ 2, 3 ]
         MailCarrier: [ 2, 2 ]
-        Paramedic: [ 1, 2 ]
         Cyborg: [ 2, 3 ]
+        ForensicMantis: [ 1, 1 ]
+        Reporter: [ 2, 2 ]
+        Psychologist: [ 1, 1 ]

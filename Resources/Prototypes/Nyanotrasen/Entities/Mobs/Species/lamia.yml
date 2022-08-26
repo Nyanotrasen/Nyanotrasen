@@ -97,6 +97,7 @@
     tags:
     - CanPilot
     - DoorBumpOpener
+    - ShoesRequiredStepTriggerImmune
   - type: Sprite
     netsync: false
     noRot: true
@@ -228,19 +229,19 @@
     - type: BuckleVisualizer
     - type: CreamPiedVisualizer
       state: creampie_human
-    - type: DamageVisualizer
-      thresholds: [20, 40, 100]
-      targetLayers:
+  - type: DamageVisuals
+    thresholds: [ 20, 40, 100 ]
+    targetLayers:
       - "enum.HumanoidVisualLayers.Chest"
       - "enum.HumanoidVisualLayers.Head"
       - "enum.HumanoidVisualLayers.LArm"
       - "enum.HumanoidVisualLayers.RArm"
-      damageOverlayGroups:
-        Brute:
-          sprite: Mobs/Effects/brute_damage.rsi
-          color: "#FF0000"
-        Burn:
-          sprite: Mobs/Effects/burn_damage.rsi
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#FF0000"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -301,6 +302,10 @@
     - PressureImmunity
     - Muted
     - KnockedDown
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - PsionicsDisabled
   - type: Speech
     speechSounds: Alto
   - type: Vocal

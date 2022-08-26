@@ -1,11 +1,16 @@
 - type: job
   id: ChiefEngineer
   name: job-name-ce
+  playTimeTracker: JobChiefEngineer
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobAtmosphericTechnician
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 18000
   weight: 10
   startingGear: ChiefEngineerGear
-  departments:
-  - Command
-  - Engineering
   icon: "ChiefEngineer"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
@@ -18,6 +23,11 @@
   - External
   - ChiefEngineer
   - Atmospherics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      flatBonus: 0.025
 
 - type: startingGear
   id: ChiefEngineerGear
@@ -27,6 +37,7 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesColorBrown
     id: CEPDA
+    eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltChiefEngineerFilled
   innerclothingskirt: ClothingUniformJumpskirtChiefEngineer

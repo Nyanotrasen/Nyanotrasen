@@ -1,15 +1,13 @@
 - type: job
   id: MedicalDoctor
   name: job-name-doctor
+  playTimeTracker: JobMedicalDoctor
   startingGear: DoctorGear
-  departments:
-  - Medical
   icon: "MedicalDoctor"
   supervisors: job-supervisors-cmo
   access:
   - Medical
   - Maintenance
-  extendedAccess:
   - Chemistry
 
 - type: startingGear
