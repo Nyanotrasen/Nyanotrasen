@@ -1,7 +1,10 @@
 using Content.Shared.Abilities.Psionics;
-using Content.Server.Administration;
+using Content.Server.EUI;
+using Content.Server.Psionics;
+using Content.Server.Mind.Components;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -9,7 +12,9 @@ namespace Content.Server.Abilities.Psionics
     {
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly QuickDialogSystem _quickDialogSystem = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly EuiManager _euiManager = default!;
+
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
             "PacificationPower",
@@ -23,13 +28,14 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicComponent>(uid))
                 return;
 
-            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
-            {
-                _quickDialogSystem.OpenDialog(actor.PlayerSession, "Psionic!", "You've rolled a psionic power. The forensic mantis may hunt you, so you'll want to keep it a secret. Do you still want to be psychic?", (string response) => AddRandomPsionicPower(uid), null);
+            if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
                 return;
-            }
 
-            AddRandomPsionicPower(uid);
+            if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
+                return;
+
+            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)
@@ -45,7 +51,7 @@ namespace Content.Server.Abilities.Psionics
             EntityManager.AddComponent(uid, newComponent);
         }
 
-        private void AddRandomPsionicPower(EntityUid uid)
+        public void AddRandomPsionicPower(EntityUid uid)
         {
             AddComp<PsionicComponent>(uid);
 

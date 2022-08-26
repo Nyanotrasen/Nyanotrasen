@@ -12,3 +12,9 @@ action-description-dispel = Dispel summoned entities such as familiars or forcew
 
 action-name-mass-sleep = Mass Sleep
 action-description-mass-sleep = Put targets in a small area to sleep.
+
+accept-psionics-window-title = Psionic!
+accept-psionics-window-prompt-text-part = You rolled a psionic power!
+                                         It's possible that certain anti-psychic forces may hunt you,
+                                         so you should consider keeping it secret.
+                                         Do you still wish to be psionic?
