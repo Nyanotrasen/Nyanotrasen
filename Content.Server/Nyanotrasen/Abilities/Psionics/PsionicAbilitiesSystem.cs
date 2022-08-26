@@ -23,6 +23,7 @@ namespace Content.Server.Abilities.Psionics
             "MetapsionicPower",
             "DispelPower",
             "MassSleepPower",
+            "PsionicInvisibilityPower",
         };
 
         public void AddPsionics(EntityUid uid)

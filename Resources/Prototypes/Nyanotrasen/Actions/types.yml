@@ -57,3 +57,27 @@
   checkCanAccess: false
   range: 8
   event: !type:MassSleepPowerActionEvent
+
+- type: instantAction
+  id: PsionicInvisibility
+  name: action-name-psionic-invisibility
+  desc: action-description-psionic-invisibility
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 120
+  serverEvent: !type:ToggleActionEvent
+
+
+- type: instantAction
+  id: PsionicInvisibility
+  name: action-name-psionic-invisibility
+  desc: action-description-psionic-invisibility
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 120
+  serverEvent: !type:PsionicInvisibilityPowerAction
+
+- type: instantAction
+  id: PsionicInvisibilityOff
+  name: action-name-psionic-invisibility-off
+  desc: action-description-psionic-invisibility-off
+  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  serverEvent: !type:PsionicInvisibilityPowerOffAction
