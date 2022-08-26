@@ -1,7 +1,11 @@
 using Content.Shared.Abilities.Psionics;
-using Content.Server.Administration;
+using Content.Shared.Actions;
+using Content.Server.EUI;
+using Content.Server.Psionics;
+using Content.Server.Mind.Components;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -9,13 +13,17 @@ namespace Content.Server.Abilities.Psionics
     {
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly QuickDialogSystem _quickDialogSystem = default!;
+        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly EuiManager _euiManager = default!;
+
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
             "PacificationPower",
             "MetapsionicPower",
             "DispelPower",
             "MassSleepPower",
+            "PsionicInvisibilityPower",
         };
 
         public void AddPsionics(EntityUid uid)
@@ -23,13 +31,14 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicComponent>(uid))
                 return;
 
-            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
-            {
-                _quickDialogSystem.OpenDialog(actor.PlayerSession, "Psionic!", "You've rolled a psionic power. The forensic mantis may hunt you, so you'll want to keep it a secret. Do you still want to be psychic?", (string response) => AddRandomPsionicPower(uid), null);
+            if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
                 return;
-            }
 
-            AddRandomPsionicPower(uid);
+            if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
+                return;
+
+            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)
@@ -45,7 +54,7 @@ namespace Content.Server.Abilities.Psionics
             EntityManager.AddComponent(uid, newComponent);
         }
 
-        private void AddRandomPsionicPower(EntityUid uid)
+        public void AddRandomPsionicPower(EntityUid uid)
         {
             AddComp<PsionicComponent>(uid);
 
@@ -54,6 +63,24 @@ namespace Content.Server.Abilities.Psionics
             newComponent.Owner = uid;
 
             EntityManager.AddComponent(uid, newComponent);
+        }
+
+        public void RemovePsionics(EntityUid uid)
+        {
+            if (!TryComp<PsionicComponent>(uid, out var psionic))
+                return;
+
+            foreach (var compName in PsionicPowerPool)
+            {
+                // component moment
+                var comp = _componentFactory.GetComponent(compName);
+                if (EntityManager.TryGetComponent(uid, comp.GetType(), out var psionicPower))
+                    RemComp(uid, psionicPower);
+            }
+            if (psionic.PsionicAbility != null)
+                _actionsSystem.RemoveAction(uid, psionic.PsionicAbility);
+
+            RemComp<PsionicComponent>(uid);
         }
     }
 }

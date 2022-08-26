@@ -32,7 +32,7 @@ namespace Content.Server.Psionics
         {
             if (component.PowerComponent == null)
             {
-                _psionicAbilitiesSystem.AddPsionics(uid);
+                _psionicAbilitiesSystem.AddRandomPsionicPower(uid);
                 return;
             }
 

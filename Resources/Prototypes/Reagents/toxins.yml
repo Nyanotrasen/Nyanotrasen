@@ -282,6 +282,20 @@
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        probability: 0.1
+        damage:
+          groups:
+            Toxin: 2
+      - !type:ChemRemovePsionic
+        conditions:
+        - !type:ReagentThreshold
+          reagent: MindbreakerToxin
+          min: 20
+
   # TODO hallucinations
 
 - type: reagent
