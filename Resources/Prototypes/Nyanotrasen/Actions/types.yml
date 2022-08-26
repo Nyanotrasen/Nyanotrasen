@@ -64,15 +64,6 @@
   description: action-description-psionic-invisibility
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 120
-  serverEvent: !type:ToggleActionEvent
-
-
-- type: instantAction
-  id: PsionicInvisibility
-  name: action-name-psionic-invisibility
-  description: action-description-psionic-invisibility
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
-  useDelay: 120
   serverEvent: !type:PsionicInvisibilityPowerAction
 
 - type: instantAction
