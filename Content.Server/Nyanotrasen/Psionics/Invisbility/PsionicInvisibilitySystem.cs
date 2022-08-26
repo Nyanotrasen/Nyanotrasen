@@ -1,4 +1,5 @@
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Vehicle.Components;
 using Content.Server.Visible;
 using Robust.Server.GameObjects;
 
@@ -14,6 +15,7 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<PotentialPsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicInsulationComponent, ComponentInit>(OnInsulInit);
             SubscribeLocalEvent<PsionicInsulationComponent, ComponentShutdown>(OnInsulShutdown);
+            SubscribeLocalEvent<EyeComponent, ComponentInit>(OnEyeInit);
 
             /// Layer
             SubscribeLocalEvent<PsionicallyInvisibleComponent, ComponentInit>(OnInvisInit);
@@ -48,6 +50,14 @@ namespace Content.Server.Psionics
             _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.PsionicInvisibility, false);
             _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.Normal, false);
             _visibilitySystem.RefreshVisibility(visibility);
+
+            SetCanSeePsionicInvisiblity(uid, true);
+        }
+
+        private void OnEyeInit(EntityUid uid, EyeComponent component, ComponentInit args)
+        {
+            if (HasComp<PotentialPsionicComponent>(uid) || HasComp<VehicleComponent>(uid))
+                return;
 
             SetCanSeePsionicInvisiblity(uid, true);
         }

@@ -13,6 +13,7 @@ using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
+using Robust.Server.GameObjects;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Server.Vehicle
@@ -111,6 +112,9 @@ namespace Content.Server.Vehicle
                 {
                     _actionsSystem.AddAction(args.BuckledEntity, component.HornAction, uid, actions);
                 }
+
+                if (TryComp<EyeComponent>(args.BuckledEntity, out var riderEye) && TryComp<EyeComponent>(uid, out var vehicleEye))
+                    vehicleEye.VisibilityMask = riderEye.VisibilityMask;
 
                 return;
             }
