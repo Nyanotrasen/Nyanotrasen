@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created By Daemon",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "entity_core",
+      "directions": 4
+    },
+    {
+      "name": "entity_core_radiating",
+      "directions": 4
+    }
+  ]
+}
