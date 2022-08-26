@@ -1,0 +1,21 @@
+- type: entity
+  save: false
+  name: Unknown Entity
+  parent: BaseMobUnknownEntity
+  id: MobUnknownEntity
+  description: A pile of secrets.
+  components:
+  - type: CombatMode
+    canDisarm: true
+  - type: Mind
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Alerts
+  - type: Actions
+  - type: Eye
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
