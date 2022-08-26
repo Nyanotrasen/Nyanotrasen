@@ -85,6 +85,9 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnEnd(EntityUid uid, PsionicInvisibilityUsedComponent component, ComponentShutdown args)
         {
+            if (Terminating(uid))
+                return;
+
             RemComp<PsionicallyInvisibleComponent>(uid);
             RemComp<PacifiedComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
