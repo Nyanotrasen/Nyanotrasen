@@ -16,9 +16,8 @@ namespace Content.Server.Abilities.Psionics
     public sealed class PsionicInvisibilityPowerSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly PsionicInvisibilitySystem _invisibilitySystem = default!;
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -96,6 +95,7 @@ namespace Content.Server.Abilities.Psionics
                 _actions.RemoveAction(uid, new InstantAction(invis), null);
 
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(8), false);
+            Dirty(uid);
         }
 
         private void OnDamageChanged(EntityUid uid, PsionicInvisibilityUsedComponent component, DamageChangedEvent args)
@@ -106,7 +106,7 @@ namespace Content.Server.Abilities.Psionics
             ToggleInvisibility(uid);
         }
 
-        private void ToggleInvisibility(EntityUid uid)
+        public void ToggleInvisibility(EntityUid uid)
         {
             if (!HasComp<PsionicInvisibilityUsedComponent>(uid))
             {

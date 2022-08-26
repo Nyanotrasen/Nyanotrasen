@@ -1,5 +1,6 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Vehicle.Components;
+using Content.Server.Abilities.Psionics;
 using Content.Server.Visible;
 using Robust.Server.GameObjects;
 
@@ -8,6 +9,7 @@ namespace Content.Server.Psionics
     public sealed class PsionicInvisibilitySystem : EntitySystem
     {
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -31,6 +33,9 @@ namespace Content.Server.Psionics
         {
             if (!HasComp<PotentialPsionicComponent>(uid))
                 return;
+
+            if (HasComp<PsionicInvisibilityUsedComponent>(uid))
+                _invisSystem.ToggleInvisibility(uid);
 
             SetCanSeePsionicInvisiblity(uid, true);
         }
