@@ -41,7 +41,7 @@ namespace Content.Server.Access.Systems
             {
                 float randomPick = _random.NextFloat();
                 // if really unlucky, burn card
-                if (randomPick <= 0.15f)
+                if (randomPick <= 0.2f)
                 {
                     TryComp<TransformComponent>(uid, out TransformComponent? transformComponent);
                     if (transformComponent != null)
@@ -55,7 +55,7 @@ namespace Content.Server.Access.Systems
                     return;
                 }
                 // If they're unlucky, brick their ID
-                if (randomPick <= 0.25f)
+                if (randomPick <= 0.3f)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("id-card-component-microwave-bricked", ("id", uid)),
                         uid, Filter.Pvs(uid));

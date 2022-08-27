@@ -3,6 +3,7 @@ using Content.Shared.Actions;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind.Components;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -16,6 +17,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
 
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
@@ -79,6 +81,8 @@ namespace Content.Server.Abilities.Psionics
             }
             if (psionic.PsionicAbility != null)
                 _actionsSystem.RemoveAction(uid, psionic.PsionicAbility);
+
+            _statusEffectsSystem.TryAddStatusEffect(uid, "Stutter", TimeSpan.FromMinutes(5), false, "StutteringAccent");
 
             RemComp<PsionicComponent>(uid);
         }
