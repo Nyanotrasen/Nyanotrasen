@@ -2,6 +2,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Vehicle.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Visible;
+using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Psionics
@@ -22,6 +23,10 @@ namespace Content.Server.Psionics
             /// Layer
             SubscribeLocalEvent<PsionicallyInvisibleComponent, ComponentInit>(OnInvisInit);
             SubscribeLocalEvent<PsionicallyInvisibleComponent, ComponentShutdown>(OnInvisShutdown);
+
+            // PVS Stuff
+            SubscribeLocalEvent<PsionicallyInvisibleComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+            SubscribeLocalEvent<PsionicallyInvisibleComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         }
 
         private void OnInit(EntityUid uid, PotentialPsionicComponent component, ComponentInit args)
@@ -77,6 +82,16 @@ namespace Content.Server.Psionics
             }
             if (HasComp<PotentialPsionicComponent>(uid) && !HasComp<PsionicInsulationComponent>(uid))
                 SetCanSeePsionicInvisiblity(uid, false);
+        }
+
+        private void OnEntInserted(EntityUid uid, PsionicallyInvisibleComponent component, EntInsertedIntoContainerMessage args)
+        {
+            Dirty(args.Entity);
+        }
+
+        private void OnEntRemoved(EntityUid uid, PsionicallyInvisibleComponent component, EntRemovedFromContainerMessage args)
+        {
+            Dirty(args.Entity);
         }
 
         public void SetCanSeePsionicInvisiblity(EntityUid uid, bool set)
