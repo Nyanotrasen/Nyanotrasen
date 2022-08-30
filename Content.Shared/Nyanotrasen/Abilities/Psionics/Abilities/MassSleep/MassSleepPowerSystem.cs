@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Damage;
 using Content.Shared.MobState.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
@@ -47,7 +48,8 @@ namespace Content.Shared.Abilities.Psionics
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
-                    EnsureComp<SleepingComponent>(entity);
+                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
+                        EnsureComp<SleepingComponent>(entity);
                 }
             }
             args.Handled = true;
