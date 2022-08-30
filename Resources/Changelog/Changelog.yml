@@ -1,89 +1,6 @@
 Entries:
 - author: metalgearsloth
   changes:
-  - {message: Fixed spent state for large cartridge casing., type: Fix}
-  - {message: Fixed cobra magazine so it actually goes into the gun., type: Fix}
-  id: 1691
-  time: '2022-06-13T09:30:16.0000000+00:00'
-- author: EmoGarbage404
-  changes:
-  - {message: Solar's Best Hot Drinks now only have half as much coffee and tea in
-      them., type: Tweak}
-  id: 1692
-  time: '2022-06-14T07:13:31.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Tweak pistol firerate from 8 -> 6 and cobra firerate from 8 -> 4., type: Tweak}
-  id: 1693
-  time: '2022-06-14T07:19:51.0000000+00:00'
-- author: KIBORG04
-  changes:
-  - {message: Entities without hands (like mice) can no longer perform some actions.,
-    type: Remove}
-  id: 1694
-  time: '2022-06-15T01:39:43.0000000+00:00'
-- author: themias
-  changes:
-  - {message: Syndie gas masks now provide protection from flashbangs, type: Tweak}
-  id: 1695
-  time: '2022-06-15T07:04:53.0000000+00:00'
-- author: EmoGarbage404
-  changes:
-  - {message: Added the Rat King. This regal rodent wants your food and will summon
-      minions and spread plague in order to get it., type: Add}
-  id: 1696
-  time: '2022-06-16T00:53:27.0000000+00:00'
-- author: Delete
-  changes:
-  - {message: Fireplaces provide useful light, type: Add}
-  id: 1697
-  time: '2022-06-16T01:02:51.0000000+00:00'
-- author: Rane
-  changes:
-  - {message: 'You can no longer break pulls on cuffed people if someone else is pulling.
-      Sorry griefers, maybe sec will be tolerable to play now.', type: Tweak}
-  id: 1698
-  time: '2022-06-16T01:10:03.0000000+00:00'
-- author: CrudeWax
-  changes:
-  - {message: Nanotrasen's deeper research into the space-faring carpfish has proven
-      that their meat contains extremely potent poison!, type: Add}
-  - {message: 'New carp meat dishes are on the menu for experienced cooks! Their taste
-      can only be described as "Exotic", by those willing to stomach their lethal
-      effects.', type: Add}
-  - {message: 'It seems like the carpfish kind also have an apex predator among their
-      ranks, be warned of large influxes of organic activity and leviathan space-faring
-      creatures', type: Add}
-  - {message: Some carp appear to be smarter than others and capable of humanlike
-      speech, type: Add}
-  - {message: 'due to overuse of heartstopper toxin, and it''s more daring carp alternative,
-      the effects of the former have been greatly reduced', type: Tweak}
-  - {message: Space-faring carp will no longer die of being exposed to the coldness
-      of space, type: Fix}
-  id: 1699
-  time: '2022-06-16T04:14:06.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Shuttles now have a docking camera to make docking easier., type: Add}
-  id: 1700
-  time: '2022-06-16T05:28:17.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Total door hacking time reduced from 5s to 2.5s, type: Tweak}
-  id: 1701
-  time: '2022-06-16T06:14:35.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Nerfed gun damage by 30% across the board., type: Tweak}
-  id: 1702
-  time: '2022-06-16T06:15:08.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Holofans now use power cells and not a custom recharge system., type: Tweak}
-  id: 1703
-  time: '2022-06-16T08:30:27.0000000+00:00'
-- author: metalgearsloth
-  changes:
   - {message: Power cell bloat has been removed as it's never been used. Only small
       cells remain., type: Remove}
   id: 1704
@@ -2939,3 +2856,79 @@ Entries:
   - {message: Popups for wielding now display the correct text., type: Fix}
   id: 2190
   time: '2022-08-25T13:42:13.0000000+00:00'
+- author: ElectroJr
+  changes:
+  - {message: Removed ratatouille (held mice and holo parasites no longer affect what
+      direction a player is facing), type: Fix}
+  id: 2191
+  time: '2022-08-25T23:39:25.0000000+00:00'
+- author: Myctai
+  changes:
+  - {message: nonlethals crate icon no longer suggests that crate contains tasers
+      (crate actually contains disablers), type: Fix}
+  id: 2192
+  time: '2022-08-27T05:54:24.0000000+00:00'
+- author: FunkySphere
+  changes:
+  - {message: Margherita pizza slice is no longer sliceable into multiple meat pizza
+      slices., type: Fix}
+  id: 2193
+  time: '2022-08-27T09:59:16.0000000+00:00'
+- author: biometricPsychography
+  changes:
+  - {message: Made the dead state of the snake more dead (fix snakes death animation/sprite).,
+    type: Fix}
+  id: 2194
+  time: '2022-08-28T22:34:22.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Moving between grids should now be smooth., type: Fix}
+  - {message: Fixed the eye rotation on spawn and also when the shuttle goes FTL.,
+    type: Fix}
+  id: 2195
+  time: '2022-08-29T05:05:53.0000000+00:00'
+- author: FunkySphere
+  changes:
+  - {message: 'magboots, galoshes and flippers no longer butcherable', type: Tweak}
+  id: 2196
+  time: '2022-08-29T17:59:17.0000000+00:00'
+- author: LordEclipse
+  changes:
+  - {message: Medical Intern PDA's now have Health Analyzers built into them., type: Tweak}
+  id: 2197
+  time: '2022-08-29T23:32:20.0000000+00:00'
+- author: metalgearsloth
+  changes:
+  - {message: Pull chains with your besties should be much faster., type: Tweak}
+  id: 2198
+  time: '2022-08-30T02:19:25.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Cloners now require biomass., type: Add}
+  - {message: Cloners have a chance of failure based off of the body's genetic damage.,
+    type: Add}
+  - {message: Added biomass material and biomass reclaimers., type: Add}
+  id: 2199
+  time: '2022-08-30T02:31:28.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: The zombie midround event now just starts zombie mode., type: Add}
+  - {message: Zombie melee infection rates have been lowered., type: Tweak}
+  id: 2200
+  time: '2022-08-30T02:35:19.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Fixed issues with ID cards displaying whitespace and empty names., type: Fix}
+  id: 2201
+  time: '2022-08-30T02:38:01.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: The Cargo Tech and QM job icons have been swapped., type: Fix}
+  id: 2202
+  time: '2022-08-30T02:39:23.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Silicons will no longer take damage from glass shards. Flying mobs are
+      still bugged., type: Fix}
+  id: 2203
+  time: '2022-08-30T06:15:25.0000000+00:00'
