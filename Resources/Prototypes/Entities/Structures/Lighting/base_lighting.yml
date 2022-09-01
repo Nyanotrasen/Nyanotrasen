@@ -108,27 +108,6 @@
     damage:
       types:
         Heat: 5
-        
-- type: entity
-  parent: PoweredlightExterior
-  id: PoweredlightBlueInterior
-  suffix: Blue Interior
-  description: "A light fixture. Draws power and produces light when equipped with a light tube."
-  components:
-  - type: PoweredLight
-    hasLampOnSpawn: BlueLightTube
-    damage:
-      types:
-        Heat: 5
-
-- type: entity
-  parent: AlwaysPoweredLightExterior
-  id: AlwaysPoweredLightExterior
-  suffix: Always Powered, Blue Interior
-  components:
-  - type: PointLight
-    energy: 3
-    softness: 0.9
 
 #LED lights
 - type: entity
@@ -286,6 +265,8 @@
   components:
   - type: Sprite
     state: off
+  - type: AmbientSound
+    enabled: true
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
     damage:
@@ -327,7 +308,7 @@
   - type: AmbientSound
     sound:
       path: /Audio/Ambience/Objects/alarm.ogg
-    volume: -18
+    volume: -12
     range: 5
     enabled: false
   placement:
