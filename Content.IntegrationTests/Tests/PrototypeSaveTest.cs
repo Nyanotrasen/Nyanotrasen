@@ -162,6 +162,7 @@ public sealed class PrototypeSaveTest
         "AirlockShuttle",
         "AirlockGlassShuttle",
         "EngineeringTechFab",
+        "PoweredlightBlueInterior",
     };
 
     [Test]
