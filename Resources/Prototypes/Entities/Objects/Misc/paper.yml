@@ -291,7 +291,7 @@
     state: stamp-cent
 
 - type: entity
-  name: chaplain's rubber stamp
+  name: cleric's rubber stamp
   parent: RubberStampMime
   id: RubberStampChaplain
   components:
@@ -387,7 +387,7 @@
     state: stamp-qm
 
 - type: entity
-  name: research director's rubber stamp
+  name: mystagogue's rubber stamp
   parent: RubberStampMime
   id: RubberStampRd
   components:

@@ -26,8 +26,14 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, MetapsionicPowerComponent component, ComponentInit args)
         {
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("MetapsionicPulse", out var metapsionicPulse))
-                _actions.AddAction(uid, new InstantAction(metapsionicPulse), null);
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("MetapsionicPulse", out var metapsionicPulse))
+                return;
+
+            component.MetapsionicPowerAction = new InstantAction(metapsionicPulse);
+            _actions.AddAction(uid, component.MetapsionicPowerAction, null);
+
+            if (TryComp<PsionicComponent>(uid, out var psionic))
+                psionic.PsionicAbility = component.MetapsionicPowerAction;
         }
 
         private void OnShutdown(EntityUid uid, MetapsionicPowerComponent component, ComponentShutdown args)
@@ -40,7 +46,7 @@ namespace Content.Shared.Abilities.Psionics
         {
             foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
             {
-                if (HasComp<PsionicComponent>(entity) && entity != uid)
+                if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
                     _popups.PopupEntity(Loc.GetString("metapsionic-pulse-success"), uid, Filter.Entities(uid), PopupType.LargeCaution);
                     args.Handled = true;

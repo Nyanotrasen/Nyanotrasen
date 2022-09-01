@@ -23,13 +23,12 @@
   - !type:AddComponentSpecial
     components:
     - type: GuaranteedPsionic
-      power: MetapsionicPower
 
 - type: startingGear
   id: ForensicMantisGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlue
-    back: ClothingBackpackDetectiveFilled
+    back: ClothingBackpackMantisFilled
     shoes: ClothingShoesColorBlue
     head: ClothingHeadHatFez
     id: ForensicMantisPDA
@@ -38,5 +37,3 @@
     pocket1: AntiPsychicKnife
     pocket2: ForensicScanner
   innerclothingskirt: ClothingUniformJumpskirtColorBlue
-  satchel: ClothingBackpackSatchelDetectiveFilled
-  duffelbag: ClothingBackpackDuffelDetectiveFilled

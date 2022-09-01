@@ -1,7 +1,7 @@
 - type: entity
-  id: SpawnPointGhostRemilia
+  id: SpawnPointGhostIfrit
   name: ghost role spawn point
-  suffix: Remilia
+  suffix: Ifrit
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner

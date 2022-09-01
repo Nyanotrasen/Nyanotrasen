@@ -5,12 +5,12 @@
   description: A special knife designed for killing psychics.
   components:
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 0
   - type: AntiPsionicWeapon
     modifiers:
       coefficients:
-        Blunt: 2
-        Slash: 2
-        Piercing: 2
+        Blunt: 1.5
+        Slash: 1.5
+        Piercing: 1.5
   - type: Sprite
     color: black

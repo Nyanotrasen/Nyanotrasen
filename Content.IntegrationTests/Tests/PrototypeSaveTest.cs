@@ -129,7 +129,6 @@ public sealed class PrototypeSaveTest
         "UniformPrinter",
         "OreProcessor",
         "MedicalScanner",
-        "KitchenMicrowave",
         "MagazinePistolSubMachineGunTopMounted",
         "Recycler",
         "EpinephrineChemistryBottle",

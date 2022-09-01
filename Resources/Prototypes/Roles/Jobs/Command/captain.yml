@@ -23,6 +23,11 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      flatBonus: 0.025
 
 - type: startingGear
   id: CaptainGear
