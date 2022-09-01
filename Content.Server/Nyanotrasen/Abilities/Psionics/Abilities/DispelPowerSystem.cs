@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Content.Server.Guardian;
 using Content.Server.Popups;
+using Content.Server.Bible.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 
@@ -62,10 +63,11 @@ namespace Content.Server.Abilities.Psionics
                 return;
             }
 
+            if (TryComp<FamiliarComponent>(args.Target, out var familiar) && TryComp<SummonableComponent>(familiar.Source, out var source))
+                EnsureComp<SummonableRespawningComponent>(familiar.Source.Value);
+
             EntityManager.QueueDeleteEntity(args.Target);
             Spawn("Ash", Transform(args.Target).Coordinates);
-            _popupSystem.PopupEntity(Loc.GetString("admin-smite-turned-ash-other", ("name", args.Target)), args.Target,
-                Filter.Pvs(args.Target), PopupType.LargeCaution);
         }
     }
 

@@ -405,7 +405,16 @@ namespace Content.Client.Chat.UI
             var messageText = FormattedMessage.EscapeText(message.Message);
             if (!string.IsNullOrEmpty(message.MessageWrap))
             {
-                messageText = string.Format(message.MessageWrap, messageText);
+                try
+                {
+                    messageText = string.Format(message.MessageWrap, messageText);
+                }
+                catch
+                {
+                    Logger.Error("message.Messagewrap: " + message.MessageWrap);
+                    Logger.Error("message.Message: " + message.Message);
+                    Logger.Error("original messageText: " + FormattedMessage.EscapeText(message.Message));
+                }
             }
 
             Logger.DebugS("chat", $"{message.Channel}: {messageText}");

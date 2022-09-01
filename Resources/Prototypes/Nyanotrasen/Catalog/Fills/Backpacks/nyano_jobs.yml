@@ -1,15 +1,15 @@
 - type: entity
   noSpawn: true
   parent: ClothingBackpack
-  id: ClothingBackpackDetectiveFilled
+  id: ClothingBackpackMantisFilled
   components:
     - type: StorageFill
       contents:
       - id: BoxSurvival
-      - id: Lighter
-      - id: CigPackBlack
       - id: BoxForensicPad
       - id: HandLabeler
+      - id: PillMindbreakerToxin
+      - id: BoxFolderGrey
 
 - type: entity
   noSpawn: true

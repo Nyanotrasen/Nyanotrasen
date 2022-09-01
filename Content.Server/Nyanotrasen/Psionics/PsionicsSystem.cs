@@ -2,10 +2,12 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
-using Content.Server.Stunnable;
 using Content.Server.Damage.Events;
 using Content.Server.GameTicking;
+using Content.Server.Electrocution;
 using Robust.Shared.Random;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
 
 namespace Content.Server.Psionics
 {
@@ -14,6 +16,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+        [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -32,7 +35,7 @@ namespace Content.Server.Psionics
         {
             if (component.PowerComponent == null)
             {
-                _psionicAbilitiesSystem.AddPsionics(uid);
+                _psionicAbilitiesSystem.AddRandomPsionicPower(uid);
                 return;
             }
 
@@ -45,16 +48,21 @@ namespace Content.Server.Psionics
             {
                 if (HasComp<PsionicComponent>(entity))
                 {
+                    SoundSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(entity), entity);
                     args.ModifiersList.Add(component.Modifiers);
                     if (_random.Prob(component.DisableChance))
                         _statusEffects.TryAddStatusEffect(entity, "PsionicsDisabled", TimeSpan.FromSeconds(10), true, "PsionicsDisabled");
+                } else
+                {
+                    if (HasComp<PotentialPsionicComponent>(entity) &&_random.Prob(0.5f))
+                        _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
                 }
             }
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
-            args.Multiplier *= component.PsychicDamageMultiplier;
+            args.FlatModifier += component.PsychicStaminaDamage;
         }
 
         private void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
