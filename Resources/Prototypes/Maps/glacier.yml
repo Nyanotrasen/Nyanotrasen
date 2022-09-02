@@ -1,0 +1,47 @@
+- type: gameMap
+  id: Glacierstation
+  mapName: 'Glacier'
+  mapPath: /Maps/glacier.yml
+  minPlayers: 0
+  maxPlayers: 35
+  stations:
+    Glacierstation:
+      mapNameTemplate: '{0} Glacier Station {1}'
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: 'TG'
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]
+        Bartender: [ 1, 1 ]
+        Botanist: [ 1, 1 ]
+        Chef: [ 1, 1 ]
+        Clown: [ 1, 1 ]
+        Janitor: [ 2, 2 ]
+        Mime: [ 1, 1 ]
+        Captain: [ 1, 1 ]
+        HeadOfPersonnel: [ 1, 1 ]
+        ChiefEngineer: [ 1, 1 ]
+        StationEngineer: [ 2, 3 ]
+        ChiefMedicalOfficer: [ 1, 1 ]
+        MedicalDoctor: [ 2, 4 ]
+        MedicalCyborg: [ 1, 2 ]
+        Mystagogue: [ 1, 1 ]
+        Epistemologist: [ 1, 2 ]
+        HeadOfSecurity: [ 1, 1 ]
+        SecurityOfficer: [ 2, 3 ]
+        Chaplain: [ 1, 1 ]
+        Warden: [ 1, 1 ]
+        Cataloguer: [ 1, 1 ]
+        Lawyer: [ 1, 1 ]
+        Quartermaster: [ 3, 4 ]
+        SalvageTechnician: [ 1, 2 ]
+        Musician: [ 1, 1 ]
+        AtmosphericTechnician: [ 1, 2 ]
+        Boxer: [ 1, 1 ]
+        MailCarrier: [ 1, 2 ]
+        Cyborg: [ 2, 3 ]
+        ForensicMantis: [ 1, 1 ]
+        Reporter: [ 1, 1 ]
+        Psychologist: [ 1, 1 ]
