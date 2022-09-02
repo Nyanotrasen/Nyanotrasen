@@ -191,7 +191,6 @@
   - type: Loadout
     prototype: ERTJanitorGearEVA
 
-
 #Syndie
 - type: entity
   parent: MobHuman
@@ -202,3 +201,13 @@
     prototype: SyndicateOperativeGearExtremelyBasic
   - type: RandomMetadata
     nameSet: names_death_commando
+
+# Nuclear Operative
+- type: entity
+  noSpawn: true
+  name: Nuclear Operative
+  parent: MobHuman
+  id: MobHumanNukeOp
+  components:
+    - type: NukeOperative
+    - type: RandomHumanoidAppearance
