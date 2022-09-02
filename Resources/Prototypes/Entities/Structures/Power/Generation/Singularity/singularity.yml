@@ -33,13 +33,10 @@
       mask:
       - FullTileMask
   - type: Singularity
-    radsPerLevel: 1 # determines RadiationPulse's radiation per second.
+    radsPerLevel: 1
   - type: SingularityDistortion
-  - type: RadiationPulse
+  - type: RadiationSource
     range: 10
-    decay: false
-    minPulseLifespan: 1
-    maxPulseLifespan: 1
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
     state: singularity_1
