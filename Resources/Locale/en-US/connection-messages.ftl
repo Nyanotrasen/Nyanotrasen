@@ -1,4 +1,5 @@
 ﻿whitelist-not-whitelisted = Nyanotrasen requires whitelisting above {$num} players. Connect to the Discord at www.nyanotrasen.moe
+whitelist-end-round-kick = Non-whitelisted players are automatically kicked at round end. To apply for whitelisting, connect to the Discord at www.nyanotrasen.moe
 
 command-whitelistadd-description = Adds the player with the given username to the server whitelist.
 command-whitelistadd-help = whitelistadd <username>
