@@ -777,6 +777,8 @@
     - texture: Structures/Machines/VendingMachines/maintenance_panel.png
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Appearance
+  - type: WallMount
+    arc: 360
   - type: WiresVisuals
   - type: AccessReader
     access: [["Medical"]]
