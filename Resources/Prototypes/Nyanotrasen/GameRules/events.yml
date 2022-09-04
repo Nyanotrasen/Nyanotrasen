@@ -1,0 +1,12 @@
+- type: gameRule
+  id: NoosphericStorm
+  config:
+    !type:StationEventRuleConfiguration
+    startAnnouncement: station-event-noospheric-storm-announcement
+    startAudio:
+      path: /Audio/Announcements/bloblarm.ogg
+    id: NoosphericStorm
+    weight: 5
+    endAfter: 1
+    earliestStart: 15
+    maxOccurrences: 2
