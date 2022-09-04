@@ -1,6 +1,5 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.StatusEffect;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
@@ -27,8 +26,8 @@ namespace Content.Server.Abilities.Psionics
             base.Initialize();
             SubscribeLocalEvent<PsionicInvisibilityPowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicInvisibilityPowerComponent, ComponentShutdown>(OnShutdown);
-            SubscribeLocalEvent<PsionicInvisibilityPowerComponent, PsionicInvisibilityPowerAction>(OnPowerUsed);
-            SubscribeLocalEvent<PsionicInvisibilityPowerOffAction>(OnPowerOff);
+            SubscribeLocalEvent<PsionicInvisibilityPowerComponent, PsionicInvisibilityPowerActionEvent>(OnPowerUsed);
+            SubscribeLocalEvent<PsionicInvisibilityPowerOffActionEvent>(OnPowerOff);
             SubscribeLocalEvent<PsionicInvisibilityUsedComponent, ComponentInit>(OnStart);
             SubscribeLocalEvent<PsionicInvisibilityUsedComponent, ComponentShutdown>(OnEnd);
             SubscribeLocalEvent<PsionicInvisibilityUsedComponent, DamageChangedEvent>(OnDamageChanged);
@@ -52,7 +51,7 @@ namespace Content.Server.Abilities.Psionics
                 _actions.RemoveAction(uid, new InstantAction(invis), null);
         }
 
-        private void OnPowerUsed(EntityUid uid, PsionicInvisibilityPowerComponent component, PsionicInvisibilityPowerAction args)
+        private void OnPowerUsed(EntityUid uid, PsionicInvisibilityPowerComponent component, PsionicInvisibilityPowerActionEvent args)
         {
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
                 return;
@@ -65,7 +64,7 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
-        private void OnPowerOff(PsionicInvisibilityPowerOffAction args)
+        private void OnPowerOff(PsionicInvisibilityPowerOffActionEvent args)
         {
             if (!HasComp<PsionicInvisibilityUsedComponent>(args.Performer))
                 return;
@@ -118,6 +117,6 @@ namespace Content.Server.Abilities.Psionics
         }
     }
 
-    public sealed class PsionicInvisibilityPowerAction : InstantActionEvent {}
-    public sealed class PsionicInvisibilityPowerOffAction : InstantActionEvent {}
+    public sealed class PsionicInvisibilityPowerActionEvent : InstantActionEvent {}
+    public sealed class PsionicInvisibilityPowerOffActionEvent : InstantActionEvent {}
 }

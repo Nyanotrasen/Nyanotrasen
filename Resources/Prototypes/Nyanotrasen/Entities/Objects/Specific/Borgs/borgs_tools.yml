@@ -27,6 +27,10 @@
   name: medical cyborg hypospray
   description: A hypospray that can switch through several reagents.
   components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 15
   - type: AutoRegenReagent
     solution: hypospray
     reagents:
