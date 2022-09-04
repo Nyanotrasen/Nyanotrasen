@@ -5,10 +5,6 @@ using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.StationEvents.Events;
-/// <summary>
-/// Infects a couple people
-/// with a random disease that isn't super deadly
-/// </summary>
 public sealed class NoosphericStorm : StationEventSystem
 {
     [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
@@ -16,11 +12,6 @@ public sealed class NoosphericStorm : StationEventSystem
 
     public override string Prototype => "NoosphericStorm";
 
-    /// <summary>
-    /// Finds 2-5 random, alive entities that can host diseases
-    /// and gives them a randomly selected disease.
-    /// They all get the same disease.
-    /// </summary>
     public override void Started()
     {
         base.Started();
