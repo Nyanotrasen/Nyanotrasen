@@ -1,6 +1,7 @@
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
 using Content.Shared.Popups;
+using Content.Shared.Abilities.Psionics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -26,6 +27,9 @@ public sealed class TelepathicArtifactSystem : EntitySystem
         foreach (var victimUid in victims)
         {
             if (!EntityManager.HasComponent<ActorComponent>(victimUid))
+                continue;
+
+            if (HasComp<PsionicInsulationComponent>(victimUid))
                 continue;
 
             // roll if msg should be usual or drastic
