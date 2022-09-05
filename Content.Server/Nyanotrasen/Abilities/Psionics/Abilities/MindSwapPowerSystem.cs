@@ -27,7 +27,6 @@ namespace Content.Server.Abilities.Psionics
 
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<MindSwappedComponent, ComponentShutdown>(OnShutdown);
         }
 
         private void OnInit(EntityUid uid, MindSwapPowerComponent component, ComponentInit args)
@@ -66,21 +65,6 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
-            RemComp<MindSwappedComponent>(uid);
-        }
-
-        private void OnInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
-        {
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
-            {
-                var action = new InstantAction(mindSwap);
-                action.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + TimeSpan.FromSeconds(15));
-                _actions.AddAction(uid, action, null);
-            }
-        }
-
-        private void OnShutdown(EntityUid uid, MindSwappedComponent component, ComponentShutdown args)
-        {
             if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
             {
                 _actions.RemoveAction(uid, new InstantAction(mindSwap), null);
@@ -100,12 +84,23 @@ namespace Content.Server.Abilities.Psionics
             if (_mobStateSystem.IsDead(component.OriginalEntity))
                 return;
 
-            RemCompDeferred<MindSwappedComponent>(component.OriginalEntity);
+            Swap(uid, component.OriginalEntity, true);
+        }
 
-            Swap(uid, component.OriginalEntity, false);
+        private void OnInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
+        {
+            if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
+            {
+                var action = new InstantAction(mindSwap);
+                action.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + TimeSpan.FromSeconds(15));
+                _actions.AddAction(uid, action, null);
+            }
         }
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
         {
+            if (end && (!HasComp<MindSwappedComponent>(performer) || !HasComp<MindSwappedComponent>(target)))
+                return;
+
             if (!TryComp<ActorComponent>(performer, out var perfActor))
                 return;
 
@@ -115,7 +110,11 @@ namespace Content.Server.Abilities.Psionics
             perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true);
 
             if (end)
+            {
+                RemComp<MindSwappedComponent>(performer);
+                RemComp<MindSwappedComponent>(target);
                 return;
+            }
 
             var perfComp = EnsureComp<MindSwappedComponent>(performer);
             var targetComp = EnsureComp<MindSwappedComponent>(target);
