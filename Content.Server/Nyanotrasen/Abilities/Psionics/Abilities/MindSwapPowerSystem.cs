@@ -100,6 +100,8 @@ namespace Content.Server.Abilities.Psionics
             if (_mobStateSystem.IsDead(component.OriginalEntity))
                 return;
 
+            RemComp<MindSwappedComponent>(component.OriginalEntity);
+
             Swap(uid, component.OriginalEntity, false);
         }
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
