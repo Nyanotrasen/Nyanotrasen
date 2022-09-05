@@ -139,10 +139,8 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
-    - Idle
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - SimpleHostile
@@ -508,10 +506,6 @@
     interactFailureString: petting-failure-goat
     interactSuccessSound:
       path: /Audio/Animals/goat_bah.ogg
-  - type: UtilityNPC
-    behaviorSets:
-    - Idle
-    - FoliageHunger
   - type: Hunger
   - type: MeleeWeapon
     range: 1.5
@@ -679,9 +673,8 @@
         Blunt: 10
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - SimpleHostile
@@ -879,9 +872,6 @@
     naturalImmunities:
       - AMIV
   - type: CanEscapeInventory
-  - type: AiFactionTag
-    factions:
-    - Vermin
   - type: MobPrice
     price: 50
   - type: FelinidFood
@@ -1186,9 +1176,8 @@
     baseSprintSpeed : 7
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - Syndicate
@@ -1351,10 +1340,8 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: UtilityNPC
-      behaviorSets:
-        - Idle
-        - UnarmedAttackHostiles
+    - type: HTN
+      rootTask: SimpleHostileCompound
     - type: GhostTakeoverAvailable
       makeSentient: true
       name: ghost-role-information-giant-spider-name

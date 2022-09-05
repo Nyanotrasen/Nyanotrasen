@@ -14,7 +14,7 @@ namespace Content.Server.Borgs
         {
             UseDelay = TimeSpan.FromSeconds(10),
             Icon = new SpriteSpecifier.Texture(new ResourcePath("Structures/Wallmounts/posters.rsi/poster11_legit.png")),
-            Name = "state-laws-action",
+            DisplayName = "state-laws-action",
             Description = "state-laws-action-desc",
             Priority = -1,
             Event = new StateLawsActionEvent(),
