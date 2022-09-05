@@ -27,3 +27,9 @@ action-description-psionic-invisibility = Render yourself invisible to any entit
 
 action-name-psionic-invisibility-off = Turn Off Psionic Invisibility
 action-description-psionic-invisibility-off = Return to visibility, and receive a stun.
+
+action-name-mind-swap = Mind Swap
+action-description-mind-swap = Swap minds with the target. Either can change back after 20 seconds.
+
+action-name-mind-swap-return = Reverse Mind Swap
+action-description-mind-swap-return = Return to your original body.

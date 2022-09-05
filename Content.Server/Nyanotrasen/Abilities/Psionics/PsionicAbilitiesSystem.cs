@@ -26,6 +26,7 @@ namespace Content.Server.Abilities.Psionics
             "DispelPower",
             "MassSleepPower",
             "PsionicInvisibilityPower",
+            "MindSwapPower",
         };
 
         public void AddPsionics(EntityUid uid)
