@@ -3,9 +3,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Kitchen;
 using Content.Shared.Research.Prototypes;
 using Content.Server.Chat.Systems;
+using Content.Server.Botany;
+using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Botany;
 
 namespace Content.Server.Research.Oracle
 {
@@ -14,6 +15,7 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public readonly IReadOnlyList<string> DemandMessages = new[]
@@ -106,6 +108,9 @@ namespace Content.Server.Research.Oracle
             EntityManager.QueueDeleteEntity(args.Used);
 
             EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
+
+            if (TryComp<PotentialPsionicComponent>(args.User, out var potential))
+                _psionicsSystem.RollPsionics(args.User, potential);
 
             int i = ((_random.Next() % 4) + 1);
 

@@ -10,7 +10,7 @@
     sprite: Nyanotrasen/Structures/Machines/VendingMachines/robotech.rsi
     layers:
     - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Unlit"]
+      map: ["enum.VendingMachineVisualLayers.Base"]
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
@@ -18,12 +18,6 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Engineering"]]
-  - type: Appearance
-    visuals:
-    - type: VendingMachineVisualizer
-      normalUnshaded: true
-      denyUnshaded: true
-      broken: true
   - type: WiresVisuals
 
 - type: entity
@@ -69,17 +63,12 @@
     sprite: Structures/Machines/VendingMachines/detdrobe.rsi
     layers:
     - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Unlit"]
+      map: ["enum.VendingMachineVisualLayers.Base"]
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: Appearance
-    visuals:
-    - type: VendingMachineVisualizer
-      normalUnshaded: true
-      broken: true
   - type: WiresVisuals
   - type: AccessReader
     access: [["Service"]]

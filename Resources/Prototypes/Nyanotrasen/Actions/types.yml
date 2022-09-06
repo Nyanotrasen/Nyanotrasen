@@ -64,11 +64,45 @@
   description: action-description-psionic-invisibility
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 120
-  serverEvent: !type:PsionicInvisibilityPowerAction
+  serverEvent: !type:PsionicInvisibilityPowerActionEvent
 
 - type: instantAction
   id: PsionicInvisibilityOff
   name: action-name-psionic-invisibility-off
   description: action-description-psionic-invisibility-off
   icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
-  serverEvent: !type:PsionicInvisibilityPowerOffAction
+  serverEvent: !type:PsionicInvisibilityPowerOffActionEvent
+
+- type: instantAction
+  id: FabricateLollipop
+  name: fabricate-lollipop-action
+  description: fabricate-lollipop-desc
+  icon: Objects/Consumable/Food/candy.rsi/lollipop.png
+  useDelay: 120
+  serverEvent: !type:FabricateLollipopActionEvent
+
+- type: instantAction
+  id: FabricateGumball
+  name: fabricate-gumball-action
+  description: fabricate-gumball-desc
+  icon: Objects/Consumable/Food/candy.rsi/gumball.png
+  useDelay: 40
+  serverEvent: !type:FabricateGumballActionEvent
+
+- type: entityTargetAction
+  id: MindSwap
+  name: action-name-mind-swap
+  description: action-description-mind-swap
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 240
+  checkCanAccess: false
+  range: 8
+  serverEvent: !type:MindSwapPowerActionEvent
+
+- type: instantAction
+  id: MindSwapReturn
+  name: action-name-mind-swap-return
+  description: action-description-mind-swap-return
+  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  useDelay: 20
+  serverEvent: !type:MindSwapPowerReturnActionEvent

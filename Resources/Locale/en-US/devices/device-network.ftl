@@ -19,3 +19,4 @@ device-frequency-prototype-name-surveillance-camera-silicon = Built-In Silicon C
 # prefixes for randomly generated device addresses
 device-address-prefix-vent = Vnt-
 device-address-prefix-scrubber = Scr-
+device-address-prefix-sensor = Sns-

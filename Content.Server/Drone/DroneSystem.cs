@@ -1,7 +1,5 @@
 using Content.Shared.Drone;
 using Content.Server.Drone.Components;
-using Content.Shared.Actions;
-using Content.Server.Light.Components;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Shared.Interaction.Events;
@@ -12,20 +10,16 @@ using Content.Shared.Throwing;
 using Content.Shared.Item;
 using Content.Shared.Emoting;
 using Content.Shared.Body.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Popups;
 using Content.Server.Popups;
 using Content.Server.Mind.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Hands.Components;
+using Content.Server.Tools.Innate;
 using Content.Server.UserInterface;
-using Content.Server.SurveillanceCamera;
 using Robust.Shared.Player;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Popups;
-using Content.Shared.Storage;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Drone
 {
@@ -34,15 +28,12 @@ namespace Content.Server.Drone
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
+        [Dependency] private readonly InnateToolSystem _innateToolSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<DroneComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -53,19 +44,8 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
         }
 
-        private void OnInit(EntityUid uid, DroneComponent drone, ComponentInit args)
-        {
-            if (!TryComp<SurveillanceCameraComponent>(uid, out var camera))
-                return;
-
-            camera.Active = false;
-            camera.CameraId = MetaData(uid).EntityName;
-        }
-
         private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
         {
-            if (!component.ApplyLaws)
-                return;
             if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
                 args.Cancel();
 
@@ -78,8 +58,6 @@ namespace Content.Server.Drone
 
         private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
         {
-            if (!component.ApplyLaws)
-                return;
             if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
             {
                 args.Cancel();
@@ -100,23 +78,13 @@ namespace Content.Server.Drone
 
         private void OnMobStateChanged(EntityUid uid, DroneComponent drone, MobStateChangedEvent args)
         {
-            if (args.Component.IsDead())
+            if (args.CurrentMobState == DamageState.Dead)
             {
-                var body = Comp<SharedBodyComponent>(uid); //There's no way something can have a mobstate but not a body...
+                if (TryComp<InnateToolComponent>(uid, out var innate))
+                    _innateToolSystem.Cleanup(uid, innate);
 
-                foreach (var item in drone.ToolUids)
-                {
-                    if (_tagSystem.HasTag(item, "Drone"))
-                    {
-                        RemComp<UnremoveableComponent>(item);
-                    }
-                    else
-                    {
-                        Del(item);
-                    }
-                }
-
-                body.Gib();
+                if (TryComp<SharedBodyComponent>(uid, out var body))
+                    body.Gib();
                 Del(uid);
             }
         }
@@ -126,46 +94,10 @@ namespace Content.Server.Drone
             UpdateDroneAppearance(uid, DroneStatus.On);
             _popupSystem.PopupEntity(Loc.GetString("drone-activated"), uid,
                 Filter.Pvs(uid), PopupType.Large);
-
-            if (TryComp<SurveillanceCameraComponent>(uid, out var camera))
-                camera.Active = true;
-
-            if (drone.AlreadyAwoken == false)
-            {
-                var spawnCoord = Transform(uid).Coordinates;
-
-                if (drone.Tools.Count == 0) return;
-
-                if (TryComp<HandsComponent>(uid, out var hands) && hands.Count >= drone.Tools.Count)
-                {
-                    var items = EntitySpawnCollection.GetSpawns(drone.Tools, _robustRandom);
-                    foreach (var entry in items)
-                    {
-                        var item = Spawn(entry, spawnCoord);
-                        AddComp<UnremoveableComponent>(item);
-                        if (!_handsSystem.TryPickupAnyHand(uid, item, checkActionBlocker: false))
-                        {
-                            QueueDel(item);
-                            Logger.Error($"Drone ({ToPrettyString(uid)}) failed to pick up innate item ({ToPrettyString(item)})");
-                            continue;
-                        }
-                        drone.ToolUids.Add(item);
-                    }
-                }
-
-                if (TryComp<ActionsComponent>(uid, out var actions) && TryComp<UnpoweredFlashlightComponent>(uid, out var flashlight))
-                {
-                    _actionsSystem.AddAction(uid, flashlight.ToggleAction, null, actions);
-                }
-
-                drone.AlreadyAwoken = true;
-            }
         }
 
         private void OnMindRemoved(EntityUid uid, DroneComponent drone, MindRemovedMessage args)
         {
-            if (TryComp<SurveillanceCameraComponent>(uid, out var camera))
-                camera.Active = false;
             UpdateDroneAppearance(uid, DroneStatus.Off);
             EnsureComp<GhostTakeoverAvailableComponent>(uid);
         }
