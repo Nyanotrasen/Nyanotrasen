@@ -65,7 +65,7 @@ namespace Content.Server.Psionics
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        private void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
         {
             if (HasComp<GuaranteedPsionicComponent>(uid))
                 return;
