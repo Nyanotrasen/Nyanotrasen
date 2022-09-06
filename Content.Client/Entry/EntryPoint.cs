@@ -82,6 +82,8 @@ namespace Content.Client.Entry
             prototypes.RegisterIgnore("objective");
             prototypes.RegisterIgnore("holiday");
             prototypes.RegisterIgnore("aiFaction");
+            prototypes.RegisterIgnore("htnCompound");
+            prototypes.RegisterIgnore("htnPrimitive");
             prototypes.RegisterIgnore("gameMap");
             prototypes.RegisterIgnore("behaviorSet");
             prototypes.RegisterIgnore("lobbyBackground");

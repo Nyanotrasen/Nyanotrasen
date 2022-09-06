@@ -16,7 +16,10 @@
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
+    head: ClothingHeadHatFez
     jumpsuit: ClothingUniformJumpsuitBartender
+    outerClothing: ClothingOuterVestValet
+    gloves: ClothingHandsGlovesColorWhite
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA

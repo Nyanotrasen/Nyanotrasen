@@ -4,13 +4,6 @@
   parent: SimpleSpaceMobBase
   description: This is really going to let you own some vegans in your next online debate.
   components:
-  - type: UtilityNPC
-    behaviorSets:
-    - Idle
-    - UnarmedAttackHostiles
-  - type: AiFactionTag
-    factions:
-    - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -67,3 +60,6 @@
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Produce
+  - type: AiFactionTag
+    factions:
+    - SimpleHostile
