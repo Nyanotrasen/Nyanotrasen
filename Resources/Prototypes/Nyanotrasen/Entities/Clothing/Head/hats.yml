@@ -80,3 +80,14 @@
   - type: Construction
     graph: TinfoilHat
     node: tinfoilhat
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBellhop
+  name: bellhop cap
+  description: All the inconvinience and humiliation of a fez with none of the style!
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi

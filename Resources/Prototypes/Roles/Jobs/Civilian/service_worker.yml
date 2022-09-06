@@ -1,14 +1,13 @@
 ﻿- type: job
   id: ServiceWorker
-  name: job-name-serviceworker
+  name: "Valet"
   playTimeTracker: JobServiceWorker
   startingGear: ServiceWorkerGear
   icon: "ServiceWorker"
-  supervisors: job-supervisors-service
-  canBeAntag: false
+  supervisors: job-supervisors-everyone
+  setPreference: false
   access:
   - Service
-  - Maintenance
   - Bar
   - Kitchen
   - Cargo
@@ -16,7 +15,7 @@
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
-    head: ClothingHeadHatFez
+    head: ClothingHeadHatBellhop
     jumpsuit: ClothingUniformJumpsuitBartender
     outerClothing: ClothingOuterVestValet
     gloves: ClothingHandsGlovesColorWhite
