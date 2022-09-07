@@ -27,6 +27,7 @@ namespace Content.Server.Abilities.Psionics
             "MassSleepPower",
             "PsionicInvisibilityPower",
             "MindSwapPower",
+            "TelegnosisPower",
         };
 
         public void AddPsionics(EntityUid uid)

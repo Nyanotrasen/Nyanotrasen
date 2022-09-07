@@ -34,3 +34,6 @@ action-description-mind-swap = Swap minds with the target. Either can change bac
 
 action-name-mind-swap-return = Reverse Mind Swap
 action-description-mind-swap-return = Return to your original body.
+
+action-name-telegnosis = Telegnosis
+action-description-telegnosis = Create a telegnostic projection to remotely observe things.
