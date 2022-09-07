@@ -62,7 +62,7 @@ namespace Content.Server.Abilities.Psionics
             if (_prototypeManager.TryIndex<InstantActionPrototype>("PsionicInvisibilityOff", out var invis))
                 _actions.AddAction(args.Performer, new InstantAction(invis), null);
 
-            _psionics.LogPowerUsed(uid, "Psionic Invisibility");
+            _psionics.LogPowerUsed(uid, "psionic invisibility");
             args.Handled = true;
         }
 

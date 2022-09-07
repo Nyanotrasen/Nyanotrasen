@@ -49,7 +49,7 @@ namespace Content.Shared.Abilities.Psionics
                         EnsureComp<SleepingComponent>(entity);
                 }
             }
-            _psionics.LogPowerUsed(uid, "Mass Sleep");
+            _psionics.LogPowerUsed(uid, "mass sleep");
             args.Handled = true;
         }
     }

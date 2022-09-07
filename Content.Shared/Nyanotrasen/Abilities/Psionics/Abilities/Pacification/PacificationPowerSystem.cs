@@ -47,7 +47,7 @@ namespace Content.Shared.Abilities.Psionics
             if (_statusEffects.TryAddStatusEffect(args.Target, "Pacified", component.PacifyTime, false, "Pacified"))
                 args.Handled = true;
 
-            _psionics.LogPowerUsed(uid, "Pacification");
+            _psionics.LogPowerUsed(uid, "pacification");
         }
     }
 

@@ -62,7 +62,7 @@ namespace Content.Server.Abilities.Psionics
             if (ev.Handled)
             {
                 args.Handled = true;
-                _psionics.LogPowerUsed(args.Performer, "Dispel");
+                _psionics.LogPowerUsed(args.Performer, "dispel");
             }
         }
 

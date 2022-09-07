@@ -62,7 +62,7 @@ namespace Content.Server.Abilities.Psionics
 
             Swap(args.Performer, args.Target);
 
-            _psionics.LogPowerUsed(args.Performer, "Mind Swap");
+            _psionics.LogPowerUsed(args.Performer, "mind swap");
             args.Handled = true;
         }
 
