@@ -24,7 +24,6 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<TelegnosisPowerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<TelegnosisPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<TelegnosisPowerComponent, TelegnosisPowerActionEvent>(OnPowerUsed);
-            SubscribeLocalEvent<TelegnosticProjectionComponent, ComponentInit>(OnProjectionInit);
             SubscribeLocalEvent<TelegnosticProjectionComponent, MindRemovedMessage>(OnMindRemoved);
         }
 
@@ -53,13 +52,6 @@ namespace Content.Server.Abilities.Psionics
 
             _psionics.LogPowerUsed(uid, "telegnosis");
             args.Handled = true;
-        }
-        private void OnProjectionInit(EntityUid uid, TelegnosticProjectionComponent component, ComponentInit args)
-        {
-            if (EntityManager.TryGetComponent(component.Owner, out EyeComponent? eye))
-            {
-                eye.VisibilityMask |= (uint) VisibilityFlags.Ghost;
-            }
         }
         private void OnMindRemoved(EntityUid uid, TelegnosticProjectionComponent component, MindRemovedMessage args)
         {
