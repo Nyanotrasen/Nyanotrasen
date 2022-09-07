@@ -1,12 +1,18 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
+using Content.Shared.Popups;
+using Robust.Shared.Player;
+
 
 namespace Content.Shared.Abilities.Psionics
 {
     public sealed class SharedPsionicAbilitiesSystem : EntitySystem
     {
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly SharedPopupSystem _popups = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -14,6 +20,7 @@ namespace Content.Shared.Abilities.Psionics
             SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnUnequipped);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
         }
 
         private void OnEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
@@ -42,6 +49,18 @@ namespace Content.Shared.Abilities.Psionics
                 TogglePsionics(args.Equipee, true);
         }
 
+        private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
+        {
+            foreach (var entity in _lookup.GetEntitiesInRange(uid, 10f))
+            {
+                if (HasComp<MetapsionicPowerComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                {
+                    _popups.PopupEntity(Loc.GetString("metapsionic-pulse-power", ("power", args.Power)), entity, Filter.Entities(entity), PopupType.LargeCaution);
+                    args.Handled = true;
+                    return;
+                }
+            }
+        }
 
         private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
         {
@@ -62,6 +81,23 @@ namespace Content.Shared.Abilities.Psionics
                 return;
 
             _actions.SetEnabled(component.PsionicAbility, toggle);
+        }
+        public void LogPowerUsed(EntityUid uid, string power)
+        {
+            var ev = new PsionicPowerUsedEvent(uid, power);
+            RaiseLocalEvent(uid, ev, false);
+        }
+    }
+    
+    public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs 
+    {
+        public EntityUid User { get; }
+        public string Power = string.Empty;
+
+        public PsionicPowerUsedEvent(EntityUid user, string power)
+        {
+            User = user;
+            Power = power;
         }
     }
 }

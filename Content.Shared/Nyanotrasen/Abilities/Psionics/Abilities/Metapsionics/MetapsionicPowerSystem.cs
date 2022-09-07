@@ -14,7 +14,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
-
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
 
         public override void Initialize()
         {
@@ -54,6 +54,8 @@ namespace Content.Shared.Abilities.Psionics
                 }
             }
             _popups.PopupEntity(Loc.GetString("metapsionic-pulse-failure"), uid, Filter.Entities(uid), PopupType.Large);
+            _psionics.LogPowerUsed(uid, "Metapsionic Pulse");
+
             args.Handled = true;
         }
     }

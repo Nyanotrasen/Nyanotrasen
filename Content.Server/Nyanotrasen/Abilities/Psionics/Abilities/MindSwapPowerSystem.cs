@@ -3,7 +3,6 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Server.Players;
-using Content.Server.Psionics;
 using Content.Server.MobState;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -17,6 +16,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+
 
         public override void Initialize()
         {
@@ -61,6 +62,7 @@ namespace Content.Server.Abilities.Psionics
 
             Swap(args.Performer, args.Target);
 
+            _psionics.LogPowerUsed(args.Performer, "Mind Swap");
             args.Handled = true;
         }
 

@@ -4,7 +4,6 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Server.Guardian;
-using Content.Server.Popups;
 using Content.Server.Bible.Components;
 using Robust.Shared.Prototypes;
 
@@ -18,6 +17,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly GuardianSystem _guardianSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+
 
         public override void Initialize()
         {
@@ -58,7 +59,11 @@ namespace Content.Server.Abilities.Psionics
             var ev = new DispelledEvent();
             RaiseLocalEvent(args.Target, ev, false);
 
-            args.Handled = ev.Handled;
+            if (ev.Handled)
+            {
+                args.Handled = true;
+                _psionics.LogPowerUsed(args.Performer, "Dispel");
+            }
         }
 
         private void OnDispelled(EntityUid uid, DispellableComponent component, DispelledEvent args)
