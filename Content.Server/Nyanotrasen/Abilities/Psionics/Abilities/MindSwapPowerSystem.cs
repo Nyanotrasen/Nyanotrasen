@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Server.Psionics;
 using Content.Server.MobState;
@@ -45,11 +46,14 @@ namespace Content.Server.Abilities.Psionics
         {
             if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("MindSwap", out var pacify))
                 _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+
+            if (TryComp<MindSwappedComponent>(uid, out var swapped))
+                Swap(uid, swapped.OriginalEntity, true);
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)
         {
-            if (!HasComp<PotentialPsionicComponent>(args.Target))
+            if (!(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))

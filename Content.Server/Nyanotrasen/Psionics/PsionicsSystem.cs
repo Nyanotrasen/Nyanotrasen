@@ -17,6 +17,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+        [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -52,11 +53,16 @@ namespace Content.Server.Psionics
                     args.ModifiersList.Add(component.Modifiers);
                     if (_random.Prob(component.DisableChance))
                         _statusEffects.TryAddStatusEffect(entity, "PsionicsDisabled", TimeSpan.FromSeconds(10), true, "PsionicsDisabled");
-                } else
-                {
-                    if (HasComp<PotentialPsionicComponent>(entity) &&_random.Prob(0.5f))
-                        _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
                 }
+
+                if (TryComp<MindSwappedComponent>(entity, out var swapped))
+                {
+                    _mindSwapPowerSystem.Swap(entity, swapped.OriginalEntity, true);
+                    return;
+                }
+
+                if (HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
+                    _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
         }
 
