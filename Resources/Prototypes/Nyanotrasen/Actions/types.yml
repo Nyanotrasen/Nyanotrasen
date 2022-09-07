@@ -42,9 +42,6 @@
   useDelay: 45
   checkCanAccess: false
   range: 8
-  whitelist:
-    components:
-    - Dispellable
   canTargetSelf: false
   serverEvent: !type:DispelPowerActionEvent
 

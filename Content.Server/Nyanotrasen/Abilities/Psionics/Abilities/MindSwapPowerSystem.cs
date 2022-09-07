@@ -25,6 +25,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
+            SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
 
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnInit);
@@ -84,6 +85,12 @@ namespace Content.Server.Abilities.Psionics
             Swap(uid, component.OriginalEntity, true);
         }
 
+        private void OnDispelled(EntityUid uid, MindSwappedComponent component, DispelledEvent args)
+        {
+            Swap(uid, component.OriginalEntity, true);
+            args.Handled = true;
+        }
+
         private void OnInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
         {
             if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
@@ -91,12 +98,6 @@ namespace Content.Server.Abilities.Psionics
                 var action = new InstantAction(mindSwap);
                 action.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + TimeSpan.FromSeconds(15));
                 _actions.AddAction(uid, action, null);
-            }
-
-            if (!HasComp<DispellableComponent>(uid))
-            {
-                var dispel = EnsureComp<DispellableComponent>(uid);
-                dispel.Delete = false;
             }
         }
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
@@ -123,10 +124,6 @@ namespace Content.Server.Abilities.Psionics
 
                 RemComp<MindSwappedComponent>(performer);
                 RemComp<MindSwappedComponent>(target);
-                if (TryComp<DispellableComponent>(performer, out var perfDispel) && perfDispel.Delete == false)
-                    RemComp<DispellableComponent>(performer);
-                if (TryComp<DispellableComponent>(target, out var targetDispel) && targetDispel.Delete == false)
-                    RemComp<DispellableComponent>(target);
                 return;
             }
 

@@ -27,6 +27,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<DispelPowerActionEvent>(OnPowerUsed);
 
             // Upstream stuff we're just gonna handle here
+            SubscribeLocalEvent<DispellableComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<GuardianComponent, DispelledEvent>(OnGuardianDispelled);
             SubscribeLocalEvent<FamiliarComponent, DispelledEvent>(OnFamiliarDispelled);
         }
@@ -49,24 +50,21 @@ namespace Content.Server.Abilities.Psionics
                 _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
         }
 
-        // TODO: Convert to fire an event
         private void OnPowerUsed(DispelPowerActionEvent args)
         {
             if (HasComp<PsionicInsulationComponent>(args.Target))
                 return;
 
-            if (!TryComp<DispellableComponent>(args.Target, out var dispel))
-                return;
-
             var ev = new DispelledEvent();
             RaiseLocalEvent(args.Target, ev, false);
 
-            if (dispel.Delete)
-            {
-                EntityManager.QueueDeleteEntity(args.Target);
-                Spawn("Ash", Transform(args.Target).Coordinates);
-            }
+            args.Handled = ev.Handled;
+        }
 
+        private void OnDispelled(EntityUid uid, DispellableComponent component, DispelledEvent args)
+        {
+            QueueDel(uid);
+            Spawn("Ash", Transform(uid).Coordinates);
             args.Handled = true;
         }
 
