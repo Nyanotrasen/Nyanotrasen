@@ -20,6 +20,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
 
         public override void Initialize()
         {
@@ -61,6 +62,7 @@ namespace Content.Server.Abilities.Psionics
             if (_prototypeManager.TryIndex<InstantActionPrototype>("PsionicInvisibilityOff", out var invis))
                 _actions.AddAction(args.Performer, new InstantAction(invis), null);
 
+            _psionics.LogPowerUsed(uid, "psionic invisibility");
             args.Handled = true;
         }
 

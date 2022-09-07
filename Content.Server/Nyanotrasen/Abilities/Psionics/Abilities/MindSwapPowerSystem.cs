@@ -1,8 +1,8 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Damage;
 using Content.Server.Players;
-using Content.Server.Psionics;
 using Content.Server.MobState;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -16,6 +16,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+
 
         public override void Initialize()
         {
@@ -24,6 +26,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
+            SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
 
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnInit);
@@ -45,11 +48,13 @@ namespace Content.Server.Abilities.Psionics
         {
             if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("MindSwap", out var pacify))
                 _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+            if (TryComp<MindSwappedComponent>(uid, out var swapped))
+                Swap(uid, swapped.OriginalEntity, true);
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)
         {
-            if (!HasComp<PotentialPsionicComponent>(args.Target))
+            if (!(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))
@@ -57,6 +62,7 @@ namespace Content.Server.Abilities.Psionics
 
             Swap(args.Performer, args.Target);
 
+            _psionics.LogPowerUsed(args.Performer, "mind swap");
             args.Handled = true;
         }
 
@@ -64,12 +70,6 @@ namespace Content.Server.Abilities.Psionics
         {
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
-
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
-            {
-                _actions.RemoveAction(uid, new InstantAction(mindSwap), null);
-                _actions.RemoveAction(component.OriginalEntity, new InstantAction(mindSwap), null);
-            }
 
             // How do we get trapped?
             // 1. Original target is no longer mindswapped
@@ -87,6 +87,12 @@ namespace Content.Server.Abilities.Psionics
             Swap(uid, component.OriginalEntity, true);
         }
 
+        private void OnDispelled(EntityUid uid, MindSwappedComponent component, DispelledEvent args)
+        {
+            Swap(uid, component.OriginalEntity, true);
+            args.Handled = true;
+        }
+
         private void OnInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
         {
             if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
@@ -101,16 +107,23 @@ namespace Content.Server.Abilities.Psionics
             if (end && (!HasComp<MindSwappedComponent>(performer) || !HasComp<MindSwappedComponent>(target)))
                 return;
 
-            if (!TryComp<ActorComponent>(performer, out var perfActor))
-                return;
+            TryComp<ActorComponent>(performer, out var perfActor);
+            TryComp<ActorComponent>(target, out var targetActor);
 
-            if (TryComp<ActorComponent>(target, out var targetActor))
+            if (perfActor != null)
+                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true);
+
+            if (targetActor != null)
                 targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true);
-
-            perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true);
 
             if (end)
             {
+                if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
+                {
+                    _actions.RemoveAction(performer, new InstantAction(mindSwap), null);
+                    _actions.RemoveAction(target, new InstantAction(mindSwap), null);
+                }
+
                 RemComp<MindSwappedComponent>(performer);
                 RemComp<MindSwappedComponent>(target);
                 return;
