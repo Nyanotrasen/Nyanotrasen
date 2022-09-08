@@ -162,6 +162,7 @@ public sealed class PrototypeSaveTest
         "AirlockShuttle",
         "AirlockGlassShuttle",
         "EngineeringTechFab",
+        "MobObserverTelegnostic", // call me back when ghosts are fixed
         "PoweredlightBlueInterior",
     };
 
