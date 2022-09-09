@@ -92,6 +92,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
   conditions:
     - !type:StealCondition
       prototype: ClothingOuterHardsuitRd
@@ -118,6 +120,8 @@
       roleId: ChiefMedicalOfficer
     - !type:NotRoleRequirement
       roleId: ResearchDirector
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
   conditions:
     - !type:StealCondition
       prototype: NukeDisk
@@ -221,3 +225,19 @@
   conditions:
     - !type:StealCondition
       prototype: JetpackCaptainFilled
+
+- type: objective
+  id: MantisKnifeStealObjective
+  issuer: syndicate
+  prob: 0.2
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ForensicMantis
+  conditions:
+    - !type:StealCondition
+      prototype: AntiPsychicKnife
+      owner: job-name-mantis
