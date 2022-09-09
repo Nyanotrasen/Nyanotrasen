@@ -91,7 +91,8 @@
   - type: SliceableFood
     count: 25
     slice: FoodBreadPlainSlice
-  solutions:
+  - type: SolutionContainerManager
+    solutions:
       food:
         maxVol: 100
         reagents:
