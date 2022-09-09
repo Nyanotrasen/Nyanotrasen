@@ -6,6 +6,22 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: medicine
   color: "#081a80"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:GenericStatusEffect
+        key: PsionicallyInsulated
+        component: PsionicInsulation
+        type: Add
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: ScrambledAccent
+        type: Add
+      - !type:GenericStatusEffect
+        key: PsionicsDisabled
+        component: PsionicsDisabled
+        type: Add
 
 - type: reagent
   id: Dylovene

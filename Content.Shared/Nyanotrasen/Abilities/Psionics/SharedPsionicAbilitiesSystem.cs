@@ -2,8 +2,8 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Player;
-
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -12,6 +12,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
+        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
 
         public override void Initialize()
         {
@@ -42,7 +43,10 @@ namespace Content.Shared.Abilities.Psionics
             if (!component.IsActive)
                 return;
 
-            RemComp<PsionicInsulationComponent>(args.Equipee);
+
+            if (!_statusEffects.HasStatusEffect(uid, "PsionicallyInsulated"))
+                RemComp<PsionicInsulationComponent>(args.Equipee);
+
             component.IsActive = false;
 
             if (!HasComp<PsionicsDisabledComponent>(args.Equipee))
