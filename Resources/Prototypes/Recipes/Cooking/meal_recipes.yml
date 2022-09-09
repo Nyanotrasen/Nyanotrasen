@@ -99,6 +99,14 @@
   solids:
     FoodDough: 1
 
+- type: microwaveMealRecipe
+  id: RecipeBigBread
+  name: big bread recipe
+  result: FoodBigBreadPlain
+  time: 15
+  solids:
+    FoodDough: 4
+
 # - type: microwaveMealRecipe
 #   id: RecipeSandwich
 #   name: sandwich recipe
