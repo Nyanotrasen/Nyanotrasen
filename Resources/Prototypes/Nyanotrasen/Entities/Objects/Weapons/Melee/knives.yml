@@ -1,0 +1,16 @@
+- type: entity
+  parent: CombatKnife
+  id: AntiPsychicKnife
+  name: anti-psychic knife
+  description: A special knife designed for killing psychics.
+  components:
+  - type: StaminaDamageOnHit
+    damage: 0
+  - type: AntiPsionicWeapon
+    modifiers:
+      coefficients:
+        Blunt: 1.5
+        Slash: 1.5
+        Piercing: 1.5
+  - type: Sprite
+    color: black

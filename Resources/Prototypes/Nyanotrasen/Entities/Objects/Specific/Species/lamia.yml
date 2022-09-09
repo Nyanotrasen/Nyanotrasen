@@ -12,6 +12,9 @@
       mass: 10
   - type: Transform
     anchored: false
+  - type: Tag
+    tags:
+    - HideContextMenu
 
 - type: entity
   id: LamiaSegment

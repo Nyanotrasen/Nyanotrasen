@@ -23,6 +23,7 @@
     showExamineInfo: true
   - type: Alerts
   - type: Familiar
+  - type: Dispellable
   - type: BloodSucker
     unitsToSucc: 5
   - type: Body
@@ -50,9 +51,6 @@
         Slash: 7
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - Idle
   - type: AiFactionTag
     factions:
     - SimpleNeutral
@@ -78,3 +76,4 @@
   - type: Mind
     showExamineInfo: true
   - type: Familiar
+  - type: Dispellable

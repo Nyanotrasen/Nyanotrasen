@@ -1,6 +1,6 @@
 - type: entity
   id: BiomassReclaimer
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: biomass reclaimer
   description: Reclaims biomass from corpses. Gruesome.
   placement:
@@ -9,7 +9,6 @@
   - type: Sprite
     sprite: Structures/Machines/Medical/biomass_reclaimer.rsi
     state: icon
-    color: blue
     netsync: false
   - type: BiomassReclaimer
   - type: Climbable

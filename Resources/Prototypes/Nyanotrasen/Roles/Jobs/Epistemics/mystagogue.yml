@@ -9,9 +9,9 @@
       department: Epistemics
       time: 18000
   icon: "ResearchDirector"
+  difficultyAdjustment: 6
   requireAdminNotify: true
   supervisors: "the captain"
-  canBeAntag: false
   access:
   - Research
   - Command
@@ -23,16 +23,21 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
+      power: DispelPower
 
 - type: startingGear
   id: MystagogueGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorWhite
+    jumpsuit: ClothingUniformJumpsuitMystagogue
     back: ClothingBackpackScienceFilled
     shoes: ClothingShoesColorWhite
     head: ClothingHeadHoodMystic
     outerClothing: ClothingOuterRobeMystic
-    id: RnDPDA
+    belt: BibleMystagogue
+    id: MystaPDA
     ears: ClothingHeadsetMystagogue
   innerclothingskirt: ClothingUniformJumpskirtColorWhite
   satchel: ClothingBackpackSatchelScienceFilled

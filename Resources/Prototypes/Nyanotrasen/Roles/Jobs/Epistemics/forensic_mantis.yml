@@ -14,23 +14,27 @@
   startingGear: ForensicMantisGear
   icon: "Detective"
   supervisors: "the mystagogue"
+  difficultyAdjustment: 4
   access:
   - Research
   - Brig
   - Detective
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: GuaranteedPsionic
 
 - type: startingGear
   id: ForensicMantisGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlue
-    back: ClothingBackpackDetectiveFilled
+    back: ClothingBackpackMantisFilled
     shoes: ClothingShoesColorBlue
     head: ClothingHeadHatFez
     id: ForensicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetMantis
+    pocket1: AntiPsychicKnife
     pocket2: ForensicScanner
   innerclothingskirt: ClothingUniformJumpskirtColorBlue
-  satchel: ClothingBackpackSatchelDetectiveFilled
-  duffelbag: ClothingBackpackDuffelDetectiveFilled

@@ -139,10 +139,8 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
-    - Idle
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - SimpleHostile
@@ -508,6 +506,16 @@
     interactFailureString: petting-failure-goat
     interactSuccessSound:
       path: /Audio/Animals/goat_bah.ogg
+  - type: Hunger
+  - type: MeleeWeapon
+    range: 1.5
+    arcwidth: 0
+    arc: bite
+    hitSound:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -665,12 +673,33 @@
         Blunt: 10
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - SimpleHostile
+
+- type: entity
+  name: judge kangaroo
+  parent: MobKangaroo
+  id: MobKangarooJudge
+  description: This case is in the bag... or, pouch...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: kangaroo-judge
+        sprite: Mobs/Animals/kangaroo.rsi
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: kangaroo-judge
+      Critical:
+        Base: kangaroo-dead
+      Dead:
+        Base: kangaroo-dead
 
 - type: entity
   name: monkey
@@ -843,11 +872,9 @@
     naturalImmunities:
       - AMIV
   - type: CanEscapeInventory
-  - type: AiFactionTag
-    factions:
-    - Vermin
   - type: MobPrice
     price: 50
+  - type: FelinidFood
 
 - type: entity
   parent: MobMouse
@@ -873,7 +900,6 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: DiseaseCarrier #Why doesn't this save if it's only on the parent wtf
-
 
 - type: entity
   parent: MobMouse
@@ -1150,9 +1176,8 @@
     baseSprintSpeed : 7
   - type: InputMover
   - type: MobMover
-  - type: UtilityNPC
-    behaviorSets:
-    - UnarmedAttackHostiles
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: AiFactionTag
     factions:
     - Syndicate
@@ -1235,13 +1260,10 @@
     states:
       Alive:
         Base: snake
-  - type: Appearance
-    visuals:
-    - type: RotationVisualizer
-# It's death animation is animated so hopefully this should push for separation between "dying" and "death" states.
-     # looks stupid, Rotation visualizer for now
-     # dead: dead
-     # crit: dead
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1318,10 +1340,8 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: UtilityNPC
-      behaviorSets:
-        - Idle
-        - UnarmedAttackHostiles
+    - type: HTN
+      rootTask: SimpleHostileCompound
     - type: GhostTakeoverAvailable
       makeSentient: true
       name: ghost-role-information-giant-spider-name

@@ -11,6 +11,22 @@
       job: ForensicMantis
 
 - type: entity
+  parent: ResearchIDCard
+  id: EpistemicsIDCard
+  name: epistemologist ID card
+  components:
+  - type: PresetIdCard
+    job: Epistemologist
+  
+- type: entity
+  parent: RDIDCard
+  id: MystaIDCard
+  name: mystagogue ID card
+  components:
+  - type: PresetIdCard
+    job: Mystagogue
+
+- type: entity
   parent: SalvageIDCard
   id: SalvageTechIDCard
   components:

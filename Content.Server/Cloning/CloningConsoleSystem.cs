@@ -24,7 +24,6 @@ namespace Content.Server.Cloning.Systems
     {
         [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly CloningSystem _cloningSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
@@ -211,9 +210,10 @@ namespace Content.Server.Cloning.Systems
                 EntityUid? cloneBody = clonePod.BodyContainer.ContainedEntity;
 
                 clonerMindPresent = clonePod.Status == CloningPodStatus.Cloning;
-                if (cloneBody != null)
+                if (HasComp<ActiveCloningPodComponent>(consoleComponent.CloningPod))
                 {
-                    cloneBodyInfo = Identity.Name(cloneBody.Value, EntityManager);
+                    if (cloneBody != null)
+                        cloneBodyInfo = Identity.Name(cloneBody.Value, EntityManager);
                     clonerStatus = ClonerStatus.ClonerOccupied;
                 }
             }
@@ -233,5 +233,6 @@ namespace Content.Server.Cloning.Systems
                 clonerInRange
                 );
         }
+
     }
 }

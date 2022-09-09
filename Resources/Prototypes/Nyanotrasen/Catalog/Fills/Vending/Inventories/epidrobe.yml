@@ -1,7 +1,5 @@
 - type: vendingMachineInventory
   id: EpiDrobeInventory
-  name: EpiDrobe
-  spriteName: scidrobe
   startingInventory:
     ClothingBackpackScience: 3
     ClothingBackpackSatchelScience: 3
@@ -13,3 +11,4 @@
     ClothingHeadsetScience: 3
     ClothingMaskGas: 3
     ClothingOuterWinterSci: 2
+    ClothingHeadTinfoil: 2

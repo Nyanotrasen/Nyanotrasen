@@ -4,3 +4,111 @@
   description: action-description-suck-blood
   icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
   serverEvent: !type:SuckBloodActionEvent
+
+- type: instantAction
+  id: EatMouse
+  name: action-name-eat-mouse
+  description: action-description-eat-mouse
+  icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
+  serverEvent: !type:EatMouseActionEvent
+
+- type: entityTargetAction
+  id: Pacify
+  name: action-name-pacify
+  description: action-description-pacify
+  useDelay: 45
+  checkCanAccess: false
+  range: 8
+  whitelist:
+    components:
+    - CombatMode
+  canTargetSelf: false
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  event: !type:PacificationPowerActionEvent
+
+- type: instantAction
+  id: MetapsionicPulse
+  name: action-name-metapsionic
+  description: action-description-metapsionic
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  event: !type:MetapsionicPowerActionEvent
+
+- type: entityTargetAction
+  id: Dispel
+  name: action-name-dispel
+  description: action-description-dispel
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 45
+  checkCanAccess: false
+  range: 8
+  canTargetSelf: false
+  serverEvent: !type:DispelPowerActionEvent
+
+- type: worldTargetAction
+  id: MassSleep
+  name: action-name-mass-sleep
+  description: action-description-mass-sleep
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 60
+  checkCanAccess: false
+  range: 8
+  event: !type:MassSleepPowerActionEvent
+
+- type: instantAction
+  id: PsionicInvisibility
+  name: action-name-psionic-invisibility
+  description: action-description-psionic-invisibility
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 120
+  serverEvent: !type:PsionicInvisibilityPowerActionEvent
+
+- type: instantAction
+  id: PsionicInvisibilityOff
+  name: action-name-psionic-invisibility-off
+  description: action-description-psionic-invisibility-off
+  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  serverEvent: !type:PsionicInvisibilityPowerOffActionEvent
+
+- type: instantAction
+  id: FabricateLollipop
+  name: fabricate-lollipop-action
+  description: fabricate-lollipop-desc
+  icon: Objects/Consumable/Food/candy.rsi/lollipop.png
+  useDelay: 120
+  serverEvent: !type:FabricateLollipopActionEvent
+
+- type: instantAction
+  id: FabricateGumball
+  name: fabricate-gumball-action
+  description: fabricate-gumball-desc
+  icon: Objects/Consumable/Food/candy.rsi/gumball.png
+  useDelay: 40
+  serverEvent: !type:FabricateGumballActionEvent
+
+- type: entityTargetAction
+  id: MindSwap
+  name: action-name-mind-swap
+  description: action-description-mind-swap
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 240
+  checkCanAccess: false
+  range: 8
+  serverEvent: !type:MindSwapPowerActionEvent
+
+- type: instantAction
+  id: MindSwapReturn
+  name: action-name-mind-swap-return
+  description: action-description-mind-swap-return
+  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  checkCanInteract: false
+  useDelay: 20
+  serverEvent: !type:MindSwapPowerReturnActionEvent
+
+- type: instantAction
+  id: Telegnosis
+  name: action-name-telegnosis
+  description: action-description-telegnosis
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 150
+  serverEvent: !type:TelegnosisPowerActionEvent

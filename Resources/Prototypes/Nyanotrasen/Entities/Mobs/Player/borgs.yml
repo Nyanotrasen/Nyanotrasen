@@ -53,6 +53,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - ShoesRequiredStepTriggerImmune
   - type: Access
     groups:
     - AllAccess
@@ -115,7 +116,6 @@
       - SurveillanceCameraSilicon
   - type: RandomMetadata
     nameSet: names_autoborg
-
 
 - type: entity
   parent: PlayerCyborgBase
@@ -193,3 +193,4 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
+  - type: FabricateCandy

@@ -17,12 +17,15 @@ namespace Content.Server.Abilities.Felinid
         [DataField("hairballAction")]
         public InstantAction HairballAction = new()
         {
-            UseDelay = TimeSpan.FromMinutes(4),
+            UseDelay = TimeSpan.FromMinutes(1),
+            Charges = 1,
             Icon = new SpriteSpecifier.Texture(new ResourcePath("Objects/Specific/Species/felinid.rsi/icon.png")),
-            Name = "hairball-action",
+            DisplayName = "hairball-action",
             Description = "hairball-action-desc",
             Priority = -1,
             Event = new HairballActionEvent(),
         };
+
+        public EntityUid? PotentialTarget = null;
     }
 }

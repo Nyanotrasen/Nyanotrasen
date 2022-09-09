@@ -1,12 +1,4 @@
 - type: department
-  id: Cargo
-  roles:
-  - CargoTechnician
-  - Quartermaster
-  - SalvageSpecialist
-  - MailCarrier
-
-- type: department
   id: Civilian
   roles:
   - Bartender
@@ -18,6 +10,7 @@
   - Janitor
   - Lawyer
   - Librarian
+  - MailCarrier
   - MedicalIntern
   - Mime
   - Musician
@@ -26,6 +19,7 @@
   - SecurityCadet
   - ServiceWorker
   - TechnicalAssistant
+  - Quartermaster
 
 - type: department
   id: Command

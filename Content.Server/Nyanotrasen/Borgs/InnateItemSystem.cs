@@ -50,7 +50,7 @@ namespace Content.Server.Borgs
         {
             EntityTargetAction action = new()
             {
-                Name = MetaData(uid).EntityName,
+                DisplayName = MetaData(uid).EntityName,
                 Description = MetaData(uid).EntityDescription,
                 EntityIcon = uid,
                 Event = new InnateAfterInteractActionEvent(uid),

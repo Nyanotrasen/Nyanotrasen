@@ -216,6 +216,12 @@
   - type: Construction
     graph: Table
     node: TableReinforced
+  - type: Climbable
+    # Reinforced tables are extra tough
+    bonkDamage:
+      types:
+        Blunt: 8
+    bonkTime: 3
 
 - type: entity
   id: TableGlass
