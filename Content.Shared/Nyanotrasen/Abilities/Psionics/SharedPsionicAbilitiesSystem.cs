@@ -67,11 +67,12 @@ namespace Content.Shared.Abilities.Psionics
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
+            // does the user already has this power?
+            var componentType = _componentFactory.GetRegistration(component.Power).Type;
+            if (EntityManager.HasComponent(args.Equipee, componentType)) return;
 
-            var newComponent = (Component) _componentFactory.GetComponent(component.Power);
-            if (HasComp(args.Equipee, newComponent.GetType()))
-                return;
 
+            var newComponent = (Component) _componentFactory.GetComponent(componentType);
             newComponent.Owner = args.Equipee;
 
             EntityManager.AddComponent(args.Equipee, newComponent);
@@ -85,8 +86,11 @@ namespace Content.Shared.Abilities.Psionics
                 return;
 
             component.IsActive = false;
-            var newComponent = (Component) _componentFactory.GetComponent(component.Power);
-            RemComp(uid, newComponent.GetType());
+            var componentType = _componentFactory.GetRegistration(component.Power).Type;
+            if (EntityManager.HasComponent(args.Equipee, componentType))
+            {
+                EntityManager.RemoveComponent(args.Equipee, componentType);
+            }
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
