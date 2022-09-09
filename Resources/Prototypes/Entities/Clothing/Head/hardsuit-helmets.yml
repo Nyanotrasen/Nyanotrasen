@@ -141,7 +141,7 @@
   id: ClothingHeadHelmetHardsuitRd
   noSpawn: true
   name: experimental research hardsuit helmet
-  description: Lightweight hardsuit helmet that doesn't restrict your head movements.
+  description: Lightweight hardsuit helmet that has a galaxy-first psionic passthrough system.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/rd.rsi
@@ -150,6 +150,11 @@
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 5500
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+  - type: ClothingGrantPsionicPower
+    power: MetapsionicPower
 
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase

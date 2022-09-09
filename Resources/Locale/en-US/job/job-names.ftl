@@ -42,6 +42,8 @@ job-name-ertjanitor = ERT janitor
 
 #Nyano
 job-name-mystagogue = mystagogue
+job-name-mantis = forensic mantis
+
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician
 JobSalvageSpecialist = salvage specialist

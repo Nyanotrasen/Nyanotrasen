@@ -40,7 +40,7 @@ namespace Content.Server.Abilities.Psionics
             component.MindSwapPowerAction = new EntityTargetAction(mindSwap);
             _actions.AddAction(uid, component.MindSwapPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.MindSwapPowerAction;
         }
 

@@ -41,7 +41,7 @@ namespace Content.Server.Abilities.Psionics
             component.DispelPowerAction = new EntityTargetAction(pacify);
             _actions.AddAction(uid, component.DispelPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.DispelPowerAction;
         }
 

@@ -29,7 +29,7 @@ namespace Content.Shared.Abilities.Psionics
             component.MassSleepPowerAction = new WorldTargetAction(massSleep);
             _actions.AddAction(uid, component.MassSleepPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.MassSleepPowerAction;
         }
 
