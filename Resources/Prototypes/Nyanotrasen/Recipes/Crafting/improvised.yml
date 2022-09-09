@@ -11,3 +11,15 @@
     state: icon
   objectType: Item
 
+- type: construction
+  name: wooden urn
+  id: UrnWooden
+  graph: UrnWooden
+  startNode: start
+  targetNode: woodenurn
+  category: construction-category-misc
+  description: Send a beloved one out in a rustic manner.
+  icon:
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_wooden.rsi
+    state: closed
+  objectType: Item

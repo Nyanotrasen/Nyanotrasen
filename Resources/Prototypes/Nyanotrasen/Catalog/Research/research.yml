@@ -35,3 +35,25 @@
     - Decloner
     - Holoprojector
     - HolofanProjector
+
+- type: technology
+  name: "Funeral urns"
+  id: UrnResearch
+  description: Urns for respectful burial by the Epistemics department of those fallen.
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_silver.rsi
+    state: closed
+  requiredPoints: 1000
+  requiredTechnologies:
+    - BasicResearch
+  unlockedRecipes:
+      - UrnBase
+      - UrnSilver
+      - UrnGold
+      - UrnCaptain
+      - UrnSpace
+      - UrnCeramicBase
+      - UrnCeramicRed
+      - UrnCeramicBlue
+      - UrnCeramicGreen
+      - UrnCeramicPurple

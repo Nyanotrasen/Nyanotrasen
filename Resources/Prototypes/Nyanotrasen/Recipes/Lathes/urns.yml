@@ -1,0 +1,100 @@
+- type: latheRecipe
+  id: UrnBase
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_base.rsi
+    state: closed
+  result: UrnBase
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: UrnGold
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_gold.rsi
+    state: closed
+  result: UrnGold
+  completetime: 5
+  materials:
+    Gold: 250
+
+- type: latheRecipe
+  id: UrnSilver
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_silver.rsi
+    state: closed
+  result: UrnSilver
+  completetime: 5
+  materials:
+    Silver: 250
+
+- type: latheRecipe
+  id: UrnCaptain
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_captain.rsi
+    state: closed
+  result: UrnCaptain
+  completetime: 5
+  materials:
+    Steel: 200
+    Gold: 100
+
+- type: latheRecipe
+  id: UrnSpace
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_space.rsi
+    state: closed
+  result: UrnSpace
+  completetime: 5
+  materials:
+    Plasteel: 200
+
+- type: latheRecipe
+  id: UrnCeramicBase
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_ceramic_base.rsi
+    state: closed
+  result: UrnCeramicBase
+  completetime: 5
+  materials:
+    Glass: 250
+
+- type: latheRecipe
+  id: UrnCeramicRed
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_ceramic_red.rsi
+    state: closed
+  result: UrnCeramicRed
+  completetime: 5
+  materials:
+    Glass: 250
+
+- type: latheRecipe
+  id: UrnCeramicBlue
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_ceramic_blue.rsi
+    state: closed
+  result: UrnCeramicBlue
+  completetime: 5
+  materials:
+    Glass: 250
+
+- type: latheRecipe
+  id: UrnCeramicGreen
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_ceramic_green.rsi
+    state: closed
+  result: UrnCeramicGreen
+  completetime: 5
+  materials:
+    Glass: 250
+
+- type: latheRecipe
+  id: UrnCeramicPurple
+  icon:
+    sprite: Nyanotrasen/Objects/Misc/urns/urn_ceramic_purple.rsi
+    state: closed
+  result: UrnCeramicPurple
+  completetime: 5
+  materials:
+    Glass: 250

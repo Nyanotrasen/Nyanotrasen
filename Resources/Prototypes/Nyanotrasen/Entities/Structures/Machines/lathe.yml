@@ -1,8 +1,8 @@
 - type: entity
   parent: Protolathe
   id: ScienceTechFab
-  name: science techfab
-  description: Prints equipment for use by the research department.
+  name: epistemics techfab
+  description: Prints equipment for use by the epistemics department.
   components:
   - type: Sprite
     netsync: false
@@ -35,7 +35,17 @@
       - ProximitySensor
       - LeftArmBorg
       - RightArmBorg
-      - ChemicalPayload #Below = shared
+      - ChemicalPayload
+      - UrnBase
+      - UrnSilver
+      - UrnGold
+      - UrnCaptain
+      - UrnSpace
+      - UrnCeramicBase
+      - UrnCeramicRed
+      - UrnCeramicBlue
+      - UrnCeramicGreen
+      - UrnCeramicPurple  #Below = shared
       - FlashlightLantern
       - Bucket
       - MopItem

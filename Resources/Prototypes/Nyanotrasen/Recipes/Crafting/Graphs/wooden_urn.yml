@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: UrnWooden
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodenurn
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 15
+    - node: woodenurn
+      entity: UrnWooden

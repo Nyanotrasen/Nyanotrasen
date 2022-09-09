@@ -1,0 +1,200 @@
+- type: entity
+  id: UrnBase
+  parent: BoxCardboard
+  name: urn
+  description: "A very plain, steel urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_base.rsi
+    layers:
+      - state: closed
+  - type: Storage
+    capacity: 10
+    whitelist:
+      tags:
+        - Remains
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_base.rsi
+    size: 20
+  - type: Appearance
+    visuals:
+      - type: BagOpenCloseVisualizer
+        openIcon: open
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/trayhit1.ogg
+
+- type: entity
+  id: UrnCaptain
+  parent: UrnBase
+  name: captain's urn
+  description: "An ornate urn only to be used if our great leader should ever perish, no doubt alone, to a full team of Nukies."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_captain.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_captain.rsi
+    size: 20
+
+- type: entity
+  id: UrnGold
+  parent: UrnBase
+  name: golden urn
+  description: "A well crafted, golden urn. Who ever said our graves would be the same size??"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_gold.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_gold.rsi
+    size: 20
+
+- type: entity
+  id: UrnSilver
+  parent: UrnBase
+  name: silver urn
+  description: "A shiny, silver urn, for those looking to spend their eternal afterlife in style."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_silver.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_silver.rsi
+    size: 20
+
+- type: entity
+  id: UrnWooden
+  parent: UrnBase
+  name: wooden urn
+  description: "A quainter resting place is well suited to many people, and it's biodegradable!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_wooden.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_wooden.rsi
+    size: 20
+  - type: Construction
+    graph: UrnWooden
+    node: woodenurn
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/wirecutter_drop.ogg
+
+- type: entity
+  id: UrnSpace
+  parent: UrnBase
+  name: airtight urn
+  description: "A space-age urn, ready to carry the remains of the fallen to a true Viking funeral."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_space.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_space.rsi
+    size: 20
+
+- type: entity
+  id: UrnCeramicBase
+  parent: UrnBase
+  name: ceramic urn
+  description: "A very plain, ceramic urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_base.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_base.rsi
+    size: 20
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    ignoreResistances: true
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  id: UrnCeramicBlue
+  parent: UrnCeramicBase
+  name: blue ceramic urn
+  description: "A blue ceramic urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_blue.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_blue.rsi
+    size: 20
+
+- type: entity
+  id: UrnCeramicRed
+  parent: UrnCeramicBase
+  name: red ceramic urn
+  description: "A red ceramic urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_red.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_red.rsi
+    size: 20
+
+- type: entity
+  id: UrnCeramicGreen
+  parent: UrnCeramicBase
+  name: green ceramic urn
+  description: "A green ceramic urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_green.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_green.rsi
+    size: 20
+
+- type: entity
+  id: UrnCeramicPurple
+  parent: UrnCeramicBase
+  name: purple ceramic urn
+  description: "A purple ceramic urn designed for respectful storage of a decessed's remains."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_purple.rsi
+    layers:
+      - state: closed
+  - type: Item
+    sprite: Nyanotrasen\Objects\Misc\urns\urn_ceramic_purple.rsi
+    size: 20
