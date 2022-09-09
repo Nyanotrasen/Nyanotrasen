@@ -84,6 +84,28 @@
     slice: FoodBreadPlainSlice
 
 - type: entity
+  name: big bread
+  parent: FoodBreadBase
+  id: FoodBigBreadPlain
+  description: A lot of plain old earthen bread.
+  components:
+  - type: Food
+  - type: Sprite
+    scale: 1.25,1.25
+    layers:
+    - state: plain
+  - type: SliceableFood
+    count: 25
+    slice: FoodBreadPlainSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 100
+
+- type: entity
   name: bread slice
   parent: FoodBreadSliceBase
   id: FoodBreadPlainSlice
