@@ -42,7 +42,7 @@ namespace Content.Server.Abilities.Psionics
             component.PsionicInvisibilityPowerAction = new InstantAction(invis);
             _actions.AddAction(uid, component.PsionicInvisibilityPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.PsionicInvisibilityPowerAction;
         }
 

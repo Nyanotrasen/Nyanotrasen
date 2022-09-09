@@ -35,7 +35,7 @@ namespace Content.Server.Abilities.Psionics
             component.TelegnosisPowerAction = new InstantAction(metapsionic);
             _actions.AddAction(uid, component.TelegnosisPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.TelegnosisPowerAction;
         }
 

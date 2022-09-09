@@ -15,12 +15,16 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedPopupSystem _popups = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IComponentFactory _componentFactory = default!;
+
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<TinfoilHatComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnUnequipped);
+            SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotEquippedEvent>(OnGranterEquipped);
+            SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotUnequippedEvent>(OnGranterUnequipped);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
@@ -36,7 +40,8 @@ namespace Content.Shared.Abilities.Psionics
                 return;
             
             TogglePsionics(args.Equipee, false);
-            EnsureComp<PsionicInsulationComponent>(args.Equipee);
+            var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
+            insul.Passthrough = component.Passthrough;
             component.IsActive = true;
         }
 
@@ -44,7 +49,6 @@ namespace Content.Shared.Abilities.Psionics
         {
             if (!component.IsActive)
                 return;
-
 
             if (!_statusEffects.HasStatusEffect(uid, "PsionicallyInsulated"))
                 RemComp<PsionicInsulationComponent>(args.Equipee);
@@ -55,11 +59,41 @@ namespace Content.Shared.Abilities.Psionics
                 TogglePsionics(args.Equipee, true);
         }
 
+        private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)
+        {
+            // This only works on clothing
+            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
+                return;
+            // Is the clothing in its actual slot?
+            if (!clothing.Slots.HasFlag(args.SlotFlags))
+                return;
+
+            var newComponent = (Component) _componentFactory.GetComponent(component.Power);
+            if (HasComp(args.Equipee, newComponent.GetType()))
+                return;
+
+            newComponent.Owner = args.Equipee;
+
+            EntityManager.AddComponent(args.Equipee, newComponent);
+
+            component.IsActive = true;
+        }
+
+        private void OnGranterUnequipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotUnequippedEvent args)
+        {
+            if (!component.IsActive)
+                return;
+
+            component.IsActive = false;
+            var newComponent = (Component) _componentFactory.GetComponent(component.Power);
+            RemComp(uid, newComponent.GetType());
+        }
+
         private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
         {
             foreach (var entity in _lookup.GetEntitiesInRange(uid, 10f))
             {
-                if (HasComp<MetapsionicPowerComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<MetapsionicPowerComponent>(entity) && entity != uid && !(TryComp<PsionicInsulationComponent>(entity, out var insul) && !insul.Passthrough))
                 {
                     _popups.PopupEntity(Loc.GetString("metapsionic-pulse-power", ("power", args.Power)), entity, Filter.Entities(entity), PopupType.LargeCaution);
                     args.Handled = true;

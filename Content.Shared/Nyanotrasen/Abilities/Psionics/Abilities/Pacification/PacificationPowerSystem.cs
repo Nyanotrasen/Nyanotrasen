@@ -29,7 +29,7 @@ namespace Content.Shared.Abilities.Psionics
             component.PacificationPowerAction = new EntityTargetAction(pacify);
             _actions.AddAction(uid, component.PacificationPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.PacificationPowerAction;
         }
 
