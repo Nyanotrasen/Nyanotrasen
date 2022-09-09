@@ -1,6 +1,7 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Player;
@@ -13,6 +14,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         public override void Initialize()
         {
@@ -88,6 +90,7 @@ namespace Content.Shared.Abilities.Psionics
         }
         public void LogPowerUsed(EntityUid uid, string power)
         {
+            _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
             var ev = new PsionicPowerUsedEvent(uid, power);
             RaiseLocalEvent(uid, ev, false);
         }
