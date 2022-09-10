@@ -7,3 +7,7 @@
     Telecrystal: 10
   categories:
   - UplinkWeapons
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Oni
