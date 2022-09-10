@@ -74,6 +74,7 @@ public enum LogType
     Emag = 69,
     Gib = 70,
     BagOfHolding = 420,
+    Psionics = 421,
     Identity = 71,
     CableCut = 72,
     StorePurchase = 73,

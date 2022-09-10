@@ -10,6 +10,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+
 
         public override void Initialize()
         {
@@ -27,7 +29,7 @@ namespace Content.Shared.Abilities.Psionics
             component.PacificationPowerAction = new EntityTargetAction(pacify);
             _actions.AddAction(uid, component.PacificationPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.PacificationPowerAction;
         }
 
@@ -44,6 +46,8 @@ namespace Content.Shared.Abilities.Psionics
 
             if (_statusEffects.TryAddStatusEffect(args.Target, "Pacified", component.PacifyTime, false, "Pacified"))
                 args.Handled = true;
+
+            _psionics.LogPowerUsed(uid, "pacification");
         }
     }
 

@@ -3,7 +3,6 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Damage;
 using Content.Shared.MobState.Components;
-using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Abilities.Psionics
@@ -13,9 +12,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly SharedPopupSystem _popups = default!;
-
-
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -32,7 +29,7 @@ namespace Content.Shared.Abilities.Psionics
             component.MassSleepPowerAction = new WorldTargetAction(massSleep);
             _actions.AddAction(uid, component.MassSleepPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.MassSleepPowerAction;
         }
 
@@ -52,6 +49,7 @@ namespace Content.Shared.Abilities.Psionics
                         EnsureComp<SleepingComponent>(entity);
                 }
             }
+            _psionics.LogPowerUsed(uid, "mass sleep");
             args.Handled = true;
         }
     }

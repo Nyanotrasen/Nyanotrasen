@@ -68,7 +68,6 @@ namespace Content.Client.Entry
             factory.RegisterClass<SharedLatheComponent>();
             factory.RegisterClass<SharedSpawnPointComponent>();
             factory.RegisterClass<SharedReagentDispenserComponent>();
-            factory.RegisterClass<SharedChemMasterComponent>();
             factory.RegisterClass<SharedGravityGeneratorComponent>();
             factory.RegisterClass<SharedAMEControllerComponent>();
             // Do not add to the above, they are legacy
@@ -100,6 +99,7 @@ namespace Content.Client.Entry
             prototypes.RegisterIgnore("wireLayout");
             prototypes.RegisterIgnore("alertLevels");
             prototypes.RegisterIgnore("nukeopsRole");
+            prototypes.RegisterIgnore("flavor");
 
             ClientContentIoC.Register();
 

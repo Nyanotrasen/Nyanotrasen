@@ -14,7 +14,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
-
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
 
         public override void Initialize()
         {
@@ -32,7 +32,7 @@ namespace Content.Shared.Abilities.Psionics
             component.MetapsionicPowerAction = new InstantAction(metapsionicPulse);
             _actions.AddAction(uid, component.MetapsionicPowerAction, null);
 
-            if (TryComp<PsionicComponent>(uid, out var psionic))
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.MetapsionicPowerAction;
         }
 
@@ -46,7 +46,8 @@ namespace Content.Shared.Abilities.Psionics
         {
             foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
             {
-                if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
+                if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity) && 
+                    !(HasComp<ClothingGrantPsionicPowerComponent>(entity) && Transform(entity).ParentUid == uid))
                 {
                     _popups.PopupEntity(Loc.GetString("metapsionic-pulse-success"), uid, Filter.Entities(uid), PopupType.LargeCaution);
                     args.Handled = true;
@@ -54,6 +55,8 @@ namespace Content.Shared.Abilities.Psionics
                 }
             }
             _popups.PopupEntity(Loc.GetString("metapsionic-pulse-failure"), uid, Filter.Entities(uid), PopupType.Large);
+            _psionics.LogPowerUsed(uid, "metapsionic pulse");
+
             args.Handled = true;
         }
     }

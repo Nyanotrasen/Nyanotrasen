@@ -83,6 +83,9 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: LatheVisuals
+    idleState: icon
+    runningState: icon
   - type: ProtolatheDatabase
     protolatherecipes:
       - KitchenKnife
@@ -145,6 +148,9 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: LatheVisuals
+    idleState: icon
+    runningState: icon
   - type: ProtolatheDatabase
     protolatherecipes:
       - Flash

@@ -6,6 +6,7 @@ action-description-metapsionic = Send a mental pulse through the area to see if 
 
 metapsionic-pulse-success = You detect psychic presence nearby.
 metapsionic-pulse-failure = You don't detect any psychic presence nearby.
+metapsionic-pulse-power = You detect that {$power} was used nearby.
 
 action-name-dispel = Dispel
 action-description-dispel = Dispel summoned entities such as familiars or forcewalls.
@@ -33,3 +34,6 @@ action-description-mind-swap = Swap minds with the target. Either can change bac
 
 action-name-mind-swap-return = Reverse Mind Swap
 action-description-mind-swap-return = Return to your original body.
+
+action-name-telegnosis = Telegnosis
+action-description-telegnosis = Create a telegnostic projection to remotely observe things.

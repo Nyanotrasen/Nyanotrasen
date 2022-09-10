@@ -8,6 +8,7 @@ using Content.Server.Speech;
 using Content.Server.Popups;
 using Content.Server.Contests;
 using Content.Server.Climbing;
+using Content.Shared.MobState;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
@@ -49,6 +50,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
             SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
             SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
+            SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
@@ -127,6 +129,11 @@ namespace Content.Server.Carrying
             if (Transform(uid).MapID != args.OldMapId)
                 return;
 
+            DropCarried(uid, component.Carried);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, CarryingComponent component, MobStateChangedEvent args)
+        {
             DropCarried(uid, component.Carried);
         }
 

@@ -42,9 +42,6 @@
   useDelay: 45
   checkCanAccess: false
   range: 8
-  whitelist:
-    components:
-    - Dispellable
   canTargetSelf: false
   serverEvent: !type:DispelPowerActionEvent
 
@@ -104,5 +101,14 @@
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
   icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  checkCanInteract: false
   useDelay: 20
   serverEvent: !type:MindSwapPowerReturnActionEvent
+
+- type: instantAction
+  id: Telegnosis
+  name: action-name-telegnosis
+  description: action-description-telegnosis
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 150
+  serverEvent: !type:TelegnosisPowerActionEvent
