@@ -9,6 +9,10 @@
     Telecrystal: 6
   categories:
   - UplinkWeapons
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 - type: listing
   id: UplinkRevolverPython
@@ -19,6 +23,10 @@
     Telecrystal: 8
   categories:
   - UplinkWeapons
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -30,6 +38,10 @@
     Telecrystal: 8
   categories:
   - UplinkWeapons
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -41,6 +53,10 @@
     Telecrystal: 4
   categories:
   - UplinkWeapons
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 - type: listing
   id: UplinkEsword
@@ -140,6 +156,10 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 # For the Mandella
 - type: listing
@@ -149,6 +169,10 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 # For the Inspector
 - type: listing
@@ -159,6 +183,10 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 # For the mosin
 - type: listing
@@ -169,6 +197,10 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 #Utility
 
@@ -197,6 +229,11 @@
     Telecrystal: 2
   categories:
   - UplinkUtility
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
+    - Lamia
 
 - type: listing
   id: UplinkEmag
@@ -438,6 +475,10 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia
 
 - type: listing
   id: UplinkgClothingThievingGloves
@@ -456,6 +497,10 @@
     Telecrystal: 5
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia #remove after outerclothing rework
 
 - type: listing
   id: UplinkHardsuitSyndie
@@ -465,6 +510,10 @@
     Telecrystal: 8
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -474,6 +523,10 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia
 
 - type: listing
   id: UplinkEVASyndie
@@ -483,6 +536,10 @@
     Telecrystal: 4
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -492,6 +549,10 @@
     Telecrystal: 12
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Lamia
 
 # Misc
 
@@ -521,6 +582,10 @@
     Telecrystal: 4
   categories:
   - UplinkMisc
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Oni
 
 - type: listing
   id: UplinkCigarettes
@@ -631,7 +696,7 @@
     Telecrystal: 4
   categories:
   - UplinkPointless
-  
+
 - type: listing
   id: UplinkOperativeSuit
   description: A suit given to our nuclear operatives with fine fabric to make sure you stand out, no other benefits aside from looking cool.
@@ -640,7 +705,7 @@
     Telecrystal: 1
   categories:
   - UplinkPointless
-  
+
 - type: listing
   id: UplinkOperativeSkirt
   description: A skirt given to our nuclear operatives with fine fabric to make sure you stand out, no other benefits aside from looking cool.
