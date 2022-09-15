@@ -8,11 +8,11 @@ using Content.Shared.ShrinkRay;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.Power.Components;
-using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
+using Robust.Shared.Physics.Events;
 
 namespace Content.Server.ShrinkRay
 {
@@ -83,7 +83,7 @@ namespace Content.Server.ShrinkRay
             ApplySizeChange((EntityUid) args.Target, component.ScaleFactor, component.ApplyItem);
         }
 
-        private void OnStartCollide(EntityUid uid, ShrinkRayProjectileComponent component, StartCollideEvent args)
+        private void OnStartCollide(EntityUid uid, ShrinkRayProjectileComponent component, ref StartCollideEvent args)
         {
             if (_tagSystem.HasAnyTag(args.OtherFixture.Body.Owner, "Structure", "Wall", "Window"))
                 return;
