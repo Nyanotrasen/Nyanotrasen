@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseSign
+  id: SignSec
+  name: security sign
+  description: A sign indicating the Security department.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/signs.rsi
+    state: sec
