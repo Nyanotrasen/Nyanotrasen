@@ -31,6 +31,8 @@
   - type: Clothing
     sprite: Clothing/Head/Misc/chickenhead.rsi
   - type: IngestionBlocker
+  - type: TemperatureProtection
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase

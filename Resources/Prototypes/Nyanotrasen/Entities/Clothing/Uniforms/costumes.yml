@@ -9,6 +9,8 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/jabroni.rsi
   - type: JabroniOutfit
+  - type: TemperatureProtection
+    coefficient: 0.95
 
 - type: entity
   parent: ClothingUniformBase
