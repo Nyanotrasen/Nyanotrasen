@@ -46,7 +46,7 @@ jobs:
         username: deployment-maid
         key: ${{ secrets.BUILDS_PUSH_KEY }}
         source: "release/${{ github.sha }}"
-        target: "/var/www/builds.nyanotrasen.moe/nyanotrasen/builds/"
+        target: "/var/www/builds.station14.space/nyanotrasen/builds/"
         strip_components: 1
 
     - name: Update manifest JSON
@@ -55,4 +55,4 @@ jobs:
         host: 5.161.72.223
         username: deployment-maid
         key: ${{ secrets.BUILDS_PUSH_KEY }}
-        script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}
+        script: /var/www/builds.station14.space/manifest.py -c nyanotrasen -v ${{ github.sha }}

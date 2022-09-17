@@ -10,6 +10,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:NotRoleRequirement
+      roleId: Captain
   conditions:
     - !type:StealCondition
       prototype: CaptainIDCard
@@ -73,6 +75,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
   conditions:
@@ -140,6 +144,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
   conditions:
     - !type:StealCondition
       prototype: IDComputerCircuitboard
@@ -155,6 +161,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
     - !type:NotRoleRequirement
       roleId: ChiefEngineer
   conditions:
@@ -173,6 +181,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Quartermaster
+    - !type:NotRoleRequirement
+      roleId: Quartermaster
   conditions:
     - !type:StealCondition
       prototype: SupplyComputerCircuitboard
@@ -187,6 +197,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -206,6 +218,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:NotRoleRequirement
+      roleId: Captain
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
@@ -221,6 +235,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
   conditions:

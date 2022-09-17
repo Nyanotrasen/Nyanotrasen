@@ -12,6 +12,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Lamiae
 {

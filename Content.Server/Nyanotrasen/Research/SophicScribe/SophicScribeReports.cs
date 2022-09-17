@@ -38,9 +38,6 @@ namespace Content.Server.Research.SophicScribe
             if (TryComp<ClothingSpeedModifierComponent>(item, out var clothingMvMod))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(clothingMvMod));
 
-            if (TryComp<MeleeWeaponComponent>(item, out var melee))
-                scribeComponent.SpeechQueue.Enqueue(AssembleReport(melee));
-
             if (TryComp<MeleeChemicalInjectorComponent>(item, out var injector))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(injector));
 
@@ -85,49 +82,6 @@ namespace Content.Server.Research.SophicScribe
 
             if (TryComp<SolutionContainerManagerComponent>(item, out var solutionCntr))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(solutionCntr));
-        }
-        private string AssembleReport(MeleeWeaponComponent comp)
-        {
-            var report = "It's a melee weapon. ";
-
-            if (comp.Range != 1f)
-                report += ("It has a range of " + comp.Range.ToString() + " meters. ");
-            else
-                report += "It has a range of one meter. ";
-
-            foreach (var type in comp.Damage.DamageDict)
-            {
-                report += ("It deals " + type.Value + " " + type.Key.ToLower() + " damage. ");
-            }
-
-            if (comp.Damage.DamageDict.Count > 1)
-                report += ("In total, it deals " + comp.Damage.Total + " damage. ");
-
-            if (TryComp<IncreaseDamageOnWieldComponent>(comp.Owner, out var wielded))
-            {
-                if (wielded.Modifiers.Coefficients.Values.Count > 0)
-                {
-                    foreach (var coefficient in wielded.Modifiers.Coefficients)
-                    {
-                        report += ("Wielding it will increase " + coefficient.Key.ToLower() + " damage by " + (coefficient.Value * 100).ToString() + "%. ");
-                    }
-                }
-
-                if (wielded.Modifiers.FlatReduction.Values.Count > 0)
-                {
-                    foreach (var reduction in wielded.Modifiers.FlatReduction)
-                    {
-                        report += ("Wielding it will increase " + reduction.Key.ToLower() + " damage by " + Math.Abs(reduction.Value) + ". ");
-                    }
-                }
-            }
-
-            if (TryComp<DamageOtherOnHitComponent>(comp.Owner, out var thrown))
-            {
-                report += ("It can be thrown to deal a total of " +  thrown.Damage.Total + " damage. ");
-            }
-
-            return report;
         }
 
         private string AssembleReport(MeleeChemicalInjectorComponent injector)
