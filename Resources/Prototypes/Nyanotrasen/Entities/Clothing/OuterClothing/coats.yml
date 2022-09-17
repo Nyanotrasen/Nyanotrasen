@@ -4,9 +4,9 @@
   name: comfy sweater
   description: It's comfy.
   components:
-    - type: Sprite
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
-    - type: Clothing
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
   - type: TemperatureProtection
-    coefficient: 0.4
+    coefficient: 0.55
