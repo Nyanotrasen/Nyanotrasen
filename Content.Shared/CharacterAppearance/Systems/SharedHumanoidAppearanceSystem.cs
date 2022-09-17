@@ -35,7 +35,8 @@ namespace Content.Shared.CharacterAppearance.Systems
             if (!Resolve(uid, ref component)) return;
             component.Dirty();
         }
-        private void UpdateAppearance(EntityUid uid, HumanoidCharacterAppearance appearance, Sex sex, Gender gender, string species, int age, HumanoidAppearanceComponent? component = null)
+
+        public void UpdateAppearance(EntityUid uid, HumanoidCharacterAppearance appearance, Sex sex, Gender gender, string species, int age, HumanoidAppearanceComponent? component = null)
         {
             if (!Resolve(uid, ref component)) return;
 
