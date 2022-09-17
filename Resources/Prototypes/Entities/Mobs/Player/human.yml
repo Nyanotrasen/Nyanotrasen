@@ -48,7 +48,7 @@
     name: CentCom official
     description: Inspect the station, jot down performance reviews for heads of staff, bug the Captain.
   - type: Loadout
-    prototype: CentcomGear
+    prototypes: [CentcomGear]
   - type: RandomHumanoidAppearance
 
 # ERT Leader
@@ -64,7 +64,7 @@
     name: ERT Leader
     description: Lead a team of specialists to resolve the stations issues.
   - type: Loadout
-    prototype: ERTLeaderGear
+    prototypes: [ERTLeaderGear]
   - type: RandomMetadata
     nameSegments: [NamesFirstMilitaryLeader]
   - type: RandomHumanoidAppearance
@@ -80,7 +80,7 @@
     sprite: Markers/jobs.rsi
     state: ertleadereva
   - type: Loadout
-    prototype: ERTLeaderGearEVA
+    prototypes: [ERTLeaderGearEVA]
 
 # ERT Engineer
 - type: entity
@@ -95,7 +95,7 @@
     name: ERT Engineer
     description: Assist with engineering efforts to resolve the stations issues.
   - type: Loadout
-    prototype: ERTEngineerGear
+    prototypes: [ERTEngineerGear]
 
 - type: entity
   name: ERT engineer
@@ -107,7 +107,7 @@
     sprite: Markers/jobs.rsi
     state: ertengineereva
   - type: Loadout
-    prototype: ERTEngineerGearEVA
+    prototypes: [ERTEngineerGearEVA]
 
 # ERT Security
 - type: entity
@@ -122,7 +122,7 @@
     name: ERT Security
     description: Assist with security efforts to resolve the stations issues.
   - type: Loadout
-    prototype: ERTSecurityGear
+    prototypes: [ERTSecurityGear]
 
 - type: entity
   name: ERT security
@@ -134,7 +134,7 @@
     sprite: Markers/jobs.rsi
     state: ertsecurityeva
   - type: Loadout
-    prototype: ERTSecurityGearEVA
+    prototypes: [ERTSecurityGearEVA]
 
 # ERT Medical
 - type: entity
@@ -149,7 +149,7 @@
     name: ERT Medic
     description: Assist with medical efforts to resolve the stations issues.
   - type: Loadout
-    prototype: ERTMedicalGear
+    prototypes: [ERTMedicalGear]
 
 - type: entity
   name: ERT medic
@@ -161,7 +161,7 @@
     sprite: Markers/jobs.rsi
     state: ertmedicaleva
   - type: Loadout
-    prototype: ERTMedicalGearEVA
+    prototypes: [ERTMedicalGearEVA]
 
 # ERT Janitor
 - type: entity
@@ -176,7 +176,7 @@
     name: ERT Janitor
     description: Assist with custodial efforts to resolve the stations issues.
   - type: Loadout
-    prototype: ERTJanitorGear
+    prototypes: [ERTJanitorGear]
 
 - type: entity
   name: ERT janitor
@@ -188,7 +188,7 @@
     sprite: Markers/jobs.rsi
     state: ertjanitoreva
   - type: Loadout
-    prototype: ERTJanitorGearEVA
+    prototypes: [ERTJanitorGearEVA]
 
 #Syndie
 - type: entity
@@ -197,7 +197,7 @@
   name: Syndicate Agent
   components:
   - type: Loadout
-    prototype: SyndicateOperativeGearExtremelyBasic
+    prototypes: [SyndicateOperativeGearExtremelyBasic]
   - type: RandomMetadata
     nameSegments: [names_death_commando]
 

@@ -21,8 +21,7 @@
   - type: LatheVisuals
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - QSI
       - BluespaceBeaker
       - Decloner
@@ -86,8 +85,7 @@
   - type: LatheVisuals
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - KitchenKnife
       - ButchCleaver
       - LightReplacer
@@ -151,8 +149,7 @@
   - type: LatheVisuals
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart
