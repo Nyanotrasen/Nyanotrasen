@@ -25,32 +25,7 @@ namespace Content.Server.Chat
 
         public bool Suicide(EntityUid victim)
         {
-            // Checks to see if the CannotSuicide tag exits, ghosts instead.
-            if (_tagSystem.HasTag(victim, "CannotSuicide"))
-            {
-                return false;
-            }
-
-            // Checks to see if the player is dead.
-            if (!TryComp<MobStateComponent>(victim, out var mobState) || _mobState.IsDead(victim, mobState))
-            {
-                return false;
-            }
-
-            _adminLogger.Add(LogType.Suicide,
-                            $"{EntityManager.ToPrettyString(victim):player} is committing suicide");
-
-            var suicideEvent = new SuicideEvent(victim);
-
-            // If you are critical, you wouldn't be able to use your surroundings to suicide, so you do the default suicide
-            if (!_mobState.IsCritical(victim, mobState))
-            {
-                EnvironmentSuicideHandler(victim, suicideEvent);
-            }
-            DefaultSuicideHandler(victim, suicideEvent);
-
-            ApplyDeath(victim, suicideEvent.Kind!.Value);
-            return true;
+            return false;
         }
 
         /// <summary>
