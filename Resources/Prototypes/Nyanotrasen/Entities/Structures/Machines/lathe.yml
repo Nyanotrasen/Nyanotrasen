@@ -18,7 +18,7 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
     dynamicRecipes:
@@ -82,7 +82,7 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
     dynamicRecipes:
@@ -146,7 +146,7 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
     dynamicRecipes:
