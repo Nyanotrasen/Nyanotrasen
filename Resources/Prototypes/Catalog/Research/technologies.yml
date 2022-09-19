@@ -110,6 +110,7 @@
     - Syringe
     - ReagentGrinderMachineCircuitboard
     - PillCanister
+    - ChemistryEmptyBottle01
     - TimerTrigger
     - ChemicalPayload
 
@@ -275,6 +276,7 @@
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
+    - AppraisalTool
     - ConveyorBeltAssembly
     - RCDAmmo
     - FlashlightLantern

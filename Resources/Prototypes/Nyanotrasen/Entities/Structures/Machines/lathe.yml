@@ -18,11 +18,10 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - QSI
       - BluespaceBeaker
       - Decloner
@@ -83,11 +82,10 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - KitchenKnife
       - ButchCleaver
       - LightReplacer
@@ -148,11 +146,10 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
-  - type: LatheVisuals
+  - type: Lathe
     idleState: icon
     runningState: icon
-  - type: ProtolatheDatabase
-    protolatherecipes:
+    dynamicRecipes:
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart

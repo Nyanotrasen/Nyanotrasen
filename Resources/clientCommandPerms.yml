@@ -46,25 +46,19 @@
     - showambient
     - showemergencyshuttle
     - zoom
-
-- Flags: MAPPING
-  Commands:
-    - tethergun
-    - griddrag
-    - showmarkers
     - showsubfloor
     - showsubfloorforever
-    - mapping
-    - toggleautosave
-    - toggledecals
+    - showmarkers
     - nodevis
     - nodevisfilter
 
-- Flags: ADMIN
+- Flags: MAPPING
   Commands:
-    - togglehealthoverlay
-    - togglelight
+    - mapping
+    - toggleautosave
+    - toggledecals
 
 - Flags: QUERY
   Commands:
     - uploadfile
+    - loadprototype
