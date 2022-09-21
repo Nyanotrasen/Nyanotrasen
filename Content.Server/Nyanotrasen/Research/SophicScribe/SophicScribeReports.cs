@@ -1,13 +1,9 @@
-using Content.Server.Weapon.Melee.Components;
-using Content.Server.Damage.Components;
-using Content.Server.Wieldable.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Botany.Components;
 using Content.Server.Botany;
 using Content.Server.Storage.Components;
 using Content.Server.OfHolding;
 using Content.Server.QSI;
-using Content.Server.ShrinkRay;
 using Content.Server.Research.Disk;
 using Content.Server.Bible.Components;
 using Content.Server.Mail.Components;
@@ -58,9 +54,6 @@ namespace Content.Server.Research.SophicScribe
 
             if (TryComp<QuantumSpinInverterComponent>(item, out var qsi))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(qsi));
-
-            if (TryComp<ShrinkRayComponent>(item, out var shrinkRay))
-                scribeComponent.SpeechQueue.Enqueue(AssembleReport(shrinkRay));
 
             if (TryComp<ResearchDiskComponent>(item, out var disk))
                 scribeComponent.SpeechQueue.Enqueue(AssembleReport(disk));
@@ -177,13 +170,6 @@ namespace Content.Server.Research.SophicScribe
         private string AssembleReport(QuantumSpinInverterComponent qsi)
         {
             string report = "It can be bonded with another one of its kind. After it is bonded, activating it at any time will teleport its user to the location of its partner, using it up in the process. ";
-            return report;
-        }
-
-        private string AssembleReport(ShrinkRayComponent shrinkRay)
-        {
-            var scale = Math.Round(((shrinkRay.ScaleFactor.X + shrinkRay.ScaleFactor.Y) / 2) * 100);
-            string report = ("It's able to scale its target to " + scale + "% of that target's original size. ");
             return report;
         }
 

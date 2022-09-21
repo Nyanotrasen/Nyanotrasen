@@ -23,18 +23,6 @@
     Plastic: 500
 
 - type: latheRecipe
-  id: ShrinkRay
-  icon:
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
-    state: icon
-  result: LockboxShrinkRay
-  completetime: 4
-  materials:
-    Bluespace: 400
-    Steel: 400
-    Glass: 400
-
-- type: latheRecipe
   id: BackpackOfHolding
   icon:
     sprite: Clothing/Back/Backpacks/holding.rsi
