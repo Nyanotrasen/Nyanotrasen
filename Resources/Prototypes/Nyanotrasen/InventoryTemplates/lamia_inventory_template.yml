@@ -64,14 +64,14 @@
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
-    - name: suitstorage
-      slotTexture: suit_storage
-      slotFlags:   SUITSTORAGE
-      stripTime: 2
-      uiContainer: BottomLeft
-      uiWindowPos: 2,0
-      dependsOn: outerClothing
-      displayName: Suit Storage
+    # - name: suitstorage
+    #   slotTexture: suit_storage
+    #   slotFlags:   SUITSTORAGE
+    #   stripTime: 2
+    #   uiContainer: BottomLeft
+    #   uiWindowPos: 2,0
+    #   dependsOn: outerClothing
+    #   displayName: Suit Storage
     - name: id
       slotTexture: id
       slotFlags: IDCARD
@@ -86,6 +86,13 @@
       stripTime: 5
       uiContainer: BottomLeft
       uiWindowPos: 3,1
+      displayName: Belt
+    - name: belt2
+      slotTexture: belt
+      slotFlags: BELT
+      stripTime: 5
+      uiContainer: BottomLeft
+      uiWindowPos: 3,2
       displayName: Belt
     - name: back
       slotTexture: back
