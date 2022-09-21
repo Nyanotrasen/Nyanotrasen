@@ -10,16 +10,3 @@
       - id: Decloner
   - type: AccessReader
     access: [["Armory"]]
-
-- type: entity
-  parent: Lockbox
-  id: LockboxShrinkRay
-  name: shrink ray lockbox
-  description: A lockbox secured by an access reader, requiring Research Director access.
-  suffix: Shrink Ray
-  components:
-  - type: StorageFill
-    contents:
-      - id: ShrinkRay
-  - type: AccessReader
-    access: [["ResearchDirector"]]
