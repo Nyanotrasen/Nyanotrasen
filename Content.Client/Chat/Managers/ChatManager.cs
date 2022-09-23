@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Content.Client.Administration.Managers;
 using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
-using Content.Client.Viewport;
 using Content.Shared.Administration;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CCVar;
@@ -17,9 +14,6 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Log;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -184,9 +178,8 @@ namespace Content.Client.Chat.Managers
         // go through all of the various channels and update filter / select permissions
         // appropriately, also enabling them if our enabledChannels dict doesn't have an entry
         // for any newly-granted channels
-        private void UpdateChannelPermissions()
+        public void UpdateChannelPermissions()
         {
-            Logger.Error("Updating perms...");
             var oldSelectable = SelectableChannels;
             SelectableChannels = default;
             FilterableChannels = default;

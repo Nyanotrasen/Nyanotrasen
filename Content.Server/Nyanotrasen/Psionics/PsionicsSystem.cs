@@ -25,6 +25,9 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
+
+            SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnPsiInit);
+            SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(OnPsiShutdown);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -64,6 +67,21 @@ namespace Content.Server.Psionics
                 if (HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
                     _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
+        }
+
+        private void OnPsiInit(EntityUid uid, PsionicComponent component, ComponentInit args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void OnPsiShutdown(EntityUid uid, PsionicComponent component, ComponentShutdown args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void InformPsionicsChanged(EntityUid uid)
+        {
+            RaiseNetworkEvent(new PsionicsChangedEvent(uid), Filter.Entities(uid));
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
