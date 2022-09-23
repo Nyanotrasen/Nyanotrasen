@@ -5,6 +5,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -16,7 +17,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
-
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
         public override void Initialize()
         {
@@ -131,6 +133,8 @@ namespace Content.Shared.Abilities.Psionics
             _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
             var ev = new PsionicPowerUsedEvent(uid, power);
             RaiseLocalEvent(uid, ev, false);
+
+            _glimmerSystem.AddToGlimmer(_robustRandom.Next(8, 12));
         }
     }
     

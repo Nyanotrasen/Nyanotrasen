@@ -3,12 +3,15 @@ using Content.Server.Abilities.Psionics;
 using Content.Server.MobState;
 using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
+using Robust.Shared.Random;
 
 namespace Content.Server.StationEvents.Events;
 public sealed class NoosphericStorm : StationEventSystem
 {
     [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     public override string Prototype => "NoosphericStorm";
 
@@ -43,5 +46,7 @@ public sealed class NoosphericStorm : StationEventSystem
             if(station == null) continue;
             stationsToNotify.Add((EntityUid) station);
         }
+
+        _glimmerSystem.AddToGlimmer(_robustRandom.Next(80, 120));
     }
 }
