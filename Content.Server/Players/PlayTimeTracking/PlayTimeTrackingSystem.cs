@@ -1,8 +1,10 @@
 using System.Linq;
+using System.Threading.Tasks;
 using Content.Server.Afk;
 using Content.Server.Afk.Events;
 using Content.Server.GameTicking;
 using Content.Server.Roles;
+using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.MobState;
@@ -28,6 +30,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
 
     public override void Initialize()
     {
@@ -155,12 +158,17 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueSendTimers(ev.PlayerSession);
     }
 
-    public bool IsAllowed(IPlayerSession player, string role)
+    public async Task<bool> IsAllowed(IPlayerSession player, string role)
     {
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
             job.Requirements == null ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
+
+        if (!await _db.GetWhitelistStatusAsync(player.UserId))
+        {
+            return false;
+        }
 
         var playTimes = _tracking.GetTrackerTimes(player);
 
