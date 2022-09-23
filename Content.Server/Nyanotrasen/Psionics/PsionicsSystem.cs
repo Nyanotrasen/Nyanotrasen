@@ -8,10 +8,6 @@ using Content.Server.Electrocution;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
-using Content.Server.Administration.Managers;
-using Content.Server.Mind.Components;
-using Robust.Server.Player;
-
 
 namespace Content.Server.Psionics
 {
@@ -22,8 +18,6 @@ namespace Content.Server.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = null!;
         public override void Initialize()
         {
             base.Initialize();
@@ -31,10 +25,6 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
-
-            // Psionic perms
-            SubscribeLocalEvent<PsionicComponent, ComponentInit>(RefreshPerms);
-            SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(RefreshPerms);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -109,30 +99,6 @@ namespace Content.Server.Psionics
 
             RollPsionics(uid, psionic);
             psionic.Rerolled = true;
-        }
-
-        private void RefreshPerms(EntityUid uid, PsionicComponent component, ComponentInit args)
-        {
-            RefreshPerms(uid);
-        }
-
-        private void RefreshPerms(EntityUid uid, PsionicComponent component, ComponentShutdown args)
-        {
-            RefreshPerms(uid);
-        }
-        private void RefreshPerms(EntityUid uid)
-        {
-            if (!TryComp<MindComponent>(uid, out var mind))
-                return;
-
-            if (mind.Mind == null)
-                return;
-
-            if (mind.Mind.UserId == null || !_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
-                return;
-
-            // extremely CS grad meme way to force chat perms to update too
-            _adminManager.ReloadAdmin(client);
         }
     }
 }

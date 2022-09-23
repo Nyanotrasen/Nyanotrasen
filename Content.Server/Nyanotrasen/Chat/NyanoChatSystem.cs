@@ -61,7 +61,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private IEnumerable<INetChannel> GetPsionicChatClients()
         {
             return Filter.Empty()
-                .AddWhereAttachedEntity(HasComp<PsionicComponent>)
+                .AddWhereAttachedEntity(entity => HasComp<PsionicComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
                 .Recipients
                 .Union(_adminManager.ActiveAdmins)
                 .Select(p => p.ConnectedClient);
@@ -69,6 +69,9 @@ namespace Content.Server.Nyanotrasen.Chat
 
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
         {
+            if (!HasComp<PsionicComponent>(source) || HasComp<PsionicsDisabledComponent>(source) || HasComp<PsionicInsulationComponent>(source))
+                return;
+
             var clients = GetPsionicChatClients();
             string messageWrap;
 

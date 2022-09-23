@@ -517,6 +517,7 @@ namespace Content.Client.Chat.UI
                 ChatSelectChannel.LOOC => Color.MediumTurquoise,
                 ChatSelectChannel.OOC => Color.LightSkyBlue,
                 ChatSelectChannel.Dead => Color.MediumPurple,
+                ChatSelectChannel.Telepathic => Color.PaleVioletRed,
                 ChatSelectChannel.Admin => Color.Red,
                 _ => Color.DarkGray
             };

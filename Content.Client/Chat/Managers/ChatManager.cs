@@ -186,6 +186,7 @@ namespace Content.Client.Chat.Managers
         // for any newly-granted channels
         private void UpdateChannelPermissions()
         {
+            Logger.Error("Updating perms...");
             var oldSelectable = SelectableChannels;
             SelectableChannels = default;
             FilterableChannels = default;
@@ -378,7 +379,13 @@ namespace Content.Client.Chat.Managers
                     break;
 
                 case ChatSelectChannel.Telepathic:
-                    _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
+                    if (!IsPsionic && !_adminMgr.HasFlag(AdminFlags.Admin))
+                    {
+                        _sawmill.Warning("Tried to speak in telepath chat without being telepathic or admin.");
+                        UpdateChannelPermissions();
+                    }
+                    else
+                        _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;
 
                 default:
