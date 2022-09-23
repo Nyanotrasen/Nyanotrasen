@@ -136,7 +136,7 @@ namespace Content.Shared.Abilities.Psionics
             var ev = new PsionicPowerUsedEvent(uid, power);
             RaiseLocalEvent(uid, ev, false);
 
-            _glimmerSystem.AddToGlimmer(_robustRandom.Next(8, 12));
+            _glimmerSystem.AddToGlimmer(_robustRandom.Next(minGlimmer, maxGlimmer));
         }
     }
     
