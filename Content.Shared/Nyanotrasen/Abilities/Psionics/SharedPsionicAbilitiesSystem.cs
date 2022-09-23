@@ -128,7 +128,7 @@ namespace Content.Shared.Abilities.Psionics
 
             _actions.SetEnabled(component.PsionicAbility, toggle);
         }
-        public void LogPowerUsed(EntityUid uid, string power)
+        public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)
         {
             _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
             var ev = new PsionicPowerUsedEvent(uid, power);
