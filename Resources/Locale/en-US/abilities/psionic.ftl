@@ -37,3 +37,5 @@ action-description-mind-swap-return = Return to your original body.
 
 action-name-telegnosis = Telegnosis
 action-description-telegnosis = Create a telegnostic projection to remotely observe things.
+
+glimmer-report = Current Glimmer Level: {$level}μΨ.
