@@ -7,6 +7,7 @@ using Content.Client.Gameplay;
 using Content.Client.Ghost;
 using Content.Client.Viewport;
 using Content.Shared.Administration;
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Robust.Client.Console;
@@ -227,6 +228,12 @@ namespace Content.Client.Chat.Managers
                 SelectableChannels |= ChatSelectChannel.Dead;
             }
 
+            if (_adminMgr.HasFlag(AdminFlags.Admin) || IsPsionic)
+            {
+                FilterableChannels |= ChatChannel.Telepathic;
+                SelectableChannels |= ChatSelectChannel.Telepathic;
+            }
+
             // only admins can see / filter asay
             if (_adminMgr.HasFlag(AdminFlags.Admin))
             {
@@ -245,6 +252,10 @@ namespace Content.Client.Chat.Managers
         public bool IsGhost => _playerManager.LocalPlayer?.ControlledEntity is {} uid &&
                                uid.IsValid() &&
                                _entityManager.HasComponent<GhostComponent>(uid);
+
+        public bool IsPsionic => _playerManager.LocalPlayer?.ControlledEntity is {} uid &&
+                               uid.IsValid() &&
+                               _entityManager.HasComponent<PsionicComponent>(uid);
 
         public void FrameUpdate(FrameEventArgs delta)
         {
@@ -364,6 +375,10 @@ namespace Content.Client.Chat.Managers
 
                 case ChatSelectChannel.Whisper:
                     _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
+                    break;
+
+                case ChatSelectChannel.Telepathic:
+                    _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;
 
                 default:

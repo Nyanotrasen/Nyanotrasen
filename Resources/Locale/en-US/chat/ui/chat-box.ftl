@@ -10,6 +10,7 @@ hud-chatbox-select-channel-Whisper = Whisper
 hud-chatbox-select-channel-LOOC = LOOC
 hud-chatbox-select-channel-OOC = OOC
 hud-chatbox-select-channel-Radio = Radio
+hud-chatbox-select-channel-Telepathic = Telepathic
 
 hud-chatbox-channel-Admin = Admin
 hud-chatbox-channel-Dead = Dead
@@ -21,4 +22,5 @@ hud-chatbox-channel-OOC = OOC
 hud-chatbox-channel-Radio = Radio
 hud-chatbox-channel-Server = Server
 hud-chatbox-channel-Visual = Visual
+hud-chatbox-channel-Telepathic = Telepathic
 hud-chatbox-channel-Unspecified = Unspecified
