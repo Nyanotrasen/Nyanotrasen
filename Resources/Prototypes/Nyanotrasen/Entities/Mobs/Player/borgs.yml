@@ -115,7 +115,7 @@
     setupAvailableNetworks:
       - SurveillanceCameraSilicon
   - type: RandomMetadata
-    nameSet: names_autoborg
+    nameSegments: [names_autoborg]
 
 - type: entity
   parent: PlayerCyborgBase
