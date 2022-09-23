@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -118,6 +119,7 @@ namespace Content.Shared.Abilities.Psionics
             if (!HasComp<PsionicInsulationComponent>(uid))
                 TogglePsionics(uid, true);
         }
+
         public void TogglePsionics(EntityUid uid, bool toggle, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
@@ -147,6 +149,17 @@ namespace Content.Shared.Abilities.Psionics
         {
             User = user;
             Power = power;
+        }
+    }
+
+    [Serializable]
+    [NetSerializable]
+    public sealed class PsionicsChangedEvent : EntityEventArgs
+    {
+        public readonly EntityUid Euid;
+        public PsionicsChangedEvent(EntityUid euid)
+        {
+            Euid = euid;
         }
     }
 }

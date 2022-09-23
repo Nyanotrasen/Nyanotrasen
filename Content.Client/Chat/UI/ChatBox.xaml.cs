@@ -35,6 +35,7 @@ namespace Content.Client.Chat.UI
             ChatChannel.Whisper,
             ChatChannel.Emotes,
             ChatChannel.Radio,
+            ChatChannel.Telepathic,
             ChatChannel.OOC,
             ChatChannel.Dead,
             ChatChannel.Admin,
@@ -48,6 +49,7 @@ namespace Content.Client.Chat.UI
             ChatSelectChannel.Whisper,
             ChatSelectChannel.Emotes,
             ChatSelectChannel.Radio,
+            ChatSelectChannel.Telepathic,
             ChatSelectChannel.LOOC,
             ChatSelectChannel.OOC,
             ChatSelectChannel.Dead,
@@ -64,6 +66,7 @@ namespace Content.Client.Chat.UI
         public const char AliasAdmin = ']';
         public const char AliasRadio = ';';
         public const char AliasWhisper = ',';
+        public const char AliasTelepathic = '&';
 
         private static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
         {
@@ -74,7 +77,8 @@ namespace Content.Client.Chat.UI
             {AliasEmotes, ChatSelectChannel.Emotes},
             {AliasAdmin, ChatSelectChannel.Admin},
             {AliasRadio, ChatSelectChannel.Radio},
-            {AliasDead, ChatSelectChannel.Dead}
+            {AliasDead, ChatSelectChannel.Dead},
+            {AliasTelepathic, ChatSelectChannel.Telepathic},
         };
 
         private static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes =
@@ -513,6 +517,7 @@ namespace Content.Client.Chat.UI
                 ChatSelectChannel.LOOC => Color.MediumTurquoise,
                 ChatSelectChannel.OOC => Color.LightSkyBlue,
                 ChatSelectChannel.Dead => Color.MediumPurple,
+                ChatSelectChannel.Telepathic => Color.PaleVioletRed,
                 ChatSelectChannel.Admin => Color.Red,
                 _ => Color.DarkGray
             };
