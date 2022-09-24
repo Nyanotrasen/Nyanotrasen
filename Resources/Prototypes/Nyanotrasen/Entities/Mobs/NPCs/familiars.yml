@@ -76,6 +76,8 @@
     tools:
       - id: WelderIfrit
   - type: Hands
+  - type: RandomMetadata
+    nameSegments: [names_golem]
 
 - type: entity
   parent: WelderExperimental
