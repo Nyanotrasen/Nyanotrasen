@@ -90,7 +90,7 @@ namespace Content.Server.Lamiae
                     }
                     else
                     {
-                        humanoid.Sex = Sex.Male;
+                        humanoid.Sex = Sex.Female;
                         Dirty(humanoid);
 
                         var name = "";
