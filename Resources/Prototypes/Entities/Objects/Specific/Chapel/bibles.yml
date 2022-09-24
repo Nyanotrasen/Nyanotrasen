@@ -16,6 +16,7 @@
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 30
+    cooldownTime: 5
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ItemCooldown

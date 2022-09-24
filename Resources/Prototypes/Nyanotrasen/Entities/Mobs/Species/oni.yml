@@ -5,12 +5,6 @@
   abstract: true
   description: A miserable pile of... uhhh, what are oni known for?
   components:
-  - type: Markings
-    layerPoints:
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [OniHornSingleCurved]
   - type: Tag
     tags:
     - CanPilot
@@ -19,6 +13,8 @@
     - GunsDisabled
   - type: Speech
     speechSounds: Baritone
+  - type: Humanoid
+    species: Oni
   - type: Sprite
     netsync: false
     noRot: true
@@ -141,12 +137,6 @@
   id: MobOniDummy
   description: A dummy oni meant to be used in character setup.
   components:
-  - type: Markings
-    layerPoints:
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [OniHornSingleCurved]
   - type: Sprite
     netsync: false
     noRot: true
