@@ -30,8 +30,7 @@ namespace Content.Shared.Abilities.Psionics
         public void AddToGlimmer(int toAdd)
         {
             Glimmer += toAdd;
-            if (Glimmer < 0)
-                Glimmer = 0;
+            Glimmer = Math.Clamp(Glimmer, 0, 1000);
         }
     }
 }

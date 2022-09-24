@@ -18,6 +18,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -101,6 +102,8 @@ namespace Content.Server.Psionics
                 chance *= bonus.Multiplier;
                 chance += bonus.FlatBonus;
             }
+
+            chance += ((float) _glimmerSystem.Glimmer / 1000);
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))
