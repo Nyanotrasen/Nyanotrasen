@@ -50,6 +50,10 @@
   - type: Loadout
     prototypes: [CentcomGear]
   - type: RandomHumanoidAppearance
+    ignoredSpecies:
+    - Lamia
+    - Felinid
+    - Oni
 
 # ERT Leader
 - type: entity
@@ -68,6 +72,10 @@
   - type: RandomMetadata
     nameSegments: [NamesFirstMilitaryLeader]
   - type: RandomHumanoidAppearance
+    ignoredSpecies:
+    - Lamia
+    - Felinid
+    - Oni
     randomizeName: false
 
 - type: entity
@@ -210,3 +218,7 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+      ignoredSpecies:
+      - Lamia
+      - Felinid
+      - Oni
