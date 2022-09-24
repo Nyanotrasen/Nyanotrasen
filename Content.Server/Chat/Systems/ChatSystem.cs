@@ -512,7 +512,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
     }
 
-    private string ObfuscateMessageReadability(string message, float chance)
+    public string ObfuscateMessageReadability(string message, float chance)
     {
         var modifiedMessage = new StringBuilder(message);
 

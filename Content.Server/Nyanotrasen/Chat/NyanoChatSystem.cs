@@ -1,10 +1,13 @@
 using System.Linq;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Drugs;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -22,6 +25,7 @@ namespace Content.Server.Nyanotrasen.Chat
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
         private IEnumerable<INetChannel> GetPsionicChatClients()
         {
             return Filter.Empty()
@@ -29,6 +33,21 @@ namespace Content.Server.Nyanotrasen.Chat
                 .Recipients
                 .Union(_adminManager.ActiveAdmins)
                 .Select(p => p.ConnectedClient);
+        }
+
+        private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
+        {
+            var filtered = Filter.Empty()
+                .AddWhereAttachedEntity(entity => HasComp<SleepingComponent>(entity) || HasComp<SeeingRainbowsComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
+                .Recipients
+                .Select(p => p.ConnectedClient);
+
+            var filteredList = filtered.ToList();
+
+            foreach (var entity in removeList)
+                filteredList.Remove(entity);
+
+            return filteredList;
         }
 
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
@@ -48,6 +67,13 @@ namespace Content.Server.Nyanotrasen.Chat
 
             if (_random.Prob(0.1f))
                 _glimmerSystem.AddToGlimmer(1);
+
+            if (_random.Prob(Math.Min(0.33f + ((float) _glimmerSystem.Glimmer / 1500), 1)))
+            {
+                float obfuscation = (0.25f + (float) _glimmerSystem.Glimmer / 2000);
+                var obfuscated = _chatSystem.ObfuscateMessageReadability(message, obfuscation);
+                _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, GetDreamers(clients), Color.PaleVioletRed);
+            }
         }
     }
 }
