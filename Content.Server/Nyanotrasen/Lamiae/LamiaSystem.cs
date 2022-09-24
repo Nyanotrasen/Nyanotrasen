@@ -1,11 +1,10 @@
 using Robust.Shared.Physics;
 using Content.Shared.Lamiae;
-using Content.Shared.CharacterAppearance.Components;
-using Content.Shared.CharacterAppearance;
-using Content.Shared.CharacterAppearance.Systems;
-using Content.Shared.Species;
 using Content.Shared.Gravity;
 using Content.Shared.Damage;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Server.Humanoid;
 using Content.Server.Access.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -20,7 +19,6 @@ namespace Content.Server.Lamiae
     public sealed class LamiaSystem : EntitySystem
     {
         [Dependency] private readonly SharedJointSystem _jointSystem = default!;
-        [Dependency] private readonly SharedHumanoidAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly IdCardSystem _idCardSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
@@ -82,17 +80,19 @@ namespace Content.Server.Lamiae
             if (!TryComp<SpriteComponent>(uid, out var sprite))
                 return;
 
-            if (TryComp<HumanoidAppearanceComponent>(args.Lamia, out var appearanceComponent))
+            if (TryComp<HumanoidComponent>(args.Lamia, out var humanoid))
             {
                 if (!HasComp<LamiaSexEnforcedComponent>(args.Lamia))
                 {
-                    if (appearanceComponent.Sex == Sex.Female)
+                    if (humanoid.Sex == Sex.Female)
                     {
                         AddComp<LamiaSexEnforcedComponent>(args.Lamia);
                     }
                     else
                     {
-                        _appearanceSystem.UpdateSexGender(args.Lamia, Sex.Female, Robust.Shared.Enums.Gender.Female);
+                        humanoid.Sex = Sex.Male;
+                        Dirty(humanoid);
+
                         var name = "";
                         if (_prototypes.TryIndex<SpeciesPrototype>("Lamia", out var lamiaSpecies))
                         {
@@ -115,7 +115,7 @@ namespace Content.Server.Lamiae
                     }
                 }
 
-                foreach (var marking in appearanceComponent.Appearance.Markings)
+                foreach (var marking in humanoid.CurrentMarkings.GetForwardEnumerator())
                 {
                     if (marking.MarkingId != "LamiaBottom")
                         continue;
