@@ -1,4 +1,5 @@
 using Content.Shared.Interaction;
+using Content.Shared.Abilities.Psionics;
 using Content.Server.Chat.Systems;
 
 namespace Content.Server.Research.SophicScribe
@@ -6,43 +7,15 @@ namespace Content.Server.Research.SophicScribe
     public sealed partial class SophicScribeSystem : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<SophicScribeComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
+            SubscribeLocalEvent<SophicScribeComponent, InteractHandEvent>(OnInteractHand);
         }
-
-        public override void Update(float frameTime)
+        private void OnInteractHand(EntityUid uid, SophicScribeComponent component, InteractHandEvent args)
         {
-            base.Update(frameTime);
-            foreach (var scribe in EntityQuery<SophicScribeComponent>())
-            {
-                if (scribe.SpeechQueue.Count == 0)
-                {
-                    scribe.Accumulator = 4.5f;
-                    continue;
-                }
-
-                scribe.Accumulator += frameTime;
-                if (scribe.Accumulator < scribe.SpeechDelay.TotalSeconds)
-                {
-                    continue;
-                }
-
-                _chat.TrySendInGameICMessage(scribe.Owner, scribe.SpeechQueue.Dequeue(), InGameICChatType.Speak, true);
-                scribe.Accumulator = 0;
-            }
-        }
-
-        private void OnAfterInteractUsing(EntityUid uid, SophicScribeComponent component, AfterInteractUsingEvent args)
-        {
-            if (args.Used == null || !args.CanReach)
-                return;
-
-            if (component.SpeechQueue.Count != 0)
-                return;
-
-            AssembleReport(args.Used, uid, component);
+            _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _sharedGlimmerSystem.Glimmer)), InGameICChatType.Speak, true);
         }
     }
 }
