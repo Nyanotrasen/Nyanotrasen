@@ -56,7 +56,12 @@ namespace Content.Server.Psionics.Glimmer
             if (Configuration is not GlimmerEventRuleConfiguration ev)
                 return;
 
-            GlimmerSystem.AddToGlimmer(0 - (RobustRandom.Next(ev.GlimmerBurn.Item1, ev.GlimmerBurn.Item2)));
+            var glimmerBurned = RobustRandom.Next(ev.GlimmerBurn.Item1, ev.GlimmerBurn.Item2);
+            GlimmerSystem.AddToGlimmer(0 - glimmerBurned);
+
+            Logger.Error("Raising event...");
+            var reportEv = new GlimmerEventEndedEvent(ev.SohpicReport, glimmerBurned);
+            RaiseLocalEvent(reportEv);
         }
 
         #region Helper Functions
@@ -67,5 +72,16 @@ namespace Content.Server.Psionics.Glimmer
         }
 
         #endregion
+    }
+
+    public sealed class GlimmerEventEndedEvent : EntityEventArgs
+    {
+        public string Message = "";
+        public int GlimmerBurned = 0;
+        public GlimmerEventEndedEvent(string message, int glimmerBurned)
+        {
+            Message = message;
+            GlimmerBurned = glimmerBurned;
+        }
     }
 }

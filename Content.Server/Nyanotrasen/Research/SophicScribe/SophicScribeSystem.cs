@@ -4,6 +4,7 @@ using Content.Shared.Radio;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Ghost.Components;
+using Content.Server.Psionics.Glimmer;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Research.SophicScribe
@@ -41,10 +42,24 @@ namespace Content.Server.Research.SophicScribe
         {
             base.Initialize();
             SubscribeLocalEvent<SophicScribeComponent, InteractHandEvent>(OnInteractHand);
+            SubscribeLocalEvent<GlimmerEventEndedEvent>(OnGlimmerEventEnded);
         }
         private void OnInteractHand(EntityUid uid, SophicScribeComponent component, InteractHandEvent args)
         {
             _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _sharedGlimmerSystem.Glimmer)), InGameICChatType.Speak, true);
+        }
+
+        private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
+        {
+            Logger.Error("Received event...");
+            foreach (var scribe in EntityQuery<SophicScribeComponent>())
+            {
+                if (!TryComp<IntrinsicRadioComponent>(scribe.Owner, out var radio)) return;
+
+                var message = Loc.GetString(args.Message, ("decrease", args.GlimmerBurned), ("level", _sharedGlimmerSystem.Glimmer));
+                var channel = _prototypeManager.Index<RadioChannelPrototype>("Common");
+                _radioSystem.SpreadMessage(radio, scribe.Owner, message, channel);
+            }
         }
     }
 }

@@ -41,7 +41,6 @@ namespace Content.Server.Psionics.Glimmer
                 {
                     NextEventTime = _robustRandom.NextFloat(300, 1200);
                     NextEventAccumulator = 0;
-                    Logger.Error("Next event time set to " + NextEventTime);
                     RunGlimmerEvent();
                 }
             }
@@ -54,7 +53,6 @@ namespace Content.Server.Psionics.Glimmer
             if (ev == null || !_prototypeManager.TryIndex<GameRulePrototype>(ev.Id, out var proto))
                 return;
 
-            Logger.Error("Running glimmer event " + proto.ID);
             GameTicker.StartGameRule(proto);
         }
 
@@ -63,8 +61,6 @@ namespace Content.Server.Psionics.Glimmer
             var allEvents = _prototypeManager.EnumeratePrototypes<GameRulePrototype>()
                 .Where(p => p.Configuration is GlimmerEventRuleConfiguration)
                 .Select(p => (GlimmerEventRuleConfiguration) p.Configuration);
-
-            Logger.Error("Found " + allEvents.Count() + " events.");
 
             var validEvents = new List<GlimmerEventRuleConfiguration>();
 
