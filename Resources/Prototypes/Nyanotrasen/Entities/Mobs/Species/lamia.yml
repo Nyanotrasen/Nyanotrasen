@@ -49,16 +49,6 @@
     solution: chemicals
   - type: DrawableSolution
     solution: bloodstream
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Blood
-          Quantity: 50
-  - type: Extractable
-    grindableSolutionName: food
   - type: IdExaminable
   - type: HealthExaminable
     examinableTypes:
