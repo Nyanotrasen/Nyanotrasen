@@ -1,16 +1,25 @@
+using System.Linq;
 using Content.Shared.Psionics.Glimmer;
+using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules.Configurations;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Psionics.Glimmer
 {
-    public sealed class GlimmerSystem : EntitySystem
+    public sealed class GlimmerSystem : GameRuleSystem
     {
+        public override string Prototype => "GlimmerEventRunner";
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public float DecayAccumulator = 0;
         public const float SecondsToLoseOneGlimmer = 10f;
         public const float MinimumGlimmerForEvents = 100;
+
+        public override void Started() { }
+        public override void Ended() { }
 
         public float NextEventAccumulator = 0;
         public float NextEventTime = 0;
@@ -31,14 +40,66 @@ namespace Content.Server.Psionics.Glimmer
                 if (NextEventAccumulator > NextEventTime)
                 {
                     NextEventTime = _robustRandom.NextFloat(300, 1200);
+                    NextEventAccumulator = 0;
+                    Logger.Error("Next event time set to " + NextEventTime);
+                    RunGlimmerEvent();
                 }
             }
+        }
+
+        private void RunGlimmerEvent()
+        {
+            var ev = GetGlimmerEvent();
+
+            if (ev == null || !_prototypeManager.TryIndex<GameRulePrototype>(ev.Id, out var proto))
+                return;
+
+            Logger.Error("Running glimmer event " + proto.ID);
+            GameTicker.StartGameRule(proto);
+        }
+
+        private GlimmerEventRuleConfiguration? GetGlimmerEvent()
+        {
+            var allEvents = _prototypeManager.EnumeratePrototypes<GameRulePrototype>()
+                .Where(p => p.Configuration is GlimmerEventRuleConfiguration)
+                .Select(p => (GlimmerEventRuleConfiguration) p.Configuration);
+
+            Logger.Error("Found " + allEvents.Count() + " events.");
+
+            var validEvents = new List<GlimmerEventRuleConfiguration>();
+
+            foreach (var ev in allEvents)
+            {
+                if (ev == null)
+                    continue;
+
+                if (CanRun(ev))
+                    validEvents.Add(ev);
+            }
+
+            if (validEvents.Count == 0)
+                return null;
+
+            return _robustRandom.Pick(validEvents);
+        }
+
+        private bool CanRun(GlimmerEventRuleConfiguration config)
+        {
+            if (_sharedGlimmerSystem.Glimmer < config.MinimumGlimmer)
+                return false;
+
+            if (_sharedGlimmerSystem.Glimmer > config.MaximumGlimmer)
+                return false;
+
+            return true;
         }
 
         public override void Initialize()
         {
             base.Initialize();
-            NextEventTime = _robustRandom.NextFloat(300, 1200);
+            NextEventTime = _robustRandom.NextFloat(5, 15);
         }
+
+
     }
 }

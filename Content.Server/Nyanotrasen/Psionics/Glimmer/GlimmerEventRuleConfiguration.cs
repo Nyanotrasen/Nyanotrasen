@@ -33,7 +33,12 @@ public sealed class GlimmerEventRuleConfiguration : GameRuleConfiguration
     ///     Maximum glimmer value for event to be eligible. (Remember 1000 is max glimmer period.)
     /// </summary>
     [DataField("maximumGlimmer")]
-    public int maximumGlimmer = 1000;
+    public int MaximumGlimmer = 1000;
+
+    /// <summary>
+    ///     Will be used for _random.Next and subtracted from glimmer.
+    /// </summary>
+    public (int, int) GlimmerBurn = (20, 80);
 
     /// <summary>
     ///     When in the lifetime to start the event.

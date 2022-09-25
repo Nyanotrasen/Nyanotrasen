@@ -1,6 +1,8 @@
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Database;
+using Content.Shared.Psionics.Glimmer;
+using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Psionics.Glimmer
@@ -12,6 +14,8 @@ namespace Content.Server.Psionics.Glimmer
     {
         [Dependency] protected readonly IAdminLogManager AdminLogManager = default!;
         [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+        [Dependency] protected readonly IRobustRandom RobustRandom = default!;
+        [Dependency] protected readonly SharedGlimmerSystem GlimmerSystem = default!;
 
         protected ISawmill Sawmill = default!;
 
@@ -51,6 +55,8 @@ namespace Content.Server.Psionics.Glimmer
 
             if (Configuration is not GlimmerEventRuleConfiguration ev)
                 return;
+
+            GlimmerSystem.AddToGlimmer(0 - (RobustRandom.Next(ev.GlimmerBurn.Item1, ev.GlimmerBurn.Item2)));
         }
 
         #region Helper Functions

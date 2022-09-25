@@ -10,3 +10,9 @@
     endAfter: 1
     earliestStart: 15
     maxOccurrences: 2
+
+- type: gameRule
+  id: NoosphericZap
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: NoosphericZap
