@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.Psionics.Glimmer;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Configurations;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 
@@ -39,7 +38,7 @@ namespace Content.Server.Psionics.Glimmer
                 NextEventAccumulator += frameTime;
                 if (NextEventAccumulator > NextEventTime)
                 {
-                    NextEventTime = _robustRandom.NextFloat(300, 1200);
+                    NextEventTime = _robustRandom.NextFloat(300, 900);
                     NextEventAccumulator = 0;
                     RunGlimmerEvent();
                 }
@@ -93,9 +92,7 @@ namespace Content.Server.Psionics.Glimmer
         public override void Initialize()
         {
             base.Initialize();
-            NextEventTime = _robustRandom.NextFloat(5, 15);
+            NextEventTime = _robustRandom.NextFloat(300, 900);
         }
-
-
     }
 }

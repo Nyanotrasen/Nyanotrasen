@@ -51,7 +51,6 @@ namespace Content.Server.Research.SophicScribe
 
         private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)
         {
-            Logger.Error("Received event...");
             foreach (var scribe in EntityQuery<SophicScribeComponent>())
             {
                 if (!TryComp<IntrinsicRadioComponent>(scribe.Owner, out var radio)) return;

@@ -1,7 +1,13 @@
 using Content.Shared.MobState.Components;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.StatusEffect;
 using Content.Server.MobState;
 using Content.Server.Electrocution;
+using Content.Server.Stunnable;
+using Content.Server.Popups;
+using Robust.Shared.Player;
+
+
 
 namespace Content.Server.Psionics.Glimmer;
 /// <summary>
@@ -11,11 +17,15 @@ public sealed class NoosphericZap : GlimmerEventSystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private readonly StunSystem _stunSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+
     public override string Prototype => "NoosphericZap";
     public override void Started()
     {
         base.Started();
-        Logger.Error("Starting event...");
         List<PotentialPsionicComponent> psionicList = new();
         foreach (var (psion, mobState) in EntityManager.EntityQuery<PotentialPsionicComponent, MobStateComponent>())
         {
@@ -25,7 +35,23 @@ public sealed class NoosphericZap : GlimmerEventSystem
 
         foreach (var psion in psionicList)
         {
-            _electrocutionSystem.TryDoElectrocution(psion.Owner, null, 5, TimeSpan.FromSeconds(5), false, ignoreInsulation: true);
+            _stunSystem.TryParalyze(psion.Owner, TimeSpan.FromSeconds(5), false);
+            _statusEffectsSystem.TryAddStatusEffect(psion.Owner, "Stutter", TimeSpan.FromSeconds(30), false, "StutteringAccent");
+
+            if (HasComp<PsionicComponent>(psion.Owner))
+                _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize"), psion.Owner, Filter.Entities(psion.Owner), Shared.Popups.PopupType.LargeCaution);
+            else
+            {
+                if (psion.Rerolled)
+                {
+                    psion.Rerolled = false;
+                    _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize-potential-regained"), psion.Owner, Filter.Entities(psion.Owner), Shared.Popups.PopupType.LargeCaution);
+                } else
+                {
+                    _psionicsSystem.RollPsionics(psion.Owner, psion);
+                    _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize"), psion.Owner, Filter.Entities(psion.Owner), Shared.Popups.PopupType.LargeCaution);
+                }
+            }
         }
         ForceEndSelf();
     }

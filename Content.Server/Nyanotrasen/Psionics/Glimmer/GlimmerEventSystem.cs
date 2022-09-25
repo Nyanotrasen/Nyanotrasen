@@ -59,7 +59,6 @@ namespace Content.Server.Psionics.Glimmer
             var glimmerBurned = RobustRandom.Next(ev.GlimmerBurn.Item1, ev.GlimmerBurn.Item2);
             GlimmerSystem.AddToGlimmer(0 - glimmerBurned);
 
-            Logger.Error("Raising event...");
             var reportEv = new GlimmerEventEndedEvent(ev.SohpicReport, glimmerBurned);
             RaiseLocalEvent(reportEv);
         }
