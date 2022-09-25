@@ -10,6 +10,10 @@ namespace Content.Server.Psionics.Glimmer
 
         public float DecayAccumulator = 0;
         public const float SecondsToLoseOneGlimmer = 10f;
+        public const float MinimumGlimmerForEvents = 100;
+
+        public float NextEventAccumulator = 0;
+        public float NextEventTime = 0;
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -21,6 +25,20 @@ namespace Content.Server.Psionics.Glimmer
                     _sharedGlimmerSystem.AddToGlimmer(-1);
                 DecayAccumulator -= SecondsToLoseOneGlimmer;
             }
+            if (_sharedGlimmerSystem.Glimmer > MinimumGlimmerForEvents)
+            {
+                NextEventAccumulator += frameTime;
+                if (NextEventAccumulator > NextEventTime)
+                {
+                    NextEventTime = _robustRandom.NextFloat(300, 1200);
+                }
+            }
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            NextEventTime = _robustRandom.NextFloat(300, 1200);
         }
     }
 }
