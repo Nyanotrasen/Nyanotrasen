@@ -40,3 +40,6 @@ action-description-telegnosis = Create a telegnostic projection to remotely obse
 
 glimmer-report = Current Glimmer Level: {$level}μΨ.
 glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.
+
+noospheric-zap-seize = You seize up!
+noospheric-zap-seize-potential-regained = You seize up! Some mental block seems to have cleared, too.
