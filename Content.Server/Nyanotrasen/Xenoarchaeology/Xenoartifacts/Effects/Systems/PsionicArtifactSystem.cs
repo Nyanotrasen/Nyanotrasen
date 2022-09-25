@@ -3,6 +3,7 @@ using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Interaction;
 using Robust.Shared.Random;
 

@@ -39,3 +39,4 @@ action-name-telegnosis = Telegnosis
 action-description-telegnosis = Create a telegnostic projection to remotely observe things.
 
 glimmer-report = Current Glimmer Level: {$level}μΨ.
+glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.

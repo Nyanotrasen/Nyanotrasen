@@ -1,6 +1,6 @@
 using Content.Shared.GameTicking;
 
-namespace Content.Shared.Abilities.Psionics
+namespace Content.Shared.Psionics.Glimmer
 {
     /// <summary>
     /// How much psionic power is flowing around.

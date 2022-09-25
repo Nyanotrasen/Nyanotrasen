@@ -1,6 +1,7 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.MobState;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Damage.Events;
