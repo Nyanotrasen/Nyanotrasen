@@ -1,7 +1,7 @@
-using Content.Shared.Abilities.Psionics;
+using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
 
-namespace Content.Server.Psionics
+namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerSystem : EntitySystem
     {

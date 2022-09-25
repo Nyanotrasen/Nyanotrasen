@@ -4,6 +4,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Drugs;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;

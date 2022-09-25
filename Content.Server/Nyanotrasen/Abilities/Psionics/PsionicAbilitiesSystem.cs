@@ -1,5 +1,6 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind.Components;

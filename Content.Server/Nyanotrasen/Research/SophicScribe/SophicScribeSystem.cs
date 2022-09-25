@@ -1,5 +1,5 @@
 using Content.Shared.Interaction;
-using Content.Shared.Abilities.Psionics;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Radio;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.EntitySystems;
