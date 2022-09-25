@@ -17,6 +17,11 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] protected readonly IRobustRandom RobustRandom = default!;
         [Dependency] protected readonly SharedGlimmerSystem GlimmerSystem = default!;
 
+        /// <summary>
+        ///     How long has the event existed. Do not change this.
+        /// </summary>
+        protected float Elapsed { get; set; }
+
         protected ISawmill Sawmill = default!;
 
         public override void Initialize()
@@ -61,6 +66,16 @@ namespace Content.Server.Psionics.Glimmer
 
             var reportEv = new GlimmerEventEndedEvent(ev.SohpicReport, glimmerBurned);
             RaiseLocalEvent(reportEv);
+        }
+
+        public override void Update(float frameTime)
+        {
+            if (!RuleAdded || Configuration is not GlimmerEventRuleConfiguration data)
+                return;
+
+            Elapsed += frameTime;
+            if (Elapsed > 1f)
+                GameTicker.EndGameRule(PrototypeManager.Index<GameRulePrototype>(Prototype));
         }
 
         #region Helper Functions

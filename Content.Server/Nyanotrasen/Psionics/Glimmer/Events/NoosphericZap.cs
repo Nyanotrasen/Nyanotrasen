@@ -53,6 +53,5 @@ public sealed class NoosphericZap : GlimmerEventSystem
                 }
             }
         }
-        ForceEndSelf();
     }
 }
