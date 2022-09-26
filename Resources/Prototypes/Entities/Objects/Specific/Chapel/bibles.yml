@@ -4,6 +4,8 @@
   parent: BaseStorageItem
   id: Bible
   components:
+  - type: UseDelay
+    delay: 5
   - type: Bible
     damage:
       groups:
@@ -16,7 +18,6 @@
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
       groups:
         Burn: 30
-    cooldownTime: 5
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
   - type: ItemCooldown
@@ -43,6 +44,8 @@
   description: "There's a note: Klatuu, Verata, Nikto -- Don't forget it again!"
   id: BibleNecronomicon
   components:
+  - type: UseDelay
+    delay: 1.3
   - type: Bible
     damage:
       groups:
@@ -57,7 +60,6 @@
     failChance: 0
     locPrefix: "necro"
     healSound: "/Audio/Effects/lightburn.ogg"
-    cooldownTime: 1.3
   - type: Summonable
     specialItem: SpawnPointGhostCerberus
     respawnTime: 300
