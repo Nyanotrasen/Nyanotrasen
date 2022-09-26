@@ -39,6 +39,7 @@ namespace Content.Server.Psionics.Glimmer
                 if (NextEventAccumulator > NextEventTime)
                 {
                     NextEventTime = _robustRandom.NextFloat(300, 900);
+                    NextEventTime -= (float) (_sharedGlimmerSystem.Glimmer / 5);
                     NextEventAccumulator = 0;
                     RunGlimmerEvent();
                 }
