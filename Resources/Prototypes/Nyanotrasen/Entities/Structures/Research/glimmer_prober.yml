@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseResearchAndDevelopmentPointSource
+  id: GlimmerProber
+  name: glimmer prober
+  description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem. Placeholder sprite.
+  components:
+  - type: Psionic
+  - type: GlimmerSource
