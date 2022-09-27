@@ -21,6 +21,8 @@ namespace Content.Client.Chat.Managers
 
         void RemoveSpeechBubble(EntityUid entityUid, SpeechBubble bubble);
 
+        void UpdateChannelPermissions();
+
         /// <summary>
         /// Current chat box control. This can be modified, so do not depend on saving a reference to this.
         /// </summary>

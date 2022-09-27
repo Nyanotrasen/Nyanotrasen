@@ -13,6 +13,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.MobState;
+using Content.Server.Nyanotrasen.Chat;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -53,6 +54,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;
 
     private const int VoiceRange = 7; // how far voice goes in world units
     private const int WhisperRange = 2; // how far whisper goes in world units
@@ -152,6 +154,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, hideChat);
+                break;
+            case InGameICChatType.Telepathic:
+                _nyanoChatSystem.SendTelepathicChat(source, message, hideChat);
                 break;
         }
     }
@@ -507,7 +512,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
     }
 
-    private string ObfuscateMessageReadability(string message, float chance)
+    public string ObfuscateMessageReadability(string message, float chance)
     {
         var modifiedMessage = new StringBuilder(message);
 
@@ -566,7 +571,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    Telepathic
 }
 
 /// <summary>

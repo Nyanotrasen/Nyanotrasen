@@ -55,7 +55,7 @@ namespace Content.Shared.Abilities.Psionics
                 }
             }
             _popups.PopupEntity(Loc.GetString("metapsionic-pulse-failure"), uid, Filter.Entities(uid), PopupType.Large);
-            _psionics.LogPowerUsed(uid, "metapsionic pulse");
+            _psionics.LogPowerUsed(uid, "metapsionic pulse", 2, 4);
 
             args.Handled = true;
         }

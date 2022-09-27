@@ -4,7 +4,11 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization;
+
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -16,7 +20,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
-
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
         public override void Initialize()
         {
@@ -116,6 +121,7 @@ namespace Content.Shared.Abilities.Psionics
             if (!HasComp<PsionicInsulationComponent>(uid))
                 TogglePsionics(uid, true);
         }
+
         public void TogglePsionics(EntityUid uid, bool toggle, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
@@ -126,11 +132,13 @@ namespace Content.Shared.Abilities.Psionics
 
             _actions.SetEnabled(component.PsionicAbility, toggle);
         }
-        public void LogPowerUsed(EntityUid uid, string power)
+        public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)
         {
             _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
             var ev = new PsionicPowerUsedEvent(uid, power);
             RaiseLocalEvent(uid, ev, false);
+
+            _glimmerSystem.AddToGlimmer(_robustRandom.Next(minGlimmer, maxGlimmer));
         }
     }
     
@@ -143,6 +151,17 @@ namespace Content.Shared.Abilities.Psionics
         {
             User = user;
             Power = power;
+        }
+    }
+
+    [Serializable]
+    [NetSerializable]
+    public sealed class PsionicsChangedEvent : EntityEventArgs
+    {
+        public readonly EntityUid Euid;
+        public PsionicsChangedEvent(EntityUid euid)
+        {
+            Euid = euid;
         }
     }
 }

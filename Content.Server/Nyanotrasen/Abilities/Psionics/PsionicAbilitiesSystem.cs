@@ -1,5 +1,6 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind.Components;
@@ -18,6 +19,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
 
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
@@ -67,6 +69,8 @@ namespace Content.Server.Abilities.Psionics
             newComponent.Owner = uid;
 
             EntityManager.AddComponent(uid, newComponent);
+
+            _glimmerSystem.AddToGlimmer(_random.Next(1, 5));
         }
 
         public void RemovePsionics(EntityUid uid)
