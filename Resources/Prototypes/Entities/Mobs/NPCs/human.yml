@@ -33,10 +33,6 @@
   description: A miserable pile of secrets
   components:
   - type: RandomHumanoidAppearance
-    ignoredSpecies:
-    - Lamia
-    - Felinid
-    - Oni
   - type: Loadout
     prototypes: [CBURNGear]
   - type: GhostTakeoverAvailable

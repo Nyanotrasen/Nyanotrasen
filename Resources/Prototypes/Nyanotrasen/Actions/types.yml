@@ -12,20 +12,6 @@
   icon: Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png
   serverEvent: !type:EatMouseActionEvent
 
-- type: entityTargetAction
-  id: Pacify
-  name: action-name-pacify
-  description: action-description-pacify
-  useDelay: 45
-  checkCanAccess: false
-  range: 8
-  whitelist:
-    components:
-    - CombatMode
-  canTargetSelf: false
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
-  event: !type:PacificationPowerActionEvent
-
 - type: instantAction
   id: MetapsionicPulse
   name: action-name-metapsionic

@@ -1,0 +1,16 @@
+- type: construction
+  id: GlimmerProber
+  name: glimmer prober
+  description: Increases glimmer and research points.
+  graph: GlimmerProber
+  startNode: start
+  targetNode: glimmerprober
+  category: construction-category-machines
+  icon:
+    sprite: Structures/Machines/rndpointsource.rsi
+    state: rndpointsource-off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
