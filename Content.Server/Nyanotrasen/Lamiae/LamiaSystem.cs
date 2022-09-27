@@ -67,7 +67,6 @@ namespace Content.Server.Lamiae
             SubscribeLocalEvent<LamiaComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<LamiaComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<LamiaComponent, JointRemovedEvent>(OnJointRemoved);
-            SubscribeLocalEvent<GravityChangedEvent>(OnGravityChanged);
             SubscribeLocalEvent<LamiaComponent, EntGotRemovedFromContainerMessage>(OnRemovedFromContainer);
             SubscribeLocalEvent<LamiaSegmentComponent, SegmentSpawnedEvent>(OnSegmentSpawned);
             SubscribeLocalEvent<LamiaSegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
@@ -82,39 +81,6 @@ namespace Content.Server.Lamiae
 
             if (TryComp<HumanoidComponent>(args.Lamia, out var humanoid))
             {
-                if (!HasComp<LamiaSexEnforcedComponent>(args.Lamia))
-                {
-                    if (humanoid.Sex == Sex.Female)
-                    {
-                        AddComp<LamiaSexEnforcedComponent>(args.Lamia);
-                    }
-                    else
-                    {
-                        humanoid.Sex = Sex.Female;
-                        Dirty(humanoid);
-
-                        var name = "";
-                        if (_prototypes.TryIndex<SpeciesPrototype>("Lamia", out var lamiaSpecies))
-                        {
-                            name += Sex.Female.GetFirstName(lamiaSpecies);
-                            name += " ";
-                            name += Sex.Female.GetLastName(lamiaSpecies);
-                            MetaData(args.Lamia).EntityName = name;
-
-                            var grammar = EnsureComp<GrammarComponent>(args.Lamia);
-                            grammar.Gender = Robust.Shared.Enums.Gender.Female;
-                            grammar.ProperNoun = true;
-
-                            if (_idCardSystem.TryFindIdCard(args.Lamia, out var card))
-                            {
-                                card.FullName = name;
-                            }
-                        }
-
-                        AddComp<LamiaSexEnforcedComponent>(args.Lamia);
-                    }
-                }
-
                 foreach (var marking in humanoid.CurrentMarkings.GetForwardEnumerator())
                 {
                     if (marking.MarkingId != "LamiaBottom")
@@ -122,23 +88,6 @@ namespace Content.Server.Lamiae
 
                     var color = marking.MarkingColors[0];
                     sprite.LayerSetColor(0, color);
-                }
-            }
-        }
-
-        private void OnGravityChanged(GravityChangedEvent ev)
-        {
-            var gridUid = ev.ChangedGridIndex;
-            var jetpackQuery = GetEntityQuery<LamiaSegmentComponent>();
-
-            foreach (var (segment, transform) in EntityQuery<LamiaSegmentComponent, TransformComponent>(true))
-            {
-                if (TryComp<FixturesComponent>(segment.Owner, out var fixtures))
-                {
-                    foreach (var fixture in fixtures.Fixtures)
-                    {
-                        fixture.Value.Hard = !ev.HasGravity;
-                    }
                 }
             }
         }
