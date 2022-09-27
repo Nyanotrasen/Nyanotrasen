@@ -1,0 +1,45 @@
+- type: Tag
+  id: PsionicRegenerator
+
+- type: reagent
+  id: PsionicRegenerationEssence
+  name: viscous blood
+  group: Biological
+  desc: reagent-desc-blood
+  flavor: metallic
+  color: "#a00060"
+  physicalDesc: reagent-physical-desc-ferrous
+  metabolisms:
+    Food:
+      effects:
+      - !type:PopupMessage
+        conditions:
+          - !type:HasTag
+            tag: PsionicRegenerator
+        type: Pvs
+        visualType: Small
+        messages: [
+          "psionic-regeneration-essence-sweat",
+          "psionic-regeneration-essence-veins",
+          "psionic-regeneration-essence-breath"
+        ]
+        probability: 0.17
+      - !type:SatiateThirst
+        conditions:
+          - !type:HasTag
+            tag: PsionicRegenerator
+        factor: -3
+      - !type:SatiateHunger
+        conditions:
+          - !type:HasTag
+            tag: PsionicRegenerator
+        factor: -3
+      - !type:HealthChange
+        conditions:
+          - !type:HasTag
+            tag: PsionicRegenerator
+        damage:
+          groups:
+            Burn: -5
+            Brute: -4
+            Toxin: -3

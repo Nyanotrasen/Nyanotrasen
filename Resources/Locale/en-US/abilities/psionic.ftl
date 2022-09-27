@@ -38,6 +38,9 @@ action-description-mind-swap-return = Return to your original body.
 action-name-telegnosis = Telegnosis
 action-description-telegnosis = Create a telegnostic projection to remotely observe things.
 
+action-name-psionic-regeneration = Psionic Regeneration
+action-description-psionic-regeneration = Push your natural metabolism to the limit to power your body's regenerative capability.
+
 glimmer-report = Current Glimmer Level: {$level}μΨ.
 glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.
 
