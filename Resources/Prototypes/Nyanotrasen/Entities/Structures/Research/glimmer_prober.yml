@@ -6,3 +6,9 @@
   components:
   - type: Psionic
   - type: GlimmerSource
+  - type: Construction
+    graph: GlimmerProber
+    node: glimmerprober
+  - type: ResearchPointSource
+    pointspersecond: 40
+    active: true
