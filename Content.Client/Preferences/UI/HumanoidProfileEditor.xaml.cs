@@ -62,8 +62,7 @@ namespace Content.Client.Preferences.UI
         private Button _randomizeEverythingButton => CRandomizeEverything;
         private RichTextLabel _warningLabel => CWarningLabel;
         private Button _saveButton => CSaveButton;
-        private Button _sexFemaleButton => CSexFemale;
-        private Button _sexMaleButton => CSexMale;
+        private OptionButton _sexButton => CSexButton;
         private OptionButton _genderButton => CPronounsButton;
         private Slider _skinColor => CSkin;
         private OptionButton _clothingButton => CClothingButton;
@@ -139,31 +138,12 @@ namespace Content.Client.Preferences.UI
             _tabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
 
             #region Sex
-
-            var sexButtonGroup = new ButtonGroup();
-
-            _sexMaleButton.Group = sexButtonGroup;
-            _sexMaleButton.OnPressed += args =>
+            _sexButton.OnItemSelected += args =>
             {
-                SetSex(Sex.Male);
-                if (Profile?.Gender == Gender.Female)
-                {
-                    SetGender(Gender.Male);
-                    UpdateGenderControls();
-                }
+                _sexButton.SelectId(args.Id);
+                SetSex((Sex) args.Id);
             };
 
-            _sexFemaleButton.Group = sexButtonGroup;
-            _sexFemaleButton.OnPressed += _ =>
-            {
-                SetSex(Sex.Female);
-
-                if (Profile?.Gender == Gender.Male)
-                {
-                    SetGender(Gender.Female);
-                    UpdateGenderControls();
-                }
-            };
 
             #endregion Sex
 
@@ -780,6 +760,20 @@ namespace Content.Client.Preferences.UI
         private void SetSex(Sex newSex)
         {
             Profile = Profile?.WithSex(newSex);
+            // for convenience, default to most common gender when new sex is selected
+            switch (newSex)
+            {
+                case Sex.Male:
+                    Profile = Profile?.WithGender(Gender.Male);
+                    break;
+                case Sex.Female:
+                    Profile = Profile?.WithGender(Gender.Female);
+                    break;
+                default:
+                    Profile = Profile?.WithGender(Gender.Epicene);
+                    break;
+            }
+            UpdateGenderControls();
             IsDirty = true;
         }
 
@@ -794,6 +788,7 @@ namespace Content.Client.Preferences.UI
             Profile = Profile?.WithSpecies(newSpecies);
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             CMarkings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
+            UpdateSexControls(); // update sex for new species
             NeedsDummyRebuild = true;
             IsDirty = true;
         }
@@ -869,10 +864,34 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateSexControls()
         {
-            if (Profile?.Sex == Sex.Male)
-                _sexMaleButton.Pressed = true;
-            else
-                _sexFemaleButton.Pressed = true;
+            if (Profile == null)
+            {
+                return;
+            }
+
+            _sexButton.Clear();
+
+            var sexes = new List<Sex>();
+
+            // add species sex options, default to just none if we are in bizzaro world and have no species
+            if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesProto))
+            {
+                foreach (var sex in speciesProto.Sexes)
+                {
+                    sexes.Add(sex);
+                }
+            } else
+            {
+                sexes.Add(Sex.Unsexed);
+            }
+
+            // add button for each sex
+            foreach (var sex in sexes)
+            {
+                _sexButton.AddItem(Loc.GetString($"humanoid-profile-editor-sex-{sex.ToString().ToLower()}-text"), (int) sex);
+            }
+
+            _sexButton.SelectId((int) sexes[0]);
         }
 
         private void UpdateSkinColor()
