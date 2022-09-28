@@ -7,6 +7,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.DoAfter;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Psionics
 {
@@ -17,6 +18,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -61,6 +63,8 @@ namespace Content.Server.Psionics
             if (!EntityManager.TryGetComponent<HeadCageComponent>(args.Cage, out var cageComp))
                 return;
 
+            _audioSystem.PlayPvs(cageComp.EndCageSound, args.Caged);
+
             cageComp.CancelToken = null;
 
             RemComp<UnremoveableComponent>(args.Cage);
@@ -81,6 +85,8 @@ namespace Content.Server.Psionics
 
             if (cageComp.CancelToken != null)
                 return;
+
+            _audioSystem.PlayPvs(cageComp.StartBreakoutSound, uid);
 
             cageComp.CancelToken = new CancellationTokenSource();
 
