@@ -7,7 +7,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.DoAfter;
-using Robust.Shared.Audio;
+using Content.Server.Popups;
+using Robust.Shared.Player;
 
 namespace Content.Server.Psionics
 {
@@ -19,6 +20,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -87,6 +89,8 @@ namespace Content.Server.Psionics
                 return;
 
             _audioSystem.PlayPvs(cageComp.StartBreakoutSound, uid);
+            _popupSystem.PopupEntity(Loc.GetString("cage-resist-second-person", ("cage", headItem)), uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("cage-resist-third-person", ("user", uid), ("cage", headItem)), uid, Filter.PvsExcept(uid), Shared.Popups.PopupType.MediumCaution);
 
             cageComp.CancelToken = new CancellationTokenSource();
 
