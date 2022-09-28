@@ -1,6 +1,8 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Alert;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -9,15 +11,19 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
+        [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<TinfoilHatComponent, GotEquippedEvent>(OnEquipped);
-            SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnUnequipped);
+            SubscribeLocalEvent<TinfoilHatComponent, GotEquippedEvent>(OnTinfoilEquipped);
+            SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnTinfoilUnequipped);
             SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotEquippedEvent>(OnGranterEquipped);
             SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotUnequippedEvent>(OnGranterUnequipped);
+            SubscribeLocalEvent<HeadCageComponent, GotEquippedEvent>(OnCageEquipped);
+            SubscribeLocalEvent<HeadCageComponent, GotUnequippedEvent>(OnCageUnequipped);
         }
-        private void OnEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
+        private void OnTinfoilEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
         {
             // This only works on clothing
             if (!TryComp<SharedClothingComponent>(uid, out var clothing))
@@ -32,7 +38,7 @@ namespace Content.Shared.Abilities.Psionics
             component.IsActive = true;
         }
 
-        private void OnUnequipped(EntityUid uid, TinfoilHatComponent component, GotUnequippedEvent args)
+        private void OnTinfoilUnequipped(EntityUid uid, TinfoilHatComponent component, GotUnequippedEvent args)
         {
             if (!component.IsActive)
                 return;
@@ -79,5 +85,30 @@ namespace Content.Shared.Abilities.Psionics
                 EntityManager.RemoveComponent(args.Equipee, componentType);
             }
         }
+
+        private void OnCageEquipped(EntityUid uid, HeadCageComponent component, GotEquippedEvent args)
+        {
+            // This only works on clothing
+            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
+                return;
+            // Is the clothing in its actual slot?
+            if (!clothing.Slots.HasFlag(args.SlotFlags))
+                return;
+
+            component.IsActive = true;
+            AddComp<UnremoveableComponent>(uid);
+            _alertsSystem.ShowAlert(args.Equipee, AlertType.Caged);
+        }
+
+        private void OnCageUnequipped(EntityUid uid, HeadCageComponent component, GotUnequippedEvent args)
+        {
+            if (!component.IsActive)
+                return;
+
+            component.IsActive = false;
+        }
+
+        private void ResistCage(EntityUid uid)
+        {}
     }
 }

@@ -1,6 +1,6 @@
 - type: alert
-  id: Headcaged
-  onClick: !type:RemoveCuffs  { }
+  id: Caged
+  onClick: !type:RemoveCage  { }
   icons: [ /Textures/Interface/Alerts/Handcuffed/Handcuffed.png ]
   name: "[color=yellow]Caged[/color]"
   description: "Your head is [color=yellow]caged[/color] and you can't use your psionics. You could resist if your hands are free."
