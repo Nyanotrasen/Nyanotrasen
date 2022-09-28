@@ -16,7 +16,6 @@ namespace Content.Server.Psionics.Glimmer;
 public sealed class NoosphericZap : GlimmerEventSystem
 {
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
     [Dependency] private readonly StunSystem _stunSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;

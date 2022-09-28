@@ -61,7 +61,7 @@ namespace Content.Server.Psionics.Glimmer
             if (Configuration is not GlimmerEventRuleConfiguration ev)
                 return;
 
-            var glimmerBurned = RobustRandom.Next(ev.GlimmerBurn.Item1, ev.GlimmerBurn.Item2);
+            var glimmerBurned = RobustRandom.Next(ev.GlimmerBurnLower, ev.GlimmerBurnUpper);
             GlimmerSystem.AddToGlimmer(0 - glimmerBurned);
 
             var reportEv = new GlimmerEventEndedEvent(ev.SohpicReport, glimmerBurned);
