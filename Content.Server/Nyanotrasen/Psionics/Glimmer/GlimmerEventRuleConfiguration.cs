@@ -37,8 +37,17 @@ public sealed class GlimmerEventRuleConfiguration : GameRuleConfiguration
 
     /// <summary>
     ///     Will be used for _random.Next and subtracted from glimmer.
+    ///     Lower bound.
     /// </summary>
-    public (int, int) GlimmerBurn = (20, 80);
+    [DataField("glimmerBurnLower")]
+    public int GlimmerBurnLower = 20;
+
+    /// <summary>
+    ///     Will be used for _random.Next and subtracted from glimmer.
+    ///     Upper bound.
+    /// </summary>
+    [DataField("glimmerBurnUpper")]
+    public int GlimmerBurnUpper = 80;
 
     /// <summary>
     ///     When in the lifetime to start the event.
