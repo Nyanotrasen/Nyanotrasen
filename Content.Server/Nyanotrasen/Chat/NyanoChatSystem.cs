@@ -4,6 +4,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Drugs;
 using Content.Shared.Chat;
 using Content.Shared.Database;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -61,7 +62,7 @@ namespace Content.Server.Nyanotrasen.Chat
             messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
                 ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")));
 
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {source:Player}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
 
             _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, clients.ToList(), Color.PaleVioletRed);
 

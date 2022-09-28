@@ -4,9 +4,11 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+
 
 namespace Content.Shared.Abilities.Psionics
 {

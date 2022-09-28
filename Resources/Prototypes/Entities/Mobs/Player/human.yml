@@ -69,6 +69,8 @@
     nameSegments: [NamesFirstMilitaryLeader]
   - type: RandomHumanoidAppearance
     randomizeName: false
+  - type: PsionicBonusChance
+    multiplier: 7
 
 - type: entity
   name: ERT leader
@@ -210,3 +212,5 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+    - type: PsionicBonusChance
+      multiplier: 7

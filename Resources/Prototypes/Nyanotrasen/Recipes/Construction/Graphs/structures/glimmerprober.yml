@@ -1,0 +1,48 @@
+- type: constructionGraph
+  id: GlimmerProber
+  start: start
+  graph:
+  - node: start
+    edges:
+      - to: glimmerprober
+        completed:
+          - !type:SnapToGrid {}
+        steps:
+          - material: Steel
+            amount: 5
+          - material: Cable
+            amount: 5
+          - material: Plasma
+            amount: 5
+          - prototype: MaterialBluespace
+            icon:
+              sprite: Nyanotrasen/Objects/Materials/materials.rsi
+              state: bluespace
+            name: a bluespace crystal
+            doAfter: 2
+          - prototype: MaterialBluespace
+            icon:
+              sprite: Nyanotrasen/Objects/Materials/materials.rsi
+              state: bluespace
+            name: a bluespace crystal
+            doAfter: 2
+          - prototype: MaterialBluespace
+            icon:
+              sprite: Nyanotrasen/Objects/Materials/materials.rsi
+              state: bluespace
+            name: a bluespace crystal
+            doAfter: 2
+          - prototype: MaterialBluespace
+            icon:
+              sprite: Nyanotrasen/Objects/Materials/materials.rsi
+              state: bluespace
+            name: a bluespace crystal
+            doAfter: 2
+          - prototype: MaterialBluespace
+            icon:
+              sprite: Nyanotrasen/Objects/Materials/materials.rsi
+              state: bluespace
+            name: a bluespace crystal
+            doAfter: 2
+  - node: glimmerprober
+    entity: GlimmerProber

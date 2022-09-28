@@ -1,5 +1,7 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
+using Content.Shared.MobState;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Weapon.Melee;
 using Content.Server.Damage.Events;
@@ -29,6 +31,7 @@ namespace Content.Server.Psionics
 
             SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnPsiInit);
             SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(OnPsiShutdown);
+            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -78,6 +81,12 @@ namespace Content.Server.Psionics
         private void OnPsiShutdown(EntityUid uid, PsionicComponent component, ComponentShutdown args)
         {
             InformPsionicsChanged(uid);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState == DamageState.Dead)
+                RemCompDeferred(uid, component);
         }
 
         private void InformPsionicsChanged(EntityUid uid)
