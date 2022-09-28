@@ -1,10 +1,6 @@
-using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.StatusEffect;
-using Content.Shared.Interaction.Components;
-using Content.Shared.ActionBlocker;
-using Content.Shared.Alert;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -13,10 +9,6 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
-        [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-        [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-
         public override void Initialize()
         {
             base.Initialize();
@@ -24,8 +16,6 @@ namespace Content.Shared.Abilities.Psionics
             SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnTinfoilUnequipped);
             SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotEquippedEvent>(OnGranterEquipped);
             SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotUnequippedEvent>(OnGranterUnequipped);
-            SubscribeLocalEvent<HeadCageComponent, GotEquippedEvent>(OnCageEquipped);
-            SubscribeLocalEvent<HeadCageComponent, GotUnequippedEvent>(OnCageUnequipped);
         }
         private void OnTinfoilEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
         {
@@ -89,43 +79,5 @@ namespace Content.Shared.Abilities.Psionics
                 EntityManager.RemoveComponent(args.Equipee, componentType);
             }
         }
-
-        private void OnCageEquipped(EntityUid uid, HeadCageComponent component, GotEquippedEvent args)
-        {
-            // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
-                return;
-            // Is the clothing in its actual slot?
-            if (!clothing.Slots.HasFlag(args.SlotFlags))
-                return;
-
-            component.IsActive = true;
-            AddComp<UnremoveableComponent>(uid);
-            _alertsSystem.ShowAlert(args.Equipee, AlertType.Caged);
-        }
-
-        private void OnCageUnequipped(EntityUid uid, HeadCageComponent component, GotUnequippedEvent args)
-        {
-            if (!component.IsActive)
-                return;
-
-            component.IsActive = false;
-        }
-
-        public void ResistCage(EntityUid uid)
-        {
-            if (!_blocker.CanInteract(uid, uid))
-                return;
-
-            if (!_inventory.TryGetSlotEntity(uid, "head", out var headItem) || !HasComp<HeadCageComponent>(headItem))
-            {
-                _alertsSystem.ClearAlert(uid, AlertType.Caged);
-                return;
-            }
-
-            RemComp<UnremoveableComponent>(headItem.Value);
-            if (_inventory.TryUnequip(uid, "head", force: true))
-                _alertsSystem.ClearAlert(uid, AlertType.Caged);
-        }    
     }
 }

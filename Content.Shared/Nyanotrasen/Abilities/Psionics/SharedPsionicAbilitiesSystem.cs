@@ -1,14 +1,10 @@
-using Content.Shared.Inventory.Events;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -17,9 +13,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
-        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
