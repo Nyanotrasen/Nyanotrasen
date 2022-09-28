@@ -1,14 +1,10 @@
-using Content.Shared.Inventory.Events;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -17,85 +13,16 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
-        [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<TinfoilHatComponent, GotEquippedEvent>(OnEquipped);
-            SubscribeLocalEvent<TinfoilHatComponent, GotUnequippedEvent>(OnUnequipped);
-            SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotEquippedEvent>(OnGranterEquipped);
-            SubscribeLocalEvent<ClothingGrantPsionicPowerComponent, GotUnequippedEvent>(OnGranterUnequipped);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
-        }
-
-        private void OnEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
-        {
-            // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
-                return;
-            // Is the clothing in its actual slot?
-            if (!clothing.Slots.HasFlag(args.SlotFlags))
-                return;
-            
-            TogglePsionics(args.Equipee, false);
-            var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
-            insul.Passthrough = component.Passthrough;
-            component.IsActive = true;
-        }
-
-        private void OnUnequipped(EntityUid uid, TinfoilHatComponent component, GotUnequippedEvent args)
-        {
-            if (!component.IsActive)
-                return;
-
-            if (!_statusEffects.HasStatusEffect(uid, "PsionicallyInsulated"))
-                RemComp<PsionicInsulationComponent>(args.Equipee);
-
-            component.IsActive = false;
-
-            if (!HasComp<PsionicsDisabledComponent>(args.Equipee))
-                TogglePsionics(args.Equipee, true);
-        }
-
-        private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)
-        {
-            // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
-                return;
-            // Is the clothing in its actual slot?
-            if (!clothing.Slots.HasFlag(args.SlotFlags))
-                return;
-            // does the user already has this power?
-            var componentType = _componentFactory.GetRegistration(component.Power).Type;
-            if (EntityManager.HasComponent(args.Equipee, componentType)) return;
-
-
-            var newComponent = (Component) _componentFactory.GetComponent(componentType);
-            newComponent.Owner = args.Equipee;
-
-            EntityManager.AddComponent(args.Equipee, newComponent);
-
-            component.IsActive = true;
-        }
-
-        private void OnGranterUnequipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotUnequippedEvent args)
-        {
-            if (!component.IsActive)
-                return;
-
-            component.IsActive = false;
-            var componentType = _componentFactory.GetRegistration(component.Power).Type;
-            if (EntityManager.HasComponent(args.Equipee, componentType))
-            {
-                EntityManager.RemoveComponent(args.Equipee, componentType);
-            }
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)

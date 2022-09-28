@@ -1,5 +1,5 @@
-action-name-pacify = Pacify
-action-description-pacify = Make the target unable to attack.
+cage-resist-second-person = You start removing your {$cage}.
+cage-resist-third-person = {CAPITALIZE(THE($user))} starts removing {POSS-ADJ($user)} {$cage}.
 
 action-name-metapsionic = Metapsionic Pulse
 action-description-metapsionic = Send a mental pulse through the area to see if there are any psychics nearby.
