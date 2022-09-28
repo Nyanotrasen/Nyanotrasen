@@ -1,7 +1,9 @@
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Interaction.Components;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 
 namespace Content.Shared.Abilities.Psionics
@@ -12,6 +14,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly IComponentFactory _componentFactory = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psiAbilities = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+        [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
 
         public override void Initialize()
         {
@@ -108,7 +112,20 @@ namespace Content.Shared.Abilities.Psionics
             component.IsActive = false;
         }
 
-        private void ResistCage(EntityUid uid)
-        {}
+        public void ResistCage(EntityUid uid)
+        {
+            if (!_blocker.CanInteract(uid, uid))
+                return;
+
+            if (!_inventory.TryGetSlotEntity(uid, "head", out var headItem) || !HasComp<HeadCageComponent>(headItem))
+            {
+                _alertsSystem.ClearAlert(uid, AlertType.Caged);
+                return;
+            }
+
+            RemComp<UnremoveableComponent>(headItem.Value);
+            if (_inventory.TryUnequip(uid, "head", force: true))
+                _alertsSystem.ClearAlert(uid, AlertType.Caged);
+        }    
     }
 }

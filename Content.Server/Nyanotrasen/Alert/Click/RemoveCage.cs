@@ -1,4 +1,5 @@
 using Content.Shared.Alert;
+using Content.Shared.Abilities.Psionics;
 using JetBrains.Annotations;
 
 namespace Content.Server.Alert.Click
@@ -12,7 +13,7 @@ namespace Content.Server.Alert.Click
     {
         public void AlertClicked(EntityUid player)
         {
-
+            EntitySystem.Get<PsionicItemsSystem>().ResistCage(player);
         }
     }
 }
