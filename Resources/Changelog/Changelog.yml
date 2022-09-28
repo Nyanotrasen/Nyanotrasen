@@ -1,34 +1,4 @@
 Entries:
-- author: mirrorcult
-  changes:
-  - {message: Colliding with ignited mobs will now properly ignite you as well., type: Tweak}
-  id: 1868
-  time: '2022-07-05T01:30:45.0000000+00:00'
-- author: mirrorcult
-  changes:
-  - {message: The nuke music now times itself properly so as to end right before the
-      nuke alarm goes off., type: Tweak}
-  - {message: 'The nuke can no longer have its disk ejected while the nuke is armed.
-      This means nuclear operatives have a phase where they must defend the nuke for
-      the time that it''s active, until the timer hits 30 seconds and they can run.',
-    type: Tweak}
-  - {message: Disarming the nuke now has a suspenseful 30 second doafter., type: Tweak}
-  - {message: 'The nuke now has a much, much larger blast radius.', type: Tweak}
-  id: 1869
-  time: '2022-07-05T06:49:19.0000000+00:00'
-- author: mirrorcult
-  changes:
-  - {message: 'The nuke keypad now plays a scale (C mixolydian blues), so you can
-      bang out some funny tunes on it. "0" plays the last note an octave higher.',
-    type: Add}
-  id: 1870
-  time: '2022-07-05T07:24:37.0000000+00:00'
-- author: metalgearsloth
-  changes:
-  - {message: Cargo shuttle console now no longer needs to be facing South for controls.,
-    type: Fix}
-  id: 1871
-  time: '2022-07-05T13:40:30.0000000+00:00'
 - author: Peptide90
   changes:
   - {message: 'Security Officer, Warden and HoS now have external access.', type: Tweak}
@@ -2918,3 +2888,25 @@ Entries:
       parts., type: Add}
   id: 2367
   time: '2022-09-27T08:00:30.0000000+00:00'
+- author: themias
+  changes:
+  - {message: You can eat with utensils again, type: Fix}
+  id: 2368
+  time: '2022-09-27T16:26:14.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: 'Gas analyzers no longer close when you move, if you''re only monitoring
+      the environment.', type: Fix}
+  id: 2369
+  time: '2022-09-27T20:55:45.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: Zombies now automatically enter combat mode upon turning., type: Add}
+  id: 2370
+  time: '2022-09-28T00:13:35.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - {message: The Rat King now moves faster and can move under doors., type: Tweak}
+  - {message: Rat Servants now have slightly more health., type: Tweak}
+  id: 2371
+  time: '2022-09-28T04:16:20.0000000+00:00'
