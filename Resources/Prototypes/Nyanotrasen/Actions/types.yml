@@ -98,3 +98,11 @@
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 150
   serverEvent: !type:TelegnosisPowerActionEvent
+
+- type: instantAction
+  id: Psionic Regeneration
+  name: action-name-psionic-regeneration
+  description: action-description-psionic-regeneration
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 120
+  serverEvent: !type:PsionicRegenerationPowerActionEvent
