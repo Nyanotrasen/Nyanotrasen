@@ -3,7 +3,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.MobState;
 using Content.Shared.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Weapon.Melee;
+using Content.Server.Weapons.Melee.Events;
 using Content.Server.Damage.Events;
 using Content.Server.GameTicking;
 using Content.Server.Electrocution;

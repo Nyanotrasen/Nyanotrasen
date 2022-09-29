@@ -511,9 +511,9 @@
   - type: Hunger
   - type: MeleeWeapon
     range: 1.5
-    arcwidth: 0
-    arc: bite
-    hitSound:
+    animation: WeaponArcBite
+
+    soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
       types:
