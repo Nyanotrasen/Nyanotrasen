@@ -1,6 +1,8 @@
 cage-resist-second-person = You start removing your {$cage}.
 cage-resist-third-person = {CAPITALIZE(THE($user))} starts removing {POSS-ADJ($user)} {$cage}.
 
+cage-uncage-verb = Uncage
+
 action-name-metapsionic = Metapsionic Pulse
 action-description-metapsionic = Send a mental pulse through the area to see if there are any psychics nearby.
 
