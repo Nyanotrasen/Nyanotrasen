@@ -69,3 +69,13 @@
     Bluespace: 200
     Durathread: 750
     Plastic: 200
+
+- type: latheRecipe
+  id: BluespaceCrystal
+  icon:
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+  result: MaterialBluespace
+  completetime: 4
+  materials:
+    Bluespace: 100

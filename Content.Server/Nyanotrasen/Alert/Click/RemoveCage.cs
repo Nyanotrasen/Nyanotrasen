@@ -13,7 +13,7 @@ namespace Content.Server.Alert.Click
     {
         public void AlertClicked(EntityUid player)
         {
-            EntitySystem.Get<HeadCageSystem>().ResistCage(player);
+            EntitySystem.Get<HeadCageSystem>().ResistCage(player, player);
         }
     }
 }
