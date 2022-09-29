@@ -1,45 +1,33 @@
-- type: Tag
-  id: PsionicRegenerator
-
 - type: reagent
   id: PsionicRegenerationEssence
-  name: viscous blood
+  name: prometheum
   group: Biological
-  desc: reagent-desc-blood
+  desc: A thick, dark purplish substance.
   flavor: metallic
-  color: "#a00060"
-  physicalDesc: reagent-physical-desc-ferrous
+  color: "#700055"
+  physicalDesc: reagent-physical-desc-viscous
   metabolisms:
-    Food:
+    Medicine:
       effects:
-      - !type:PopupMessage
-        conditions:
-          - !type:HasTag
-            tag: PsionicRegenerator
-        type: Pvs
-        visualType: Small
-        messages: [
-          "psionic-regeneration-essence-sweat",
-          "psionic-regeneration-essence-veins",
-          "psionic-regeneration-essence-breath"
-        ]
-        probability: 0.17
+      # These messages would be more appropriate if there was a LoS-based Filter type. TODO
+      # - !type:PopupMessage
+      #   type: Pvs
+      #   visualType: Small
+      #   messages: [
+      #     "psionic-regeneration-essence-sweat",
+      #     "psionic-regeneration-essence-veins",
+      #     "psionic-regeneration-essence-breath"
+      #   ]
+      #   probability: 0.15
       - !type:SatiateThirst
-        conditions:
-          - !type:HasTag
-            tag: PsionicRegenerator
         factor: -3
       - !type:SatiateHunger
-        conditions:
-          - !type:HasTag
-            tag: PsionicRegenerator
         factor: -3
       - !type:HealthChange
-        conditions:
-          - !type:HasTag
-            tag: PsionicRegenerator
         damage:
           groups:
             Burn: -5
             Brute: -4
-            Toxin: -3
+          types:
+            Poison: -3
+            Bloodloss: -3
