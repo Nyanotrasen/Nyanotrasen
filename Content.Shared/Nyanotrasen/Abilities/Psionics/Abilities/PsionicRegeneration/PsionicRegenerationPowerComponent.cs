@@ -16,7 +16,6 @@ namespace Content.Shared.Abilities.Psionics
         public float UseDelay = 8f;
 
         [DataField("soundUse")]
-        // Credit to: https://freesound.org/people/greyseraphim/sounds/21409/
         public SoundSpecifier SoundUse = new SoundPathSpecifier("/Audio/Nyanotrasen/heartbeat_fast.ogg");
 
         public InstantAction? PsionicRegenerationPowerAction = null;
