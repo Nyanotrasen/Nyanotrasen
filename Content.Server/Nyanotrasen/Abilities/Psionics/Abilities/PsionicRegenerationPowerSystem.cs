@@ -29,6 +29,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+        [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
 
         public override void Initialize()
         {
@@ -104,6 +105,7 @@ namespace Content.Server.Abilities.Psionics
                 PopupType.Medium);
 
             _audioSystem.PlayPvs(component.SoundUse, component.Owner, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));
+            _psionics.LogPowerUsed(uid, "psionic regeneration");
             args.Handled = true;
         }
 
