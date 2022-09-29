@@ -235,6 +235,7 @@
     fireStackAlternateState: 3
   - type: EnsnareableVisualizer
   - type: CombatMode
+    disarm: true
   - type: Climbing
   - type: Cuffable
   - type: Ensnareable
@@ -245,11 +246,12 @@
   - type: Buckle
   - type: MeleeWeapon
     hidden: true
-    hitSound:
+    soundHit:
       collection: Punch
-    range: 0.8
-    arcwidth: 30
-    arc: fist
+    range: 1.5
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
     damage:
       types:
         Blunt: 5
@@ -260,6 +262,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
+      - key: enum.VoiceMaskUIKey.Key
+        type: VoiceMaskBoundUserInterface
       - key: enum.HumanoidMarkingModifierKey.Key
         type: HumanoidMarkingModifierBoundUserInterface
       - key: enum.StrippingUiKey.Key

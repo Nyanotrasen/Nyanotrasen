@@ -14,10 +14,8 @@
     damage:
       types:
         Blunt: 5
-    hitSound:
+    soundHit:
       path: /Audio/Weapons/club.ogg
-    missSound:
-      path: /Audio/Weapons/club-miss.ogg
   - type: Item
     size: 50
   - type: Damageable
