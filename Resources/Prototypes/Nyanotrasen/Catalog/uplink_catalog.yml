@@ -25,4 +25,7 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Lamia
-
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

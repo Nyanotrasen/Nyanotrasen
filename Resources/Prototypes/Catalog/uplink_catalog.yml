@@ -297,6 +297,16 @@
   categories:
   - UplinkUtility
 
+- type: listing
+  id: UplinkVoiceMask
+  name: Voice Mask
+  description: A gas mask that lets you adjust your voice to whoever you can think of.
+  productEntity: ClothingMaskGasVoiceMasker
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkUtility
+
 # Bundles
 
 - type: listing
