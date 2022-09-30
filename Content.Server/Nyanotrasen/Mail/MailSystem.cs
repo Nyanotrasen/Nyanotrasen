@@ -5,6 +5,7 @@ using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
+using Content.Server.Chat.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -32,6 +33,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         // TODO: YAML Serializer won't catch this.
         [ViewVariables(VVAccess.ReadWrite)]
@@ -153,9 +155,7 @@ namespace Content.Server.Mail
             _popupSystem.PopupEntity(Loc.GetString("mail-bounty", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
             component.Locked = false;
             UpdateAntiTamperVisuals(uid, false);
-            /// This needs to be revisited for multistation
-            /// For now let's just add the bounty to the first
-            /// console we find.
+
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
                 if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
@@ -179,6 +179,19 @@ namespace Content.Server.Mail
 
         private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
         {
+            if (component.Locked)
+            {
+                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("mail-penalty", ("credits", component.Penalty)), InGameICChatType.Speak, false);
+                SoundSystem.Play("/Audio/Machines/Nuke/angry_beep.ogg", Filter.Pvs(uid), uid);
+                foreach (var account in EntityQuery<StationBankAccountComponent>())
+                {
+                    if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
+                            continue;
+
+                    _cargoSystem.UpdateBankAccount(account, component.Penalty);
+                }
+            }
+
             if (component.Enabled)
                 OpenMail(uid, component);
             UpdateAntiTamperVisuals(uid, false);

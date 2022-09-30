@@ -30,6 +30,8 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Speech
+
 - type: entity
   parent: BaseMail
   id: MailBikeHorn
