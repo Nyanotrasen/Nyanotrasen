@@ -389,6 +389,8 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         float chance = (disarmerComp.BaseDisarmFailChance + contestResults);
 
+        Logger.Error("Chance: " + chance);
+
         if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
         {
             chance += malus.Malus;
