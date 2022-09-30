@@ -194,7 +194,26 @@
   components:
   - type: Mail
     contents:
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
+    - id: KatanaDulled
+      orGroup: Katana
     - id: Katana
+      orGroup: Katana
 
 - type: entity
   parent: BaseMail
@@ -231,10 +250,29 @@
   components:
   - type: Mail
     contents:
-    - id: Claymore
     - id: ClothingUniformJumpskirtColorRed
     - id: ClothingHeadHatBeret
     - id: DrinkRedMeadGlass
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: ClaymoreDulled
+      orGroup: Claymore
+    - id: Claymore
+      orGroup: Claymore
 
 - type: entity
   parent: BaseMail
