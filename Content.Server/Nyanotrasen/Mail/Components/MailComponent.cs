@@ -30,7 +30,14 @@ namespace Content.Server.Mail.Components
         /// <summary>
         /// The amount that cargo will be awarded for delivering this mail.
         /// </summary>
-        public int Bounty = 500;
+        [DataField("bounty")]
+        public int Bounty = 750;
+
+        /// <summary>
+        /// Penalty if the mail is destroyed.
+        /// </summary>
+        [DataField("penalty")]
+        public int Penalty = -250;
 
         /// <summary>
         /// Whether this component is enabled.
