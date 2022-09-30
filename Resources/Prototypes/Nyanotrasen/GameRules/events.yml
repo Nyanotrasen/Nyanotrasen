@@ -26,3 +26,12 @@
     maximumGlimmer: 500
     glimmerBurnLower: 10
     glimmerBurnUpper: 40
+
+- type: gameRule
+  id: MassMindSwap
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: MassMindSwap
+    minimumGlimmer: 900
+    glimmerBurnLower: 70
+    glimmerBurnUpper: 150

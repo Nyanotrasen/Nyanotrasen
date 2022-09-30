@@ -5,6 +5,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Ghost.Components;
 using Content.Server.Psionics.Glimmer;
+using Content.Server.Abilities.Psionics;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Research.SophicScribe
@@ -55,9 +56,16 @@ namespace Content.Server.Research.SophicScribe
             {
                 if (!TryComp<IntrinsicRadioComponent>(scribe.Owner, out var radio)) return;
 
+                // mind entities when...
+                var speaker = scribe.Owner;
+                if (TryComp<MindSwappedComponent>(scribe.Owner, out var swapped))
+                {
+                    speaker = swapped.OriginalEntity;
+                }
+
                 var message = Loc.GetString(args.Message, ("decrease", args.GlimmerBurned), ("level", _sharedGlimmerSystem.Glimmer));
                 var channel = _prototypeManager.Index<RadioChannelPrototype>("Common");
-                _radioSystem.SpreadMessage(radio, scribe.Owner, message, channel);
+                _radioSystem.SpreadMessage(radio, speaker, message, channel);
             }
         }
     }
