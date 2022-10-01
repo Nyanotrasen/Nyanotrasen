@@ -1,0 +1,37 @@
+Entries:
+- author: ZeroDayDaemon
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  id: 1
+  time: '2022-10-01T16:50:48.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: added new map Angle
+    type: Add
+  id: 2
+  time: '2022-10-01T17:23:24.0000000+00:00'
+- author: Rane
+  changes:
+  - message: New psionic glimmer event eligible at all levels above 100.
+    type: Add
+  - message: Added special behavior for severed telegnostic projections.
+    type: Add
+  - message: Felinids have a new wilhelm scream.
+    type: Add
+  - message: Several intelligent non-humanoids are now eligible for psionics.
+    type: Add
+  - message: Dispel has more feedback for most of its behaviors.
+    type: Tweak
+  - message: Oracle will no longer ask for food, creatures, or recipes that require
+      bluespace.
+    type: Tweak
+  - message: Vampiric metabolism of blood into omnizine has been boosted to compensate
+      for recent changes to processing small amounts of reagents.
+    type: Tweak
+  - message: Mind swap is more descriptive when you are trapped.
+    type: Fix
+  id: 3
+  time: '2022-10-01T17:27:00.0000000+00:00'

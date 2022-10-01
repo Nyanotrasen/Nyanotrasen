@@ -9,13 +9,19 @@
     weight: 5
     endAfter: 1
     earliestStart: 15
-    maxOccurrences: 2
+    maxOccurrences: 3
 
 - type: gameRule
   id: NoosphericZap
   config:
     !type:GlimmerEventRuleConfiguration
     id: NoosphericZap
+
+- type: gameRule
+  id: NoosphericFry
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: NoosphericFry
 
 - type: gameRule
   id: PsionicCatGotYourTongue
