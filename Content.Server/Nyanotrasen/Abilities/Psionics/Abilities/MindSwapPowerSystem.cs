@@ -4,9 +4,11 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Server.MobState;
+using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -17,7 +19,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
@@ -27,9 +29,8 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
-
             //
-            SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
         }
 
         private void OnInit(EntityUid uid, MindSwapPowerComponent component, ComponentInit args)
@@ -48,8 +49,6 @@ namespace Content.Server.Abilities.Psionics
         {
             if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("MindSwap", out var pacify))
                 _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
-            if (TryComp<MindSwappedComponent>(uid, out var swapped))
-                Swap(uid, swapped.OriginalEntity, true);
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)
@@ -71,18 +70,35 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
+            Logger.Error("Running checks...");
             // How do we get trapped?
+            // 1. Original target doesn't exist
+            if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
+            {
+                GetTrapped(uid);
+                return;
+            }
             // 1. Original target is no longer mindswapped
             if (!TryComp<MindSwappedComponent>(component.OriginalEntity, out var targetMindSwap))
+            {
+                GetTrapped(uid);
                 return;
+            }
 
             // 2. Target has undergone a different mind swap
             if (targetMindSwap.OriginalEntity != uid)
+            {
+                GetTrapped(uid);
                 return;
+            }
 
             // 3. Target is dead
             if (_mobStateSystem.IsDead(component.OriginalEntity))
+            {
+                GetTrapped(uid);
                 return;
+            }
+            Logger.Error("Checks passed...");
 
             Swap(uid, component.OriginalEntity, true);
         }
@@ -93,7 +109,7 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
-        private void OnInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
+        private void OnSwapInit(EntityUid uid, MindSwappedComponent component, ComponentInit args)
         {
             if (_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var mindSwap))
             {
@@ -102,6 +118,7 @@ namespace Content.Server.Abilities.Psionics
                 _actions.AddAction(uid, action, null);
             }
         }
+
         public void Swap(EntityUid performer, EntityUid target, bool end = false)
         {
             if (end && (!HasComp<MindSwappedComponent>(performer) || !HasComp<MindSwappedComponent>(target)))
@@ -136,6 +153,14 @@ namespace Content.Server.Abilities.Psionics
             targetComp.OriginalEntity = performer;
         }
 
+        private void GetTrapped(EntityUid uid)
+        {
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
+                return;
+
+            _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, Filter.Entities(uid), Shared.Popups.PopupType.LargeCaution);
+            _actions.RemoveAction(uid, action);
+        }
     }
 
     public sealed class MindSwapPowerActionEvent : EntityTargetActionEvent {}
