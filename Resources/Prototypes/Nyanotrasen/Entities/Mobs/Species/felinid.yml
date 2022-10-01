@@ -118,11 +118,10 @@
     damageContainer: Biological
     damageModifierSet: Felinid
   - type: MeleeWeapon
-    hitSound:
+    soundHit:
       collection: Punch
     range: 0.65
-    arcwidth: 30
-    arc: claw
+    animation: WeaponArcClaw
     damage:
       types:
         Blunt: 1

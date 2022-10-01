@@ -1,8 +1,8 @@
 - type: entity
   parent: Protolathe
   id: ScienceTechFab
-  name: science techfab
-  description: Prints equipment for use by the research department.
+  name: epistemics techfab
+  description: Prints equipment for use by the epistemics department.
   components:
   - type: Sprite
     netsync: false
@@ -27,6 +27,7 @@
       - Decloner
       - CryostasisBeaker
       - ShockCollar
+      - InsulativeHeadcage
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
@@ -45,6 +46,7 @@
       - SheetGlass1
       - SheetRGlass
       - SheetPlastic
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack

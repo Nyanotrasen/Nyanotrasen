@@ -23,13 +23,13 @@ namespace Content.Server.Abilities.Psionics
 
         public readonly IReadOnlyList<string> PsionicPowerPool = new[]
         {
-            "PacificationPower",
             "MetapsionicPower",
             "DispelPower",
             "MassSleepPower",
             "PsionicInvisibilityPower",
             "MindSwapPower",
             "TelegnosisPower",
+            "PsionicRegenerationPower",
         };
 
         public void AddPsionics(EntityUid uid)

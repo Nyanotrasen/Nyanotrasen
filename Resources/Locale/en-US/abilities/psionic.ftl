@@ -1,5 +1,7 @@
-action-name-pacify = Pacify
-action-description-pacify = Make the target unable to attack.
+cage-resist-second-person = You start removing your {$cage}.
+cage-resist-third-person = {CAPITALIZE(THE($user))} starts removing {POSS-ADJ($user)} {$cage}.
+
+cage-uncage-verb = Uncage
 
 action-name-metapsionic = Metapsionic Pulse
 action-description-metapsionic = Send a mental pulse through the area to see if there are any psychics nearby.
@@ -37,6 +39,9 @@ action-description-mind-swap-return = Return to your original body.
 
 action-name-telegnosis = Telegnosis
 action-description-telegnosis = Create a telegnostic projection to remotely observe things.
+
+action-name-psionic-regeneration = Psionic Regeneration
+action-description-psionic-regeneration = Push your natural metabolism to the limit to power your body's regenerative capability.
 
 glimmer-report = Current Glimmer Level: {$level}μΨ.
 glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.

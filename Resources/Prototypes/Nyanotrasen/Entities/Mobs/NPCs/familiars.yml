@@ -33,8 +33,6 @@
     bloodReagent: Phlogiston
   - type: MeleeWeapon
     range: 1.5
-    arcwidth: 0
-    arc: punch
     damage:
       groups:
         Burn: 10
@@ -94,12 +92,12 @@
         maxVol: 1000
   - type: Welder
     fuelReagent: Phlogiston
+    tankSafe: true
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
         Blunt: -10
   - type: AutoRegenReagent
     solution: Welder
-    tankSafe: true
     reagents:
       - Phlogiston

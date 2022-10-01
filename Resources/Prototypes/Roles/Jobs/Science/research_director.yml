@@ -2,9 +2,12 @@
   id: ResearchDirector
   name: job-name-rd
   setPreference: false
+  playTimeTracker: JobResearchDirector
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 108000
   weight: 10
   startingGear: ResearchDirectorGear
-  playTimeTracker: JobResearchDirector
   icon: "ResearchDirector"
   requireAdminNotify: true
   supervisors: job-supervisors-captain

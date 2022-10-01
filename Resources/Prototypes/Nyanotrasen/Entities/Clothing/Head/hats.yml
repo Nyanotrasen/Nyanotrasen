@@ -76,7 +76,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Radiation: 0.05
+        Radiation: 0.95
   - type: Construction
     graph: TinfoilHat
     node: tinfoilhat
@@ -91,3 +91,15 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
+
+- type: entity
+  parent: ClothingHeadTinfoil
+  id: ClothingHeadCage
+  name: insulative headcage
+  description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
+  - type: HeadCage

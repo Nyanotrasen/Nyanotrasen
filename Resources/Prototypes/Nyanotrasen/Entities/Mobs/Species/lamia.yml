@@ -238,11 +238,9 @@
   - type: CharacterInfo
   - type: AnimationPlayer
   - type: MeleeWeapon
-    hitSound:
+    soundHit:
       collection: Punch
     range: 0.8
-    arcwidth: 30
-    arc: fist
     damage:
       types:
         Blunt: 5
