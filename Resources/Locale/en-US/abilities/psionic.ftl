@@ -48,3 +48,8 @@ glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has
 
 noospheric-zap-seize = You seize up!
 noospheric-zap-seize-potential-regained = You seize up! Some mental block seems to have cleared, too.
+
+mindswap-trapped = Seems you're trapped in this vessel.
+
+telegnostic-trapped-entity-name = severed telegnostic projection
+telegnostic-trapped-entity-desc = Its many eyes betray sadness.

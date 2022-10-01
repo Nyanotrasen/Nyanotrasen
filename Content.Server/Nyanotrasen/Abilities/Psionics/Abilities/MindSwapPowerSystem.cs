@@ -1,10 +1,12 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Speech;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Server.MobState;
 using Content.Server.Popups;
+using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -160,6 +162,14 @@ namespace Content.Server.Abilities.Psionics
 
             _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, Filter.Entities(uid), Shared.Popups.PopupType.LargeCaution);
             _actions.RemoveAction(uid, action);
+
+            if (HasComp<TelegnosticProjectionComponent>(uid))
+            {
+                RemComp<PsionicallyInvisibleComponent>(uid);
+                EnsureComp<SharedSpeechComponent>(uid);
+                MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
+                MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
+            }
         }
     }
 
