@@ -191,7 +191,7 @@
   - type: MobState
     thresholds:
       0: Alive
-      1500: Dead
+      1350: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.8
     baseSprintSpeed : 3.8
@@ -213,6 +213,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: PotentialPsionic
 
 - type: entity
   name: Ravager

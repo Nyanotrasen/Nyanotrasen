@@ -43,6 +43,23 @@ namespace Content.Server.Research.Oracle
             "σάκλας"
         };
 
+        public readonly IReadOnlyList<String> BlacklistedProtos = new[]
+        {
+            "MobTomatoKiller",
+            "Drone",
+            "QSI",
+            "BluespaceBeaker",
+            "BackpackOfHolding",
+            "SatchelOfHolding",
+            "DuffelbagOfHolding",
+            "TrashBagOfHolding",
+            "BluespaceCrystal",
+            "InsulativeHeadcage",
+            "BodyBag_Folded",
+            "BodyBag",
+        };
+
+
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -137,10 +154,11 @@ namespace Content.Server.Research.Oracle
 
         private string GetDesiredItem()
         {
-            var allMeals = _prototypeManager.EnumeratePrototypes<FoodRecipePrototype>().Select(x => x.Result).ToList();
             var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
-            var allProtos = allMeals.Concat(allRecipes).Concat(allPlants).ToList();
+            var allProtos = allRecipes.Concat(allPlants).ToList();
+            foreach (var proto in BlacklistedProtos)
+                allProtos.Remove(proto);
             return _random.Pick((allProtos));
         }
     }

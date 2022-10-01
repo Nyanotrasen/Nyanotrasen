@@ -1,5 +1,6 @@
 - type: entity
   name: katana
+  suffix: Dulled
   parent: BaseItem
   id: KatanaDulled
   description: Ancient craftwork made with not so ancient plasteel. This one has been dulled.
@@ -21,6 +22,7 @@
 
 - type: entity
   name: claymore
+  suffix: Dulled
   parent: BaseItem
   id: ClaymoreDulled
   description: An ancient war blade. This one has been dulled.
