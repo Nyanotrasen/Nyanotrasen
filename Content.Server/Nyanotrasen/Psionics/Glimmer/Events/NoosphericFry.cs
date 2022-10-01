@@ -1,9 +1,12 @@
 using Content.Shared.MobState.Components;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Inventory;
 using Content.Shared.Damage;
 using Content.Server.MobState;
 using Content.Server.Popups;
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Robust.Shared.Player;
 
 namespace Content.Server.Psionics.Glimmer;
@@ -16,7 +19,9 @@ public sealed class NoosphericFry : GlimmerEventSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly FlammableSystem _flammableSystem = default!;
 
 
     public override string Prototype => "NoosphericFry";
@@ -55,6 +60,24 @@ public sealed class NoosphericFry : GlimmerEventSystem
             DamageSpecifier damage = new();
             damage.DamageDict.Add("Heat", 2.5);
             damage.DamageDict.Add("Shock", 2.5);
+
+            if (_glimmerSystem.Glimmer > 500 && _glimmerSystem.Glimmer < 750)
+            {
+                damage *= 2;
+                if (TryComp<FlammableComponent>(pair.wearer, out var flammableComponent))
+                {
+                    flammableComponent.FireStacks += 1;
+                    _flammableSystem.Ignite(pair.wearer, flammableComponent);
+                }
+            } else if (_glimmerSystem.Glimmer > 750)
+            {
+                damage *= 3;
+                if (TryComp<FlammableComponent>(pair.wearer, out var flammableComponent))
+                {
+                    flammableComponent.FireStacks += 2;
+                    _flammableSystem.Ignite(pair.wearer, flammableComponent);
+                }
+            }
 
             _damageableSystem.TryChangeDamage(pair.wearer, damage, true, true);
         }
