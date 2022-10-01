@@ -153,6 +153,7 @@
   - type: Psionic
   - type: TinfoilHat
     passthrough: true
+    destroyOnFry: false
   - type: ClothingGrantPsionicPower
     power: MetapsionicPower
 
