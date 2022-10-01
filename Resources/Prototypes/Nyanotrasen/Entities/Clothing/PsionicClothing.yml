@@ -64,11 +64,12 @@
   components:
   - type: Headset
     channels:
-    - Telepathic
+    - Common
   - type: Sprite
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/syndicate.rsi
+#Functionality not coded yet
 
 - type: entity
   parent: ClothingHandsBase

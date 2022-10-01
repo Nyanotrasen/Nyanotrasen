@@ -15,7 +15,6 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly StunSystem _stunSystem = default!;
-        [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         public override void Initialize()
         {
@@ -45,7 +44,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)
         {
-            if (!(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
+            if (!(TryComp<PotentialPsionicComponent>(args.Target, out var damageable)))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))
@@ -60,5 +59,8 @@ namespace Content.Server.Abilities.Psionics
 
     }
 
-    public sealed class NoosphericZapPowerActionEvent : EntityTargetActionEvent {}
+    public sealed class NoosphericZapPowerActionEvent : EntityTargetActionEvent
+    {
+        //Rider Gets pissy if i dont include this
+    }
 }
