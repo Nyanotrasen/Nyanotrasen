@@ -106,3 +106,13 @@
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 120
   serverEvent: !type:PsionicRegenerationPowerActionEvent
+
+- type: entityTargetAction
+  id: NoosphericZap
+  name: action-name-noospheric-zap
+  description: action-description-noospheric-zap
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 120
+  checkCanAccess: false
+  range: 8
+  event: !type:NoosphericZapPowerActionEvent
