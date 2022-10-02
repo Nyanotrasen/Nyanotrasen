@@ -85,3 +85,11 @@ Entries:
     type: Add
   id: 10
   time: '2022-10-02T17:59:56.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: changed airlocks in Security
+    type: Fix
+  - message: changed layout of HV wiring in AME room
+    type: Tweak
+  id: 11
+  time: '2022-10-02T19:01:00.0000000+00:00'
