@@ -1,7 +1,9 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
+using Content.Shared.MobState;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Weapon.Melee;
+using Content.Server.Weapons.Melee.Events;
 using Content.Server.Damage.Events;
 using Content.Server.GameTicking;
 using Content.Server.Electrocution;
@@ -18,6 +20,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -25,6 +28,10 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
+
+            SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnPsiInit);
+            SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(OnPsiShutdown);
+            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -66,6 +73,27 @@ namespace Content.Server.Psionics
             }
         }
 
+        private void OnPsiInit(EntityUid uid, PsionicComponent component, ComponentInit args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void OnPsiShutdown(EntityUid uid, PsionicComponent component, ComponentShutdown args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState == DamageState.Dead)
+                RemCompDeferred(uid, component);
+        }
+
+        private void InformPsionicsChanged(EntityUid uid)
+        {
+            RaiseNetworkEvent(new PsionicsChangedEvent(uid), Filter.Entities(uid));
+        }
+
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
             args.FlatModifier += component.PsychicStaminaDamage;
@@ -83,6 +111,8 @@ namespace Content.Server.Psionics
                 chance *= bonus.Multiplier;
                 chance += bonus.FlatBonus;
             }
+
+            chance += ((float) _glimmerSystem.Glimmer / 1000);
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))

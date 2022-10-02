@@ -54,9 +54,10 @@
   - type: ReplacementAccent
     accent: mouse
   - type: MeleeWeapon
+    hidden: true
     range: 1.5
-    arcwidth: 0
-    arc: bite
+    angle: 0
+    animation: WeaponArcBite
     damage:
       types:
         Piercing: 5
@@ -130,9 +131,10 @@
       autoPopulate: false
       name: action-name-disarm
   - type: MeleeWeapon
+    hidden: true
     range: 0.3
-    arcwidth: 0
-    arc: bite
+    angle: 0
+    animation: WeaponArcBite
     damage:
       types:
         Poison: 2
@@ -141,7 +143,7 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: AiFactionTag
+  - type: Faction
     factions:
     - SimpleHostile
   - type: Bloodstream
@@ -509,9 +511,9 @@
   - type: Hunger
   - type: MeleeWeapon
     range: 1.5
-    arcwidth: 0
-    arc: bite
-    hitSound:
+    animation: WeaponArcBite
+
+    soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
       types:
@@ -648,7 +650,7 @@
   description: A large marsupial herbivore. It has powerful hind legs and... boxing gloves?
   components:
   - type: CombatMode
-    canDisarm: true
+    disarm: null
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -665,9 +667,10 @@
       Dead:
         Base: kangaroo-boxing-dead
   - type: MeleeWeapon
+    hidden: true
     range: 1.5
-    arcwidth: 0
-    arc: claw
+    angle: 0
+    animation: WeaponArcClaw
     damage:
       types:
         Blunt: 10
@@ -675,7 +678,7 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: AiFactionTag
+  - type: Faction
     factions:
     - SimpleHostile
 
@@ -708,7 +711,7 @@
   description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
   components:
   - type: CombatMode
-    canDisarm: true
+    disarm: null
   - type: NameIdentifier
     group: Monkey
   - type: SentienceTarget
@@ -770,6 +773,8 @@
   components:
   - type: GhostTakeoverAvailable
     makeSentient: true
+    allowSpeech: true
+    allowMovement: true
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
   - type: Speech
@@ -831,7 +836,7 @@
           Quantity: 50
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodMeatRat
       amount: 1
   - type: ReplacementAccent
     accent: mouse
@@ -964,7 +969,7 @@
         Base: dead
   - type: Butcherable
     spawned:
-    - id: FoodMeat
+    - id: FoodMeatLizard
       amount: 1
   - type: InteractionPopup
     successChance: 0.3
@@ -1178,7 +1183,7 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: AiFactionTag
+  - type: Faction
     factions:
     - Syndicate
   - type: Sprite
@@ -1212,9 +1217,10 @@
     - id: FoodMeatPenguin
       amount: 3
   - type: MeleeWeapon
+    hidden: true
     range: 0.5
-    arcwidth: 0
-    arc: bite
+    angle: 0
+    animation: WeaponArcBite
     damage:
       groups:
         Brute: 5
@@ -1335,7 +1341,7 @@
   id: MobGiantSpiderAngry
   suffix: Angry
   components:
-    - type: AiFactionTag
+    - type: Faction
       factions:
         - Xeno
     - type: InputMover

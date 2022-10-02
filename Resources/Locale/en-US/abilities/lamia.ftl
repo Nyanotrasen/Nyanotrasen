@@ -15,3 +15,5 @@ bloodsucker-doafter-start-victim = {CAPITALIZE(THE($sucker))} is trying to bite 
 bloodsucker-blood-sucked-victim = {CAPITALIZE(THE($sucker))} sucks some of your blood!
 
 bloodsucked-health-examine = [color=red]{ CAPITALIZE(SUBJECT($target)) } { CONJUGATE-HAVE($target) } bite marks on { POSS-ADJ($target) } neck.[/color]
+
+bloodsucker-glands-throb = The glands behind your fangs feel a bit sore.

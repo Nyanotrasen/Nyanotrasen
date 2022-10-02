@@ -84,7 +84,7 @@ namespace Content.Server.GameTicking
             RaiseLocalEvent(new RulePlayerJobsAssignedEvent(assignedJobs.Keys.Select(x => _playerManager.GetSessionByUserId(x)).ToArray(), profiles, force));
         }
 
-        private void SpawnPlayer(IPlayerSession player, EntityUid station, string? jobId = null, bool lateJoin = true)
+        private async void SpawnPlayer(IPlayerSession player, EntityUid station, string? jobId = null, bool lateJoin = true)
         {
             var character = GetPlayerProfile(player);
 
@@ -92,12 +92,13 @@ namespace Content.Server.GameTicking
             if (jobBans == null || jobId != null && jobBans.Contains(jobId))
                 return;
 
-            if (jobId != null && !_playTimeTrackings.IsAllowed(player, jobId))
+            if (jobId != null && !await _playTimeTrackings.IsAllowed(player, jobId))
                 return;
+
             SpawnPlayer(player, character, station, jobId, lateJoin);
         }
 
-        private void SpawnPlayer(IPlayerSession player, HumanoidCharacterProfile character, EntityUid station, string? jobId = null, bool lateJoin = true)
+        private async void SpawnPlayer(IPlayerSession player, HumanoidCharacterProfile character, EntityUid station, string? jobId = null, bool lateJoin = true)
         {
             // Can't spawn players with a dummy ticker!
             if (DummyTicker)
@@ -138,6 +139,9 @@ namespace Content.Server.GameTicking
 
             var jobBans = _roleBanManager.GetJobBans(player.UserId);
             if(jobBans != null) restrictedRoles.UnionWith(jobBans);
+
+            if (jobId != null && !await _playTimeTrackings.IsAllowed(player, jobId))
+                return;
 
             // Pick best job best on prefs.
             jobId ??= _stationJobs.PickBestAvailableJobWithPriority(station, character.JobPriorities, true,

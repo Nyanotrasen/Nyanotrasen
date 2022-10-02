@@ -10,6 +10,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:NotRoleRequirement
+      roleId: Captain
   conditions:
     - !type:StealCondition
       prototype: CaptainIDCard
@@ -40,17 +42,6 @@
   canBeDuplicate: true
 
 - type: objective
-  id: StayAliveObjective
-  issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-        conditions:
-          - DieCondition
-  conditions:
-    - !type:StayAliveCondition {}
-
-- type: objective
   id: DieObjective
   issuer: syndicate
   prob: 0.03
@@ -58,8 +49,8 @@
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
-        - StayAliveCondition
         - StealCondition
+        - EscapeShuttleCondition
   conditions:
     - !type:DieCondition {}
 
@@ -73,6 +64,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ChiefMedicalOfficer
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
   conditions:
@@ -140,6 +133,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
   conditions:
     - !type:StealCondition
       prototype: IDComputerCircuitboard
@@ -155,6 +150,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ChiefEngineer
     - !type:NotRoleRequirement
       roleId: ChiefEngineer
   conditions:
@@ -173,9 +170,11 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Quartermaster
+    - !type:NotRoleRequirement
+      roleId: Quartermaster
   conditions:
     - !type:StealCondition
-      prototype: SupplyComputerCircuitboard
+      prototype: CargoRequestComputerCircuitboard
       owner: job-name-qm
 
 - type: objective
@@ -187,6 +186,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -206,6 +207,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:NotRoleRequirement
+      roleId: Captain
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
@@ -221,6 +224,8 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+    - !type:NotRoleRequirement
+      roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
   conditions:
@@ -242,3 +247,14 @@
     - !type:StealCondition
       prototype: AntiPsychicKnife
       owner: job-name-mantis
+
+- type: objective
+  id: EscapeShuttleObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+  conditions:
+    - !type:EscapeShuttleCondition {}

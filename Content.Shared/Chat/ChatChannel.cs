@@ -70,8 +70,13 @@ namespace Content.Shared.Chat
         Unspecified = 1 << 11,
 
         /// <summary>
+        ///     Telepathic channel for all psionic entities.
+        /// </summary>
+        Telepathic = 1 << 12,
+
+        /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual,
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic,
     }
 }

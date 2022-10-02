@@ -26,12 +26,13 @@
       collection: FelinidScreams
     femaleScream:
       collection: FelinidScreams
+    wilhelm: "/Audio/Voice/Felinid/cat_wilhelm.ogg"
   - type: Actions
   - type: Eye
   - type: CameraRecoil
   - type: Examiner
   - type: CanHostGuardian
-  - type: AiFactionTag
+  - type: Faction
     factions:
     - NanoTrasen
   - type: Felinid #since this just adds an action...

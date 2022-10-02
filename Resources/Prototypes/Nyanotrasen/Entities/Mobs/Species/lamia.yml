@@ -27,6 +27,8 @@
   - type: Polymorphable
   - type: Identity
   - type: Hands
+  - type: Humanoid
+    species: Lamia
   - type: MovementSpeedModifier
     baseWalkSpeed : 4
     baseSprintSpeed : 6
@@ -47,16 +49,6 @@
     solution: chemicals
   - type: DrawableSolution
     solution: bloodstream
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Blood
-          Quantity: 50
-  - type: Extractable
-    grindableSolutionName: food
   - type: IdExaminable
   - type: HealthExaminable
     examinableTypes:
@@ -87,12 +79,6 @@
     state: full
   - type: Physics
     bodyType: KinematicController
-  - type: Markings
-    layerPoints:
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [LamiaBottom]
   - type: Tag
     tags:
     - CanPilot
@@ -179,7 +165,6 @@
     damage:
       types:
         Heat: 1 #per second, scales with number of fire 'stacks'
-  - type: HumanoidAppearance
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -253,11 +238,9 @@
   - type: CharacterInfo
   - type: AnimationPlayer
   - type: MeleeWeapon
-    hitSound:
+    soundHit:
       collection: Punch
     range: 0.8
-    arcwidth: 30
-    arc: fist
     damage:
       types:
         Blunt: 5
@@ -322,7 +305,6 @@
   - type: Perishable
   - type: BloodSucker
 
-
 - type: entity
   save: false
   name: Lamia Dummy
@@ -330,12 +312,6 @@
   id: MobLamiaDummy
   description: A dummy lamia meant to be used in character setup.
   components:
-  - type: Markings
-    layerPoints:
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [LamiaBottom]
   - type: Sprite
     netsync: false
     noRot: true

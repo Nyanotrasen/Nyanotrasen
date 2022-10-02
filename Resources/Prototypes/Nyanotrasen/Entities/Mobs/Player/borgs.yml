@@ -115,7 +115,10 @@
     setupAvailableNetworks:
       - SurveillanceCameraSilicon
   - type: RandomMetadata
-    nameSet: names_autoborg
+    nameSegments: [names_autoborg]
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,0.15"
 
 - type: entity
   parent: PlayerCyborgBase

@@ -110,6 +110,7 @@
     - Syringe
     - ReagentGrinderMachineCircuitboard
     - PillCanister
+    - ChemistryEmptyBottle01
     - TimerTrigger
     - ChemicalPayload
 
@@ -167,6 +168,7 @@
     - Handcuffs
     - Stunbaton
     - FlashPayload
+    - InsulativeHeadcage
 
 - type: technology
   name: "non-lethal technology"
@@ -275,6 +277,7 @@
   requiredTechnologies:
     - BasicResearch
   unlockedRecipes:
+    - AppraisalTool
     - ConveyorBeltAssembly
     - RCDAmmo
     - FlashlightLantern
@@ -310,6 +313,7 @@
     - SheetPlastic
     - SheetRGlass
     - SheetGlass1
+    - BluespaceCrystal
 
 - type: technology
   name: technologies-advanced-atmospherics-technology
@@ -324,6 +328,7 @@
   unlockedRecipes:
   - ThermomachineFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
+  - GasRecyclerMachineCircuitboard
 
 # Avionics Circuitry Technology Tree
 
@@ -503,6 +508,25 @@
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg
+
+- type: technology
+  name: technologies-adv-parts-technology
+  id: AdvancedPartsTechnology
+  description: technologies-adv-parts-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  requiredPoints: 8000
+  requiredTechnologies:
+    - BasicPartsTechnology
+    - IndustrialEngineering
+    - PowerCellBasic
+  unlockedRecipes:
+    - AdvancedCapacitorStockPart
+    - AdvancedMatterBinStockPart
+    - HighPowerMicroLaserStockPart
+    - NanoManipulatorStockPart
+    - AdvancedScanningModuleStockPart
 
 # Bluespace Theory Technology Tree
 

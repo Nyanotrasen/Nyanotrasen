@@ -11,3 +11,21 @@
   - !type:BuyerSpeciesCondition
     whitelist:
     - Oni
+
+- type: listing
+  id: InjectorBloodsuckerNocturine
+  name: nocturine gland injector
+  description: Makes your fangs inject nocturine whenever you suck blood.
+  productEntity: InjectorBloodsuckerNocturine
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkMisc
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Lamia
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
