@@ -12,6 +12,15 @@
     maxOccurrences: 3
 
 - type: gameRule
+  id: MundaneDischarge
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: MundaneDischarge
+    maximumGlimmer: 400
+    glimmerBurnLower: 10
+    glimmerBurnUpper: 40
+
+- type: gameRule
   id: NoosphericZap
   config:
     !type:GlimmerEventRuleConfiguration
