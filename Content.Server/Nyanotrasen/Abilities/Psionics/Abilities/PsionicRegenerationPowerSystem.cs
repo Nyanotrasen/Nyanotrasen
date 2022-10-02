@@ -79,7 +79,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("Psionic Regeneration", out var metapsionic))
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("PsionicRegeneration", out var metapsionic))
                 return;
 
             component.PsionicRegenerationPowerAction = new InstantAction(metapsionic);
@@ -111,7 +111,7 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("Psionic Regeneration", out var metapsionic))
+            if (_prototypeManager.TryIndex<InstantActionPrototype>("PsionicRegeneration", out var metapsionic))
                 _actions.RemoveAction(uid, new InstantAction(metapsionic), null);
         }
 

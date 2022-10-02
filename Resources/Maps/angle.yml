@@ -211,7 +211,7 @@ entities:
     type: Transform
 - uid: 4
   components:
-  - index: 3
+  - index: 4
     type: Map
 - uid: 5
   type: AirlockMaintKitchenLocked
@@ -12233,8 +12233,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.902393
-      - 63.585197
+      - 15.969111
+      - 60.07428
       - 0
       - 0
       - 0
@@ -12263,8 +12263,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.389294
-      - 65.41687
+      - 16.429127
+      - 61.804813
       - 0
       - 0
       - 0
@@ -12278,8 +12278,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 16.902393
-      - 63.585197
+      - 15.969111
+      - 60.07428
       - 0
       - 0
       - 0
@@ -12308,8 +12308,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
+      - 16.902393
+      - 63.585197
       - 0
       - 0
       - 0
@@ -12323,8 +12323,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.429127
-      - 61.804813
+      - 15.521976
+      - 58.3922
       - 0
       - 0
       - 0
@@ -24567,17 +24567,6 @@ entities:
     - 3793
     - 3794
     - 3795
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
     - null
     - 11266
     - 11267
@@ -57845,8 +57834,7 @@ entities:
 - uid: 7261
   type: PoweredlightLED
   components:
-  - rot: 3.141592653589793 rad
-    pos: 5.5,-61.5
+  - pos: 2.5,-58.5
     parent: 9
     type: Transform
   - powerLoad: 0
@@ -59738,23 +59726,6 @@ entities:
   components:
   - rot: 3.141592653589793 rad
     pos: -4.5,-61.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7484
-  type: PoweredlightLED
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -0.5,-61.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7485
-  type: PoweredlightLED
-  components:
-  - pos: 5.5,-58.5
     parent: 9
     type: Transform
   - powerLoad: 0
@@ -74152,13 +74123,6 @@ entities:
     - 9413
     - 9348
     - 9302
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
-    - null
     - null
     type: DeviceList
 - uid: 9415
@@ -89422,9 +89386,6 @@ entities:
     - 4708
     - 4709
     - null
-    - null
-    - null
-    - null
     - 9237
     - 9049
     - 11275
@@ -98333,8 +98294,6 @@ entities:
     - 1268
     - 1267
     - null
-    - null
-    - null
     - 157
     - 158
     - 171
@@ -100171,7 +100130,6 @@ entities:
     - 12814
     - 12815
     - null
-    - null
     - 1039
     - 10186
     - 10187
@@ -100729,4 +100687,28 @@ entities:
   - pos: 10.5,-63.5
     parent: 9
     type: Transform
+- uid: 12880
+  type: RandomPosterLegit
+  components:
+  - pos: 11.5,-32.5
+    parent: 9
+    type: Transform
+- uid: 12881
+  type: Poweredlight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-64.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 12882
+  type: Poweredlight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 10.5,-64.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 ...
