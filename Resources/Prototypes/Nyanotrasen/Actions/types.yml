@@ -113,6 +113,5 @@
   description: action-description-noospheric-zap
   icon: Interface/VerbIcons/sentient.svg.192dpi.png
   useDelay: 120
-  checkCanAccess: false
   range: 8
-  event: !type:NoosphericZapPowerActionEvent
+  serverEvent: !type:NoosphericZapPowerActionEvent

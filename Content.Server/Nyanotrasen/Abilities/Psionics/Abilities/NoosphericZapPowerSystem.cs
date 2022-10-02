@@ -1,7 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Damage;
 using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Content.Shared.StatusEffect;
@@ -59,8 +58,5 @@ namespace Content.Server.Abilities.Psionics
 
     }
 
-    public sealed class NoosphericZapPowerActionEvent : EntityTargetActionEvent
-    {
-        //Rider Gets pissy if i dont include this
-    }
+    public sealed class NoosphericZapPowerActionEvent : EntityTargetActionEvent {}
 }
