@@ -45,33 +45,6 @@
     power: DispelPower
 
 - type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckGhostspeakAmulet # Allows to see and speak to ghosts, might be too OP
-  name: skull amulet
-  description: An odd amulet with a skull affixed to it. Placeholder Sprite.
-  components:
-  - type: Sprite
-    sprite: Clothing/Neck/Misc/bling.rsi
-  - type: Clothing
-    sprite: Clothing/Neck/Misc/bling.rsi
-#Functionality not coded yet
-
-- type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetBinaural
-  name: binaural overear-headset
-  description: a headset with a binaural audio feed, careful, you might hear voices in your head. Placeholder Sprite.
-  components:
-  - type: Headset
-    channels:
-    - Common
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/syndicate.rsi
-  - type: Clothing
-    sprite: Clothing/Ears/Headsets/syndicate.rsi
-#Functionality not coded yet
-
-- type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesColorYellowUnsulated
   name: unsulated gloves
