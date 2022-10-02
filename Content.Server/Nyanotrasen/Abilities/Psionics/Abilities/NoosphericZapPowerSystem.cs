@@ -25,10 +25,10 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, NoosphericZapPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("NoosphericZap", out var NoosphericZap))
+            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("NoosphericZap", out var noosphericZap))
                 return;
 
-            component.NoosphericZapPowerAction = new EntityTargetAction(NoosphericZap);
+            component.NoosphericZapPowerAction = new EntityTargetAction(noosphericZap);
             _actions.AddAction(uid, component.NoosphericZapPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -37,13 +37,13 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, NoosphericZapPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("NoosphericZap", out var pacify))
-                _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("NoosphericZap", out var noosphericZap))
+                _actions.RemoveAction(uid, new EntityTargetAction(noosphericZap), null);
         }
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)
         {
-            if (!(TryComp<PotentialPsionicComponent>(args.Target, out var damageable)))
+            if (!(HasComp<PotentialPsionicComponent>(args.Target)))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))
