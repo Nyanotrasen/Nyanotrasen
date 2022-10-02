@@ -37,10 +37,10 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var pacify))
+            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var action))
                 return;
 
-            component.DispelPowerAction = new EntityTargetAction(pacify);
+            component.DispelPowerAction = new EntityTargetAction(action);
             _actions.AddAction(uid, component.DispelPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -49,8 +49,8 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, DispelPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var pacify))
-                _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var action))
+                _actions.RemoveAction(uid, new EntityTargetAction(action), null);
         }
 
         private void OnPowerUsed(DispelPowerActionEvent args)
