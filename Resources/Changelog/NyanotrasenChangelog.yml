@@ -55,3 +55,15 @@ Entries:
     type: Fix
   id: 6
   time: '2022-10-01T21:25:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: There's a new alert level, code white, for psionic emergencies.
+    type: Add
+  - message: 'New traitor objective: become psionic.'
+    type: Add
+  - message: Latejoiners no longer benefit from glimmer on their initial roll.
+    type: Tweak
+  - message: Base psionic chance is back to where it was originally.
+    type: Tweak
+  id: 7
+  time: '2022-10-02T16:11:49.0000000+00:00'
