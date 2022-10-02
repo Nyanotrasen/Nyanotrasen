@@ -26,6 +26,11 @@
       announcement: alert-level-red-announcement
       sound: /Audio/Misc/redalert.ogg
       color: Red
+    white:
+      announcement: alert-level-white-announcement
+      sound: /Audio/Misc/redalert.ogg
+      emergencyLightColor: "#F6CCF6"
+      color: White
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false

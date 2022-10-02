@@ -49,8 +49,8 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, MindSwapPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("MindSwap", out var pacify))
-                _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("MindSwap", out var action))
+                _actions.RemoveAction(uid, new EntityTargetAction(action), null);
         }
 
         private void OnPowerUsed(MindSwapPowerActionEvent args)

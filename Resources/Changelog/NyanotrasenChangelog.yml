@@ -49,3 +49,47 @@ Entries:
     type: Fix
   id: 5
   time: '2022-10-01T20:40:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Drones are now in the engineering techfab, where you would expect them.
+    type: Fix
+  id: 6
+  time: '2022-10-01T21:25:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: There's a new alert level, code white, for psionic emergencies.
+    type: Add
+  - message: 'New traitor objective: become psionic.'
+    type: Add
+  - message: Latejoiners no longer benefit from glimmer on their initial roll.
+    type: Tweak
+  - message: Base psionic chance is back to where it was originally.
+    type: Tweak
+  id: 7
+  time: '2022-10-02T16:11:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Angle has been updated with several fixes and reworks.
+    type: Tweak
+  id: 8
+  time: '2022-10-02T16:18:25.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Added new psionic clothing.
+    type: Add
+  id: 9
+  time: '2022-10-02T16:18:32.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for insulative skullcap.
+    type: Add
+  id: 10
+  time: '2022-10-02T17:59:56.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: changed airlocks in Security
+    type: Fix
+  - message: changed layout of HV wiring in AME room
+    type: Tweak
+  id: 11
+  time: '2022-10-02T19:01:00.0000000+00:00'

@@ -19,6 +19,7 @@
 - type: objective
   id: KillRandomObjective
   issuer: syndicate
+  prob: 0.6
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -55,6 +56,22 @@
     - !type:DieCondition {}
 
 - type: objective
+  id: BecomePsionicObjective
+  issuer: syndicate
+  prob: 0.6
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+    - !type:NotRoleRequirement
+      roleId: ForensicMantis
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+  conditions:
+    - !type:BecomePsionicCondition
+
+- type: objective
   id: CMOHyposprayStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
@@ -64,8 +81,6 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: ChiefMedicalOfficer
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
   conditions:
@@ -120,8 +135,6 @@
       prototype: NukeDisk
       owner: objective-condition-steal-station
 
-
-
 - type: objective
   id: IDComputerBoardStealObjective
   issuer: syndicate
@@ -131,8 +144,6 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -152,8 +163,6 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ChiefEngineer
-    - !type:NotRoleRequirement
-      roleId: ChiefEngineer
   conditions:
     - !type:StealCondition
       prototype: ClothingShoesBootsMagAdv
@@ -170,8 +179,6 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Quartermaster
-    - !type:NotRoleRequirement
-      roleId: Quartermaster
   conditions:
     - !type:StealCondition
       prototype: CargoRequestComputerCircuitboard
@@ -186,8 +193,6 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -207,8 +212,6 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
-    - !type:NotRoleRequirement
-      roleId: Captain
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
@@ -224,8 +227,6 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
   conditions:
@@ -251,6 +252,7 @@
 - type: objective
   id: EscapeShuttleObjective
   issuer: syndicate
+  prob: 0.6
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement

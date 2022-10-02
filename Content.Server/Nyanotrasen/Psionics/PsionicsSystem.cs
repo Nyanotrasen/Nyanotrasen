@@ -36,7 +36,7 @@ namespace Content.Server.Psionics
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
         {
-            RollPsionics(uid, component);
+            RollPsionics(uid, component, false);
         }
 
         private void OnGuaranteedStartup(EntityUid uid, GuaranteedPsionicComponent component, PlayerSpawnCompleteEvent args)
@@ -99,7 +99,7 @@ namespace Content.Server.Psionics
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true)
         {
             if (HasComp<GuaranteedPsionicComponent>(uid))
                 return;
@@ -112,7 +112,8 @@ namespace Content.Server.Psionics
                 chance += bonus.FlatBonus;
             }
 
-            chance += ((float) _glimmerSystem.Glimmer / 1000);
+            if (applyGlimmer)
+                chance += ((float) _glimmerSystem.Glimmer / 1000);
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))
