@@ -2,7 +2,7 @@
   id: CaptainIDStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
+  prob: 0.05
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -19,7 +19,7 @@
 - type: objective
   id: KillRandomObjective
   issuer: syndicate
-  prob: 0.6
+  prob: 0.75
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -32,6 +32,7 @@
 - type: objective
   id: RandomTraitorAliveObjective
   issuer: syndicate
+  prob: 0.5
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -43,22 +44,9 @@
   canBeDuplicate: true
 
 - type: objective
-  id: DieObjective
-  issuer: syndicate
-  prob: 0.03
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - StealCondition
-        - EscapeShuttleCondition
-  conditions:
-    - !type:DieCondition {}
-
-- type: objective
   id: BecomePsionicObjective
   issuer: syndicate
-  prob: 0.6
+  prob: 0.75
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -75,7 +63,7 @@
   id: CMOHyposprayStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -92,7 +80,7 @@
   id: RDHardsuitStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -110,7 +98,7 @@
 - type: objective
   id: NukeDiskStealObjective
   issuer: syndicate
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -138,7 +126,7 @@
 - type: objective
   id: IDComputerBoardStealObjective
   issuer: syndicate
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -155,7 +143,7 @@
   id: MagbootsStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -171,7 +159,7 @@
 - type: objective
   id: SupplyConsoleBoardStealObjective
   issuer: syndicate
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -187,7 +175,7 @@
 - type: objective
   id: CorgiMeatStealObjective
   issuer: syndicate
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -204,7 +192,7 @@
   id: CaptainGunStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.1
+  prob: 0.05
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -221,7 +209,7 @@
   id: CaptainJetpackStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.1
+  prob: 0.05
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -236,7 +224,7 @@
 - type: objective
   id: MantisKnifeStealObjective
   issuer: syndicate
-  prob: 0.2
+  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -252,7 +240,7 @@
 - type: objective
   id: EscapeShuttleObjective
   issuer: syndicate
-  prob: 0.6
+  prob: 0.8
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
