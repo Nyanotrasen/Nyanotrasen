@@ -46,6 +46,7 @@
 - type: objective
   id: BecomePsionicObjective
   issuer: syndicate
+  difficultyOverride: 2.5
   prob: 0.75
   requirements:
     - !type:TraitorRequirement {}
