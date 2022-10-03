@@ -1,4 +1,4 @@
-﻿roles-antag-syndicate-agent-name = Syndicate agent
+﻿roles-antag-syndicate-agent-name = Syndicate agent (Requires whitelist)
 roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
 
 roles-antag-initial-infected-name = Initial Infected
@@ -10,7 +10,7 @@ roles-antag-zombie-objective = Turn as many humans as possible into zombies.
 roles-antag-suspicion-innocent-name = Innocent
 roles-antag-suspicion-innocent-objective = Discover and eliminate all traitors.
 
-roles-antag-suspicion-suspect-name = Suspect
+roles-antag-suspicion-suspect-name = Suspect (unused)
 roles-antag-suspicion-suspect-objective = Kill the innocents.
 
 roles-antag-nuclear-operative-commander-name = Nuclear operative commander
