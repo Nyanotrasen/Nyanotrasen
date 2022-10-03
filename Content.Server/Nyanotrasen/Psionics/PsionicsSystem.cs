@@ -50,6 +50,9 @@ namespace Content.Server.Psionics
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
         {
+            if (HasComp<PsionicComponent>(uid))
+                return;
+
             _rollers.Enqueue((component, uid));
         }
 
