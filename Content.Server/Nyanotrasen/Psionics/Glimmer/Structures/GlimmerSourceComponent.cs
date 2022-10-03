@@ -12,6 +12,6 @@ namespace Content.Server.Psionics.Glimmer
         /// Since glimmer is an int, we'll do it like this.
         /// </summary>
         [DataField("secondsPerGlimmer")]
-        public float SecondsPerGlimmer = 30f;
+        public float SecondsPerGlimmer = 15f;
     }
 }
