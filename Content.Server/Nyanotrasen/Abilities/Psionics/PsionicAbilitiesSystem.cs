@@ -40,12 +40,14 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
         {
-            Logger.Error("Received player attached...");
-            _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            else
+                AddRandomPsionicPower(uid);
             RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
         }
 
-        public void AddPsionics(EntityUid uid)
+        public void AddPsionics(EntityUid uid, bool warn = true)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
@@ -59,8 +61,10 @@ namespace Content.Server.Abilities.Psionics
             if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
                 return;
 
-            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
+            if (warn && TryComp<ActorComponent>(uid, out var actor))
                 _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
+            else
+                AddRandomPsionicPower(uid);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)

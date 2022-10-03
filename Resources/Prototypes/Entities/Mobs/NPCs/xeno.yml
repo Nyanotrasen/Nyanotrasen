@@ -214,6 +214,9 @@
       layer:
       - MobLayer
   - type: PotentialPsionic
+  - type: PsionicBonusChance
+    flatBonus: 1
+    warn: false
 
 - type: entity
   name: Ravager
