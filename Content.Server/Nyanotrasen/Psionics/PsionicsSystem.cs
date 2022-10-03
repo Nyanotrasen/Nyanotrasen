@@ -24,7 +24,7 @@ namespace Content.Server.Psionics
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<PotentialPsionicComponent, PlayerSpawnCompleteEvent>(OnStartup);
+            SubscribeLocalEvent<PotentialPsionicComponent, MapInitEvent>(OnStartup);
             SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
@@ -34,7 +34,7 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
-        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
+        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
         {
             RollPsionics(uid, component, false);
         }

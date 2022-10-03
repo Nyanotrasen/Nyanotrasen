@@ -32,13 +32,29 @@ namespace Content.Server.Abilities.Psionics
             "PsionicRegenerationPower",
         };
 
+        public override void Initialize()
+        {
+            base.Initialize();
+            SubscribeLocalEvent<PsionicAwaitingPlayerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        }
+
+        private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
+        {
+            Logger.Error("Received player attached...");
+            _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
+        }
+
         public void AddPsionics(EntityUid uid)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
 
             if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
+            {
+                AddComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
+            }
 
             if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
                 return;
