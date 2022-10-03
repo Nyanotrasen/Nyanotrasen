@@ -100,3 +100,28 @@ Entries:
     type: Fix
   id: 12
   time: '2022-10-03T13:39:42.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: An armored, insulative skullcap is available in limited quantities for
+      mantes and security.
+    type: Add
+  - message: Ifrits now have a unique psionic power outside of the pool.
+    type: Add
+  - message: Nuclear operatives now start with a cryptobiolin pill in their bag.
+    type: Add
+  - message: Glimmer probers glimmer output doubled.
+    type: Tweak
+  - message: Shuffled around traitor objective probabilities. Not final.
+    type: Tweak
+  - message: Turned off biomass easy mode.
+    type: Tweak
+  - message: Slightly reduced players per traitor.
+    type: Tweak
+  - message: Initial psionics rolls should be working for all entities now, including
+      nukies and other intelligent beings.
+    type: Fix
+  - message: Box has been removed from rotation until it gets air alarms and other
+      polish passes.
+    type: Remove
+  id: 13
+  time: '2022-10-03T16:06:23.0000000+00:00'
