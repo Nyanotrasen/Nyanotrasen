@@ -54,7 +54,7 @@ namespace Content.Server.Abilities.Psionics
 
             if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
             {
-                AddComp<PsionicAwaitingPlayerComponent>(uid);
+                EnsureComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
             }
 
