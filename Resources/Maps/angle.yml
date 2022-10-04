@@ -211,7 +211,7 @@ entities:
     type: Transform
 - uid: 4
   components:
-  - index: 4
+  - index: 2
     type: Map
 - uid: 5
   type: AirlockMaintKitchenLocked
@@ -12268,8 +12268,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.521976
-      - 58.3922
+      - 15.087361
+      - 56.757217
       - 0
       - 0
       - 0
@@ -12298,8 +12298,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.969111
-      - 60.07428
+      - 15.521976
+      - 58.3922
       - 0
       - 0
       - 0
@@ -12313,8 +12313,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 15.521976
-      - 58.3922
+      - 15.087361
+      - 56.757217
       - 0
       - 0
       - 0
@@ -12343,8 +12343,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.619795
-      - 77.56971
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -12358,8 +12358,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.429127
-      - 61.804813
+      - 15.969111
+      - 60.07428
       - 0
       - 0
       - 0
@@ -12388,8 +12388,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.087361
-      - 56.757217
+      - 14.664915
+      - 55.168015
       - 0
       - 0
       - 0
@@ -12403,8 +12403,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 14.254297
-      - 53.62331
+      - 13.855177
+      - 52.121857
       - 0
       - 0
       - 0
@@ -22570,7 +22570,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -22602,7 +22601,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -24151,7 +24149,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -25215,7 +25212,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -25446,7 +25442,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -25479,7 +25474,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -33400,7 +33394,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -33433,7 +33426,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -33550,7 +33542,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -33583,7 +33574,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -36770,7 +36760,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -38677,7 +38666,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -41086,7 +41074,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -41119,7 +41106,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -41152,7 +41138,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -62797,7 +62782,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -66490,7 +66474,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -67242,7 +67225,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -85319,7 +85301,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -85352,7 +85333,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
