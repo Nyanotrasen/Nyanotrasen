@@ -491,7 +491,7 @@ namespace Content.Client.Chat.UI
             UpdateChannelSelectButton();
 
             // Warn typing indicator about change
-            EntitySystem.Get<TypingIndicatorSystem>().ClientChangedChatText();
+            IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<TypingIndicatorSystem>().ClientChangedChatText();
         }
 
         private static ChatSelectChannel GetChannelFromPrefix(char prefix)
@@ -537,7 +537,7 @@ namespace Content.Client.Chat.UI
         private void Input_OnTextEntered(LineEdit.LineEditEventArgs args)
         {
             // Warn typing indicator about entered text
-            EntitySystem.Get<TypingIndicatorSystem>().ClientSubmittedChatText();
+            IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<TypingIndicatorSystem>().ClientSubmittedChatText();
 
             if (!string.IsNullOrWhiteSpace(args.Text))
             {

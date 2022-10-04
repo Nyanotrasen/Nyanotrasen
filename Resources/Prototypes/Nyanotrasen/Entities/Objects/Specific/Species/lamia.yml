@@ -9,7 +9,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 10
+      density: 80
   - type: Transform
     anchored: false
   - type: Tag
@@ -35,7 +35,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 10
+      density: 80
       mask:
       - Impassable
       hard: false
