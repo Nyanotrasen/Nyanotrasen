@@ -18,20 +18,11 @@
         !type:PhysShapeCircle
           radius: 0.5
       restitution: 0.9
-      mass: 99999
-      hard: false
+      density: 10000
       mask:
       - AllMask
       layer:
       - AllMask
-    - id: ColliderCircle
-      shape:
-        !type:PhysShapeCircle
-        radius: 0.5
-      restitution: 0.9
-      mass: 99999
-      mask:
-      - FullTileMask
   - type: Singularity
     radsPerLevel: 1
   - type: SingularityDistortion

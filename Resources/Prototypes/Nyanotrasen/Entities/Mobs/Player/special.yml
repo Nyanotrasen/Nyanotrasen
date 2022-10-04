@@ -28,7 +28,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 5
+      density: 13
       mask:
       - GhostImpassable
   - type: MovementSpeedModifier
