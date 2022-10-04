@@ -1238,10 +1238,6 @@ entities:
   - pos: 3.5,3.5
     parent: 408
     type: Transform
-- uid: 174
-  components:
-  - index: 2
-    type: Map
 - uid: 404
   type: Grille
   components:
@@ -1269,7 +1265,7 @@ entities:
 - uid: 408
   components:
   - pos: 17.578129,1.4298215
-    parent: 174
+    parent: null
     type: Transform
   - index: 0
     type: MapGrid
