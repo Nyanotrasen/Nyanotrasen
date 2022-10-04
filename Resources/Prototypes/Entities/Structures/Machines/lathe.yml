@@ -313,7 +313,7 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    staticRecipes:
+    dynamicRecipes:
       - Flash
       - FlashPayload
       - Handcuffs
@@ -329,6 +329,8 @@
       - ShellShotgun
       - ShellShotgunBeanbag
       - ShellShotgunFlare
+      - ShellTranquilizer
+      - ShellSoulbreaker
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber
