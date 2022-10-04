@@ -131,3 +131,17 @@ Entries:
     type: Add
   id: 14
   time: '2022-10-03T18:56:43.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added soulbreaker toxin, currently only aquirable through soulbreaker
+      shotgun shells. It's basically a much better mindbreaker toxin.
+    type: Add
+  - message: Added soulbreaker shell recipe to non-lethal technology.
+    type: Add
+  - message: Security techfab requires technologies to be unlocked to print its recipes
+      again, I don't know what wiz den was thinking with changing that.
+    type: Tweak
+  - message: Ifrits can be targeted by psionic abilities.
+    type: Fix
+  id: 15
+  time: '2022-10-04T15:26:13.0000000+00:00'
