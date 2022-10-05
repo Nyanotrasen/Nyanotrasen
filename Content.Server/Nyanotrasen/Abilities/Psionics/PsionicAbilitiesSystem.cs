@@ -32,19 +32,39 @@ namespace Content.Server.Abilities.Psionics
             "PsionicRegenerationPower",
         };
 
-        public void AddPsionics(EntityUid uid)
+        public override void Initialize()
+        {
+            base.Initialize();
+            SubscribeLocalEvent<PsionicAwaitingPlayerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        }
+
+        private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
+        {
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            else
+                AddRandomPsionicPower(uid);
+            RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
+        }
+
+        public void AddPsionics(EntityUid uid, bool warn = true)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
 
             if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
+            {
+                EnsureComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
+            }
 
             if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
                 return;
 
-            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
+            if (warn && TryComp<ActorComponent>(uid, out var actor))
                 _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
+            else
+                AddRandomPsionicPower(uid);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)

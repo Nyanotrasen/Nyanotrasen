@@ -54,3 +54,9 @@ reagent-desc-allicin = An organosulfur compound found in alliums like garlic, on
 
 reagent-name-pax = pax
 reagent-desc-pax = A psychiatric drug which prevents the patient from directly harming anyone.
+
+reagent-name-prometheum = prometheum
+reagent-desc-prometheum = A complex superdrug our bodies could produce if we could only unlock our potential.
+
+reagent-name-soulbreaker-toxin = soulbreaker toxin
+reagent-desc-soulbreaker-toxin = An anti-psionic about 4 times as powerful as mindbreaker toxin.

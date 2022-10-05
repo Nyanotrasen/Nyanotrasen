@@ -5029,7 +5029,7 @@ entities:
     id: East Hallway
     type: SurveillanceCamera
 - uid: 728
-  type: LockerMystagogueFilled
+  type: LockerResearchDirectorFilled
   components:
   - pos: -2.5,-23.5
     parent: 852
@@ -16211,7 +16211,7 @@ entities:
     parent: 852
     type: Transform
 - uid: 1049
-  type: GlimmerProber
+  type: BaseResearchAndDevelopmentPointSource
   components:
   - rot: 4.371139006309477E-08 rad
     pos: -5.5,-17.5
@@ -21209,7 +21209,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -74271,7 +74270,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -74358,7 +74356,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -74403,7 +74400,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -74436,7 +74432,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2

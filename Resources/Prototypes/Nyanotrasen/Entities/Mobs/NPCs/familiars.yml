@@ -24,7 +24,7 @@
       - shape:
           !type:PhysShapeCircle
           radius: 0.35
-        mass: 85
+        density: 225
         mask:
           - FlyingMobMask
         layer:
@@ -76,6 +76,9 @@
   - type: Hands
   - type: RandomMetadata
     nameSegments: [names_golem]
+  - type: PotentialPsionic
+  - type: Psionic
+  - type: PyrokinesisPower
 
 - type: entity
   parent: WelderExperimental

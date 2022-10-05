@@ -18,7 +18,7 @@ namespace Content.Server.Stack
 
         private void OnExamined(EntityUid uid, StackHolderComponent component, ExaminedEvent args)
         {
-            var item = _itemSlotsSystem.GetItem(uid, "stack_slot");
+            var item = _itemSlotsSystem.GetItemOrNull(uid, "stack_slot");
 
             if (item == null)
             {
@@ -34,7 +34,7 @@ namespace Content.Server.Stack
 
         private void OnAfterInteract(EntityUid uid, StackHolderComponent component, AfterInteractEvent args)
         {
-            var item = _itemSlotsSystem.GetItem(uid, "stack_slot");
+            var item = _itemSlotsSystem.GetItemOrNull(uid, "stack_slot");
             if (item == null)
             {
                 if (args.Target != null)

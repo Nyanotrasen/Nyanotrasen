@@ -25,10 +25,8 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-  - !type:AddComponentSpecial
-    components:
-    - type: GuaranteedPsionic
-      power: DispelPower
+    - type: Psionic
+    - type: DispelPower
 
 - type: startingGear
   id: MystagogueGear
