@@ -151,3 +151,12 @@ Entries:
     type: Add
   id: 16
   time: '2022-10-04T17:02:46.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: You can use an empty hand on the oracle to see the requested items.
+    type: Add
+  - message: Psionic powers are now weighted differently, rather than being equally
+      likely.
+    type: Tweak
+  id: 17
+  time: '2022-10-05T16:58:48.0000000+00:00'
