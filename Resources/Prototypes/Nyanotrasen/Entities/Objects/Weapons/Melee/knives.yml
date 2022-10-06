@@ -2,7 +2,7 @@
   parent: CombatKnife
   id: AntiPsychicKnife
   name: anti-psychic knife
-  description: A special knife designed for killing psychics. Placeholder sprite.
+  description: A special knife designed for killing psychics.
   components:
   - type: StaminaDamageOnHit
     damage: 0
@@ -13,4 +13,7 @@
         Slash: 1.5
         Piercing: 1.5
   - type: Sprite
-    color: black
+    sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
+    state: icon
+  - type: Item
+    sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
