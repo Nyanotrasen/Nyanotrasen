@@ -59,8 +59,9 @@ namespace Content.Server.QSI
 
             SoundSystem.Play("/Audio/Effects/teleport_arrival.ogg", Filter.Pvs(uid), uid);
 
-            EntityManager.QueueDeleteEntity(uid);
-            EntityManager.QueueDeleteEntity((EntityUid) component.Partner);
+            // infinite QSI's ehehehe
+            // EntityManager.QueueDeleteEntity(uid);
+            // EntityManager.QueueDeleteEntity((EntityUid) component.Partner);
         }
     }
 }

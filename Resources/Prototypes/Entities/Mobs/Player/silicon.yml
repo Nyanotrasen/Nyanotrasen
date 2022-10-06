@@ -67,7 +67,6 @@
   id: Drone
   parent: PlayerSiliconBase
   components:
-  - type: Drone
   - type: InnateTool
     tools:
       - id: ClothingBackpackSatchelDrone
@@ -143,8 +142,6 @@
         states:
           enum.DroneStatus.Off: shell
           enum.DroneStatus.On: drone
-  - type: ReplacementAccent
-    accent: silicon
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8

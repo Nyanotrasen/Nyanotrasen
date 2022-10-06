@@ -138,7 +138,7 @@
     delay: 5
   - type: Explosive
     explosionType: Default
-    totalIntensity: 20000 # ~15 tile radius.
+    totalIntensity: 300 # 20000 = ~15 tile radius.
     intensitySlope: 5
     maxIntensity: 50
   - type: ExplodeOnTrigger
