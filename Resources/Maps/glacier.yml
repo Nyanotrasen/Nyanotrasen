@@ -184,7 +184,7 @@ grids:
     tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 entities:
 - uid: 0
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 19.5,-17.5
     parent: 1781
@@ -308,7 +308,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 18
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 19.5,-16.5
     parent: 1781
@@ -378,7 +378,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 29
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-17.5
     parent: 1781
@@ -503,7 +503,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 49
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 20.5,-19.5
     parent: 1781
@@ -515,7 +515,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 51
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 17.5,-18.5
     parent: 1781
@@ -536,7 +536,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 54
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 47.5,32.5
     parent: 1781
@@ -620,7 +620,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 68
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 18.5,-17.5
     parent: 1781
@@ -859,7 +859,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 105
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 19.5,-18.5
     parent: 1781
@@ -1111,7 +1111,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 147
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-18.5
     parent: 1781
@@ -1735,13 +1735,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 245
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 41.5,37.5
     parent: 1781
     type: Transform
 - uid: 246
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 41.5,36.5
     parent: 1781
@@ -1848,7 +1848,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 262
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,-3.5
     parent: 1781
@@ -2351,7 +2351,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 344
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,35.5
     parent: 1781
@@ -2363,7 +2363,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 346
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,34.5
     parent: 1781
@@ -2375,13 +2375,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 348
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,34.5
     parent: 1781
     type: Transform
 - uid: 349
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,34.5
     parent: 1781
@@ -2411,7 +2411,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 354
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,34.5
     parent: 1781
@@ -2472,7 +2472,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 364
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,35.5
     parent: 1781
@@ -2945,7 +2945,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 434
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-22.5
     parent: 1781
@@ -4008,7 +4008,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 609
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-19.5
     parent: 1781
@@ -4509,7 +4509,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 692
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,-4.5
     parent: 1781
@@ -4959,7 +4959,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 766
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-18.5
     parent: 1781
@@ -5571,7 +5571,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 866
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-34.5
     parent: 1781
@@ -5915,7 +5915,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 922
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-19.5
     parent: 1781
@@ -5951,7 +5951,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 928
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,-3.5
     parent: 1781
@@ -5999,7 +5999,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 936
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,-3.5
     parent: 1781
@@ -6083,7 +6083,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 950
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 25.5,-16.5
     parent: 1781
@@ -6260,7 +6260,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 979
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 71.5,-34.5
     parent: 1781
@@ -6290,7 +6290,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 984
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 72.5,-34.5
     parent: 1781
@@ -6303,7 +6303,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 986
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,36.5
     parent: 1781
@@ -6570,7 +6570,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1030
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 73.5,-34.5
     parent: 1781
@@ -6726,7 +6726,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1056
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-17.5
     parent: 1781
@@ -6738,7 +6738,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1058
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 18.5,-16.5
     parent: 1781
@@ -6922,7 +6922,7 @@ entities:
   - color: '#FF9021FF'
     type: AtmosPipeColor
 - uid: 1086
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 17.5,-17.5
     parent: 1781
@@ -6948,19 +6948,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1090
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 16.5,-18.5
     parent: 1781
     type: Transform
 - uid: 1091
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 16.5,-17.5
     parent: 1781
     type: Transform
 - uid: 1092
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 16.5,-16.5
     parent: 1781
@@ -7195,7 +7195,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1130
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 18.5,-18.5
     parent: 1781
@@ -7502,13 +7502,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1172
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 20.5,-17.5
     parent: 1781
     type: Transform
 - uid: 1173
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 20.5,-18.5
     parent: 1781
@@ -8113,7 +8113,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1267
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 25.5,-17.5
     parent: 1781
@@ -9261,7 +9261,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1452
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 23.5,-17.5
     parent: 1781
@@ -9312,13 +9312,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1460
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-23.5
     parent: 1781
     type: Transform
 - uid: 1461
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -17.5,11.5
     parent: 1781
@@ -10959,19 +10959,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1723
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,33.5
     parent: 1781
     type: Transform
 - uid: 1724
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,32.5
     parent: 1781
     type: Transform
 - uid: 1725
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,31.5
     parent: 1781
@@ -11025,7 +11025,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1734
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,39.5
     parent: 1781
@@ -30091,7 +30091,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1844
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -23.5,8.5
     parent: 1781
@@ -31073,49 +31073,49 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1979
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,33.5
     parent: 1781
     type: Transform
 - uid: 1980
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 47.5,31.5
     parent: 1781
     type: Transform
 - uid: 1981
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,35.5
     parent: 1781
     type: Transform
 - uid: 1982
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,35.5
     parent: 1781
     type: Transform
 - uid: 1983
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,32.5
     parent: 1781
     type: Transform
 - uid: 1984
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,36.5
     parent: 1781
     type: Transform
 - uid: 1985
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,36.5
     parent: 1781
     type: Transform
 - uid: 1986
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,37.5
     parent: 1781
@@ -31128,13 +31128,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 1988
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,37.5
     parent: 1781
     type: Transform
 - uid: 1989
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,37.5
     parent: 1781
@@ -31561,7 +31561,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2055
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -22.5,8.5
     parent: 1781
@@ -32285,7 +32285,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2140
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -21.5,9.5
     parent: 1781
@@ -32645,7 +32645,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2193
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -19.5,9.5
     parent: 1781
@@ -32731,7 +32731,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2207
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -17.5,10.5
     parent: 1781
@@ -34658,7 +34658,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2497
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -16.5,12.5
     parent: 1781
@@ -34759,7 +34759,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2512
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -23.5,9.5
     parent: 1781
@@ -35702,7 +35702,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2655
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -17.5,12.5
     parent: 1781
@@ -35822,7 +35822,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2674
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -17.5,13.5
     parent: 1781
@@ -36448,7 +36448,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2769
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -20.5,9.5
     parent: 1781
@@ -37865,7 +37865,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 2997
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -21.5,8.5
     parent: 1781
@@ -44035,7 +44035,7 @@ entities:
   - color: '#FF9021FF'
     type: AtmosPipeColor
 - uid: 3989
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 51.5,-20.5
     parent: 1781
@@ -44054,7 +44054,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 3992
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 50.5,-20.5
     parent: 1781
@@ -45952,7 +45952,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4263
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-26.5
     parent: 1781
@@ -47196,7 +47196,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4441
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -18.5,10.5
     parent: 1781
@@ -48459,7 +48459,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4640
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -19.5,14.5
     parent: 1781
@@ -48591,7 +48591,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4662
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -19.5,13.5
     parent: 1781
@@ -48603,7 +48603,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4664
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -20.5,13.5
     parent: 1781
@@ -48621,19 +48621,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4667
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -17.5,14.5
     parent: 1781
     type: Transform
 - uid: 4668
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -22.5,13.5
     parent: 1781
     type: Transform
 - uid: 4669
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -23.5,13.5
     parent: 1781
@@ -50642,7 +50642,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 4978
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-8.5
     parent: 1781
@@ -51525,13 +51525,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5110
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-6.5
     parent: 1781
     type: Transform
 - uid: 5111
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-7.5
     parent: 1781
@@ -51688,7 +51688,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5136
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,0.5
     parent: 1781
@@ -51702,7 +51702,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 5138
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,-2.5
     parent: 1781
@@ -51790,7 +51790,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5151
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 62.5,-28.5
@@ -51842,19 +51842,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5159
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,0.5
     parent: 1781
     type: Transform
 - uid: 5160
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-7.5
     parent: 1781
     type: Transform
 - uid: 5161
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-8.5
     parent: 1781
@@ -51874,31 +51874,31 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 5164
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 47.5,0.5
     parent: 1781
     type: Transform
 - uid: 5165
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,-3.5
     parent: 1781
     type: Transform
 - uid: 5166
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5167
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 48.5,0.5
     parent: 1781
     type: Transform
 - uid: 5168
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 48.5,-0.5
     parent: 1781
@@ -51910,13 +51910,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5170
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 49.5,0.5
     parent: 1781
     type: Transform
 - uid: 5171
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 49.5,-0.5
     parent: 1781
@@ -51930,43 +51930,43 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 5173
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,0.5
     parent: 1781
     type: Transform
 - uid: 5174
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,-0.5
     parent: 1781
     type: Transform
 - uid: 5175
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,-1.5
     parent: 1781
     type: Transform
 - uid: 5176
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5177
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-19.5
     parent: 1781
     type: Transform
 - uid: 5178
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 51.5,0.5
     parent: 1781
     type: Transform
 - uid: 5179
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 51.5,-0.5
     parent: 1781
@@ -51978,7 +51978,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5181
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-21.5
     parent: 1781
@@ -51991,13 +51991,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5183
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 50.5,0.5
     parent: 1781
     type: Transform
 - uid: 5184
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 50.5,-0.5
     parent: 1781
@@ -52011,38 +52011,38 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 5186
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 61.5,-28.5
     parent: 1781
     type: Transform
 - uid: 5187
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-3.5
     parent: 1781
     type: Transform
 - uid: 5188
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,0.5
     parent: 1781
     type: Transform
 - uid: 5189
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-0.5
     parent: 1781
     type: Transform
 - uid: 5190
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-1.5
     parent: 1781
     type: Transform
 - uid: 5191
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-2.5
     parent: 1781
@@ -52054,43 +52054,43 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5193
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,0.5
     parent: 1781
     type: Transform
 - uid: 5194
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-0.5
     parent: 1781
     type: Transform
 - uid: 5195
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-1.5
     parent: 1781
     type: Transform
 - uid: 5196
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-2.5
     parent: 1781
     type: Transform
 - uid: 5197
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5198
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5199
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-17.5
     parent: 1781
@@ -52116,7 +52116,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5203
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-3.5
     parent: 1781
@@ -52135,25 +52135,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5206
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-2.5
     parent: 1781
     type: Transform
 - uid: 5207
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-3.5
     parent: 1781
     type: Transform
 - uid: 5208
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-4.5
     parent: 1781
     type: Transform
 - uid: 5209
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-5.5
     parent: 1781
@@ -52227,7 +52227,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5221
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 50.5,-17.5
     parent: 1781
@@ -52282,13 +52282,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5230
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 46.5,-5.5
     parent: 1781
     type: Transform
 - uid: 5231
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 47.5,-4.5
     parent: 1781
@@ -52312,7 +52312,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5235
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,-24.5
     parent: 1781
@@ -52330,7 +52330,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5238
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 49.5,-19.5
     parent: 1781
@@ -52354,13 +52354,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5242
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5243
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 48.5,-16.5
     parent: 1781
@@ -52372,7 +52372,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5245
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-14.5
     parent: 1781
@@ -52434,7 +52434,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 5254
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 38.5,-22.5
     parent: 1781
@@ -52458,19 +52458,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5258
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-22.5
     parent: 1781
     type: Transform
 - uid: 5259
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5260
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-20.5
     parent: 1781
@@ -52482,19 +52482,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5262
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-19.5
     parent: 1781
     type: Transform
 - uid: 5263
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 36.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5264
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 36.5,-20.5
     parent: 1781
@@ -52518,7 +52518,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5268
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 35.5,-20.5
     parent: 1781
@@ -52536,31 +52536,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5271
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5272
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5273
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5274
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5275
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-19.5
     parent: 1781
@@ -52572,7 +52572,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5277
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-21.5
     parent: 1781
@@ -52585,43 +52585,43 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5279
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 25.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5280
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5281
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 31.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5282
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5283
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5284
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 31.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5285
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 30.5,-21.5
     parent: 1781
@@ -52645,13 +52645,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5289
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 29.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5290
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-21.5
     parent: 1781
@@ -52699,7 +52699,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5297
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-19.5
     parent: 1781
@@ -52741,25 +52741,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5304
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5305
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-19.5
     parent: 1781
     type: Transform
 - uid: 5306
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 29.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5307
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 43.5,-2.5
     parent: 1781
@@ -52771,121 +52771,121 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5309
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5310
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5311
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-14.5
     parent: 1781
     type: Transform
 - uid: 5312
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5313
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5314
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5315
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-14.5
     parent: 1781
     type: Transform
 - uid: 5316
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5317
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5318
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5319
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-14.5
     parent: 1781
     type: Transform
 - uid: 5320
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 15.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5321
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 15.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5322
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 15.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5323
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 14.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5324
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 14.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5325
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 14.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5326
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 13.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5327
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 13.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5328
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 13.5,-16.5
     parent: 1781
@@ -52915,31 +52915,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5333
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 12.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5334
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 12.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5335
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 11.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5336
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 47.5,-5.5
     parent: 1781
     type: Transform
 - uid: 5337
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 48.5,-4.5
     parent: 1781
@@ -52951,7 +52951,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5339
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 49.5,-4.5
     parent: 1781
@@ -52975,19 +52975,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5343
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,-4.5
     parent: 1781
     type: Transform
 - uid: 5344
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5345
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-19.5
     parent: 1781
@@ -53017,7 +53017,7 @@ entities:
   - canCollide: False
     type: Physics
 - uid: 5349
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-19.5
     parent: 1781
@@ -53029,37 +53029,37 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5351
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5352
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5353
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5354
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5355
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5356
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-14.5
     parent: 1781
@@ -53171,13 +53171,13 @@ entities:
   - color: '#FF9021FF'
     type: AtmosPipeColor
 - uid: 5372
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-10.5
     parent: 1781
     type: Transform
 - uid: 5373
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-10.5
     parent: 1781
@@ -53198,7 +53198,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 5376
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 39.5,-3.5
     parent: 1781
@@ -53222,31 +53222,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5380
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-13.5
     parent: 1781
     type: Transform
 - uid: 5381
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-16.5
     parent: 1781
     type: Transform
 - uid: 5382
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5383
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5384
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-14.5
     parent: 1781
@@ -53264,20 +53264,20 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5387
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 61.5,-27.5
     parent: 1781
     type: Transform
 - uid: 5388
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 56.5,-5.5
     parent: 1781
     type: Transform
 - uid: 5389
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 56.5,-6.5
     parent: 1781
@@ -53295,13 +53295,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5392
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5393
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-8.5
     parent: 1781
@@ -53343,31 +53343,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5400
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-9.5
     parent: 1781
     type: Transform
 - uid: 5401
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-9.5
     parent: 1781
     type: Transform
 - uid: 5402
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-9.5
     parent: 1781
     type: Transform
 - uid: 5403
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-10.5
     parent: 1781
     type: Transform
 - uid: 5404
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-10.5
     parent: 1781
@@ -53380,7 +53380,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5406
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-14.5
     parent: 1781
@@ -53393,25 +53393,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5408
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-13.5
     parent: 1781
     type: Transform
 - uid: 5409
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-14.5
     parent: 1781
     type: Transform
 - uid: 5410
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-15.5
     parent: 1781
     type: Transform
 - uid: 5411
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-16.5
     parent: 1781
@@ -53436,7 +53436,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5415
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-16.5
     parent: 1781
@@ -53448,31 +53448,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5417
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-17.5
     parent: 1781
     type: Transform
 - uid: 5418
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-18.5
     parent: 1781
     type: Transform
 - uid: 5419
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-19.5
     parent: 1781
     type: Transform
 - uid: 5420
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5421
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-21.5
     parent: 1781
@@ -53521,7 +53521,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5425
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 56.5,-22.5
     parent: 1781
@@ -53536,7 +53536,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 5427
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-23.5
     parent: 1781
@@ -53555,25 +53555,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5430
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-22.5
     parent: 1781
     type: Transform
 - uid: 5431
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5432
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5433
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-21.5
     parent: 1781
@@ -53716,7 +53716,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5454
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-19.5
     parent: 1781
@@ -53728,7 +53728,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5456
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-25.5
     parent: 1781
@@ -53740,19 +53740,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5458
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5459
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 39.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5460
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 38.5,-25.5
     parent: 1781
@@ -53770,7 +53770,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5463
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 35.5,-24.5
     parent: 1781
@@ -53782,7 +53782,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5465
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 30.5,-22.5
     parent: 1781
@@ -53794,13 +53794,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5467
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5468
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,-24.5
     parent: 1781
@@ -53888,7 +53888,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5482
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 50.5,-19.5
     parent: 1781
@@ -53900,91 +53900,91 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5484
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5485
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 39.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5486
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 38.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5487
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5488
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 36.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5489
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 35.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5490
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5491
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5492
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5493
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 31.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5494
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 30.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5495
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 29.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5496
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 29.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5497
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 30.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5498
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 31.5,-25.5
     parent: 1781
@@ -53996,25 +53996,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5500
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5501
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 34.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5502
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 35.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5503
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 36.5,-25.5
     parent: 1781
@@ -54026,103 +54026,103 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5505
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-27.5
     parent: 1781
     type: Transform
 - uid: 5506
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5507
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5508
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 28.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5509
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-27.5
     parent: 1781
     type: Transform
 - uid: 5510
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5511
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5512
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5513
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-27.5
     parent: 1781
     type: Transform
 - uid: 5514
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-26.5
     parent: 1781
     type: Transform
 - uid: 5515
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-25.5
     parent: 1781
     type: Transform
 - uid: 5516
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5517
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5518
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5519
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-23.5
     parent: 1781
     type: Transform
 - uid: 5520
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-20.5
     parent: 1781
     type: Transform
 - uid: 5521
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 25.5,-23.5
     parent: 1781
@@ -54134,7 +54134,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5523
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 24.5,-23.5
     parent: 1781
@@ -54152,7 +54152,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5526
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-20.5
     parent: 1781
@@ -54164,13 +54164,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5528
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 21.5,-21.5
     parent: 1781
     type: Transform
 - uid: 5529
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-22.5
     parent: 1781
@@ -54364,13 +54364,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5561
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-13.5
     parent: 1781
     type: Transform
 - uid: 5562
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 27.5,-12.5
     parent: 1781
@@ -55067,13 +55067,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5670
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-6.5
     parent: 1781
     type: Transform
 - uid: 5671
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -23.5,11.5
     parent: 1781
@@ -55147,7 +55147,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5680
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 30.5,-15.5
     parent: 1781
@@ -55159,19 +55159,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5682
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 24.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5683
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 23.5,-24.5
     parent: 1781
     type: Transform
 - uid: 5684
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 22.5,-23.5
     parent: 1781
@@ -55198,7 +55198,7 @@ entities:
   - color: '#FF9021FF'
     type: AtmosPipeColor
 - uid: 5688
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-16.5
     parent: 1781
@@ -55218,7 +55218,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5691
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 33.5,-16.5
     parent: 1781
@@ -55252,7 +55252,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5696
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 23.5,-23.5
     parent: 1781
@@ -55434,13 +55434,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5724
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-12.5
     parent: 1781
     type: Transform
 - uid: 5725
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 26.5,-13.5
     parent: 1781
@@ -55511,13 +55511,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5736
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 44.5,-4.5
     parent: 1781
     type: Transform
 - uid: 5737
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-2.5
     parent: 1781
@@ -55587,7 +55587,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 5746
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -22.5,12.5
     parent: 1781
@@ -55702,25 +55702,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5765
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 41.5,-2.5
     parent: 1781
     type: Transform
 - uid: 5766
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 41.5,-3.5
     parent: 1781
     type: Transform
 - uid: 5767
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,-2.5
     parent: 1781
     type: Transform
 - uid: 5768
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,-3.5
     parent: 1781
@@ -56132,7 +56132,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 5836
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,-3.5
     parent: 1781
@@ -58659,7 +58659,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6224
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-13.5
     parent: 1781
@@ -58807,7 +58807,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 6243
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 45.5,-5.5
     parent: 1781
@@ -59723,7 +59723,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6389
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -19.5,10.5
     parent: 1781
@@ -60005,13 +60005,13 @@ entities:
         uid: 6428
     type: SignalTransmitter
 - uid: 6430
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-14.5
     parent: 1781
     type: Transform
 - uid: 6431
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -18.5,14.5
     parent: 1781
@@ -60189,13 +60189,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6452
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -23.5,12.5
     parent: 1781
     type: Transform
 - uid: 6453
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-9.5
     parent: 1781
@@ -61633,7 +61633,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 6683
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-13.5
     parent: 1781
@@ -61916,7 +61916,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6730
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-8.5
     parent: 1781
@@ -62027,7 +62027,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6747
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 39.5,-2.5
     parent: 1781
@@ -62087,7 +62087,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6757
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-13.5
     parent: 1781
@@ -63336,19 +63336,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 6958
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 42.5,38.5
     parent: 1781
     type: Transform
 - uid: 6959
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 41.5,38.5
     parent: 1781
     type: Transform
 - uid: 6960
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,38.5
     parent: 1781
@@ -63925,7 +63925,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7045
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-6.5
     parent: 1781
@@ -63943,13 +63943,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7048
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 48.5,-17.5
     parent: 1781
     type: Transform
 - uid: 7049
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 49.5,-17.5
     parent: 1781
@@ -63998,13 +63998,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7057
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-0.5
     parent: 1781
     type: Transform
 - uid: 7058
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 37.5,-1.5
     parent: 1781
@@ -65093,7 +65093,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7216
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-9.5
     parent: 1781
@@ -65117,7 +65117,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7220
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-9.5
     parent: 1781
@@ -69644,25 +69644,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7902
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -20.5,8.5
     parent: 1781
     type: Transform
 - uid: 7903
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -20.5,12.5
     parent: 1781
     type: Transform
 - uid: 7904
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,-2.5
     parent: 1781
     type: Transform
 - uid: 7905
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -19.5,12.5
     parent: 1781
@@ -69687,7 +69687,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7909
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -18.5,13.5
     parent: 1781
@@ -69699,13 +69699,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 7911
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -24.5,12.5
     parent: 1781
     type: Transform
 - uid: 7912
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -24.5,13.5
     parent: 1781
@@ -70360,19 +70360,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 8017
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,-20.5
     parent: 1781
     type: Transform
 - uid: 8018
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-20.5
     parent: 1781
     type: Transform
 - uid: 8019
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-20.5
     parent: 1781
@@ -74035,7 +74035,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 8502
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -24.5,11.5
     parent: 1781
@@ -74065,7 +74065,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 8507
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -24.5,8.5
     parent: 1781
@@ -82874,7 +82874,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 9635
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 39.5,36.5
     parent: 1781
@@ -83408,7 +83408,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 9724
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 40.5,36.5
     parent: 1781
@@ -83447,7 +83447,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 9728
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 32.5,-20.5
     parent: 1781
@@ -84399,7 +84399,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 9846
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: -24.5,9.5
     parent: 1781
@@ -84424,7 +84424,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 9850
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-8.5
     parent: 1781
@@ -91367,97 +91367,97 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10868
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10869
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10870
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10871
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 52.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10872
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 53.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10873
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10874
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-34.5
     parent: 1781
     type: Transform
 - uid: 10875
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10876
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-34.5
     parent: 1781
     type: Transform
 - uid: 10877
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10878
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-34.5
     parent: 1781
     type: Transform
 - uid: 10879
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10880
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10881
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10882
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 54.5,-27.5
     parent: 1781
     type: Transform
 - uid: 10883
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-29.5
     parent: 1781
@@ -91483,73 +91483,73 @@ entities:
   - fixtures: []
     type: Fixtures
 - uid: 10887
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 69.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10888
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 69.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10889
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 70.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10890
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 70.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10891
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 71.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10892
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 71.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10893
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 72.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10894
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-35.5
     parent: 1781
     type: Transform
 - uid: 10895
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-34.5
     parent: 1781
     type: Transform
 - uid: 10896
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-35.5
     parent: 1781
     type: Transform
 - uid: 10897
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 73.5,-35.5
     parent: 1781
     type: Transform
 - uid: 10898
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-34.5
     parent: 1781
@@ -91561,145 +91561,145 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10900
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 72.5,-35.5
     parent: 1781
     type: Transform
 - uid: 10901
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10902
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10903
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-35.5
     parent: 1781
     type: Transform
 - uid: 10904
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10905
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10906
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10907
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10908
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10909
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10910
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10911
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10912
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-27.5
     parent: 1781
     type: Transform
 - uid: 10913
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-26.5
     parent: 1781
     type: Transform
 - uid: 10914
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10915
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10916
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-27.5
     parent: 1781
     type: Transform
 - uid: 10917
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-26.5
     parent: 1781
     type: Transform
 - uid: 10918
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-25.5
     parent: 1781
     type: Transform
 - uid: 10919
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-24.5
     parent: 1781
     type: Transform
 - uid: 10920
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-23.5
     parent: 1781
     type: Transform
 - uid: 10921
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-22.5
     parent: 1781
     type: Transform
 - uid: 10922
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-21.5
     parent: 1781
     type: Transform
 - uid: 10923
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-20.5
     parent: 1781
@@ -91711,139 +91711,139 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10925
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-21.5
     parent: 1781
     type: Transform
 - uid: 10926
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-20.5
     parent: 1781
     type: Transform
 - uid: 10927
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-19.5
     parent: 1781
     type: Transform
 - uid: 10928
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-20.5
     parent: 1781
     type: Transform
 - uid: 10929
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-19.5
     parent: 1781
     type: Transform
 - uid: 10930
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-18.5
     parent: 1781
     type: Transform
 - uid: 10931
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-17.5
     parent: 1781
     type: Transform
 - uid: 10932
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-16.5
     parent: 1781
     type: Transform
 - uid: 10933
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-16.5
     parent: 1781
     type: Transform
 - uid: 10934
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-15.5
     parent: 1781
     type: Transform
 - uid: 10935
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-14.5
     parent: 1781
     type: Transform
 - uid: 10936
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-14.5
     parent: 1781
     type: Transform
 - uid: 10937
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-14.5
     parent: 1781
     type: Transform
 - uid: 10938
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-14.5
     parent: 1781
     type: Transform
 - uid: 10939
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-15.5
     parent: 1781
     type: Transform
 - uid: 10940
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-16.5
     parent: 1781
     type: Transform
 - uid: 10941
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-17.5
     parent: 1781
     type: Transform
 - uid: 10942
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-15.5
     parent: 1781
     type: Transform
 - uid: 10943
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-16.5
     parent: 1781
     type: Transform
 - uid: 10944
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-17.5
     parent: 1781
     type: Transform
 - uid: 10945
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-18.5
     parent: 1781
     type: Transform
 - uid: 10946
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-20.5
     parent: 1781
     type: Transform
 - uid: 10947
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-21.5
     parent: 1781
@@ -91857,25 +91857,25 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10949
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-25.5
     parent: 1781
     type: Transform
 - uid: 10950
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-26.5
     parent: 1781
     type: Transform
 - uid: 10951
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-27.5
     parent: 1781
     type: Transform
 - uid: 10952
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-33.5
     parent: 1781
@@ -91887,61 +91887,61 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10954
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 73.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10955
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 72.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10956
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10957
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10958
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10959
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10960
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 59.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10961
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 66.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10962
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 65.5,-28.5
     parent: 1781
     type: Transform
 - uid: 10963
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-28.5
     parent: 1781
@@ -91977,13 +91977,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10969
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-25.5
     parent: 1781
     type: Transform
 - uid: 10970
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-24.5
     parent: 1781
@@ -92002,19 +92002,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10973
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-23.5
     parent: 1781
     type: Transform
 - uid: 10974
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 60.5,-26.5
     parent: 1781
     type: Transform
 - uid: 10975
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-28.5
     parent: 1781
@@ -92026,139 +92026,139 @@ entities:
     parent: 1781
     type: Transform
 - uid: 10977
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 66.5,-29.5
     parent: 1781
     type: Transform
 - uid: 10978
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 61.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10979
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10980
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10981
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10982
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 65.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10983
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 66.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10984
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 67.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10985
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 68.5,-33.5
     parent: 1781
     type: Transform
 - uid: 10986
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 68.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10987
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 67.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10988
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 62.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10989
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 63.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10990
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 64.5,-32.5
     parent: 1781
     type: Transform
 - uid: 10991
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-27.5
     parent: 1781
     type: Transform
 - uid: 10992
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10993
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 55.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10994
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 56.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10995
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 56.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10996
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10997
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 57.5,-31.5
     parent: 1781
     type: Transform
 - uid: 10998
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-30.5
     parent: 1781
     type: Transform
 - uid: 10999
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 58.5,-31.5
     parent: 1781
@@ -92428,35 +92428,35 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11044
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 59.5,-26.5
     parent: 1781
     type: Transform
 - uid: 11045
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 59.5,-25.5
     parent: 1781
     type: Transform
 - uid: 11046
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 59.5,-24.5
     parent: 1781
     type: Transform
 - uid: 11047
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 60.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11048
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 59.5,-27.5
@@ -92553,7 +92553,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11064
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 72.5,-29.5
     parent: 1781
@@ -92977,19 +92977,19 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11123
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-33.5
     parent: 1781
     type: Transform
 - uid: 11124
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-34.5
     parent: 1781
     type: Transform
 - uid: 11125
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-33.5
     parent: 1781
@@ -93270,14 +93270,14 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11170
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 60.5,-27.5
     parent: 1781
     type: Transform
 - uid: 11171
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 61.5,-23.5
@@ -93297,56 +93297,56 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11174
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 61.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11175
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 62.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11176
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 63.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11177
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 64.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11178
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 65.5,-22.5
     parent: 1781
     type: Transform
 - uid: 11179
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 60.5,-28.5
     parent: 1781
     type: Transform
 - uid: 11180
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 61.5,-29.5
     parent: 1781
     type: Transform
 - uid: 11181
-  type: AsteroidRock
+  type: MountainRock
   components:
   - rot: -1.5707963267948966 rad
     pos: 59.5,-23.5
@@ -93449,31 +93449,31 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11197
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 71.5,-29.5
     parent: 1781
     type: Transform
 - uid: 11198
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 70.5,-29.5
     parent: 1781
     type: Transform
 - uid: 11199
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 69.5,-29.5
     parent: 1781
     type: Transform
 - uid: 11200
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 68.5,-29.5
     parent: 1781
     type: Transform
 - uid: 11201
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 67.5,-29.5
     parent: 1781
@@ -93567,7 +93567,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11215
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 76.5,-13.5
     parent: 1781
@@ -93579,13 +93579,13 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11217
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-13.5
     parent: 1781
     type: Transform
 - uid: 11218
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 77.5,-13.5
     parent: 1781
@@ -93738,7 +93738,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11242
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 74.5,-27.5
     parent: 1781
@@ -93962,7 +93962,7 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11276
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 75.5,-13.5
     parent: 1781
@@ -94138,73 +94138,73 @@ entities:
     parent: 1781
     type: Transform
 - uid: 11303
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 82.5,-13.5
     parent: 1781
     type: Transform
 - uid: 11304
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 83.5,-13.5
     parent: 1781
     type: Transform
 - uid: 11305
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-14.5
     parent: 1781
     type: Transform
 - uid: 11306
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 78.5,-15.5
     parent: 1781
     type: Transform
 - uid: 11307
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-14.5
     parent: 1781
     type: Transform
 - uid: 11308
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 79.5,-15.5
     parent: 1781
     type: Transform
 - uid: 11309
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 80.5,-14.5
     parent: 1781
     type: Transform
 - uid: 11310
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 80.5,-15.5
     parent: 1781
     type: Transform
 - uid: 11311
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 81.5,-14.5
     parent: 1781
     type: Transform
 - uid: 11312
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 81.5,-15.5
     parent: 1781
     type: Transform
 - uid: 11313
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 82.5,-14.5
     parent: 1781
     type: Transform
 - uid: 11314
-  type: AsteroidRock
+  type: MountainRock
   components:
   - pos: 82.5,-15.5
     parent: 1781
