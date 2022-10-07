@@ -111,9 +111,9 @@ namespace Content.Server.Singularity.EntitySystems
             if (component.BeingDeletedByAnotherSingularity) return;
 
             var worldPos = xform.WorldPosition;
-            DestroyEntities(component, xform, worldPos);
-            DestroyTiles(component, xform, worldPos);
-            PullEntities(component, xform, worldPos, frameTime);
+            // DestroyEntities(component, xform, worldPos);
+            // DestroyTiles(component, xform, worldPos);
+            // PullEntities(component, xform, worldPos, frameTime);
         }
 
         private float PullRange(ServerSingularityComponent component)
