@@ -41,18 +41,29 @@
   canBeDuplicate: true
 
 - type: objective
+<<<<<<< HEAD
   id: BecomePsionicObjective
   issuer: syndicate
   difficultyOverride: 2.5
+=======
+  id: DieObjective
+  issuer: syndicate
+  prob: 0.03
+>>>>>>> d72d59ec7cd965633def26ec246ce22712df57d3
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
+<<<<<<< HEAD
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
+=======
+        - StealCondition
+        - EscapeShuttleCondition
+>>>>>>> d72d59ec7cd965633def26ec246ce22712df57d3
   conditions:
     - !type:BecomePsionicCondition
 
