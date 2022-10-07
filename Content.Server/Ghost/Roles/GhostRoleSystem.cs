@@ -182,11 +182,11 @@ namespace Content.Server.Ghost.Roles
 
         public async void Takeover(IPlayerSession player, uint identifier)
         {
-            if (!await _db.GetWhitelistStatusAsync(player.UserId))
-            {
-                CloseEui(player);
-                return;
-            }
+            // if (!await _db.GetWhitelistStatusAsync(player.UserId))
+            // {
+            //     CloseEui(player);
+            //     return;
+            // }
 
             if (!_ghostRoles.TryGetValue(identifier, out var role)) return;
             if (!role.Take(player)) return;
@@ -231,7 +231,7 @@ namespace Content.Server.Ghost.Roles
 
             foreach (var (id, role) in _ghostRoles)
             {
-                roles[i] = new GhostRoleInfo(){Identifier = id, Name = role.RoleName, Description = role.RoleDescription, Rules = ("(REQUIRES WHITELIST) " + role.RoleRules)};
+                roles[i] = new GhostRoleInfo(){Identifier = id, Name = role.RoleName, Description = role.RoleDescription, Rules = role.RoleRules};
                 i++;
             }
 

@@ -1,4 +1,4 @@
-﻿roles-antag-syndicate-agent-name = Syndicate agent (Requires whitelist)
+﻿roles-antag-syndicate-agent-name = Syndicate agent
 roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
 
 roles-antag-initial-infected-name = Initial Infected

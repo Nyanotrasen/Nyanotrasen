@@ -176,8 +176,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(traitor.UserId))
-            return;
+        // if (!await _db.GetWhitelistStatusAsync(traitor.UserId))
+        //     return;
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
