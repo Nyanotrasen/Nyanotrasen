@@ -76,7 +76,7 @@ namespace Content.Server.Singularity.EntitySystems
             var otherUid = args.OtherFixture.Body.Owner;
 
             // HandleDestroy will also check CanDestroy for us
-            HandleDestroy(component, otherUid);
+            // HandleDestroy(component, otherUid);
         }
 
         public override void Update(float frameTime)
@@ -173,7 +173,7 @@ namespace Content.Server.Singularity.EntitySystems
 
             foreach (var entity in _lookup.GetEntitiesInRange(xform.MapID, worldPos, destroyRange))
             {
-                HandleDestroy(component, entity);
+                // HandleDestroy(component, entity);
             }
         }
 
