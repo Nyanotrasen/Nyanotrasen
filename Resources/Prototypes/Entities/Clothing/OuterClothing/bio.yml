@@ -11,6 +11,9 @@
     sprite: Clothing/OuterClothing/Bio/general.rsi
   - type: DiseaseProtection
     protection: 0.2
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -25,6 +28,9 @@
     sprite: Clothing/OuterClothing/Bio/cmo.rsi
   - type: DiseaseProtection
     protection: 0.3
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -37,6 +43,9 @@
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/janitor.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -49,6 +58,9 @@
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/scientist.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -61,6 +73,9 @@
     sprite: Clothing/OuterClothing/Bio/security.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/security.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBioCmo
@@ -73,3 +88,6 @@
     sprite: Clothing/OuterClothing/Bio/virology.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/virology.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
