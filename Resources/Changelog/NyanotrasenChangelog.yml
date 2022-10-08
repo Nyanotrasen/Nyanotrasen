@@ -190,3 +190,14 @@ Entries:
     type: Add
   id: 22
   time: '2022-10-08T16:57:19.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae's second belt slot now shows the sprite.
+    type: Add
+  - message: The second belt slot only fits actual belts.
+    type: Tweak
+  - message: Tail segment density has been reduced to make lamia movement a bit snapper.
+      Proper, interesting solution coming soonTM.
+    type: Tweak
+  id: 23
+  time: '2022-10-08T18:05:46.0000000+00:00'
