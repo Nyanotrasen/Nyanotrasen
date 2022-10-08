@@ -6,16 +6,6 @@
   abstract: true
   description: A miserable pile of nyas.
   components:
-  - type: Markings
-    layerPoints:
-      Tail:
-        points: 1
-        required: true
-        defaultMarkings: [CatTail]
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [CatEars]
   - type: Sprite
     netsync: false
     noRot: true
@@ -108,12 +98,14 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
+  - type: Humanoid
+    species: Felinid
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
     - shape:
         !type:PhysShapeCircle
         radius: 0.28
-      mass: 35
+      density: 140
       restitution: 0.0
       mask:
       - MobMask
@@ -126,11 +118,10 @@
     damageContainer: Biological
     damageModifierSet: Felinid
   - type: MeleeWeapon
-    hitSound:
+    soundHit:
       collection: Punch
     range: 0.65
-    arcwidth: 30
-    arc: claw
+    animation: WeaponArcClaw
     damage:
       types:
         Blunt: 1
@@ -162,16 +153,6 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
-  - type: Markings
-    layerPoints:
-      Tail:
-        points: 1
-        required: true
-        defaultMarkings: [CatTail]
-      HeadTop:
-        points: 1
-        required: true
-        defaultMarkings: [CatEars]
   - type: Sprite
     netsync: false
     noRot: true

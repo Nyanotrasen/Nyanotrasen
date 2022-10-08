@@ -12,6 +12,9 @@ alert-level-red-announcement = There is a known threat on the station. Security 
 alert-level-violet = Violet
 alert-level-violet-announcement = There is a viral threat on the station. Medical staff are advised to isolate crewmembers with any symptoms. Crewmembers are advised to distance themselves from others and perform safety measures to prevent further spread.
 
+alert-level-white = White
+alert-level-white-announcement = Glimmer levels on station are approaching dangerous levels. Turn off all glimmer probers. Heads, mantes, and security can freely administer mindbreaking drugs. Psionics should alert relevant authorities of their existence. Seek psionic insulation if possible.
+
 alert-level-yellow = Yellow
 alert-level-yellow-announcement = There is a structural or atmospheric threat within the station. Engineering staff are advised to immediately respond and perform safety measures. Crewmembers are advised to stay away from the threat, and stay in their workplaces if necessary.
 

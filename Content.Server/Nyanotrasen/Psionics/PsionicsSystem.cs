@@ -1,7 +1,9 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
+using Content.Shared.MobState;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Weapon.Melee;
+using Content.Server.Weapons.Melee.Events;
 using Content.Server.Damage.Events;
 using Content.Server.GameTicking;
 using Content.Server.Electrocution;
@@ -18,29 +20,40 @@ namespace Content.Server.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+
+        /// <summary>
+        /// Unfortunately, since spawning as a normal role and anything else is so different,
+        /// this is the only way to unify them, for now at least.
+        /// </summary>
+        Queue<(PotentialPsionicComponent component, EntityUid uid)> _rollers = new();
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+            foreach (var roller in _rollers)
+            {
+                RollPsionics(roller.uid, roller.component, false);
+            }
+            _rollers.Clear();
+        }
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<PotentialPsionicComponent, PlayerSpawnCompleteEvent>(OnStartup);
-            SubscribeLocalEvent<GuaranteedPsionicComponent, PlayerSpawnCompleteEvent>(OnGuaranteedStartup);
+            SubscribeLocalEvent<PotentialPsionicComponent, MapInitEvent>(OnStartup);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
+
+            SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnPsiInit);
+            SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(OnPsiShutdown);
+            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
-        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, PlayerSpawnCompleteEvent args)
+        private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
         {
-            RollPsionics(uid, component);
-        }
-
-        private void OnGuaranteedStartup(EntityUid uid, GuaranteedPsionicComponent component, PlayerSpawnCompleteEvent args)
-        {
-            if (component.PowerComponent == null)
-            {
-                _psionicAbilitiesSystem.AddRandomPsionicPower(uid);
+            if (HasComp<PsionicComponent>(uid))
                 return;
-            }
 
-            _psionicAbilitiesSystem.AddPsionics(uid, component.PowerComponent);
+            _rollers.Enqueue((component, uid));
         }
 
         private void OnMeleeHit(EntityUid uid, AntiPsionicWeaponComponent component, MeleeHitEvent args)
@@ -66,27 +79,52 @@ namespace Content.Server.Psionics
             }
         }
 
+        private void OnPsiInit(EntityUid uid, PsionicComponent component, ComponentInit args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void OnPsiShutdown(EntityUid uid, PsionicComponent component, ComponentShutdown args)
+        {
+            InformPsionicsChanged(uid);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState == DamageState.Dead)
+                RemCompDeferred(uid, component);
+        }
+
+        private void InformPsionicsChanged(EntityUid uid)
+        {
+            RaiseNetworkEvent(new PsionicsChangedEvent(uid), Filter.Entities(uid));
+        }
+
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true)
         {
-            if (HasComp<GuaranteedPsionicComponent>(uid))
+            if (HasComp<PsionicComponent>(uid))
                 return;
 
             var chance = component.Chance;
-
+            var warn = true;
             if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus))
             {
                 chance *= bonus.Multiplier;
                 chance += bonus.FlatBonus;
+                warn = bonus.Warn;
             }
+
+            if (applyGlimmer)
+                chance += ((float) _glimmerSystem.Glimmer / 1000);
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))
-                _psionicAbilitiesSystem.AddPsionics(uid);
+                _psionicAbilitiesSystem.AddPsionics(uid, warn);
         }
 
         public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null)

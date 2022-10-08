@@ -8,6 +8,16 @@
       uiContainer: Top
       uiWindowPos: 0,2
       displayName: Jumpsuit
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      stripTime: 6
+      uiContainer: Top
+      uiWindowPos: 1,2
+      displayName: Suit
+      blacklist:
+        tags:
+          - FullBodyOuter
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES
@@ -86,6 +96,13 @@
       stripTime: 5
       uiContainer: BottomLeft
       uiWindowPos: 3,1
+      displayName: Belt
+    - name: belt2
+      slotTexture: belt
+      slotFlags: BELT
+      stripTime: 5
+      uiContainer: BottomLeft
+      uiWindowPos: 3,2
       displayName: Belt
     - name: back
       slotTexture: back

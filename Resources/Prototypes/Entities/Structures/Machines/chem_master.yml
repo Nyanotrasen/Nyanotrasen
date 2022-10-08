@@ -18,7 +18,7 @@
     sprite: Structures/Machines/mixer.rsi
     state: mixer_loaded
   - type: ChemMaster
-    pillDosageLimit: 50
+    pillDosageLimit: 25
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -26,7 +26,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.25,-0.4,0.25,0.4"
-      mass: 25
+      density: 190
       mask:
       - MachineMask
       layer:

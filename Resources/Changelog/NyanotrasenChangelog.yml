@@ -1,0 +1,192 @@
+Entries:
+- author: ZeroDayDaemon
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  id: 1
+  time: '2022-10-01T16:50:48.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: added new map Angle
+    type: Add
+  id: 2
+  time: '2022-10-01T17:23:24.0000000+00:00'
+- author: Rane
+  changes:
+  - message: New psionic glimmer event eligible at all levels above 100.
+    type: Add
+  - message: Added special behavior for severed telegnostic projections.
+    type: Add
+  - message: Felinids have a new wilhelm scream.
+    type: Add
+  - message: Several intelligent non-humanoids are now eligible for psionics.
+    type: Add
+  - message: Dispel has more feedback for most of its behaviors.
+    type: Tweak
+  - message: Oracle will no longer ask for food, creatures, or recipes that require
+      bluespace.
+    type: Tweak
+  - message: Vampiric metabolism of blood into omnizine has been boosted to compensate
+      for recent changes to processing small amounts of reagents.
+    type: Tweak
+  - message: Mind swap is more descriptive when you are trapped.
+    type: Fix
+  id: 3
+  time: '2022-10-01T17:27:00.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added the Escape on the Emergency Shuttle objective.
+    type: Add
+  - message: Removed the Stay Alive objective.
+    type: Remove
+  id: 4
+  time: '2022-10-01T20:29:12.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated Angle
+    type: Fix
+  id: 5
+  time: '2022-10-01T20:40:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Drones are now in the engineering techfab, where you would expect them.
+    type: Fix
+  id: 6
+  time: '2022-10-01T21:25:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: There's a new alert level, code white, for psionic emergencies.
+    type: Add
+  - message: 'New traitor objective: become psionic.'
+    type: Add
+  - message: Latejoiners no longer benefit from glimmer on their initial roll.
+    type: Tweak
+  - message: Base psionic chance is back to where it was originally.
+    type: Tweak
+  id: 7
+  time: '2022-10-02T16:11:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Angle has been updated with several fixes and reworks.
+    type: Tweak
+  id: 8
+  time: '2022-10-02T16:18:25.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Added new psionic clothing.
+    type: Add
+  id: 9
+  time: '2022-10-02T16:18:32.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for insulative skullcap.
+    type: Add
+  id: 10
+  time: '2022-10-02T17:59:56.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: changed airlocks in Security
+    type: Fix
+  - message: changed layout of HV wiring in AME room
+    type: Tweak
+  id: 11
+  time: '2022-10-02T19:01:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed several atmos issues on Angle in the engineering department and
+      epi's anomaly lab.
+    type: Fix
+  id: 12
+  time: '2022-10-03T13:39:42.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: An armored, insulative skullcap is available in limited quantities for
+      mantes and security.
+    type: Add
+  - message: Ifrits now have a unique psionic power outside of the pool.
+    type: Add
+  - message: Nuclear operatives now start with a cryptobiolin pill in their bag.
+    type: Add
+  - message: Glimmer probers glimmer output doubled.
+    type: Tweak
+  - message: Shuffled around traitor objective probabilities. Not final.
+    type: Tweak
+  - message: Turned off biomass easy mode.
+    type: Tweak
+  - message: Slightly reduced players per traitor.
+    type: Tweak
+  - message: Initial psionics rolls should be working for all entities now, including
+      nukies and other intelligent beings.
+    type: Fix
+  - message: Box has been removed from rotation until it gets air alarms and other
+      polish passes.
+    type: Remove
+  id: 13
+  time: '2022-10-03T16:06:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream and early merged my objective refactor.
+    type: Add
+  id: 14
+  time: '2022-10-03T18:56:43.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added soulbreaker toxin, currently only aquirable through soulbreaker
+      shotgun shells. It's basically a much better mindbreaker toxin.
+    type: Add
+  - message: Added soulbreaker shell recipe to non-lethal technology.
+    type: Add
+  - message: Security techfab requires technologies to be unlocked to print its recipes
+      again, I don't know what wiz den was thinking with changing that.
+    type: Tweak
+  - message: Ifrits can be targeted by psionic abilities.
+    type: Fix
+  id: 15
+  time: '2022-10-04T15:26:13.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream. A lot of stuff changed, so be sure to report any bugs.
+    type: Add
+  id: 16
+  time: '2022-10-04T17:02:46.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: You can use an empty hand on the oracle to see the requested items.
+    type: Add
+  - message: Psionic powers are now weighted differently, rather than being equally
+      likely.
+    type: Tweak
+  id: 17
+  time: '2022-10-05T16:58:48.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Glacier is on a mountain now, not an asteroid.
+    type: Tweak
+  id: 18
+  time: '2022-10-06T17:13:12.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for the anti-psychic knife.
+    type: Add
+  id: 19
+  time: '2022-10-06T17:13:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated some parts of angle.
+    type: Tweak
+  id: 20
+  time: '2022-10-06T17:12:41.0000000+00:00'
+- author: Hyenh
+  changes:
+  - message: Added new weeaboo costume to the theater vendor.
+    type: Add
+  id: 21
+  time: '2022-10-07T16:52:31.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae can now wear outer clothing that fits them.
+    type: Add
+  id: 22
+  time: '2022-10-08T16:57:19.0000000+00:00'

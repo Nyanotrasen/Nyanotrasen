@@ -11,10 +11,8 @@
     damage:
       types:
         Blunt: 22
-    hitSound:
+    soundHit:
       path: /Audio/Weapons/club.ogg
-    missSound:
-      path: /Audio/Weapons/club-miss.ogg
     bluntStaminaDamageFactor: 1.25
   - type: Wieldable
   - type: IncreaseDamageOnWield

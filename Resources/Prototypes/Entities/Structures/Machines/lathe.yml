@@ -27,7 +27,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.4,-0.4,0.4,0.4"
-      mass: 25
+      density: 190
       mask:
       - MachineMask
       layer:
@@ -114,7 +114,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.4,-0.4,0.4,0.4"
-      mass: 25
+      density: 190
       mask:
       - MachineMask
       layer:
@@ -186,13 +186,17 @@
       - Syringe
       - PillCanister
       - ChemistryEmptyBottle01
-      - Drone
       - Flash
       - MicroManipulatorStockPart
       - ScanningModuleStockPart
       - MicroLaserStockPart
       - MatterBinStockPart
       - CapacitorStockPart
+      - AdvancedCapacitorStockPart
+      - AdvancedMatterBinStockPart
+      - HighPowerMicroLaserStockPart
+      - NanoManipulatorStockPart
+      - AdvancedScanningModuleStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -314,6 +318,7 @@
       - FlashPayload
       - Handcuffs
       - Stunbaton
+      - InsulativeHeadcage
       - ShockCollar
       - CartridgePistol
       - ShellShotgun
@@ -324,6 +329,8 @@
       - ShellShotgun
       - ShellShotgunBeanbag
       - ShellShotgunFlare
+      - ShellTranquilizer
+      - ShellSoulbreaker
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber
@@ -371,7 +378,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
     idleState: icon
-    runningState: building
+    runningState: icon
     dynamicRecipes:
       - HandheldHealthAnalyzer
       - ClothingHandsGlovesLatex

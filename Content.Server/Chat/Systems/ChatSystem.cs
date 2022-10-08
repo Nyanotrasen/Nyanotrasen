@@ -13,6 +13,7 @@ using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.MobState;
+using Content.Server.Nyanotrasen.Chat;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -53,6 +54,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly NyanoChatSystem _nyanoChatSystem = default!;
 
     private const int VoiceRange = 7; // how far voice goes in world units
     private const int WhisperRange = 2; // how far whisper goes in world units
@@ -152,6 +154,9 @@ public sealed partial class ChatSystem : SharedChatSystem
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, hideChat);
+                break;
+            case InGameICChatType.Telepathic:
+                _nyanoChatSystem.SendTelepathicChat(source, message, hideChat);
                 break;
         }
     }
@@ -259,12 +264,15 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
+        var nameEv = new TransformSpeakerNameEvent(source, Name(source));
+        RaiseLocalEvent(source, nameEv);
+
         message = TransformSpeech(source, message);
         if (message.Length == 0)
             return;
 
         var messageWrap = Loc.GetString("chat-manager-entity-say-wrap-message",
-            ("entityName", Name(source)));
+            ("entityName", nameEv.Name));
 
         SendInVoiceRange(ChatChannel.Local, message, messageWrap, source, hideChat);
         _listener.PingListeners(source, message, null);
@@ -295,8 +303,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var transformSource = Transform(source);
         var sourceCoords = transformSource.Coordinates;
+
+        var nameEv = new TransformSpeakerNameEvent(source, Name(source));
+        RaiseLocalEvent(source, nameEv);
+
         var messageWrap = Loc.GetString("chat-manager-entity-whisper-wrap-message",
-            ("entityName", Name(source)));
+            ("entityName", nameEv.Name));
 
         var xforms = GetEntityQuery<TransformComponent>();
         var ghosts = GetEntityQuery<GhostComponent>();
@@ -507,7 +519,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
     }
 
-    private string ObfuscateMessageReadability(string message, float chance)
+    public string ObfuscateMessageReadability(string message, float chance)
     {
         var modifiedMessage = new StringBuilder(message);
 
@@ -528,6 +540,18 @@ public sealed partial class ChatSystem : SharedChatSystem
     }
 
     #endregion
+}
+
+public sealed class TransformSpeakerNameEvent : EntityEventArgs
+{
+    public EntityUid Sender;
+    public string Name;
+
+    public TransformSpeakerNameEvent(EntityUid sender, string name)
+    {
+        Sender = sender;
+        Name = name;
+    }
 }
 
 /// <summary>
@@ -566,7 +590,8 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper
+    Whisper,
+    Telepathic
 }
 
 /// <summary>

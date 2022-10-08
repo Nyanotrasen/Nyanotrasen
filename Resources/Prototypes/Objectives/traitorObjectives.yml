@@ -2,7 +2,6 @@
   id: CaptainIDStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -42,41 +41,30 @@
   canBeDuplicate: true
 
 - type: objective
-  id: StayAliveObjective
+  id: BecomePsionicObjective
   issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-        conditions:
-          - DieCondition
-  conditions:
-    - !type:StayAliveCondition {}
-
-- type: objective
-  id: DieObjective
-  issuer: syndicate
-  prob: 0.03
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - StayAliveCondition
-        - StealCondition
-  conditions:
-    - !type:DieCondition {}
-
-- type: objective
-  id: CMOHyposprayStealObjective
-  issuer: syndicate
-  difficultyOverride: 2.75
-  prob: 0.2
+  difficultyOverride: 2.5
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
     - !type:NotRoleRequirement
-      roleId: ChiefMedicalOfficer
+      roleId: ForensicMantis
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+  conditions:
+    - !type:BecomePsionicCondition
+
+- type: objective
+  id: CMOHyposprayStealObjective
+  issuer: syndicate
+  difficultyOverride: 2.75
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
   conditions:
@@ -88,7 +76,6 @@
   id: RDHardsuitStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -106,7 +93,6 @@
 - type: objective
   id: NukeDiskStealObjective
   issuer: syndicate
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -131,19 +117,14 @@
       prototype: NukeDisk
       owner: objective-condition-steal-station
 
-
-
 - type: objective
   id: IDComputerBoardStealObjective
   issuer: syndicate
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -155,14 +136,11 @@
   id: MagbootsStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: ChiefEngineer
     - !type:NotRoleRequirement
       roleId: ChiefEngineer
   conditions:
@@ -173,7 +151,6 @@
 - type: objective
   id: SupplyConsoleBoardStealObjective
   issuer: syndicate
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -181,24 +158,19 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Quartermaster
-    - !type:NotRoleRequirement
-      roleId: Quartermaster
   conditions:
     - !type:StealCondition
-      prototype: SupplyComputerCircuitboard
+      prototype: CargoRequestComputerCircuitboard
       owner: job-name-qm
 
 - type: objective
   id: CorgiMeatStealObjective
   issuer: syndicate
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
   conditions:
@@ -210,14 +182,11 @@
   id: CaptainGunStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
   conditions:
@@ -229,14 +198,11 @@
   id: CaptainJetpackStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
-  prob: 0.1
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
   conditions:
@@ -246,7 +212,6 @@
 - type: objective
   id: MantisKnifeStealObjective
   issuer: syndicate
-  prob: 0.2
   requirements:
     - !type:TraitorRequirement {}
     - !type:IncompatibleConditionsRequirement
@@ -258,3 +223,14 @@
     - !type:StealCondition
       prototype: AntiPsychicKnife
       owner: job-name-mantis
+
+- type: objective
+  id: EscapeShuttleObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+  conditions:
+    - !type:EscapeShuttleCondition {}

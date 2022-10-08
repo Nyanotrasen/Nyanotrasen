@@ -8,6 +8,8 @@
     - !type:DepartmentTimeRequirement
       department: Epistemics
       time: 18000
+    - !type:OverallPlaytimeRequirement
+      time: 54000
   icon: "ResearchDirector"
   antagAdvantage: 6
   requireAdminNotify: true
@@ -23,10 +25,8 @@
   - !type:AddComponentSpecial
     components:
     - type: BibleUser #Lets them heal with bibles
-  - !type:AddComponentSpecial
-    components:
-    - type: GuaranteedPsionic
-      power: DispelPower
+    - type: Psionic
+    - type: DispelPower
 
 - type: startingGear
   id: MystagogueGear

@@ -5,7 +5,9 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
+using Content.Server.Popups;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -16,9 +18,9 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly GuardianSystem _guardianSystem = default!;
-        [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
-
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
 
         public override void Initialize()
         {
@@ -35,10 +37,10 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var pacify))
+            if (!_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var action))
                 return;
 
-            component.DispelPowerAction = new EntityTargetAction(pacify);
+            component.DispelPowerAction = new EntityTargetAction(action);
             _actions.AddAction(uid, component.DispelPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -47,8 +49,8 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnShutdown(EntityUid uid, DispelPowerComponent component, ComponentShutdown args)
         {
-            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var pacify))
-                _actions.RemoveAction(uid, new EntityTargetAction(pacify), null);
+            if (_prototypeManager.TryIndex<EntityTargetActionPrototype>("Dispel", out var action))
+                _actions.RemoveAction(uid, new EntityTargetAction(action), null);
         }
 
         private void OnPowerUsed(DispelPowerActionEvent args)
@@ -70,6 +72,8 @@ namespace Content.Server.Abilities.Psionics
         {
             QueueDel(uid);
             Spawn("Ash", Transform(uid).Coordinates);
+            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.MediumCaution);
+            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
             args.Handled = true;
         }
 
@@ -81,6 +85,8 @@ namespace Content.Server.Abilities.Psionics
                 _guardianSystem.ToggleGuardian(host);
 
             _damageableSystem.TryChangeDamage(uid, damage, true, true);
+            _popupSystem.PopupCoordinates(Loc.GetString("sionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.SmallCaution);
+            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
             args.Handled = true;
         }
 

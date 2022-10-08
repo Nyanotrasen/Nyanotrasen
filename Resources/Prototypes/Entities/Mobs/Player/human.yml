@@ -5,7 +5,7 @@
   id: MobHuman
   components:
   - type: CombatMode
-    canDisarm: true
+    disarm: null
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -69,6 +69,9 @@
     nameSegments: [NamesFirstMilitaryLeader]
   - type: RandomHumanoidAppearance
     randomizeName: false
+  - type: PsionicBonusChance
+    multiplier: 7
+    warn: false
 
 - type: entity
   name: ERT leader
@@ -210,3 +213,6 @@
   components:
     - type: NukeOperative
     - type: RandomHumanoidAppearance
+    - type: PsionicBonusChance
+      multiplier: 7
+      warn: false

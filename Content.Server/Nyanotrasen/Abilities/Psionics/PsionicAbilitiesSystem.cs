@@ -1,10 +1,14 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
+using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
 using Content.Server.Mind.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
+using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 
@@ -18,31 +22,41 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-
-        public readonly IReadOnlyList<string> PsionicPowerPool = new[]
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        public override void Initialize()
         {
-            "PacificationPower",
-            "MetapsionicPower",
-            "DispelPower",
-            "MassSleepPower",
-            "PsionicInvisibilityPower",
-            "MindSwapPower",
-            "TelegnosisPower",
-        };
+            base.Initialize();
+            SubscribeLocalEvent<PsionicAwaitingPlayerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        }
 
-        public void AddPsionics(EntityUid uid)
+        private void OnPlayerAttached(EntityUid uid, PsionicAwaitingPlayerComponent component, PlayerAttachedEvent args)
+        {
+            if (TryComp<PsionicBonusChanceComponent>(uid, out var bonus) && bonus.Warn == true)
+                _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), args.Player);
+            else
+                AddRandomPsionicPower(uid);
+            RemCompDeferred<PsionicAwaitingPlayerComponent>(uid);
+        }
+
+        public void AddPsionics(EntityUid uid, bool warn = true)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
 
             if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
+            {
+                EnsureComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
+            }
 
             if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
                 return;
 
-            if (!HasComp<GuaranteedPsionicComponent>(uid) && TryComp<ActorComponent>(uid, out var actor))
+            if (warn && TryComp<ActorComponent>(uid, out var actor))
                 _euiManager.OpenEui(new AcceptPsionicsEui(uid, this), client);
+            else
+                AddRandomPsionicPower(uid);
         }
 
         public void AddPsionics(EntityUid uid, string powerComp)
@@ -62,11 +76,19 @@ namespace Content.Server.Abilities.Psionics
         {
             AddComp<PsionicComponent>(uid);
 
+            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomPsionicPowerPool", out var pool))
+            {
+                Logger.Error("Can't index the random psionic power pool!");
+                return;
+            }
+
             // uh oh, stinky!
-            var newComponent = (Component) _componentFactory.GetComponent(_random.Pick(PsionicPowerPool));
+            var newComponent = (Component) _componentFactory.GetComponent(pool.Pick());
             newComponent.Owner = uid;
 
             EntityManager.AddComponent(uid, newComponent);
+
+            _glimmerSystem.AddToGlimmer(_random.Next(1, 5));
         }
 
         public void RemovePsionics(EntityUid uid)
@@ -74,7 +96,13 @@ namespace Content.Server.Abilities.Psionics
             if (!TryComp<PsionicComponent>(uid, out var psionic))
                 return;
 
-            foreach (var compName in PsionicPowerPool)
+            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomPsionicPowerPool", out var pool))
+            {
+                Logger.Error("Can't index the random psionic power pool!");
+                return;
+            }
+
+            foreach (var compName in pool.Weights.Keys)
             {
                 // component moment
                 var comp = _componentFactory.GetComponent(compName);

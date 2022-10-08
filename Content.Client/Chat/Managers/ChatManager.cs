@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Content.Client.Administration.Managers;
 using Content.Client.Chat.UI;
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
-using Content.Client.Viewport;
 using Content.Shared.Administration;
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Robust.Client.Console;
@@ -16,9 +14,6 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Log;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -183,7 +178,7 @@ namespace Content.Client.Chat.Managers
         // go through all of the various channels and update filter / select permissions
         // appropriately, also enabling them if our enabledChannels dict doesn't have an entry
         // for any newly-granted channels
-        private void UpdateChannelPermissions()
+        public void UpdateChannelPermissions()
         {
             var oldSelectable = SelectableChannels;
             SelectableChannels = default;
@@ -227,6 +222,12 @@ namespace Content.Client.Chat.Managers
                 SelectableChannels |= ChatSelectChannel.Dead;
             }
 
+            if (_adminMgr.HasFlag(AdminFlags.Admin) || IsPsionic)
+            {
+                FilterableChannels |= ChatChannel.Telepathic;
+                SelectableChannels |= ChatSelectChannel.Telepathic;
+            }
+
             // only admins can see / filter asay
             if (_adminMgr.HasFlag(AdminFlags.Admin))
             {
@@ -245,6 +246,10 @@ namespace Content.Client.Chat.Managers
         public bool IsGhost => _playerManager.LocalPlayer?.ControlledEntity is {} uid &&
                                uid.IsValid() &&
                                _entityManager.HasComponent<GhostComponent>(uid);
+
+        public bool IsPsionic => _playerManager.LocalPlayer?.ControlledEntity is {} uid &&
+                               uid.IsValid() &&
+                               _entityManager.HasComponent<PsionicComponent>(uid);
 
         public void FrameUpdate(FrameEventArgs delta)
         {
@@ -364,6 +369,16 @@ namespace Content.Client.Chat.Managers
 
                 case ChatSelectChannel.Whisper:
                     _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
+                    break;
+
+                case ChatSelectChannel.Telepathic:
+                    if (!IsPsionic && !_adminMgr.HasFlag(AdminFlags.Admin))
+                    {
+                        _sawmill.Warning("Tried to speak in telepath chat without being telepathic or admin.");
+                        UpdateChannelPermissions();
+                    }
+                    else
+                        _consoleHost.ExecuteCommand($"tsay \"{CommandParsing.Escape(str)}\"");
                     break;
 
                 default:

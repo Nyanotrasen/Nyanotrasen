@@ -14,32 +14,3 @@
     damage:
       types:
         Cellular: 15
-
-- type: entity
-  name: shrink ray bolt
-  id: BoltShrinkRay
-  parent: BaseBullet
-  noSpawn: true
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Projectiles/plasma.rsi
-    color: skyblue
-    state: bullet
-  - type: Physics
-  - type: Ammo
-  - type: Projectile
-    damage:
-      types:
-        Poison: 0
-  - type: ShrinkRayProjectile
-
-- type: entity
-  parent: BoltShrinkRay
-  name: growth ray bolt
-  id: BoltGrowthRay
-  noSpawn: true
-  components:
-  - type: ShrinkRayProjectile
-    scaleFactor: "1.5, 1.5"
-    applyItem: false
-

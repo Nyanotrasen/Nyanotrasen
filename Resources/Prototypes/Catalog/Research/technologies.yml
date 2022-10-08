@@ -168,6 +168,7 @@
     - Handcuffs
     - Stunbaton
     - FlashPayload
+    - InsulativeHeadcage
 
 - type: technology
   name: "non-lethal technology"
@@ -182,6 +183,7 @@
   unlockedRecipes:
     - ShellShotgunBeanbag
     - ShellTranquilizer
+    - ShellSoulbreaker
     - CartridgePistolRubber
     - CartridgeMagnumRubber
     - CartridgeCaselessRifleRubber
@@ -312,6 +314,7 @@
     - SheetPlastic
     - SheetRGlass
     - SheetGlass1
+    - BluespaceCrystal
 
 - type: technology
   name: technologies-advanced-atmospherics-technology
@@ -506,6 +509,25 @@
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg
+
+- type: technology
+  name: technologies-adv-parts-technology
+  id: AdvancedPartsTechnology
+  description: technologies-adv-parts-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  requiredPoints: 8000
+  requiredTechnologies:
+    - BasicPartsTechnology
+    - IndustrialEngineering
+    - PowerCellBasic
+  unlockedRecipes:
+    - AdvancedCapacitorStockPart
+    - AdvancedMatterBinStockPart
+    - HighPowerMicroLaserStockPart
+    - NanoManipulatorStockPart
+    - AdvancedScanningModuleStockPart
 
 # Bluespace Theory Technology Tree
 

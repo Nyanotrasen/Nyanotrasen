@@ -4,6 +4,13 @@
   parent: SimpleSpaceMobBase
   description: This is really going to let you own some vegans in your next online debate.
   components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    factions:
+      - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -15,7 +22,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.5
-      mass: 50
+      density: 63
       mask:
       - MobMask
       layer:
@@ -51,15 +58,18 @@
     heatDamageThreshold: 500
     coldDamageThreshold: 200
   - type: MeleeWeapon
-    range: 0.5
-    arcwidth: 0
-    arc: claw
+    hidden: true
+    range: 1.5
+    animation: WeaponArcBite
+
+    soundHit:
+      path: /Audio/Effects/bite.ogg
     damage:
-      groups:
-        Brute: 8
+      types:
+        Piercing: 3
+        Slash: 5
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Produce
-  - type: Faction
-    factions:
-    - SimpleHostile
+  - type: NoSlip
+

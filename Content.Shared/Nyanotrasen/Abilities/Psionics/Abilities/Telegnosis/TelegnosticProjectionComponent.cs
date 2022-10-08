@@ -1,5 +1,3 @@
-using Content.Shared.Actions.ActionTypes;
-
 namespace Content.Shared.Abilities.Psionics
 {
     [RegisterComponent]

@@ -16,6 +16,7 @@ using Content.Server.HealthExaminable;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Chemistry.Components.SolutionManager;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
@@ -256,6 +257,15 @@ namespace Content.Server.Lamiae
             damage.DamageDict.Add("Piercing", 1); // Slowly accumulate enough to gib after like half an hour
 
             _damageableSystem.TryChangeDamage(victim, damage, true, true);
+
+            // Inject if we have it.
+            if (!bloodsuckerComp.InjectWhenSucc)
+                return;
+
+            if (!_solutionSystem.TryGetInjectableSolution(victim, out var injectable))
+                return;
+
+            _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
         }
 
         private sealed class SuckCancelledEvent : EntityEventArgs

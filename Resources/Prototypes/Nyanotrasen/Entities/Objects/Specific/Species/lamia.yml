@@ -9,7 +9,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 10
+      density: 80
   - type: Transform
     anchored: false
   - type: Tag
@@ -35,7 +35,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.35,-0.35,0.35,0.35"
-      mass: 10
+      density: 80
       mask:
       - Impassable
       hard: false
@@ -50,3 +50,18 @@
   - type: Sprite
     sprite: Nyanotrasen/Mobs/Species/lamia.rsi
     state: tip
+
+- type: entity
+  parent: BaseItem
+  id: InjectorBloodsuckerNocturine
+  name: nocturine gland injector
+  description: Gives a bloodsucker a gland that injects nocturine when they suck blood.
+  components:
+  - type: Item
+    size: 3
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    netsync: false
+    state: salpen
+  - type: BloodSuckerGlandInjector
+    injectReagent: Nocturine

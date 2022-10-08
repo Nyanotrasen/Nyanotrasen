@@ -3,7 +3,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Inventory.Events;
 using Content.Server.Abilities.Gachi.Components;
 using Content.Server.Clothing.Components;
-using Content.Server.Weapon.Melee;
+using Content.Server.Weapons.Melee.Events;
 using Content.Shared.MobState;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
