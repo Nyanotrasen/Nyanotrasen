@@ -38,7 +38,7 @@ job-name-ertengineer = ERT engineer
 job-name-ertsecurity = ERT security
 job-name-ertmedic = ERT medic
 job-name-ertjanitor = ERT janitor
-job-name-boxer = Boxer
+job-name-boxer = boxer
 
 
 #Nyano
