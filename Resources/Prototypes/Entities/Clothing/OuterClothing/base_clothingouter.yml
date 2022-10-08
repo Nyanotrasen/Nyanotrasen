@@ -73,6 +73,9 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   abstract: true
@@ -92,3 +95,6 @@
     size: 80
   - type: DiseaseProtection
     protection: 0.05
+  - type: Tag
+    tags:
+      - FullBodyOuter
