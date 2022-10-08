@@ -104,6 +104,10 @@
       uiContainer: BottomLeft
       uiWindowPos: 3,2
       displayName: Belt
+      offset: 0, -0.05
+      blacklist:
+        tags:
+          - BeltSlotNotBelt
     - name: back
       slotTexture: back
       slotFlags: BACK

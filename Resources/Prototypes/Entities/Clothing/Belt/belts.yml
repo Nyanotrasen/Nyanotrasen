@@ -379,6 +379,9 @@
           tags:
           - CaptainSabre
   - type: Appearance
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 # Belts without visualizers
 
@@ -399,6 +402,9 @@
     whitelist:
       tags:
         - ShellShotgun
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltBase
@@ -424,6 +430,9 @@
     sprite: Clothing/Belt/holster.rsi
   - type: Storage
     capacity: 20
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -445,6 +454,9 @@
         - MeleeWeapon
         - BallisticAmmoProvider
         - CartridgeAmmo
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -456,6 +468,9 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -467,6 +482,9 @@
     sprite: Clothing/Belt/militarywebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/militarywebbing.rsi
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -482,6 +500,9 @@
     size: 60
   - type: Storage
     capacity: 60
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltBase
@@ -495,6 +516,9 @@
   - type: Clothing
     sprite: Clothing/Belt/suspenders.rsi
     quickEquip: true
+  - type: Tag
+    tags:
+      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase
