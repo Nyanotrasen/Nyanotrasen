@@ -4,6 +4,9 @@
   id: AirAlarm
 
 - type: Tag
+  id: AirAlarmElectronics
+
+- type: Tag
   id: AirSensor
 
 - type: Tag
@@ -13,16 +16,23 @@
   id: Baguette
 
 - type: Tag
+  id: BikeHorn
+
+- type: Tag
   id: Bee
 
 - type: Tag
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
+  id: BluespaceCrystal
+
+- type: Tag
   id: BrassInstrument
 
 - type: Tag
   id: Brutepack
+
 
 - type: Tag
   id: BodyBag
@@ -41,6 +51,18 @@
 
 - type: Tag
   id: Bottle
+
+- type: Tag
+  id: BoxHug
+
+- type: Tag
+  id: BrassInstrument
+
+- type: Tag
+  id: Brutepack
+
+- type: Tag
+  id: Bucket
 
 - type: Tag
   id: BulletFoam
@@ -106,6 +128,9 @@
   id: CigPack
 
 - type: Tag
+  id: ClownRubberStamp
+
+- type: Tag
   id: Crayon
 
 - type: Tag
@@ -151,6 +176,9 @@
   id: CombatKnife
 
 - type: Tag
+  id: ComputerTelevisionCircuitboard
+
+- type: Tag
   id: Debug
 
 - type: Tag
@@ -164,6 +192,9 @@
 
 - type: Tag
   id: DoorBumpOpener
+
+- type: Tag
+  id: DoorElectronics
 
 - type: Tag
   id: DonkPocket
@@ -188,6 +219,9 @@
 
 - type: Tag
   id: FireAlarm
+
+- type: Tag
+  id: FireAlarmElectronics
 
 - type: Tag
   id: FireAxe
@@ -238,6 +272,9 @@
   id: GlassBeaker
 
 - type: Tag
+  id: GlassShard
+
+- type: Tag
   id: Grenade
 
 - type: Tag
@@ -245,6 +282,9 @@
 
 - type: Tag
   id: Handcuffs
+
+- type: Tag
+  id: Head
 
 - type: Tag
   id: HideContextMenu
@@ -325,6 +365,9 @@
 
 - type: Tag
   id: MagazinePistolSubMachineGun
+
+- type: Tag
+  id: MailingUnitElectronics
 
 - type: Tag
   id: Matchstick
@@ -454,6 +497,12 @@
   id: Soap
 
 - type: Tag
+  id: SolarAssemblyPart
+
+- type: Tag
+  id: SolarTrackerElectronics
+
+- type: Tag
   id: Spray
 
 - type: Tag
@@ -461,6 +510,9 @@
 
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: SurveillanceCameraMonitorCircuitboard
 
 - type: Tag
   id: Syndicate
@@ -485,6 +537,15 @@
 
 - type: Tag
   id: Wall
+
+- type: Tag
+  id: WallmountGeneratorAPUElectronics
+
+- type: Tag
+  id: WallmountGeneratorElectronics
+
+- type: Tag
+  id: WallmountSubstationElectronics
 
 - type: Tag
   id: Window
