@@ -554,12 +554,9 @@ namespace Content.Client.Preferences.UI
             #endregion FlavorText
 
             #region Dummy
-            Logger.Error("Profile is null: " + (Profile == null));
             var species = Profile?.Species ?? SharedHumanoidSystem.DefaultSpecies;
             var dollProto = _prototypeManager.Index<SpeciesPrototype>(species).DollPrototype;
 
-            Logger.Error("Species: " + species);
-            Logger.Error("dollProto: " + dollProto);
             if (_previewDummy != null)
                 _entMan.DeleteEntity(_previewDummy!.Value);
 
@@ -696,12 +693,9 @@ namespace Content.Client.Preferences.UI
 
         private void RebuildSpriteView()
         {
-            Logger.Error("Rebuilt profile is null: " + (Profile?.Species == null));
             var species = Profile?.Species ?? SharedHumanoidSystem.DefaultSpecies;
             var dollProto = _prototypeManager.Index<SpeciesPrototype>(species).DollPrototype;
 
-            Logger.Error("Rebuilt species: " + species);
-            Logger.Error("Rebuilt dollproto: " + dollProto);
             if (_previewDummy != null)
                 _entMan.DeleteEntity(_previewDummy!.Value);
 
