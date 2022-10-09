@@ -16,27 +16,40 @@
 - type: markingPoints
   id: MobLamiaMarkingLimits
   points:
-    Hair:
+      Hair:
       points: 1
       required: false
     Tail:
-      points: 5
+      points: 1
       required: true
       defaultMarkings: [ LamiaBottom ]
-    FacialHair:
+    Chest:
       points: 1
       required: false
-    HeadTop:
-      points: 6
-    Chest:
-      points: 3
-      required: false
-    Legs:
-      points: 6
-      required: false
     Arms:
-      points: 6
+      points: 2
       required: false
+    # Hair:
+    #   points: 1
+    #   required: false
+    # Tail:
+    #   points: 5
+    #   required: true
+    #   defaultMarkings: [ LamiaBottom ]
+    # FacialHair:
+    #   points: 1
+    #   required: false
+    # HeadTop:
+    #   points: 6
+    # Chest:
+    #   points: 3
+    #   required: false
+    # Legs:
+    #   points: 6
+    #   required: false
+    # Arms:
+    #   points: 6
+    #   required: false
 
 - type: speciesBaseSprites
   id: MobLamiaSprites
