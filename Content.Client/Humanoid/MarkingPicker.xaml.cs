@@ -61,8 +61,10 @@ public sealed partial class MarkingPicker : Control
     }
 
     public bool Forced { get; set; }
+    // public bool Forced = true;
 
     private bool _ignoreSpecies;
+    // private bool _ignoreSpecies = true;
 
     public bool IgnoreSpecies
     {
@@ -70,6 +72,7 @@ public sealed partial class MarkingPicker : Control
         set
         {
             _ignoreSpecies = value;
+            // _ignoreSpecies = true;
             Populate();
         }
     }

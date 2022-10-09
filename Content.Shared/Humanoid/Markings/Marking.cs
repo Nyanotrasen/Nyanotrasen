@@ -37,6 +37,7 @@ namespace Content.Shared.Humanoid.Markings
             _markingColors = new(other.MarkingColors);
             Visible = other.Visible;
             Forced = other.Forced;
+            // Forced = true;
         }
 
         /// <summary>
@@ -63,6 +64,7 @@ namespace Content.Shared.Humanoid.Markings
         /// </summary>
         [ViewVariables]
         public bool Forced;
+        // public bool Forced = true;
 
         public void SetColor(int colorIndex, Color color) =>
             _markingColors[colorIndex] = color;
@@ -97,6 +99,7 @@ namespace Content.Shared.Humanoid.Markings
                 && _markingColors.SequenceEqual(other._markingColors)
                 && Visible.Equals(other.Visible)
                 && Forced.Equals(other.Forced);
+                // && Forced.Equals(true);
         }
 
         // VERY BIG TODO: TURN THIS INTO JSONSERIALIZER IMPLEMENTATION

@@ -78,12 +78,17 @@
   - type: Eye
   - type: Inventory
     templateId: drone
+  - type: Access
+    groups:
+    - AllAccess
   - type: Strippable
   - type: UserInterface
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
   - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: true
     makeSentient: true
     name: Maintenance Drone
     description: Maintain the station. Ignore other beings except drones.
@@ -92,14 +97,20 @@
       1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
       2. You may not harm any being, regardless of intent or circumstance.
       3. Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Engineering
+    - Science
+    - Service
+    - Supply
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 5
   - type: MobState
     thresholds:
       0: Alive
-      60: Dead
-  - type: Flashable
+      125: Dead
   - type: NoSlip
   - type: StatusEffects
     allowed:
@@ -108,8 +119,8 @@
     - SlowedDown
   - type: SlowOnDamage
     speedModifierThresholds:
-      30: 0.7
-      50: 0.5
+      60: 0.7
+      100: 0.5
   - type: Temperature
     heatDamageThreshold: 5000
     currentTemperature: 310.15

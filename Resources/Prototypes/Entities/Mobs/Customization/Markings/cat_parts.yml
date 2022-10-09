@@ -2,7 +2,7 @@
   id: CatEars
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox]
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
     state: ears_cat_outer
@@ -13,7 +13,7 @@
   id: CatTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
     state: tail_cat

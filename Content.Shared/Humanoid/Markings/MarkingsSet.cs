@@ -141,6 +141,7 @@ public sealed class MarkingSet
         {
             foreach (var marking in list)
             {
+                //th
                 if (!markingManager.TryGetMarking(marking, out var prototype))
                 {
                     toRemove.Add((category, marking.MarkingId));
@@ -157,6 +158,7 @@ public sealed class MarkingSet
                 {
                     toRemove.Add((category, marking.MarkingId));
                 }
+                //is
             }
         }
 

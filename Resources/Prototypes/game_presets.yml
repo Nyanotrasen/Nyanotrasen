@@ -4,7 +4,7 @@
     - extended
     - shittersafari
   name: extended-title
-  showInVote: false #2boring2vote
+  showInVote: true #2boring2vote
   description: extended-description
   rules:
     - BasicStationEventScheduler
@@ -26,7 +26,7 @@
     - sandbox
   name: sandbox-title
   description: sandbox-description
-  showInVote: false
+  showInVote: true
   rules:
     - Sandbox
 
@@ -36,7 +36,7 @@
     - traitor
   name: traitor-title
   description: traitor-description
-  showInVote: false
+  showInVote: true
   rules:
     - Traitor
     - BasicStationEventScheduler
@@ -48,6 +48,7 @@
     - sus
   name: suspicion-title
   description: suspicion-description
+  showInVote: true
   rules:
     - Suspicion
 
@@ -58,6 +59,7 @@
     - dm
   name: death-match-title
   description: death-match-description
+  showInVote: true
   rules:
     - DeathMatch
 
@@ -68,6 +70,7 @@
     - traitordeathmatch
   name: traitor-death-match-title
   description: traitor-death-match-description
+  showInVote: true
   rules:
     - TraitorDeathMatch
     - MaxTimeRestart
@@ -78,7 +81,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  showInVote: false
+  showInVote: true
   rules:
     - Nukeops
     - BasicStationEventScheduler
@@ -93,7 +96,7 @@
     - zomber
   name: zombie-title
   description: zombie-description
-  showInVote: false
+  showInVote: true
   rules:
     - Zombie
     - BasicStationEventScheduler
@@ -104,7 +107,7 @@
     - pirates
   name: pirates-title
   description: pirates-description
-  showInVote: false
+  showInVote: true
   rules:
     - Pirates
     - BasicStationEventScheduler

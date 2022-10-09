@@ -2,8 +2,8 @@
   id: boxstation
   mapName: 'Box Station'
   mapPath: /Maps/box.yml
-  minPlayers: 30
-  votable: false
+  minPlayers: 0
+  votable: true
   stations:
     Boxstation:
       mapNameTemplate: '{0} Box Station {1}'
