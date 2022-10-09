@@ -1,7 +1,7 @@
 - type: species
   id: Lamia
   name: Lamia
-  roundStart: false
+  roundStart: true
   prototype: MobLamia
   dollPrototype: MobLamiaDummy
   sprites: MobLamiaSprites
@@ -27,8 +27,7 @@
       required: false
     Tail:
       points: 2
-      required: true
-      defaultMarkings: [ LamiaBottom ]
+      required: false
     Chest:
       points: 2
       required: false

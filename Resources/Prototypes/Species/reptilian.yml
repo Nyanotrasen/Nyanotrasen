@@ -33,7 +33,6 @@
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
       points: 10
@@ -43,12 +42,10 @@
       required: false
     Tail:
       points: 10
-      required: true
-      defaultMarkings: [ LizardTailSmooth ]
+      required: false
     Snout:
       points: 10
-      required: true
-      defaultMarkings: [ LizardSnoutRound ]
+      required: false
     HeadTop:
       points: 10
       required: false

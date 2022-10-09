@@ -1,7 +1,7 @@
 - type: species
   id: Felinid
   name: species-name-felinid
-  roundStart: false
+  roundStart: true
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
@@ -19,12 +19,10 @@
       required: false
     Tail:
       points: 2
-      required: true
-      defaultMarkings: [ CatTail ]
+      required: false
     HeadTop:
       points: 2
-      required: true
-      defaultMarkings: [ CatEars ]
+      required: false
     Chest:
       points: 2
       required: false
