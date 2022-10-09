@@ -1,7 +1,7 @@
 - type: species
   id: Oni
   name: Oni
-  roundStart: true
+  roundStart: false
   prototype: MobOni
   dollPrototype: MobOniDummy
   markingLimits: MobOniMarkingLimits
@@ -22,18 +22,18 @@
       points: 1
       required: false
     HeadTop:
-      points: 6
+      points: 2
       required: true
       defaultMarkings: [ OniHornSingleCurved ]
     Tail:
       points: 2
       required: false
     Chest:
-      points: 3
+      points: 2
       required: false
     Legs:
-      points: 6
+      points: 4
       required: false
     Arms:
-      points: 6
+      points: 4
       required: false
