@@ -59,9 +59,7 @@
     coldDamageThreshold: 200
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     animation: WeaponArcBite
-
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
