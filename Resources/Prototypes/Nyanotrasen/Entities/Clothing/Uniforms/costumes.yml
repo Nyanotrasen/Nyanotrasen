@@ -65,7 +65,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: UniformGeisha
-  name: Geisha Dress
+  name: geisha dress
   description: For a good hostess.
   components:
   - type: Sprite
@@ -83,3 +83,14 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/nurse.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/nurse.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingCostumeArcDress
+  name: white shirt and purple skirt
+  description: You feel a supernatural urge to put these on. It must be fate.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/arc.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/arc.rsi

@@ -17,6 +17,9 @@
         Heat: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.65
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterEVASuitBase
@@ -59,6 +62,9 @@
     sprintModifier: 0.7
   - type: TemperatureProtection
     coefficient: 0.01
+  - type: Tag
+    tags:
+      - FullBodyOuter #again, 2 discrete parts...?
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -75,10 +81,13 @@
         Radiation: 0.45
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterSuitSpaceninja
+  id: ClothingOuterSuitSpaceninja #Needs lamia sprite.
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides good protection and many abilities like invisibility or teleportation.
   components:
@@ -104,6 +113,9 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBase
@@ -126,6 +138,9 @@
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -150,3 +165,6 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.75
+  - type: Tag
+    tags:
+      - FullBodyOuter #the sprite really looks like it should be 2 discrete parts though...
