@@ -19,10 +19,10 @@
       #     "psionic-regeneration-essence-breath"
       #   ]
       #   probability: 0.15
-      - !type:SatiateThirst
-        factor: -3
-      - !type:SatiateHunger
-        factor: -3
+      # - !type:SatiateThirst
+      #   factor: -3
+      # - !type:SatiateHunger
+      #   factor: -3
       - !type:HealthChange
         damage:
           groups:

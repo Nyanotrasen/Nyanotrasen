@@ -114,8 +114,6 @@
   - type: NoSlip
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
     - SlowedDown
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -166,7 +164,7 @@
       event: !type:ToggleActionEvent
   - type: PointLight
     enabled: false
-    radius: 3.5
+    radius: 4
     softness: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
@@ -188,6 +186,7 @@
   - type: SurveillanceCamera
     setupAvailableNetworks:
       - SurveillanceCameraSilicon
+  - type: CombatMode
 
 - type: entity
   name: onestar mecha

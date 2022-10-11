@@ -4,7 +4,7 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Oni]
+  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: single_curved
@@ -34,7 +34,7 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Oni]
+  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_curved_outwards
