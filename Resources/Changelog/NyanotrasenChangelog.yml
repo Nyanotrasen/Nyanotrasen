@@ -246,3 +246,16 @@ Entries:
     type: Fix
   id: 30
   time: '2022-10-11T17:48:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added glimmer drains. Admin spawn only for now for initial testing. Within
+      a week we should have them researchable, constructible and with new sprites
+      for probers, drains, and a frame that can build into either.
+    type: Add
+  - message: Glimmer probers now produce about 1/3 less glimmer.
+    type: Tweak
+  - message: Further reduced weighting for mass sleep, psionic invisibility, and mind
+      swap.
+    type: Tweak
+  id: 31
+  time: '2022-10-11T18:12:26.0000000+00:00'
