@@ -1,0 +1,123 @@
+- type: bodyTemplate
+  id: AITemplate
+  name: "routerai"
+  centerSlot: "torso"
+  slots:
+    torso: Torso
+    hand 1: hand
+
+- type: bodyPreset
+  id: AIPreset
+  name: "routerai"
+  partIDs:
+    torso: TorsoAnimal
+    hand 1: HandsAnimal
+
+- type: entity
+  id: AIEye
+  name: AI eye
+  suffix: router
+  components:
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8
+    baseSprintSpeed : 12
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Silicon/aieye.rsi
+    state: icon
+    noRot: true
+  - type: Hands
+  - type: Mind
+    showExamineInfo: true
+  - type: Body
+    template: AITemplate
+    preset: AIPreset
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Examiner
+  - type: Actions
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - CanPilot
+  - type: DoAfter
+  - type: Speech
+    speechSounds: Pai
+  - type: Access
+    groups:
+    - AllAccess
+  - type: Physics
+    bodyType: KinematicController
+    fixedRotation: true
+    status: OnGround
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      mass: 5
+      mask:
+      - GhostImpassable
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+  - type: MovementIgnoreGravity
+  - type: Visibility
+    layer: 2
+  - type: Eye
+    drawFov: false
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: Station AI eye
+    description: Maintain the station. Manage drones/borgs. Open doors for people...
+    rules: |
+      You are bound by these laws both in-game and out-of-character:
+      1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
+      2. You may not harm any being, unless known as an antagonist, not doing anything still means you harmed someone if you could've prevented it.
+      3. Your goal is to manage the station and borgs to the best of your abilities, You must never actively work against the station.
+
+- type: entity
+  parent: VendingMachineSmartFridge
+  id: AI
+  name: AI core
+  description: Host for an AI. Likely more A than I.
+  suffix: router
+  components:
+  - type: Body
+    template: AITemplate
+    preset: AIPreset
+  - type: Speech
+    speechSounds: Pai
+  - type: Hands
+    showInHands: false
+  - type: Inventory
+  - type: Examiner
+  - type: Actions
+  - type: Puller
+  - type: DoAfter
+  - type: CombatMode
+    canDisarm: true
+  - type: Eye
+  - type: Mind
+    showExamineInfo: true
+  - type: Faction
+    factions:
+    - NanoTrasen
+  - type: Tag
+    tags:
+    - CanPilot
