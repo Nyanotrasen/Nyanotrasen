@@ -259,3 +259,13 @@ Entries:
     type: Tweak
   id: 31
   time: '2022-10-11T18:12:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the whitelist end of round kick system after recent changes.
+      It was originally added when there were no other whitelist restrictions, and
+      the whitelisted pop cap was much lower, leading to trouble for people trying
+      to accumulate whitelist play time. The ghost role whitelisting change and 20
+      increase to the pop cap should perform the same function.
+    type: Remove
+  id: 32
+  time: '2022-10-11T21:10:45.0000000+00:00'
