@@ -12,3 +12,22 @@
   - type: ResearchPointSource
     pointspersecond: 25
     active: true
+
+- type: entity
+  parent: BaseMachinePowered
+  id: GlimmerDrain
+  name: glimmer drain
+  description: Uses electricity to try and sort out the noösphere, reducing its level of entropy.
+  components:
+  - type: Psionic
+  - type: GlimmerSource
+    addToGlimmer: false
+  - type: Sprite
+    sprite: Structures/Machines/rndpointsource.rsi
+    color: green
+    netsync: false
+    layers:
+    - state: rndpointsource-off
+    - state: rndpointsource
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
