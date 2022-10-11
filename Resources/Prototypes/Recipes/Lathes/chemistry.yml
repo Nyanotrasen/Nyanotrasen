@@ -68,3 +68,24 @@
   completetime: 2
   materials:
     Glass: 200
+
+- type: latheRecipe
+  id: MagicMedipen
+  icon: Objects/Specific/Medical/medipen.rsi
+  result: MagicMedipen
+  completetime: 5
+  materials:
+    Plastic: 100
+    Steel: 50
+    Glass: 50
+    Bluespace: 250
+
+- type: latheRecipe
+  id: ChemicalMedipen
+  icon: Objects/Specific/Medical/medipen.rsi
+  result: ChemicalMedipen
+  completetime: 2
+  materials:
+    Plastic: 100
+    Steel: 50
+    Glass: 50

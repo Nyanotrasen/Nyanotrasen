@@ -45,7 +45,7 @@
 - type: entity
   name: chemical medipen
   parent: BaseItem
-  description: A sterile injector for rapid administration of drugs to patients. This one can't be refilled.
+  description: A sterile injector for rapid administration of drugs to patients. This can be refilled!
   id: ChemicalMedipen
   components:
   - type: Sprite
@@ -61,6 +61,8 @@
     solutions:
       pen:
         maxVol: 15
+  - type: RefillableSolution
+    solution: pen
   - type: ExaminableSolution
     solution: pen
   - type: Hypospray
@@ -96,7 +98,6 @@
           Quantity: 12
         - ReagentId: TranexamicAcid
           Quantity: 3
-
 
 - type: entity
   name: anti-poison medipen
@@ -143,6 +144,60 @@
             Quantity: 10
           - ReagentId: Barozine
             Quantity: 20
+
+- type: entity
+  name: magic medipen
+  parent: ChemicalMedipen
+  id: MagicMedipen
+  description: Slowly regenerates ichor? Where does the ichor come from?
+  components:
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 5
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+          - ReagentId: Ichor
+            Quantity: 30
+  - type: AutoRegenReagent
+    solution: pen
+    reagents:
+      - Ichor
+    unitsPerSecond: 1
+
+- type: entity
+  name: trollospray
+  parent: BaseItem
+  description: A really powerful hypospray, with many funny or dangerous chemicals in an unlimited supply! You shouldn't release these to the public.
+  id: Trollospray
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: hypo
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 150
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 5
+  - type: AutoRegenReagent
+    solution: hypospray
+    reagents:
+      - Ichor
+      - Omnizine
+      - Nocturine
+      - Epinephrine
+      - Desoxyephedrine
+    unitsPerSecond: 150
 
 - type: entity
   name: pen

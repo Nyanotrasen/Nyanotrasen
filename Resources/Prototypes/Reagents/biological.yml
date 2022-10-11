@@ -73,9 +73,9 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -2
+            Burn: -10
+            Brute: -10
+            Toxin: -5
           types:
             Bloodloss: -5
   # Just in case you REALLY want to water your plants
