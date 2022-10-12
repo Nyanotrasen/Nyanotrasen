@@ -10,14 +10,39 @@
   id: AIPreset
   name: "routerai"
   partIDs:
+    head: HeadHuman
     torso: TorsoAnimal
     hand 1: HandsAnimal
+  connections:
+    head: Torso
 
 - type: entity
-  id: AIEye
+  id: AIeye
   name: AI eye
-  suffix: router
   components:
+  - type: UserInterface
+    interfaces:
+      - key: enum.CommunicationsConsoleUiKey.Key
+        type: CommunicationsConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      - key: enum.CommunicationsConsoleUiKey.Key
+        toggleAction:
+          name: action-name-show-communications-console
+          description: action-description-show-communications-console
+          icon: Structures/Machines/parts.rsi/box_0.png
+          iconOn: Structures/Machines/parts.rsi/box_2.png
+          keywords: [ "AI", "console", "interface" ]
+          priority: -10
+          event: !type:ToggleIntrinsicUIEvent
+  - type: CommunicationsConsole
+    title: Station AI
+    color: "#2E5984"
+    delay: 5
+  - type: AITelegnosticProjection
+  - type: InnateTool
+    tools:
+      - id: DoorRemoteAI
   - type: Input
     context: "human"
   - type: MobMover
@@ -73,39 +98,93 @@
     - Security
     - Service
     - Supply
-    - Syndicate
   - type: MovementIgnoreGravity
-  - type: Visibility
-    layer: 2
   - type: Eye
     drawFov: false
-  - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
-    name: Station AI eye
-    description: Maintain the station. Manage drones/borgs. Open doors for people...
-    rules: |
-      You are bound by these laws both in-game and out-of-character:
-      1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
-      2. You may not harm any being, unless known as an antagonist, not doing anything still means you harmed someone if you could've prevented it.
-      3. Your goal is to manage the station and borgs to the best of your abilities, You must never actively work against the station.
 
 - type: entity
-  parent: VendingMachineSmartFridge
+  # parent: VendingMachineSmartFridge
   id: AI
   name: AI core
   description: Host for an AI. Likely more A than I.
-  suffix: router
   components:
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+    priority: High
+  - type: Electrified
+    enabled: true
+    usesApcPower: true
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -9
+    range: 3
+    enabled: true
+    sound:
+      path: /Audio/Ambience/Objects/vending_machine_hum.ogg
+  - type: UserInterface
+    interfaces:
+      - key: enum.CommunicationsConsoleUiKey.Key
+        type: CommunicationsConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      - key: enum.CommunicationsConsoleUiKey.Key
+        toggleAction:
+          name: action-name-show-communications-console
+          description: action-description-show-communications-console
+          icon: Structures/Machines/parts.rsi/box_0.png
+          iconOn: Structures/Machines/parts.rsi/box_2.png
+          keywords: [ "AI", "console", "interface" ]
+          priority: -10
+          event: !type:ToggleIntrinsicUIEvent
+  - type: CommunicationsConsole
+    title: Station AI
+    color: "#2E5984"
+    delay: 5
+  - type: AITelegnosisPower
+  - type: InnateTool
+    tools:
+      - id: DoorRemoteAI
   - type: Body
     template: AITemplate
     preset: AIPreset
+  - type: Anchorable
+  - type: Physics
+    bodyType: Static
+  - type: MobState
+    thresholds:
+      0: Alive
+      250: Dead
+  - type: PointLight
+    radius: 2.5
+    energy: 2
+    color: "#9dc5c9"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Silicon/aieye.rsi
+    state: ai
+    noRot: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Bloodstream
+    bloodReagent: Oil
+    bloodlossDamage:
+      types:
+        Bloodloss:
+          1
+    bloodlossHealDamage:
+      types:
+        Bloodloss:
+          -0.25
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ai
+      Dead:
+        Base: ai_dead
   - type: Speech
     speechSounds: Pai
   - type: Hands
     showInHands: false
-  - type: Inventory
   - type: Examiner
   - type: Actions
   - type: Puller
@@ -115,9 +194,27 @@
   - type: Eye
   - type: Mind
     showExamineInfo: true
+  - type: IntrinsicRadio
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
   - type: Faction
     factions:
     - NanoTrasen
   - type: Tag
     tags:
     - CanPilot
+    - CannotSuicide
+  - type: GhostTakeoverAvailable
+    name: Station AI
+    description: Maintain the station. Manage drones/borgs. Open doors for people...
+    rules: |
+      1- prevent the harm of any and all passengers aboard the station
+      2- obey all orders from the crew as long as they do not conflict with law 1, with priorities to command's orders.

@@ -151,6 +151,7 @@
         states:
           enum.DroneStatus.Off: shell
           enum.DroneStatus.On: drone
+  - type: Drone
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8

@@ -63,6 +63,10 @@
   - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/lithiumflask.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 150
 
 - type: entity
   parent: DrinkBase

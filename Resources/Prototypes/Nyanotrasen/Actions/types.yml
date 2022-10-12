@@ -100,6 +100,14 @@
   serverEvent: !type:TelegnosisPowerActionEvent
 
 - type: instantAction
+  id: AIeye
+  name: action-name-aieye
+  description: action-description-aieye
+  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  useDelay: 5
+  serverEvent: !type:AITelegnosisPowerActionEvent
+
+- type: instantAction
   id: PsionicRegeneration
   name: action-name-psionic-regeneration
   description: action-description-psionic-regeneration

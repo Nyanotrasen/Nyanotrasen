@@ -132,9 +132,9 @@ namespace Content.Server.Drone
                     // Filter out dead ghost roles. Dead normal players are intended to block.
                     if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && entityMobState.IsDead()))
                         continue;
-                    if (_gameTiming.IsFirstTimePredicted)
-                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, Filter.Entities(uid));
-                    return true;
+                    // if (_gameTiming.IsFirstTimePredicted)
+                    //     _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, Filter.Entities(uid));
+                    return false;
                 }
             }
             return false;
