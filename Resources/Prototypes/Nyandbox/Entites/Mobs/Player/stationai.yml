@@ -39,6 +39,7 @@
     title: Station AI
     color: "#2E5984"
     delay: 5
+    global: true
   - type: AITelegnosticProjection
   - type: InnateTool
     tools:
@@ -140,6 +141,7 @@
     title: Station AI
     color: "#2E5984"
     delay: 5
+    global: true
   - type: AITelegnosisPower
   - type: InnateTool
     tools:
@@ -148,15 +150,27 @@
     template: AITemplate
     preset: AIPreset
   - type: Anchorable
+    delay: 5
   - type: Physics
     bodyType: Static
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.45,-0.45,0.45,0.45"
+      density: 190
+      mask:
+      - MachineMask
+      layer:
+      - MachineLayer
   - type: MobState
     thresholds:
       0: Alive
       250: Dead
   - type: PointLight
-    radius: 2.5
-    energy: 2
+    radius: 3
+    energy: 1.25
     color: "#9dc5c9"
   - type: Sprite
     drawdepth: Mobs
@@ -189,8 +203,6 @@
   - type: Actions
   - type: Puller
   - type: DoAfter
-  - type: CombatMode
-    canDisarm: true
   - type: Eye
   - type: Mind
     showExamineInfo: true

@@ -1,0 +1,18 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelWizard
+  name: wizard outfit bag
+  description: "Contains 3 wizard outfits."
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterWizard
+      - id: ClothingHeadHatWizard
+      - id: ClothingHeadHatWizardFake
+      - id: ClothingOuterWizardViolet
+      - id: ClothingHeadHatVioletwizard
+      - id: ClothingOuterWizardRed
+      - id: ClothingHeadHatRedwizard
+      - id: ClothingShoesWizard
+      - id: BedsheetWiz
+        amount: 3

@@ -14,3 +14,12 @@
     tags:
       - BluespaceCrystal
       - RawMaterial
+  - type: Stack
+    count: 1
+    max: 999999 # todo: add support for unlimited stacks
+    stackType: Bluespace
+  - type: StackPrice
+    price: 200
+  - type: Currency
+    price:
+      Bluespace: 1

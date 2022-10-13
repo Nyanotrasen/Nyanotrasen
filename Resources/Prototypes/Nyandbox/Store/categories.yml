@@ -1,0 +1,34 @@
+- type: storeCategory
+  id: WizardBooks
+  name: Books
+  priority: 0
+
+# - type: storeCategory
+#   id: WizardWands
+#   name: Wands
+#   priority: 1
+
+- type: storeCategory
+  id: WizardArmor
+  name: Armor
+  priority: 2
+
+- type: storeCategory
+  id: WizardUtility
+  name: Utility
+  priority: 3
+
+- type: storeCategory
+  id: WizardBundles
+  name: Bundles
+  priority: 4
+
+- type: storeCategory
+  id: WizardMisc
+  name: Misc
+  priority: 5
+
+- type: storeCategory
+  id: WizardPointless
+  name: Pointless
+  priority: 6

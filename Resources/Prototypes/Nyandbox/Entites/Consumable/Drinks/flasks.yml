@@ -1,0 +1,34 @@
+- type: entity
+  parent: DrinkBase
+  id: DrinkLithiumFlask
+  name: lithium flask
+  description: A flask with a Lithium Atom symbol on it.
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/lithiumflask.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 150
+
+- type: entity
+  parent: DrinkBase
+  id: DrinkFlazk
+  name: Zook's Flazk
+  description: A metal flask belonging to Zook.
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/flask.rsi
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 300000
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 100000
+        - ReagentId: Nutriment
+          Quantity: 100000
+        - ReagentId: Water
+          Quantity: 100000

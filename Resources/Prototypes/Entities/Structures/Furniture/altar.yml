@@ -27,6 +27,9 @@
     snapCardinals: true
   - type: Climbable
   - type: Clickable
+  - type: GhostTakeoverAvailable
+    name: Magical Altar
+    description: Make people think they're going insane. Or lead rituals for God.
 
 - type: entity
   id: AltarNanotrasen

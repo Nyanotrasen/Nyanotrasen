@@ -1,0 +1,130 @@
+# Template
+# - type: listing
+#   id: Wizard___
+#   name: DisplayName
+#   description: Description.
+#   productEntity: PrototypeID
+#   cost:
+#     Bluespace: number
+#   categories:
+#   - Wizard___
+
+# Books
+- type: listing
+  id: WizardSpawnBook
+  name: Spawn spellbook
+  description: Summons some carps that attack whatever is closest to them.
+  productEntity: SpawnSpellbook
+  cost:
+    Bluespace: 8
+  categories:
+  - WizardBooks
+
+- type: listing
+  id: WizardWallBook
+  name: Force wall spellbook
+  description: Summons a 3x1 wall that blocks anything but you from passing through it.
+  productEntity: ForceWallSpellbook
+  cost:
+    Bluespace: 10
+  categories:
+  - WizardBooks
+
+- type: listing
+  id: WizardBlinkBook
+  name: Blink spellbook
+  description: Allows you to teleport to anywhere on your screen, even through walls!
+  productEntity: BlinkBook
+  cost:
+    Bluespace: 16
+  categories:
+  - WizardBooks
+
+- type: listing
+  id: WizardSmiteBook
+  name: Smite spellbook
+  description: Allows you instantly, and very violently, explode someone into gibs.
+  productEntity: SmiteBook
+  cost:
+    Bluespace: 50
+  categories:
+  - WizardBooks
+
+- type: listing
+  id: WizardKnockBook
+  name: Knock knock
+  description: Opens all doors in a big area for some time, short cooldown.
+  productEntity: KnockSpellbook
+  cost:
+    Bluespace: 14
+  categories:
+  - WizardBooks
+
+- type: listing
+  id: WizardFireballBook
+  name: Fireball!
+  description: Throw a massive explosive at people, don't get caught in it yourself.
+  productEntity: FireballSpellbook
+  cost:
+    Bluespace: 16
+  categories:
+  - WizardBooks
+
+# Wands
+
+
+# Armor
+- type: listing
+  id: WizardHardsuit
+  name: Hardsuit
+  description: A someone damage resistant, but heavy hardsuit that allows eva and protection in fights.
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    Bluespace: 6
+  categories:
+  - WizardArmor
+
+# Utility
+- type: listing
+  id: WizardSpellBelt
+  name: Spell Belt
+  description: A belt to hold your spells in.
+  productEntity: ClothingBeltWand
+  cost:
+    Bluespace: 4
+  categories:
+  - WizardUtility
+
+# Bundles
+- type: listing
+  id: WizardSurplusCrate30BC
+  name: 30 to 50 BC surplus crate
+  description: A crate filled with random wizard items, overall worth 50BC.
+  productEntity: CrateWizardSurplus
+  cost:
+    Bluespace: 30
+  categories:
+  - WizardBundles
+
+# Miscellanious
+
+# Pointless
+- type: listing
+  id: WizardBurger
+  name: Spell Burger
+  description: A delicious burger made of magic and bluespace.
+  productEntity: FoodBurgerSpell
+  cost:
+    Bluespace: 1
+  categories:
+  - WizardPointless
+
+- type: listing
+  id: WizardOutfitBag
+  name: Wizard outfit bag
+  description: A nice set few sets of wizard clothing.
+  productEntity: ClothingBackpackDuffelWizard
+  cost:
+    Bluespace: 2
+  categories:
+  - WizardPointless

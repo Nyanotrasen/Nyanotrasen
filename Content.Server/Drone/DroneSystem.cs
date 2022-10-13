@@ -49,19 +49,19 @@ namespace Content.Server.Drone
             if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
                 args.Cancel();
 
-            if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
-            {
-                if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
-                    args.Cancel();
-            }
+            // if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
+            // {
+            //     if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
+            //         args.Cancel();
+            // }
         }
 
         private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
         {
-            if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
-            {
-                args.Cancel();
-            }
+            // if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
+            // {
+            //     args.Cancel();
+            // }
         }
 
         private void OnExamined(EntityUid uid, DroneComponent component, ExaminedEvent args)
@@ -105,12 +105,13 @@ namespace Content.Server.Drone
         private void OnEmoteAttempt(EntityUid uid, DroneComponent component, EmoteAttemptEvent args)
         {
             // No.
-            args.Cancel();
+            // Yes.
+            // args.Cancel();
         }
 
         private void OnThrowAttempt(EntityUid uid, DroneComponent drone, ThrowAttemptEvent args)
         {
-            args.Cancel();
+            // args.Cancel();
         }
 
         private void UpdateDroneAppearance(EntityUid uid, DroneStatus status)
@@ -123,20 +124,20 @@ namespace Content.Server.Drone
 
         private bool NonDronesInRange(EntityUid uid, DroneComponent component)
         {
-            var xform = Comp<TransformComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, component.InteractionBlockRange))
-            {
-                // Return true if the entity is/was controlled by a player and is not a drone or ghost.
-                if (HasComp<MindComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))
-                {
-                    // Filter out dead ghost roles. Dead normal players are intended to block.
-                    if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && entityMobState.IsDead()))
-                        continue;
-                    // if (_gameTiming.IsFirstTimePredicted)
-                    //     _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, Filter.Entities(uid));
-                    return false;
-                }
-            }
+            // var xform = Comp<TransformComponent>(uid);
+            // foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, component.InteractionBlockRange))
+            // {
+            //     // Return true if the entity is/was controlled by a player and is not a drone or ghost.
+            //     if (HasComp<MindComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))
+            //     {
+            //         // Filter out dead ghost roles. Dead normal players are intended to block.
+            //         if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && entityMobState.IsDead()))
+            //             continue;
+            //         if (_gameTiming.IsFirstTimePredicted)
+            //             _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, Filter.Entities(uid));
+            //         return false;
+            //     }
+            // }
             return false;
         }
     }

@@ -1,8 +1,15 @@
 - type: currency
   id: Telecrystal
   displayName: store-currency-display-telecrystal
-  cash: 
+  cash:
     1: Telecrystal1
+  canWithdraw: true
+
+- type: currency
+  id: Bluespace
+  displayName: BS
+  cash:
+    1: Bluespace1
   canWithdraw: true
 
 - type: currency
