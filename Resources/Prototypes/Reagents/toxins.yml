@@ -292,6 +292,18 @@
   - !type:PlantAdjustToxins
     amount: 10
   metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+    Alcohol:
+      effects:
+      - !type:Drunk
+        boozePower: 5
     Poison:
       effects:
       - !type:HealthChange

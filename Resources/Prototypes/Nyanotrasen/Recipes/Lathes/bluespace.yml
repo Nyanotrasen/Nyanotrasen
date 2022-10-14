@@ -59,6 +59,18 @@
     Plastic: 400
 
 - type: latheRecipe
+  id: BeltOfHolding
+  icon:
+    sprite: Clothing/Belt/wand.rsi
+    state: icon
+  result: ClothingBeltHolding
+  completetime: 4
+  materials:
+    Bluespace: 200
+    Durathread: 500
+    Plastic: 250
+
+- type: latheRecipe
   id: TrashBagOfHolding
   icon:
     sprite: Objects/Specific/Janitorial/trashbag.rsi

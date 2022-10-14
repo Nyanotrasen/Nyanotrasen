@@ -71,7 +71,9 @@
 
 - type: latheRecipe
   id: MagicMedipen
-  icon: Objects/Specific/Medical/medipen.rsi
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: stimpen
   result: MagicMedipen
   completetime: 5
   materials:
@@ -82,7 +84,9 @@
 
 - type: latheRecipe
   id: ChemicalMedipen
-  icon: Objects/Specific/Medical/medipen.rsi
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: hypovolemic_empty
   result: ChemicalMedipen
   completetime: 2
   materials:

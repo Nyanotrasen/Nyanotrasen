@@ -26,3 +26,12 @@
   components:
   - type: ResearchDisk
     points: 10000
+
+- type: entity
+  parent: ResearchDisk
+  id: ResearchDisk100000000
+  name: research point disk (100000000)
+  description: A disk for the R&D server containing 100000000 points.
+  components:
+  - type: ResearchDisk
+    points: 100000000

@@ -1,0 +1,21 @@
+- type: reaction
+  id: WaterLexorin
+  reactants:
+    Water:
+      amount: 1
+    Lexorin:
+      amount: 4
+  products:
+    SyndicateWater: 5
+
+- type: reaction
+  id: MiasmaLiquid
+  reactants:
+    Spaceacilin:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+    Ammonia:
+      amount: 1
+  products:
+    LiquidMiasma: 1

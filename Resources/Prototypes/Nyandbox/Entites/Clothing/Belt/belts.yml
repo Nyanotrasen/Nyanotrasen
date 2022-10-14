@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltHolding
+  name: belt of holding
+  description: A belt that opens into a localized pocket of bluespace.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/wand.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/wand.rsi
+  - type: Storage
+    capacity: 2500
+  - type: OfHolding
