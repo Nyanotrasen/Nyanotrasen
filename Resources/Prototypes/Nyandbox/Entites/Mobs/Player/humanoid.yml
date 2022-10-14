@@ -1,0 +1,7 @@
+- type: entity
+  name: Urist McBelt
+  id: UristMcBelt
+  parent: MobHuman
+  components:
+    - type: Item
+    - type: GhostTakeoverAvailable

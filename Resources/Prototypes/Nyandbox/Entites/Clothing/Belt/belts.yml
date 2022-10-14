@@ -11,3 +11,16 @@
   - type: Storage
     capacity: 2500
   - type: OfHolding
+
+- type: entity
+  parent: ClothingBeltHolding
+  id: BeltOfUrist
+  name: belt of urist
+  description: Holds a ton of Urist Clones, it's like a pocket sized army!
+  components:
+  - type: Storage
+    capacity: 500
+  - type: StorageFill
+    contents:
+    - id: UristMcBelt
+      amount: 15
