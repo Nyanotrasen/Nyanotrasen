@@ -137,6 +137,9 @@ namespace Content.Server.Item.PseudoItem
             {
                 component.Active = false;
                 RemComp<ItemComponent>(toInsert);
+            } else
+            {
+                Transform(storageUid).AttachToGridOrMap();
             }
         }
         private void StartInsertDoAfter(EntityUid inserter, EntityUid toInsert, EntityUid storageEntity, PseudoItemComponent? pseudoItem = null)
