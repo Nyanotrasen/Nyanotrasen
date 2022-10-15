@@ -21,6 +21,14 @@
     glimmerBurnUpper: 40
 
 - type: gameRule
+  id: GlimmerRandomSentience
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: GlimmerRandomSentience
+    minimumGlimmer: 450
+    maximumGlimmer: 650
+
+- type: gameRule
   id: NoosphericZap
   config:
     !type:GlimmerEventRuleConfiguration
