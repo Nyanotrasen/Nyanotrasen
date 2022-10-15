@@ -1,0 +1,34 @@
+- type: entity
+  name: trollospray
+  parent: BaseItem
+  description: A really powerful hypospray, with many funny or dangerous chemicals in an unlimited supply! You shouldn't release these to the public.
+  id: Trollospray
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: hypo
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 150
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 5
+  - type: AutoRegenReagent
+    solution: hypospray
+    reagents:
+      - Ichor
+      - Omnizine
+      - Spaceacilin
+      - Nocturine
+      - MindbreakerToxin
+      - Desoxyephedrine
+      - LiquidMiasma
+      - Lexorin
+    unitsPerSecond: 150

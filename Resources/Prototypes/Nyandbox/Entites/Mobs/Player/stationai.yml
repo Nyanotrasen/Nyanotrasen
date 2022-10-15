@@ -88,6 +88,10 @@
       mass: 5
       mask:
       - GhostImpassable
+  - type: PointLight
+    radius: 3
+    energy: 1
+    color: "#9dc5c9"
   - type: IntrinsicRadio
     channels:
     - Common

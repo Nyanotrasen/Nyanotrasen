@@ -18,3 +18,8 @@ roles-antag-nuclear-operative-commander-objective = Lead your team to the destru
 
 roles-antag-nuclear-operative-name = Nuclear operative
 roles-antag-nuclear-operative-objective = Find the nuke disk and blow up the station.
+
+role-antag-wizard-secret-name = The secretive Wizard
+roles-antag-wizard-secret-objective = Destroy the station and kill everyone as sneakily as possible.
+roles-antag-wizard-blatant-name = The Wizard
+roles-antag-wizard-blatant-objective = Destroy the station and kill everyone. It doesn't mattter how blatant you are, kill, kill, kill.

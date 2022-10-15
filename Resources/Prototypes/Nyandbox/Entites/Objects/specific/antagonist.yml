@@ -75,3 +75,13 @@
     preset: WizardStorePresetUplink
     balance:
       Bluespace: 8
+
+- type: entity
+  parent: BaseWizardUplinkRadio
+  id: BaseWizardUplinkRadio30BC
+  suffix: 30 Bluespace
+  components:
+  - type: Store
+    preset: WizardStorePresetUplink
+    balance:
+      Bluespace: 30
