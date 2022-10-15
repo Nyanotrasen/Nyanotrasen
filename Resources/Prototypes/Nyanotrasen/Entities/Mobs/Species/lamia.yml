@@ -133,9 +133,14 @@
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "ears" ]
+      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+        sprite: Mobs/Customization/masking_helpers.rsi
+        state: none
+        visible: false
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
+      - map: [ "belt2" ]
       - map: [ "neck" ]
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
@@ -146,10 +151,6 @@
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        sprite: Mobs/Customization/masking_helpers.rsi
-        state: none
-        visible: false
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
@@ -240,12 +241,12 @@
   - type: MeleeWeapon
     soundHit:
       collection: Punch
-    range: 0.8
     damage:
       types:
         Blunt: 5
   - type: Pullable
   - type: DoAfter
+  - type: RadiationReceiver
   - type: CreamPied
   - type: Stripping
   - type: Strippable
@@ -383,3 +384,5 @@
         visible: false
       - sprite: Nyanotrasen/Mobs/Species/lamia.rsi
         state: underscales
+  - type: Inventory
+    templateId: lamia

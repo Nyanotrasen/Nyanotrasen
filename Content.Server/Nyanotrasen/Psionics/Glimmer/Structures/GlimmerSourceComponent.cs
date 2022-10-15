@@ -9,9 +9,15 @@ namespace Content.Server.Psionics.Glimmer
         [DataField("accumulator")]
         public float Accumulator = 0f;
         /// <summary>
-        /// Since glimmer is an int, we'll do it like this.
+        ///     Since glimmer is an int, we'll do it like this.
         /// </summary>
         [DataField("secondsPerGlimmer")]
-        public float SecondsPerGlimmer = 15f;
+        public float SecondsPerGlimmer = 20f;
+
+        /// <summary>
+        ///     True if it produces glimmer, false if it subtracts it.
+        /// </summary>
+        [DataField("addToGlimmer")]
+        public bool AddToGlimmer = true;
     }
 }

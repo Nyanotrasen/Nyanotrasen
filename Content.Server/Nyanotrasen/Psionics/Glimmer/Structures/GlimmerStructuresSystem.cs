@@ -24,7 +24,14 @@ namespace Content.Server.Psionics.Glimmer
                 if (source.Accumulator > source.SecondsPerGlimmer)
                 {
                     source.Accumulator -= source.SecondsPerGlimmer;
-                    _sharedGlimmerSystem.AddToGlimmer(1);
+                    if (source.AddToGlimmer)
+                    {
+                        _sharedGlimmerSystem.AddToGlimmer(1);
+                    }
+                    else
+                    {
+                        _sharedGlimmerSystem.AddToGlimmer(-1);
+                    }
                 }
             }
         }

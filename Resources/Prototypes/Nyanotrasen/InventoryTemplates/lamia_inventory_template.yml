@@ -8,6 +8,16 @@
       uiContainer: Top
       uiWindowPos: 0,2
       displayName: Jumpsuit
+    - name: outerClothing
+      slotTexture: suit
+      slotFlags: OUTERCLOTHING
+      stripTime: 6
+      uiContainer: Top
+      uiWindowPos: 1,2
+      displayName: Suit
+      blacklist:
+        tags:
+          - FullBodyOuter
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES
@@ -64,14 +74,14 @@
       dependsOn: jumpsuit
       displayName: Pocket 2
       stripHidden: true
-    # - name: suitstorage
-    #   slotTexture: suit_storage
-    #   slotFlags:   SUITSTORAGE
-    #   stripTime: 2
-    #   uiContainer: BottomLeft
-    #   uiWindowPos: 2,0
-    #   dependsOn: outerClothing
-    #   displayName: Suit Storage
+    - name: suitstorage
+      slotTexture: suit_storage
+      slotFlags:   SUITSTORAGE
+      stripTime: 2
+      uiContainer: BottomLeft
+      uiWindowPos: 2,0
+      dependsOn: outerClothing
+      displayName: Suit Storage
     - name: id
       slotTexture: id
       slotFlags: IDCARD
@@ -94,6 +104,10 @@
       uiContainer: BottomLeft
       uiWindowPos: 3,2
       displayName: Belt
+      offset: 0, -0.05
+      blacklist:
+        tags:
+          - BeltSlotNotBelt
     - name: back
       slotTexture: back
       slotFlags: BACK

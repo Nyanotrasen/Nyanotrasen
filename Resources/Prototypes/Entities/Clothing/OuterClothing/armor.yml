@@ -72,6 +72,9 @@
         Piercing: 0.2
         Heat: 0.5
         Radiation: 0
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -119,7 +122,7 @@
 
 - type: entity
   parent: ClothingOuterBaseLarge
-  id: ClothingOuterArmorRiot
+  id: ClothingOuterArmorRiot #needs lamia sprite
   name: riot suit
   description: An armored vest with heavy padding to protect against melee attacks, perfect for fighting delinquents around the station.
   components:
@@ -140,7 +143,7 @@
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorScaf
-  name: scaf suit
+  name: scaf suit #needs lamia sprite
   description: A green and brown tactical suit for combat situations.
   components:
   - type: Sprite
@@ -176,7 +179,7 @@
         Heat: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.65
-    
+
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorChangeling
@@ -197,6 +200,9 @@
         Radiation: 0.8
   - type: ClothingSpeedModifier
     walkModifier: 0.7
-    sprintModifier: 0.65 
+    sprintModifier: 0.65
   - type: ExplosionResistance
     damageCoefficient: 0.5
+  - type: Tag
+    tags:
+      - FullBodyOuter

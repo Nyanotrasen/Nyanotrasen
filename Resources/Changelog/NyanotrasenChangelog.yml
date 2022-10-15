@@ -178,3 +178,94 @@ Entries:
     type: Tweak
   id: 20
   time: '2022-10-06T17:12:41.0000000+00:00'
+- author: Hyenh
+  changes:
+  - message: Added new weeaboo costume to the theater vendor.
+    type: Add
+  id: 21
+  time: '2022-10-07T16:52:31.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae can now wear outer clothing that fits them.
+    type: Add
+  id: 22
+  time: '2022-10-08T16:57:19.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae's second belt slot now shows the sprite.
+    type: Add
+  - message: The second belt slot only fits actual belts.
+    type: Tweak
+  - message: Tail segment density has been reduced to make lamia movement a bit snapper.
+      Proper, interesting solution coming soonTM.
+    type: Tweak
+  id: 23
+  time: '2022-10-08T18:05:46.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamia now show up correctly in the lobby character preview.
+    type: Fix
+  id: 24
+  time: '2022-10-08T20:25:03.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: 'New traitor objective: ensure another traitor completes at least half
+      of their objectives.'
+    type: Add
+  id: 25
+  time: '2022-10-09T00:10:30.0000000+00:00'
+- author: Kesiath
+  changes:
+  - message: Added five additional Oni Horn Markings.
+    type: Add
+  id: 26
+  time: '2022-10-09T00:19:21.0000000+00:00'
+- author: Kesiath
+  changes:
+  - message: Added the ability for Oni, Felinid, and Lamia to use tattoos.
+    type: Add
+  id: 27
+  time: '2022-10-09T04:28:52.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream. Tell us if radio breaks again.
+    type: Add
+  id: 28
+  time: '2022-10-09T18:27:56.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Nyano's melee ranges have been standardized like upstreams. We'll see
+      how the progress on the questionable new melee rework is going.
+    type: Tweak
+  id: 29
+  time: '2022-10-09T18:29:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed characters disappearing when switching between them in character
+      creator.
+    type: Fix
+  id: 30
+  time: '2022-10-11T17:48:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added glimmer drains. Admin spawn only for now for initial testing. Within
+      a week we should have them researchable, constructible and with new sprites
+      for probers, drains, and a frame that can build into either.
+    type: Add
+  - message: Glimmer probers now produce about 1/3 less glimmer.
+    type: Tweak
+  - message: Further reduced weighting for mass sleep, psionic invisibility, and mind
+      swap.
+    type: Tweak
+  id: 31
+  time: '2022-10-11T18:12:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the whitelist end of round kick system after recent changes.
+      It was originally added when there were no other whitelist restrictions, and
+      the whitelisted pop cap was much lower, leading to trouble for people trying
+      to accumulate whitelist play time. The ghost role whitelisting change and 20
+      increase to the pop cap should perform the same function.
+    type: Remove
+  id: 32
+  time: '2022-10-11T21:10:45.0000000+00:00'
