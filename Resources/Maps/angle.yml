@@ -64,7 +64,8 @@ tilemap:
   57: Lattice
   58: Plating
 grids:
-- settings:
+- uid: 9
+  settings:
     chunksize: 16
     tilesize: 1
   chunks:
@@ -211,8 +212,14 @@ entities:
     type: Transform
 - uid: 4
   components:
-  - index: 4
+  - type: MetaData
+  - type: Transform
+  - index: 3
     type: Map
+  - type: EntityLookup
+  - type: Broadphase
+  - type: PhysicsMap
+  - type: OccluderTree
 - uid: 5
   type: AirlockMaintKitchenLocked
   components:
@@ -243,11 +250,13 @@ entities:
     type: Transform
 - uid: 9
   components:
+  - type: MetaData
   - pos: 2.4843993,0.15218234
     parent: 4
     type: Transform
-  - index: 0
-    type: MapGrid
+  - type: MapGrid
+  - type: EntityLookup
+  - type: Broadphase
   - angularDamping: 0.05
     linearDamping: 0.05
     fixedRotation: False
@@ -4160,7 +4169,7 @@ entities:
       6,8: 0
       6,9: 0
       6,10: 0
-      6,11: 0
+      6,11: 5
       6,12: 0
       6,13: 0
       7,3: 0
@@ -4214,7 +4223,7 @@ entities:
       11,7: 0
       11,8: 0
       11,9: 0
-      11,10: 5
+      11,10: 6
       11,11: 0
       11,12: 0
       11,13: 0
@@ -4225,7 +4234,7 @@ entities:
       12,7: 0
       12,8: 0
       12,9: 0
-      12,10: 3
+      12,10: 7
       12,11: 0
       12,12: 0
       12,13: 0
@@ -5194,7 +5203,7 @@ entities:
       31,-1: 0
       0,-32: 1
       0,-31: 0
-      0,-30: 6
+      0,-30: 5
       0,-29: 0
       0,-28: 0
       0,-27: 0
@@ -5210,7 +5219,7 @@ entities:
       0,-17: 0
       1,-32: 1
       1,-31: 0
-      1,-30: 6
+      1,-30: 5
       1,-29: 0
       1,-28: 0
       1,-27: 0
@@ -5226,7 +5235,7 @@ entities:
       1,-17: 0
       2,-32: 1
       2,-31: 0
-      2,-30: 6
+      2,-30: 5
       2,-29: 0
       2,-28: 0
       2,-27: 0
@@ -5280,7 +5289,7 @@ entities:
       0,-37: 0
       0,-36: 0
       0,-35: 0
-      0,-34: 6
+      0,-34: 5
       0,-33: 0
       1,-39: 0
       1,-38: 0
@@ -5626,7 +5635,7 @@ entities:
       -2,-17: 0
       -1,-32: 1
       -1,-31: 0
-      -1,-30: 6
+      -1,-30: 5
       -1,-29: 0
       -1,-28: 0
       -1,-27: 0
@@ -5697,13 +5706,13 @@ entities:
       -3,-36: 0
       -3,-35: 0
       -3,-34: 0
-      -3,-33: 6
+      -3,-33: 5
       -2,-39: 0
       -2,-38: 0
       -2,-37: 0
       -2,-36: 0
       -2,-35: 0
-      -2,-34: 6
+      -2,-34: 5
       -2,-33: 0
       -1,-39: 0
       -1,-38: 0
@@ -5822,7 +5831,7 @@ entities:
       34,5: 0
       34,6: 0
       34,7: 0
-      34,8: 0
+      34,8: 5
       34,9: 0
       34,10: 0
       35,0: 0
@@ -5833,7 +5842,7 @@ entities:
       35,5: 0
       35,6: 0
       35,7: 0
-      35,8: 0
+      35,8: 5
       35,9: 0
       35,10: 0
       36,0: 0
@@ -5927,11 +5936,11 @@ entities:
       21,-33: 0
       22,-34: 0
       22,-33: 0
-      23,-34: 6
+      23,-34: 5
       23,-33: 0
       24,-34: 0
       24,-33: 0
-      25,-34: 6
+      25,-34: 5
       25,-33: 0
       26,-34: 1
       26,-33: 0
@@ -6329,7 +6338,7 @@ entities:
       12,-63: 0
       12,-62: 0
       12,-61: 0
-      12,-60: 7
+      12,-60: 8
       12,-59: 0
       12,-58: 0
       12,-57: 0
@@ -7118,7 +7127,7 @@ entities:
       28,-36: 0
       28,-35: 0
       28,-34: 0
-      28,-33: 6
+      28,-33: 5
       29,-44: 0
       29,-43: 0
       29,-42: 0
@@ -7307,7 +7316,7 @@ entities:
       32,-36: 0
       32,-35: 0
       32,-34: 0
-      32,-33: 6
+      32,-33: 5
       33,-44: 0
       33,-43: 0
       33,-42: 0
@@ -8334,7 +8343,7 @@ entities:
       77,-2: 0
       77,-1: 0
       78,-9: 0
-      78,-8: 8
+      78,-8: 7
       78,-7: 0
       78,-6: 0
       78,-5: 0
@@ -8343,7 +8352,7 @@ entities:
       78,-2: 0
       78,-1: 0
       79,-9: 0
-      79,-8: 8
+      79,-8: 7
       79,-7: 0
       79,-6: 0
       79,-5: 0
@@ -8985,7 +8994,7 @@ entities:
       13,-63: 0
       13,-62: 9
       13,-61: 0
-      13,-60: 6
+      13,-60: 5
       13,-59: 0
       13,-58: 0
       13,-57: 0
@@ -9179,9 +9188,9 @@ entities:
       60,-17: 0
       16,-64: 0
       16,-63: 0
-      16,-62: 7
+      16,-62: 8
       16,-61: 0
-      16,-60: 7
+      16,-60: 8
       16,-59: 0
       16,-58: 0
       16,-57: 0
@@ -9514,7 +9523,7 @@ entities:
       18,-71: 0
       18,-70: 0
       18,-69: 0
-      18,-68: 6
+      18,-68: 5
       18,-67: 0
       18,-66: 0
       18,-65: 0
@@ -9526,7 +9535,7 @@ entities:
       19,-72: 0
       19,-71: 0
       19,-70: 0
-      19,-69: 6
+      19,-69: 5
       19,-68: 11
       19,-67: 0
       19,-66: 0
@@ -10129,7 +10138,7 @@ entities:
       23,-84: 0
       24,-88: 0
       24,-87: 1
-      24,-86: 6
+      24,-86: 5
       24,-85: 0
       24,-84: 0
       25,-88: 0
@@ -10367,7 +10376,7 @@ entities:
       45,-74: 0
       45,-73: 0
       45,-72: 0
-      46,-78: 6
+      46,-78: 5
       46,-77: 10
       46,-76: 1
       46,-75: 0
@@ -10950,7 +10959,7 @@ entities:
       61,-13: 0
       61,-12: 0
       61,-11: 0
-      61,-10: 8
+      61,-10: 7
       62,-13: 0
       62,-12: 0
       62,-11: 0
@@ -12264,8 +12273,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 14.254297
-      - 53.62331
+      - 13.855177
+      - 52.121857
       - 0
       - 0
       - 0
@@ -12294,21 +12303,6 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 14.664915
-      - 55.168015
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 235
-      moles:
       - 14.254297
       - 53.62331
       - 0
@@ -12322,10 +12316,10 @@ entities:
       - 0
       - 0
     - volume: 2500
-      temperature: 293.15
+      temperature: 235
       moles:
-      - 20.619795
-      - 77.56971
+      - 13.855177
+      - 52.121857
       - 0
       - 0
       - 0
@@ -12354,8 +12348,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -12369,8 +12363,23 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.087361
-      - 56.757217
+      - 14.664915
+      - 55.168015
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -12399,8 +12408,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.855177
-      - 52.121857
+      - 13.467232
+      - 50.662445
       - 0
       - 0
       - 0
@@ -12414,8 +12423,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.090149
-      - 49.243896
+      - 12.723625
+      - 47.865067
       - 0
       - 0
       - 0
@@ -12504,6 +12513,10 @@ entities:
     type: GridAtmosphere
   - id: Angle
     type: BecomesStation
+  - type: OccluderTree
+  - type: Shuttle
+  - type: GridPathfinding
+  - type: RadiationGridResistance
 - uid: 10
   type: ShuttersNormalOpen
   components:
@@ -13403,9 +13416,10 @@ entities:
     parent: 9
     type: Transform
 - uid: 150
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 63.5,-81.5
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-81.5
     parent: 9
     type: Transform
 - uid: 151
@@ -35533,19 +35547,19 @@ entities:
     parent: 9
     type: Transform
 - uid: 3621
-  type: WallReinforced
+  type: Grille
   components:
   - pos: 34.5,-63.5
     parent: 9
     type: Transform
 - uid: 3622
-  type: WallReinforced
+  type: Grille
   components:
   - pos: 34.5,-64.5
     parent: 9
     type: Transform
 - uid: 3623
-  type: WallReinforced
+  type: Grille
   components:
   - pos: 34.5,-65.5
     parent: 9
@@ -37467,24 +37481,21 @@ entities:
     parent: 9
     type: Transform
 - uid: 3926
-  type: WindowReinforcedDirectional
+  type: CableApcExtension
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 19.5,-54.5
+  - pos: -3.5,-56.5
     parent: 9
     type: Transform
 - uid: 3927
-  type: WindowReinforcedDirectional
+  type: CableApcExtension
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 19.5,-52.5
+  - pos: -5.5,-56.5
     parent: 9
     type: Transform
 - uid: 3928
-  type: WindoorCommandLocked
+  type: CableApcExtension
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 19.5,-53.5
+  - pos: -4.5,-56.5
     parent: 9
     type: Transform
 - uid: 3929
@@ -41269,13 +41280,13 @@ entities:
     parent: 9
     type: Transform
 - uid: 4502
-  type: WallReinforced
+  type: Grille
   components:
   - pos: 29.5,-68.5
     parent: 9
     type: Transform
 - uid: 4503
-  type: WallReinforced
+  type: Grille
   components:
   - pos: 29.5,-69.5
     parent: 9
@@ -58889,13 +58900,12 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 7357
-  type: Poweredlight
+  type: Grille
   components:
-  - pos: 63.5,-72.5
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-71.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7358
   type: PoweredSmallLight
   components:
@@ -59805,8 +59815,7 @@ entities:
 - uid: 7479
   type: Poweredlight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 64.5,-80.5
+  - pos: 60.5,-78.5
     parent: 9
     type: Transform
   - powerLoad: 0
@@ -62238,11 +62247,14 @@ entities:
     parent: 9
     type: Transform
 - uid: 7829
-  type: WallReinforced
+  type: Poweredlight
   components:
-  - pos: 64.5,-71.5
+  - rot: 1.5707963267948966 rad
+    pos: 62.5,-73.5
     parent: 9
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 7830
   type: WallReinforced
   components:
@@ -62250,9 +62262,10 @@ entities:
     parent: 9
     type: Transform
 - uid: 7831
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 63.5,-71.5
+  - rot: 1.5707963267948966 rad
+    pos: 64.5,-71.5
     parent: 9
     type: Transform
 - uid: 7832
@@ -62424,15 +62437,17 @@ entities:
     parent: 9
     type: Transform
 - uid: 7859
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 64.5,-81.5
+  - rot: 1.5707963267948966 rad
+    pos: 64.5,-81.5
     parent: 9
     type: Transform
 - uid: 7860
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 65.5,-81.5
+  - rot: 1.5707963267948966 rad
+    pos: 65.5,-81.5
     parent: 9
     type: Transform
 - uid: 7861
@@ -63524,7 +63539,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 8021
-  type: TableCounterMetal
+  type: OreProcessor
   components:
   - pos: 69.5,-81.5
     parent: 9
@@ -93027,7 +93042,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 11817
-  type: VendingMachineSnack
+  type: PottedPlantRandomPlastic
   components:
   - pos: 30.5,-6.5
     parent: 9
@@ -96774,15 +96789,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 12363
-  type: VendingMachineCoffee
+  type: FirelockGlass
   components:
-  - pos: 84.5,-4.5
+  - pos: -8.5,2.5
     parent: 9
     type: Transform
 - uid: 12364
-  type: VendingMachineDonut
+  type: PottedPlantRandom
   components:
-  - pos: 85.5,-4.5
+  - pos: 87.5,-7.5
     parent: 9
     type: Transform
 - uid: 12365
@@ -98232,12 +98247,14 @@ entities:
     parent: 9
     type: Transform
 - uid: 12588
-  type: AlwaysPoweredWallLight
+  type: Poweredlight
   components:
   - rot: 3.141592653589793 rad
     pos: 45.5,-26.5
     parent: 9
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 12589
   type: Poweredlight
   components:
@@ -100208,10 +100225,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 12802
-  type: EmergencyLight
+  type: CableApcExtension
   components:
-  - rot: 3.141592653589793 rad
-    pos: 63.5,-80.5
+  - pos: -2.5,-56.5
     parent: 9
     type: Transform
 - uid: 12803
@@ -101476,6 +101492,300 @@ entities:
   type: ReinforcedWindow
   components:
   - pos: 54.5,-85.5
+    parent: 9
+    type: Transform
+- uid: 12981
+  type: CableApcExtension
+  components:
+  - pos: -1.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12982
+  type: CableApcExtension
+  components:
+  - pos: -0.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12983
+  type: CableApcExtension
+  components:
+  - pos: 0.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12984
+  type: CableApcExtension
+  components:
+  - pos: 1.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12985
+  type: CableApcExtension
+  components:
+  - pos: 2.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12986
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-56.5
+    parent: 9
+    type: Transform
+- uid: 12987
+  type: AtmosDeviceFanTiny
+  components:
+  - anchored: True
+    pos: 87.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 12988
+  type: DrinkAleBottleFull
+  components:
+  - pos: 73.31115,-74.28537
+    parent: 9
+    type: Transform
+- uid: 12989
+  type: DrinkAleBottleFull
+  components:
+  - pos: 73.74865,-74.72317
+    parent: 9
+    type: Transform
+- uid: 12990
+  type: DrinkAleBottleFull
+  components:
+  - pos: 73.24865,-75.20267
+    parent: 9
+    type: Transform
+- uid: 12991
+  type: FoodMealNachos
+  components:
+  - pos: 73.62365,-75.33818
+    parent: 9
+    type: Transform
+- uid: 12992
+  type: FoodMealPigblanket
+  components:
+  - pos: 73.65841,-74.37257
+    parent: 9
+    type: Transform
+- uid: 12993
+  type: FoodBurgerMcguffin
+  components:
+  - pos: 6.375961,-0.44479397
+    parent: 9
+    type: Transform
+- uid: 12994
+  type: FoodBurgerMcrib
+  components:
+  - pos: 6.594711,-0.86174995
+    parent: 9
+    type: Transform
+- uid: 12995
+  type: FoodBakedMuffin
+  components:
+  - pos: 6.469711,-2.185586
+    parent: 9
+    type: Transform
+- uid: 12996
+  type: FoodBakedMuffin
+  components:
+  - pos: 6.730127,-2.487879
+    parent: 9
+    type: Transform
+- uid: 12997
+  type: FoodFrozenPopsicleOrange
+  components:
+  - pos: -4.6741114,-2.4774554
+    parent: 9
+    type: Transform
+- uid: 12998
+  type: FoodFrozenPopsicleBerry
+  components:
+  - pos: -4.4345284,-2.446184
+    parent: 9
+    type: Transform
+- uid: 12999
+  type: Matchbox
+  components:
+  - pos: 10.620996,0.72160125
+    parent: 9
+    type: Transform
+- uid: 13000
+  type: DrinkBeer
+  components:
+  - pos: 8.596706,0.8681884
+    parent: 9
+    type: Transform
+- uid: 13001
+  type: DrinkRootBeerCan
+  components:
+  - pos: 12.794622,0.8994601
+    parent: 9
+    type: Transform
+- uid: 13002
+  type: RandomFoodSingle
+  components:
+  - pos: 12.5,0.5
+    parent: 9
+    type: Transform
+- uid: 13003
+  type: ClosetMaintenanceFilledRandom
+  components:
+  - pos: 6.5,11.5
+    parent: 9
+    type: Transform
+- uid: 13004
+  type: RandomSpawner
+  components:
+  - pos: 27.5,11.5
+    parent: 9
+    type: Transform
+- uid: 13005
+  type: RandomSpawner
+  components:
+  - pos: 22.5,14.5
+    parent: 9
+    type: Transform
+- uid: 13006
+  type: ClosetEmergencyFilledRandom
+  components:
+  - pos: 34.5,8.5
+    parent: 9
+    type: Transform
+- uid: 13007
+  type: ClosetFireFilled
+  components:
+  - pos: 35.5,8.5
+    parent: 9
+    type: Transform
+- uid: 13008
+  type: TableCarpet
+  components:
+  - pos: 7.5,13.5
+    parent: 9
+    type: Transform
+- uid: 13009
+  type: ChairFolding
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 8.5,13.5
+    parent: 9
+    type: Transform
+- uid: 13010
+  type: ChairFolding
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 6.5,13.5
+    parent: 9
+    type: Transform
+- uid: 13011
+  type: CableApcExtension
+  components:
+  - pos: 44.5,-26.5
+    parent: 9
+    type: Transform
+- uid: 13012
+  type: PoweredSmallLight
+  components:
+  - pos: -0.5,-55.5
+    parent: 9
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
+  - containers:
+      light_bulb: !type:ContainerSlot {}
+    type: ContainerContainer
+  - inputs:
+      On: []
+      Off: []
+      Toggle: []
+    type: SignalReceiver
+- uid: 13013
+  type: FirelockGlass
+  components:
+  - pos: -7.5,2.5
+    parent: 9
+    type: Transform
+- uid: 13014
+  type: ReinforcedWindow
+  components:
+  - pos: 29.5,-68.5
+    parent: 9
+    type: Transform
+- uid: 13015
+  type: ReinforcedWindow
+  components:
+  - pos: 29.5,-69.5
+    parent: 9
+    type: Transform
+- uid: 13016
+  type: ReinforcedWindow
+  components:
+  - pos: 34.5,-63.5
+    parent: 9
+    type: Transform
+- uid: 13017
+  type: ReinforcedWindow
+  components:
+  - pos: 34.5,-64.5
+    parent: 9
+    type: Transform
+- uid: 13018
+  type: ReinforcedWindow
+  components:
+  - pos: 34.5,-65.5
+    parent: 9
+    type: Transform
+- uid: 13019
+  type: ReinforcedWindow
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 64.5,-71.5
+    parent: 9
+    type: Transform
+- uid: 13020
+  type: ReinforcedWindow
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-71.5
+    parent: 9
+    type: Transform
+- uid: 13021
+  type: ReinforcedWindow
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 65.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 13022
+  type: ReinforcedWindow
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 64.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 13023
+  type: ReinforcedWindow
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 13024
+  type: Poweredlight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 65.5,-80.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 13025
+  type: EmergencyLight
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-80.5
     parent: 9
     type: Transform
 ...
