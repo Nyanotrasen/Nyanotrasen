@@ -21,14 +21,6 @@
     glimmerBurnUpper: 40
 
 - type: gameRule
-  id: GlimmerRandomSentience
-  config:
-    !type:GlimmerEventRuleConfiguration
-    id: GlimmerRandomSentience
-    minimumGlimmer: 450
-    maximumGlimmer: 650
-
-- type: gameRule
   id: NoosphericZap
   config:
     !type:GlimmerEventRuleConfiguration
@@ -58,3 +50,22 @@
     minimumGlimmer: 900
     glimmerBurnLower: 70
     glimmerBurnUpper: 150
+
+## converted upstream events
+- type: gameRule
+  id: GlimmerRandomSentience
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: GlimmerRandomSentience
+    minimumGlimmer: 400
+    maximumGlimmer: 600
+    report: glimmer-event-report-signatures
+
+- type: gameRule
+  id: GlimmerRevenantSpawn
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: GlimmerRevenantSpawn
+    minimumGlimmer: 450
+    maximumGlimmer: 900
+    report: glimmer-event-report-signatures
