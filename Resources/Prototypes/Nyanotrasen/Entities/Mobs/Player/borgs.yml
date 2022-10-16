@@ -104,16 +104,6 @@
     autoRot: true
   - type: Appearance
   - type: Eye
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SurveillanceCameraSilicon
-    transmitFrequencyId: SurveillanceCamera
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: SurveillanceCamera
-    id: borg
-    setupAvailableNetworks:
-      - SurveillanceCameraSilicon
   - type: RandomMetadata
     nameSegments: [names_autoborg]
   - type: Strap

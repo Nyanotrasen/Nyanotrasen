@@ -5,6 +5,8 @@
   slots:
     torso: Torso
     hand 1: hand
+    hand 2: hand
+    hand 3: hand
 
 - type: bodyPreset
   id: AIPreset
@@ -13,12 +15,14 @@
     head: HeadHuman
     torso: TorsoAnimal
     hand 1: HandsAnimal
+    hand 2: HandsAnimal
+    hand 3: HandsAnimal
   connections:
     head: Torso
 
 - type: entity
   id: AIeye
-  name: AI eye
+  name: AI
   components:
   - type: UserInterface
     interfaces:
@@ -44,6 +48,8 @@
   - type: InnateTool
     tools:
       - id: DoorRemoteAI
+      - id: Omnitool
+      - id: RadioHandheld
   - type: Input
     context: "human"
   - type: MobMover
@@ -57,6 +63,7 @@
     state: icon
     noRot: true
   - type: Hands
+    showInHands: false
   - type: Mind
     showExamineInfo: true
   - type: Body
@@ -110,16 +117,9 @@
 - type: entity
   # parent: VendingMachineSmartFridge
   id: AI
-  name: AI core
+  name: AI
   description: Host for an AI. Likely more A than I.
   components:
-  - type: ApcPowerReceiver
-    powerLoad: 1000
-    priority: High
-  - type: Electrified
-    enabled: true
-    usesApcPower: true
-  - type: AmbientOnPowered
   - type: AmbientSound
     volume: -9
     range: 3
@@ -150,9 +150,14 @@
   - type: InnateTool
     tools:
       - id: DoorRemoteAI
+      - id: Omnitool
+      - id: RadioHandheld
+  - type: Input
+    context: "human"
   - type: Body
     template: AITemplate
     preset: AIPreset
+  - type: Clickable
   - type: Anchorable
     delay: 5
   - type: Physics
@@ -171,7 +176,13 @@
   - type: MobState
     thresholds:
       0: Alive
-      250: Dead
+      1000: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ai
+      Dead:
+        Base: ai_dead
   - type: PointLight
     radius: 3
     energy: 1.25
@@ -193,12 +204,6 @@
       types:
         Bloodloss:
           -0.25
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ai
-      Dead:
-        Base: ai_dead
   - type: Speech
     speechSounds: Pai
   - type: Hands
@@ -228,6 +233,8 @@
     tags:
     - CanPilot
     - CannotSuicide
+  - type: RandomMetadata
+    nameSegments: [names_ai]
   - type: GhostTakeoverAvailable
     name: Station AI
     description: Maintain the station. Manage drones/borgs. Open doors for people...

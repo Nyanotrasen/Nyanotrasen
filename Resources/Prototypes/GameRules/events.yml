@@ -6,7 +6,7 @@
     weight: 10
     endAfter: 1
     maxOccurrences: 5
-    minimumPlayers: 15
+    #minimumPlayers: 15
 
 # - type: gameRule
 #   id: BureaucraticError
@@ -14,7 +14,7 @@
 #     !type:StationEventRuleConfiguration
 #     id: BureaucraticError
 #     startAnnouncement: station-event-bureaucratic-error-announcement
-#     minimumPlayers: 25
+#     #minimumPlayers: 25
 #     weight: 5
 #     maxOccurrences: 2
 #     endAfter: 1
@@ -41,7 +41,7 @@
     endAfter: 2
     earliestStart: 15
     maxOccurrences: 7
-    minimumPlayers: 15
+    #minimumPlayers: 15
 
 - type: gameRule
   id: RevenantSpawn
@@ -52,7 +52,7 @@
     endAfter: 1
     earliestStart: 45
     maxOccurrences: 1
-    minimumPlayers: 20
+    #minimumPlayers: 20
 
 - type: gameRule
   id: FalseAlarm
@@ -73,7 +73,7 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
-    minimumPlayers: 5
+    #minimumPlayers: 5
     weight: 5
     maxOccurrences: 1
     startAfter: 20
@@ -84,7 +84,7 @@
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
     earliestStart: 15
-    minimumPlayers: 15
+    #minimumPlayers: 15
     weight: 5
     maxOccurrences: 2
     startAfter: 50
@@ -98,7 +98,7 @@
     earliestStart: 30
     weight: 5
     maxOccurrences: 2
-    minimumPlayers: 20
+    #minimumPlayers: 20
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
@@ -111,23 +111,23 @@
     !type:StationEventRuleConfiguration
     id: MouseMigration
     earliestStart: 30
-    minimumPlayers: 35
+    #minimumPlayers: 35
     weight: 5
     maxOccurrences: 1
     endAfter: 50
 
-- type: gameRule
-  id: PowerGridCheck
-  config:
-    !type:StationEventRuleConfiguration
-    id: PowerGridCheck
-    weight: 10
-    maxOccurrences: 3
-    startAnnouncement: station-event-power-grid-check-start-announcement
-    endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-    startAfter: 12
+# - type: gameRule
+#   id: PowerGridCheck
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: PowerGridCheck
+#     weight: 10
+#     maxOccurrences: 3
+#     startAnnouncement: station-event-power-grid-check-start-announcement
+#     endAnnouncement: station-event-power-grid-check-end-announcement
+#     startAudio:
+#       path: /Audio/Announcements/power_off.ogg
+#     startAfter: 12
 
 # - type: gameRule
 #   id: RandomSentience
@@ -148,7 +148,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
-    minimumPlayers: 15
+    #minimumPlayers: 15
     weight: 5
     maxOccurrences: 2
     startAfter: 50
@@ -160,7 +160,7 @@
     !type:StationEventRuleConfiguration
     id: VentCritters
     earliestStart: 15
-    minimumPlayers: 15
+    #minimumPlayers: 15
     weight: 5
     maxOccurrences: 2
     endAfter: 60

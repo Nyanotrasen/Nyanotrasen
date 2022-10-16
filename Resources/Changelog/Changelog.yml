@@ -2988,5 +2988,16 @@ Entries:
   - {message: Added syndicate water. Made with 1 water and 4 Lexorin. 12 suffocation damage per unit., type: Add}
   id: 2416
   time: '2022-10-14T17:39:17.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+  - {message: Partial system for AIeye warping (teleporting)., type: Add}
+  - {message: The AI core (and everything else) can't be possessed by more than one soul. Ghost roles are deleted once used and ghosted., type: Fix}
+  - {message: Disable the really annoying power outage event., type: Tweak}
+  - {message: The AI now has a handheld radio and omnitool. This is subject to change., type: Add}
+  - {message: Removed spaceacilin and lowered capacity of/from Trollospray., type: Tweak}
+  - {message: The AI (core only sadly) now has randomized names., type: Add}
+  - {message: Drones no longer crash the server when you click the 'setup' context. (they dont have the option anymore), type: Fix}
+  id: 2417
+  time: '2022-10-16T02:46:37.0000000+00:00'
 
 #  - {message: Something., type: Add/Tweak/Fix}

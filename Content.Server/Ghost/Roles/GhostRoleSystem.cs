@@ -258,8 +258,8 @@ namespace Content.Server.Ghost.Roles
             if (!component.ReregisterOnGhost || component.LifeStage > ComponentLifeStage.Running)
                 return;
 
-            component.Taken = false;
-            RegisterGhostRole(component);
+            // component.Taken = false;
+            // RegisterGhostRole(component);
         }
 
         public void Reset(RoundRestartCleanupEvent ev)

@@ -12,7 +12,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 150
+        maxVol: 100
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
@@ -25,7 +25,6 @@
     reagents:
       - Ichor
       - Omnizine
-      - Spaceacilin
       - Nocturine
       - MindbreakerToxin
       - Desoxyephedrine
