@@ -61,5 +61,6 @@ public sealed class GlimmerEventRuleConfiguration : GameRuleConfiguration
     [DataField("endAfter")]
     public float EndAfter = float.MaxValue;
 
+    [DataField("report")]
     public string SohpicReport = "glimmer-event-report-generic";
 }
