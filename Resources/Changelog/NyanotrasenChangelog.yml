@@ -269,3 +269,25 @@ Entries:
     type: Remove
   id: 32
   time: '2022-10-11T21:10:45.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added dreams.
+    type: Add
+  - message: Added new glimmer event.
+    type: Add
+  - message: Xenos no longer have speech, but they have telepathy.
+    type: Tweak
+  - message: Fixed felinid insertion exploit, maybe...
+    type: Fix
+  id: 33
+  time: '2022-10-15T19:23:47.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: gave Salvage an ore processor
+    type: Add
+  - message: added wiring where there was none in Arrivals
+    type: Fix
+  - message: minor changes to Salvage, Epistemics, and Bar
+    type: Tweak
+  id: 34
+  time: '2022-10-15T19:31:13.0000000+00:00'
