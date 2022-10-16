@@ -3,6 +3,7 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
+using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
@@ -33,6 +34,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<DispellableComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<GuardianComponent, DispelledEvent>(OnGuardianDispelled);
             SubscribeLocalEvent<FamiliarComponent, DispelledEvent>(OnFamiliarDispelled);
+            SubscribeLocalEvent<RevenantComponent, DispelledEvent>(OnRevenantDispelled);
         }
 
         private void OnInit(EntityUid uid, DispelPowerComponent component, ComponentInit args)
@@ -79,14 +81,10 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnGuardianDispelled(EntityUid uid, GuardianComponent guardian, DispelledEvent args)
         {
-            DamageSpecifier damage = new();
-            damage.DamageDict.Add("Blunt", 100);
             if (TryComp<GuardianHostComponent>(guardian.Host, out var host))
                 _guardianSystem.ToggleGuardian(host);
 
-            _damageableSystem.TryChangeDamage(uid, damage, true, true);
-            _popupSystem.PopupCoordinates(Loc.GetString("sionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.SmallCaution);
-            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
+            DealDispelDamage(uid);
             args.Handled = true;
         }
 
@@ -96,6 +94,23 @@ namespace Content.Server.Abilities.Psionics
                 EnsureComp<SummonableRespawningComponent>(component.Source.Value);
 
             args.Handled = true;
+        }
+
+        private void OnRevenantDispelled(EntityUid uid, RevenantComponent component, DispelledEvent args)
+        {
+            DealDispelDamage(uid);
+            _statusEffects.TryAddStatusEffect(uid, "Corporeal", TimeSpan.FromSeconds(30), false, "Corporeal");
+            args.Handled = true;
+        }
+
+        private void DealDispelDamage(EntityUid uid)
+        {
+            DamageSpecifier damage = new();
+            damage.DamageDict.Add("Blunt", 100);
+
+            _damageableSystem.TryChangeDamage(uid, damage, true, true);
+            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.SmallCaution);
+            _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid);
         }
     }
 
