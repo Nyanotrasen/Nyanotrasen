@@ -1,0 +1,109 @@
+- type: instantAction
+  id: FunnyForceWall
+  name: action-name-spell-forcewall
+  description: action-description-spell-forcewall
+  useDelay: 0
+  speech: action-speech-spell-forcewall
+  itemIconStyle: BigAction
+  sound: !type:SoundPathSpecifier
+    path: /Audio/Magic/forcewall.ogg
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: shield
+  serverEvent: !type:InstantSpawnSpellEvent
+    prototype: WallForce
+    posData: !type:TargetInFront
+
+- type: instantAction
+  id: FunnyKnock
+  name: action-name-spell-knock
+  description: action-description-spell-knock
+  useDelay: 0
+  speech: action-speech-spell-knock
+  itemIconStyle: BigAction
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: knock
+  serverEvent: !type:KnockSpellEvent
+
+- type: worldTargetAction
+  id: FunnyFireball
+  name: action-name-spell-fireball
+  description: action-description-spell-fireball
+  useDelay: 0
+  range: 64
+  speech: action-speech-spell-fireball
+  itemIconStyle: BigAction
+  checkCanAccess: false
+  sound: !type:SoundPathSpecifier
+    path: /Audio/Magic/fireball.ogg
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: fireball
+  serverEvent: !type:ProjectileSpellEvent
+    prototype: ProjectileFireball
+    posData: !type:TargetCasterPos
+
+- type: instantAction
+  id: FunnyFlashRune
+  name: action-name-spell-rune-flash
+  description: action-description-spell-rune-flash
+  useDelay: 0
+  range: 64
+  itemIconStyle: BigAction
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: spell_default
+  serverEvent: !type:InstantSpawnSpellEvent
+    prototype: FlashRune
+
+- type: entityTargetAction
+  id: FunnySmite
+  name: action-name-spell-smite
+  description: action-description-spell-smite
+  useDelay: 0
+  range: 64
+  speech: action-speech-spell-smite
+  itemIconStyle: BigAction
+  whitelist:
+    components:
+    - Body
+  canTargetSelf: true
+  interactOnMiss: false
+  sound: !type:SoundPathSpecifier
+    path: /Audio/Magic/disintegrate.ogg
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: gib
+  serverEvent: !type:SmiteSpellEvent
+
+- type: worldTargetAction
+  id: FunnySpawnMagicarpSpell
+  name: action-name-spell-summon-magicarp
+  description: action-description-spell-summon-magicarp
+  useDelay: 0
+  range: 64
+  speech: action-speech-spell-summon-magicarp
+  itemIconStyle: BigAction
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: spell_default
+  serverEvent: !type:WorldSpawnSpellEvent
+    prototypes:
+      - id: MobCarpMagic
+        amount: 3
+    offsetVector2: 0, 1
+
+- type: worldTargetAction
+  id: FunnyBlink
+  name: action-name-spell-blink
+  description: action-description-spell-blink
+  useDelay: 0
+  range: 64
+  itemIconStyle: BigAction
+  checkCanAccess: false
+  repeat: true
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: blink
+  serverEvent: !type:TeleportSpellEvent

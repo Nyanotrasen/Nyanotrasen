@@ -1,0 +1,80 @@
+- type: entity
+  id: FunnySpawnSpellbook
+  name: funny spawn spellbook
+  parent: BaseSpellbook
+  components:
+    - type: Spellbook
+      instantSpells:
+        FlashRune: -1
+      worldSpells:
+        FunnySpawnMagicarpSpell: -1
+
+- type: entity
+  id: FunnyForceWallSpellbook
+  name: funny force wall spellbook
+  parent: BaseSpellbook
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Magic/spellbooks.rsi
+      layers:
+        - state: bookforcewall
+    - type: Spellbook
+      instantSpells:
+        FunnyForceWall: -1
+
+- type: entity
+  id: FunnyBlinkBook
+  name: funny blink spellbook
+  parent: BaseSpellbook
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Magic/spellbooks.rsi
+      layers:
+        - state: spellbook
+    - type: Spellbook
+      worldSpells:
+        FunnyBlink: -1
+
+- type: entity
+  id: FunnySmiteBook
+  name: funny smite spellbook
+  parent: BaseSpellbook
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Magic/spellbooks.rsi
+    layers:
+    - state: spellbook
+  - type: Spellbook
+    entitySpells:
+      FunnySmite: -1
+
+- type: entity
+  id: FunnyKnockSpellbook
+  name: funny knock spellbook
+  parent: BaseSpellbook
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Magic/spellbooks.rsi
+      layers:
+        - state: bookknock
+    - type: Spellbook
+      instantSpells:
+        FunnyKnock: -1
+
+- type: entity
+  id: FunnyFireballSpellbook
+  name: funny fireball spellbook
+  parent: BaseSpellbook
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Magic/spellbooks.rsi
+    layers:
+    - state: bookfireball
+  - type: Spellbook
+    worldSpells:
+      FunnyFireball: -1
