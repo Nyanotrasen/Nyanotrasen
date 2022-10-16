@@ -8,6 +8,7 @@
         FlashRune: -1
       worldSpells:
         FunnySpawnMagicarpSpell: -1
+      learnTime: 0
 
 - type: entity
   id: FunnyForceWallSpellbook
@@ -22,6 +23,7 @@
     - type: Spellbook
       instantSpells:
         FunnyForceWall: -1
+      learnTime: 0
 
 - type: entity
   id: FunnyBlinkBook
@@ -36,6 +38,7 @@
     - type: Spellbook
       worldSpells:
         FunnyBlink: -1
+      learnTime: 0
 
 - type: entity
   id: FunnySmiteBook
@@ -50,6 +53,7 @@
   - type: Spellbook
     entitySpells:
       FunnySmite: -1
+    learnTime: 0
 
 - type: entity
   id: FunnyKnockSpellbook
@@ -64,6 +68,7 @@
     - type: Spellbook
       instantSpells:
         FunnyKnock: -1
+      learnTime: 0
 
 - type: entity
   id: FunnyFireballSpellbook
@@ -78,3 +83,26 @@
   - type: Spellbook
     worldSpells:
       FunnyFireball: -1
+    learnTime: 0
+
+- type: entity
+  id: SuperFunnyBook
+  name: super funny spellbook
+  parent: BaseSpellbook
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Magic/spellbooks.rsi
+    layers:
+    - state: bookfireball
+  - type: Spellbook
+    entitySpells:
+      FunnySmite: -1
+    instantSpells:
+      FunnyKnock: -1
+      FunnyForceWall: -1
+    worldSpells:
+      FunnyFireball: -1
+      FunnyBlink: -1
+      FunnySpawnMagicarpSpell: -1
+    learnTime: 0

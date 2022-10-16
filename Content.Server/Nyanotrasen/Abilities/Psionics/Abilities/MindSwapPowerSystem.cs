@@ -77,7 +77,7 @@ namespace Content.Server.Abilities.Psionics
             // 1. Original target doesn't exist
             if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
             {
-                GetTrapped(uid);
+                GetDeleted(uid);
                 return;
             }
             // 1. Original target is no longer mindswapped
@@ -97,7 +97,7 @@ namespace Content.Server.Abilities.Psionics
             // 3. Target is dead
             if (_mobStateSystem.IsDead(component.OriginalEntity))
             {
-                GetTrapped(uid);
+                GetDeleted(uid);
                 return;
             }
             Logger.Error("Checks passed...");
@@ -170,6 +170,14 @@ namespace Content.Server.Abilities.Psionics
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
             }
+        }
+
+        private void GetDeleted(EntityUid uid)
+        {
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
+                return;
+
+            QueueDel(uid);
         }
     }
 
