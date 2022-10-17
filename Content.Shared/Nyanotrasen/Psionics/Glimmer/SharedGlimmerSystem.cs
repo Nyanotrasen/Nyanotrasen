@@ -1,3 +1,4 @@
+using Robust.Shared.Serialization;
 using Content.Shared.GameTicking;
 
 namespace Content.Shared.Psionics.Glimmer
@@ -54,7 +55,8 @@ namespace Content.Shared.Psionics.Glimmer
         }
     }
 
-    public enum GlimmerTier
+    [Serializable, NetSerializable]
+    public enum GlimmerTier : byte
     {
         Minimal,
         Low,

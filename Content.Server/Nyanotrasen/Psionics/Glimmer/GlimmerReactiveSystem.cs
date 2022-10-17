@@ -27,7 +27,7 @@ namespace Content.Server.Psionics.Glimmer
         /// </summary>
         private void OnComponentInit(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentInit args)
         {
-            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, (int) _sharedGlimmerSystem.GetGlimmerTier());
+            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, _sharedGlimmerSystem.GetGlimmerTier());
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace Content.Server.Psionics.Glimmer
         /// </summary>
         private void OnComponentRemove(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentRemove args)
         {
-            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, 0);
+            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, GlimmerTier.Minimal);
         }
 
         private void Reset(RoundRestartCleanupEvent args)
@@ -59,7 +59,7 @@ namespace Content.Server.Psionics.Glimmer
 
                     foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
                     {
-                        _appearanceSystem.SetData(reactive.Owner, GlimmerReactiveVisuals.GlimmerTier, (int) currentGlimmerTier);
+                        _appearanceSystem.SetData(reactive.Owner, GlimmerReactiveVisuals.GlimmerTier, currentGlimmerTier);
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
 
