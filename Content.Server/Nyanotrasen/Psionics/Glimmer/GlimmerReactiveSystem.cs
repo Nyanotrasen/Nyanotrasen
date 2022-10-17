@@ -22,7 +22,7 @@ namespace Content.Server.Psionics.Glimmer
 
         /// <summary>
         /// Track when the component comes online so it can be given the
-        /// current status of the glimmer level, if it wasn't around when an
+        /// current status of the glimmer tier, if it wasn't around when an
         /// update went out.
         /// </summary>
         private void OnComponentInit(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentInit args)
@@ -31,7 +31,7 @@ namespace Content.Server.Psionics.Glimmer
         }
 
         /// <summary>
-        /// Reset the glimmer level appearance data if the component's removed,
+        /// Reset the glimmer tier appearance data if the component's removed,
         /// just in case some objects can temporarily become reactive to the
         /// glimmer.
         /// </summary>
@@ -80,26 +80,26 @@ namespace Content.Server.Psionics.Glimmer
     public class GlimmerTierChangedEvent : EntityEventArgs
     {
         /// <summary>
-        /// What was the last glimmer level before this event fired?
+        /// What was the last glimmer tier before this event fired?
         /// </summary>
-        public readonly GlimmerTier LastLevel;
+        public readonly GlimmerTier LastTier;
 
         /// <summary>
-        /// What is the current glimmer level?
+        /// What is the current glimmer tier?
         /// </summary>
-        public readonly GlimmerTier CurrentLevel;
+        public readonly GlimmerTier CurrentTier;
 
         /// <summary>
         /// Does this event signify an increase in the glimmer?
         /// It decreased, if this value is false.
         /// </summary>
-        public readonly bool LevelIncreased;
+        public readonly bool TierIncreased;
 
-        public GlimmerTierChangedEvent(GlimmerTier lastLevel, GlimmerTier currentLevel, bool levelIncreased)
+        public GlimmerTierChangedEvent(GlimmerTier lastTier, GlimmerTier currentTier, bool tierIncreased)
         {
-            LastLevel = lastLevel;
-            CurrentLevel = currentLevel;
-            LevelIncreased = levelIncreased;
+            LastTier = lastTier;
+            CurrentTier = currentTier;
+            TierIncreased = tierIncreased;
         }
     }
 }
