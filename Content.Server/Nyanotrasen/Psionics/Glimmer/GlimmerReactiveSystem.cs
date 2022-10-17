@@ -43,6 +43,12 @@ namespace Content.Server.Psionics.Glimmer
         private void Reset(RoundRestartCleanupEvent args)
         {
             Accumulator = 0;
+
+            // It is necessary that the GlimmerTier is reset to the default
+            // tier on round restart. This system will persist through
+            // restarts, and an undesired event will fire as a result after the
+            // start of the new round, causing modulatable PointLights to have
+            // negative Energy if the tier was higher than Minimal on restart.
             LastGlimmerTier = GlimmerTier.Minimal;
         }
 
