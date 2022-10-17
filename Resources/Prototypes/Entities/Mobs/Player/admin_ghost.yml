@@ -13,6 +13,20 @@
   - type: CombatMode
   - type: Ghost
     canInteract: true
+  - type: Sprite
+    overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
+    netsync: false
+    noRot: true
+    drawdepth: Ghosts
+    sprite: Mobs/Ghosts/ghost_admin.rsi
+    state: animated
+    color: "#888888"
+    layers:
+      - state: animated
+        shader: unshaded
+  - type: PointLight
+    radius: 1.5
+    energy: 1.25
   - type: Hands
   - type: DoAfter
   - type: Actions
