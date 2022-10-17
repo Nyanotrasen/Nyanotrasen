@@ -244,3 +244,10 @@
   conditions:
     - !type:RandomTraitorProgressCondition {}
   canBeDuplicate: true
+
+- type: objective
+  id: Glimmer400Objective
+  requirements:
+    - !type:TraitorRequirement {}
+  conditions:
+    - !type:Glimmer400Condition {}
