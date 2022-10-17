@@ -55,11 +55,21 @@ namespace Content.Server.Psionics.Glimmer
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
                 if (currentGlimmerTier != LastGlimmerTier) {
-                    var ev = new GlimmerTierChangedEvent(LastGlimmerTier, currentGlimmerTier, currentGlimmerTier > LastGlimmerTier);
+                    var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
+                    var ev = new GlimmerTierChangedEvent(LastGlimmerTier, currentGlimmerTier, glimmerTierDelta);
 
                     foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
                     {
                         _appearanceSystem.SetData(reactive.Owner, GlimmerReactiveVisuals.GlimmerTier, currentGlimmerTier);
+
+                        if (reactive.ModulatesPointLight
+                            && TryComp(reactive.Owner, out SharedPointLightComponent? pointLight))
+                        {
+                            pointLight.Enabled = currentGlimmerTier != GlimmerTier.Minimal;
+                            pointLight.Energy += glimmerTierDelta * reactive.GlimmerToLightEnergyFactor;
+                            pointLight.Radius += glimmerTierDelta * reactive.GlimmerToLightRadiusFactor;
+
+                        }
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
 
@@ -90,16 +100,15 @@ namespace Content.Server.Psionics.Glimmer
         public readonly GlimmerTier CurrentTier;
 
         /// <summary>
-        /// Does this event signify an increase in the glimmer?
-        /// It decreased, if this value is false.
+        /// What is the change in tiers between the last and current tier?
         /// </summary>
-        public readonly bool TierIncreased;
+        public readonly int TierDelta;
 
-        public GlimmerTierChangedEvent(GlimmerTier lastTier, GlimmerTier currentTier, bool tierIncreased)
+        public GlimmerTierChangedEvent(GlimmerTier lastTier, GlimmerTier currentTier, int tierDelta)
         {
             LastTier = lastTier;
             CurrentTier = currentTier;
-            TierIncreased = tierIncreased;
+            TierDelta = tierDelta;
         }
     }
 }
