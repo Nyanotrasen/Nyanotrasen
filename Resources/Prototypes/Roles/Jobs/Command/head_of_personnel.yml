@@ -19,7 +19,8 @@
   icon: "HeadOfPersonnel"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  canBeAntag: true
+  antagAdvantage: 12
   access:
   - Command
   - HeadOfPersonnel

@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: EmagInf
+  name: cryptographic sequencer
+  suffix: DEBUG
+  description: The all-in-one hacking solution. The thinking man's lockpick. The iconic EMAG.
+  components:
+  - type: Emag
+    MaxCharges: 25
+    RechargeTime: 1
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Tools/emag.rsi
+    state: icon

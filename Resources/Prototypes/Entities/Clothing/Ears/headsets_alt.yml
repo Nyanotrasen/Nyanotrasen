@@ -91,6 +91,15 @@
   components:
   - type: Headset
     channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
     - Syndicate
   - type: Sprite
     sprite: Clothing/Ears/Headsets/syndicate.rsi

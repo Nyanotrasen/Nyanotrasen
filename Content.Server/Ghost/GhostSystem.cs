@@ -8,7 +8,6 @@ using Content.Server.Players;
 using Content.Server.Storage.Components;
 using Content.Server.Visible;
 using Content.Server.Warps;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.Follower;
@@ -164,9 +163,9 @@ namespace Content.Server.Ghost
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
         {
             if (args.SenderSession.AttachedEntity is not {Valid: true} entity ||
-                (!EntityManager.HasComponent<GhostComponent>(entity) || !EntityManager.HasComponent<AITelegnosticProjectionComponent>(entity)))
+                !EntityManager.HasComponent<GhostComponent>(entity))
             {
-                Logger.Warning($"User {args.SenderSession.Name} sent a {nameof(GhostWarpsRequestEvent)} without being a ghost or AI eye.");
+                Logger.Warning($"User {args.SenderSession.Name} sent a {nameof(GhostWarpsRequestEvent)} without being a ghost.");
                 return;
             }
 

@@ -3,7 +3,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: BreakerFlip
-    weight: 10
+    weight: 5
     endAfter: 1
     maxOccurrences: 5
     #minimumPlayers: 15
@@ -37,7 +37,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: Dragon
-    weight: 10
+    weight: 5
     endAfter: 2
     earliestStart: 15
     maxOccurrences: 7
@@ -59,7 +59,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: FalseAlarm
-    weight: 15
+    weight: 5
     endAfter: 1
     maxOccurrences: 5
 
@@ -121,7 +121,7 @@
 #   config:
 #     !type:StationEventRuleConfiguration
 #     id: PowerGridCheck
-#     weight: 10
+#     weight: 5
 #     maxOccurrences: 3
 #     startAnnouncement: station-event-power-grid-check-start-announcement
 #     endAnnouncement: station-event-power-grid-check-end-announcement
@@ -134,7 +134,7 @@
 #   config:
 #     !type:StationEventRuleConfiguration
 #     id: RandomSentience
-#     weight: 10
+#     weight: 5
 #     endAfter: 1
 #     startAudio:
 #       path: /Audio/Announcements/attention.ogg
@@ -171,6 +171,6 @@
     !type:StationEventRuleConfiguration
     id: Zombie
     earliestStart: 50
-    weight: 2.5
+    weight: 5
     endAfter: 1
     maxOccurrences: 1

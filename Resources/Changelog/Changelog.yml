@@ -2999,5 +2999,21 @@ Entries:
   - {message: Drones no longer crash the server when you click the 'setup' context. (they dont have the option anymore), type: Fix}
   id: 2417
   time: '2022-10-16T02:46:37.0000000+00:00'
+- author: Wii (Zook)
+  changes:
+  - {message: Added Syndicate Smoker survival box. (New admeme), type: Add}
+  time: '2022-10-16T17:39:51.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+  - {message: Captain can be antag - has 14 less TC., type: Tweak}
+  - {message: HOP can be antag - has 12 less TC., type: Tweak}
+  - {message: Chief Engineer can be antag - has 8 less TC., type: Tweak}
+  - {message: Added debug emag for the funny., type: Add}
+  - {message: All station events have the same change of happening., type: Tweak}
+  - {message: Syndicate over-ear is now a proper over-ear. It can hear all channels., type: Fix}
+  - {message: Fixed the liquid miasma recipe - I was missing an L in spaceacillin., type: Fix}
+  - {message: Undid changed to ghost system as it broke warping., type: Fix}
+  id: 2419
+  time: '2022-10-16T21:50:55.0000000+00:00'
 
 #  - {message: Something., type: Add/Tweak/Fix}
