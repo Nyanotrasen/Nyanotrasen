@@ -247,6 +247,7 @@
 
 - type: objective
   id: Glimmer400Objective
+  issuer: syndicate
   requirements:
     - !type:TraitorRequirement {}
   conditions:
