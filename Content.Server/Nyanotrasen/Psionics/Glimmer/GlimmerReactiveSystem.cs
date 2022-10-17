@@ -68,13 +68,16 @@ namespace Content.Server.Psionics.Glimmer
                     {
                         _appearanceSystem.SetData(reactive.Owner, GlimmerReactiveVisuals.GlimmerTier, currentGlimmerTier);
 
-                        if (reactive.ModulatesPointLight
-                            && TryComp(reactive.Owner, out SharedPointLightComponent? pointLight))
+                        if (reactive.ModulatesPointLight)
                         {
-                            pointLight.Enabled = currentGlimmerTier != GlimmerTier.Minimal;
-                            pointLight.Energy += glimmerTierDelta * reactive.GlimmerToLightEnergyFactor;
-                            pointLight.Radius += glimmerTierDelta * reactive.GlimmerToLightRadiusFactor;
+                            if (TryComp(reactive.Owner, out SharedPointLightComponent? pointLight))
+                            {
+                                pointLight.Enabled = currentGlimmerTier != GlimmerTier.Minimal;
+                                pointLight.Energy += glimmerTierDelta * reactive.GlimmerToLightEnergyFactor;
+                                pointLight.Radius += glimmerTierDelta * reactive.GlimmerToLightRadiusFactor;
 
+                            } else
+                                Logger.Warning($"{ToPrettyString(reactive.Owner)} had ModulatesPointLight set to true but no PointLightComponent was found.");
                         }
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
