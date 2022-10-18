@@ -4,6 +4,12 @@ namespace Content.Shared.Psionics.Glimmer
     public class SharedGlimmerReactiveComponent : Component
     {
         /// <summary>
+        /// Do the effects of this component require power from an APC?
+        /// </summary>
+        [DataField("requiresApcPower")]
+        public bool RequiresApcPower = false;
+
+        /// <summary>
         /// Does this component try to modulate the strength of a PointLight
         /// component on the same entity based on the Glimmer tier?
         /// </summary>
