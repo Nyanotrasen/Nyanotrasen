@@ -34,10 +34,7 @@ namespace Content.Server.Psionics.Glimmer
 
             if (component.RequiresApcPower)
                 if (TryComp(uid, out ApcPowerReceiverComponent? apcPower))
-                {
                     isEnabled = apcPower.Powered;
-                } else
-                    Logger.Warning($"{ToPrettyString(uid)} had RequiresApcPower set to true but no ApcPowerReceiverComponent was found.");
 
             _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, isEnabled ? currentGlimmerTier : GlimmerTier.Minimal);
 
@@ -54,8 +51,7 @@ namespace Content.Server.Psionics.Glimmer
                     // GlimmerReactiveComponent is still present.
                     pointLight.Energy += glimmerTierDelta * component.GlimmerToLightEnergyFactor;
                     pointLight.Radius += glimmerTierDelta * component.GlimmerToLightRadiusFactor;
-                } else
-                    Logger.Warning($"{ToPrettyString(uid)} had ModulatesPointLight set to true but no PointLightComponent was found.");
+                }
 
         }
 
@@ -66,6 +62,12 @@ namespace Content.Server.Psionics.Glimmer
         /// </summary>
         private void OnComponentInit(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentInit args)
         {
+            if (component.RequiresApcPower && !HasComp<ApcPowerReceiverComponent>(uid))
+                Logger.Warning($"{ToPrettyString(uid)} had RequiresApcPower set to true but no ApcPowerReceiverComponent was found on init.");
+
+            if (component.ModulatesPointLight && !HasComp<SharedPointLightComponent>(uid))
+                Logger.Warning($"{ToPrettyString(uid)} had ModulatesPointLight set to true but no PointLightComponent was found on init.");
+
             UpdateEntityState(uid, component, LastGlimmerTier, (int) LastGlimmerTier);
         }
 
