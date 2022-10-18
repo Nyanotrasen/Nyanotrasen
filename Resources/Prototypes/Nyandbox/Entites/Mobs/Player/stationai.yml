@@ -59,7 +59,7 @@
     baseSprintSpeed : 12
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Silicon/aieye.rsi
+    sprite: Nyandbox/Mobs/Silicon/aieye.rsi
     state: icon
     noRot: true
   - type: Hands
@@ -189,7 +189,7 @@
     color: "#9dc5c9"
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Silicon/aieye.rsi
+    sprite: Nyandbox/Mobs/Silicon/aieye.rsi
     state: ai
     noRot: true
   - type: Damageable

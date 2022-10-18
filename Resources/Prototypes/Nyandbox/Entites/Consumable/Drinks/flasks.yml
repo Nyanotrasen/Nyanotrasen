@@ -16,7 +16,7 @@
   parent: DrinkBase
   id: DrinkFlazk
   name: Zook's Flazk
-  description: A metal flask belonging to Zook.
+  description: A metal flask with the name 'Zook' etched into it.
   components:
   - type: Drink
   - type: Sprite
@@ -32,3 +32,27 @@
           Quantity: 100000
         - ReagentId: Water
           Quantity: 100000
+
+- type: entity
+  parent: DrinkBaseCup
+  id: DrinkWaterJug
+  name: water jug
+  description: A large container mainly for storing water.
+  components:
+  - type: Drink
+  - type: Sprite
+    sprite: Nyandbox/Objects/Consumable/Drinks/jug.rsi
+    layers:
+      - state: full
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    emptySpriteName: empty
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 200
+        reagents:
+        - ReagentId: Water
+          Quantity: 200

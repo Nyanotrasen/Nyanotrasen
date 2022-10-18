@@ -82,3 +82,19 @@
             Blunt: -4
             Slash: -3
             Piercing: -3
+
+- type: reagent
+  id: CellularDivider
+  name: Cell Divider
+  parent: BaseDrink
+  desc: Glowing and bubbling intensely. You probably don't want to consume any amount of this.
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: beer
+  color: "#00e5ff"
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Genetic: 100
