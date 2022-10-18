@@ -12,12 +12,15 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Destructible;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
 using Content.Shared.PDA;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 
@@ -34,32 +37,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly CargoSystem _cargoSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
-
-        // TODO: YAML Serializer won't catch this.
-        [ViewVariables(VVAccess.ReadWrite)]
-        public readonly IReadOnlyList<string> MailPrototypes = new[]
-        {
-            "MailBikeHorn",
-            "MailJunkFood",
-            "MailCosplay",
-            "MailMoney",
-            "MailCigarettes",
-            "MailFigurine",
-            "MailBible",
-            "MailCrayon",
-            "MailPlushie",
-            "MailPAI",
-            "MailSunglasses",
-            "MailBlockGameDIY",
-            "MailSpaceVillainDIY",
-            "MailBooks",
-            "MailNoir",
-            "MailHighlander",
-            "MailFlashlight",
-            "MailKnife",
-            "MailCigars",
-            "MailKatana"
-        };
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
 
         public override void Initialize()
@@ -220,9 +198,15 @@ namespace Content.Server.Mail
                 return;
             }
 
+            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomMailDeliveryPool", out var pool))
+            {
+                Logger.Error("Can't index the random mail delivery pool!");
+                return;
+            }
+
             for (int i = 0; i < ((candidateList.Count / 8) + 1); i++)
             {
-                var mail = EntityManager.SpawnEntity(_random.Pick(MailPrototypes), Transform(uid).Coordinates);
+                var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
                 var candidate = _random.Pick(candidateList);
                 mailComp.RecipientJob = candidate.recipientJob;
