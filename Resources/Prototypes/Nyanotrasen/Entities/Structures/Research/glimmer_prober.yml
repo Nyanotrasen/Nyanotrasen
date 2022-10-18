@@ -52,6 +52,7 @@
     energy: 1.6
     color: "#9b77e2"
   - type: GlimmerReactive
+    requiresApcPower: true
     modulatesPointLight: true
     glimmerToLightEnergyFactor: 2.0
     glimmerToLightRadiusFactor: 1.3
