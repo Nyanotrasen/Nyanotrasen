@@ -20,6 +20,7 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controllers;
 using Robust.Client.UserInterface.Controls;
+using Content.Client.Nyanotrasen.Chat;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
@@ -43,6 +44,7 @@ public sealed class ChatUIController : UIController
 
     [UISystemDependency] private readonly ExamineSystem? _examine = default;
     [UISystemDependency] private readonly GhostSystem? _ghost = default;
+    [UISystemDependency] private readonly PsionicChatUpdateSystem? _psionic = default!;
     [UISystemDependency] private readonly TypingIndicatorSystem? _typingIndicator = default;
 
     private ISawmill _sawmill = default!;
@@ -55,11 +57,13 @@ public sealed class ChatUIController : UIController
     public const char AliasAdmin = ']';
     public const char AliasRadio = ';';
     public const char AliasWhisper = ',';
+    public const char AliasTelepathic = '=';
 
     private static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
     {
         {AliasLocal, ChatSelectChannel.Local},
         {AliasWhisper, ChatSelectChannel.Whisper},
+        {AliasTelepathic, ChatSelectChannel.Telepathic},
         {AliasConsole, ChatSelectChannel.Console},
         {AliasOOC, ChatSelectChannel.OOC},
         {AliasEmotes, ChatSelectChannel.Emotes},
@@ -147,6 +151,7 @@ public sealed class ChatUIController : UIController
         _sawmill = Logger.GetSawmill("chat");
         _sawmill.Level = LogLevel.Info;
         _admin.AdminStatusUpdated += UpdateChannelPermissions;
+        _manager.PermissionsUpdated += UpdateChannelPermissions;
         _player.LocalPlayerChanged += OnLocalPlayerChanged;
         _state.OnStateChanged += StateChanged;
         _net.RegisterNetMessage<MsgChatMessage>(OnChatMessage);
@@ -376,6 +381,7 @@ public sealed class ChatUIController : UIController
             ChatSelectChannel.Local => '.',
             ChatSelectChannel.Whisper => ',',
             ChatSelectChannel.Radio => ';',
+            ChatSelectChannel.Telepathic => '`',
             ChatSelectChannel.LOOC => '(',
             ChatSelectChannel.OOC => '[',
             ChatSelectChannel.Emotes => '@',
@@ -434,6 +440,13 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Admin;
             CanSendChannels |= ChatSelectChannel.Admin;
+        }
+
+        // psionics
+        if (_psionic != null && _psionic.IsPsionic)
+        {
+            FilterableChannels |= ChatChannel.Telepathic;
+            CanSendChannels |= ChatSelectChannel.Telepathic;
         }
 
         SelectableChannels = CanSendChannels & ~ChatSelectChannel.Console;
