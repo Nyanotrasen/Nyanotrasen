@@ -17,25 +17,25 @@
   id: MobLamiaMarkingLimits
   points:
     Hair:
-      points: 1
+      points: 10
       required: false
     FacialHair:
-      points: 1
-      required: false
-    HeadTop:
-      points: 2
+      points: 10
       required: false
     Tail:
-      points: 2
+      points: 10
+      required: false
+    HeadTop:
+      points: 10
       required: false
     Chest:
-      points: 2
-      required: false
-    Arms:
-      points: 4
+      points: 10
       required: false
     Legs:
-      points: 4
+      points: 20
+      required: false
+    Arms:
+      points: 20
       required: false
 
 - type: speciesBaseSprites

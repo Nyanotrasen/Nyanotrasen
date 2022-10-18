@@ -11,6 +11,7 @@
   - type: Input
     context: "aghost"
   - type: CombatMode
+    canDisarm: true
   - type: Ghost
     canInteract: true
   - type: Sprite

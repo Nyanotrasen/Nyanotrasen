@@ -43,14 +43,17 @@
     Tail:
       points: 10
       required: false
-    Snout:
-      points: 10
-      required: false
     HeadTop:
       points: 10
       required: false
-    HeadSide:
+    Chest:
       points: 10
+      required: false
+    Legs:
+      points: 20
+      required: false
+    Arms:
+      points: 20
       required: false
 
 - type: humanoidBaseSprite

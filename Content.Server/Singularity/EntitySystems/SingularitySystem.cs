@@ -76,7 +76,7 @@ namespace Content.Server.Singularity.EntitySystems
             var otherUid = args.OtherFixture.Body.Owner;
 
             // HandleDestroy will also check CanDestroy for us
-            // HandleDestroy(component, otherUid);
+            HandleDestroy(component, otherUid);
         }
 
         public override void Update(float frameTime)
@@ -111,9 +111,9 @@ namespace Content.Server.Singularity.EntitySystems
             if (component.BeingDeletedByAnotherSingularity) return;
 
             var worldPos = xform.WorldPosition;
-            // DestroyEntities(component, xform, worldPos);
-            // DestroyTiles(component, xform, worldPos);
-            // PullEntities(component, xform, worldPos, frameTime);
+            DestroyEntities(component, xform, worldPos);
+            DestroyTiles(component, xform, worldPos);
+            PullEntities(component, xform, worldPos, frameTime);
         }
 
         private float PullRange(ServerSingularityComponent component)
@@ -173,7 +173,7 @@ namespace Content.Server.Singularity.EntitySystems
 
             foreach (var entity in _lookup.GetEntitiesInRange(xform.MapID, worldPos, destroyRange))
             {
-                // HandleDestroy(component, entity);
+                HandleDestroy(component, entity);
             }
         }
 

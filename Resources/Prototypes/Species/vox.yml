@@ -27,12 +27,17 @@
 
 - type: markingPoints
   id: MobVoxMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
       points: 10
       required: false
     FacialHair:
+      points: 10
+      required: false
+    Tail:
+      points: 10
+      required: false
+    HeadTop:
       points: 10
       required: false
     Chest:
