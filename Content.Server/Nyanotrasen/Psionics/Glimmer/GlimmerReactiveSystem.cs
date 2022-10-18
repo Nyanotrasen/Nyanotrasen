@@ -85,7 +85,7 @@ namespace Content.Server.Psionics.Glimmer
         /// If the Entity has RequiresApcPower set to true, this will force an
         /// update to the entity's state.
         /// </summary>
-        private void OnPowerChanged(EntityUid uid, SharedGlimmerReactiveComponent component, PowerChangedEvent args)
+        private void OnPowerChanged(EntityUid uid, SharedGlimmerReactiveComponent component, ref PowerChangedEvent args)
         {
             if (component.RequiresApcPower)
                 UpdateEntityState(uid, component, LastGlimmerTier, 0);
