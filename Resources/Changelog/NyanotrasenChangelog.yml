@@ -314,3 +314,20 @@ Entries:
     type: Tweak
   id: 37
   time: '2022-10-17T02:13:31.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made minor changes to angle's atmos distribution loop.
+    type: Tweak
+  id: 38
+  time: '2022-10-17T17:58:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Psionic invisibility now has a stealth shader. I need to tweak how it's
+      added a bit, the final intention is for it to have a constant value.
+    type: Add
+  - message: Added new traitor objective
+    type: Add
+  - message: Glimmer events now burn about 1/4 less glimmer.
+    type: Tweak
+  id: 39
+  time: '2022-10-17T19:10:24.0000000+00:00'

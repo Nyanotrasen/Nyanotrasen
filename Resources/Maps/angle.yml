@@ -216,7 +216,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 7
+  - index: 3
     type: Map
   - type: EntityLookup
   - type: Broadphase
@@ -12545,8 +12545,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -12575,8 +12575,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -30346,12 +30346,6 @@ entities:
   type: RandomDrinkBottle
   components:
   - pos: 57.5,2.5
-    parent: 9
-    type: Transform
-- uid: 2832
-  type: ClosetCursed
-  components:
-  - pos: 55.5,3.5
     parent: 9
     type: Transform
 - uid: 2833
@@ -67591,14 +67585,14 @@ entities:
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8584
-  type: GasPort
+  type: GasOutletInjector
   components:
   - rot: 1.5707963267948966 rad
     pos: 3.5,-90.5
     parent: 9
     type: Transform
 - uid: 8585
-  type: GasPort
+  type: GasOutletInjector
   components:
   - rot: 1.5707963267948966 rad
     pos: 3.5,-88.5
@@ -68054,6 +68048,8 @@ entities:
     type: Transform
   - targetPressure: 4500
     type: GasPressurePump
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8648
   type: GasPressurePump
   components:
@@ -68063,6 +68059,8 @@ entities:
     type: Transform
   - targetPressure: 4500
     type: GasPressurePump
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8649
   type: GasPipeStraight
   components:
@@ -68070,6 +68068,8 @@ entities:
     pos: 6.5,-98.5
     parent: 9
     type: Transform
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8650
   type: GasPipeStraight
   components:
@@ -68077,16 +68077,15 @@ entities:
     pos: 6.5,-100.5
     parent: 9
     type: Transform
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8651
-  type: GasMixerFlipped
+  type: GasPipeTJunction
   components:
-  - name: recycler input mixer
-    type: MetaData
-  - pos: 7.5,-98.5
+  - rot: -1.5707963267948966 rad
+    pos: 7.5,-98.5
     parent: 9
     type: Transform
-  - targetPressure: 4500
-    type: GasMixer
   - color: '#00FF00FF'
     type: AtmosPipeColor
 - uid: 8652
@@ -68096,6 +68095,8 @@ entities:
     pos: 7.5,-100.5
     parent: 9
     type: Transform
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8653
   type: GasPipeStraight
   components:
@@ -68103,6 +68104,8 @@ entities:
     pos: 7.5,-99.5
     parent: 9
     type: Transform
+  - color: '#00FF00FF'
+    type: AtmosPipeColor
 - uid: 8654
   type: GasPipeStraight
   components:
@@ -68725,10 +68728,10 @@ entities:
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 8739
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 1.5707963267948966 rad
-    pos: 3.5,-101.5
+    pos: 3.5,-99.5
     parent: 9
     type: Transform
 - uid: 8740
@@ -68757,10 +68760,10 @@ entities:
     parent: 9
     type: Transform
 - uid: 8743
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 1.5707963267948966 rad
-    pos: 3.5,-99.5
+    pos: 3.5,-101.5
     parent: 9
     type: Transform
 - uid: 8744
@@ -68891,7 +68894,7 @@ entities:
     type: Transform
   - transferRate: 2
     type: GasVolumePump
-  - color: '#FF0000FF'
+  - color: '#00FF00FF'
     type: AtmosPipeColor
 - uid: 8760
   type: GasPipeStraight
@@ -69149,68 +69152,68 @@ entities:
     parent: 9
     type: Transform
 - uid: 8795
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 3.141592653589793 rad
     pos: 10.5,-99.5
     parent: 9
     type: Transform
 - uid: 8796
-  type: GasPassiveVent
+  type: Wrench
   components:
-  - pos: 10.5,-100.5
+  - pos: 4.3508134,-92.570694
     parent: 9
     type: Transform
 - uid: 8797
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 3.141592653589793 rad
     pos: 12.5,-99.5
     parent: 9
     type: Transform
 - uid: 8798
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 3.141592653589793 rad
     pos: 14.5,-99.5
     parent: 9
     type: Transform
 - uid: 8799
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 3.141592653589793 rad
     pos: 16.5,-99.5
     parent: 9
     type: Transform
 - uid: 8800
-  type: GasPassiveVent
+  type: GasOutletInjector
   components:
   - rot: 3.141592653589793 rad
     pos: 18.5,-99.5
     parent: 9
     type: Transform
 - uid: 8801
-  type: GasPassiveVent
+  type: MiasmaCanister
   components:
-  - pos: 12.5,-100.5
+  - pos: 18.5,-100.5
     parent: 9
     type: Transform
 - uid: 8802
-  type: GasPassiveVent
-  components:
-  - pos: 14.5,-100.5
-    parent: 9
-    type: Transform
-- uid: 8803
-  type: GasPassiveVent
+  type: FrezonCanister
   components:
   - pos: 16.5,-100.5
     parent: 9
     type: Transform
-- uid: 8804
-  type: GasPassiveVent
+- uid: 8803
+  type: TritiumCanister
   components:
-  - pos: 18.5,-100.5
+  - pos: 14.5,-100.5
+    parent: 9
+    type: Transform
+- uid: 8804
+  type: GasMinerPlasma
+  components:
+  - pos: 12.5,-100.5
     parent: 9
     type: Transform
 - uid: 8805
@@ -69220,45 +69223,37 @@ entities:
     parent: 9
     type: Transform
 - uid: 8806
-  type: GasPressurePump
-  components:
-  - pos: 10.5,-101.5
-    parent: 9
-    type: Transform
-  - targetPressure: 4500
-    type: GasPressurePump
-- uid: 8807
-  type: GasPressurePump
-  components:
-  - pos: 12.5,-101.5
-    parent: 9
-    type: Transform
-  - targetPressure: 4500
-    type: GasPressurePump
-- uid: 8808
-  type: GasPressurePump
-  components:
-  - pos: 14.5,-101.5
-    parent: 9
-    type: Transform
-  - targetPressure: 4500
-    type: GasPressurePump
-- uid: 8809
-  type: GasPressurePump
-  components:
-  - pos: 16.5,-101.5
-    parent: 9
-    type: Transform
-  - targetPressure: 4500
-    type: GasPressurePump
-- uid: 8810
-  type: GasPressurePump
+  type: GasPassiveVent
   components:
   - pos: 18.5,-101.5
     parent: 9
     type: Transform
-  - targetPressure: 4500
-    type: GasPressurePump
+- uid: 8807
+  type: GasPassiveVent
+  components:
+  - pos: 16.5,-101.5
+    parent: 9
+    type: Transform
+- uid: 8808
+  type: GasPassiveVent
+  components:
+  - pos: 14.5,-101.5
+    parent: 9
+    type: Transform
+- uid: 8809
+  type: GasPassiveVent
+  components:
+  - pos: 10.5,-101.5
+    parent: 9
+    type: Transform
+- uid: 8810
+  type: GasPort
+  components:
+  - name: water vapor canister port
+    type: MetaData
+  - pos: 9.5,-96.5
+    parent: 9
+    type: Transform
 - uid: 8811
   type: GasPipeStraight
   components:
@@ -69281,11 +69276,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 8814
-  type: GasPort
+  type: GasPressurePump
   components:
-  - pos: 9.5,-97.5
+  - rot: 3.141592653589793 rad
+    pos: 15.5,-97.5
     parent: 9
     type: Transform
+  - targetPressure: 4500
+    enabled: False
+    type: GasPressurePump
 - uid: 8815
   type: ReinforcedPlasmaWindow
   components:
@@ -84292,23 +84291,35 @@ entities:
     parent: 9
     type: Transform
 - uid: 10546
-  type: GasPort
+  type: GasPressurePump
   components:
-  - pos: 11.5,-97.5
+  - rot: 3.141592653589793 rad
+    pos: 13.5,-97.5
     parent: 9
     type: Transform
+  - targetPressure: 4500
+    enabled: False
+    type: GasPressurePump
 - uid: 10547
-  type: GasPort
+  type: GasPressurePump
   components:
-  - pos: 13.5,-97.5
+  - rot: 3.141592653589793 rad
+    pos: 11.5,-97.5
     parent: 9
     type: Transform
+  - targetPressure: 4500
+    enabled: False
+    type: GasPressurePump
 - uid: 10548
-  type: GasPort
+  type: GasPressurePump
   components:
-  - pos: 15.5,-97.5
+  - rot: 3.141592653589793 rad
+    pos: 9.5,-97.5
     parent: 9
     type: Transform
+  - targetPressure: 4500
+    enabled: False
+    type: GasPressurePump
 - uid: 10549
   type: Poweredlight
   components:
@@ -88353,9 +88364,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 11041
-  type: GasPort
+  type: WaterVaporCanister
   components:
-  - pos: 17.5,-97.5
+  - pos: 10.5,-100.5
     parent: 9
     type: Transform
 - uid: 11042
@@ -102022,33 +102033,35 @@ entities:
     parent: 9
     type: Transform
 - uid: 13030
-  type: PlasmaCanister
+  type: Rack
   components:
-  - pos: 12.5,-99.5
+  - pos: 4.5,-92.5
     parent: 9
     type: Transform
 - uid: 13031
-  type: WaterVaporCanister
+  type: TableReinforcedGlass
   components:
-  - pos: 10.5,-99.5
+  - pos: 3.5,-92.5
     parent: 9
     type: Transform
 - uid: 13032
-  type: TritiumCanister
+  type: TableReinforcedGlass
   components:
-  - pos: 14.5,-99.5
+  - pos: 2.5,-92.5
     parent: 9
     type: Transform
 - uid: 13033
-  type: MiasmaCanister
+  type: GasPassiveVent
   components:
-  - pos: 18.5,-99.5
+  - pos: 12.5,-101.5
     parent: 9
     type: Transform
 - uid: 13034
-  type: FrezonCanister
+  type: GasPort
   components:
-  - pos: 16.5,-99.5
+  - name: plasma canister port
+    type: MetaData
+  - pos: 11.5,-96.5
     parent: 9
     type: Transform
 - uid: 13035
@@ -102249,9 +102262,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 13065
-  type: GasMinerPlasma
+  type: GasPort
   components:
-  - pos: 12.5,-101.5
+  - name: tritium canister port
+    type: MetaData
+  - pos: 13.5,-96.5
     parent: 9
     type: Transform
 - uid: 13066
@@ -104755,6 +104770,66 @@ entities:
   type: AtmosFixBlockerMarker
   components:
   - pos: 25.5,-93.5
+    parent: 9
+    type: Transform
+- uid: 13456
+  type: GasPort
+  components:
+  - name: frezon canister port
+    type: MetaData
+  - pos: 15.5,-96.5
+    parent: 9
+    type: Transform
+- uid: 13457
+  type: GasPort
+  components:
+  - name: miasma canister port
+    type: MetaData
+  - pos: 17.5,-96.5
+    parent: 9
+    type: Transform
+- uid: 13458
+  type: GasPressurePump
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 17.5,-97.5
+    parent: 9
+    type: Transform
+  - targetPressure: 4500
+    enabled: False
+    type: GasPressurePump
+- uid: 13459
+  type: CrowbarRed
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 4.70498,-92.476875
+    parent: 9
+    type: Transform
+- uid: 13460
+  type: Paper
+  components:
+  - desc: ''
+    name: On Gas Recycling
+    type: MetaData
+  - pos: 2.642971,-92.44561
+    parent: 9
+    type: Transform
+  - content: >
+      On gas recycling:
+
+
+      The gas recycler is the green loop, right? And the inputs are recyclable gasses (CO2 and N2O). The pressure before the recycler has to be very high, and the temperature has to be at least 300 degrees C (~574 K). Once pressure gets high enough, adjust the volumetric pump to let out more, then monitor the pipes.
+    type: Paper
+- uid: 13461
+  type: Pen
+  components:
+  - pos: 2.3141394,-92.45353
+    parent: 9
+    type: Transform
+- uid: 13462
+  type: GasAnalyzer
+  components:
+  - pos: 3.3766394,-92.422264
     parent: 9
     type: Transform
 ...

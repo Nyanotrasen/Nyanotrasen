@@ -4,6 +4,7 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Shared.Stunnable;
+using Content.Shared.Stealth.Components;
 using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
@@ -79,6 +80,7 @@ namespace Content.Server.Abilities.Psionics
         {
             EnsureComp<PsionicallyInvisibleComponent>(uid);
             EnsureComp<PacifiedComponent>(uid);
+            EnsureComp<StealthComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
         }
@@ -90,6 +92,7 @@ namespace Content.Server.Abilities.Psionics
 
             RemComp<PsionicallyInvisibleComponent>(uid);
             RemComp<PacifiedComponent>(uid);
+            RemComp<StealthComponent>(uid);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
             if (_prototypeManager.TryIndex<InstantActionPrototype>("PsionicInvisibilityOff", out var invis))
