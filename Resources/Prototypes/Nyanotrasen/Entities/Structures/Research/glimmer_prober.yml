@@ -2,7 +2,7 @@
   parent: BaseResearchAndDevelopmentPointSource
   id: GlimmerProber
   name: glimmer prober
-  description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem. Placeholder sprite.
+  description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
   components:
   - type: Psionic
   - type: GlimmerSource
@@ -12,6 +12,20 @@
   - type: ResearchPointSource
     pointspersecond: 25
     active: true
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    netsync: false
+    layers:
+    - state: base
+    - state: prober
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.6
+    color: "#9b77e2"
 
 - type: entity
   parent: BaseMachinePowered
@@ -23,11 +37,14 @@
   - type: GlimmerSource
     addToGlimmer: false
   - type: Sprite
-    sprite: Structures/Machines/rndpointsource.rsi
-    color: green
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     netsync: false
     layers:
-    - state: rndpointsource-off
-    - state: rndpointsource
+    - state: base
+    - state: drain
+    - state: powered
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: Appearance
+    visuals:
+    - type: PowerDeviceVisualizer
