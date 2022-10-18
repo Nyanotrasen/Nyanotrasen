@@ -5,7 +5,7 @@
     id: BreakerFlip
     weight: 5
     endAfter: 1
-    maxOccurrences: 5
+    # maxOccurrences: 5
     #minimumPlayers: 15
 
 # - type: gameRule
@@ -30,7 +30,7 @@
     weight: 5
     endAfter: 1
     earliestStart: 15
-    maxOccurrences: 3
+    # maxOccurrences: 3
 
 - type: gameRule
   id: Dragon
@@ -40,7 +40,7 @@
     weight: 5
     endAfter: 2
     earliestStart: 15
-    maxOccurrences: 7
+    # maxOccurrences: 7
     #minimumPlayers: 15
 
 - type: gameRule
@@ -51,7 +51,7 @@
     weight: 5
     endAfter: 1
     earliestStart: 45
-    maxOccurrences: 1
+    # maxOccurrences: 1
     #minimumPlayers: 20
 
 - type: gameRule
@@ -61,7 +61,7 @@
     id: FalseAlarm
     weight: 5
     endAfter: 1
-    maxOccurrences: 5
+    # maxOccurrences: 5
 
 - type: gameRule
   id: GasLeak
@@ -75,7 +75,7 @@
     earliestStart: 10
     #minimumPlayers: 5
     weight: 5
-    maxOccurrences: 1
+    # maxOccurrences: 1
     startAfter: 20
 
 - type: gameRule
@@ -86,7 +86,7 @@
     earliestStart: 15
     #minimumPlayers: 15
     weight: 5
-    maxOccurrences: 2
+    # maxOccurrences: 2
     startAfter: 50
     endAfter: 240
 
@@ -95,9 +95,8 @@
   config:
     !type:StationEventRuleConfiguration
     id: MeteorSwarm
-    earliestStart: 30
     weight: 5
-    maxOccurrences: 2
+    # maxOccurrences: 2
     #minimumPlayers: 20
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
@@ -110,10 +109,10 @@
   config:
     !type:StationEventRuleConfiguration
     id: MouseMigration
-    earliestStart: 30
+    earliestStart: 10
     #minimumPlayers: 35
     weight: 5
-    maxOccurrences: 1
+    # maxOccurrences: 1
     endAfter: 50
 
 # - type: gameRule
@@ -150,7 +149,7 @@
     earliestStart: 15
     #minimumPlayers: 15
     weight: 5
-    maxOccurrences: 2
+    # maxOccurrences: 2
     startAfter: 50
     endAfter: 60
 
@@ -162,7 +161,7 @@
     earliestStart: 15
     #minimumPlayers: 15
     weight: 5
-    maxOccurrences: 2
+    # maxOccurrences: 2
     endAfter: 60
 
 - type: gameRule
@@ -170,7 +169,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: Zombie
-    earliestStart: 50
+    earliestStart: 20
     weight: 5
     endAfter: 1
-    maxOccurrences: 1
+    # maxOccurrences: 1

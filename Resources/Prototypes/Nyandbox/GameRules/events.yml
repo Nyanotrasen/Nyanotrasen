@@ -1,0 +1,10 @@
+# - type: gameRule
+#   id: Xeno
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: Xeno
+#     weight: 5
+#     endAfter: 2
+#     earliestStart: 10
+#     # maxOccurrences: 7
+#     #minimumPlayers: 15
