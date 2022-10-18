@@ -21,6 +21,7 @@
       - id: CigPackGreen
         prob: 0.50
       - id: RubberStampQm
+      - id: ClothingHeadsetAltCargo
 
 - type: entity
   id: LockerCaptainFilled
@@ -71,6 +72,7 @@
       - id: ClothingHeadsetCommand
       - id: BoxPDA
       - id: BoxID
+      - id: BoxHeadset
       - id: IDComputerCircuitboard
       - id: WeaponDisabler
       - id: ClothingShoesColorBlack
@@ -107,6 +109,7 @@
       - id: DoorRemoteEngineering
       - id: RubberStampCE
       - id: JetpackVoidFilled
+      - id: ClothingHeadsetAltEngineering
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
