@@ -84,54 +84,6 @@ namespace Content.Server.Psionics.Glimmer
                 GameTicker.EndGameRule(PrototypeManager.Index<GameRulePrototype>(Prototype));
         }
 
-        protected bool TryFindRandomTile(out Vector2i tile, out EntityUid targetStation, out EntityUid targetGrid, out EntityCoordinates targetCoords)
-        {
-            tile = default;
-
-            targetCoords = EntityCoordinates.Invalid;
-            if (_stationSystem.Stations.Count == 0)
-            {
-                targetStation = EntityUid.Invalid;
-                targetGrid = EntityUid.Invalid;
-                return false;
-            }
-            targetStation = RobustRandom.Pick(_stationSystem.Stations);
-            var possibleTargets = Comp<StationDataComponent>(targetStation).Grids;
-            if (possibleTargets.Count == 0)
-            {
-                targetGrid = EntityUid.Invalid;
-                return false;
-            }
-
-            targetGrid = RobustRandom.Pick(possibleTargets);
-
-            if (!TryComp<IMapGridComponent>(targetGrid, out var gridComp))
-                return false;
-            var grid = gridComp.Grid;
-
-            var atmosphereSystem = Get<AtmosphereSystem>();
-            var found = false;
-            var gridBounds = grid.WorldAABB;
-            var gridPos = grid.WorldPosition;
-
-            for (var i = 0; i < 10; i++)
-            {
-                var randomX = RobustRandom.Next((int) gridBounds.Left, (int) gridBounds.Right);
-                var randomY = RobustRandom.Next((int) gridBounds.Bottom, (int) gridBounds.Top);
-
-                tile = new Vector2i(randomX - (int) gridPos.X, randomY - (int) gridPos.Y);
-                if (atmosphereSystem.IsTileSpace(grid.GridEntityId, Transform(targetGrid).MapUid, tile, mapGridComp:gridComp)
-                    || atmosphereSystem.IsTileAirBlocked(grid.GridEntityId, tile, mapGridComp:gridComp)) continue;
-                found = true;
-                targetCoords = grid.GridTileToLocal(tile);
-                break;
-            }
-
-            if (!found) return false;
-
-            return true;
-        }
-
         #region Helper Functions
 
         protected void ForceEndSelf()
