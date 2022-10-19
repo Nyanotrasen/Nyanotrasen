@@ -9,7 +9,6 @@ using Content.Client.Info;
 using Content.Client.Input;
 using Content.Client.IoC;
 using Content.Client.Launcher;
-using Content.Client.Nyanotrasen.Overlays;
 using Content.Client.MainMenu;
 using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
@@ -20,8 +19,6 @@ using Content.Client.Singularity;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
-using Content.Client.Nyanotrasen.Overlays;
-using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.AME;
 using Content.Shared.Chemistry.Components;
@@ -163,8 +160,6 @@ namespace Content.Client.Entry
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new FlashOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
-            _overlayManager.AddOverlay(new DogVisionOverlay());
-
 
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();
