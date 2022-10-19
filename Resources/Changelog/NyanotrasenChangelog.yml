@@ -239,3 +239,110 @@ Entries:
     type: Tweak
   id: 29
   time: '2022-10-09T18:29:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed characters disappearing when switching between them in character
+      creator.
+    type: Fix
+  id: 30
+  time: '2022-10-11T17:48:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added glimmer drains. Admin spawn only for now for initial testing. Within
+      a week we should have them researchable, constructible and with new sprites
+      for probers, drains, and a frame that can build into either.
+    type: Add
+  - message: Glimmer probers now produce about 1/3 less glimmer.
+    type: Tweak
+  - message: Further reduced weighting for mass sleep, psionic invisibility, and mind
+      swap.
+    type: Tweak
+  id: 31
+  time: '2022-10-11T18:12:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the whitelist end of round kick system after recent changes.
+      It was originally added when there were no other whitelist restrictions, and
+      the whitelisted pop cap was much lower, leading to trouble for people trying
+      to accumulate whitelist play time. The ghost role whitelisting change and 20
+      increase to the pop cap should perform the same function.
+    type: Remove
+  id: 32
+  time: '2022-10-11T21:10:45.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added dreams.
+    type: Add
+  - message: Added new glimmer event.
+    type: Add
+  - message: Xenos no longer have speech, but they have telepathy.
+    type: Tweak
+  - message: Fixed felinid insertion exploit, maybe...
+    type: Fix
+  id: 33
+  time: '2022-10-15T19:23:47.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: gave Salvage an ore processor
+    type: Add
+  - message: added wiring where there was none in Arrivals
+    type: Fix
+  - message: minor changes to Salvage, Epistemics, and Bar
+    type: Tweak
+  id: 34
+  time: '2022-10-15T19:31:13.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Revenant interacts more deeply with psionics.
+    type: Add
+  - message: Moved revenant to the glimmer event pool.
+    type: Tweak
+  - message: Changed units glimmer is measured with.
+    type: Tweak
+  id: 35
+  time: '2022-10-16T19:57:47.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added seven new Felinid ear types and expanded customizability of the
+      Felinid tail.
+    type: Add
+  id: 36
+  time: '2022-10-16T20:24:10.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated Angle. Atmos has had a brand new redesign.
+    type: Tweak
+  id: 37
+  time: '2022-10-17T02:13:31.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made minor changes to angle's atmos distribution loop.
+    type: Tweak
+  id: 38
+  time: '2022-10-17T17:58:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Psionic invisibility now has a stealth shader. I need to tweak how it's
+      added a bit, the final intention is for it to have a constant value.
+    type: Add
+  - message: Added new traitor objective
+    type: Add
+  - message: Glimmer events now burn about 1/4 less glimmer.
+    type: Tweak
+  id: 39
+  time: '2022-10-17T19:10:24.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for the glimmer machines.
+    type: Add
+  id: 40
+  time: '2022-10-18T19:36:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: I was going to take today off. But, I merged upstream. If I took that
+      off, you would die. It would be extremely painful. But, I'm a big guy for you.
+      Be sure to report bugs and let the admins know I never got around to fixing
+      the rev spawning.
+    type: Add
+  id: 41
+  time: '2022-10-18T20:53:00.0000000+00:00'

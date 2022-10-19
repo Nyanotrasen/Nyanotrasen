@@ -236,7 +236,6 @@
   - type: CombatMode
   - type: Climbing
   - type: Cuffable
-  - type: CharacterInfo
   - type: AnimationPlayer
   - type: MeleeWeapon
     soundHit:
@@ -246,6 +245,7 @@
         Blunt: 5
   - type: Pullable
   - type: DoAfter
+  - type: RadiationReceiver
   - type: CreamPied
   - type: Stripping
   - type: Strippable

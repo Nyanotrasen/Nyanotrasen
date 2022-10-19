@@ -245,5 +245,5 @@
     layers:
       - state: rtg_damaged
       - state: rtg_glow
-  # - type: RadiationSource # ideally only when opened.
-  #   range: 2
+  - type: RadiationSource # ideally only when opened.
+    intensity: 2

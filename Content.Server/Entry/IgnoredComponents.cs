@@ -15,10 +15,8 @@ namespace Content.Server.Entry
             "Clickable",
             "Icon",
             "ClientEntitySpawner",
-            "CharacterInfo",
             "HandheldGPS",
             "CableVisualizer",
-            "EnsnareableVisualizer",
         };
     }
 }

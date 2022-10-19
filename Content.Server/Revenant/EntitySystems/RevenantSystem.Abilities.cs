@@ -15,6 +15,7 @@ using Robust.Shared.Physics;
 using Content.Shared.Throwing;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Abilities.Psionics;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
 using Content.Shared.Item;
@@ -41,6 +42,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly DiseaseSystem _disease = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
 
     private void InitializeAbilities()
@@ -203,6 +205,8 @@ public sealed partial class RevenantSystem
         DamageSpecifier dspec = new();
         dspec.DamageDict.Add("Poison", damage.Value);
         _damage.TryChangeDamage(args.Target, dspec, true, origin: uid);
+
+        _psionics.LogPowerUsed(uid, "a soul draining power", 4, 8);
     }
 
     private void OnHarvestCancelled(EntityUid uid, RevenantComponent component, HarvestDoAfterCancelled args)
@@ -271,6 +275,7 @@ public sealed partial class RevenantSystem
             if (lights.HasComponent(ent))
                 _ghost.DoGhostBooEvent(ent);
         }
+        _psionics.LogPowerUsed(uid, "a spirit power");
     }
 
     private void OnOverloadLightsAction(EntityUid uid, RevenantComponent component, RevenantOverloadLightsActionEvent args)
@@ -306,6 +311,8 @@ public sealed partial class RevenantSystem
             var comp = EnsureComp<RevenantOverloadedLightsComponent>(allLight.First());
             comp.Target = ent; //who they gon fire at?
         }
+
+        _psionics.LogPowerUsed(uid, "a spirit power");
     }
 
     private void OnBlightAction(EntityUid uid, RevenantComponent component, RevenantBlightActionEvent args)
@@ -324,6 +331,7 @@ public sealed partial class RevenantSystem
             if (emo.TryGetComponent(ent, out var comp))
                 _disease.TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
         }
+        _psionics.LogPowerUsed(uid, "a spirit power");
     }
 
     private void OnMalfunctionAction(EntityUid uid, RevenantComponent component, RevenantMalfunctionActionEvent args)
@@ -340,5 +348,6 @@ public sealed partial class RevenantSystem
         {
             _emag.DoEmag(ent, ent); //it emags itself. spooky.
         }
+        _psionics.LogPowerUsed(uid, "a spirit power");
     }
 }
