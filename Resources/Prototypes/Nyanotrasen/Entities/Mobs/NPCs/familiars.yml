@@ -24,7 +24,7 @@
       - shape:
           !type:PhysShapeCircle
           radius: 0.35
-        mass: 85
+        density: 225
         mask:
           - FlyingMobMask
         layer:
@@ -32,7 +32,6 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
-    range: 1.5
     damage:
       groups:
         Burn: 10
@@ -76,6 +75,12 @@
   - type: Hands
   - type: RandomMetadata
     nameSegments: [names_golem]
+  - type: PotentialPsionic
+  - type: Psionic
+  - type: PyrokinesisPower
+  - type: Grammar
+    attributes:
+      proper: true
 
 - type: entity
   parent: WelderExperimental

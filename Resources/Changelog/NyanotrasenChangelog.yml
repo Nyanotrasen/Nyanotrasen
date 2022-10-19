@@ -93,3 +93,279 @@ Entries:
     type: Tweak
   id: 11
   time: '2022-10-02T19:01:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed several atmos issues on Angle in the engineering department and
+      epi's anomaly lab.
+    type: Fix
+  id: 12
+  time: '2022-10-03T13:39:42.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: An armored, insulative skullcap is available in limited quantities for
+      mantes and security.
+    type: Add
+  - message: Ifrits now have a unique psionic power outside of the pool.
+    type: Add
+  - message: Nuclear operatives now start with a cryptobiolin pill in their bag.
+    type: Add
+  - message: Glimmer probers glimmer output doubled.
+    type: Tweak
+  - message: Shuffled around traitor objective probabilities. Not final.
+    type: Tweak
+  - message: Turned off biomass easy mode.
+    type: Tweak
+  - message: Slightly reduced players per traitor.
+    type: Tweak
+  - message: Initial psionics rolls should be working for all entities now, including
+      nukies and other intelligent beings.
+    type: Fix
+  - message: Box has been removed from rotation until it gets air alarms and other
+      polish passes.
+    type: Remove
+  id: 13
+  time: '2022-10-03T16:06:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream and early merged my objective refactor.
+    type: Add
+  id: 14
+  time: '2022-10-03T18:56:43.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added soulbreaker toxin, currently only aquirable through soulbreaker
+      shotgun shells. It's basically a much better mindbreaker toxin.
+    type: Add
+  - message: Added soulbreaker shell recipe to non-lethal technology.
+    type: Add
+  - message: Security techfab requires technologies to be unlocked to print its recipes
+      again, I don't know what wiz den was thinking with changing that.
+    type: Tweak
+  - message: Ifrits can be targeted by psionic abilities.
+    type: Fix
+  id: 15
+  time: '2022-10-04T15:26:13.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream. A lot of stuff changed, so be sure to report any bugs.
+    type: Add
+  id: 16
+  time: '2022-10-04T17:02:46.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: You can use an empty hand on the oracle to see the requested items.
+    type: Add
+  - message: Psionic powers are now weighted differently, rather than being equally
+      likely.
+    type: Tweak
+  id: 17
+  time: '2022-10-05T16:58:48.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Glacier is on a mountain now, not an asteroid.
+    type: Tweak
+  id: 18
+  time: '2022-10-06T17:13:12.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for the anti-psychic knife.
+    type: Add
+  id: 19
+  time: '2022-10-06T17:13:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated some parts of angle.
+    type: Tweak
+  id: 20
+  time: '2022-10-06T17:12:41.0000000+00:00'
+- author: Hyenh
+  changes:
+  - message: Added new weeaboo costume to the theater vendor.
+    type: Add
+  id: 21
+  time: '2022-10-07T16:52:31.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae can now wear outer clothing that fits them.
+    type: Add
+  id: 22
+  time: '2022-10-08T16:57:19.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamiae's second belt slot now shows the sprite.
+    type: Add
+  - message: The second belt slot only fits actual belts.
+    type: Tweak
+  - message: Tail segment density has been reduced to make lamia movement a bit snapper.
+      Proper, interesting solution coming soonTM.
+    type: Tweak
+  id: 23
+  time: '2022-10-08T18:05:46.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: Lamia now show up correctly in the lobby character preview.
+    type: Fix
+  id: 24
+  time: '2022-10-08T20:25:03.0000000+00:00'
+- author: Elijahrane
+  changes:
+  - message: 'New traitor objective: ensure another traitor completes at least half
+      of their objectives.'
+    type: Add
+  id: 25
+  time: '2022-10-09T00:10:30.0000000+00:00'
+- author: Kesiath
+  changes:
+  - message: Added five additional Oni Horn Markings.
+    type: Add
+  id: 26
+  time: '2022-10-09T00:19:21.0000000+00:00'
+- author: Kesiath
+  changes:
+  - message: Added the ability for Oni, Felinid, and Lamia to use tattoos.
+    type: Add
+  id: 27
+  time: '2022-10-09T04:28:52.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream. Tell us if radio breaks again.
+    type: Add
+  id: 28
+  time: '2022-10-09T18:27:56.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Nyano's melee ranges have been standardized like upstreams. We'll see
+      how the progress on the questionable new melee rework is going.
+    type: Tweak
+  id: 29
+  time: '2022-10-09T18:29:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed characters disappearing when switching between them in character
+      creator.
+    type: Fix
+  id: 30
+  time: '2022-10-11T17:48:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added glimmer drains. Admin spawn only for now for initial testing. Within
+      a week we should have them researchable, constructible and with new sprites
+      for probers, drains, and a frame that can build into either.
+    type: Add
+  - message: Glimmer probers now produce about 1/3 less glimmer.
+    type: Tweak
+  - message: Further reduced weighting for mass sleep, psionic invisibility, and mind
+      swap.
+    type: Tweak
+  id: 31
+  time: '2022-10-11T18:12:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the whitelist end of round kick system after recent changes.
+      It was originally added when there were no other whitelist restrictions, and
+      the whitelisted pop cap was much lower, leading to trouble for people trying
+      to accumulate whitelist play time. The ghost role whitelisting change and 20
+      increase to the pop cap should perform the same function.
+    type: Remove
+  id: 32
+  time: '2022-10-11T21:10:45.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added dreams.
+    type: Add
+  - message: Added new glimmer event.
+    type: Add
+  - message: Xenos no longer have speech, but they have telepathy.
+    type: Tweak
+  - message: Fixed felinid insertion exploit, maybe...
+    type: Fix
+  id: 33
+  time: '2022-10-15T19:23:47.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: gave Salvage an ore processor
+    type: Add
+  - message: added wiring where there was none in Arrivals
+    type: Fix
+  - message: minor changes to Salvage, Epistemics, and Bar
+    type: Tweak
+  id: 34
+  time: '2022-10-15T19:31:13.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Revenant interacts more deeply with psionics.
+    type: Add
+  - message: Moved revenant to the glimmer event pool.
+    type: Tweak
+  - message: Changed units glimmer is measured with.
+    type: Tweak
+  id: 35
+  time: '2022-10-16T19:57:47.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added seven new Felinid ear types and expanded customizability of the
+      Felinid tail.
+    type: Add
+  id: 36
+  time: '2022-10-16T20:24:10.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated Angle. Atmos has had a brand new redesign.
+    type: Tweak
+  id: 37
+  time: '2022-10-17T02:13:31.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made minor changes to angle's atmos distribution loop.
+    type: Tweak
+  id: 38
+  time: '2022-10-17T17:58:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Psionic invisibility now has a stealth shader. I need to tweak how it's
+      added a bit, the final intention is for it to have a constant value.
+    type: Add
+  - message: Added new traitor objective
+    type: Add
+  - message: Glimmer events now burn about 1/4 less glimmer.
+    type: Tweak
+  id: 39
+  time: '2022-10-17T19:10:24.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites for the glimmer machines.
+    type: Add
+  id: 40
+  time: '2022-10-18T19:36:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: I was going to take today off. But, I merged upstream. If I took that
+      off, you would die. It would be extremely painful. But, I'm a big guy for you.
+      Be sure to report bugs and let the admins know I never got around to fixing
+      the rev spawning.
+    type: Add
+  id: 41
+  time: '2022-10-18T20:53:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Telepathic chat from oracles, dreams, and others work as intended again.
+    type: Fix
+  - message: Ifrits will no longer have definite articles in loc strings.
+    type: Fix
+  - message: The stealth shader on telegnostic projections and psionically invisible
+      people works as intended.
+    type: Tweak
+  - message: Made a small optimization that should improve client perf slightly.
+    type: Fix
+  - message: 'New trait: colorblindness.'
+    type: Add
+  - message: Revenants spawn correctly from the glimmer event.
+    type: Fix
+  - message: Revenants drop some bluespace crystals on death.
+    type: Add
+  - message: Glimmer prober has a new construction graph.
+    type: Add
+  - message: Probers and disposal units can be toggled on and off with an alt verb.
+    type: Add
+  id: 42
+  time: '2022-10-19T21:44:49.0000000+00:00'

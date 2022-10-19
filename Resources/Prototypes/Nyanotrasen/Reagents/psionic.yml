@@ -1,8 +1,8 @@
 - type: reagent
   id: PsionicRegenerationEssence
-  name: prometheum
+  name: reagent-name-prometheum
   group: Biological
-  desc: A thick, dark purplish substance.
+  desc: reagent-desc-prometheum
   flavor: metallic
   color: "#700055"
   physicalDesc: reagent-physical-desc-viscous
@@ -31,3 +31,28 @@
           types:
             Poison: -3
             Bloodloss: -3
+
+- type: reagent
+  id: SoulbreakerToxin
+  name: reagent-name-soulbreaker-toxin
+  group: Toxins
+  desc: reagent-desc-soulbreaker-toxin
+  flavor: bitter
+  color: "#FFFFF0"
+  physicalDesc: reagent-physical-desc-cloudy
+  plantMetabolism:
+  - !type:PlantAdjustToxins
+    amount: 40
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        probability: 0.4
+        damage:
+          groups:
+            Toxin: 2
+      - !type:ChemRemovePsionic
+        conditions:
+        - !type:ReagentThreshold
+          reagent: SoulbreakerToxin
+          min: 5

@@ -1,9 +1,14 @@
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking.Rules;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.Database;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
+
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -16,6 +21,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] protected readonly IRobustRandom RobustRandom = default!;
         [Dependency] protected readonly SharedGlimmerSystem GlimmerSystem = default!;
+        [Dependency] protected readonly StationSystem _stationSystem = default!;
 
         /// <summary>
         ///     How long has the event existed. Do not change this.

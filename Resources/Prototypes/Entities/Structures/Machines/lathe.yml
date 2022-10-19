@@ -27,7 +27,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.4,-0.4,0.4,0.4"
-      mass: 25
+      density: 190
       mask:
       - MachineMask
       layer:
@@ -114,7 +114,7 @@
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.4,-0.4,0.4,0.4"
-      mass: 25
+      density: 190
       mask:
       - MachineMask
       layer:
@@ -211,6 +211,7 @@
       - TimerTrigger
       - Signaller
       - SignalTrigger
+      - VoiceTrigger
       - PowerCellSmall
       - PowerCellMedium
       - PowerCellHigh
@@ -313,7 +314,7 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    staticRecipes:
+    dynamicRecipes:
       - Flash
       - FlashPayload
       - Handcuffs
@@ -329,6 +330,8 @@
       - ShellShotgun
       - ShellShotgunBeanbag
       - ShellShotgunFlare
+      - ShellTranquilizer
+      - ShellSoulbreaker
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber

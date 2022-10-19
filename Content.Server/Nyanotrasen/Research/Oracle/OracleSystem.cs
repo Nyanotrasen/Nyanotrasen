@@ -1,12 +1,14 @@
 using System.Linq;
 using Content.Shared.Interaction;
-using Content.Shared.Kitchen;
 using Content.Shared.Research.Prototypes;
+using Content.Shared.Abilities.Psionics;
 using Content.Server.Chat.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Botany;
 using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Research.Oracle
 {
@@ -15,6 +17,7 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
 
         [ViewVariables(VVAccess.ReadWrite)]
@@ -57,6 +60,7 @@ namespace Content.Server.Research.Oracle
             "InsulativeHeadcage",
             "BodyBag_Folded",
             "BodyBag",
+            "LockboxDecloner",
         };
 
 
@@ -85,6 +89,7 @@ namespace Content.Server.Research.Oracle
         {
             base.Initialize();
             SubscribeLocalEvent<OracleComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<OracleComponent, InteractHandEvent>(OnInteractHand);
             SubscribeLocalEvent<OracleComponent, InteractUsingEvent>(OnInteractUsing);
         }
 
@@ -93,6 +98,32 @@ namespace Content.Server.Research.Oracle
             NextItem(component);
         }
 
+        private void OnInteractHand(EntityUid uid, OracleComponent component, InteractHandEvent args)
+        {
+            if (!HasComp<PotentialPsionicComponent>(args.User) || HasComp<PsionicInsulationComponent>(args.User))
+                return;
+
+            if (!TryComp<ActorComponent>(args.User, out var actor))
+                return;
+
+            var message = Loc.GetString("oracle-current-item", ("item", component.DesiredPrototype.Name));
+
+            var messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
+                ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
+
+            _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
+                message, messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+
+            if (component.LastDesiredPrototype != null)
+            {
+                var message2 = Loc.GetString("oracle-previous-item", ("item", component.LastDesiredPrototype.Name));
+                var messageWrap2 = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
+                    ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message2));
+
+                _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
+                    message2, messageWrap2, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+            }
+        }
         private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)
         {
             if (!TryComp<MetaDataComponent>(args.Used, out var meta))

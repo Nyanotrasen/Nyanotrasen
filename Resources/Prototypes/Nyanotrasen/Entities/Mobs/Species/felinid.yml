@@ -105,7 +105,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.28
-      mass: 35
+      density: 140
       restitution: 0.0
       mask:
       - MobMask
@@ -120,7 +120,6 @@
   - type: MeleeWeapon
     soundHit:
       collection: Punch
-    range: 0.65
     animation: WeaponArcClaw
     damage:
       types:

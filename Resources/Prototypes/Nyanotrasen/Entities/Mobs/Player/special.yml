@@ -1,7 +1,7 @@
 - type: entity
   id: MobObserverTelegnostic
   name: telegnostic projection
-  description: Ominous.
+  description: Ominous. Placeholder sprite.
   noSpawn: true
   components:
   - type: Sprite
@@ -28,7 +28,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 5
+      density: 13
       mask:
       - GhostImpassable
   - type: MovementSpeedModifier
@@ -43,5 +43,6 @@
   - type: Input
     context: "ghost"
   - type: Examiner
-    DoRangeCheck: false
   - type: TelegnosticProjection
+  - type: Stealth
+    lastVisibility: 0.66

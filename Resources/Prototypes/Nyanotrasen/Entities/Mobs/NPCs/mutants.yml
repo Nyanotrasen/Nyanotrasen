@@ -22,7 +22,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.5
-      mass: 50
+      density: 63
       mask:
       - MobMask
       layer:
@@ -59,9 +59,7 @@
     coldDamageThreshold: 200
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     animation: WeaponArcBite
-
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:

@@ -15,6 +15,8 @@
   - type: HTN
     rootTask: XenoCompound
     blackboard:
+      NavInteract: !type:Bool
+        true
       NavPry: !type:Bool
         true
       NavSmash: !type:Bool
@@ -46,7 +48,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.25
-      mass: 200
+      density: 1000
       mask:
       - MobMask
       layer:
@@ -67,7 +69,6 @@
           -0.25
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     angle: 0
     soundHit:
      collection: AlienClaw
@@ -93,7 +94,7 @@
       amount: 5
   - type: GhostTakeoverAvailable
     allowMovement: true
-    allowSpeech: true
+    allowSpeech: false
     makeSentient: true
     name: xeno
     description: You are a xeno, co-operate with your hive to kill all crewmembers!
@@ -112,6 +113,8 @@
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005
+  - type: PotentialPsionic
+    chance: -2
 
 - type: entity
   name: Praetorian
@@ -137,11 +140,12 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 250
+      density: 400
       mask:
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Drone
@@ -170,11 +174,12 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 200
+      density: 450
       mask:
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Queen
@@ -208,12 +213,16 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 10000
+      density: 15500
       mask:
       - MobMask
       layer:
       - MobLayer
   - type: PotentialPsionic
+    chance: 0
+  - type: PsionicBonusChance
+    flatBonus: 1
+    warn: false
 
 - type: entity
   name: Ravager
@@ -247,11 +256,12 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 600
+      density: 1350
       mask:
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Runner
@@ -285,11 +295,12 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 150
+      density: 235
       mask:
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Rouny
@@ -300,6 +311,7 @@
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/rouny.rsi
     offset: 0,0.6
+  - type: Psionic
 
 - type: entity
   name: Spitter
@@ -325,11 +337,12 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.45
-      mass: 150
+      density: 235
       mask:
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: space adder
@@ -365,7 +378,6 @@
     - Xeno
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     angle: 0
     animation: WeaponArcBite
     damage:
@@ -389,7 +401,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      mass: 10
+      density: 25
       mask:
       - MobMask
       layer:

@@ -68,7 +68,7 @@
 
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterCardborg
+  id: ClothingOuterCardborg # Needs lamia sprite
   name: cardborg costume
   description: An ordinary cardboard box with holes cut in the sides.
   components:
@@ -153,6 +153,9 @@
     sprite: Clothing/OuterClothing/Misc/straight_jacket.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/straight_jacket.rsi
+  - type: Tag
+    tags:
+      - FullBodyOuter
 
 # Is this wizard wearing a fanny pack???
 - type: entity
