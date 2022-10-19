@@ -47,7 +47,7 @@ namespace Content.Server.Psionics.Dreams
                 var msg = _random.Pick(set.Values) + "..."; //todo... does the seperator need loc?
 
                 var messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
-                ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")));
+                    ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", msg));
 
                 _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
                 msg, messageWrap, sleeper.Owner, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);

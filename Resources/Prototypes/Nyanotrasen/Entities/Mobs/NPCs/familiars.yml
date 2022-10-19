@@ -78,6 +78,9 @@
   - type: PotentialPsionic
   - type: Psionic
   - type: PyrokinesisPower
+  - type: Grammar
+    attributes:
+      proper: true
 
 - type: entity
   parent: WelderExperimental

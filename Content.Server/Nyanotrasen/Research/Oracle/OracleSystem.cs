@@ -106,16 +106,22 @@ namespace Content.Server.Research.Oracle
             if (!TryComp<ActorComponent>(args.User, out var actor))
                 return;
 
+            var message = Loc.GetString("oracle-current-item", ("item", component.DesiredPrototype.Name));
+
             var messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
-                ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")));
+                ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
 
             _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
-                Loc.GetString("oracle-current-item", ("item", component.DesiredPrototype.Name)), messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                message, messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
 
             if (component.LastDesiredPrototype != null)
             {
+                var message2 = Loc.GetString("oracle-previous-item", ("item", component.LastDesiredPrototype.Name));
+                var messageWrap2 = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
+                    ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message2));
+
                 _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
-                    Loc.GetString("oracle-previous-item", ("item", component.LastDesiredPrototype.Name)), messageWrap, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                    message2, messageWrap2, uid, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
             }
         }
         private void OnInteractUsing(EntityUid uid, OracleComponent component, InteractUsingEvent args)

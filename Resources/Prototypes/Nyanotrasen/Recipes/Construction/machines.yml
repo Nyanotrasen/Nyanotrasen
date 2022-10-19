@@ -2,13 +2,13 @@
   id: GlimmerProber
   name: glimmer prober
   description: Increases glimmer and research points.
-  graph: GlimmerProber
+  graph: GlimmerDevices
   startNode: start
-  targetNode: glimmerprober
+  targetNode: glimmerProber
   category: construction-category-machines
   icon:
-    sprite: Structures/Machines/rndpointsource.rsi
-    state: rndpointsource-off
+    sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+    state: base
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false

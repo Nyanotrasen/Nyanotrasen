@@ -137,6 +137,13 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (component.Essence <= 0)
         {
+            int amt = _random.Next(1, 3);
+            int i = 0;
+            while (i < amt)
+            {
+                Spawn("MaterialBluespace", Transform(uid).Coordinates);
+                i++;
+            }
             QueueDel(uid);
         }
         return true;
