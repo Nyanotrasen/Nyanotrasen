@@ -16,6 +16,8 @@ public sealed class GlimmerRevenantSpawn : GlimmerEventSystem
         {
             glimmerSources.Add(glimmerSource);
         }
+        if (glimmerSources.Count == 0)
+            return;
 
         var coords = Transform(_robustRandom.Pick(glimmerSources).Owner).Coordinates;
 
