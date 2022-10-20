@@ -2,6 +2,10 @@
   id: Chaplain
   name: "cleric"
   startingGear: ChaplainGear
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Epistemics
+      time: 3600
   playTimeTracker: JobChaplain
   icon: "Chaplain"
   supervisors: "the mystagogue"
