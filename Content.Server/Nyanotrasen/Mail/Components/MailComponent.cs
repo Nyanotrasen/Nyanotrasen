@@ -22,7 +22,7 @@ namespace Content.Server.Mail.Components
         public bool Locked = true;
 
         /// <summary>
-        /// What will be spawned when the mail is opened.
+        /// What will be packaged when the mail is spawned.
         /// </summary>
         [DataField("contents")]
         public List<EntitySpawnEntry> Contents = new();

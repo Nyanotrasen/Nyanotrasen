@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Mail.Components;
 using Content.Server.Power.Components;
 using Content.Server.Popups;
@@ -23,6 +24,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Mail
 {
@@ -38,6 +40,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
 
         public override void Initialize()
@@ -208,6 +211,16 @@ namespace Content.Server.Mail
             {
                 var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
+                var container = _containerSystem.EnsureContainer<Container>(mail, "contents", out var contents);
+                foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
+                {
+                    var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
+                    if (!container.Insert(entity))
+                    {
+                        Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(mail)}! Deleting it.");
+                        QueueDel(entity);
+                    }
+                }
                 var candidate = _random.Pick(candidateList);
                 mailComp.RecipientJob = candidate.recipientJob;
                 mailComp.Recipient = candidate.recipientName;
@@ -224,12 +237,10 @@ namespace Content.Server.Mail
 
             SoundSystem.Play("/Audio/Effects/packetrip.ogg", Filter.Pvs(uid), uid);
 
-            var contentList = EntitySpawnCollection.GetSpawns(component.Contents, _random);
             if (user != null)
                 _handsSystem.TryDrop((EntityUid) user);
-            foreach (var item in contentList)
+            foreach (var entity in _containerSystem.GetContainer(uid, "contents").ContainedEntities.ToArray())
             {
-                var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
                 if (user != null)
                     _handsSystem.PickupOrDrop(user, entity);
             }
