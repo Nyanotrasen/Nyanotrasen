@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Client.HUD.UI;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
@@ -613,6 +612,7 @@ namespace Content.Client.Preferences.UI
                 return;
 
             Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+            _needUpdatePreview = true;
             IsDirty = true;
         }
 
@@ -745,6 +745,7 @@ namespace Content.Client.Preferences.UI
             Profile = (HumanoidCharacterProfile) _preferencesManager.Preferences!.SelectedCharacter;
             CharacterSlot = _preferencesManager.Preferences.SelectedCharacterIndex;
 
+            _needUpdatePreview = true;
             UpdateControls();
         }
 
@@ -786,7 +787,9 @@ namespace Content.Client.Preferences.UI
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
             CMarkings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
             UpdateSexControls(); // update sex for new species
+            RebuildSpriteView(); // they might have different inv so we need a new dummy
             IsDirty = true;
+            _needUpdatePreview = true;
         }
 
         private void SetName(string newName)
@@ -815,6 +818,7 @@ namespace Content.Client.Preferences.UI
             {
                 _preferencesManager.UpdateCharacter(Profile, CharacterSlot);
                 OnProfileChanged?.Invoke(Profile, CharacterSlot);
+                _needUpdatePreview = true;
             }
         }
 

@@ -1,3 +1,4 @@
+using Content.Server.Power.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 
@@ -18,6 +19,40 @@ namespace Content.Server.Psionics.Glimmer
 
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
+        }
+
+        /// <summary>
+        /// Update relevant state on an Entity.
+        /// </summary>
+        /// <param name="glimmerTierDelta">The number of steps in tier
+        /// difference since last update. This can be zero for the sake of
+        /// toggling the enabled states.</param>
+        private void UpdateEntityState(EntityUid uid, SharedGlimmerReactiveComponent component, GlimmerTier currentGlimmerTier, int glimmerTierDelta)
+        {
+            var isEnabled = true;
+
+            if (component.RequiresApcPower)
+                if (TryComp(uid, out ApcPowerReceiverComponent? apcPower))
+                    isEnabled = apcPower.Powered;
+
+            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, isEnabled ? currentGlimmerTier : GlimmerTier.Minimal);
+
+            if (component.ModulatesPointLight)
+                if (TryComp(uid, out SharedPointLightComponent? pointLight))
+                {
+                    pointLight.Enabled = isEnabled ? currentGlimmerTier != GlimmerTier.Minimal : false;
+
+                    // The light energy and radius are kept updated even when off
+                    // to prevent the need to store additional state.
+                    //
+                    // Note that this doesn't handle edge cases where the
+                    // PointLightComponent is removed while the
+                    // GlimmerReactiveComponent is still present.
+                    pointLight.Energy += glimmerTierDelta * component.GlimmerToLightEnergyFactor;
+                    pointLight.Radius += glimmerTierDelta * component.GlimmerToLightRadiusFactor;
+                }
+
         }
 
         /// <summary>
@@ -27,7 +62,13 @@ namespace Content.Server.Psionics.Glimmer
         /// </summary>
         private void OnComponentInit(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentInit args)
         {
-            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, _sharedGlimmerSystem.GetGlimmerTier());
+            if (component.RequiresApcPower && !HasComp<ApcPowerReceiverComponent>(uid))
+                Logger.Warning($"{ToPrettyString(uid)} had RequiresApcPower set to true but no ApcPowerReceiverComponent was found on init.");
+
+            if (component.ModulatesPointLight && !HasComp<SharedPointLightComponent>(uid))
+                Logger.Warning($"{ToPrettyString(uid)} had ModulatesPointLight set to true but no PointLightComponent was found on init.");
+
+            UpdateEntityState(uid, component, LastGlimmerTier, (int) LastGlimmerTier);
         }
 
         /// <summary>
@@ -37,7 +78,17 @@ namespace Content.Server.Psionics.Glimmer
         /// </summary>
         private void OnComponentRemove(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentRemove args)
         {
-            _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, GlimmerTier.Minimal);
+            UpdateEntityState(uid, component, GlimmerTier.Minimal, -1 * (int) LastGlimmerTier);
+        }
+
+        /// <summary>
+        /// If the Entity has RequiresApcPower set to true, this will force an
+        /// update to the entity's state.
+        /// </summary>
+        private void OnPowerChanged(EntityUid uid, SharedGlimmerReactiveComponent component, ref PowerChangedEvent args)
+        {
+            if (component.RequiresApcPower)
+                UpdateEntityState(uid, component, LastGlimmerTier, 0);
         }
 
         private void Reset(RoundRestartCleanupEvent args)
@@ -66,19 +117,7 @@ namespace Content.Server.Psionics.Glimmer
 
                     foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
                     {
-                        _appearanceSystem.SetData(reactive.Owner, GlimmerReactiveVisuals.GlimmerTier, currentGlimmerTier);
-
-                        if (reactive.ModulatesPointLight)
-                        {
-                            if (TryComp(reactive.Owner, out SharedPointLightComponent? pointLight))
-                            {
-                                pointLight.Enabled = currentGlimmerTier != GlimmerTier.Minimal;
-                                pointLight.Energy += glimmerTierDelta * reactive.GlimmerToLightEnergyFactor;
-                                pointLight.Radius += glimmerTierDelta * reactive.GlimmerToLightRadiusFactor;
-
-                            } else
-                                Logger.Warning($"{ToPrettyString(reactive.Owner)} had ModulatesPointLight set to true but no PointLightComponent was found.");
-                        }
+                        UpdateEntityState(reactive.Owner, reactive, currentGlimmerTier, glimmerTierDelta);
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
 
