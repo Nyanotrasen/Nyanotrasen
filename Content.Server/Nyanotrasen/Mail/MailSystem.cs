@@ -7,11 +7,20 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Chemistry.EntitySystems;
+using Content.Server.Damage.Components;
+using Content.Server.Destructible;
+using Content.Server.Destructible.Thresholds;
+using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Server.Fluids.Components;
+using Content.Server.Nutrition.Components;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -41,6 +50,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
 
 
         public override void Initialize()
@@ -176,6 +186,53 @@ namespace Content.Server.Mail
             if (component.Enabled)
                 OpenMail(uid, component);
             UpdateAntiTamperVisuals(uid, false);
+        }
+
+        /// <summary>
+        /// Returns true if the given entity is considered fragile for delivery.
+        /// </summary>
+        public bool IsEntityFragile(EntityUid uid)
+        {
+            // It takes damage on falling.
+            if (HasComp<DamageOnLandComponent>(uid))
+                return true;
+
+            // It can be spilled easily and has something to spill.
+            if (HasComp<SpillableComponent>(uid)
+                && TryComp(uid, out DrinkComponent? drinkComponent)
+                && drinkComponent.Opened
+                && _solutionContainerSystem.PercentFull(uid) > 0)
+                return true;
+
+            // It might be made of non-reinforced glass.
+            if (TryComp(uid, out DamageableComponent? damageableComponent)
+                && damageableComponent.DamageModifierSetId == "Glass")
+                return true;
+
+            // Fallback: It breaks or is destroyed in less than 10 damage.
+            if (TryComp(uid, out DestructibleComponent? destructibleComp))
+            {
+                foreach (var threshold in destructibleComp.Thresholds)
+                {
+                    if (threshold.Trigger is DamageTrigger trigger
+                        && trigger.Damage < 10)
+                    {
+                        foreach (var behavior in threshold.Behaviors)
+                        {
+                            if (behavior is DoActsBehavior doActs)
+                            {
+                                if (doActs.Acts.HasFlag(ThresholdActs.Breakage)
+                                    || doActs.Acts.HasFlag(ThresholdActs.Destruction))
+                                {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
 
         public void SpawnMail(EntityUid uid)
