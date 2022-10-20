@@ -56,3 +56,48 @@
 
     - node: glimmerProber
       entity: GlimmerProber
+
+    - node: frame
+      entity: GlimmerDeviceFrame
+      edges:
+        - to: glimmerDrain
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Cable
+              amount: 5
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tag: NormalityCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a normality crystal
+              doAfter: 1
+            - tool: Welding
+              doAfter: 5
+
+    - node: glimmerDrain
+      entity: GlimmerDrain
