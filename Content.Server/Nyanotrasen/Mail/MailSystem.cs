@@ -51,6 +51,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
 
         public override void Initialize()
@@ -309,18 +310,12 @@ namespace Content.Server.Mail
 
         private void UpdateAntiTamperVisuals(EntityUid uid, bool isLocked)
         {
-            if (!TryComp<AppearanceComponent>(uid, out var appearance))
-                return;
-
-            appearance.SetData(MailVisuals.IsLocked, isLocked);
+            _appearanceSystem.SetData(uid, MailVisuals.IsLocked, isLocked);
         }
 
         private void UpdateMailTrashState(EntityUid uid, bool isTrash)
         {
-            if (!TryComp<AppearanceComponent>(uid, out var appearance))
-                return;
-
-            appearance.SetData(MailVisuals.IsTrash, isTrash);
+            _appearanceSystem.SetData(uid, MailVisuals.IsTrash, isTrash);
         }
     }
 }
