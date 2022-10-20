@@ -3047,5 +3047,12 @@ Entries:
   - {message: Fixed nyano species (and reptilian/vox) not being able to use *all* or unlimited markings., type: Fix}
   id: 2496
   time: '2022-10-18T16:47:13.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: Gamemodes don't need to be forcestarted anymore to be played., type: Fix}
+  - {message: Removed untested debug emag., type: Fix}
+  - {message: Changed whitelist messages., type: Tweak}
+  id: 2497
+  time: '2022-10-19T22:38:17.0000000+00:00'
 
 #  - {message: Something., type: Add/Tweak/Fix}

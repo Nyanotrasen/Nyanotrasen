@@ -278,7 +278,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> SuspicionMinPlayers =
-            CVarDef.Create("suspicion.min_players", 5);
+            CVarDef.Create("suspicion.min_players", 0);
 
         public static readonly CVarDef<int> SuspicionMinTraitors =
             CVarDef.Create("suspicion.min_traitors", 2);
@@ -297,7 +297,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 5);
+            CVarDef.Create("traitor.min_players", 0);
 
         public static readonly CVarDef<int> TraitorMaxTraitors =
             CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
@@ -329,7 +329,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 20);
+            CVarDef.Create("zombie.min_players", 0);
 
         public static readonly CVarDef<int> ZombieMaxInitialInfected =
             CVarDef.Create("zombie.max_initial_infected", 6);
@@ -342,7 +342,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> PiratesMinPlayers =
-            CVarDef.Create("pirates.min_players", 25);
+            CVarDef.Create("pirates.min_players", 0);
 
         public static readonly CVarDef<int> PiratesMaxOps =
             CVarDef.Create("pirates.max_pirates", 6);
@@ -1168,7 +1168,7 @@ namespace Content.Shared.CCVar
         ///     some food object won't spam a user with flavors.
         /// </summary>
         public static readonly CVarDef<int>
-            FlavorLimit = CVarDef.Create("flavor.limit", 10, CVar.SERVERONLY);
+            FlavorLimit = CVarDef.Create("flavor.limit", 1000, CVar.SERVERONLY);
 
         /*
          * Mapping
@@ -1233,7 +1233,7 @@ namespace Content.Shared.CCVar
         /// Set to zero or a negative value to disable limit.
         /// </summary>
         public static readonly CVarDef<float> ResourceUploadingLimitMb =
-            CVarDef.Create("netres.limit", 500f, CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("netres.limit", 0f, CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         /// Whether uploaded files will be stored in the server's database.
