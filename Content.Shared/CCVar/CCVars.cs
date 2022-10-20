@@ -278,7 +278,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> SuspicionMinPlayers =
-            CVarDef.Create("suspicion.min_players", 0);
+            CVarDef.Create("suspicion.min_players", 3);
 
         public static readonly CVarDef<int> SuspicionMinTraitors =
             CVarDef.Create("suspicion.min_traitors", 2);
@@ -297,7 +297,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> TraitorMinPlayers =
-            CVarDef.Create("traitor.min_players", 0);
+            CVarDef.Create("traitor.min_players", 2);
 
         public static readonly CVarDef<int> TraitorMaxTraitors =
             CVarDef.Create("traitor.max_traitors", 12); // Assuming average server maxes somewhere from like 50-80 people
@@ -329,7 +329,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 0);
+            CVarDef.Create("zombie.min_players", 2);
 
         public static readonly CVarDef<int> ZombieMaxInitialInfected =
             CVarDef.Create("zombie.max_initial_infected", 6);
@@ -342,7 +342,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> PiratesMinPlayers =
-            CVarDef.Create("pirates.min_players", 0);
+            CVarDef.Create("pirates.min_players", 1);
 
         public static readonly CVarDef<int> PiratesMaxOps =
             CVarDef.Create("pirates.max_pirates", 6);
@@ -1080,10 +1080,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("viewport.scale_render", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         public static readonly CVarDef<int> ViewportMinimumWidth =
-            CVarDef.Create("viewport.minimum_width", 15, CVar.REPLICATED);
+            CVarDef.Create("viewport.minimum_width", 10, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportMaximumWidth =
-            CVarDef.Create("viewport.maximum_width", 21, CVar.REPLICATED);
+            CVarDef.Create("viewport.maximum_width", 25, CVar.REPLICATED);
 
         public static readonly CVarDef<int> ViewportWidth =
             CVarDef.Create("viewport.width", 21, CVar.CLIENTONLY | CVar.ARCHIVE);
