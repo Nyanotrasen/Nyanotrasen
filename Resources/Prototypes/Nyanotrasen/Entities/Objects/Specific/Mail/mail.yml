@@ -196,26 +196,16 @@
   components:
   - type: Mail
     contents:
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
-    - id: KatanaDulled
-      orGroup: Katana
     - id: Katana
-      orGroup: Katana
+
+- type: entity
+  parent: BaseMail
+  id: MailKatanaDulled
+  suffix: Katana, dulled
+  components:
+  - type: Mail
+    contents:
+    - id: KatanaDulled
 
 - type: entity
   parent: BaseMail
@@ -255,26 +245,19 @@
     - id: ClothingUniformJumpskirtColorRed
     - id: ClothingHeadHatBeret
     - id: DrinkRedMeadGlass
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
-    - id: ClaymoreDulled
-      orGroup: Claymore
     - id: Claymore
-      orGroup: Claymore
+
+- type: entity
+  parent: BaseMail
+  id: MailHighlanderDulled
+  suffix: highlander, dulled
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpskirtColorRed
+    - id: ClothingHeadHatBeret
+    - id: DrinkGlass
+    - id: ClaymoreDulled
 
 - type: entity
   parent: BaseMail
