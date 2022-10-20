@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Content.Shared.Storage;
 
 namespace Content.Server.Mail.Components
@@ -38,6 +39,18 @@ namespace Content.Server.Mail.Components
         /// </summary>
         [DataField("penalty")]
         public int Penalty = -250;
+
+        /// <summary>
+        /// The sound that's played when the mail's lock is broken.
+        /// </summary>
+        [DataField("penaltySound")]
+        public SoundSpecifier PenaltySound = new SoundPathSpecifier("/Audio/Machines/Nuke/angry_beep.ogg");
+
+        /// <summary>
+        /// The sound that's played when the mail's opened.
+        /// </summary>
+        [DataField("openSound")]
+        public SoundSpecifier OpenSound = new SoundPathSpecifier("/Audio/Effects/packetrip.ogg");
 
         /// <summary>
         /// Whether this component is enabled.

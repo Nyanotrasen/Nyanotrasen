@@ -32,7 +32,6 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Mail
@@ -52,6 +51,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
 
         public override void Initialize()
@@ -79,7 +79,7 @@ namespace Content.Server.Mail
 
                 mailTeleporter.Accumulator -= (float) mailTeleporter.teleportInterval.TotalSeconds;
 
-                SpawnMail(mailTeleporter.Owner);
+                SpawnMail(mailTeleporter.Owner, mailTeleporter);
             }
         }
 
@@ -174,7 +174,7 @@ namespace Content.Server.Mail
             if (component.Locked)
             {
                 _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("mail-penalty", ("credits", component.Penalty)), InGameICChatType.Speak, false);
-                SoundSystem.Play("/Audio/Machines/Nuke/angry_beep.ogg", Filter.Pvs(uid), uid);
+                _audioSystem.PlayPvs(component.PenaltySound, uid);
                 foreach (var account in EntityQuery<StationBankAccountComponent>())
                 {
                     if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
@@ -236,9 +236,11 @@ namespace Content.Server.Mail
             return false;
         }
 
-        public void SpawnMail(EntityUid uid)
+        public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
         {
-            SoundSystem.Play("/Audio/Effects/teleport_arrival.ogg", Filter.Pvs(uid), uid);
+            if (Resolve(uid, ref component))
+                _audioSystem.PlayPvs(component.TeleportSound, uid);
+
             List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
@@ -293,7 +295,7 @@ namespace Content.Server.Mail
             if (!Resolve(uid, ref component))
                 return;
 
-            SoundSystem.Play("/Audio/Effects/packetrip.ogg", Filter.Pvs(uid), uid);
+            _audioSystem.PlayPvs(component.OpenSound, uid);
 
             if (user != null)
                 _handsSystem.TryDrop((EntityUid) user);

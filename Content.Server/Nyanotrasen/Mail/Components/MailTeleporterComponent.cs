@@ -1,3 +1,5 @@
+using Robust.Shared.Audio;
+
 namespace Content.Server.Mail.Components
 {
     /// <summary>
@@ -14,5 +16,11 @@ namespace Content.Server.Mail.Components
 
         [DataField("teleportInterval")]
         public TimeSpan teleportInterval = TimeSpan.FromMinutes(5);
+
+        /// <summary>
+        /// The sound that's played when new mail arrives.
+        /// </summary>
+        [DataField("teleportSound")]
+        public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
     }
 }
