@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseResearchAndDevelopmentPointSource
+  parent: BaseMachinePowered
   id: GlimmerProber
   name: glimmer prober
   description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
@@ -67,6 +67,9 @@
   - type: Psionic
   - type: GlimmerSource
     addToGlimmer: false
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     netsync: false
