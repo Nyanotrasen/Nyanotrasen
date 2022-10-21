@@ -107,41 +107,41 @@
   - type: Mail
     contents:
     - id: ToyAi
-      prob: 0.22
+      orGroup: Toy
     - id: ToyNuke
-      prob: 0.22
+      orGroup: Toy
     - id: ToyAssistant
-      prob: 0.22
+      orGroup: Toy
     - id: ToyGriffin
-      prob: 0.22
+      orGroup: Toy
     - id: ToyHonk
-      prob: 0.22
+      orGroup: Toy
     - id: ToyIan
-      prob: 0.22
+      orGroup: Toy
     - id: ToyMarauder
-      prob: 0.22
+      orGroup: Toy
     - id: ToyMauler
-      prob: 0.22
+      orGroup: Toy
     - id: ToyGygax
-      prob: 0.22
+      orGroup: Toy
     - id: ToyOdysseus
-      prob: 0.22
+      orGroup: Toy
     - id: ToyOwlman
-      prob: 0.22
+      orGroup: Toy
     - id: ToyDeathRipley
-      prob: 0.22
+      orGroup: Toy
     - id: ToyPhazon
-      prob: 0.22
+      orGroup: Toy
     - id: ToyFireRipley
-      prob: 0.22
+      orGroup: Toy
     - id: ToyReticence
-      prob: 0.22
+      orGroup: Toy
     - id: ToyRipley
-      prob: 0.22
+      orGroup: Toy
     - id: ToySeraph
-      prob: 0.22
+      orGroup: Toy
     - id: ToyDurand
-      prob: 0.22
+      orGroup: Toy
 
 - type: entity
   parent: BaseMail
@@ -168,28 +168,31 @@
   components:
   - type: Mail
     contents:
+      # These are all grouped up now to guarantee at least one item received.
+      # The downside is you're not going to get half a dozen plushies anymore.
     - id: PlushieBee
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieRGBee
-      prob: 0.1
+      prob: 0.5
+      orGroup: Plushie
     - id: PlushieNuke
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieRouny
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieLizard
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieSpaceLizard
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieRatvar
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieNar
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieCarp
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieSlime
-      prob: 0.2
+      orGroup: Plushie
     - id: PlushieSnake
-      prob: 0.2
+      orGroup: Plushie
 
 - type: entity
   parent: BaseMail
