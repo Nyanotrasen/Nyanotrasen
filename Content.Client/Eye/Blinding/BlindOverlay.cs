@@ -17,7 +17,7 @@ namespace Content.Client.Eye.Blinding
 
         public override bool RequestScreenTexture => true;
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
-        private readonly ShaderInstance _greyscaleShader;
+        // private readonly ShaderInstance _greyscaleShader;
         private readonly ShaderInstance _circleMaskShader;
 
         private BlindableComponent _blindableComponent = default!;
@@ -25,7 +25,7 @@ namespace Content.Client.Eye.Blinding
         public BlindOverlay()
         {
             IoCManager.InjectDependencies(this);
-            _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleFullscreen").InstanceUnique();
+            // _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleFullscreen").InstanceUnique();
             _circleMaskShader = _prototypeManager.Index<ShaderPrototype>("CircleMask").InstanceUnique();
         }
         protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -73,12 +73,12 @@ namespace Content.Client.Eye.Blinding
                 _blindableComponent.GraceFrame = false;
             }
 
-            _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
+            // _greyscaleShader?.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
             var worldHandle = args.WorldHandle;
             var viewport = args.WorldBounds;
-            worldHandle.UseShader(_greyscaleShader);
-            worldHandle.DrawRect(viewport, Color.White);
+            // worldHandle.UseShader(_greyscaleShader);
+            // worldHandle.DrawRect(viewport, Color.White);
             worldHandle.UseShader(_circleMaskShader);
             worldHandle.DrawRect(viewport, Color.White);
             worldHandle.UseShader(null);

@@ -3077,14 +3077,14 @@ Entries:
   - {message: Medipens can now be refilled., type: Tweak}
   - {message: Chemical medipen can now be crafted a similar way as MagicMedipen., type: Fix}
   - {message: Added Trollospray. An admin item with several cool reagents in an infinite supply., type: Add}
-  id: 248600
+  id: 60000
   time: '2022-10-10T22:10:10.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
   - {message: Added a base for the station AI (unused but in sandbox menu)., type: Add}
   - {message: Station AI(eye) can be controlled via ghostroles. THE FRIDGE DOESN'T WORK YET!, type: Tweak}
   - {message: Station AI can only be seen by ghosts., type: Fix}
-  id: 248700
+  id: 70000
   time: '2022-10-11T00:02:10.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -3098,7 +3098,7 @@ Entries:
   - {message: Added roundend bad to the bone riff sound., type: Add}
   - {message: Screams have no cooldown (dont abuse this please)., type: Tweak}
   - {message: Lithium flask now holds 150u., type: Fix}
-  id: 248800
+  id: 80000
   time: '2022-10-12T00:00:19.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -3111,7 +3111,7 @@ Entries:
   - {message: Added Zook's Flazk., type: Add}
   - {message: Added spellbook tag., type: Add}
   - {message: Altars are now a ghost role., type: Tweak}
-  id: 248900
+  id: 90000
   time: '2022-10-13T21:14:58.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -3122,7 +3122,7 @@ Entries:
   - {message: Fixed my custom lathe recipe icons., type: Fix}
   - {message: Added infinite point disk if you want to skip slow research in sandbox., type: Add}
   - {message: Added syndicate water. Made with 1 water and 4 Lexorin. 12 suffocation damage per unit., type: Add}
-  id: 249000
+  id: 100000
   time: '2022-10-14T17:39:17.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -3133,12 +3133,12 @@ Entries:
   - {message: Removed spaceacilin and lowered capacity of/from Trollospray., type: Tweak}
   - {message: The AI (core only sadly) now has randomized names., type: Add}
   - {message: Drones no longer crash the server when you click the 'setup' context. (they dont have the option anymore), type: Fix}
-  id: 249100
+  id: 110000
   time: '2022-10-16T02:46:37.0000000+00:00'
 - author: Wii
   changes:
   - {message: Added Syndicate Smoker survival box. (New admeme), type: Add}
-  id: 249200
+  id: 120000
   time: '2022-10-16T17:39:51.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
@@ -3150,37 +3150,43 @@ Entries:
   - {message: Syndicate over-ear is now a proper over-ear. It can hear all channels., type: Fix}
   - {message: Fixed the liquid miasma recipe - I was missing an L in spaceacillin., type: Fix}
   - {message: Undid changes to ghost system as it broke warping., type: Fix}
-  id: 249300
+  id: 130000
   time: '2022-10-16T21:50:55.0000000+00:00'
 - author: Wii + DEATHB4DEFEAT
   changes:
   - {message: Added a custom adminghost texture., type: Add}
-  id: 249400
+  id: 140000
   time: '2022-10-16T23:27:38.0000000+00:00'
 - author: DEATHB4DEFEAT
   changes:
   - {message: Moved Nyandbox textures to Nyandbox subfolder., type: Tweak}
   - {message: Added Cellular Divider reagent - 200 cellular damage per unit., type: Add}
   - {message: Added Cell divider to trollospray to replace omnizine., type: Tweak}
-  id: 249500
+  id: 150000
   time: '2022-10-17T16:27:38.0000000+00:00'
 - author: Xelz
   changes:
   - {message: Added a water jug that fits 200u., type: Add}
-  id: 249600
+  id: 160000
   time: '2022-10-17T18:27:38.0000000+00:00'
 - author: 'DEATHB4DEFEAT'
   changes:
   - {message: Undid my singulo changes., type: Add}
   - {message: Fixed nyano species (and reptilian/vox) not being able to use *all* or unlimited markings., type: Fix}
-  id: 249700
+  id: 170000
   time: '2022-10-18T16:47:13.0000000+00:00'
 - author: 'DEATHB4DEFEAT'
   changes:
   - {message: Gamemodes don't need to be forcestarted anymore to be played., type: Fix}
   - {message: Removed untested debug emag., type: Fix}
   - {message: Changed whitelist messages., type: Tweak}
-  id: 249800
+  id: 180000
   time: '2022-10-19T22:38:17.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: New markings usable by all species., type: Fix}
+  - {message: You can now see color when blind (you just become very nearsighted)., type: Tweak}
+  id: 190000
+  time: '2022-10-21T16:45:10.0000000+00:00'
 
 #  - {message: Something., type: Add/Tweak/Fix}
