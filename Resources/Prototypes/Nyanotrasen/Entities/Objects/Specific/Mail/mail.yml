@@ -12,14 +12,25 @@
     sprite: Nyanotrasen/Objects/Specific/Mail/mail.rsi
     layers:
     - state: icon
-      map: ["enum.MailVisualLayers.IsTrash"]
+      map: ["enum.MailVisualLayers.Icon"]
     - state: postmark
     - state: locked
-      map: ["enum.MailVisualLayers.IsLocked"]
+      map: ["enum.MailVisualLayers.Lock"]
   - type: Appearance
-  - type: MailVisuals
-    normalState: icon
-    trashState: trash
+  - type: GenericVisualizer
+    visuals:
+      enum.MailVisuals.IsTrash:
+        enum.MailVisualLayers.Icon:
+          True:
+            state: trash
+          False:
+            state: icon
+      enum.MailVisuals.IsLocked:
+        enum.MailVisualLayers.Lock:
+          True:
+            visible: true
+          False:
+            visible: false
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
