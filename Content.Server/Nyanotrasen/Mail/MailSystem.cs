@@ -272,6 +272,7 @@ namespace Content.Server.Mail
                 var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
                 var container = _containerSystem.EnsureContainer<Container>(mail, "contents", out var contents);
+                var isFragile = false;
                 foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
                 {
                     var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
@@ -279,6 +280,13 @@ namespace Content.Server.Mail
                     {
                         Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(mail)}! Deleting it.");
                         QueueDel(entity);
+                    }
+                    else if (!isFragile && IsEntityFragile(entity))
+                    {
+                        isFragile = true;
+                        _appearanceSystem.SetData(mail, MailVisuals.IsFragile, true);
+
+                        Logger.Debug($"Spawned a fragile entity {ToPrettyString(entity)} for mail {mail}");
                     }
                 }
                 var candidate = _random.Pick(candidateList);

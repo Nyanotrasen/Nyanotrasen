@@ -10,5 +10,6 @@ namespace Content.Shared.Mail
     {
         IsLocked,
         IsTrash,
+        IsFragile,
     }
 }
