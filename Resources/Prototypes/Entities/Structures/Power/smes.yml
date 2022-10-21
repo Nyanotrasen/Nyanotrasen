@@ -2,7 +2,7 @@
 - type: entity
   abstract: true
   id: BaseSMES
-  parent: [ BaseMachine, ConstructibleMachine ]
+  parent: [BaseMachine, ConstructibleMachine]
   name: SMES
   description: A high-capacity superconducting magnetic energy storage (SMES) unit.
   placement:
@@ -32,11 +32,9 @@
     - type: NodeContainer
       examinable: true
       nodes:
-        input:
-          !type:CableDeviceNode
+        input: !type:CableDeviceNode
           nodeGroupID: HVPower
-        output:
-          !type:CableTerminalPortNode
+        output: !type:CableTerminalPortNode
           nodeGroupID: HVPower
     - type: BatteryCharger
       voltage: High
@@ -53,7 +51,7 @@
       radius: 1.5
       energy: 1.6
       color: "#c9c042"
-      castShadows: false
+      # castShadows: false
     - type: Wires
       BoardName: "SMES"
       LayoutId: SMES
@@ -68,14 +66,14 @@
   id: SMESBasic
   suffix: Basic, 8MW
   components:
-  - type: Battery
-    maxCharge: 8000000
-    startingCharge: 8000000
+    - type: Battery
+      maxCharge: 8000000
+      startingCharge: 8000000
 
 - type: entity
   parent: SMESBasic
   id: SMESBasicEmpty
   suffix: Empty
   components:
-  - type: Battery
-    startingCharge: 0
+    - type: Battery
+      startingCharge: 0
