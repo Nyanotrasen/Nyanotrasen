@@ -7,8 +7,8 @@
   - type: Psionic
   - type: GlimmerSource
   - type: Construction
-    graph: GlimmerProber
-    node: glimmerprober
+    graph: GlimmerDevices
+    node: glimmerProber
   - type: ResearchPointSource
     pointspersecond: 100
     active: true
@@ -56,6 +56,7 @@
     modulatesPointLight: true
     glimmerToLightEnergyFactor: 2.0
     glimmerToLightRadiusFactor: 1.3
+  - type: PowerSwitch
 
 - type: entity
   parent: BaseMachinePowered
@@ -66,6 +67,9 @@
   - type: Psionic
   - type: GlimmerSource
     addToGlimmer: false
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     netsync: false
@@ -78,3 +82,52 @@
   - type: Appearance
     visuals:
     - type: PowerDeviceVisualizer
+  - type: PowerSwitch
+
+- type: entity
+  id: GlimmerDeviceFrame
+  name: glimmer device frame
+  description: A frame for a glimmer drain or glimmer prober.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+      - shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.5,0.25,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Anchorable
+    - type: Rotatable
+    - type: Pullable
+    - type: Construction
+      graph: GlimmerDevices
+      node: frame
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: Sprite
+      sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
+      netsync: false
+      layers:
+      - state: base
+      - state: intermediate

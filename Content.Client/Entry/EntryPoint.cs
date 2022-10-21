@@ -9,7 +9,6 @@ using Content.Client.Info;
 using Content.Client.Input;
 using Content.Client.IoC;
 using Content.Client.Launcher;
-using Content.Client.Nyanotrasen.Overlays;
 using Content.Client.MainMenu;
 using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
@@ -20,14 +19,13 @@ using Content.Client.Singularity;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
-using Content.Client.Nyanotrasen.Overlays;
-using Content.Shared.Actions;
 using Content.Shared.Administration;
 using Content.Shared.AME;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Dispenser;
 using Content.Shared.Gravity;
 using Content.Shared.Lathe;
+using Content.Shared.Localizations;
 using Content.Shared.Markers;
 using Robust.Client;
 using Robust.Client.Graphics;
@@ -73,6 +71,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly GhostKickManager _ghostKick = default!;
         [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
         [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+        [Dependency] private readonly ContentLocalizationManager _contentLoc = default!;
 
         public const int NetBufferSizeOverride = 2;
 
@@ -94,6 +93,7 @@ namespace Content.Client.Entry
             IoCManager.Resolve<IConfigurationManager>().OverrideDefault(CVars.NetBufferSize, NetBufferSizeOverride);
 #endif
 
+            _contentLoc.Initialize();
             _componentFactory.DoAutoRegistrations();
             _componentFactory.IgnoreMissingComponents();
 
@@ -163,8 +163,6 @@ namespace Content.Client.Entry
             _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new FlashOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
-            _overlayManager.AddOverlay(new DogVisionOverlay());
-
 
             _chatManager.Initialize();
             _clientPreferencesManager.Initialize();

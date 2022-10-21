@@ -4,11 +4,11 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Damage;
 using Content.Shared.Stunnable;
+using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Abilities.Psionics
@@ -17,11 +17,9 @@ namespace Content.Server.Abilities.Psionics
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
-        [Dependency] private readonly PsionicInvisibilitySystem _invisibilitySystem = default!;
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly SharedStealthSystem _stealth = default!;
 
         public override void Initialize()
         {
@@ -80,7 +78,8 @@ namespace Content.Server.Abilities.Psionics
         {
             EnsureComp<PsionicallyInvisibleComponent>(uid);
             EnsureComp<PacifiedComponent>(uid);
-            EnsureComp<StealthComponent>(uid);
+            var stealth = EnsureComp<StealthComponent>(uid);
+            _stealth.SetVisibility(uid, 0.66f, stealth);
             SoundSystem.Play("/Audio/Effects/toss.ogg", Filter.Pvs(uid), uid);
 
         }

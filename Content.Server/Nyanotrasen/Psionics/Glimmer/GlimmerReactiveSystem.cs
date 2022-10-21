@@ -20,6 +20,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentInit>(OnComponentInit);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
         }
 
         /// <summary>
@@ -89,6 +90,24 @@ namespace Content.Server.Psionics.Glimmer
         {
             if (component.RequiresApcPower)
                 UpdateEntityState(uid, component, LastGlimmerTier, 0);
+        }
+
+        /// <summary>
+        ///     Enable / disable special effects from higher tiers.
+        /// </summary>
+        private void OnTierChanged(EntityUid uid, SharedGlimmerReactiveComponent component, GlimmerTierChangedEvent args)
+        {
+            if (!TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
+                return;
+
+            if (args.CurrentTier >= GlimmerTier.Dangerous)
+            {
+                receiver.PowerDisabled = false;
+                receiver.NeedsPower = false;
+            } else
+            {
+                receiver.NeedsPower = true;
+            }
         }
 
         private void Reset(RoundRestartCleanupEvent args)

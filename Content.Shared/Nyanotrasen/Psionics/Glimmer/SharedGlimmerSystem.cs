@@ -48,8 +48,8 @@ namespace Content.Shared.Psionics.Glimmer
                 <= 49 => GlimmerTier.Minimal,
                 >= 50 and <= 99 => GlimmerTier.Low,
                 >= 100 and <= 299 => GlimmerTier.Moderate,
-                >= 300 and <= 599 => GlimmerTier.High,
-                >= 600 and <= 899 => GlimmerTier.Dangerous,
+                >= 300 and <= 499 => GlimmerTier.High,
+                >= 500 and <= 899 => GlimmerTier.Dangerous,
                 _ => GlimmerTier.Critical,
             };
         }
