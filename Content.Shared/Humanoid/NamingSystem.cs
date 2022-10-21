@@ -26,8 +26,6 @@ namespace Content.Shared.Humanoid
 
             switch (speciesProto.Naming)
             {
-                case SpeciesNaming.XnoY:
-                    return $"{GetLastName(speciesProto)}-no-{GetFirstName(speciesProto, gender)}";
                 case SpeciesNaming.FirstDashFirst:
                     return $"{GetFirstName(speciesProto, gender)}-{GetFirstName(speciesProto, gender)}";
                 case SpeciesNaming.FirstLast:

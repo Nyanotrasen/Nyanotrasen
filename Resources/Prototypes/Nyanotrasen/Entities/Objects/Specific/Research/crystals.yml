@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: CrystalNormality
+  name: normality crystal
+  description: It looks... normal. Placeholder sprite.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+    color: gray
+  - type: Tag
+    tags:
+      - NormalityCrystal
