@@ -298,8 +298,19 @@
   components:
   - type: Mail
     contents:
-    - id: BookDemonomiconRandom
-      prob: 0.5
+      # Don't use BookDemonomiconRandom.
+      # It uses a RandomSpawner which just spawns the book outside of the mail.
+    - id: BookDemonomicon1
+      orGroup: Demonomicon
+    - id: BookDemonomicon2
+      orGroup: Demonomicon
+    - id: BookDemonomicon3
+      orGroup: Demonomicon
+      # There's no way to signal "spawn nothing" with an orGroup,
+      # so have this blank book instead. Write your own demon summoning tome!
+    - id: BookRandom
+      prob: 3
+      orGroup: Demonomicon
     - id: BookChemistryInsane
       prob: 0.10
     - id: BookBotanicalTextbook
