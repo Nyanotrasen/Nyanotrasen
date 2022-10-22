@@ -369,3 +369,36 @@ Entries:
     type: Add
   id: 42
   time: '2022-10-19T21:44:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the old point source available from salvage.
+    type: Fix
+  - message: Hoods should not hide face (or hair) anymore. Hiding hair broke upstream.
+    type: Fix
+  - message: As it makes up a disproportionate amount of problematic unwhitelisted
+      players, cleric is now time gated.
+    type: Tweak
+  - message: Glimmer drains are constructable, although they require something unlocked
+      with spacetime technology.
+    type: Add
+  - message: Glimmer probers have some more special behavior at dangerous glimmer
+      levels. (>500)
+    type: Add
+  id: 43
+  time: '2022-10-20T21:04:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added some maintenance rooms.
+    type: Add
+  - message: Made significant changes to Atmos and its mix chamber.
+    type: Tweak
+  - message: Changed many firelocks to glass firelocks.
+    type: Tweak
+  id: 44
+  time: '2022-10-21T20:18:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Nuke ops and other midrounds humanoids can be felinids or oni, too.
+    type: Add
+  id: 45
+  time: '2022-10-21T20:21:43.0000000+00:00'

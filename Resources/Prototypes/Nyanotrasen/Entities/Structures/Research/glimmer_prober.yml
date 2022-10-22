@@ -67,6 +67,9 @@
   - type: Psionic
   - type: GlimmerSource
     addToGlimmer: false
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
     netsync: false
