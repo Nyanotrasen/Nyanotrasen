@@ -22,7 +22,6 @@ namespace Content.Client.Nyandbox.Overlays
         public MonochromacyOverlay()
         {
             IoCManager.InjectDependencies(this);
-            // _monochromacyShader = _prototypeManager.Index<ShaderPrototype>("Monochromacy").Instance().Duplicate();
             _greyscaleShader = _prototypeManager.Index<ShaderPrototype>("GreyscaleFullscreen").InstanceUnique();
         }
 
