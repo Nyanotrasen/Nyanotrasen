@@ -357,8 +357,7 @@ namespace Content.Server.Mail
                 _handsSystem.TryDrop((EntityUid) user);
             foreach (var entity in _containerSystem.GetContainer(uid, "contents").ContainedEntities.ToArray())
             {
-                if (user != null)
-                    _handsSystem.PickupOrDrop(user, entity);
+                _handsSystem.PickupOrDrop(user, entity);
             }
             _tagSystem.AddTag(uid, "Trash");
             _tagSystem.AddTag(uid, "Recyclable");
