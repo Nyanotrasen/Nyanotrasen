@@ -88,8 +88,6 @@ namespace Content.Server.Mail
         /// </summary>
         private void OnInit(EntityUid uid, MailComponent mail, ComponentInit args)
         {
-            UpdateAntiTamperVisuals(uid, true);
-            UpdateMailTrashState(uid, false);
         }
 
         /// <summary>
