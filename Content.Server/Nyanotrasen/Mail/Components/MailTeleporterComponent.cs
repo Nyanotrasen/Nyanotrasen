@@ -22,5 +22,24 @@ namespace Content.Server.Mail.Components
         /// </summary>
         [DataField("teleportSound")]
         public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+
+        /// <summary>
+        /// How many mail candidates do we need per actual delivery sent when
+        /// the mail goes out? The number of candidates is divided by this number
+        /// to determine how many deliveries will be teleported in.
+        /// It does not determine unique recipients. That is random.
+        /// </summary>
+        [DataField("candidatesPerDelivery")]
+        public int CandidatesPerDelivery = 8;
+
+        [DataField("minimumDeliveriesPerTeleport")]
+        public int MinimumDeliveriesPerTeleport = 1;
+
+        /// <summary>
+        /// Any item that breaks or is destroyed in less than this amount of
+        /// damage is one of the types of items considered fragile.
+        /// </summary>
+        [DataField("fragileDamageThreshold")]
+        public int FragileDamageThreshold = 10;
     }
 }

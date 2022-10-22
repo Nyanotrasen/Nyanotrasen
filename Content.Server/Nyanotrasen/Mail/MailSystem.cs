@@ -192,7 +192,7 @@ namespace Content.Server.Mail
         /// <summary>
         /// Returns true if the given entity is considered fragile for delivery.
         /// </summary>
-        public bool IsEntityFragile(EntityUid uid)
+        public bool IsEntityFragile(EntityUid uid, int fragileDamageThreshold)
         {
             // It takes damage on falling.
             if (HasComp<DamageOnLandComponent>(uid))
@@ -216,7 +216,7 @@ namespace Content.Server.Mail
                 foreach (var threshold in destructibleComp.Thresholds)
                 {
                     if (threshold.Trigger is DamageTrigger trigger
-                        && trigger.Damage < 10)
+                        && trigger.Damage < fragileDamageThreshold)
                     {
                         foreach (var behavior in threshold.Behaviors)
                         {
@@ -276,8 +276,13 @@ namespace Content.Server.Mail
 
         public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
         {
-            if (Resolve(uid, ref component))
-                _audioSystem.PlayPvs(component.TeleportSound, uid);
+            if (!Resolve(uid, ref component))
+            {
+                Logger.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
+                return;
+            }
+
+            _audioSystem.PlayPvs(component.TeleportSound, uid);
 
             List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
@@ -305,7 +310,9 @@ namespace Content.Server.Mail
                 return;
             }
 
-            for (int i = 0; i < ((candidateList.Count / 8) + 1); i++)
+            for (int i = 0;
+                i < component.MinimumDeliveriesPerTeleport + candidateList.Count / component.CandidatesPerDelivery;
+                i++)
             {
                 var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
@@ -319,7 +326,7 @@ namespace Content.Server.Mail
                         Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(mail)}! Deleting it.");
                         QueueDel(entity);
                     }
-                    else if (!isFragile && IsEntityFragile(entity))
+                    else if (!isFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
                     {
                         isFragile = true;
                         _appearanceSystem.SetData(mail, MailVisuals.IsFragile, true);
