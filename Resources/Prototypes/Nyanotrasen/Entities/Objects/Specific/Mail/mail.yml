@@ -1,0 +1,348 @@
+- type: entity
+  parent: BaseMail
+  id: MailAMEGuide
+  suffix: ameguide
+  components:
+  - type: Mail
+    contents:
+    - id: PaperWrittenAMEScribbles
+    - id: Pen
+
+- type: entity
+  parent: BaseMail
+  id: MailBible
+  suffix: bible
+  components:
+  - type: Mail
+    contents:
+    - id: Bible
+
+- type: entity
+  parent: BaseMail
+  id: MailBikeHorn
+  suffix: bike horn
+  components:
+  - type: Mail
+    contents:
+    - id: BikeHorn
+
+- type: entity
+  parent: BaseMail
+  id: MailBlockGameDIY
+  suffix: blockgamediy
+  components:
+  - type: Mail
+    contents:
+    - id: BlockGameArcadeComputerCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailBooks
+  suffix: books
+  components:
+  - type: Mail
+    contents:
+      # Don't use BookDemonomiconRandom.
+      # It uses a RandomSpawner which just spawns the book outside of the mail.
+    - id: BookDemonomicon1
+      orGroup: Demonomicon
+    - id: BookDemonomicon2
+      orGroup: Demonomicon
+    - id: BookDemonomicon3
+      orGroup: Demonomicon
+      # There's no way to signal "spawn nothing" with an orGroup,
+      # so have this blank book instead. Write your own demon summoning tome!
+    - id: BookRandom
+      prob: 3
+      orGroup: Demonomicon
+    - id: BookChemistryInsane
+      prob: 0.10
+    - id: BookBotanicalTextbook
+      prob: 0.5
+    - id: BookFishing
+      prob: 0.10
+    - id: BookDetective
+      prob: 0.10
+    - id: BookGnominomicon
+      prob: 0.2
+
+- type: entity
+  parent: BaseMail
+  id: MailCigarettes
+  suffix: cigs
+  components:
+  - type: Mail
+    contents:
+    - id: CigPackRed
+    - id: CheapLighter
+
+- type: entity
+  parent: BaseMail
+  id: MailCigars
+  suffix: Cigars
+  components:
+  - type: Mail
+    contents:
+    - id: CigarCase
+    - id: Lighter
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplay
+  suffix: cosplay
+  components:
+  - type: Mail
+    contents:
+    - id: UniformSchoolgirlBlue
+
+- type: entity
+  parent: BaseMail
+  id: MailCrayon
+  suffix: Crayon
+  components:
+  - type: Mail
+    contents:
+    - id: CrayonBox
+
+- type: entity
+  parent: BaseMail
+  id: MailFigurine
+  suffix: figurine
+  components:
+  - type: Mail
+    contents:
+    - id: ToyAi
+      orGroup: Toy
+    - id: ToyNuke
+      orGroup: Toy
+    - id: ToyAssistant
+      orGroup: Toy
+    - id: ToyGriffin
+      orGroup: Toy
+    - id: ToyHonk
+      orGroup: Toy
+    - id: ToyIan
+      orGroup: Toy
+    - id: ToyMarauder
+      orGroup: Toy
+    - id: ToyMauler
+      orGroup: Toy
+    - id: ToyGygax
+      orGroup: Toy
+    - id: ToyOdysseus
+      orGroup: Toy
+    - id: ToyOwlman
+      orGroup: Toy
+    - id: ToyDeathRipley
+      orGroup: Toy
+    - id: ToyPhazon
+      orGroup: Toy
+    - id: ToyFireRipley
+      orGroup: Toy
+    - id: ToyReticence
+      orGroup: Toy
+    - id: ToyRipley
+      orGroup: Toy
+    - id: ToySeraph
+      orGroup: Toy
+    - id: ToyDurand
+      orGroup: Toy
+
+- type: entity
+  parent: BaseMail
+  id: MailFishingCap
+  suffix: fishingcap
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingHeadFishCap
+
+- type: entity
+  parent: BaseMail
+  id: MailFlashlight
+  suffix: Flashlight
+  components:
+  - type: Mail
+    contents:
+    - id: FlashlightSeclite
+
+- type: entity
+  parent: BaseMail
+  id: MailHighlander
+  suffix: highlander
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpskirtColorRed
+    - id: ClothingHeadHatBeret
+    - id: DrinkRedMeadGlass
+    - id: Claymore
+
+- type: entity
+  parent: BaseMail
+  id: MailHighlanderDulled
+  suffix: highlander, dulled
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpskirtColorRed
+    - id: ClothingHeadHatBeret
+    - id: DrinkGlass
+    - id: ClaymoreDulled
+
+- type: entity
+  parent: BaseMail
+  id: MailJunkFood
+  suffix: junk food
+  components:
+  - type: Mail
+    contents:
+    - id: FoodBoxDonkpocket
+    - id: FoodSnackChips
+
+- type: entity
+  parent: BaseMail
+  id: MailKatana
+  suffix: Katana
+  components:
+  - type: Mail
+    contents:
+    - id: Katana
+
+- type: entity
+  parent: BaseMail
+  id: MailKatanaDulled
+  suffix: Katana, dulled
+  components:
+  - type: Mail
+    contents:
+    - id: KatanaDulled
+
+- type: entity
+  parent: BaseMail
+  id: MailKnife
+  suffix: Knife
+  components:
+  - type: Mail
+    contents:
+    - id: CombatKnife
+
+- type: entity
+  parent: BaseMail
+  id: MailMoney
+  suffix: money
+  components:
+  - type: Mail
+    contents:
+    - id: SpaceCash100
+
+- type: entity
+  parent: BaseMail
+  id: MailNoir
+  suffix: noir
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingUniformJumpsuitDetectiveGrey
+    - id: ClothingUniformJumpskirtDetectiveGrey
+    - id: ClothingHeadHatBowlerHat
+    - id: ClothingOuterCoatGentle
+
+- type: entity
+  parent: BaseMail
+  id: MailPAI
+  suffix: PAI
+  components:
+  - type: Mail
+    contents:
+    - id: PersonalAI
+
+- type: entity
+  parent: BaseMail
+  id: MailPlushie
+  suffix: plushie
+  components:
+  - type: Mail
+    contents:
+      # These are all grouped up now to guarantee at least one item received.
+      # The downside is you're not going to get half a dozen plushies anymore.
+    - id: PlushieBee
+      orGroup: Plushie
+    - id: PlushieRGBee
+      prob: 0.5
+      orGroup: Plushie
+    - id: PlushieNuke
+      orGroup: Plushie
+    - id: PlushieRouny
+      orGroup: Plushie
+    - id: PlushieLizard
+      orGroup: Plushie
+    - id: PlushieSpaceLizard
+      orGroup: Plushie
+    - id: PlushieRatvar
+      orGroup: Plushie
+    - id: PlushieNar
+      orGroup: Plushie
+    - id: PlushieCarp
+      orGroup: Plushie
+    - id: PlushieSlime
+      orGroup: Plushie
+    - id: PlushieSnake
+      orGroup: Plushie
+
+- type: entity
+  parent: BaseMail
+  id: MailSignallerKit
+  suffix: signallerkit
+  components:
+  - type: Mail
+    contents:
+    - id: Multitool
+    - id: RemoteSignaller
+
+- type: entity
+  parent: BaseMail
+  id: MailSixPack
+  suffix: sixpack
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkCanPack
+
+- type: entity
+  parent: BaseMail
+  id: MailSkub
+  suffix: skub
+  components:
+  - type: Mail
+    contents:
+    - id: Skub
+
+- type: entity
+  parent: BaseMail
+  id: MailSpaceVillainDIY
+  suffix: spacevilliandiy
+  components:
+  - type: Mail
+    contents:
+    - id: SpaceVillainArcadeComputerCircuitboard
+
+- type: entity
+  parent: BaseMail
+  id: MailSunglasses
+  suffix: Sunglasses
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingEyesGlassesSunglasses
+
+- type: entity
+  parent: BaseMail
+  id: MailWizardCosplay
+  suffix: wizardcosplay
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWizard
+    - id: ClothingHeadHatWizardFake
+    - id: ClothingShoesWizard
