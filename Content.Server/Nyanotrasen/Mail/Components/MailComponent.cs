@@ -1,10 +1,11 @@
 using Robust.Shared.Audio;
 using Content.Shared.Storage;
+using Content.Shared.Mail;
 
 namespace Content.Server.Mail.Components
 {
     [RegisterComponent]
-    public sealed class MailComponent : Component
+    public sealed class MailComponent : SharedMailComponent
     {
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("recipient")]
