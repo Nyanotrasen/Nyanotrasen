@@ -208,15 +208,11 @@
   - type: Mail
     contents:
     - id: Katana
-
-- type: entity
-  parent: BaseMail
-  id: MailKatanaDulled
-  suffix: Katana, dulled
-  components:
-  - type: Mail
-    contents:
+      prob: 0.1
+      orGroup: Katana
     - id: KatanaDulled
+      prob: 0.9
+      orGroup: Katana
 
 - type: entity
   parent: BaseMail
