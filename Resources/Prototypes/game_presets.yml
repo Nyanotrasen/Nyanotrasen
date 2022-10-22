@@ -83,7 +83,7 @@
   showInVote: true
   rules:
     - TraitorDeathMatch
-    - MaxTimeRestart
+    # - MaxTimeRestart
 
 - type: gamePreset
   id: Nukeops

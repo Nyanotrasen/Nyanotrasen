@@ -1,3 +1,20 @@
+# Unfunny
+- type: entity
+  id: HealingSpellbook
+  name: healing spellbook
+  parent: BaseSpellbook
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Magic/spellbooks.rsi
+    layers:
+    - state: spellbook
+  - type: Spellbook
+    worldSpells:
+      HealingSpell: -1
+    learnTime: 0.75
+
+# Funny
 - type: entity
   id: FunnySpawnSpellbook
   name: libro divertido de spawn
@@ -86,6 +103,22 @@
     learnTime: 0
 
 - type: entity
+  id: FunnyHealingSpellbook
+  name: libro divertido de healing
+  parent: BaseSpellbook
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Objects/Magic/spellbooks.rsi
+    layers:
+    - state: spellbook
+  - type: Spellbook
+    worldSpells:
+      FunnyHealingSpell: -1
+    learnTime: 0
+
+# Super funny
+- type: entity
   id: SuperFunnyBook
   name: libro muy divertido
   parent: BaseSpellbook
@@ -106,3 +139,18 @@
       FunnyBlink: -1
       FunnySpawnMagicarpSpell: -1
     learnTime: 0
+
+- type: entity
+  id: SuperFunnyKnockSpellbook
+  name: libro muy divertido de knock
+  parent: BaseSpellbook
+  components:
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Magic/spellbooks.rsi
+      layers:
+        - state: bookknock
+    - type: Spellbook
+      instantSpells:
+        SuperFunnyKnock: -1
+      learnTime: 0

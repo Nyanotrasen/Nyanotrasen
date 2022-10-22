@@ -3195,5 +3195,14 @@ Entries:
   - {message: 'Rename funny spellbooks to something in spanish.', type: Tweak}
   id: 200000
   time: '2022-10-21T17:29:22.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Added new speech locales for nearly all spells.', type: Add}
+  - {message: 'Remade original spell incantations in latin.', type: Tweak}
+  - {message: 'Funny spellbooks have a slightly different incantation than normal book (mostly).', type: Add}
+  - {message: 'Removed time limit for traitor deathmatch.', type: Fix}
+  - {message: 'Smite now properly gibs, leaving all organs behind.', type: Tweak}
+  id: 210000
+  time: '2022-10-22T15:34:05.0000000+00:00'
 
-#  - {message: 'Something.'', type: Add/Tweak/Fix}
+#  - {message: 'Something.', type: Add/Tweak/Fix}

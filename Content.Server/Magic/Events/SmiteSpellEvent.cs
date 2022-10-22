@@ -8,5 +8,5 @@ public sealed class SmiteSpellEvent : EntityTargetActionEvent
     ///     Should this smite delete all parts/mechanisms gibbed except for the brain?
     /// </summary>
     [DataField("deleteNonBrainParts")]
-    public bool DeleteNonBrainParts = true;
+    public bool DeleteNonBrainParts = false;
 }
