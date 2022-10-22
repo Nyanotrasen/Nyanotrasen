@@ -43,6 +43,7 @@ namespace Content.Client.Nyandbox.Overlays
             worldHandle.SetTransform(Matrix3.Identity);
             worldHandle.UseShader(_greyscaleShader);
             worldHandle.DrawRect(viewport, Color.White);
+            worldHandle.UseShader(null);
         }
     }
 }

@@ -3191,7 +3191,8 @@ Entries:
 - author: 'DEATHB4DEFEAT'
   changes:
   - {message: 'New trait, monochromatic colorblindness, everything is on a colorscale of white-black.', type: Add}
+  - {message: 'Fix monochromacy causing entity spawner to appear as your camera.', type: Fix}
   id: 200000
-  time: '2022-10-21T16:45:10.0000000+00:00'
+  time: '2022-10-21T17:29:22.0000000+00:00'
 
-#  - {message: Something., type: Add/Tweak/Fix}
+#  - {message: 'Something.'', type: Add/Tweak/Fix}
