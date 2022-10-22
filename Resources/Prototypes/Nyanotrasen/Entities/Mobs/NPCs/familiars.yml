@@ -32,7 +32,6 @@
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon
-    range: 1.5
     damage:
       groups:
         Burn: 10
@@ -79,6 +78,9 @@
   - type: PotentialPsionic
   - type: Psionic
   - type: PyrokinesisPower
+  - type: Grammar
+    attributes:
+      proper: true
 
 - type: entity
   parent: WelderExperimental

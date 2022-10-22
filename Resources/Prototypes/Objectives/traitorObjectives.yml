@@ -234,3 +234,21 @@
         - DieCondition
   conditions:
     - !type:EscapeShuttleCondition {}
+
+- type: objective
+  id: RandomTraitorProgressObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:MultipleTraitorsRequirement
+  conditions:
+    - !type:RandomTraitorProgressCondition {}
+  canBeDuplicate: true
+
+- type: objective
+  id: Glimmer400Objective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+  conditions:
+    - !type:Glimmer400Condition {}

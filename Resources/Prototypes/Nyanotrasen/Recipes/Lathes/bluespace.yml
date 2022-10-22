@@ -79,3 +79,15 @@
   completetime: 4
   materials:
     Bluespace: 100
+
+- type: latheRecipe
+  id: NormalityCrystal
+  icon:
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+  result: CrystalNormality
+  completetime: 4
+  materials:
+    Bluespace: 100
+    Plasma: 100
+    Gold: 25

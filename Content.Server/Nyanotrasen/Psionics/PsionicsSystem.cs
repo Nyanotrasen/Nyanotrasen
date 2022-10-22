@@ -43,8 +43,6 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
-            SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnPsiInit);
-            SubscribeLocalEvent<PsionicComponent, ComponentShutdown>(OnPsiShutdown);
             SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
@@ -79,25 +77,10 @@ namespace Content.Server.Psionics
             }
         }
 
-        private void OnPsiInit(EntityUid uid, PsionicComponent component, ComponentInit args)
-        {
-            InformPsionicsChanged(uid);
-        }
-
-        private void OnPsiShutdown(EntityUid uid, PsionicComponent component, ComponentShutdown args)
-        {
-            InformPsionicsChanged(uid);
-        }
-
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
             if (args.CurrentMobState == DamageState.Dead)
                 RemCompDeferred(uid, component);
-        }
-
-        private void InformPsionicsChanged(EntityUid uid)
-        {
-            RaiseNetworkEvent(new PsionicsChangedEvent(uid), Filter.Entities(uid));
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)

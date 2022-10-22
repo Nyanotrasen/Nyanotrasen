@@ -40,14 +40,14 @@ public sealed class GlimmerEventRuleConfiguration : GameRuleConfiguration
     ///     Lower bound.
     /// </summary>
     [DataField("glimmerBurnLower")]
-    public int GlimmerBurnLower = 20;
+    public int GlimmerBurnLower = 15;
 
     /// <summary>
     ///     Will be used for _random.Next and subtracted from glimmer.
     ///     Upper bound.
     /// </summary>
     [DataField("glimmerBurnUpper")]
-    public int GlimmerBurnUpper = 80;
+    public int GlimmerBurnUpper = 60;
 
     /// <summary>
     ///     When in the lifetime to start the event.
@@ -61,5 +61,6 @@ public sealed class GlimmerEventRuleConfiguration : GameRuleConfiguration
     [DataField("endAfter")]
     public float EndAfter = float.MaxValue;
 
+    [DataField("report")]
     public string SohpicReport = "glimmer-event-report-generic";
 }

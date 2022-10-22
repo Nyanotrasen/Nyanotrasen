@@ -15,6 +15,8 @@
   - type: HTN
     rootTask: XenoCompound
     blackboard:
+      NavInteract: !type:Bool
+        true
       NavPry: !type:Bool
         true
       NavSmash: !type:Bool
@@ -67,7 +69,6 @@
           -0.25
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     angle: 0
     soundHit:
      collection: AlienClaw
@@ -93,7 +94,7 @@
       amount: 5
   - type: GhostTakeoverAvailable
     allowMovement: true
-    allowSpeech: true
+    allowSpeech: false
     makeSentient: true
     name: xeno
     description: You are a xeno, co-operate with your hive to kill all crewmembers!
@@ -112,6 +113,8 @@
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005
+  - type: PotentialPsionic
+    chance: -2
 
 - type: entity
   name: Praetorian
@@ -142,6 +145,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Drone
@@ -175,6 +179,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Queen
@@ -214,6 +219,7 @@
       layer:
       - MobLayer
   - type: PotentialPsionic
+    chance: 0
   - type: PsionicBonusChance
     flatBonus: 1
     warn: false
@@ -255,6 +261,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Runner
@@ -293,6 +300,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: Rouny
@@ -303,6 +311,7 @@
     drawdepth: Mobs
     sprite: Mobs/Aliens/Xenos/rouny.rsi
     offset: 0,0.6
+  - type: Psionic
 
 - type: entity
   name: Spitter
@@ -333,6 +342,7 @@
       - MobMask
       layer:
       - MobLayer
+  - type: Psionic
 
 - type: entity
   name: space adder
@@ -368,7 +378,6 @@
     - Xeno
   - type: MeleeWeapon
     hidden: true
-    range: 1.5
     angle: 0
     animation: WeaponArcBite
     damage:
