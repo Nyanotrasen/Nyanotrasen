@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Mail.Components;
 using Content.Server.Power.Components;
@@ -24,6 +25,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Roles;
 using Content.Shared.Storage;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
@@ -234,6 +236,44 @@ namespace Content.Server.Mail
             return false;
         }
 
+        public bool TryMatchJobTitleToDepartment(string jobTitle, [NotNullWhen(true)] out string? jobDepartment)
+        {
+            foreach (var department in _prototypeManager.EnumeratePrototypes<DepartmentPrototype>())
+            {
+                foreach (var role in department.Roles)
+                {
+                    if (_prototypeManager.TryIndex(role, out JobPrototype? _jobPrototype)
+                        && _jobPrototype.LocalizedName == jobTitle)
+                    {
+                        jobDepartment = department.ID;
+                        return true;
+                    }
+                }
+            }
+
+            Logger.Debug($"Was unable to find Department for jobTitle: {jobTitle}");
+
+            jobDepartment = null;
+            return false;
+        }
+
+        public bool TryMatchJobTitleToIcon(string jobTitle, [NotNullWhen(true)] out string? jobIcon)
+        {
+            foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
+            {
+                if (job.LocalizedName == jobTitle)
+                {
+                    jobIcon = job.Icon;
+                    return true;
+                }
+            }
+
+            Logger.Debug($"Was unable to find Icon for jobTitle: {jobTitle}");
+
+            jobIcon = null;
+            return false;
+        }
+
         public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
         {
             if (Resolve(uid, ref component))
@@ -290,6 +330,9 @@ namespace Content.Server.Mail
                 var candidate = _random.Pick(candidateList);
                 mailComp.RecipientJob = candidate.recipientJob;
                 mailComp.Recipient = candidate.recipientName;
+
+                if (TryMatchJobTitleToIcon(candidate.recipientJob, out string? icon))
+                    _appearanceSystem.SetData(mail, MailVisuals.JobIcon, icon);
 
                 var accessReader = EnsureComp<AccessReaderComponent>(mail);
                 accessReader.AccessLists.Add(candidate.accessTags);

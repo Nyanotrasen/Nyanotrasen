@@ -17,6 +17,10 @@
     - state: fragile
       map: ["enum.MailVisualLayers.Fragile"]
       visible: false
+    - map: ["enum.MailVisualLayers.JobStamp"]
+      sprite: Interface/Misc/job_icons.rsi
+      scale: 0.5, 0.5
+      offset: 0.275, 0.2
     - state: locked
       map: ["enum.MailVisualLayers.Lock"]
   - type: Appearance
