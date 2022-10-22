@@ -1,25 +1,31 @@
 - type: weightedRandom
   id: RandomMailDeliveryPool
   weights:
-    MailBikeHorn: 1
-    MailJunkFood: 1
-    MailCosplay: 1
-    MailMoney: 1
-    MailCigarettes: 1
-    MailFigurine: 1
+    MailAMEGuide: 1
     MailBible: 1
-    MailCrayon: 1
-    MailPlushie: 1
-    MailPAI: 1
-    MailSunglasses: 1
+    MailBikeHorn: 1
     MailBlockGameDIY: 1
-    MailSpaceVillainDIY: 1
     MailBooks: 1
-    MailNoir: 1
-    MailHighlanderDulled: 1
-    MailFlashlight: 1
-    MailKnife: 1
+    MailCigarettes: 1
     MailCigars: 1
-    MailKatanaDulled: 1
+    MailCosplay: 1
+    MailCrayon: 1
+    MailFigurine: 1
+    MailFishingCap: 1
+    MailFlashlight: 1
     MailHighlander: 0.11
+    MailHighlanderDulled: 1
+    MailJunkFood: 1
     MailKatana: 0.11
+    MailKatanaDulled: 1
+    MailKnife: 1
+    MailMoney: 1
+    MailNoir: 1
+    MailPAI: 1
+    MailPlushie: 1
+    MailSignallerKit: 1
+    MailSixPack: 1
+    MailSkub: 1
+    MailSpaceVillainDIY: 1
+    MailSunglasses: 1
+    MailWizardCosplay: 1
