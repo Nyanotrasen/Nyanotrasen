@@ -4,11 +4,11 @@
   components:
     - type: PermanentBlindness
 
-# - type: trait
-#   id: ColorBlindness
-#   name: Color Blindness
-#   components:
-#     - type: PermanentColorBlindness
+- type: trait
+  id: ColorBlindnessMonochrome
+  name: Monochromatic Color Blindness
+  components:
+    - type: Monochromacy
 
 - type: trait
   id: Narcolepsy
