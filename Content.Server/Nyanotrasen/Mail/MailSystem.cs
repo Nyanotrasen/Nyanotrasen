@@ -54,6 +54,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
 
         public override void Initialize()
@@ -64,6 +65,7 @@ namespace Content.Server.Mail
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
+            SubscribeLocalEvent<MailComponent, DamageChangedEvent>(OnDamage);
         }
 
         public override void Update(float frameTime)
@@ -189,6 +191,24 @@ namespace Content.Server.Mail
             UpdateAntiTamperVisuals(uid, false);
         }
 
+        private void OnDamage(EntityUid uid, MailComponent component, DamageChangedEvent args)
+        {
+            if (args.DamageDelta == null)
+                return;
+
+            if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
+                return;
+
+            // Transfer damage to the contents.
+            // This should be a general-purpose feature for all containers in the future.
+            foreach (var entity in contents.ContainedEntities.ToArray())
+            {
+                var result = _damageableSystem.TryChangeDamage(entity, args.DamageDelta);
+                if (result != null)
+                    Logger.Debug($"Mail transferred damage result: {result.Total}");
+            }
+        }
+
         /// <summary>
         /// Returns true if the given entity is considered fragile for delivery.
         /// </summary>
@@ -210,7 +230,8 @@ namespace Content.Server.Mail
                 && damageableComponent.DamageModifierSetId == "Glass")
                 return true;
 
-            // Fallback: It breaks or is destroyed in less than 10 damage.
+            // Fallback: It breaks or is destroyed in less than a damage
+            // threshold dictated by the teleporter.
             if (TryComp(uid, out DestructibleComponent? destructibleComp))
             {
                 foreach (var threshold in destructibleComp.Thresholds)
