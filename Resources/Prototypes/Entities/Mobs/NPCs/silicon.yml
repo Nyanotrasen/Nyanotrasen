@@ -149,8 +149,6 @@
   - type: Construction
     graph: CleanBot
     node: bot
-  - type: SentienceTarget
-    flavorKind: mechanical
   - type: SolutionContainerManager
     solutions:
       drainBuffer:
