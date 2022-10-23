@@ -41,5 +41,17 @@ namespace Content.Server.Mail.Components
         /// </summary>
         [DataField("fragileDamageThreshold")]
         public int FragileDamageThreshold = 10;
+
+        /// <summary>
+        /// What's the bonus for delivering a fragile package intact?
+        /// </summary>
+        [DataField("fragileBonus")]
+        public int FragileBonus = 100;
+
+        /// <summary>
+        /// What's the malus for breaking a fragile package?
+        /// </summary>
+        [DataField("fragileMalus")]
+        public int FragileMalus = -100;
     }
 }

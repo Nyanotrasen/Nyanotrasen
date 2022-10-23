@@ -24,6 +24,17 @@ namespace Content.Server.Mail.Components
         public bool Locked = true;
 
         /// <summary>
+        /// Is this parcel profitable to deliver for the station?
+        /// </summary>
+        /// <remarks>
+        /// The station won't receive any award on delivery if this is false.
+        /// This is useful for broken fragile packages and packages that were
+        /// not delivered in time.
+        /// </remarks>
+        [DataField("profitable")]
+        public bool Profitable = true;
+
+        /// <summary>
         /// Is this package considered fragile?
         /// </summary>
         [DataField("isFragile")]

@@ -147,9 +147,19 @@ namespace Content.Server.Mail
                 _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
                 return;
             }
-            _popupSystem.PopupEntity(Loc.GetString("mail-bounty", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
+
             component.Locked = false;
             UpdateAntiTamperVisuals(uid, false);
+
+            if (!component.Profitable)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
+                return;
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
+
+            component.Profitable = false;
 
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
@@ -172,23 +182,46 @@ namespace Content.Server.Mail
             args.PushMarkup(Loc.GetString("mail-desc-close", ("name", component.Recipient), ("job", component.RecipientJob)));
         }
 
+        /// <summary>
+        /// Penalize a station for a failed delivery.
+        /// </summary>
+        /// <remarks>
+        /// This will mark a parcel as no longer being profitable, which will
+        /// prevent multiple failures on different conditions for the same
+        /// delivery.
+        ///
+        /// The standard penalization is breaking the anti-tamper lock,
+        /// but this allows a delivery to fail for other reasons too
+        /// while having a generic function to handle different messages.
+        /// </remarks>
+        private void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
+        {
+            if (!component.Profitable)
+                return;
+
+            _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(localizationString, ("credits", component.Penalty)), InGameICChatType.Speak, false);
+            _audioSystem.PlayPvs(component.PenaltySound, uid);
+
+            component.Profitable = false;
+
+            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            {
+                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
+                        continue;
+
+                _cargoSystem.UpdateBankAccount(account, component.Penalty);
+                return;
+            }
+        }
+
         private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
         {
             if (component.Locked)
-            {
-                _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("mail-penalty", ("credits", component.Penalty)), InGameICChatType.Speak, false);
-                _audioSystem.PlayPvs(component.PenaltySound, uid);
-                foreach (var account in EntityQuery<StationBankAccountComponent>())
-                {
-                    if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                            continue;
-
-                    _cargoSystem.UpdateBankAccount(account, component.Penalty);
-                }
-            }
+                PenalizeStationFailedDelivery(uid, component, "mail-penalty-lock");
 
             if (component.Enabled)
                 OpenMail(uid, component);
+
             UpdateAntiTamperVisuals(uid, false);
         }
 
@@ -213,6 +246,9 @@ namespace Content.Server.Mail
         private void OnBreak(EntityUid uid, MailComponent component, BreakageEventArgs args)
         {
             _appearanceSystem.SetData(uid, MailVisuals.IsBroken, true);
+
+            if (component.IsFragile)
+                PenalizeStationFailedDelivery(uid, component, "mail-penalty-fragile");
         }
 
         /// <summary>
@@ -364,6 +400,12 @@ namespace Content.Server.Mail
                 mailComp.Recipient = candidate.recipientName;
 
                 _appearanceSystem.SetData(mail, MailVisuals.IsFragile, mailComp.IsFragile);
+
+                if (mailComp.IsFragile)
+                {
+                    mailComp.Bounty += component.FragileBonus;
+                    mailComp.Penalty += component.FragileMalus;
+                }
 
                 if (TryMatchJobTitleToIcon(candidate.recipientJob, out string? icon))
                     _appearanceSystem.SetData(mail, MailVisuals.JobIcon, icon);
