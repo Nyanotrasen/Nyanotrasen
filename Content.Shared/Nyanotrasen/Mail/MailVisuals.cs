@@ -10,6 +10,7 @@ namespace Content.Shared.Mail
     {
         IsLocked,
         IsTrash,
+        IsBroken,
         IsFragile,
         JobIcon,
     }

@@ -23,6 +23,9 @@
       offset: 0.275, 0.2
     - state: locked
       map: ["enum.MailVisualLayers.Lock"]
+    - state: broken
+      map: ["enum.MailVisualLayers.Breakage"]
+      visible: false
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -44,10 +47,23 @@
             visible: true
           False:
             visible: false
+      enum.MailVisuals.IsBroken:
+        enum.MailVisualLayers.Breakage:
+          True:
+            visible: true
+          False:
+            visible: false
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
     thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+        triggersOnce: true
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
     - trigger:
         !type:DamageTrigger
         damage: 40

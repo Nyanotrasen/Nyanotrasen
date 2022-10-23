@@ -66,6 +66,7 @@ namespace Content.Server.Mail
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
             SubscribeLocalEvent<MailComponent, DamageChangedEvent>(OnDamage);
+            SubscribeLocalEvent<MailComponent, BreakageEventArgs>(OnBreak);
         }
 
         public override void Update(float frameTime)
@@ -207,6 +208,11 @@ namespace Content.Server.Mail
                 if (result != null)
                     Logger.Debug($"Mail transferred damage result: {result.Total}");
             }
+        }
+
+        private void OnBreak(EntityUid uid, MailComponent component, BreakageEventArgs args)
+        {
+            _appearanceSystem.SetData(uid, MailVisuals.IsBroken, true);
         }
 
         /// <summary>

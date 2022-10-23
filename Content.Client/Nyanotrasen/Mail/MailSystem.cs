@@ -40,5 +40,6 @@ namespace Content.Client.Mail
         Lock,
         Fragile,
         JobStamp,
+        Breakage,
     }
 }
