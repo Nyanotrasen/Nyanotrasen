@@ -353,6 +353,11 @@ namespace Content.Server.Mail
             List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
+                // Because of the way this works, people are not considered
+                // candidates for mail if there is no PDA or ID in their slot
+                // or active hand. A better future solution might be checking
+                // the station records, possibly cross-referenced with the
+                // medical crew scanner to look for living recipients. TODO
                 if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
                         continue;
                 if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard) && TryComp<AccessComponent>(idCard.Owner, out var access)
