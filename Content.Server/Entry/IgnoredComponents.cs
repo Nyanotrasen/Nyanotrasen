@@ -11,7 +11,6 @@ namespace Content.Server.Entry
             "ItemStatus",
             "Marker",
             "CollapsibleVisuals",
-            "MailVisuals",
             "Clickable",
             "Icon",
             "ClientEntitySpawner",
