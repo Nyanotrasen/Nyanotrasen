@@ -368,6 +368,71 @@ namespace Content.Server.Mail
             return false;
         }
 
+        /// <summary>
+        /// Handle all the gritty details particular to a new mail entity.
+        /// </summary>
+        /// <remarks>
+        /// This is separate mostly so the unit tests can get to it.
+        /// </remarks>
+        public void SetupMail(EntityUid uid, MailTeleporterComponent component, string recipientName, string recipientJob, HashSet<String> accessTags)
+        {
+            var mailComp = EnsureComp<MailComponent>(uid);
+
+            var container = _containerSystem.EnsureContainer<Container>(uid, "contents", out var contents);
+            foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
+            {
+                var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
+                if (!container.Insert(entity))
+                {
+                    Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
+                    QueueDel(entity);
+                }
+                else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
+                {
+                    mailComp.IsFragile = true;
+
+                    Logger.Debug($"Spawned a fragile entity {ToPrettyString(entity)} for mail {uid}");
+                }
+            }
+
+            if (_random.Prob(component.PriorityChance))
+                mailComp.IsPriority = true;
+
+            mailComp.RecipientJob = recipientJob;
+            mailComp.Recipient = recipientName;
+
+            if (mailComp.IsFragile)
+            {
+                mailComp.Bounty += component.FragileBonus;
+                mailComp.Penalty += component.FragileMalus;
+                _appearanceSystem.SetData(uid, MailVisuals.IsFragile, true);
+            }
+
+            if (mailComp.IsPriority)
+            {
+                mailComp.Bounty += component.PriorityBonus;
+                mailComp.Penalty += component.PriorityMalus;
+                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, true);
+
+                mailComp.priorityCancelToken = new CancellationTokenSource();
+
+                Timer.Spawn((int) component.priorityDuration.TotalMilliseconds,
+                    () => PenalizeStationFailedDelivery(uid, mailComp, "mail-penalty-expired"),
+                    mailComp.priorityCancelToken.Token);
+
+                Logger.Debug($"{ToPrettyString(uid)} has been marked as priority mail");
+            }
+
+            if (TryMatchJobTitleToIcon(recipientJob, out string? icon))
+                _appearanceSystem.SetData(uid, MailVisuals.JobIcon, icon);
+
+            var accessReader = EnsureComp<AccessReaderComponent>(uid);
+            accessReader.AccessLists.Add(accessTags);
+        }
+
+        /// <summary>
+        /// Handle the spawning of all the mail for a mail teleporter.
+        /// </summary>
         public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
         {
             if (!Resolve(uid, ref component))
@@ -414,59 +479,8 @@ namespace Content.Server.Mail
                 i++)
             {
                 var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
-                var mailComp = EnsureComp<MailComponent>(mail);
-
-                var container = _containerSystem.EnsureContainer<Container>(mail, "contents", out var contents);
-                foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
-                {
-                    var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
-                    if (!container.Insert(entity))
-                    {
-                        Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(mail)}! Deleting it.");
-                        QueueDel(entity);
-                    }
-                    else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
-                    {
-                        mailComp.IsFragile = true;
-
-                        Logger.Debug($"Spawned a fragile entity {ToPrettyString(entity)} for mail {mail}");
-                    }
-                }
-
-                if (_random.Prob(component.PriorityChance))
-                    mailComp.IsPriority = true;
-
                 var candidate = _random.Pick(candidateList);
-                mailComp.RecipientJob = candidate.recipientJob;
-                mailComp.Recipient = candidate.recipientName;
-
-                if (mailComp.IsFragile)
-                {
-                    mailComp.Bounty += component.FragileBonus;
-                    mailComp.Penalty += component.FragileMalus;
-                    _appearanceSystem.SetData(mail, MailVisuals.IsFragile, true);
-                }
-
-                if (mailComp.IsPriority)
-                {
-                    mailComp.Bounty += component.PriorityBonus;
-                    mailComp.Penalty += component.PriorityMalus;
-                    _appearanceSystem.SetData(mail, MailVisuals.IsPriority, true);
-
-                    mailComp.priorityCancelToken = new CancellationTokenSource();
-
-                    Timer.Spawn((int) component.priorityDuration.TotalMilliseconds,
-                        () => PenalizeStationFailedDelivery(mail, mailComp, "mail-penalty-expired"),
-                        mailComp.priorityCancelToken.Token);
-
-                    Logger.Debug($"{ToPrettyString(mail)} has been marked as priority mail");
-                }
-
-                if (TryMatchJobTitleToIcon(candidate.recipientJob, out string? icon))
-                    _appearanceSystem.SetData(mail, MailVisuals.JobIcon, icon);
-
-                var accessReader = EnsureComp<AccessReaderComponent>(mail);
-                accessReader.AccessLists.Add(candidate.accessTags);
+                SetupMail(mail, component, candidate.recipientName, candidate.recipientJob, candidate.accessTags);
             }
         }
 
