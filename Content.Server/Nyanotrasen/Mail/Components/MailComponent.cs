@@ -24,6 +24,12 @@ namespace Content.Server.Mail.Components
         public bool Locked = true;
 
         /// <summary>
+        /// Is this package considered fragile?
+        /// </summary>
+        [DataField("isFragile")]
+        public bool IsFragile = false;
+
+        /// <summary>
         /// What will be packaged when the mail is spawned.
         /// </summary>
         [DataField("contents")]
