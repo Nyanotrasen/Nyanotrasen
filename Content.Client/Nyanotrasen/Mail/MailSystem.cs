@@ -41,7 +41,7 @@ namespace Content.Client.Mail
     {
         Icon,
         Lock,
-        Fragile,
+        FragileStamp,
         JobStamp,
         Breakage,
     }

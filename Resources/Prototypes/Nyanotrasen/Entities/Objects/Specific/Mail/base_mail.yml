@@ -15,7 +15,7 @@
       map: ["enum.MailVisualLayers.Icon"]
     - state: postmark
     - state: fragile
-      map: ["enum.MailVisualLayers.Fragile"]
+      map: ["enum.MailVisualLayers.FragileStamp"]
       visible: false
     - map: ["enum.MailVisualLayers.JobStamp"]
       sprite: Interface/Misc/job_icons.rsi
@@ -42,7 +42,7 @@
           False:
             visible: false
       enum.MailVisuals.IsFragile:
-        enum.MailVisualLayers.Fragile:
+        enum.MailVisualLayers.FragileStamp:
           True:
             visible: true
           False:
