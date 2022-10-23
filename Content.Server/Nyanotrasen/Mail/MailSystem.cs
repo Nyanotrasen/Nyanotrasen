@@ -180,6 +180,9 @@ namespace Content.Server.Mail
             }
 
             args.PushMarkup(Loc.GetString("mail-desc-close", ("name", component.Recipient), ("job", component.RecipientJob)));
+
+            if (component.IsFragile)
+                args.PushMarkup(Loc.GetString("mail-desc-fragile"));
         }
 
         /// <summary>
