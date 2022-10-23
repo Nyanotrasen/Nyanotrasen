@@ -4,6 +4,9 @@ using Content.Shared.Mail;
 namespace Content.Client.Mail
 {
     /// <summary>
+    /// Display a cool stamp on the parcel based on the job of the recipient.
+    /// </summary>
+    /// <remarks>
     /// GenericVisualizer is not powerful enough to handle setting a string on
     /// visual data then directly relaying that string to a layer's state.
     /// I.e. there is nothing like a regex capture group for visual data.
@@ -21,7 +24,7 @@ namespace Content.Client.Mail
     ///         state: StationEngineer
     ///       SecurityOfficer:
     ///         state: SecurityOfficer
-    /// </summary>
+    /// </remarks>
     public sealed class MailJobVisualizerSystem : VisualizerSystem<MailComponent>
     {
         protected override void OnAppearanceChange(EntityUid uid, MailComponent component, ref AppearanceChangeEvent args)
