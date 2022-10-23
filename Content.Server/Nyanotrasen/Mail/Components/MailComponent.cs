@@ -37,6 +37,10 @@ namespace Content.Server.Mail.Components
         /// <summary>
         /// Is this package considered fragile?
         /// </summary>
+        /// <remarks>
+        /// This can be set to true in the YAML files for a mail delivery to
+        /// always be Fragile, despite its contents.
+        /// </remarks>
         [DataField("isFragile")]
         public bool IsFragile = false;
 

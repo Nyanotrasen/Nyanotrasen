@@ -49,7 +49,7 @@ namespace Content.Server.Mail.Components
         public int FragileBonus = 100;
 
         /// <summary>
-        /// What's the malus for breaking a fragile package?
+        /// What's the malus for failing to deliver a fragile package?
         /// </summary>
         [DataField("fragileMalus")]
         public int FragileMalus = -100;
