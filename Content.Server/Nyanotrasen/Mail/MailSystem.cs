@@ -424,10 +424,18 @@ namespace Content.Server.Mail
 
             if (user != null)
                 _handsSystem.TryDrop((EntityUid) user);
-            foreach (var entity in _containerSystem.GetContainer(uid, "contents").ContainedEntities.ToArray())
+
+            if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
+            {
+                Logger.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
+                return;
+            }
+
+            foreach (var entity in contents.ContainedEntities.ToArray())
             {
                 _handsSystem.PickupOrDrop(user, entity);
             }
+
             _tagSystem.AddTag(uid, "Trash");
             _tagSystem.AddTag(uid, "Recyclable");
             component.Enabled = false;
