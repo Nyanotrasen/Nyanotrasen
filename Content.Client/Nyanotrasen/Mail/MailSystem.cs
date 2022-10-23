@@ -43,6 +43,7 @@ namespace Content.Client.Mail
         Lock,
         FragileStamp,
         JobStamp,
+        PriorityTape,
         Breakage,
     }
 }

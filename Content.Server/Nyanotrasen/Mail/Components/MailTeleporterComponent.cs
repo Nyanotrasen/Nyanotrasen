@@ -53,5 +53,30 @@ namespace Content.Server.Mail.Components
         /// </summary>
         [DataField("fragileMalus")]
         public int FragileMalus = -100;
+
+        /// <summary>
+        /// What's the chance for any one delivery to be marked as priority mail?
+        /// </summary>
+        [DataField("priorityChance")]
+        public float PriorityChance = 0.1f;
+
+        /// <summary>
+        /// How long until a priority delivery is considered as having failed
+        /// if not delivered?
+        /// </summary>
+        [DataField("priorityDuration")]
+        public TimeSpan priorityDuration = TimeSpan.FromMinutes(5);
+
+        /// <summary>
+        /// What's the bonus for delivering a priority package on time?
+        /// </summary>
+        [DataField("priorityBonus")]
+        public int PriorityBonus = 250;
+
+        /// <summary>
+        /// What's the malus for failing to deliver a priority package?
+        /// </summary>
+        [DataField("priorityMalus")]
+        public int PriorityMalus = -250;
     }
 }

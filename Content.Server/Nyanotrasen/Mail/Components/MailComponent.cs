@@ -1,3 +1,4 @@
+using System.Threading;
 using Robust.Shared.Audio;
 using Content.Shared.Storage;
 using Content.Shared.Mail;
@@ -45,6 +46,22 @@ namespace Content.Server.Mail.Components
         public bool IsFragile = false;
 
         /// <summary>
+        /// Is this package considered priority mail?
+        /// </summary>
+        /// <remarks>
+        /// There will be a timer set for its successful delivery. The
+        /// station's bank account will be penalized if it is not delivered on
+        /// time.
+        ///
+        /// This is set to false on successful delivery.
+        ///
+        /// This can be set to true in the YAML files for a mail delivery to
+        /// always be Priority.
+        /// </remarks>
+        [DataField("isPriority")]
+        public bool IsPriority = false;
+
+        /// <summary>
         /// What will be packaged when the mail is spawned.
         /// </summary>
         [DataField("contents")]
@@ -79,5 +96,7 @@ namespace Content.Server.Mail.Components
         /// Removed when it becomes trash.
         /// </summary>
         public bool Enabled = true;
+
+        public CancellationTokenSource? priorityCancelToken;
     }
 }

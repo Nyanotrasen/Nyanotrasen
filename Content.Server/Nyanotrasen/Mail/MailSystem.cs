@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Threading;
 using Content.Server.Mail.Components;
 using Content.Server.Power.Components;
 using Content.Server.Popups;
@@ -35,6 +36,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Mail
 {
@@ -60,7 +62,7 @@ namespace Content.Server.Mail
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<MailComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<MailComponent, ComponentRemove>(OnRemove);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<MailComponent, ExaminedEvent>(OnExamined);
@@ -88,11 +90,11 @@ namespace Content.Server.Mail
             }
         }
 
-        /// <summary>
-        /// Set initial appearance so stuff doesn't break.
-        /// </summary>
-        private void OnInit(EntityUid uid, MailComponent mail, ComponentInit args)
+        private void OnRemove(EntityUid uid, MailComponent component, ComponentRemove args)
         {
+            // Make sure the priority timer doesn't run.
+            if (component.priorityCancelToken != null)
+                component.priorityCancelToken.Cancel();
         }
 
         /// <summary>
@@ -151,6 +153,21 @@ namespace Content.Server.Mail
             component.Locked = false;
             UpdateAntiTamperVisuals(uid, false);
 
+            if (component.IsPriority)
+            {
+                // This is a successful delivery. Keep the failure timer from triggering.
+                if (component.priorityCancelToken != null)
+                    component.priorityCancelToken.Cancel();
+
+                // The priority tape is visually considered to be a part of the
+                // anti-tamper lock, so remove that too.
+                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
+
+                // The examination code depends on this being false to not show
+                // the priority tape description anymore.
+                component.IsPriority = false;
+            }
+
             if (!component.Profitable)
             {
                 _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
@@ -183,6 +200,14 @@ namespace Content.Server.Mail
 
             if (component.IsFragile)
                 args.PushMarkup(Loc.GetString("mail-desc-fragile"));
+
+            if (component.IsPriority)
+            {
+                if (component.Profitable)
+                    args.PushMarkup(Loc.GetString("mail-desc-priority"));
+                else
+                    args.PushMarkup(Loc.GetString("mail-desc-priority-inactive"));
+            }
         }
 
         /// <summary>
@@ -206,6 +231,9 @@ namespace Content.Server.Mail
             _audioSystem.PlayPvs(component.PenaltySound, uid);
 
             component.Profitable = false;
+
+            if (component.IsPriority)
+                _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
 
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
@@ -387,6 +415,7 @@ namespace Content.Server.Mail
             {
                 var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var mailComp = EnsureComp<MailComponent>(mail);
+
                 var container = _containerSystem.EnsureContainer<Container>(mail, "contents", out var contents);
                 foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
                 {
@@ -403,16 +432,34 @@ namespace Content.Server.Mail
                         Logger.Debug($"Spawned a fragile entity {ToPrettyString(entity)} for mail {mail}");
                     }
                 }
+
+                if (_random.Prob(component.PriorityChance))
+                    mailComp.IsPriority = true;
+
                 var candidate = _random.Pick(candidateList);
                 mailComp.RecipientJob = candidate.recipientJob;
                 mailComp.Recipient = candidate.recipientName;
-
-                _appearanceSystem.SetData(mail, MailVisuals.IsFragile, mailComp.IsFragile);
 
                 if (mailComp.IsFragile)
                 {
                     mailComp.Bounty += component.FragileBonus;
                     mailComp.Penalty += component.FragileMalus;
+                    _appearanceSystem.SetData(mail, MailVisuals.IsFragile, true);
+                }
+
+                if (mailComp.IsPriority)
+                {
+                    mailComp.Bounty += component.PriorityBonus;
+                    mailComp.Penalty += component.PriorityMalus;
+                    _appearanceSystem.SetData(mail, MailVisuals.IsPriority, true);
+
+                    mailComp.priorityCancelToken = new CancellationTokenSource();
+
+                    Timer.Spawn((int) component.priorityDuration.TotalMilliseconds,
+                        () => PenalizeStationFailedDelivery(mail, mailComp, "mail-penalty-expired"),
+                        mailComp.priorityCancelToken.Token);
+
+                    Logger.Debug($"{ToPrettyString(mail)} has been marked as priority mail");
                 }
 
                 if (TryMatchJobTitleToIcon(candidate.recipientJob, out string? icon))

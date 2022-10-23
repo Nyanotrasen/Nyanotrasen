@@ -12,6 +12,8 @@ namespace Content.Shared.Mail
         IsTrash,
         IsBroken,
         IsFragile,
+        IsPriority,
+        IsPriorityInactive,
         JobIcon,
     }
 }
