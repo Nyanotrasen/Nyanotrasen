@@ -149,19 +149,16 @@ namespace Content.Server.Psionics.Glimmer
 
         private void OnDamageChanged(EntityUid uid, SharedGlimmerReactiveComponent component, DamageChangedEvent args)
         {
-            Logger.Error("Received event");
             if (args.Origin == null)
                 return;
 
-            // if (!_random.Prob((float) _sharedGlimmerSystem.Glimmer / 1000))
-            //     return;
+            if (!_random.Prob((float) _sharedGlimmerSystem.Glimmer / 1000))
+                return;
 
             var tier = _sharedGlimmerSystem.GetGlimmerTier();
-            Logger.Error("Tier: " + tier);
             if (tier < GlimmerTier.High)
                 return;
 
-            Logger.Error("Tier is good.");
             string beamproto;
 
             switch (tier)
@@ -176,7 +173,6 @@ namespace Content.Server.Psionics.Glimmer
                     beamproto = "ChargedLightning";
                     break;
             }
-            Logger.Error("Beamproto: " + beamproto);
 
             var lxform = Transform(uid);
             var txform = Transform(args.Origin.Value);
@@ -186,7 +182,6 @@ namespace Content.Server.Psionics.Glimmer
             if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
                 return;
 
-            Logger.Error("Creating beam...");
             _beam.TryCreateBeam(uid, args.Origin.Value, beamproto);
         }
 
