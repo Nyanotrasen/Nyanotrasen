@@ -34,6 +34,9 @@
   id: Brutepack
 
 - type: Tag
+  id: BikeHorn
+
+- type: Tag
   id: BodyBag
 
 - type: Tag
@@ -402,6 +405,9 @@
   id: NoSpinOnThrow
 
 - type: Tag
+  id: TraitorUplink
+
+- type: Tag
   id: NukeOpsUplink
 
 - type: Tag
@@ -412,6 +418,12 @@
 
 - type: Tag
   id: Payload # for grenade/bomb crafting
+
+- type: Tag
+  id: MicroBomb
+
+- type: Tag
+  id: MacroBomb
 
 - type: Tag
   id: PaintableAirlock
@@ -520,6 +532,9 @@
   id: StringInstrument
 
 - type: Tag
+  id: SubdermalImplant
+
+- type: Tag
   id: SurveillanceCameraMonitorCircuitboard
 
 - type: Tag
@@ -584,4 +599,3 @@
 
 - type: Tag
   id: Write
-

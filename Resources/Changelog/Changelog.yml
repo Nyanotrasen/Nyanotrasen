@@ -3204,5 +3204,16 @@ Entries:
   - {message: 'Smite now properly gibs, leaving all organs behind.', type: Tweak}
   id: 210000
   time: '2022-10-22T15:34:05.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Change mindbreaker recipe to match its effects. Ethanol - SpaceDrugs - Dylovene', type: Tweak}
+  - {message: 'Add unmerged upstream implant system.', type: Add}
+  - {message: 'Add Micro/Macro Bomb implants.', type: Add}
+  - {message: 'Add failed trombone implant (clowns get this by default), plays a sad trombone on death.', type: Add}
+  - {message: 'Add secret storage implant, has 50 storage.', type: Add}
+  - {message: 'Add freedom implant, removes handcuffs instantly on use.', type: Add}
+  - {message: 'Medical has an implant remover, takes 45 seconds (instead of 300..) to remove an implant from someone. Better get some narcotics!', type: Add}
+  id: 220000
+  time: '2022-10-23T17:51:46.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}

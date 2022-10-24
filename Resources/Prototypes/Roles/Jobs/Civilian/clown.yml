@@ -6,18 +6,20 @@
   icon: "Clown"
   supervisors: job-supervisors-hop
   access:
-  - Theatre
-  - Service
+    - Theatre
+    - Service
   special:
-  - !type:AddComponentSpecial
-    components:
-    - type: Clumsy
-      clumsyDamage:
-        types: #literally just picked semi random valus. i tested this once and tweaked it.
-          Blunt: 5
-          Piercing: 4
-        groups:
-          Burn: 3
+    - !type:AddComponentSpecial
+      components:
+        - type: Clumsy
+          clumsyDamage:
+            types: #literally just picked semi random valus. i tested this once and tweaked it.
+              Blunt: 5
+              Piercing: 4
+            groups:
+              Burn: 3
+    - !type:AddImplantSpecial
+      implants: [SadTromboneImplant]
 
 - type: startingGear
   id: ClownGear

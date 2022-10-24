@@ -1,8 +1,10 @@
+using Content.Server.Clothing.Components;
 using Content.Server.Humanoid;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Humanoid;
+using Content.Shared.Implants.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -100,9 +102,10 @@ namespace Content.Server.Body.Components
             }
         }
 
-        public override HashSet<EntityUid> Gib(bool gibParts = false)
+        public override HashSet<EntityUid> Gib(bool gibParts = false, bool deleteItems = false)
         {
-            var gibs = base.Gib(gibParts);
+            var gibs = base.Gib(gibParts, deleteItems);
+            var containerSystem = _entMan.System<SharedContainerSystem>();
 
             var xform = _entMan.GetComponent<TransformComponent>(Owner);
             var coordinates = xform.Coordinates;
@@ -121,9 +124,18 @@ namespace Content.Server.Body.Components
                 {
                     foreach (var ent in cont.ContainedEntities)
                     {
-                        cont.ForceRemove(ent);
-                        _entMan.GetComponent<TransformComponent>(ent).Coordinates = coordinates;
-                        ent.RandomOffset(0.25f);
+                        if (_entMan.HasComponent<SubdermalImplantComponent>(ent))
+                            continue;
+
+                        if (_entMan.HasComponent<ClothingComponent>(ent) && deleteItems)
+                            containerSystem.CleanContainer(cont);
+
+                        else
+                        {
+                            cont.ForceRemove(ent);
+                            _entMan.GetComponent<TransformComponent>(ent).Coordinates = coordinates;
+                            ent.RandomOffset(0.25f);
+                        }
                     }
                 }
             }
