@@ -20,3 +20,11 @@
   - type: Tool
     qualities:
       - Prying
+
+- type: entity
+  name: arm blade
+  parent: ArmBlade
+  suffix: unremoveable
+  id: UnremoveableArmBlade
+  components:
+  - type: Unremoveable

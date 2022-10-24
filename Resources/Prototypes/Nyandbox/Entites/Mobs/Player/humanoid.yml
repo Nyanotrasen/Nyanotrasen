@@ -5,3 +5,52 @@
   components:
     - type: Item
     - type: GhostTakeoverAvailable
+      name: Urist McBelt
+      description: |
+        You (probably) came from a belt, you are now a human that can be picked up, do things.
+
+- type: entity
+  name: Urist McLing
+  id: UristMcLing
+  suffix: admeme
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McLing
+      description: |
+        You're a Changeling! Kill as many people as possible before dying.
+        Theres not much a changeling can do yet.
+    - type: Loadout
+      prototype: UristChangelingOutfit
+      prototypes: [UristChangelingOutfit]
+    - type: InnateTool
+      tools:
+        - id: ArmBlade
+    - type: RandomMetadata
+      nameSegments: [names_urist_changeling]
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - SlowedDown
+    - type: Access
+      groups:
+      - AllAccess
+    - type: AutoRegenReagent
+      solution: chemicals
+      reagents:
+        - Ichor
+      unitsPerSecond: 0.1
+    - type: Faction
+      factions:
+      - SimpleHostile
+      - Xeno

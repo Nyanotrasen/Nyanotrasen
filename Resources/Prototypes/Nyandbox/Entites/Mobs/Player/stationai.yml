@@ -113,6 +113,10 @@
   - type: MovementIgnoreGravity
   - type: Eye
     drawFov: false
+  - type: Laws
+    laws:
+    - Prevent the harm of any and all passengers aboard the station.
+    - Obey all orders from the crew as long as they do not conflict with law 1, with priorities to command's orders.
 
 - type: entity
   # parent: VendingMachineSmartFridge
@@ -241,3 +245,7 @@
     rules: |
       1- prevent the harm of any and all passengers aboard the station
       2- obey all orders from the crew as long as they do not conflict with law 1, with priorities to command's orders.
+  - type: Laws
+    laws:
+    - Prevent the harm of any and all passengers aboard the station.
+    - Obey all orders from the crew as long as they do not conflict with law 1, with priorities to command's orders.
