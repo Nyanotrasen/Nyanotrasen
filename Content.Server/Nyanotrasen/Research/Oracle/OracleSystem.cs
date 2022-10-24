@@ -58,6 +58,7 @@ namespace Content.Server.Research.Oracle
             "TrashBagOfHolding",
             "BluespaceCrystal",
             "InsulativeHeadcage",
+            "CrystalNormality",
             "BodyBag_Folded",
             "BodyBag",
             "LockboxDecloner",
@@ -158,16 +159,16 @@ namespace Content.Server.Research.Oracle
 
             EntityManager.QueueDeleteEntity(args.Used);
 
-            EntityManager.SpawnEntity("ResearchDisk5000", Transform(uid).Coordinates);
+            EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
 
             if (TryComp<PotentialPsionicComponent>(args.User, out var potential))
                 _psionicsSystem.RollPsionics(args.User, potential);
 
-            int i = ((_random.Next() % 4) + 1);
+            int i = _random.Next(1, 4);
 
             while (i != 0)
             {
-                EntityManager.SpawnEntity("MaterialBluespace", Transform(uid).Coordinates);
+                EntityManager.SpawnEntity("MaterialBluespace", Transform(args.User).Coordinates);
                 i--;
             }
 
