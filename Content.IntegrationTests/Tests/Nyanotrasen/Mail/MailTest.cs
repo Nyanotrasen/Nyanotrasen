@@ -10,10 +10,13 @@ using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Mail;
 using Content.Server.Access.Systems;
+using Content.Server.Cargo.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.Station.Systems;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -136,7 +139,7 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
-        public async Task TestPriorityBonusMalus()
+        public async Task TestMailPriorityBonusMalus()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
             var server = pairTracker.Pair.Server;
@@ -179,7 +182,7 @@ namespace Content.IntegrationTests.Tests
 
 
         [Test]
-        public async Task TestFragileBonusMalus()
+        public async Task TestMailFragileBonusMalus()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
             var server = pairTracker.Pair.Server;
@@ -221,7 +224,7 @@ namespace Content.IntegrationTests.Tests
         }
 
         [Test]
-        public async Task TestFragileDetection()
+        public async Task TestMailFragileDetection()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
             var server = pairTracker.Pair.Server;
@@ -353,7 +356,7 @@ namespace Content.IntegrationTests.Tests
                     "MailVisuals.JobIcon was not a string.");
 
                 Assert.That((string) jobIcon, Is.EqualTo("Passenger"),
-                    $"The passenger job was not matched to the Passenger icon. Instead got: {(string) jobIcon}.");
+                    $"The passenger job was not matched to the Passenger icon.");
             });
 
             await pairTracker.CleanReturnAsync();
@@ -451,6 +454,138 @@ namespace Content.IntegrationTests.Tests
             await pairTracker.CleanReturnAsync();
         }
 
+        [Test]
+        public async Task TestMailCanBeUnlockedWithValidID()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+            var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+            var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
+
+            EntityUid mail = default;
+            MailComponent mailComponent = default;
+
+            await server.WaitAssertion(() =>
+            {
+                var mapId = mapManager.CreateMap();
+                var coordinates = new MapCoordinates(Vector2.Zero, mapId);
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                var name = "Bob";
+                var job = "clown";
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, name);
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
+
+                mail = entityManager.SpawnEntity("TestMail", coordinates);
+                mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate could not pick up his ID.");
+
+                entityManager.EventBus.RaiseLocalEvent(mail,
+                    new AfterInteractUsingEvent(
+                        realCandidate1,
+                        realCandidate1ID,
+                        mail,
+                        new EntityCoordinates(mail, 0, 0),
+                        true)
+                    );
+            });
+
+            await server.WaitRunTicks(5);
+
+            await server.WaitAssertion(() =>
+            {
+                Assert.IsFalse(mailComponent.IsLocked,
+                    "Mail is still IsLocked after being interacted with a valid ID.");
+                Assert.IsFalse(mailComponent.IsProfitable,
+                    "Mail is still IsProfitable after being unlocked.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailCannotBeUnlockedWithInvalidID()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+            var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+
+            MailComponent mailComponent = default;
+
+            await server.WaitAssertion(() =>
+            {
+                var mapId = mapManager.CreateMap();
+                var coordinates = new MapCoordinates(Vector2.Zero, mapId);
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, "Not Bob");
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, "Not Clown");
+
+                EntityUid mail = entityManager.SpawnEntity("TestMail", coordinates);
+                mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate could not pick up his ID.");
+
+                entityManager.EventBus.RaiseLocalEvent(mail,
+                    new AfterInteractUsingEvent(
+                        realCandidate1,
+                        realCandidate1ID,
+                        mail,
+                        new EntityCoordinates(mail, 0, 0),
+                        true)
+                    );
+            });
+
+            await server.WaitRunTicks(5);
+
+            await server.WaitAssertion(() =>
+            {
+                Assert.IsTrue(mailComponent.IsLocked,
+                    "Mail is not IsLocked after being interacted with an invalid ID.");
+                Assert.IsTrue(mailComponent.IsProfitable,
+                    "Mail is not IsProfitable after being interacted with an invalid ID.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        //
+        // Tests requiring a tile are organized below.
+        // 
+
         private IMapGrid CreateDummyTileMapGrid(IMapManager mapManager, ITileDefinitionManager tileDefinitionManager)
         {
             var mapId = mapManager.CreateMap();
@@ -529,19 +664,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                var mapId = mapManager.CreateMap();
-
-                mapManager.AddUninitializedMap(mapId);
-
-                grid = mapManager.CreateGrid(mapId);
-
-                var tileDefinition = tileDefinitionManager["UnderPlating"];
-                var tile = new Tile(tileDefinition.TileId);
-                var coordinates = grid.ToCoordinates();
-
-                grid.SetTile(coordinates, tile);
-
-                mapManager.DoMapInitialize(mapId);
+                grid = CreateDummyTileMapGrid(mapManager, tileDefinitionManager);
             });
 
             await server.WaitRunTicks(5);
@@ -593,19 +716,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                var mapId = mapManager.CreateMap();
-
-                mapManager.AddUninitializedMap(mapId);
-
-                grid = mapManager.CreateGrid(mapId);
-
-                var tileDefinition = tileDefinitionManager["UnderPlating"];
-                var tile = new Tile(tileDefinition.TileId);
-                var coordinates = grid.ToCoordinates();
-
-                grid.SetTile(coordinates, tile);
-
-                mapManager.DoMapInitialize(mapId);
+                grid = CreateDummyTileMapGrid(mapManager, tileDefinitionManager);
             });
 
             await server.WaitRunTicks(5);
@@ -633,6 +744,195 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.That(undeliveredParcelCount, Is.EqualTo(1),
                     "MailTeleporter teleported in mail beyond its MaximumUndeliveredParcels.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailDepositsIntoStationBankAccount()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+            var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+            var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
+
+            IMapGrid grid = default;
+            EntityUid mail = default;
+            MailComponent mailComponent = default;
+            AfterInteractUsingEvent eventArgs = default;
+#nullable enable
+            StationBankAccountComponent? stationBankAccountComponent = null;
+            int? previousBalance = null;
+#nullable disable
+
+            await server.WaitPost(() =>
+            {
+                grid = CreateDummyTileMapGrid(mapManager, tileDefinitionManager);
+            });
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = grid.ToCoordinates();
+                stationSystem.InitializeNewStation(null, new List<EntityUid>() {grid.GridEntityId}, $"Clown Town");
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                var name = "Bob";
+                var job = "clown";
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, name);
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
+
+                mail = entityManager.SpawnEntity("TestMail", coordinates);
+                mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate could not pick up his ID.");
+
+                eventArgs = new AfterInteractUsingEvent(
+                    realCandidate1,
+                    realCandidate1ID,
+                    mail,
+                    new EntityCoordinates(mail, 0, 0),
+                    true);
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitAssertion(() =>
+            {
+                foreach (var account in entityManager.EntityQuery<StationBankAccountComponent>())
+                {
+                    if (stationSystem.GetOwningStation(account.Owner) != stationSystem.GetOwningStation(mail))
+                            continue;
+
+                    stationBankAccountComponent = account;
+                    return;
+                }
+
+                Assert.IsNotNull(stationBankAccountComponent,
+                    "Unable to find matching StationBankAccountComponent for mail parcel.");
+
+                // previousBalance ends up null if I assign it here. I have no idea why.
+                // Just wait a few ticks, then get the value.
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitPost(() =>
+            {
+                previousBalance = stationBankAccountComponent.Balance;
+
+                entityManager.EventBus.RaiseLocalEvent(mail, eventArgs);
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitAssertion(() =>
+            {
+                var currentBalance = stationBankAccountComponent.Balance;
+
+                // How did we get here?
+                Assert.IsNotNull(previousBalance,
+                    "previousBalance was never assigned.");
+
+                Assert.That(currentBalance, Is.GreaterThan(previousBalance.Value),
+                    "StationBankAccountComponent's balance did not increase.");
+                Assert.That(currentBalance, Is.EqualTo(previousBalance.Value + mailComponent.Bounty),
+                    "StationBankAccountComponent had incorrect balance.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailPenalizesStationBankAccountOnFailure()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+            var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+            var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
+
+            IMapGrid grid = default;
+            EntityUid mail = default;
+            MailComponent mailComponent = default;
+#nullable enable
+            StationBankAccountComponent? stationBankAccountComponent = null;
+            int? previousBalance = null;
+#nullable disable
+
+            await server.WaitPost(() =>
+            {
+                grid = CreateDummyTileMapGrid(mapManager, tileDefinitionManager);
+            });
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = grid.ToCoordinates();
+                stationSystem.InitializeNewStation(null, new List<EntityUid>() {grid.GridEntityId}, $"Clown Town");
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                mail = entityManager.SpawnEntity("TestMail", coordinates);
+                mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
+
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitAssertion(() =>
+            {
+                foreach (var account in entityManager.EntityQuery<StationBankAccountComponent>())
+                {
+                    if (stationSystem.GetOwningStation(account.Owner) != stationSystem.GetOwningStation(mail))
+                            continue;
+
+                    stationBankAccountComponent = account;
+                    return;
+                }
+
+                Assert.IsNotNull(stationBankAccountComponent,
+                    "Unable to find matching StationBankAccountComponent for mail parcel.");
+
+                // previousBalance ends up null if I assign it here. I have no idea why.
+                // Just wait a few ticks, then get the value.
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitPost(() =>
+            {
+                previousBalance = stationBankAccountComponent.Balance;
+
+                mailSystem.PenalizeStationFailedDelivery(mail, mailComponent, "mail-penalty-lock");
+            });
+            await server.WaitRunTicks(5);
+            await server.WaitAssertion(() =>
+            {
+                var currentBalance = stationBankAccountComponent.Balance;
+
+                // How did we get here?
+                Assert.IsNotNull(previousBalance,
+                    "previousBalance was never assigned.");
+
+                Assert.That(currentBalance, Is.LessThan(previousBalance.Value),
+                    "StationBankAccountComponent's balance did not decrease.");
+                Assert.That(currentBalance, Is.EqualTo(previousBalance.Value + mailComponent.Penalty),
+                    "StationBankAccountComponent had incorrect balance.");
             });
 
             await pairTracker.CleanReturnAsync();
