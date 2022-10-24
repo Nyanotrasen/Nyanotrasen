@@ -223,7 +223,7 @@ namespace Content.Server.Mail
         /// but this allows a delivery to fail for other reasons too
         /// while having a generic function to handle different messages.
         /// </remarks>
-        private void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
+        public void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
         {
             if (!component.IsProfitable)
                 return;
