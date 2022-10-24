@@ -150,7 +150,6 @@ namespace Content.Server.Psionics.Glimmer
         private void OnDamageChanged(EntityUid uid, SharedGlimmerReactiveComponent component, DamageChangedEvent args)
         {
             Logger.Error("Received event");
-            Logger.Error("origin: " + args.Origin);
             if (args.Origin == null)
                 return;
 
