@@ -7,11 +7,16 @@ using Robust.Shared.IoC;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
+using Content.Server.Access.Systems;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.Maps;
+using Content.Server.Station.Systems;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -20,6 +25,37 @@ namespace Content.IntegrationTests.Tests
     public sealed class MailTest : EntitySystem
     {
         private const string Prototypes = @"
+- type: playTimeTracker
+  id: Dummy
+
+- type: job
+  id: TClown
+  playTimeTracker: Dummy
+
+- type: gameMap
+  id: ClownTown
+  minPlayers: 0
+  mapName: ClownTown
+  mapPath: Maps/Tests/empty.yml
+  stations:
+    Station:
+      mapNameTemplate: ClownTown
+      overflowJobs:
+      - TClown
+      availableJobs:
+        TClown: [-1, -1]
+
+- type: entity
+  id: HumanDummy
+  name: HumanDummy
+  components:
+  - type: Hands
+  - type: Body
+    template: HumanoidTemplate
+    preset: HumanPreset
+    centerSlot: torso
+  - type: MailReceiver
+
 - type: entity
   id: TestMailTeleporter
   parent: BaseStructureDynamic
@@ -46,6 +82,14 @@ namespace Content.IntegrationTests.Tests
   - type: MailTeleporter
     priorityChance: 1
     priorityDuration: 0.001
+
+- type: entity
+  id: TestMailTeleporterAlwaysOneAtATime
+  parent: BaseStructureDynamic
+  name: TestMailTeleporterAlwaysOneAtATime
+  components:
+  - type: MailTeleporter
+    maximumUndeliveredParcels: 1
 
 - type: entity
   parent: BaseMail
@@ -439,6 +483,198 @@ namespace Content.IntegrationTests.Tests
             await pairTracker.CleanReturnAsync();
         }
 
+        [Test]
+        public async Task TestMailTeleporterCanDetectMailOnItsTile()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+
+            IMapGrid grid = default;
+
+            await server.WaitPost(() =>
+            {
+                var mapId = mapManager.CreateMap();
+
+                mapManager.AddUninitializedMap(mapId);
+
+                grid = mapManager.CreateGrid(mapId);
+
+                var tileDefinition = tileDefinitionManager["UnderPlating"];
+                var tile = new Tile(tileDefinition.TileId);
+                var coordinates = grid.ToCoordinates();
+
+                grid.SetTile(coordinates, tile);
+
+                mapManager.DoMapInitialize(mapId);
+            });
+
+            await server.WaitRunTicks(5);
+
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = grid.ToCoordinates();
+
+                var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+                var entityManager = IoCManager.Resolve<IEntityManager>();
+                var entitySystemManager = IoCManager.Resolve<IEntitySystemManager>();
+
+                var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid mail = entityManager.SpawnEntity("TestMail", coordinates);
+
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+
+                Assert.That(undeliveredParcelCount, Is.EqualTo(1),
+                    "MailTeleporter isn't detecting undelivered parcels on its tile.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailTeleporterCanSpawnMail()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+
+            var clownTownProto = prototypeManager.Index<GameMapPrototype>("ClownTown");
+            var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
+
+            IMapGrid grid = default;
+
+            await server.WaitPost(() =>
+            {
+                stationSystem.InitializeNewStation(clownTownProto.Stations["Station"], null, $"Clown Town");
+
+                var mapId = mapManager.CreateMap();
+
+                mapManager.AddUninitializedMap(mapId);
+
+                grid = mapManager.CreateGrid(mapId);
+
+                var tileDefinition = tileDefinitionManager["UnderPlating"];
+                var tile = new Tile(tileDefinition.TileId);
+                var coordinates = grid.ToCoordinates();
+
+                grid.SetTile(coordinates, tile);
+
+                mapManager.DoMapInitialize(mapId);
+            });
+
+            await server.WaitRunTicks(5);
+
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = grid.ToCoordinates();
+
+                var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+                var entityManager = IoCManager.Resolve<IEntityManager>();
+
+                var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+                var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+                var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate could not pick up his ID.");
+
+                mailSystem.SpawnMail(teleporter, teleporterComponent);
+
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+
+                Assert.That(undeliveredParcelCount, Is.GreaterThan(0),
+                    "MailTeleporter failed to teleport in mail.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailLimitUndeliveredParcels()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var tileDefinitionManager = server.ResolveDependency<ITileDefinitionManager>();
+
+            IMapGrid grid = default;
+
+            await server.WaitPost(() =>
+            {
+                var mapId = mapManager.CreateMap();
+
+                mapManager.AddUninitializedMap(mapId);
+
+                grid = mapManager.CreateGrid(mapId);
+
+                var tileDefinition = tileDefinitionManager["UnderPlating"];
+                var tile = new Tile(tileDefinition.TileId);
+                var coordinates = grid.ToCoordinates();
+
+                grid.SetTile(coordinates, tile);
+
+                mapManager.DoMapInitialize(mapId);
+            });
+
+            await server.WaitRunTicks(5);
+
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = grid.ToCoordinates();
+
+                var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+                var entityManager = IoCManager.Resolve<IEntityManager>();
+                var entitySystemManager = IoCManager.Resolve<IEntitySystemManager>();
+
+                var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+                var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+                var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysOneAtATime", coordinates);
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate could not pick up his ID.");
+
+                for (int i = 0; i < 6; ++i)
+                    mailSystem.SpawnMail(teleporter, teleporterComponent);
+
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+
+                Assert.That(undeliveredParcelCount, Is.EqualTo(1),
+                    "MailTeleporter teleported in mail beyond its MaximumUndeliveredParcels.");
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
     }
 }
 
