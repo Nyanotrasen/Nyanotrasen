@@ -19,16 +19,21 @@
   priority: 3
 
 - type: storeCategory
+  id: WizardImplants
+  name: Implants
+  priority: 4
+
+- type: storeCategory
   id: WizardBundles
   name: Bundles
-  priority: 4
+  priority: 6
 
 - type: storeCategory
   id: WizardMisc
   name: Misc
-  priority: 5
+  priority: 7
 
 - type: storeCategory
   id: WizardPointless
   name: Pointless
-  priority: 6
+  priority: 8

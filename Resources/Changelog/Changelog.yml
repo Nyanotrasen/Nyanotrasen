@@ -3215,5 +3215,11 @@ Entries:
   - {message: 'Medical has an implant remover, takes 45 seconds (instead of 300..) to remove an implant from someone. Better get some narcotics!', type: Add}
   id: 220000
   time: '2022-10-23T17:51:46.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Add healing spellbook to wizard uplink.', type: Add}
+  - {message: 'Add implants to Implant category in wizard uplink.', type: Add}
+  id: 230000
+  time: '2022-10-23T18:38:19.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}
