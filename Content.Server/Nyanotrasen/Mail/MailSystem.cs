@@ -103,9 +103,9 @@ namespace Content.Server.Mail
         /// <summary>
         private void OnUseInHand(EntityUid uid, MailComponent component, UseInHandEvent args)
         {
-            if (!component.Enabled)
+            if (!component.IsEnabled)
                 return;
-            if (component.Locked)
+            if (component.IsLocked)
             {
                 _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
                 return;
@@ -118,7 +118,7 @@ namespace Content.Server.Mail
         /// </summary>
         private void OnAfterInteractUsing(EntityUid uid, MailComponent component, AfterInteractUsingEvent args)
         {
-            if (!args.CanReach || !component.Locked)
+            if (!args.CanReach || !component.IsLocked)
                 return;
 
             if (!TryComp<AccessReaderComponent>(uid, out var access))
@@ -151,7 +151,7 @@ namespace Content.Server.Mail
                 return;
             }
 
-            component.Locked = false;
+            component.IsLocked = false;
             UpdateAntiTamperVisuals(uid, false);
 
             if (component.IsPriority)
@@ -169,7 +169,7 @@ namespace Content.Server.Mail
                 component.IsPriority = false;
             }
 
-            if (!component.Profitable)
+            if (!component.IsProfitable)
             {
                 _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
                 return;
@@ -177,7 +177,7 @@ namespace Content.Server.Mail
 
             _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
 
-            component.Profitable = false;
+            component.IsProfitable = false;
 
             foreach (var account in EntityQuery<StationBankAccountComponent>())
             {
@@ -204,7 +204,7 @@ namespace Content.Server.Mail
 
             if (component.IsPriority)
             {
-                if (component.Profitable)
+                if (component.IsProfitable)
                     args.PushMarkup(Loc.GetString("mail-desc-priority"));
                 else
                     args.PushMarkup(Loc.GetString("mail-desc-priority-inactive"));
@@ -225,13 +225,13 @@ namespace Content.Server.Mail
         /// </remarks>
         private void PenalizeStationFailedDelivery(EntityUid uid, MailComponent component, string localizationString)
         {
-            if (!component.Profitable)
+            if (!component.IsProfitable)
                 return;
 
             _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(localizationString, ("credits", component.Penalty)), InGameICChatType.Speak, false);
             _audioSystem.PlayPvs(component.PenaltySound, uid);
 
-            component.Profitable = false;
+            component.IsProfitable = false;
 
             if (component.IsPriority)
                 _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
@@ -248,10 +248,10 @@ namespace Content.Server.Mail
 
         private void OnDestruction(EntityUid uid, MailComponent component, DestructionEventArgs args)
         {
-            if (component.Locked)
+            if (component.IsLocked)
                 PenalizeStationFailedDelivery(uid, component, "mail-penalty-lock");
 
-            if (component.Enabled)
+            if (component.IsEnabled)
                 OpenMail(uid, component);
 
             UpdateAntiTamperVisuals(uid, false);
@@ -528,7 +528,7 @@ namespace Content.Server.Mail
 
             _tagSystem.AddTag(uid, "Trash");
             _tagSystem.AddTag(uid, "Recyclable");
-            component.Enabled = false;
+            component.IsEnabled = false;
             UpdateMailTrashState(uid, true);
         }
 

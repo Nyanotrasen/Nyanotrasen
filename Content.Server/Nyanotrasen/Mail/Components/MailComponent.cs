@@ -21,8 +21,8 @@ namespace Content.Server.Mail.Components
         // and we have special conditions for unlocking,
         // and we don't want to add a verb.
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("locked")]
-        public bool Locked = true;
+        [DataField("isLocked")]
+        public bool IsLocked = true;
 
         /// <summary>
         /// Is this parcel profitable to deliver for the station?
@@ -32,8 +32,8 @@ namespace Content.Server.Mail.Components
         /// This is useful for broken fragile packages and packages that were
         /// not delivered in time.
         /// </remarks>
-        [DataField("profitable")]
-        public bool Profitable = true;
+        [DataField("isProfitable")]
+        public bool IsProfitable = true;
 
         /// <summary>
         /// Is this package considered fragile?
@@ -95,7 +95,7 @@ namespace Content.Server.Mail.Components
         /// Whether this component is enabled.
         /// Removed when it becomes trash.
         /// </summary>
-        public bool Enabled = true;
+        public bool IsEnabled = true;
 
         public CancellationTokenSource? priorityCancelToken;
     }
