@@ -61,6 +61,9 @@ namespace Content.Server.Research.Oracle
             "BodyBag_Folded",
             "BodyBag",
             "LockboxDecloner",
+            "MopBucket",
+            "FoodOnionRed",
+            "FoodGatfruit",
         };
 
 
