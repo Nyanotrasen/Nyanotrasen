@@ -45,12 +45,86 @@
     - type: Access
       groups:
       - AllAccess
-    - type: AutoRegenReagent
-      solution: chemicals
-      reagents:
-        - Ichor
-      unitsPerSecond: 0.1
+    # - type: AutoRegenReagent
+    #   solution: chemicals
+    #   reagents:
+    #     - Ichor
+    #   unitsPerSecond: 0.1
     - type: Faction
       factions:
       - SimpleHostile
       - Xeno
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardBase
+  suffix: base
+  parent: MobHuman
+  components:
+    - type: GhostTakeoverAvailable
+      name: Urist McWizard
+      description: |
+        You have been sent to the station via bluespace and wizard magic. Your goal is to kill as many people as possible and destroy the station.
+        You can gain more "BS" (Bluespace) for your uplink by completing Oracle quests.
+        You are considered KOS (Kill On Sight) so be careful wandering the station for the Oracle's items.
+    - type: RandomMetadata
+      nameSegments:
+      - names_wizard_first
+      - names_wizard_last
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        60: 0.8
+        120: 0.6
+        180: 0.4
+        240: 0.2
+    - type: MobState
+      thresholds:
+        0: Alive
+        300: Dead
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - SlowedDown
+    - type: Faction
+      factions:
+      - SimpleHostile
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardViolet
+  suffix: violet
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardVioletGear
+      prototypes: [WizardVioletGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardRed
+  suffix: red
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardRedGear
+      prototypes: [WizardRedGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardBlue
+  suffix: blue
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardBlueGear
+      prototypes: [WizardBlueGear]
+
+- type: entity
+  name: Urist McWizard
+  id: UristMcWizardHardsuit
+  suffix: hardsuit
+  parent: UristMcWizardBase
+  components:
+    - type: Loadout
+      prototype: WizardHardsuitGear
+      prototypes: [WizardHardsuitGear]

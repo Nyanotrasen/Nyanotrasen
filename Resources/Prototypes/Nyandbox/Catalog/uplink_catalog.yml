@@ -72,13 +72,13 @@
 
 - type: listing
   id: WizardHealingBook
-  name: Heal bullet
+  name: Healing bullet
   description: Shoot out a bullet that instantly heals and revives anyone
   productEntity: HealingSpellbook
   cost:
     Bluespace: 8
   categories:
-  - Wizardbooks
+  - WizardBooks
 
 # Wands
 
@@ -148,7 +148,7 @@
   description: Hide goodies inside of yourself with new bluespace technology!
   productEntity: StorageImplanter
   cost:
-    Bluespace: 12
+    Bluespace: 8
   categories:
     - WizardImplants
 

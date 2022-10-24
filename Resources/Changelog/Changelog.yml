@@ -3229,5 +3229,13 @@ Entries:
   - {message: 'Add changeling outfit, can be used in debug set outfit.', type: Add}
   id: 240000
   time: '2022-10-23T19:41:51.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Add Urist McWizard admeme ghostroles in 5 variations.', type: Add}
+  - {message: 'Increased changelog window size by a bit.', type: Tweak}
+  - {message: 'Add healing spellbook to uplink.', type: Fix}
+  - {message: 'Implants category of wizard uplink is visible.', type: Fix}
+  id: 250000
+  time: '2022-10-23T20:17:10.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}
