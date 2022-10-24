@@ -1,6 +1,11 @@
 using Content.Server.Power.Components;
+using Content.Server.Electrocution;
+using Content.Server.Beam;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Verbs;
+using Content.Shared.Damage;
+using Robust.Shared.Random;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -8,6 +13,11 @@ namespace Content.Server.Psionics.Glimmer
     {
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly BeamSystem _beam = default!;
+
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -21,6 +31,8 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
         }
 
         /// <summary>
@@ -108,6 +120,75 @@ namespace Content.Server.Psionics.Glimmer
             {
                 receiver.NeedsPower = true;
             }
+        }
+
+        private void AddShockVerb(EntityUid uid, SharedGlimmerReactiveComponent component, GetVerbsEvent<AlternativeVerb> args)
+        {
+            if(!args.CanAccess || !args.CanInteract)
+                return;
+
+            if (!TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
+                return;
+
+            if (receiver.NeedsPower)
+                return;
+
+            AlternativeVerb verb = new()
+            {
+                Act = () =>
+                {
+                    _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
+                    _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                },
+                IconTexture = "/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png",
+                Text = Loc.GetString("power-switch-component-toggle-verb"),
+                Priority = -3
+            };
+            args.Verbs.Add(verb);
+        }
+
+        private void OnDamageChanged(EntityUid uid, SharedGlimmerReactiveComponent component, DamageChangedEvent args)
+        {
+            Logger.Error("Received event");
+            Logger.Error("origin: " + args.Origin);
+            if (args.Origin == null)
+                return;
+
+            // if (!_random.Prob((float) _sharedGlimmerSystem.Glimmer / 1000))
+            //     return;
+
+            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            Logger.Error("Tier: " + tier);
+            if (tier < GlimmerTier.High)
+                return;
+
+            Logger.Error("Tier is good.");
+            string beamproto;
+
+            switch (tier)
+            {
+                case GlimmerTier.Dangerous:
+                    beamproto = "SuperchargedLightning";
+                    break;
+                case GlimmerTier.Critical:
+                    beamproto = "HyperchargedLightning";
+                    break;
+                default:
+                    beamproto = "ChargedLightning";
+                    break;
+            }
+            Logger.Error("Beamproto: " + beamproto);
+
+            var lxform = Transform(uid);
+            var txform = Transform(args.Origin.Value);
+
+            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
+                return;
+            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
+                return;
+
+            Logger.Error("Creating beam...");
+            _beam.TryCreateBeam(uid, args.Origin.Value, beamproto);
         }
 
         private void Reset(RoundRestartCleanupEvent args)

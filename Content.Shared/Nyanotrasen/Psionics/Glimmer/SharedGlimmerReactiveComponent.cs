@@ -1,3 +1,5 @@
+using Robust.Shared.Audio;
+
 namespace Content.Shared.Psionics.Glimmer
 {
     [RegisterComponent]
@@ -29,5 +31,11 @@ namespace Content.Shared.Psionics.Glimmer
         /// </summary>
         [DataField("glimmerToLightRadiusFactor")]
         public float GlimmerToLightRadiusFactor = 1.0f;
+
+        /// <summary>
+        /// Noises to play on failed turn off.
+        /// </summary>
+        [DataField("shockNoises")]
+        public SoundSpecifier ShockNoises { get; } = new SoundCollectionSpecifier("sparks");
     }
 }
