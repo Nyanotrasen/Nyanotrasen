@@ -758,6 +758,10 @@
   - type: MonkeyAccent
   - type: Puller
   - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: Tag
+    tags:
+    - GunsDisabled
 
 - type: entity
   name: mouse
