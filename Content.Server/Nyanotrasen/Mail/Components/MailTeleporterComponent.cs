@@ -36,6 +36,25 @@ namespace Content.Server.Mail.Components
         public int MinimumDeliveriesPerTeleport = 1;
 
         /// <summary>
+        /// Do not teleport any more mail in, if there are at least this many
+        /// undelivered parcels.
+        /// </summary>
+        /// <remarks>
+        /// Currently this works by checking how many MailComponent entities
+        /// are sitting on the teleporter's tile.
+        ///
+        /// It should be noted that if the number of actual deliveries to be
+        /// made based on the number of candidates divided by candidates per
+        /// delivery exceeds this number, the teleporter will spawn more mail
+        /// than this number.
+        ///
+        /// This is just a simple check to see if anyone's been picking up the
+        /// mail lately to prevent entity bloat for the sake of performance.
+        /// </remarks>
+        [DataField("maximumUndeliveredParcels")]
+        public int MaximumUndeliveredParcels = 5;
+
+        /// <summary>
         /// Any item that breaks or is destroyed in less than this amount of
         /// damage is one of the types of items considered fragile.
         /// </summary>

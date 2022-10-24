@@ -24,6 +24,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Maps;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
@@ -431,6 +432,23 @@ namespace Content.Server.Mail
         }
 
         /// <summary>
+        /// Return how many parcels are waiting for delivery.
+        /// </summary>
+        public uint GetUndeliveredParcelCount(EntityUid uid)
+        {
+            // An alternative solution would be to keep a list of the unopened
+            // parcels spawned by the teleporter and see if they're not carried
+            // by someone, but this is simple, and simple is good.
+            uint undeliveredParcelCount = 0;
+            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates))
+            {
+                if (HasComp<MailComponent>(entityInTile))
+                    undeliveredParcelCount++;
+            }
+            return undeliveredParcelCount;
+        }
+
+        /// <summary>
         /// Handle the spawning of all the mail for a mail teleporter.
         /// </summary>
         public void SpawnMail(EntityUid uid, MailTeleporterComponent? component = null)
@@ -440,6 +458,9 @@ namespace Content.Server.Mail
                 Logger.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
                 return;
             }
+
+            if (GetUndeliveredParcelCount(uid) >= component.MaximumUndeliveredParcels)
+                return;
 
             _audioSystem.PlayPvs(component.TeleportSound, uid);
 
