@@ -185,7 +185,6 @@ namespace Content.Server.Psionics.Glimmer
             _sharedGlimmerSystem.AddToGlimmer(0 - (int) removed);
             BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
-
         }
 
         private void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
