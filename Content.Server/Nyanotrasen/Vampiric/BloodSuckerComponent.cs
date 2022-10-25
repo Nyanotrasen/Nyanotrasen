@@ -1,6 +1,6 @@
 using System.Threading;
 
-namespace Content.Server.Lamiae
+namespace Content.Server.Vampiric
 {
     [RegisterComponent]
     public sealed class BloodSuckerComponent : Component

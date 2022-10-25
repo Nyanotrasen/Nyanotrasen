@@ -1,4 +1,4 @@
-namespace Content.Server.Lamiae
+namespace Content.Server.Vampiric
 {
     /// <summary>
     /// For entities who have been succed.

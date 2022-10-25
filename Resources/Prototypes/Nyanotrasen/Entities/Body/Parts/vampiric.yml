@@ -16,3 +16,26 @@
     - OrganAnimalKidneys
   - type: Damageable
     damageContainer: Biological
+
+- type: entity
+  id: TorsoVampiric
+  name: "human torso"
+  parent: PartHuman
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
+    size: 14
+    compatibility: Biological
+    mechanisms:
+    - OrganHumanHeart
+    - OrganHumanLungs
+    - OrganVampiricHumanoidStomach
+    - OrganHumanLiver
+    - OrganHumanKidneys

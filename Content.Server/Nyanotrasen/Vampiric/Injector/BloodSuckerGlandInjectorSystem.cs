@@ -2,7 +2,7 @@ using Content.Server.Popups;
 using Content.Shared.Interaction;
 using Robust.Shared.Player;
 
-namespace Content.Server.Lamiae
+namespace Content.Server.Vampiric
 {
     public sealed class BloodSuckerGlandInjectorSystem : EntitySystem
     {

@@ -1,4 +1,4 @@
-namespace Content.Server.Lamiae
+namespace Content.Server.Vampiric
 {
     [RegisterComponent]
     /// <summary>

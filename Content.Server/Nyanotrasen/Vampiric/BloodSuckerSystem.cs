@@ -21,7 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Lamiae
+namespace Content.Server.Vampiric
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {
@@ -223,7 +223,7 @@ namespace Content.Server.Lamiae
                 return;
 
             // Does bloodsucker have a stomach?
-            var stomachList = _bodySystem.GetComponentsOnMechanisms<StomachComponent>(bloodsucker);
+            var stomachList = _bodySystem.GetBodyOrganComponents<StomachComponent>(bloodsucker);
             if (stomachList.Count == 0)
                 return;
 

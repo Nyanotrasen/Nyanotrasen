@@ -39,7 +39,7 @@ namespace Content.Server.Psionics
         private void OnCageEquipped(EntityUid uid, HeadCageComponent component, GotEquippedEvent args)
         {
             // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
+            if (!TryComp<ClothingComponent>(uid, out var clothing))
                 return;
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))
