@@ -10,6 +10,9 @@
       layers:
         - state: book_demonomicon
     - type: Spellbook
+      damageOnUntrainedUse:
+        groups:
+          Burn: 50
     - type: Tag
       tags:
       - WizardBook

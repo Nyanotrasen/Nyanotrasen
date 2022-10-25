@@ -3237,5 +3237,14 @@ Entries:
   - {message: 'Implants category of wizard uplink is visible.', type: Fix}
   id: 250000
   time: '2022-10-23T20:17:10.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'SpellbookUser component.', type: Add}
+  - {message: 'Wizards get SpellbookUser component.', type: Add}
+  - {message: 'Anyone trying to use a spellbook without SpellbookUser will get 50 burn damage.', type: Tweak}
+  - {message: 'Wizards and Changelings now have a RandomHumanoidAppearance.', type: Tweak}
+  - {message: 'Adminghosts have SpellbookUser.', type: Tweak}
+  id: 260000
+  time: '2022-10-24T20:55:55.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}

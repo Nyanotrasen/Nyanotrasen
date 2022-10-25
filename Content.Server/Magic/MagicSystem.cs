@@ -24,6 +24,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Damage;
+using Content.Server.Magic.Components;
 
 namespace Content.Server.Magic;
 
@@ -40,6 +42,8 @@ public sealed class MagicSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
     public override void Initialize()
     {
@@ -116,6 +120,18 @@ public sealed class MagicSystem : EntitySystem
     private void OnLearnComplete(EntityUid uid, SpellbookComponent component, LearnDoAfterComplete ev)
     {
         component.CancelToken = null;
+
+
+        if (!HasComp<SpellbookUserComponent>(ev.User))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("spellbook-sizzle"), ev.User, Filter.Entities(ev.User));
+
+            SoundSystem.Play(component.SizzleSoundPath.GetSound(), Filter.Pvs(ev.User), ev.User);
+            _damageableSystem.TryChangeDamage(ev.User, component.DamageOnUntrainedUse, true, origin: uid);
+
+            return;
+        }
+
         _actionsSystem.AddActions(ev.User, component.Spells, uid);
     }
 
@@ -160,7 +176,7 @@ public sealed class MagicSystem : EntitySystem
         foreach (var pos in GetSpawnPositions(xform, ev.Pos))
         {
             var ent = Spawn(ev.Prototype, pos.SnapToGrid(EntityManager, _mapManager));
-            _gunSystem.ShootProjectile(ent,ev.Target.Position - Transform(ent).MapPosition.Position, ev.Performer);
+            _gunSystem.ShootProjectile(ent, ev.Target.Position - Transform(ent).MapPosition.Position, ev.Performer);
         }
     }
 
@@ -169,54 +185,54 @@ public sealed class MagicSystem : EntitySystem
         switch (data)
         {
             case TargetCasterPos:
-                return new List<EntityCoordinates>(1) {casterXform.Coordinates};
+                return new List<EntityCoordinates>(1) { casterXform.Coordinates };
             case TargetInFront:
-            {
-                // This is shit but you get the idea.
-                var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized);
-
-                if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
-                    return new List<EntityCoordinates>();
-
-                if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
-                    return new List<EntityCoordinates>();
-
-                var tileIndex = tileReference.Value.GridIndices;
-                var coords = mapGrid.GridTileToLocal(tileIndex);
-                EntityCoordinates coordsPlus;
-                EntityCoordinates coordsMinus;
-
-                var dir = casterXform.LocalRotation.GetCardinalDir();
-                switch (dir)
                 {
-                    case Direction.North:
-                    case Direction.South:
-                    {
-                        coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
-                        coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
-                        return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                    }
-                    case Direction.East:
-                    case Direction.West:
-                    {
-                        coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
-                        coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
-                        return new List<EntityCoordinates>(3)
-                        {
-                            coords,
-                            coordsPlus,
-                            coordsMinus,
-                        };
-                    }
-                }
+                    // This is shit but you get the idea.
+                    var directionPos = casterXform.Coordinates.Offset(casterXform.LocalRotation.ToWorldVec().Normalized);
 
-                return new List<EntityCoordinates>();
-            }
+                    if (!_mapManager.TryGetGrid(casterXform.GridUid, out var mapGrid))
+                        return new List<EntityCoordinates>();
+
+                    if (!directionPos.TryGetTileRef(out var tileReference, EntityManager, _mapManager))
+                        return new List<EntityCoordinates>();
+
+                    var tileIndex = tileReference.Value.GridIndices;
+                    var coords = mapGrid.GridTileToLocal(tileIndex);
+                    EntityCoordinates coordsPlus;
+                    EntityCoordinates coordsMinus;
+
+                    var dir = casterXform.LocalRotation.GetCardinalDir();
+                    switch (dir)
+                    {
+                        case Direction.North:
+                        case Direction.South:
+                            {
+                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (1, 0));
+                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (-1, 0));
+                                return new List<EntityCoordinates>(3)
+                        {
+                            coords,
+                            coordsPlus,
+                            coordsMinus,
+                        };
+                            }
+                        case Direction.East:
+                        case Direction.West:
+                            {
+                                coordsPlus = mapGrid.GridTileToLocal(tileIndex + (0, 1));
+                                coordsMinus = mapGrid.GridTileToLocal(tileIndex + (0, -1));
+                                return new List<EntityCoordinates>(3)
+                        {
+                            coords,
+                            coordsPlus,
+                            coordsMinus,
+                        };
+                            }
+                    }
+
+                    return new List<EntityCoordinates>();
+                }
             default:
                 throw new ArgumentOutOfRangeException();
         }

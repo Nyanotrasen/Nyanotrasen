@@ -1,4 +1,6 @@
-﻿action-name-spell-rune-flash = Flash Rune
+﻿spellbook-sizzle = The Spellbook burns your hands! You don't think you're powerful enough to use it..
+
+action-name-spell-rune-flash = Flash Rune
 action-description-spell-rune-flash = Summons a rune that flashes if used.
 
 action-name-spell-forcewall = Forcewall

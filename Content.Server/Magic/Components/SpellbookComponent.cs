@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
+using Content.Shared.Damage;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Magic;
 
@@ -31,6 +33,13 @@ public sealed class SpellbookComponent : Component
     [ViewVariables]
     [DataField("learnTime")]
     public float LearnTime = .75f;
+
+    [DataField("sizzleSound")]
+    public SoundSpecifier SizzleSoundPath = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
+
+    [DataField("damageOnUntrainedUse", required: true)]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public DamageSpecifier DamageOnUntrainedUse = default!;
 
     public CancellationTokenSource? CancelToken;
 }
