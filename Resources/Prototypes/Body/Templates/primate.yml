@@ -5,12 +5,13 @@
   centerSlot: "torso"
   slots:
     torso: Torso
-    hands: Hand
+    left hand: Hand
+    right hand: Hand
     legs: Leg
     feet: Foot
   connections:
     torso:
-    - hands
-    - legs
-    legs: 
+    - left hand
+    - right hand
+    legs:
     - feet

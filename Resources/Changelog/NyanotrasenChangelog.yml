@@ -402,3 +402,49 @@ Entries:
     type: Add
   id: 45
   time: '2022-10-21T20:21:43.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Tweaked splash screen!
+    type: Tweak
+  id: 46
+  time: '2022-10-22T05:04:39.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added icons for all standard psionic powers.
+    type: Add
+  id: 47
+  time: '2022-10-22T21:48:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed name identifiers for animals (they were ugly and our ghost roles
+      are whitelisted).
+    type: Remove
+  - message: Zombie removed from secret.
+    type: Remove
+  - message: DiseaseCarrier is back to humanoids, mice, and monkeys.
+    type: Fix
+  - message: Monkeys have 2 hands.
+    type: Tweak
+  - message: Removed several more impossible / unreasonably difficult oracle requests.
+    type: Fix
+  - message: Oracle now drops the rewards at your feet, so people are less likely
+      to forget them.
+    type: Tweak
+  - message: Revenant's minimum eligible glimmer increased by 150.
+    type: Tweak
+  - message: Polished random sentience event.
+    type: Add
+  - message: Interacting with probers at high glimmer is much more fun.
+    type: Add
+  - message: Destroying glimmer probers will reduce glimmer level if glimmer is above
+      300.
+    type: Add
+  - message: Plasteel and plasma are printable now with material printing
+    type: Add
+  - message: New soul lobby song
+    type: Add
+  - message: Reenabled early shuttle call cvar. Great way to speedrun a whitelist
+      removal and/or ban if you abuse it.
+    type: Add
+  id: 48
+  time: '2022-10-25T01:04:35.0000000+00:00'

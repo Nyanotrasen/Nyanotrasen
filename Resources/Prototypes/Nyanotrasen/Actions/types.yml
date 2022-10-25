@@ -16,7 +16,7 @@
   id: MetapsionicPulse
   name: action-name-metapsionic
   description: action-description-metapsionic
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/metapsionic.png
   useDelay: 45
   event: !type:MetapsionicPowerActionEvent
 
@@ -24,7 +24,7 @@
   id: Dispel
   name: action-name-dispel
   description: action-description-dispel
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/dispel.png
   useDelay: 45
   checkCanAccess: false
   range: 8
@@ -35,7 +35,7 @@
   id: MassSleep
   name: action-name-mass-sleep
   description: action-description-mass-sleep
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/mass_sleep.png
   useDelay: 60
   checkCanAccess: false
   range: 8
@@ -45,7 +45,7 @@
   id: PsionicInvisibility
   name: action-name-psionic-invisibility
   description: action-description-psionic-invisibility
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility.png
   useDelay: 120
   serverEvent: !type:PsionicInvisibilityPowerActionEvent
 
@@ -53,7 +53,7 @@
   id: PsionicInvisibilityOff
   name: action-name-psionic-invisibility-off
   description: action-description-psionic-invisibility-off
-  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility_off.png
   serverEvent: !type:PsionicInvisibilityPowerOffActionEvent
 
 - type: instantAction
@@ -76,7 +76,7 @@
   id: MindSwap
   name: action-name-mind-swap
   description: action-description-mind-swap
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/mind_swap.png
   useDelay: 240
   checkCanAccess: false
   range: 8
@@ -86,7 +86,7 @@
   id: MindSwapReturn
   name: action-name-mind-swap-return
   description: action-description-mind-swap-return
-  icon: Interface/VerbIcons/sentient.svg.192dpi.on.png
+  icon: Nyanotrasen/Interface/VerbIcons/mind_swap_return.png
   checkCanInteract: false
   useDelay: 20
   serverEvent: !type:MindSwapPowerReturnActionEvent
@@ -95,7 +95,7 @@
   id: Telegnosis
   name: action-name-telegnosis
   description: action-description-telegnosis
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
   useDelay: 150
   serverEvent: !type:TelegnosisPowerActionEvent
 
@@ -111,7 +111,7 @@
   id: PsionicRegeneration
   name: action-name-psionic-regeneration
   description: action-description-psionic-regeneration
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/psionic_regeneration.png
   useDelay: 120
   serverEvent: !type:PsionicRegenerationPowerActionEvent
 
