@@ -57,6 +57,9 @@
     glimmerToLightEnergyFactor: 2.0
     glimmerToLightRadiusFactor: 1.3
   - type: PowerSwitch
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: ShockAbsorber
 
 - type: entity
   parent: BaseMachinePowered
