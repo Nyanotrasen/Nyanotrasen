@@ -114,8 +114,7 @@
     damageContainer: Biological
     damageModifierSet: Oni
   - type: Body
-    template: HumanoidTemplate
-    preset: HumanPreset
+    prototype: Human
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
     - shape:
