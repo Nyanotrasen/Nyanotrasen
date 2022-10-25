@@ -2,7 +2,8 @@
   name: "primate preset"
   id: PrimatePreset
   partIDs:
-    hands: HandsAnimal
+    left hand: LeftHandHuman
+    right hand: RightHandHuman
     legs: LegsAnimal
     feet: FeetAnimal
     torso: TorsoAnimal

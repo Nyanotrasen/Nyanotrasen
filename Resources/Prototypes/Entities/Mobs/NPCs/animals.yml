@@ -707,8 +707,6 @@
   components:
   - type: CombatMode
     disarm: null
-  - type: NameIdentifier
-    group: Monkey
   - type: SentienceTarget
     flavorKind: primate
   - type: Inventory
@@ -760,6 +758,10 @@
   - type: MonkeyAccent
   - type: Puller
   - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: Tag
+    tags:
+    - GunsDisabled
 
 - type: entity
   name: mouse

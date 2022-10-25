@@ -1,6 +1,14 @@
 using Content.Server.Power.Components;
+using Content.Server.Electrocution;
+using Content.Server.Beam;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Verbs;
+using Content.Shared.Damage;
+using Content.Shared.Destructible;
+using Content.Shared.MobState.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -8,9 +16,17 @@ namespace Content.Server.Psionics.Glimmer
     {
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly BeamSystem _beam = default!;
+        [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+
+        [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
+        public float BeamCooldown = 3;
         public GlimmerTier LastGlimmerTier = GlimmerTier.Minimal;
         public override void Initialize()
         {
@@ -21,6 +37,9 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
         }
 
         /// <summary>
@@ -110,6 +129,123 @@ namespace Content.Server.Psionics.Glimmer
             }
         }
 
+        private void AddShockVerb(EntityUid uid, SharedGlimmerReactiveComponent component, GetVerbsEvent<AlternativeVerb> args)
+        {
+            if(!args.CanAccess || !args.CanInteract)
+                return;
+
+            if (!TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
+                return;
+
+            if (receiver.NeedsPower)
+                return;
+
+            AlternativeVerb verb = new()
+            {
+                Act = () =>
+                {
+                    _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
+                    _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                },
+                IconTexture = "/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png",
+                Text = Loc.GetString("power-switch-component-toggle-verb"),
+                Priority = -3
+            };
+            args.Verbs.Add(verb);
+        }
+
+        private void OnDamageChanged(EntityUid uid, SharedGlimmerReactiveComponent component, DamageChangedEvent args)
+        {
+            if (args.Origin == null)
+                return;
+
+            if (!_random.Prob((float) _sharedGlimmerSystem.Glimmer / 1000))
+                return;
+
+            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            if (tier < GlimmerTier.High)
+                return;
+            Beam(uid, args.Origin.Value, tier);
+        }
+
+        private void OnDestroyed(EntityUid uid, SharedGlimmerReactiveComponent component, DestructionEventArgs args)
+        {
+            Spawn("MaterialBluespace", Transform(uid).Coordinates);
+
+            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            if (tier < GlimmerTier.High)
+                return;
+
+            var totalIntensity = _sharedGlimmerSystem.Glimmer;
+            var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
+            var maxIntensity = 20;
+
+            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.05f, 0.15f);
+            Logger.Error("Removed: " + removed);
+            _sharedGlimmerSystem.AddToGlimmer(0 - (int) removed);
+            BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
+            _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
+        }
+
+        private void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
+        {
+            List<EntityUid> targetList = new();
+            foreach (var target in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            {
+                targetList.Add(target.Owner);
+            }
+
+            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            {
+                targetList.Add(reactive.Owner);
+            }
+
+            _random.Shuffle(targetList);
+            foreach (var target in targetList)
+            {
+                if (targets <= 0)
+                    return;
+
+                Beam(prober, target, _sharedGlimmerSystem.GetGlimmerTier(), false);
+                targets--;
+            }
+        }
+
+        private void Beam(EntityUid prober, EntityUid target, GlimmerTier tier, bool obeyCD = true)
+        {
+            if (obeyCD && BeamCooldown != 0)
+                return;
+
+            if (Deleted(prober) || Deleted(target))
+                return;
+
+            string beamproto;
+
+            switch (tier)
+            {
+                case GlimmerTier.Dangerous:
+                    beamproto = "SuperchargedLightning";
+                    break;
+                case GlimmerTier.Critical:
+                    beamproto = "HyperchargedLightning";
+                    break;
+                default:
+                    beamproto = "ChargedLightning";
+                    break;
+            }
+
+            var lxform = Transform(prober);
+            var txform = Transform(target);
+
+            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
+                return;
+            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
+                return;
+
+            _beam.TryCreateBeam(prober, target, beamproto);
+            BeamCooldown += 3f;
+        }
+
         private void Reset(RoundRestartCleanupEvent args)
         {
             Accumulator = 0;
@@ -126,21 +262,30 @@ namespace Content.Server.Psionics.Glimmer
         {
             base.Update(frameTime);
             Accumulator += frameTime;
+            BeamCooldown = Math.Max(0, BeamCooldown - frameTime);
 
             if (Accumulator > UpdateFrequency)
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+                var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
                     var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
                     var ev = new GlimmerTierChangedEvent(LastGlimmerTier, currentGlimmerTier, glimmerTierDelta);
 
-                    foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
+                    foreach (var reactive in reactives)
                     {
                         UpdateEntityState(reactive.Owner, reactive, currentGlimmerTier, glimmerTierDelta);
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
 
                     LastGlimmerTier = currentGlimmerTier;
+                }
+                if (currentGlimmerTier == GlimmerTier.Critical)
+                {
+                    foreach (var reactive in reactives)
+                    {
+                        BeamRandomNearProber(reactive.Owner, 1, 6);
+                    }
                 }
                 Accumulator = 0;
             }

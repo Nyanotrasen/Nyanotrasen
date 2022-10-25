@@ -25,10 +25,12 @@ public sealed class GlimmerRandomSentience : GlimmerEventSystem
                 break;
 
             EntityManager.RemoveComponent<SentienceTargetComponent>(target.Owner);
+            MetaData(target.Owner).EntityName = Loc.GetString("glimmer-event-awakened-prefix", ("entity", target.Owner));
             var comp = EntityManager.AddComponent<GhostTakeoverAvailableComponent>(target.Owner);
             comp.RoleName = EntityManager.GetComponent<MetaDataComponent>(target.Owner).EntityName;
             comp.RoleDescription = Loc.GetString("station-event-random-sentience-role-description", ("name", comp.RoleName));
             RemComp<ReplacementAccentComponent>(target.Owner);
+            RemComp<MonkeyAccentComponent>(target.Owner);
             EnsureComp<PotentialPsionicComponent>(target.Owner);
         }
     }

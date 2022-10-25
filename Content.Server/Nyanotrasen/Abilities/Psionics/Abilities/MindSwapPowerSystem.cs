@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Server.MobState;
@@ -166,6 +167,7 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<TelegnosticProjectionComponent>(uid))
             {
                 RemComp<PsionicallyInvisibleComponent>(uid);
+                RemComp<StealthComponent>(uid);
                 EnsureComp<SharedSpeechComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
