@@ -2,13 +2,13 @@
   id: Smite
   name: action-name-spell-smite
   description: action-description-spell-smite
-  useDelay: 60
+  useDelay: 120
   speech: action-speech-spell-smite
   itemIconStyle: BigAction
   whitelist:
     components:
     - Body
-  canTargetSelf: false
+  canTargetSelf: true
   interactOnMiss: false
   sound: !type:SoundPathSpecifier
     path: /Audio/Magic/disintegrate.ogg

@@ -2,7 +2,7 @@
   id: SpawnMagicarpSpell
   name: action-name-spell-summon-magicarp
   description: action-description-spell-summon-magicarp
-  useDelay: 10
+  useDelay: 45
   range: 4
   speech: action-speech-spell-summon-magicarp
   itemIconStyle: BigAction
@@ -12,5 +12,5 @@
   serverEvent: !type:WorldSpawnSpellEvent
     prototypes:
       - id: MobCarpMagic
-        amount: 3
+        amount: 1
     offsetVector2: 0, 1
