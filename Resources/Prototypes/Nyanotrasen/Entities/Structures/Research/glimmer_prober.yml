@@ -60,6 +60,7 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: ShockAbsorber
+  - type: CargoSellBlacklist
 
 - type: entity
   parent: BaseMachinePowered
@@ -86,6 +87,7 @@
     visuals:
     - type: PowerDeviceVisualizer
   - type: PowerSwitch
+  - type: CargoSellBlacklist
 
 - type: entity
   id: GlimmerDeviceFrame
@@ -134,3 +136,4 @@
       layers:
       - state: base
       - state: intermediate
+    - type: CargoSellBlacklist
