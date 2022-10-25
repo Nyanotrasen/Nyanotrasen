@@ -112,8 +112,7 @@
       layer:
       - MobLayer
   - type: Body
-    template: HumanoidTemplate
-    preset: FelinidPreset
+    prototype: Felinid
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Felinid

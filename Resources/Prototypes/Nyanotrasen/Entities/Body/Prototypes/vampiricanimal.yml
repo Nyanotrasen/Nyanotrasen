@@ -1,24 +1,18 @@
-﻿- type: body
-  id: Primate
-  name: "primate"
+- type: body
+  id: VampiricAnimal
+  name: "vampiric animal"
   root: torso
   slots:
     torso:
       part: TorsoAnimal
       connections:
-      - right hand
-      - left hand
       - legs
       organs:
         lungs: OrganAnimalLungs
-        stomach: OrganAnimalStomach
+        stomach: OrganVampiricStomach
         liver: OrganAnimalLiver
         heart: OrganAnimalHeart
         kidneys: OrganAnimalKidneys
-    right hand:
-      part: RightHandHuman
-    left hand:
-      part: LeftHandHuman
     legs:
       part: LegsAnimal
       connections:
