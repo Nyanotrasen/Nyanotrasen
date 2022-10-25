@@ -219,6 +219,14 @@ namespace Content.Server.Psionics.Glimmer
             if (Deleted(prober) || Deleted(target))
                 return;
 
+            var lxform = Transform(prober);
+            var txform = Transform(target);
+
+            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
+                return;
+            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
+                return;
+
             string beamproto;
 
             switch (tier)
@@ -234,13 +242,6 @@ namespace Content.Server.Psionics.Glimmer
                     break;
             }
 
-            var lxform = Transform(prober);
-            var txform = Transform(target);
-
-            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
-                return;
-            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
-                return;
 
             _beam.TryCreateBeam(prober, target, beamproto);
             BeamCooldown += 3f;
