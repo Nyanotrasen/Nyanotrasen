@@ -1,10 +1,13 @@
 using Content.Server.Power.Components;
 using Content.Server.Electrocution;
 using Content.Server.Beam;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
+using Content.Shared.Destructible;
+using Content.Shared.MobState.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server.Psionics.Glimmer
@@ -17,10 +20,13 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly BeamSystem _beam = default!;
+        [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 
+        [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
+        public float BeamCooldown = 3;
         public GlimmerTier LastGlimmerTier = GlimmerTier.Minimal;
         public override void Initialize()
         {
@@ -33,6 +39,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
         }
 
         /// <summary>
@@ -158,6 +165,56 @@ namespace Content.Server.Psionics.Glimmer
             var tier = _sharedGlimmerSystem.GetGlimmerTier();
             if (tier < GlimmerTier.High)
                 return;
+            Beam(uid, args.Origin.Value, tier);
+        }
+
+        private void OnDestroyed(EntityUid uid, SharedGlimmerReactiveComponent component, DestructionEventArgs args)
+        {
+            Spawn("MaterialBluespace", Transform(uid).Coordinates);
+
+            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            if (tier < GlimmerTier.High)
+                return;
+
+            var totalIntensity = _sharedGlimmerSystem.Glimmer;
+            var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
+            var maxIntensity = 20;
+
+            BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
+            _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
+        }
+
+        private void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
+        {
+            List<EntityUid> targetList = new();
+            foreach (var target in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            {
+                targetList.Add(target.Owner);
+            }
+
+            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            {
+                targetList.Add(reactive.Owner);
+            }
+
+            _random.Shuffle(targetList);
+            foreach (var target in targetList)
+            {
+                if (targets <= 0)
+                    return;
+
+                Beam(prober, target, _sharedGlimmerSystem.GetGlimmerTier(), false);
+                targets--;
+            }
+        }
+
+        private void Beam(EntityUid prober, EntityUid target, GlimmerTier tier, bool obeyCD = true)
+        {
+            if (obeyCD && BeamCooldown != 0)
+                return;
+
+            if (Deleted(prober) || Deleted(target))
+                return;
 
             string beamproto;
 
@@ -174,15 +231,16 @@ namespace Content.Server.Psionics.Glimmer
                     break;
             }
 
-            var lxform = Transform(uid);
-            var txform = Transform(args.Origin.Value);
+            var lxform = Transform(prober);
+            var txform = Transform(target);
 
             if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
                 return;
             if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
                 return;
 
-            _beam.TryCreateBeam(uid, args.Origin.Value, beamproto);
+            _beam.TryCreateBeam(prober, target, beamproto);
+            BeamCooldown += 3f;
         }
 
         private void Reset(RoundRestartCleanupEvent args)
@@ -201,21 +259,30 @@ namespace Content.Server.Psionics.Glimmer
         {
             base.Update(frameTime);
             Accumulator += frameTime;
+            BeamCooldown = Math.Max(0, BeamCooldown - frameTime);
 
             if (Accumulator > UpdateFrequency)
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+                var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
                     var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
                     var ev = new GlimmerTierChangedEvent(LastGlimmerTier, currentGlimmerTier, glimmerTierDelta);
 
-                    foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
+                    foreach (var reactive in reactives)
                     {
                         UpdateEntityState(reactive.Owner, reactive, currentGlimmerTier, glimmerTierDelta);
                         RaiseLocalEvent(reactive.Owner, ev);
                     }
 
                     LastGlimmerTier = currentGlimmerTier;
+                }
+                if (currentGlimmerTier == GlimmerTier.Critical)
+                {
+                    foreach (var reactive in reactives)
+                    {
+                        BeamRandomNearProber(reactive.Owner, 1, 6);
+                    }
                 }
                 Accumulator = 0;
             }
