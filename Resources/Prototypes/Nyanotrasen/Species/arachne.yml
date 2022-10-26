@@ -3,7 +3,7 @@
   name: species-name-arachne
   roundStart: true
   prototype: MobArachne
-  sprites: MobHumanSprites
+  sprites: MobArachneSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobArachneDummy
   skinColoration: HumanToned
@@ -13,3 +13,21 @@
   youngAge: 150
   oldAge: 400
   maxAge: 666
+
+- type: speciesBaseSprites
+  id: MobArachneSprites
+  sprites:
+    Head: MobHumanHead
+    Hair: MobHumanoidAnyMarking
+    Chest: MobHumanTorso
+    Eyes: MobArachneEyes
+    LArm: MobHumanLArm
+    RArm: MobHumanRArm
+    LHand: MobHumanLHand
+    RHand: MobHumanRHand
+
+- type: humanoidBaseSprite
+  id: MobArachneEyes
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/eyes.rsi
+    state: eyes

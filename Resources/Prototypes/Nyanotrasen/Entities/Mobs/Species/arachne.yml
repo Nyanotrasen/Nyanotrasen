@@ -25,7 +25,7 @@
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
-      sprite: Mobs/Customization/eyes.rsi
+      sprite: Nyanotrasen/Mobs/Species/eyes.rsi
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
@@ -104,6 +104,13 @@
       path: /Audio/Effects/hit_kick.ogg
   - type: Inventory
     templateId: anytaur
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Bloodstream
+    bloodReagent: DemonsBlood
 
 - type: entity
   save: false
@@ -118,17 +125,21 @@
     noRot: true
     drawdepth: Mobs
     layers:
+    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+      state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
+    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+      state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: head_m
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
       color: "#008800"
-      sprite: Mobs/Customization/eyes.rsi
+      sprite: Nyanotrasen/Mobs/Species/eyes.rsi
       state: eyes
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
@@ -177,3 +188,5 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+  - type: Inventory
+    templateId: anytaur
