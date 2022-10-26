@@ -1,6 +1,7 @@
 - type: entity
   name: Urist McBelt
   id: UristMcBelt
+  noSpawn: true
   parent: MobHuman
   components:
     - type: Item
@@ -62,6 +63,7 @@
   name: Urist McWizard
   id: UristMcWizardBase
   suffix: base
+  noSpawn: true
   parent: MobHuman
   components:
     - type: GhostTakeoverAvailable

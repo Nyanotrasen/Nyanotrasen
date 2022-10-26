@@ -3248,5 +3248,13 @@ Entries:
   - {message: 'Spawn carp now only spawns one carp, like it says.', type: Tweak}
   id: 260000
   time: '2022-10-24T20:55:55.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'AdminObserver light is bigger.', type: Tweak}
+  - {message: 'AI core is pullable, and really heavy.', type: Fix}
+  - {message: 'Freedom implant has a minute long cooldown, enough time to remove the implant.', type: Tweak}
+  - {message: 'Added custom splash screen.', type: Add}
+  id: 270000
+  time: '2022-10-25T22:04:21.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}

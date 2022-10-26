@@ -119,7 +119,7 @@
     - Obey all orders from the crew as long as they do not conflict with law 1, with priorities to command's orders.
 
 - type: entity
-  # parent: VendingMachineSmartFridge
+  parent: BaseStructureDynamic
   id: AI
   name: AI
   description: Host for an AI. Likely more A than I.
@@ -161,26 +161,27 @@
   - type: Body
     template: AITemplate
     preset: AIPreset
-  - type: Clickable
-  - type: Anchorable
-    delay: 5
-  - type: Physics
-    bodyType: Static
-  - type: InteractionOutline
   - type: Fixtures
     fixtures:
     - shape:
         !type:PhysShapeAabb
         bounds: "-0.45,-0.45,0.45,0.45"
-      density: 190
+      density: 1000
       mask:
       - MachineMask
       layer:
-      - MachineLayer
+      - MidImpassable
+      - LowImpassable
+  - type: Anchorable
+    delay: 5
+  - type: Transform
+    anchored: true
+  - type: InteractionOutline
   - type: MobState
     thresholds:
       0: Alive
       1000: Dead
+  - type: Appearance
   - type: DamageStateVisuals
     states:
       Alive:
@@ -193,9 +194,11 @@
     color: "#9dc5c9"
   - type: Sprite
     drawdepth: Mobs
-    sprite: Nyandbox/Mobs/Silicon/aieye.rsi
-    state: ai
-    noRot: true
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      sprite: Nyandbox/Mobs/Silicon/aieye.rsi
+      state: ai
+      noRot: true
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
