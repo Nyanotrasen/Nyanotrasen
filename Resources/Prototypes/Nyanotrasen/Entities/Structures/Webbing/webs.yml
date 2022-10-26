@@ -1,0 +1,54 @@
+- type: entity
+  id: ArachneWeb
+  description: A huge spider web.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/web.rsi
+    state: web1
+  - type: SlowContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+    - hard: false
+      density: 7
+      shape:
+        !type:PhysShapeAabb
+        bounds: "-0.5,-0.5,0.5,0.5"
+      layer:
+      - Impassable
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Temperature
+    heatDamage:
+      types:
+        Heat: 5
+    coldDamage: {}
+    ColdDamageThreshold: 0
+  - type: Flammable
+    fireSpread: true
+    cold:
+      types: {}
+    damage:
+      types:
+        Heat: 1
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
