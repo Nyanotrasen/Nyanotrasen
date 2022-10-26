@@ -1,0 +1,15 @@
+- type: species
+  id: Arachne
+  name: species-name-arachne
+  roundStart: true
+  prototype: MobArachne
+  sprites: MobHumanSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobArachneDummy
+  skinColoration: HumanToned
+  sexes:
+    - Female
+  minAge: 60
+  youngAge: 150
+  oldAge: 400
+  maxAge: 666
