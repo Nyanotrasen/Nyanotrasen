@@ -27,4 +27,4 @@ station-event-random-sentience-announcement = Based on { $data }, we believe tha
 
 ## Ghost role description
 
-station-event-random-sentience-role-description = You are a sentient { $name }, brought to life through space magic.
+station-event-random-sentience-role-description = You are an { $name }, having gained new insight from the high amount of glimmer.

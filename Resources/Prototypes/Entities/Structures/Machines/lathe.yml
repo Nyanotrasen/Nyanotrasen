@@ -161,6 +161,8 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlasteel
+      - SheetPlasma
       - SheetGlass1
       - SheetRGlass
       - SheetPlastic
@@ -244,6 +246,12 @@
     idleState: icon
     runningState: building
     dynamicRecipes:
+      - FirelockElectronics
+      - DoorElectronics
+      - APCElectronics
+      - AirAlarmElectronics
+      - FireAlarmElectronics
+      - MailingUnitElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -283,6 +291,7 @@
       - WallmountSubstationElectronics
       - EmitterCircuitboard
       - GasRecyclerMachineCircuitboard
+      - SeedExtractorMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -344,6 +353,8 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlasteel
+      - SheetPlasma
       - SheetGlass1
       - SheetRGlass
       - SheetPlastic
@@ -409,6 +420,8 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlasteel
+      - SheetPlasma
       - SheetGlass1
       - SheetRGlass
       - SheetPlastic
@@ -501,6 +514,12 @@
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
+      - ClothingNeckMantleCap
+      - ClothingNeckMantleCE
+      - ClothingNeckMantleCMO
+      - ClothingNeckMantleHOP
+      - ClothingNeckMantleHOS
+      - ClothingNeckMantleRD
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -546,5 +565,4 @@
         - SheetPGlass30
         - SheetRPGlass30
         - SheetUranium1
-        - IngotGold1
         - IngotSilver1

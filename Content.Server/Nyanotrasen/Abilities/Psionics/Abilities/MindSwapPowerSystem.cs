@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
+using Content.Shared.Stealth.Components;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Server.MobState;
@@ -72,7 +73,6 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
-            Logger.Error("Running checks...");
             // How do we get trapped?
             // 1. Original target doesn't exist
             if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
@@ -100,7 +100,6 @@ namespace Content.Server.Abilities.Psionics
                 GetTrapped(uid);
                 return;
             }
-            Logger.Error("Checks passed...");
 
             Swap(uid, component.OriginalEntity, true);
         }
@@ -166,6 +165,7 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<TelegnosticProjectionComponent>(uid))
             {
                 RemComp<PsionicallyInvisibleComponent>(uid);
+                RemComp<StealthComponent>(uid);
                 EnsureComp<SharedSpeechComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
