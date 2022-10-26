@@ -32,7 +32,6 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
-            //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
         }
 
@@ -78,7 +77,7 @@ namespace Content.Server.Abilities.Psionics
             // 1. Original target doesn't exist
             if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
             {
-                GetDeleted(uid);
+                GetTrapped(uid);
                 return;
             }
             // 1. Original target is no longer mindswapped

@@ -6,6 +6,8 @@ using Content.Server.Mind.Components;
 using Content.Server.Visible;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
+using Content.Shared.MobState;
+using Content.Shared.MobState.EntitySystems;
 
 
 namespace Content.Server.Abilities.Psionics
@@ -17,6 +19,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
 
         public override void Initialize()
         {
@@ -25,6 +28,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<AITelegnosisPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<AITelegnosisPowerComponent, AITelegnosisPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<AITelegnosticProjectionComponent, MindRemovedMessage>(OnMindRemoved);
+            SubscribeLocalEvent<AITelegnosisPowerComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnInit(EntityUid uid, AITelegnosisPowerComponent component, ComponentInit args)
@@ -57,7 +61,23 @@ namespace Content.Server.Abilities.Psionics
         {
             QueueDel(uid);
         }
+
+        private void OnMobStateChanged(EntityUid uid, AITelegnosisPowerComponent component, MobStateChangedEvent args)
+        {
+            foreach (var projection in _entityManager.EntityQuery<AITelegnosticProjectionComponent>(true))
+            {
+                if (args.CurrentMobState is not DamageState.Dead) continue;
+
+                TryComp<MindSwappedComponent>(projection.Owner, out var mindSwapped);
+                if (mindSwapped == null) continue;
+
+                _mindSwap.Swap(projection.Owner, mindSwapped.OriginalEntity);
+                // QueueDel(projection.Owner);
+
+                Console.WriteLine("finished");
+            }
+        }
     }
 
-    public sealed class AITelegnosisPowerActionEvent : InstantActionEvent {}
+    public sealed class AITelegnosisPowerActionEvent : InstantActionEvent { }
 }
