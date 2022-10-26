@@ -9,6 +9,8 @@ using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Hands.Components;
+using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
@@ -612,12 +614,18 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                mail = entityManager.SpawnEntity("TestMail", coordinates);
-                mailComponent = entityManager.GetComponent<MailComponent>(mail);
-                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
+                Assert.IsTrue(entityManager.HasComponent<SharedHandsComponent>(realCandidate1),
+                    "Human dummy candidate does not have Hands component.");
+
+                Assert.IsTrue(entityManager.HasComponent<ItemComponent>(realCandidate1ID),
+                    "Human dummy candidate's ID does not have Item component.");
 
                 Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
                     "Human dummy candidate could not pick up his ID.");
+
+                mail = entityManager.SpawnEntity("TestMail", coordinates);
+                mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
 
                 entityManager.EventBus.RaiseLocalEvent(mail,
                     new AfterInteractUsingEvent(
