@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Inventory;
+using Content.Client.Humanoid;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
@@ -74,6 +75,7 @@ public sealed class ClientClothingSystem : ClothingSystem
                 return;
         }
 
+
         // add each layer to the visuals
         var i = 0;
         foreach (var layer in layers)
@@ -131,6 +133,10 @@ public sealed class ClientClothingSystem : ClothingSystem
         var layer = new PrototypeLayerData();
         layer.RsiPath = rsi.Path.ToString();
         layer.State = state;
+
+        if (clothing.FemaleMask != null)
+            layer.Shader = "StencilDraw";
+
         layers = new() { layer };
 
         return true;
@@ -188,14 +194,18 @@ public sealed class ClientClothingSystem : ClothingSystem
         if(!Resolve(equipee, ref inventory, ref sprite) || !Resolve(equipment, ref clothingComponent, false))
             return;
 
-        if (slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
+        if (clothingComponent.FemaleMask != null && slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
         {
-            sprite.LayerSetState(HumanoidVisualLayers.StencilMask, clothingComponent.FemaleMask switch
+            if (TryComp<HumanoidComponent>(equipee, out var humanoid) && humanoid.Sex == Sex.Female)
             {
-                FemaleClothingMask.NoMask => "female_none",
-                FemaleClothingMask.UniformTop => "female_top",
-                _ => "female_full",
-            });
+                sprite.LayerSetState(HumanoidVisualLayers.StencilMask, clothingComponent.FemaleMask switch
+                {
+                    FemaleClothingMask.NoMask => "female_none",
+                    FemaleClothingMask.UniformTop => "female_top",
+                    _ => "female_full",
+                });
+                sprite.LayerSetVisible(HumanoidVisualLayers.StencilMask, true);
+            }
         }
 
         if (!_inventorySystem.TryGetSlot(equipee, slot, out var slotDef, inventory))
