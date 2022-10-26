@@ -181,8 +181,7 @@ namespace Content.Server.Psionics.Glimmer
             var maxIntensity = 20;
 
             var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.05f, 0.15f);
-            Logger.Error("Removed: " + removed);
-            _sharedGlimmerSystem.AddToGlimmer(0 - (int) removed);
+            _sharedGlimmerSystem.Glimmer -= (int) removed;
             BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }

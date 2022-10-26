@@ -67,7 +67,7 @@ namespace Content.Server.Nyanotrasen.Chat
             _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, clients.ToList(), Color.PaleVioletRed);
 
             if (_random.Prob(0.1f))
-                _glimmerSystem.AddToGlimmer(1);
+                _glimmerSystem.Glimmer++;
 
             if (_random.Prob(Math.Min(0.33f + ((float) _glimmerSystem.Glimmer / 1500), 1)))
             {

@@ -26,11 +26,11 @@ namespace Content.Server.Psionics.Glimmer
                     source.Accumulator -= source.SecondsPerGlimmer;
                     if (source.AddToGlimmer)
                     {
-                        _sharedGlimmerSystem.AddToGlimmer(1);
+                        _sharedGlimmerSystem.Glimmer++;
                     }
                     else
                     {
-                        _sharedGlimmerSystem.AddToGlimmer(-1);
+                        _sharedGlimmerSystem.Glimmer--;
                     }
                 }
             }
