@@ -24,6 +24,13 @@ namespace Content.Server.Mail.Components
         public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 
         /// <summary>
+        /// The MailDeliveryPoolPrototype that's used to select what mail this
+        /// teleporter can deliver.
+        /// </summary>
+        [DataField("mailPool")]
+        public string MailPool = "RandomMailDeliveryPool";
+
+        /// <summary>
         /// How many mail candidates do we need per actual delivery sent when
         /// the mail goes out? The number of candidates is divided by this number
         /// to determine how many deliveries will be teleported in.

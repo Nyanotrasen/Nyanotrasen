@@ -1,6 +1,6 @@
-- type: weightedRandom
+- type: mailDeliveryPool
   id: RandomMailDeliveryPool
-  weights:
+  everyone:
     MailAMEGuide: 1
     MailBible: 1
     MailBikeHorn: 1

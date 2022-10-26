@@ -25,7 +25,6 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Maps;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Storage;
@@ -352,6 +351,23 @@ namespace Content.Server.Mail
             return false;
         }
 
+        public bool TryMatchJobTitleToPrototype(string jobTitle, [NotNullWhen(true)] out JobPrototype? jobPrototype)
+        {
+            foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
+            {
+                if (job.LocalizedName == jobTitle)
+                {
+                    jobPrototype = job;
+                    return true;
+                }
+            }
+
+            Logger.Debug($"Was unable to find Prototype for jobTitle: {jobTitle}");
+
+            jobPrototype = null;
+            return false;
+        }
+
         public bool TryMatchJobTitleToIcon(string jobTitle, [NotNullWhen(true)] out string? jobIcon)
         {
             foreach (var job in _prototypeManager.EnumeratePrototypes<JobPrototype>())
@@ -432,20 +448,60 @@ namespace Content.Server.Mail
         }
 
         /// <summary>
-        /// Return how many parcels are waiting for delivery.
+        /// Return the parcels waiting for delivery.
         /// </summary>
-        public uint GetUndeliveredParcelCount(EntityUid uid)
+        /// <param name="uid">The mail teleporter to check.</param>
+        public List<EntityUid> GetUndeliveredParcels(EntityUid uid)
         {
             // An alternative solution would be to keep a list of the unopened
             // parcels spawned by the teleporter and see if they're not carried
             // by someone, but this is simple, and simple is good.
-            uint undeliveredParcelCount = 0;
+            List<EntityUid> undeliveredParcels = new();
             foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates))
             {
                 if (HasComp<MailComponent>(entityInTile))
-                    undeliveredParcelCount++;
+                    undeliveredParcels.Add(entityInTile);
             }
-            return undeliveredParcelCount;
+            return undeliveredParcels;
+        }
+
+        /// <summary>
+        /// Return how many parcels are waiting for delivery.
+        /// </summary>
+        /// <param name="uid">The mail teleporter to check.</param>
+        public uint GetUndeliveredParcelCount(EntityUid uid)
+        {
+            return (uint) GetUndeliveredParcels(uid).Count();
+        }
+
+        /// <summary>
+        /// Get the list of valid mail recipients for a mail teleporter.
+        /// </summary>
+        public List<MailRecipient> GetMailRecipientCandidates(EntityUid uid)
+        {
+            List<MailRecipient> candidateList = new();
+
+            foreach (var receiver in EntityQuery<MailReceiverComponent>())
+            {
+                // Because of the way this works, people are not considered
+                // candidates for mail if there is no PDA or ID in their slot
+                // or active hand. A better future solution might be checking
+                // the station records, possibly cross-referenced with the
+                // medical crew scanner to look for living recipients. TODO
+                if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
+                        continue;
+                if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
+                    && TryComp<AccessComponent>(idCard.Owner, out var access)
+                    && idCard.FullName != null
+                    && idCard.JobTitle != null)
+                {
+                    HashSet<String> accessTags = access.Tags;
+                    var candidateTuple = new MailRecipient(idCard.FullName, idCard.JobTitle, accessTags);
+                    candidateList.Add(candidateTuple);
+                }
+            }
+
+            return candidateList;
         }
 
         /// <summary>
@@ -464,24 +520,7 @@ namespace Content.Server.Mail
 
             _audioSystem.PlayPvs(component.TeleportSound, uid);
 
-            List<(string recipientName, string recipientJob, HashSet<String> accessTags)> candidateList = new();
-            foreach (var receiver in EntityQuery<MailReceiverComponent>())
-            {
-                // Because of the way this works, people are not considered
-                // candidates for mail if there is no PDA or ID in their slot
-                // or active hand. A better future solution might be checking
-                // the station records, possibly cross-referenced with the
-                // medical crew scanner to look for living recipients. TODO
-                if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
-                if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard) && TryComp<AccessComponent>(idCard.Owner, out var access)
-                    && idCard.FullName != null && idCard.JobTitle != null)
-                {
-                    HashSet<String> accessTags = access.Tags;
-                    var candidateTuple = (idCard.FullName, idCard.JobTitle, accessTags);
-                    candidateList.Add(candidateTuple);
-                }
-            }
+            var candidateList = GetMailRecipientCandidates(uid);
 
             if (candidateList.Count <= 0)
             {
@@ -489,9 +528,9 @@ namespace Content.Server.Mail
                 return;
             }
 
-            if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomMailDeliveryPool", out var pool))
+            if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
             {
-                Logger.Error("Can't index the random mail delivery pool!");
+                Logger.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
                 return;
             }
 
@@ -499,9 +538,46 @@ namespace Content.Server.Mail
                 i < component.MinimumDeliveriesPerTeleport + candidateList.Count / component.CandidatesPerDelivery;
                 i++)
             {
-                var mail = EntityManager.SpawnEntity(pool.Pick(), Transform(uid).Coordinates);
                 var candidate = _random.Pick(candidateList);
-                SetupMail(mail, component, candidate.recipientName, candidate.recipientJob, candidate.accessTags);
+                var possibleParcels = new Dictionary<string, float>(pool.Everyone);
+
+                if (TryMatchJobTitleToPrototype(candidate.Job, out JobPrototype? jobPrototype)
+                    && pool.Jobs.TryGetValue(jobPrototype.ID, out Dictionary<string, float>? jobParcels))
+                {
+                    possibleParcels = possibleParcels.Union(jobParcels)
+                        .GroupBy(g => g.Key)
+                        .ToDictionary(pair => pair.Key, pair => pair.First().Value);
+                }
+
+                if (TryMatchJobTitleToDepartment(candidate.Job, out string? department)
+                    && pool.Departments.TryGetValue(department, out Dictionary<string, float>? departmentParcels))
+                {
+                    possibleParcels = possibleParcels.Union(departmentParcels)
+                        .GroupBy(g => g.Key)
+                        .ToDictionary(pair => pair.Key, pair => pair.First().Value);
+                }
+
+                var accumulated = 0f;
+                var randomPoint = _random.NextFloat(possibleParcels.Values.Sum());
+                string? chosenParcel = null;
+                foreach (var (key, weight) in possibleParcels)
+                {
+                    accumulated += weight;
+                    if (accumulated >= randomPoint)
+                    {
+                        chosenParcel = key;
+                        break;
+                    }
+                }
+
+                if (chosenParcel == null)
+                {
+                    Logger.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
+                    return;
+                }
+
+                var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
+                SetupMail(mail, component, candidate.Name, candidate.Job, candidate.AccessTags);
             }
         }
 
@@ -540,6 +616,20 @@ namespace Content.Server.Mail
         private void UpdateMailTrashState(EntityUid uid, bool isTrash)
         {
             _appearanceSystem.SetData(uid, MailVisuals.IsTrash, isTrash);
+        }
+    }
+
+    public struct MailRecipient
+    {
+        public string Name;
+        public string Job;
+        public HashSet<String> AccessTags;
+
+        public MailRecipient(string name, string job, HashSet<String> accessTags)
+        {
+            Name = name;
+            Job = job;
+            AccessTags = accessTags;
         }
     }
 }
