@@ -16,7 +16,7 @@
   config:
     !type:GlimmerEventRuleConfiguration
     id: MundaneDischarge
-    maximumGlimmer: 400
+    maximumGlimmer: 300
     glimmerBurnLower: 8
     glimmerBurnUpper: 30
 
@@ -57,7 +57,7 @@
   config:
     !type:GlimmerEventRuleConfiguration
     id: GlimmerRandomSentience
-    minimumGlimmer: 400
+    minimumGlimmer: 300
     maximumGlimmer: 600
     report: glimmer-event-report-signatures
 

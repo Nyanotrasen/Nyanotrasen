@@ -88,7 +88,7 @@ namespace Content.Server.Abilities.Psionics
 
             EntityManager.AddComponent(uid, newComponent);
 
-            _glimmerSystem.AddToGlimmer(_random.Next(1, 5));
+            _glimmerSystem.Glimmer += _random.Next(1, 5);
         }
 
         public void RemovePsionics(EntityUid uid)
