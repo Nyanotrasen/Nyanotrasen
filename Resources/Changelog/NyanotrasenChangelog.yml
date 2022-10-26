@@ -448,3 +448,25 @@ Entries:
     type: Add
   id: 48
   time: '2022-10-25T01:04:35.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Mundane discharge max glimmer reduced by 100.
+    type: Tweak
+  - message: Random sentience min glimmer reduced by 100.
+    type: Tweak
+  - message: Added 2 new glimmer console commands for admins and developers.
+    type: Add
+  id: 49
+  time: '2022-10-26T00:28:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed lamiae. Spiders soon.
+    type: Remove
+  - message: Fixed borg latejoin message and traitor objectives targeting borgs.
+    type: Fix
+  - message: Fixed several other traitor objective bugs.
+    type: Fix
+  - message: All relevant reagents are now affected by the small amount scaling.
+    type: Add
+  id: 50
+  time: '2022-10-25T23:54:16.0000000+00:00'
