@@ -1,5 +1,7 @@
 action-name-spin-web = Spin Web
 action-desc-spin-web = Use your spinnerets to make a spider web in the current tile. Makes you hungrier and thirstier.
+action-name-spin-web-space = You can't spin a web in space!
+action-name-spin-web-blocked = There's no room for a web here.
 spin-web-action-hungry = You're too hungry to spin a web!
 spin-web-action-thirsty = You're too thirsty to spin a web!
 spun-web-second-person = You spin up a web.

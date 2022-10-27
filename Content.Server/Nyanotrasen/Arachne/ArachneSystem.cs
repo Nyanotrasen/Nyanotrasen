@@ -4,6 +4,7 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Maps;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
@@ -11,8 +12,13 @@ using Content.Server.Popups;
 using Content.Server.Buckle.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
+using Robust.Shared.Physics;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Content.Shared.Physics;
+using Content.Shared.Doors.Components;
+using Content.Shared.MobState.Components;
 
 namespace Content.Server.Arachne
 {
@@ -23,6 +29,8 @@ namespace Content.Server.Arachne
         [Dependency] private readonly ThirstSystem _thirstSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly ITileDefinitionManager _tileDefMan = default!;
 
 
         public override void Initialize()
@@ -111,11 +119,31 @@ namespace Content.Server.Arachne
                     _popupSystem.PopupEntity(Loc.GetString("spin-web-action-thirsty"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
                     return;
                 }
-                hunger.UpdateFood(-8);
-                _thirstSystem.UpdateThirst(thirst, -20);
             }
 
-            Spawn("ArachneWeb", Transform(args.Performer).Coordinates.SnapToGrid());
+            var coords = Transform(args.Performer).Coordinates.SnapToGrid();
+            if (!_mapManager.TryGetGrid(coords.GetGridUid(EntityManager), out var grid))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-space"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                return;
+            }
+
+            foreach (var entity in coords.GetEntitiesInTile())
+            {
+                IPhysBody? physics = null; // We use this to check if it's impassable
+                if ((HasComp<WebComponent>(entity)) || // Is there already a web there?
+                    ((Resolve(entity, ref physics, false) && (physics.CollisionLayer & (int) CollisionGroup.Impassable) != 0) // Is it impassable?
+                    &&  !(TryComp<DoorComponent>(entity, out var door) && door.State != DoorState.Closed))) // Is it a door that's open and so not actually impassable?
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-blocked"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                    return;
+                }
+            }
+
+            hunger?.UpdateFood(-8);
+            if (thirst != null)
+                _thirstSystem.UpdateThirst(thirst, -20);
+            Spawn("ArachneWeb", coords);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer, Filter.PvsExcept(args.Performer), Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.Medium);
             args.Handled = true;
