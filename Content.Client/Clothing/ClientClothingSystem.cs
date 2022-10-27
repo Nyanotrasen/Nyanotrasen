@@ -199,7 +199,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         {
             if (TryComp<HumanoidComponent>(equipee, out var humanoid) && humanoid.Sex == Sex.Female)
             {
-                Logger.Error("Clothing.FemaleMask: " + clothingComponent.FemaleMask);
                 sprite.LayerSetState(HumanoidVisualLayers.StencilMask, clothingComponent.FemaleMask switch
                 {
                     FemaleClothingMask.NoMask => "female_none",
