@@ -1,0 +1,18 @@
+# XenoVirus
+- type: polymorph
+  id: XenoQueenMorph
+  entity: MobXenoQueen
+  forced: true
+  inventory: Drop
+  transferName: true
+  revertOnCrit: true
+  revertOnDeath: true
+
+- type: polymorph
+  id: XenoDroneMorph
+  entity: MobXenoDrone
+  forced: true
+  inventory: Drop
+  transferName: true
+  revertOnCrit: true
+  revertOnDeath: true

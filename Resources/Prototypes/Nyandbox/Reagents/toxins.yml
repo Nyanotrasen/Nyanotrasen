@@ -98,3 +98,24 @@
         damage:
           groups:
             Genetic: 100
+
+- type: reagent
+  id: XenoBlood
+  name: Xeno Blood
+  desc: You probably don't want to consume this, it looks like there's a ton of tiny things swimming in it..
+  physicalDesc: reagent-physical-desc-necrotic
+  flavor: bitter
+  color: "#38384b"
+  metabolisms:
+    Poison:
+      effects:
+        - !type:HealthChange
+          damage:
+            types:
+              Cellular: 2
+        - !type:ChemCauseDisease
+          causeChance: 0.25
+          disease: XenoVirus
+        - !type:ChemCauseDisease
+          causeChance: 0.75
+          disease: XenoDroneVirus

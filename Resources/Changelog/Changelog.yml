@@ -3258,5 +3258,13 @@ Entries:
   - {message: 'AI eye is forced to return to their core when it is killed (this does not delete them like the previous log says). AIs will be reviveable in the future somehow, for now only wizards and admins can rejuvinate it.', type: Fix}
   id: 270000
   time: '2022-10-25T22:04:21.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'XenoVirus diseases, one makes you into a queen, the other into a drone, after a long painful process.', type: Add}
+  - {message: 'XenoBlood, gives a random XenoVirus.', type: Add}
+  - {message: 'Unused antag role and gamerules for XenoOutbreak.', type: Add}
+  - {message: 'Some animals no longer can carry diseases.', type: Tweak}
+  id: 280000
+  time: '2022-10-26T18:20:28.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Tweak/Fix}

@@ -18,3 +18,7 @@ roles-antag-nuclear-operative-commander-objective = Lead your team to the destru
 
 roles-antag-nuclear-operative-name = Nuclear operative
 roles-antag-nuclear-operative-objective = Find the nuke disk and blow up the station.
+
+roles-antag-xeno-queen-name = Xeno queen
+roles-antag-xeno-name = Xeno drone
+roles-antag-xeno-objective = Infect as many people as possible and overtake the station.

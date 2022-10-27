@@ -19,3 +19,7 @@ disease-proto-tongue-twister = Tongue Twister
 # Zombie
 disease-proto-zombie = Zombie Virus
 disease-proto-zombie-passive = Zombie Virus
+
+# XenoVirus
+disease-proto-xeno = XenoVirus
+disease-proto-xenodrone = XenoVirus

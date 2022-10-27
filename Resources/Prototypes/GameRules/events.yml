@@ -3,21 +3,21 @@
   config:
     !type:StationEventRuleConfiguration
     id: BreakerFlip
-    weight: 5
+    weight: 10
     endAfter: 1
     # maxOccurrences: 5
     #minimumPlayers: 15
 
-# - type: gameRule
-#   id: BureaucraticError
-#   config:
-#     !type:StationEventRuleConfiguration
-#     id: BureaucraticError
-#     startAnnouncement: station-event-bureaucratic-error-announcement
-#     #minimumPlayers: 25
-#     weight: 5
-#     maxOccurrences: 2
-#     endAfter: 1
+- type: gameRule
+  id: BureaucraticError
+  config:
+    !type:StationEventRuleConfiguration
+    id: BureaucraticError
+    startAnnouncement: station-event-bureaucratic-error-announcement
+    #minimumPlayers: 25
+    weight: 5
+    maxOccurrences: 2
+    endAfter: 1
 
 - type: gameRule
   id: DiseaseOutbreak
@@ -37,7 +37,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: Dragon
-    weight: 5
+    weight: 10
     endAfter: 2
     earliestStart: 15
     # maxOccurrences: 7
@@ -59,7 +59,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: FalseAlarm
-    weight: 5
+    weight: 15
     endAfter: 1
     # maxOccurrences: 5
 
@@ -115,28 +115,28 @@
     # maxOccurrences: 1
     endAfter: 50
 
-# - type: gameRule
-#   id: PowerGridCheck
-#   config:
-#     !type:StationEventRuleConfiguration
-#     id: PowerGridCheck
-#     weight: 5
-#     maxOccurrences: 3
-#     startAnnouncement: station-event-power-grid-check-start-announcement
-#     endAnnouncement: station-event-power-grid-check-end-announcement
-#     startAudio:
-#       path: /Audio/Announcements/power_off.ogg
-#     startAfter: 12
+- type: gameRule
+  id: PowerGridCheck
+  config:
+    !type:StationEventRuleConfiguration
+    id: PowerGridCheck
+    weight: 10
+    maxOccurrences: 3
+    startAnnouncement: station-event-power-grid-check-start-announcement
+    endAnnouncement: station-event-power-grid-check-end-announcement
+    startAudio:
+      path: /Audio/Announcements/power_off.ogg
+    startAfter: 12
 
-# - type: gameRule
-#   id: RandomSentience
-#   config:
-#     !type:StationEventRuleConfiguration
-#     id: RandomSentience
-#     weight: 5
-#     endAfter: 1
-#     startAudio:
-#       path: /Audio/Announcements/attention.ogg
+- type: gameRule
+  id: RandomSentience
+  config:
+    !type:StationEventRuleConfiguration
+    id: RandomSentience
+    weight: 15
+    endAfter: 1
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
 
 - type: gameRule
   id: VentClog
@@ -170,6 +170,19 @@
     !type:StationEventRuleConfiguration
     id: Zombie
     earliestStart: 20
-    weight: 5
+    weight: 2.5
     endAfter: 1
+    # maxOccurrences: 1
+
+# - type: gameRule
+#   id: XenoOutbreak
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: Xeno
+#     startAnnouncement: station-event-xeno-outbreak-announcement
+#     startAudio:
+#       path: /Audio/Announcements/aliens.ogg
+#     earliestStart: 15
+#     weight: 2.5
+#     endAfter: 1
     # maxOccurrences: 1
