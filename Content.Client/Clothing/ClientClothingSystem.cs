@@ -10,6 +10,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
+using Content.Shared.Arachne;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -134,7 +135,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         layer.RsiPath = rsi.Path.ToString();
         layer.State = state;
 
-        if (clothing.FemaleMask != null)
+        if (slot == "jumpsuit")
             layer.Shader = "StencilDraw";
 
         layers = new() { layer };
@@ -194,10 +195,11 @@ public sealed class ClientClothingSystem : ClothingSystem
         if(!Resolve(equipee, ref inventory, ref sprite) || !Resolve(equipment, ref clothingComponent, false))
             return;
 
-        if (clothingComponent.FemaleMask != null && slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
+        if (slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
         {
             if (TryComp<HumanoidComponent>(equipee, out var humanoid) && humanoid.Sex == Sex.Female)
             {
+                Logger.Error("Clothing.FemaleMask: " + clothingComponent.FemaleMask);
                 sprite.LayerSetState(HumanoidVisualLayers.StencilMask, clothingComponent.FemaleMask switch
                 {
                     FemaleClothingMask.NoMask => "female_none",

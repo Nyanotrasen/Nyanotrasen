@@ -18,11 +18,9 @@
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
-    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
-      state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       sprite: Nyanotrasen/Mobs/Species/arachne.rsi
-      state: spider_body
+      state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
@@ -48,7 +46,6 @@
       state: female_full
       visible: false
     - map: [ "jumpsuit" ]
-      shader: StencilDraw
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
@@ -127,6 +124,9 @@
       - "enum.HumanoidVisualLayers.Head"
       - "enum.HumanoidVisualLayers.LArm"
       - "enum.HumanoidVisualLayers.RArm"
+  - type: MovedByPressure
+    pressureResistance: 4
+  - type: MovementAlwaysTouching
 
 - type: entity
   save: false
@@ -148,11 +148,9 @@
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
       state: torso_m
-    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
-      state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       sprite: Nyanotrasen/Mobs/Species/arachne.rsi
-      state: spider_body
+      state: spider_body_front
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
@@ -178,7 +176,6 @@
       state: female_full
       visible: false
     - map: [ "jumpsuit" ]
-      shader: StencilDraw
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
