@@ -65,3 +65,9 @@
       Flammable: [Touch]
       Extinguish: [Touch]
   - type: Web
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 12
+    spawned:
+    - id: MaterialCloth1
+      amount: 3
