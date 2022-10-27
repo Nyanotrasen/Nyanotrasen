@@ -1,0 +1,12 @@
+- type: job
+  id: SAI
+  name: "station AI"
+  playTimeTracker: JobSAI
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 24000
+  icon: "Unknown"
+  supervisors: "all crew"
+  canBeAntag: false
+  jobEntity: AI
+  startingGear: CyborgGear # for char preview only
