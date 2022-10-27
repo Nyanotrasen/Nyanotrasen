@@ -71,3 +71,13 @@
     spawned:
     - id: MaterialCloth1
       amount: 3
+  - type: Strap
+    position: Stand
+    rotation: 180
+  - type: HealOnBuckle
+    damage:
+      groups:
+        Brute: -0.4
+        Burn: -0.4
+      types:
+        Poison: -0.2
