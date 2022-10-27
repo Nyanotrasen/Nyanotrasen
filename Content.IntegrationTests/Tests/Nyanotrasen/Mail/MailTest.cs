@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -625,14 +624,24 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
+                // Most of this is sanity checking due to how tests interact
+                // with each other when pairs are borrowed. These tests run
+                // fine when filtered alone.
+
                 Assert.IsTrue(entityManager.HasComponent<SharedHandsComponent>(realCandidate1),
                     "Human dummy candidate does not have Hands component.");
+
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                Assert.IsNotNull(handsComponent.ActiveHand,
+                    "Human dummy candidate does not have an ActiveHand.");
 
                 Assert.IsTrue(entityManager.HasComponent<ItemComponent>(realCandidate1ID),
                     "Human dummy candidate's ID does not have Item component.");
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                // Force pickup because other tests might have done weird things.
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
                 mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
@@ -698,8 +707,10 @@ namespace Content.IntegrationTests.Tests
 
                 mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 entityManager.EventBus.RaiseLocalEvent(mail,
                     new AfterInteractUsingEvent(
@@ -791,8 +802,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -842,8 +855,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -912,8 +927,10 @@ namespace Content.IntegrationTests.Tests
 
                 mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 eventArgs = new AfterInteractUsingEvent(
                     realCandidate1,
@@ -1070,8 +1087,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -1120,8 +1139,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                    "Human dummy candidate did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "The number of mail recipients was incorrect.");
@@ -1194,8 +1215,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "clown");
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
-                    "Human dummy candidate #1 could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent1),
+                    "Human dummy candidate #1 did not have hands.");
+
+                handsSystem.DoPickup(realCandidate1, handsComponent1.ActiveHand, realCandidate1ID, handsComponent1);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "Number of mail recipients is incorrect.");
@@ -1206,8 +1229,10 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate2ID, "Rob");
                 idCardSystem.TryChangeJobTitle(realCandidate2ID, "mime");
 
-                Assert.IsTrue(handsSystem.TryPickup(realCandidate2, realCandidate2ID),
-                    "Human dummy candidate #2 could not pick up his ID.");
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate2, out SharedHandsComponent handsComponent2),
+                    "Human dummy candidate #2 did not have hands.");
+
+                handsSystem.DoPickup(realCandidate2, handsComponent2.ActiveHand, realCandidate2ID, handsComponent2);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(2),
                     "Number of mail recipients is incorrect.");
