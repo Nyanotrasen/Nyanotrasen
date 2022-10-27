@@ -5,12 +5,6 @@
     - type: PermanentBlindness
 
 - type: trait
-  id: ColorBlindnessMonochrome
-  name: Monochromatic Color Blindness
-  components:
-    - type: Monochromacy
-
-- type: trait
   id: Narcolepsy
   name: Narcolepsy
   components:

@@ -1,0 +1,28 @@
+- type: trait
+  id: ColorBlindnessMonochrome
+  name: Monochromatic ColorBlindness
+  components:
+    - type: Monochromacy
+
+- type: trait
+  id: EasyDrunk
+  name: Low Alcohol Tolerance
+  components:
+    - type: Drunk
+    - type: AutoRegenReagent
+      solution: chemicals
+      reagents:
+        - Ethanol
+      unitsPerSecond: 0.5 # 0.55
+
+- type: trait
+  id: FakeMime
+  name: Mute
+  components:
+    - type: MuteTrait
+
+# - type: trait
+#   id: Deaf
+#   name: Deaf
+#   components:
+    # - type: DeafTrait
