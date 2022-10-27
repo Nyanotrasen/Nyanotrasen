@@ -8,8 +8,16 @@
       - Wall
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/web.rsi
-    state: web1
+    layers:
+      - sprite: Nyanotrasen/Structures/web.rsi
+        state: web1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          web1: ""
+      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+          web2: ""
   - type: SlowContacts
     walkSpeedModifier: 0.2
     sprintSpeedModifier: 0.2
@@ -56,3 +64,4 @@
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
+  - type: Web
