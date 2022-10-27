@@ -12,6 +12,8 @@
       - sprite: Nyanotrasen/Structures/web.rsi
         state: web1
         map: [ "enum.DamageStateVisualLayers.Base" ]
+    drawdepth: Overdoors
+    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:
@@ -82,3 +84,6 @@
       types:
         Poison: -0.2
   - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: 1
