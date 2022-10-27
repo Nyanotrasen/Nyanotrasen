@@ -112,6 +112,13 @@
     bloodReagent: DemonsBlood
   - type: BloodSucker
   - type: Arachne
+  - type: DamageVisuals
+    thresholds: [ 20, 40, 100 ]
+    targetLayers:
+      - "enum.HumanoidVisualLayers.Chest"
+      - "enum.HumanoidVisualLayers.Head"
+      - "enum.HumanoidVisualLayers.LArm"
+      - "enum.HumanoidVisualLayers.RArm"
 
 - type: entity
   save: false
