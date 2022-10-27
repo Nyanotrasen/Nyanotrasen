@@ -11,7 +11,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      sprite: Nyanotrasen/Mobs/Species/arachne.rsi
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
@@ -19,6 +20,9 @@
       state: torso_m
     - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
       state: spider_body_front
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+      state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
@@ -74,6 +78,10 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: none
+      visible: false
   - type: Humanoid
     species: Arachne
   - type: Fixtures
@@ -133,7 +141,8 @@
     noRot: true
     drawdepth: Mobs
     layers:
-    - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      sprite: Nyanotrasen/Mobs/Species/arachne.rsi
       state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
       color: "#e8b59b"
@@ -141,6 +150,9 @@
       state: torso_m
     - sprite: Nyanotrasen/Mobs/Species/arachne.rsi
       state: spider_body_front
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      sprite: Nyanotrasen/Mobs/Species/arachne.rsi
+      state: spider_body
     - map: [ "enum.HumanoidVisualLayers.Head" ]
       color: "#e8b59b"
       sprite: Mobs/Species/Human/parts.rsi
@@ -162,7 +174,7 @@
       state: l_leg
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-      sprite: Mobs/Customization/masking_helpers.rsi
+      sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
       state: female_full
       visible: false
     - map: [ "jumpsuit" ]
@@ -196,5 +208,9 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: none
+      visible: false
   - type: Inventory
     templateId: anytaur

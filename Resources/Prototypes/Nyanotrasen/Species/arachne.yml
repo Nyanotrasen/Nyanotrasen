@@ -4,7 +4,7 @@
   roundStart: true
   prototype: MobArachne
   sprites: MobArachneSprites
-  markingLimits: MobHumanMarkingLimits
+  markingLimits: MobArachneMarkingLimits
   dollPrototype: MobArachneDummy
   skinColoration: HumanToned
   sexes:
@@ -13,6 +13,23 @@
   youngAge: 150
   oldAge: 400
   maxAge: 666
+
+- type: markingPoints
+  id: MobArachneMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Arms:
+      points: 2
+      required: false
+
 
 - type: speciesBaseSprites
   id: MobArachneSprites
