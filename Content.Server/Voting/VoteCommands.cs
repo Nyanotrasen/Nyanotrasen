@@ -56,7 +56,8 @@ namespace Content.Server.Voting
     [AdminCommand(AdminFlags.Admin)]
     public sealed class CreateCustomCommand : IConsoleCommand
     {
-        private const int MaxArgCount = 10;
+        private const int MaxArgCount = 25;
+        private const int MinArgCount = 3;
 
         public string Command => "customvote";
         public string Description => Loc.GetString("cmd-customvote-desc");
@@ -64,9 +65,9 @@ namespace Content.Server.Voting
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            if (args.Length < 3 || args.Length > MaxArgCount)
+            if (args.Length < MinArgCount || args.Length > MaxArgCount)
             {
-                shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 3), ("upper", 10)));
+                shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", MinArgCount), ("upper", MaxArgCount)));
                 return;
             }
 
