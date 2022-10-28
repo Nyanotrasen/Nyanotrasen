@@ -546,8 +546,6 @@ namespace Content.Server.Mail
             if (GetUndeliveredParcelCount(uid) >= component.MaximumUndeliveredParcels)
                 return;
 
-            _audioSystem.PlayPvs(component.TeleportSound, uid);
-
             var candidateList = GetMailRecipientCandidates(uid);
 
             if (candidateList.Count <= 0)
@@ -607,6 +605,8 @@ namespace Content.Server.Mail
                 var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
                 SetupMail(mail, component, candidate.Name, candidate.Job, candidate.AccessTags);
             }
+
+            _audioSystem.PlayPvs(component.TeleportSound, uid);
         }
 
         public void OpenMail(EntityUid uid, MailComponent? component = null, EntityUid? user = null)
