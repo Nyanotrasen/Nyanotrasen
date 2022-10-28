@@ -40,7 +40,7 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageModifierSet: Wood
+    damageModifierSet: Web
   - type: Destructible
     thresholds:
     - trigger:
