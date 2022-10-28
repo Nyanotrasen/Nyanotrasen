@@ -1,3 +1,4 @@
+#nullable enable
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,18 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Hands.Components;
 using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
+using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
 using Content.Server.Station.Systems;
 
-namespace Content.IntegrationTests.Tests
+namespace Content.IntegrationTests.Tests.Mail
 {
     [TestFixture]
     [TestOf(typeof(MailSystem))]
@@ -51,6 +52,7 @@ namespace Content.IntegrationTests.Tests
   - type: Body
     template: HumanoidTemplate
     preset: HumanPreset
+    centerSlot: torso
   - type: MailReceiver
 
 - type: entity
@@ -402,9 +404,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitAssertion(() =>
             {
-#nullable enable
                 mailSystem.TryMatchJobTitleToDepartment("passenger", out string? jobDepartment);
-#nullable disable
 
                 Assert.IsNotNull(jobDepartment,
                     "MailSystem was unable to match the passenger job title to a department.");
@@ -429,9 +429,7 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitAssertion(() =>
             {
-#nullable enable
                 mailSystem.TryMatchJobTitleToIcon("passenger", out string? jobIcon);
-#nullable disable
 
                 Assert.IsNotNull(jobIcon,
                     "MailSystem was unable to match the passenger job title to a job icon.");
@@ -470,9 +468,9 @@ namespace Content.IntegrationTests.Tests
 
                 mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
 
-                var mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                object jobIcon;
 
-                Assert.IsTrue(appearanceSystem.TryGetData(mail, MailVisuals.JobIcon, out var jobIcon),
+                Assert.IsTrue(appearanceSystem.TryGetData(mail, MailVisuals.JobIcon, out jobIcon!),
                     "Mail parcel was without MailVisuals.JobIcon appearance data for the job of Passenger.");
 
                 Assert.IsInstanceOf<string>(jobIcon,
@@ -481,8 +479,6 @@ namespace Content.IntegrationTests.Tests
                 Assert.That((string) jobIcon, Is.EqualTo("Passenger"),
                     $"The passenger job was not matched to the Passenger icon.");
 
-                entityManager.DeleteEntity(teleporter);
-                entityManager.DeleteEntity(mail);
                 mapManager.DeleteMap(testMap.MapId);
             });
 
@@ -523,7 +519,7 @@ namespace Content.IntegrationTests.Tests
                 Assert.IsTrue(containerSystem.TryGetContainer(mail, "contents", out var contents),
                     "Mail did not have contents container.");
 
-                Assert.That(contents.ContainedEntities.Count, Is.EqualTo(1),
+                Assert.That(contents!.ContainedEntities.Count, Is.EqualTo(1),
                     "TestMailFragileDetection's contents Count was not exactly 1.");
 
                 drinkGlass = contents.ContainedEntities[0];
@@ -531,7 +527,10 @@ namespace Content.IntegrationTests.Tests
                 var damageSpec = new DamageSpecifier(prototypeManager.Index<DamageTypePrototype>("Blunt"), 10);
                 var damageResult = damageableSystem.TryChangeDamage(mail, damageSpec);
 
-                Assert.Greater((int) damageResult.Total, 0,
+                Assert.IsNotNull(damageResult,
+                    "Received null damageResult when attempting to damage parcel.");
+
+                Assert.Greater((int) damageResult!.Total, 0,
                     "Mail transferred damage was not greater than 0.");
             });
             await server.WaitRunTicks(5);
@@ -561,9 +560,7 @@ namespace Content.IntegrationTests.Tests
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
-#nullable enable
             MailComponent? mailComponent = null;
-#nullable disable
 
             await server.WaitAssertion(() =>
             {
@@ -581,7 +578,7 @@ namespace Content.IntegrationTests.Tests
             await server.WaitRunTicks(100);
             await server.WaitAssertion(() =>
             {
-                Assert.IsFalse(mailComponent.IsProfitable,
+                Assert.IsFalse(mailComponent!.IsProfitable,
                     $"Priority mail was still IsProfitable after the Priority timeout period.");
 
                 mapManager.DeleteMap(testMap.MapId);
@@ -627,12 +624,12 @@ namespace Content.IntegrationTests.Tests
                 // Most of this is sanity checking due to how tests interact
                 // with each other when pairs are borrowed. These tests run
                 // fine when filtered alone.
-
-                Assert.IsTrue(entityManager.HasComponent<SharedHandsComponent>(realCandidate1),
-                    "Human dummy candidate does not have Hands component.");
-
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
+
+                Assert.That(handsComponent.Count, Is.EqualTo(2),
+                    "Human dummy candidate did not have two free hands.");
 
                 Assert.IsNotNull(handsComponent.ActiveHand,
                     "Human dummy candidate does not have an ActiveHand.");
@@ -641,7 +638,7 @@ namespace Content.IntegrationTests.Tests
                     "Human dummy candidate's ID does not have Item component.");
 
                 // Force pickup because other tests might have done weird things.
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
                 mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
@@ -687,7 +684,7 @@ namespace Content.IntegrationTests.Tests
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
-            MailComponent mailComponent = default;
+            MailComponent mailComponent = default!;
 
             await server.WaitAssertion(() =>
             {
@@ -707,10 +704,11 @@ namespace Content.IntegrationTests.Tests
 
                 mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 entityManager.EventBus.RaiseLocalEvent(mail,
                     new AfterInteractUsingEvent(
@@ -802,10 +800,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -855,10 +854,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob the Clown");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -898,12 +898,10 @@ namespace Content.IntegrationTests.Tests
 
             EntityUid station = default;
             EntityUid mail = default;
-            MailComponent mailComponent = default;
-            AfterInteractUsingEvent eventArgs = default;
-#nullable enable
+            MailComponent mailComponent = default!;
+            AfterInteractUsingEvent eventArgs = default!;
             StationBankAccountComponent? stationBankAccountComponent = null;
             int? previousBalance = null;
-#nullable disable
 
             await server.WaitAssertion(() =>
             {
@@ -927,10 +925,11 @@ namespace Content.IntegrationTests.Tests
 
                 mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 eventArgs = new AfterInteractUsingEvent(
                     realCandidate1,
@@ -960,13 +959,13 @@ namespace Content.IntegrationTests.Tests
             await server.WaitRunTicks(5);
             await server.WaitAssertion(() =>
             {
-                var currentBalance = stationBankAccountComponent.Balance;
+                var currentBalance = stationBankAccountComponent!.Balance;
 
                 // This shouldn't happen:
                 Assert.IsNotNull(previousBalance,
                     "previousBalance was never assigned.");
 
-                Assert.That(currentBalance, Is.GreaterThan(previousBalance.Value),
+                Assert.That(currentBalance, Is.GreaterThan(previousBalance!.Value),
                     "StationBankAccountComponent's balance did not increase.");
                 Assert.That(currentBalance, Is.EqualTo(previousBalance.Value + mailComponent.Bounty),
                     "StationBankAccountComponent had incorrect balance.");
@@ -998,11 +997,9 @@ namespace Content.IntegrationTests.Tests
 
             EntityUid station = default;
             EntityUid mail = default;
-            MailComponent mailComponent = default;
-#nullable enable
+            MailComponent mailComponent = default!;
             StationBankAccountComponent? stationBankAccountComponent = null;
             int? previousBalance = null;
-#nullable disable
 
             await server.WaitAssertion(() =>
             {
@@ -1038,13 +1035,13 @@ namespace Content.IntegrationTests.Tests
             await server.WaitRunTicks(5);
             await server.WaitAssertion(() =>
             {
-                var currentBalance = stationBankAccountComponent.Balance;
+                var currentBalance = stationBankAccountComponent!.Balance;
 
                 // This shouldn't happen:
                 Assert.IsNotNull(previousBalance,
                     "previousBalance was never assigned.");
 
-                Assert.That(currentBalance, Is.LessThan(previousBalance.Value),
+                Assert.That(currentBalance, Is.LessThan(previousBalance!.Value),
                     "StationBankAccountComponent's balance did not decrease.");
                 Assert.That(currentBalance, Is.EqualTo(previousBalance.Value + mailComponent.Penalty),
                     "StationBankAccountComponent had incorrect balance.");
@@ -1087,10 +1084,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -1139,10 +1137,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent),
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand, realCandidate1ID, handsComponent);
+                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "The number of mail recipients was incorrect.");
@@ -1164,14 +1163,13 @@ namespace Content.IntegrationTests.Tests
                     Assert.IsTrue(containerSystem.TryGetContainer(mail, "contents", out var contents),
                         "Mail did not have contents container.");
 
-                    Assert.That(contents.ContainedEntities.Count, Is.EqualTo(1),
+                    Assert.That(contents!.ContainedEntities.Count, Is.EqualTo(1),
                         "Mail's contents container did not have correct amount of entities.");
 
                     var entity = contents.ContainedEntities.First();
-#nullable enable
-                    Assert.IsTrue(entityManager.TryGetComponent(entity, out MetaDataComponent? metaDataComponent),
+                    MetaDataComponent metaDataComponent;
+                    Assert.IsTrue(entityManager.TryGetComponent(entity, out metaDataComponent!),
                         "Mail did not have MetaDataComponent.");
-#nullable disable
                     Assert.That(metaDataComponent.EntityName, Is.EqualTo("bottle of nothing"),
                         "Mail did not contain bottle of nothing.");
                 }
@@ -1215,10 +1213,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate1ID, "Bob");
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, "clown");
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out SharedHandsComponent handsComponent1),
+                HandsComponent handsComponent1;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent1!),
                     "Human dummy candidate #1 did not have hands.");
 
-                handsSystem.DoPickup(realCandidate1, handsComponent1.ActiveHand, realCandidate1ID, handsComponent1);
+                handsSystem.DoPickup(realCandidate1, handsComponent1.ActiveHand!, realCandidate1ID, handsComponent1);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "Number of mail recipients is incorrect.");
@@ -1229,10 +1228,11 @@ namespace Content.IntegrationTests.Tests
                 idCardSystem.TryChangeFullName(realCandidate2ID, "Rob");
                 idCardSystem.TryChangeJobTitle(realCandidate2ID, "mime");
 
-                Assert.IsTrue(entityManager.TryGetComponent(realCandidate2, out SharedHandsComponent handsComponent2),
+                HandsComponent handsComponent2;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate2, out handsComponent2!),
                     "Human dummy candidate #2 did not have hands.");
 
-                handsSystem.DoPickup(realCandidate2, handsComponent2.ActiveHand, realCandidate2ID, handsComponent2);
+                handsSystem.DoPickup(realCandidate2, handsComponent2.ActiveHand!, realCandidate2ID, handsComponent2);
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(2),
                     "Number of mail recipients is incorrect.");
