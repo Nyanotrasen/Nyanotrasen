@@ -507,3 +507,11 @@ Entries:
     type: Add
   id: 56
   time: '2022-10-28T10:48:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed Atlas.
+    type: Remove
+  - message: Improved some server config stuff.
+    type: Tweak
+  id: 57
+  time: '2022-10-28T10:50:08.0000000+00:00'
