@@ -1,5 +1,33 @@
 - type: entity
   parent: BaseMail
+  id: MailAlcohol
+  suffix: alcohol
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkAbsintheBottleFull
+      orGroup: Drink
+    - id: DrinkBlueCuracaoBottleFull
+      orGroup: Drink
+    - id: DrinkGinBottleFull
+      orGroup: Drink
+    - id: DrinkMelonLiquorBottleFull
+      orGroup: Drink
+    - id: DrinkRumBottleFull
+      orGroup: Drink
+    - id: DrinkTequilaBottleFull
+      orGroup: Drink
+    - id: DrinkVermouthBottleFull
+      orGroup: Drink
+    - id: DrinkVodkaBottleFull
+      orGroup: Drink
+    - id: DrinkWineBottleFull
+      orGroup: Drink
+    - id: DrinkGlass
+      amount: 2
+
+- type: entity
+  parent: BaseMail
   id: MailAMEGuide
   suffix: ameguide
   components:
@@ -88,6 +116,20 @@
 
 - type: entity
   parent: BaseMail
+  id: MailCookies
+  suffix: cookies
+  components:
+  - type: Mail
+    # What, you want to eat stale cookies?
+    isPriority: true
+    contents:
+    - id: FoodBakedCookie
+    - id: FoodBakedCookieOatmeal
+    - id: FoodBakedCookieRaisin
+    - id: FoodBakedCookieSugar
+
+- type: entity
+  parent: BaseMail
   id: MailCosplay
   suffix: cosplay
   components:
@@ -164,7 +206,7 @@
   components:
   - type: Mail
     contents:
-    - id: FlashlightSeclite
+    - id: FlashlightLantern
 
 - type: entity
   parent: BaseMail
@@ -189,6 +231,16 @@
     - id: ClothingHeadHatBeret
     - id: DrinkGlass
     - id: ClaymoreDulled
+
+- type: entity
+  parent: BaseMail
+  id: MailHoneyBuns
+  suffix: honeybuns
+  components:
+  - type: Mail
+    contents:
+    - id: FoodBakedBunHoney
+      amount: 2
 
 - type: entity
   parent: BaseMail
@@ -231,6 +283,18 @@
   - type: Mail
     contents:
     - id: SpaceCash100
+
+- type: entity
+  parent: BaseMail
+  id: MailMuffins
+  suffix: muffins
+  components:
+  - type: Mail
+    isPriority: true
+    contents:
+    - id: FoodBakedMuffinBerry
+    - id: FoodBakedMuffinCherry
+    - id: FoodBakedMuffinBluecherry
 
 - type: entity
   parent: BaseMail
@@ -288,6 +352,17 @@
 
 - type: entity
   parent: BaseMail
+  id: MailRestraints
+  suffix: restraints
+  components:
+  - type: Mail
+    contents:
+    - id: Handcuffs
+    - id: ClothingMaskMuzzle
+    - id: ClothingEyesBlindfold
+
+- type: entity
+  parent: BaseMail
   id: MailSignallerKit
   suffix: signallerkit
   components:
@@ -316,6 +391,20 @@
 
 - type: entity
   parent: BaseMail
+  id: MailSoda
+  suffix: soda
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkColaBottleFull
+      orGroup: Soda
+    - id: DrinkSpaceMountainWindBottleFull
+      orGroup: Soda
+    - id: DrinkSpaceUpBottleFull
+      orGroup: Soda
+
+- type: entity
+  parent: BaseMail
   id: MailSpaceVillainDIY
   suffix: spacevilliandiy
   components:
@@ -331,6 +420,15 @@
   - type: Mail
     contents:
     - id: ClothingEyesGlassesSunglasses
+
+- type: entity
+  parent: BaseMail
+  id: MailWinterCoat
+  suffix: wintercoat
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWinterCoat
 
 - type: entity
   parent: BaseMail

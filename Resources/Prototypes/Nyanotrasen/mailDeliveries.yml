@@ -1,13 +1,13 @@
 - type: mailDeliveryPool
   id: RandomMailDeliveryPool
   everyone:
-    MailAMEGuide: 1
+    MailAlcohol: 1
     MailBible: 1
     MailBikeHorn: 1
     MailBlockGameDIY: 1
-    MailBooks: 1
     MailCigarettes: 1
     MailCigars: 1
+    MailCookies: 1
     MailCosplay: 1
     MailCrayon: 1
     MailFigurine: 1
@@ -15,16 +15,61 @@
     MailFlashlight: 1
     MailHighlander: 0.11
     MailHighlanderDulled: 1
+    MailHoneyBuns: 1
     MailJunkFood: 1
     MailKatana: 1
     MailKnife: 1
     MailMoney: 1
+    MailMuffins: 1
     MailNoir: 1
     MailPAI: 1
     MailPlushie: 1
-    MailSignallerKit: 1
+    MailRestraints: 1
     MailSixPack: 1
     MailSkub: 1
+    MailSoda: 1
     MailSpaceVillainDIY: 1
     MailSunglasses: 1
+    MailWinterCoat: 1
     MailWizardCosplay: 1
+
+  # Department and job-specific mail can have slightly higher weights,
+  # since they'll be merged with the everyone pool.
+  departments:
+    Medical:
+      MailMedicalBasicSupplies: 2
+      MailMedicalChemistrySupplement: 2
+      MailMedicalMedicinePills: 2
+      MailMedicalSheetPlasma: 1
+      MailMedicalSpaceacillin: 1
+      MailMedicalStabilizers: 2
+    Engineering:
+      MailAMEGuide: 1
+      MailEngineeringCables: 2
+      MailEngineeringKudzuDeterrent: 2
+      MailEngineeringSheetGlass: 2
+      MailEngineeringWelderReplacement: 2
+    Security:
+      MailSecurityDonuts: 3
+      MailSecurityFlashlight: 2
+      MailSecurityNonlethalsKit: 2
+      MailSecuritySpaceLaw: 1
+    Epistemology:
+      MailBooks: 1
+      MailEpistemologyBluespace: 1
+      MailEpistemologyIngotGold: 2
+      MailEpistemologyResearchDisk: 1
+      MailEpistemologyTinfoilHat: 1
+      MailSignallerKit: 1
+    Command:
+      MailCommandPinpointerNuclear: 0.5
+
+  jobs:
+    Clown:
+      MailClownHonkSupplement: 3
+    ForensicMantis:
+      MailForensicMantisForensicSupplement: 2
+    Lawyer:
+      MailSecuritySpaceLaw: 2
+    Warden:
+      MailWardenCrowdControl: 2
