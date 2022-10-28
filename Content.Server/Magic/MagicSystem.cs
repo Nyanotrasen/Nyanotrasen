@@ -58,6 +58,7 @@ public sealed class MagicSystem : EntitySystem
         SubscribeLocalEvent<TeleportSpellEvent>(OnTeleportSpell);
         SubscribeLocalEvent<KnockSpellEvent>(OnKnockSpell);
         SubscribeLocalEvent<SmiteSpellEvent>(OnSmiteSpell);
+        SubscribeLocalEvent<HealSpellEvent>(OnHealSpell);
         SubscribeLocalEvent<WorldSpawnSpellEvent>(OnWorldSpawn);
         SubscribeLocalEvent<ProjectileSpellEvent>(OnProjectileSpell);
     }
@@ -120,7 +121,6 @@ public sealed class MagicSystem : EntitySystem
     private void OnLearnComplete(EntityUid uid, SpellbookComponent component, LearnDoAfterComplete ev)
     {
         component.CancelToken = null;
-
 
         if (!HasComp<SpellbookUserComponent>(ev.User))
         {
@@ -310,6 +310,21 @@ public sealed class MagicSystem : EntitySystem
                 QueueDel(part);
             }
         }
+    }
+
+    private void OnHealSpell(HealSpellEvent ev)
+    {
+        if (ev.Handled)
+            return;
+
+        var direction = Transform(ev.Target).MapPosition.Position - Transform(ev.Performer).MapPosition.Position;
+        var impulseVector = direction * 10000;
+        Comp<PhysicsComponent>(ev.Target).ApplyLinearImpulse(impulseVector);
+
+        if (!TryComp<BodyComponent>(ev.Target, out var body))
+            return;
+
+        _damageableSystem.TryChangeDamage(ev.Target, ev.HealAmount, true, origin: ev.Target);
     }
 
     /// <summary>

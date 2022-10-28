@@ -3178,5 +3178,11 @@ Entries:
   - {message: 'AI telegnosis is completely fucked, need to fix that somehow later, just a warning.', type: Fix}
   id: 300000
   time: '2022-10-27T22:45:39.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Healing spell is now targeted, meaning you can heal yourself.', type: Tweak}
+  - {message: 'Remove changeling and wizard randomHumanAppearance, since it overwrites random metadata names.', type: Remove}
+  id: 310000
+  time: '2022-10-28T14:10:38.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Remove/Tweak/Fix}

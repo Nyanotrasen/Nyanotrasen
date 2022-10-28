@@ -92,7 +92,7 @@
       color: white
   - type: Projectile
     damage:
-      groups: # good enough. Maybe make it call the rejuvenate command later.
+      groups:
         Brute: -900
         Burn: -900
         Airloss: -600
