@@ -114,8 +114,7 @@
     - TemporaryBlindness
     - Pacified
   - type: Body
-    template: AnimalTemplate
-    preset: AnimalPreset
+    prototype: Animal
   - type: Examiner
   - type: MeleeWeapon
     hidden: true
@@ -137,13 +136,10 @@
   - type: Polymorphable
   - type: Pullable
   - type: Buckle
-  - type: DiseaseCarrier
   - type: Recyclable
     safe: false
   - type: StandingState
   - type: Alerts
-  - type: NameIdentifier
-    group: GenericNumber
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7

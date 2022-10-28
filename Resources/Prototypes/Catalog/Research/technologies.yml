@@ -71,6 +71,7 @@
     - Shovel
     - ButchCleaver
     - MicrowaveMachineCircuitboard
+    - SeedExtractorMachineCircuitboard
 
 - type: technology
   name: technologies-advanced-surgery
@@ -312,6 +313,8 @@
   unlockedRecipes:
     - SheetSteel
     - SheetPlastic
+    - SheetPlasteel
+    - SheetPlasma
     - SheetRGlass
     - SheetGlass1
     - BluespaceCrystal

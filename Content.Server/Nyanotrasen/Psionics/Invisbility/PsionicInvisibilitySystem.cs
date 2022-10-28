@@ -2,7 +2,6 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Vehicle.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Visible;
-using Content.Server.Lamiae;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
 
@@ -56,13 +55,6 @@ namespace Content.Server.Psionics
 
         private void OnInvisInit(EntityUid uid, PsionicallyInvisibleComponent component, ComponentInit args)
         {
-            if (TryComp<LamiaComponent>(uid, out var lamia))
-            {
-                foreach (var segment in lamia.Segments)
-                {
-                    EnsureComp<PsionicallyInvisibleComponent>(segment);
-                }
-            }
             var visibility = EntityManager.EnsureComponent<VisibilityComponent>(uid);
 
             _visibilitySystem.AddLayer(visibility, (int) VisibilityFlags.PsionicInvisibility, false);
@@ -75,14 +67,6 @@ namespace Content.Server.Psionics
 
         private void OnInvisShutdown(EntityUid uid, PsionicallyInvisibleComponent component, ComponentShutdown args)
         {
-            if (TryComp<LamiaComponent>(uid, out var lamia))
-            {
-                foreach (var segment in lamia.Segments)
-                {
-                    RemComp<PsionicallyInvisibleComponent>(segment);
-                }
-            }
-
             if (TryComp<VisibilityComponent>(uid, out var visibility))
             {
                 _visibilitySystem.RemoveLayer(visibility, (int) VisibilityFlags.PsionicInvisibility, false);

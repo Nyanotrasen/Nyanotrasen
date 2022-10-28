@@ -233,7 +233,6 @@
   - !type:BuyerSpeciesCondition
     blacklist:
     - Oni
-    - Lamia
 
 - type: listing
   id: UplinkEmag
@@ -497,10 +496,6 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia
 
 - type: listing
   id: UplinkgClothingThievingGloves
@@ -519,10 +514,6 @@
     Telecrystal: 5
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia #remove after outerclothing rework
 
 - type: listing
   id: UplinkHardsuitSyndie
@@ -532,10 +523,6 @@
     Telecrystal: 8
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -545,10 +532,6 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia
 
 - type: listing
   id: UplinkEVASyndie
@@ -558,10 +541,6 @@
     Telecrystal: 4
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -571,10 +550,6 @@
     Telecrystal: 12
   categories:
   - UplinkArmor
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Lamia
 
 # Misc
 
