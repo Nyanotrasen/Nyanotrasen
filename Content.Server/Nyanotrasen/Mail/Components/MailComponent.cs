@@ -92,6 +92,12 @@ namespace Content.Server.Mail.Components
         public SoundSpecifier OpenSound = new SoundPathSpecifier("/Audio/Effects/packetrip.ogg");
 
         /// <summary>
+        /// The sound that's played when the mail's lock has been emagged.
+        /// </summary>
+        [DataField("emagSound")]
+        public SoundSpecifier EmagSound = new SoundCollectionSpecifier("sparks");
+
+        /// <summary>
         /// Whether this component is enabled.
         /// Removed when it becomes trash.
         /// </summary>

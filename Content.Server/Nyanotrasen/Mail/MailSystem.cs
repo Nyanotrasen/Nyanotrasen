@@ -24,6 +24,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
+using Content.Shared.Emag.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
@@ -32,6 +33,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Mail;
 using Content.Shared.PDA;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -69,6 +71,7 @@ namespace Content.Server.Mail
             SubscribeLocalEvent<MailComponent, DestructionEventArgs>(OnDestruction);
             SubscribeLocalEvent<MailComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<MailComponent, BreakageEventArgs>(OnBreak);
+            SubscribeLocalEvent<MailComponent, GotEmaggedEvent>(OnMailEmagged);
         }
 
         public override void Update(float frameTime)
@@ -113,6 +116,31 @@ namespace Content.Server.Mail
         }
 
         /// <summary>
+        /// Handle logic similar between a normal mail unlock and an emag
+        /// frying out the lock.
+        /// </summary>
+        private void UnlockMail(EntityUid uid, MailComponent component)
+        {
+            component.IsLocked = false;
+            UpdateAntiTamperVisuals(uid, false);
+
+            if (component.IsPriority)
+            {
+                // This is a successful delivery. Keep the failure timer from triggering.
+                if (component.priorityCancelToken != null)
+                    component.priorityCancelToken.Cancel();
+
+                // The priority tape is visually considered to be a part of the
+                // anti-tamper lock, so remove that too.
+                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
+
+                // The examination code depends on this being false to not show
+                // the priority tape description anymore.
+                component.IsPriority = false;
+            }
+        }
+
+        /// <summary>
         /// Check the ID against the mail's lock
         /// </summary>
         private void OnAfterInteractUsing(EntityUid uid, MailComponent component, AfterInteractUsingEvent args)
@@ -137,36 +165,22 @@ namespace Content.Server.Mail
             if (idCard == null) /// Return if we still haven't found an id card.
                 return;
 
-
-            if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
+            if (access.Enabled)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, Filter.Entities(args.User));
-                return;
+                if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, Filter.Entities(args.User));
+                    return;
+                }
+
+                if (!_accessSystem.IsAllowed(uid, args.User))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
+                    return;
+                }
             }
 
-            if (!_accessSystem.IsAllowed(uid, args.User))
-            {
-                _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
-                return;
-            }
-
-            component.IsLocked = false;
-            UpdateAntiTamperVisuals(uid, false);
-
-            if (component.IsPriority)
-            {
-                // This is a successful delivery. Keep the failure timer from triggering.
-                if (component.priorityCancelToken != null)
-                    component.priorityCancelToken.Cancel();
-
-                // The priority tape is visually considered to be a part of the
-                // anti-tamper lock, so remove that too.
-                _appearanceSystem.SetData(uid, MailVisuals.IsPriority, false);
-
-                // The examination code depends on this being false to not show
-                // the priority tape description anymore.
-                component.IsPriority = false;
-            }
+            UnlockMail(uid, component);
 
             if (!component.IsProfitable)
             {
@@ -280,6 +294,20 @@ namespace Content.Server.Mail
 
             if (component.IsFragile)
                 PenalizeStationFailedDelivery(uid, component, "mail-penalty-fragile");
+        }
+
+        private void OnMailEmagged(EntityUid uid, MailComponent component, GotEmaggedEvent args)
+        {
+            if (!component.IsLocked)
+                return;
+
+            UnlockMail(uid, component);
+
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, Filter.Entities(args.UserUid));
+
+            _audioSystem.PlayPvs(component.EmagSound, uid, AudioParams.Default.WithVolume(4));
+            component.IsProfitable = false;
+            args.Handled = true;
         }
 
         /// <summary>
