@@ -29,7 +29,6 @@ using Content.Shared.Destructible;
 using static Content.Shared.Storage.SharedStorageComponent;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
-using Content.Shared.Implants.Components;
 using Content.Shared.Movement.Events;
 
 namespace Content.Server.Storage.EntitySystems
@@ -63,7 +62,6 @@ namespace Content.Server.Storage.EntitySystems
             SubscribeLocalEvent<ServerStorageComponent, GetVerbsEvent<UtilityVerb>>(AddTransferVerbs);
             SubscribeLocalEvent<ServerStorageComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<ServerStorageComponent, ActivateInWorldEvent>(OnActivate);
-            SubscribeLocalEvent<ServerStorageComponent, OpenStorageImplantEvent>(OnImplantActivate);
             SubscribeLocalEvent<ServerStorageComponent, AfterInteractEvent>(AfterInteract);
             SubscribeLocalEvent<ServerStorageComponent, DestructionEventArgs>(OnDestroy);
             SubscribeLocalEvent<ServerStorageComponent, StorageInteractWithItemEvent>(OnInteractWithItem);
@@ -280,20 +278,6 @@ namespace Content.Server.Storage.EntitySystems
         }
 
         /// <summary>
-        /// Specifically for storage implants.
-        /// </summary>
-        private void OnImplantActivate(EntityUid uid, ServerStorageComponent storageComp, OpenStorageImplantEvent args)
-        {
-            if (args.Handled)
-                return;
-
-            if (!TryComp<SubdermalImplantComponent>(uid, out var implant) || implant.EntityUid == null)
-                return;
-
-            OpenStorageUI(uid, implant.EntityUid.Value, storageComp);
-        }
-
-        /// <summary>
         /// Allows a user to pick up entities by clicking them, or pick up all entities in a certain radius
         /// around a click.
         /// </summary>
@@ -347,7 +331,7 @@ namespace Content.Server.Storage.EntitySystems
             // Pick up the clicked entity
             if (storageComp.QuickInsert)
             {
-                if (args.Target is not { Valid: true } target)
+                if (args.Target is not {Valid: true} target)
                     return;
 
                 if (_containerSystem.IsEntityInContainer(target)
@@ -418,7 +402,7 @@ namespace Content.Server.Storage.EntitySystems
             {
                 if (_sharedHandsSystem.TryPickupAnyHand(player, args.InteractedItemUID, handsComp: hands)
                     && storageComp.StorageRemoveSound != null)
-                    SoundSystem.Play(storageComp.StorageRemoveSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid, AudioParams.Default);
+                        SoundSystem.Play(storageComp.StorageRemoveSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid, AudioParams.Default);
                 return;
             }
 

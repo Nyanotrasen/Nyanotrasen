@@ -1,24 +1,46 @@
-- type: bodyTemplate
-  id: AITemplate
+- type: body
+  id: AI
   name: "routerai"
-  centerSlot: "torso"
+  root: torso
   slots:
-    torso: Torso
-    hand 1: hand
-    hand 2: hand
-    hand 3: hand
+    head:
+      part: HeadHuman
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoAnimal
+      connections:
+      - arm 1
+      - arm 2
+      - arm 3
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHumanLungs
+        stomach: OrganHumanStomach
+        liver: OrganHumanLiver
+        kidneys: OrganHumanKidneys
+    arm 1:
+      part: RightArmHuman
+      connections:
+      - hand 1
+    arm 2:
+      part: RightArmHuman
+      connections:
+      - hand 2
+    arm 3:
+      part: LeftArmHuman
+      connections:
+      - hand 3
+    hand 1:
+      part: RightHandHuman
+    hand 2:
+      part: RightHandHuman
+    hand 3:
+      part: LeftHandHuman
 
-- type: bodyPreset
-  id: AIPreset
-  name: "routerai"
-  partIDs:
-    head: HeadHuman
-    torso: TorsoAnimal
-    hand 1: HandsAnimal
-    hand 2: HandsAnimal
-    hand 3: HandsAnimal
-  connections:
-    head: Torso
 
 - type: entity
   id: AIeye
@@ -67,8 +89,7 @@
   - type: Mind
     showExamineInfo: true
   - type: Body
-    template: AITemplate
-    preset: AIPreset
+    prototype: AI
   - type: Clickable
   - type: InteractionOutline
   - type: Examiner
@@ -159,8 +180,7 @@
   - type: Input
     context: "human"
   - type: Body
-    template: AITemplate
-    preset: AIPreset
+    prototype: AI
   - type: Fixtures
     fixtures:
     - shape:

@@ -10,9 +10,12 @@ namespace Content.Shared.Psionics.Glimmer
     /// </summary>
     public sealed class SharedGlimmerSystem : EntitySystem
     {
-        // TODO: Should this be per station? I can see arguments either way.
-        [Access(typeof(SharedGlimmerSystem))]
-        public int Glimmer = 0;
+        private int _glimmer = 0;
+        public int Glimmer
+        {
+            get { return _glimmer; }
+            set { _glimmer = Math.Clamp(value, 0, 1000); }
+        }
         public override void Initialize()
         {
             base.Initialize();
@@ -22,16 +25,6 @@ namespace Content.Shared.Psionics.Glimmer
         private void Reset(RoundRestartCleanupEvent args)
         {
             Glimmer = 0;
-        }
-
-        /// <summary>
-        /// Add 'toAdd' to the glimmer value.
-        /// You can subtract using a negative value.
-        /// </summary>
-        public void AddToGlimmer(int toAdd)
-        {
-            Glimmer += toAdd;
-            Glimmer = Math.Clamp(Glimmer, 0, 1000);
         }
 
         /// <summary>

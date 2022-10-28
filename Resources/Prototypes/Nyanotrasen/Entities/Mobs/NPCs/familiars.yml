@@ -67,10 +67,10 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    template: PrimateTemplate
-    preset: PrimatePreset
+    prototype: Primate
   - type: InnateTool
     tools:
+      - id: WelderIfrit
       - id: WelderIfrit
   - type: Hands
   - type: RandomMetadata

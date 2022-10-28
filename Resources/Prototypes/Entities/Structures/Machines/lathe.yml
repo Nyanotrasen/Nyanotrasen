@@ -186,7 +186,6 @@
       - LargeBeaker
       - Dropper
       - Syringe
-      - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
       - ChemicalMedipen
@@ -249,6 +248,12 @@
     idleState: icon
     runningState: building
     dynamicRecipes:
+      - FirelockElectronics
+      - DoorElectronics
+      - APCElectronics
+      - AirAlarmElectronics
+      - FireAlarmElectronics
+      - MailingUnitElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -288,6 +293,7 @@
       - WallmountSubstationElectronics
       - EmitterCircuitboard
       - GasRecyclerMachineCircuitboard
+      - SeedExtractorMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -408,7 +414,6 @@
       - MagicMedipen
       - Dropper
       - Syringe
-      - Implanter
       - BodyBag
       - PillCanister #Everything below this is shared with other lathes
       - FlashlightLantern
@@ -513,6 +518,12 @@
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
       - ClothingOuterWinterRD
+      - ClothingNeckMantleCap
+      - ClothingNeckMantleCE
+      - ClothingNeckMantleCMO
+      - ClothingNeckMantleHOP
+      - ClothingNeckMantleHOS
+      - ClothingNeckMantleRD
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -559,3 +570,4 @@
         - SheetRPGlass30
         - SheetUranium1
         - IngotSilver1
+        - IngotGold1

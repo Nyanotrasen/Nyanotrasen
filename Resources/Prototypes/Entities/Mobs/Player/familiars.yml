@@ -29,8 +29,7 @@
   - type: BloodSucker
     unitsToSucc: 5
   - type: Body
-    template: AnimalTemplate
-    preset: VampiricAnimalPreset
+    prototype: VampiricAnimal
 
 - type: entity
   name: Cerberus

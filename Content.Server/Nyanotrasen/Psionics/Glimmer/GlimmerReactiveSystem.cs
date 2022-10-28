@@ -181,8 +181,7 @@ namespace Content.Server.Psionics.Glimmer
             var maxIntensity = 20;
 
             var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.05f, 0.15f);
-            Logger.Error("Removed: " + removed);
-            _sharedGlimmerSystem.AddToGlimmer(0 - (int) removed);
+            _sharedGlimmerSystem.Glimmer -= (int) removed;
             BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }
@@ -219,6 +218,14 @@ namespace Content.Server.Psionics.Glimmer
             if (Deleted(prober) || Deleted(target))
                 return;
 
+            var lxform = Transform(prober);
+            var txform = Transform(target);
+
+            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
+                return;
+            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
+                return;
+
             string beamproto;
 
             switch (tier)
@@ -234,13 +241,6 @@ namespace Content.Server.Psionics.Glimmer
                     break;
             }
 
-            var lxform = Transform(prober);
-            var txform = Transform(target);
-
-            if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
-                return;
-            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
-                return;
 
             _beam.TryCreateBeam(prober, target, beamproto);
             BeamCooldown += 3f;

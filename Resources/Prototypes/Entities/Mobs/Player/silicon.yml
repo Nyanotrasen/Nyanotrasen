@@ -50,6 +50,10 @@
     netsync: false
   - type: Physics
     bodyType: KinematicController
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Drone
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -173,9 +177,6 @@
       - CannotSuicide
   - type: Hands
     showInHands: false
-  - type: Body
-    template: DroneTemplate
-    preset: DronePreset
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCameraSilicon
@@ -244,6 +245,3 @@
   - type: CombatMode
   - type: Hands
     showInHands: false
-  - type: Body
-    template: DroneTemplate
-    preset: DronePreset

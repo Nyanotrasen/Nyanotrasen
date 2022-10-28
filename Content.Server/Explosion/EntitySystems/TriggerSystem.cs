@@ -6,7 +6,6 @@ using Content.Server.Flash;
 using Content.Server.Flash.Components;
 using Content.Server.Sticky.Events;
 using Content.Shared.Actions;
-using Content.Shared.Body.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics;
@@ -15,9 +14,7 @@ using Robust.Shared.Player;
 using Content.Shared.Trigger;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
-using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
-using Content.Shared.MobState;
 using Content.Shared.Payload.Components;
 using Content.Shared.StepTrigger.Systems;
 using Robust.Server.Containers;
@@ -64,14 +61,11 @@ namespace Content.Server.Explosion.EntitySystems
 
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);
             SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
-            SubscribeLocalEvent<TriggerImplantActionComponent, ActivateImplantEvent>(OnImplantTrigger);
             SubscribeLocalEvent<TriggerOnStepTriggerComponent, StepTriggeredEvent>(OnStepTriggered);
-            SubscribeLocalEvent<TriggerOnMobstateChangeComponent, MobStateChangedEvent>(OnStateChanged);
 
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
             SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
             SubscribeLocalEvent<FlashOnTriggerComponent, TriggerEvent>(HandleFlashTrigger);
-            SubscribeLocalEvent<GibOnTriggerComponent, TriggerEvent>(HandleGibTrigger);
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)
@@ -95,29 +89,10 @@ namespace Content.Server.Explosion.EntitySystems
             args.Handled = true;
         }
 
-        private void HandleGibTrigger(EntityUid uid, GibOnTriggerComponent component, TriggerEvent args)
-        {
-            var bodyQuery = GetEntityQuery<SharedBodyComponent>();
-
-            //Code so implants can properly handle gibbing their owners
-            if (TryComp<SubdermalImplantComponent>(uid, out var implantComponent) &&
-                implantComponent.EntityUid != null &&
-                bodyQuery.TryGetComponent(implantComponent.EntityUid.Value, out var implantedBody))
-            {
-                implantedBody.Gib(deleteItems: component.DeleteItems);
-            }
-
-            if (bodyQuery.TryGetComponent(uid, out var body))
-                body.Gib(deleteItems: component.DeleteItems);
-
-            args.Handled = true;
-        }
-
-
         private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, ref StartCollideEvent args)
         {
-            if (args.OurFixture.ID == component.FixtureID)
-                Trigger(component.Owner);
+			if(args.OurFixture.ID == component.FixtureID)
+				Trigger(component.Owner);
         }
 
         private void OnActivate(EntityUid uid, TriggerOnActivateComponent component, ActivateInWorldEvent args)
@@ -126,22 +101,9 @@ namespace Content.Server.Explosion.EntitySystems
             args.Handled = true;
         }
 
-        private void OnImplantTrigger(EntityUid uid, TriggerImplantActionComponent component, ActivateImplantEvent args)
-        {
-            Trigger(component.Owner);
-        }
-
         private void OnStepTriggered(EntityUid uid, TriggerOnStepTriggerComponent component, ref StepTriggeredEvent args)
         {
             Trigger(uid, args.Tripper);
-        }
-
-        private void OnStateChanged(EntityUid uid, TriggerOnMobstateChangeComponent component, MobStateChangedEvent args)
-        {
-            if (component.MobState != args.CurrentMobState)
-                return;
-
-            Trigger(component.Owner);
         }
 
         public bool Trigger(EntityUid trigger, EntityUid? user = null)
@@ -151,7 +113,7 @@ namespace Content.Server.Explosion.EntitySystems
             return triggerEvent.Handled;
         }
 
-        public void HandleTimerTrigger(EntityUid uid, EntityUid? user, float delay, float beepInterval, float? initialBeepDelay, SoundSpecifier? beepSound, AudioParams beepParams)
+        public void HandleTimerTrigger(EntityUid uid, EntityUid? user, float delay , float beepInterval, float? initialBeepDelay, SoundSpecifier? beepSound, AudioParams beepParams)
         {
             if (delay <= 0)
             {

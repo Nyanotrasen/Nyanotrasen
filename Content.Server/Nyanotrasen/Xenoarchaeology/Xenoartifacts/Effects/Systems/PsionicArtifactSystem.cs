@@ -54,7 +54,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems
                     continue;
 
                 _psionicAbilitiesSystem.AddPsionics(entity);
-                _sharedGlimmerSystem.AddToGlimmer(_random.Next(1, 3));
+                _sharedGlimmerSystem.Glimmer += _random.Next(1, 3);
                 component.Charges--;
             }
         }

@@ -1,12 +1,10 @@
 ﻿using System.Threading;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Coordinates.Helpers;
-using Content.Server.Decals;
 using Content.Server.DoAfter;
 using Content.Server.Doors.Components;
 using Content.Server.Magic.Events;
-using Content.Server.Popups;
-using Content.Server.Spawners.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
@@ -26,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Server.Magic.Components;
+using Content.Server.Popups;
 
 namespace Content.Server.Magic;
 
@@ -37,6 +36,7 @@ public sealed class MagicSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoorSystem _doorSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -297,7 +297,7 @@ public sealed class MagicSystem : EntitySystem
         if (!TryComp<BodyComponent>(ev.Target, out var body))
             return;
 
-        var ents = body.Gib(true);
+        var ents = _bodySystem.GibBody(ev.Target, true, body);
 
         if (!ev.DeleteNonBrainParts)
             return;
@@ -305,8 +305,7 @@ public sealed class MagicSystem : EntitySystem
         foreach (var part in ents)
         {
             // just leaves a brain and clothes
-            if ((HasComp<BodyPartComponent>(part) || HasComp<MechanismComponent>(part))
-                && !HasComp<BrainComponent>(part))
+            if (HasComp<BodyComponent>(part) && !HasComp<BrainComponent>(part))
             {
                 QueueDel(part);
             }

@@ -12,6 +12,7 @@ using Content.Shared.Popups;
 using Content.Shared.Pulling.Components;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Content.Shared.Arachne;
 using Content.Shared.Vehicle.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -138,6 +139,12 @@ namespace Content.Server.Buckle.Components
                 popupSystem.PopupEntity(Loc.GetString("buckle-component-no-hands-message"), user, Filter.Entities(user));
                 return false;
             }
+
+            if (EntMan.HasComponent<ArachneComponent>(user) && !EntMan.HasComponent<WebComponent>(to))
+                return false; // yeah this is awful but you should have seen lamiae shitcode lol
+
+            if (EntMan.HasComponent<WebComponent>(to) && !EntMan.HasComponent<ArachneComponent>(user))
+                return false;
 
             if (Buckled)
             {

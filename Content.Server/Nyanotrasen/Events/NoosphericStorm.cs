@@ -48,6 +48,6 @@ public sealed class NoosphericStorm : StationEventSystem
             stationsToNotify.Add((EntityUid) station);
         }
 
-        _glimmerSystem.AddToGlimmer(_robustRandom.Next(80, 120));
+        _glimmerSystem.Glimmer += _robustRandom.Next(80, 120);
     }
 }

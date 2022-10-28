@@ -72,7 +72,6 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
-            Logger.Error("Running checks...");
             // How do we get trapped?
             // 1. Original target doesn't exist
             if (!component.OriginalEntity.IsValid() || Deleted(component.OriginalEntity))
@@ -100,7 +99,6 @@ namespace Content.Server.Abilities.Psionics
                 GetDeleted(uid);
                 return;
             }
-            Logger.Error("Checks passed...");
 
             Swap(uid, component.OriginalEntity, true);
         }
