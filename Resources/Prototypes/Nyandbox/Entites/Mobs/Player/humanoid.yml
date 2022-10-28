@@ -57,7 +57,7 @@
       factions:
       - SimpleHostile
       - Xeno
-    - type: RandomHumanoidAppearance
+    # - type: RandomHumanoidAppearance # Removes random names :(
 
 - type: entity
   name: Urist McWizard
@@ -97,7 +97,7 @@
       factions:
       - SimpleHostile
     - type: SpellbookUser
-    - type: RandomHumanoidAppearance
+    # - type: RandomHumanoidAppearance # Removes random names :(
 
 - type: entity
   name: Urist McWizard
