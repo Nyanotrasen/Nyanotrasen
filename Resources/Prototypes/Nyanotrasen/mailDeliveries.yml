@@ -5,14 +5,22 @@
     MailBible: 1
     MailBikeHorn: 1
     MailBlockGameDIY: 1
+    MailCake: 1
+    MailChocolate: 1
     MailCigarettes: 1
     MailCigars: 1
     MailCookies: 1
-    MailCosplay: 1
+    MailCosplayArc: 1
+    MailCosplayGeisha: 1
+    MailCosplayMaid: 1
+    MailCosplayNurse: 1
+    MailCosplaySchoolgirl: 1
+    MailCosplayWizard: 1
     MailCrayon: 1
     MailFigurine: 1
     MailFishingCap: 1
     MailFlashlight: 1
+    MailFlowers: 1
     MailHighlander: 0.11
     MailHighlanderDulled: 1
     MailHoneyBuns: 1
@@ -31,7 +39,6 @@
     MailSpaceVillainDIY: 1
     MailSunglasses: 1
     MailWinterCoat: 1
-    MailWizardCosplay: 1
 
   # Department and job-specific mail can have slightly higher weights,
   # since they'll be merged with the everyone pool.
@@ -66,10 +73,13 @@
 
   jobs:
     Clown:
+      MailClownGildedBikeHorn: 0.5
       MailClownHonkSupplement: 3
     ForensicMantis:
       MailForensicMantisForensicSupplement: 2
     Lawyer:
       MailSecuritySpaceLaw: 2
+    Musician:
+      MailMusicianInstrumentSmall: 1
     Warden:
       MailWardenCrowdControl: 2

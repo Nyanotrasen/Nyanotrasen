@@ -96,6 +96,49 @@
 
 - type: entity
   parent: BaseMail
+  id: MailCake
+  suffix: cake
+  components:
+  - type: Mail
+    isFragile: true
+    isPriority: true
+    contents:
+    - id: FoodCakeBlueberry
+      orGroup: Cake
+    - id: FoodCakeCarrot
+      orGroup: Cake
+    - id: FoodCakeCheese
+      orGroup: Cake
+    - id: FoodCakeChocolate
+      orGroup: Cake
+    - id: FoodCakeChristmas
+      orGroup: Cake
+    - id: FoodCakeClown
+      orGroup: Cake
+    - id: FoodCakeLemon
+      orGroup: Cake
+    - id: FoodCakeLime
+      orGroup: Cake
+    - id: FoodCakeOrange
+      orGroup: Cake
+    - id: FoodCakePumpkin
+      orGroup: Cake
+    - id: FoodCakeVanilla
+      orGroup: Cake
+
+- type: entity
+  parent: BaseMail
+  id: MailChocolate
+  suffix: chocolate
+  components:
+  - type: Mail
+    contents:
+    # TODO make some actual chocolate candy items.
+    - id: FoodSnackChocolate
+      amount: 3
+
+- type: entity
+  parent: BaseMail
   id: MailCigarettes
   suffix: cigs
   components:
@@ -130,12 +173,72 @@
 
 - type: entity
   parent: BaseMail
-  id: MailCosplay
-  suffix: cosplay
+  id: MailCosplayArc
+  suffix: cosplay-arc
+  components:
+  - type: Mail
+    openSound: /Audio/Voice/Felinid/cat_wilhelm.ogg
+    contents:
+    - id: ClothingCostumeArcDress
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplayGeisha
+  suffix: cosplay-geisha
+  components:
+  - type: Mail
+    contents:
+      - id: UniformGeisha
+      - id: DrinkTeapot
+      - id: DrinkTeacup
+        amount: 3
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplayMaid
+  suffix: cosplay-maid
+  components:
+  - type: Mail
+    contents:
+      - id: UniformMaid
+      - id: SprayBottleSpaceCleaner
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplayNurse
+  suffix: cosplay-nurse
+  components:
+  - type: Mail
+    contents:
+      - id: ClothingUniformJumpskirtNurse
+      - id: Syringe
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplaySchoolgirl
+  suffix: cosplay-schoolgirl
   components:
   - type: Mail
     contents:
     - id: UniformSchoolgirlBlue
+      orGroup: Color
+    - id: UniformSchoolgirlGreen
+      orGroup: Color
+    - id: UniformSchoolgirlOrange
+      orGroup: Color
+    - id: UniformSchoolgirlRed
+      orGroup: Color
+
+- type: entity
+  parent: BaseMail
+  id: MailCosplayWizard
+  suffix: cosplay-wizard
+  components:
+  - type: Mail
+    contents:
+    - id: ClothingOuterWizard
+    - id: ClothingHeadHatWizardFake
+    - id: ClothingShoesWizard
 
 - type: entity
   parent: BaseMail
@@ -207,6 +310,19 @@
   - type: Mail
     contents:
     - id: FlashlightLantern
+
+- type: entity
+  parent: BaseMail
+  id: MailFlowers
+  suffix: flowers
+  components:
+  - type: Mail
+    contents:
+    # TODO actual flowers
+    - id: ClothingHeadHatFlowerCrown
+      orGroup: Flower
+    - id: ClothingHeadHatHairflower
+      orGroup: Flower
 
 - type: entity
   parent: BaseMail
@@ -429,14 +545,3 @@
   - type: Mail
     contents:
     - id: ClothingOuterWinterCoat
-
-- type: entity
-  parent: BaseMail
-  id: MailWizardCosplay
-  suffix: wizardcosplay
-  components:
-  - type: Mail
-    contents:
-    - id: ClothingOuterWizard
-    - id: ClothingHeadHatWizardFake
-    - id: ClothingShoesWizard

@@ -1,5 +1,14 @@
 - type: entity
   parent: BaseMail
+  id: MailClownGildedBikeHorn
+  suffix: honk
+  components:
+  - type: Mail
+    contents:
+    - id: BikeHornInstrument
+
+- type: entity
+  parent: BaseMail
   id: MailClownHonkSupplement
   suffix: honk
   components:
@@ -8,3 +17,21 @@
     - id: BikeHorn
     - id: FoodPieBananaCream
     - id: FoodBanana
+
+- type: entity
+  parent: BaseMail
+  id: MailMusicianInstrumentSmall
+  suffix: instrument-small
+  components:
+  - type: Mail
+    contents:
+    - id: FluteInstrument
+      orGroup: Instrument
+    - id: HarmonicaInstrument
+      orGroup: Instrument
+    - id: OcarinaInstrument
+      orGroup: Instrument
+    - id: PanFluteInstrument
+      orGroup: Instrument
+    - id: RecorderInstrument
+      orGroup: Instrument
