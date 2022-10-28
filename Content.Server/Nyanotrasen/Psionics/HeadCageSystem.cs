@@ -4,6 +4,7 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction;
+using Content.Shared.IdentityManagement;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Abilities.Psionics;
@@ -169,7 +170,7 @@ namespace Content.Server.Psionics
             {
                 doAfterLength *= 2f;
                 _popupSystem.PopupEntity(Loc.GetString("cage-resist-second-person", ("cage", headItem)), caged, Filter.Entities(caged), Shared.Popups.PopupType.Medium);
-                _popupSystem.PopupEntity(Loc.GetString("cage-resist-third-person", ("user", caged), ("cage", headItem)), caged, Filter.PvsExcept(caged), Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("cage-resist-third-person", ("user", Identity.Entity(caged, EntityManager)), ("cage", headItem)), caged, Filter.PvsExcept(caged), Shared.Popups.PopupType.MediumCaution);
             }
 
             cageComp.CancelToken = new CancellationTokenSource();

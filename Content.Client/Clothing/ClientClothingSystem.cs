@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Client.Inventory;
@@ -134,9 +133,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         layer.RsiPath = rsi.Path.ToString();
         layer.State = state;
 
-        if (clothing.FemaleMask != null)
-            layer.Shader = "StencilDraw";
-
         layers = new() { layer };
 
         return true;
@@ -194,7 +190,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         if(!Resolve(equipee, ref inventory, ref sprite) || !Resolve(equipment, ref clothingComponent, false))
             return;
 
-        if (clothingComponent.FemaleMask != null && slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
+        if (slot == "jumpsuit" && sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out _))
         {
             if (TryComp<HumanoidComponent>(equipee, out var humanoid) && humanoid.Sex == Sex.Female)
             {
