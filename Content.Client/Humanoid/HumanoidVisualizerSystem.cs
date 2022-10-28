@@ -205,7 +205,6 @@ public sealed class HumanoidVisualizerSystem : VisualizerSystem<HumanoidComponen
             {
                 if (marking.MarkingId != "ArachneBodyColor")
                     continue;
-                Logger.Error("Found it.");
                 var color = marking.MarkingColors[0];
                 sprite.LayerSetColor(HumanoidVisualLayers.LLeg, color);
                 sprite.LayerSetColor(HumanoidVisualLayers.RLeg, color);
