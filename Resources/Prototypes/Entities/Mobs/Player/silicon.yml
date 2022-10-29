@@ -50,6 +50,10 @@
     netsync: false
   - type: Physics
     bodyType: KinematicController
+  - type: Hands
+    showInHands: false
+  - type: Body
+    prototype: Drone
   - type: DoAfter
   - type: Pullable
   - type: Examiner
@@ -74,8 +78,6 @@
       - id: trayScanner
       - id: Omnitool
       - id: WelderExperimental
-  - type: NameIdentifier
-    group: Drone
   - type: Eye
   - type: Inventory
     templateId: drone
@@ -168,9 +170,6 @@
       - CannotSuicide
   - type: Hands
     showInHands: false
-  - type: Body
-    template: DroneTemplate
-    preset: DronePreset
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCameraSilicon
@@ -238,6 +237,3 @@
   - type: CombatMode
   - type: Hands
     showInHands: false
-  - type: Body
-    template: DroneTemplate
-    preset: DronePreset

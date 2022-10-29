@@ -30,7 +30,7 @@ namespace Content.Server.Psionics.Glimmer
             if (DecayAccumulator > SecondsToLoseOneGlimmer)
             {
                 if (_robustRandom.Prob(0.5f))
-                    _sharedGlimmerSystem.AddToGlimmer(-1);
+                    _sharedGlimmerSystem.Glimmer--;
                 DecayAccumulator -= SecondsToLoseOneGlimmer;
             }
             if (_sharedGlimmerSystem.Glimmer > MinimumGlimmerForEvents)

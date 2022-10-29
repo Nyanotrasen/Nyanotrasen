@@ -20,7 +20,7 @@ namespace Content.Shared.Abilities.Psionics
         private void OnTinfoilEquipped(EntityUid uid, TinfoilHatComponent component, GotEquippedEvent args)
         {
             // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
+            if (!TryComp<ClothingComponent>(uid, out var clothing))
                 return;
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))
@@ -49,7 +49,7 @@ namespace Content.Shared.Abilities.Psionics
         private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)
         {
             // This only works on clothing
-            if (!TryComp<SharedClothingComponent>(uid, out var clothing))
+            if (!TryComp<ClothingComponent>(uid, out var clothing))
                 return;
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))

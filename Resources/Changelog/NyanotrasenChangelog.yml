@@ -402,3 +402,116 @@ Entries:
     type: Add
   id: 45
   time: '2022-10-21T20:21:43.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Tweaked splash screen!
+    type: Tweak
+  id: 46
+  time: '2022-10-22T05:04:39.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added icons for all standard psionic powers.
+    type: Add
+  id: 47
+  time: '2022-10-22T21:48:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed name identifiers for animals (they were ugly and our ghost roles
+      are whitelisted).
+    type: Remove
+  - message: Zombie removed from secret.
+    type: Remove
+  - message: DiseaseCarrier is back to humanoids, mice, and monkeys.
+    type: Fix
+  - message: Monkeys have 2 hands.
+    type: Tweak
+  - message: Removed several more impossible / unreasonably difficult oracle requests.
+    type: Fix
+  - message: Oracle now drops the rewards at your feet, so people are less likely
+      to forget them.
+    type: Tweak
+  - message: Revenant's minimum eligible glimmer increased by 150.
+    type: Tweak
+  - message: Polished random sentience event.
+    type: Add
+  - message: Interacting with probers at high glimmer is much more fun.
+    type: Add
+  - message: Destroying glimmer probers will reduce glimmer level if glimmer is above
+      300.
+    type: Add
+  - message: Plasteel and plasma are printable now with material printing
+    type: Add
+  - message: New soul lobby song
+    type: Add
+  - message: Reenabled early shuttle call cvar. Great way to speedrun a whitelist
+      removal and/or ban if you abuse it.
+    type: Add
+  id: 48
+  time: '2022-10-25T01:04:35.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Mundane discharge max glimmer reduced by 100.
+    type: Tweak
+  - message: Random sentience min glimmer reduced by 100.
+    type: Tweak
+  - message: Added 2 new glimmer console commands for admins and developers.
+    type: Add
+  id: 49
+  time: '2022-10-26T00:28:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed lamiae. Spiders soon.
+    type: Remove
+  - message: Fixed borg latejoin message and traitor objectives targeting borgs.
+    type: Fix
+  - message: Fixed several other traitor objective bugs.
+    type: Fix
+  - message: All relevant reagents are now affected by the small amount scaling.
+    type: Add
+  id: 50
+  time: '2022-10-25T23:54:16.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged the female clothing fix early because I need to use a similar
+      stencil method for aranche.
+    type: Fix
+  id: 51
+  time: '2022-10-26T04:24:47.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added new icon for the NyanoTrasen server.
+    type: Add
+  id: 52
+  time: '2022-10-27T23:25:45.0000000+00:00'
+- author: Rane and Kesiath
+  changes:
+  - message: Added a new species, Arachne!
+    type: Add
+  id: 53
+  time: '2022-10-28T02:50:48.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Speedran a bunch of misc arachne fixes. Traitor arachne, check your uplink.
+    type: Tweak
+  id: 54
+  time: '2022-10-28T03:05:09.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Adds a few shuttles for admins to quickly deploy.
+    type: Add
+  id: 55
+  time: '2022-10-28T03:58:51.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Pebble Station
+    type: Add
+  id: 56
+  time: '2022-10-28T10:48:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed Atlas.
+    type: Remove
+  - message: Improved some server config stuff.
+    type: Tweak
+  id: 57
+  time: '2022-10-28T10:50:08.0000000+00:00'

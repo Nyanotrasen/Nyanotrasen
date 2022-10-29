@@ -2,9 +2,8 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Arachne;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -198,6 +197,21 @@ public sealed class HumanoidVisualizerSystem : VisualizerSystem<HumanoidComponen
         if (dirtyMarkings.Count > 0 || dirtyRangeStart >= 0 || humanoid.CurrentMarkings.Count != newMarkings.Count)
         {
             humanoid.CurrentMarkings = newMarkings;
+        }
+
+        if (HasComp<ArachneComponent>(uid))
+        {
+            foreach (var marking in humanoid.CurrentMarkings)
+            {
+                if (marking.MarkingId != "ArachneBodyColor")
+                    continue;
+                var color = marking.MarkingColors[0];
+                sprite.LayerSetColor(HumanoidVisualLayers.LLeg, color);
+                sprite.LayerSetColor(HumanoidVisualLayers.RLeg, color);
+                return;
+            }
+            sprite.LayerSetColor(HumanoidVisualLayers.LLeg, Color.FromHex("#322119"));
+            sprite.LayerSetColor(HumanoidVisualLayers.RLeg, Color.FromHex("#322119"));
         }
     }
 

@@ -7,9 +7,6 @@ using Content.Server.DoAfter;
 using Content.Server.Hands.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
-using Content.Server.Lamiae;
-using Content.Server.Carrying;
-using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;
 using Content.Shared.Construction.Components;
@@ -26,7 +23,9 @@ using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -47,7 +46,6 @@ namespace Content.Server.Disposal.Unit.EntitySystems
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly PowerReceiverSystem _power = default!;
 
         public override void Initialize()
         {
@@ -212,7 +210,9 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                     ToggleEngage(component);
                     break;
                 case SharedDisposalUnitComponent.UiButton.Power:
-                    _power.TogglePower(uid);
+                    TogglePower(component);
+                    _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), component.Owner,
+                        AudioParams.Default.WithVolume(-2f));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -231,6 +231,17 @@ namespace Content.Server.Disposal.Unit.EntitySystems
             {
                 Disengage(component);
             }
+        }
+
+        public void TogglePower(DisposalUnitComponent component)
+        {
+            if (!EntityManager.TryGetComponent(component.Owner, out ApcPowerReceiverComponent? receiver))
+            {
+                return;
+            }
+
+            receiver.PowerDisabled = !receiver.PowerDisabled;
+            UpdateInterface(component, receiver.Powered);
         }
         #endregion
 
@@ -449,11 +460,6 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                 return false;
             }
 
-            // holy shit I hate disposals I tried basically every other way of doing this
-            // if this shit was ECS and actually raised some events then the carriable would be fine to insert
-            if (HasComp<CarryingComponent>(toInsertId) || HasComp<BeingCarriedComponent>(toInsertId))
-                return false;
-
             if (!CanInsert(unit, toInsertId))
                 return false;
 
@@ -498,12 +504,6 @@ namespace Content.Server.Disposal.Unit.EntitySystems
             {
                 Disengage(component);
                 return false;
-            }
-
-            foreach (var entity in component.Container.ContainedEntities)
-            {
-                if (HasComp<LamiaComponent>(entity))
-                    return false;
             }
 
             var xform = Transform(component.Owner);
