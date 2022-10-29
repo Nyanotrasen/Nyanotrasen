@@ -49,6 +49,8 @@ namespace Content.IntegrationTests.Tests.Mail
   id: HumanDummy
   name: HumanDummy
   components:
+  - type: Inventory
+  - type: ContainerContainer
   - type: Hands
   - type: Body
     template: HumanoidTemplate
@@ -630,8 +632,8 @@ namespace Content.IntegrationTests.Tests.Mail
                     "Human dummy candidate did not have hands.");
 
                 // I have no idea why the human dummy doesn't have hands on GitHub tests.
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 Assert.IsNotNull(handsComponent.ActiveHand,
                     "Human dummy candidate does not have an ActiveHand.");
@@ -710,8 +712,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -809,8 +811,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -866,8 +868,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -940,8 +942,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -1102,8 +1104,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -1158,8 +1160,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
                     "Human dummy candidate did not have hands.");
 
-                if (handsComponent.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent);
+                /* if (handsComponent.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
 
@@ -1237,8 +1239,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent1!),
                     "Human dummy candidate #1 did not have hands.");
 
-                if (handsComponent1.Count < 1)
-                    handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent1);
+                /* if (handsComponent1.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent1); */
 
                 handsSystem.DoPickup(realCandidate1, handsComponent1.ActiveHand!, realCandidate1ID, handsComponent1);
 
@@ -1255,8 +1257,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate2, out handsComponent2!),
                     "Human dummy candidate #2 did not have hands.");
 
-                if (handsComponent2.Count < 1)
-                    handsSystem.AddHand(realCandidate2, "hand", HandLocation.Right, handsComponent2);
+                /* if (handsComponent2.Count < 1) */
+                /*     handsSystem.AddHand(realCandidate2, "hand", HandLocation.Right, handsComponent2); */
 
                 handsSystem.DoPickup(realCandidate2, handsComponent2.ActiveHand!, realCandidate2ID, handsComponent2);
 
