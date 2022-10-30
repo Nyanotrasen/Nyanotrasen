@@ -6,6 +6,8 @@
     MailBikeHorn: 0.5
     MailBlockGameDIY: 1
     MailCake: 1
+    MailCallForHelp: 0.6
+    MailCheese: 1
     MailChocolate: 1
     MailCigarettes: 0.5
     MailCigars: 0.5
@@ -38,6 +40,7 @@
     MailSoda: 1
     MailSpaceVillainDIY: 1
     MailSunglasses: 1
+    MailVagueThreat: 0.4
     # This is mainly for Glacier.
     MailWinterCoat: 1.5
 
@@ -79,22 +82,32 @@
   jobs:
     Botanist:
       MailBotanistChemicalBottles: 2
-      MailBotanistMutagen: 1
+      MailBotanistMutagen: 1.5
+      MailBotanistSeeds: 1
+    ChiefEngineer:
+      MailEngineeringKudzuDeterrent: 2
+    ChiefMedicalOfficer:
+      MailMedicalEmergencyPens: 2
+      MailMedicalMedicinePills: 3
+      MailMedicalSheetPlasma: 2
     Clown:
       MailClownGildedBikeHorn: 0.5
       MailClownHonkSupplement: 3
     ForensicMantis:
       MailForensicMantisForensicSupplement: 2
-    ChiefMedicalOfficer:
-      MailMedicalEmergencyPens: 2
-      MailMedicalMedicinePills: 3
-      MailMedicalSheetPlasma: 2
+    HeadOfPersonnel:
+      MailHoPBureaucracy: 2
+      MailHoPSupplement: 3
+    HeadOfSecurity:
+      MailSecurityNonlethalsKit: 2
     Lawyer:
       MailSecuritySpaceLaw: 2
     Mime:
       MailMimeArtsCrafts: 3
       MailMimeBlankBook: 2
       MailMimeBottleOfNothing: 1
+    Mystagogue:
+      MailEpistemologyIngotGold: 2
     Musician:
       MailMusicianInstrumentSmall: 1
     Passenger:

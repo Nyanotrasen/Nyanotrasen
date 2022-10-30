@@ -125,6 +125,52 @@
       orGroup: Cake
     - id: FoodCakeVanilla
       orGroup: Cake
+    - id: KnifePlastic
+    - id: ForkPlastic
+      amount: 2
+
+- type: entity
+  parent: BaseMail
+  id: MailCallForHelp
+  suffix: call-for-help
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailCallForHelp1
+      orGroup: Paper
+    - id: PaperMailCallForHelp2
+      orGroup: Paper
+    - id: PaperMailCallForHelp3
+      orGroup: Paper
+    - id: PaperMailCallForHelp4
+      orGroup: Paper
+    - id: PaperMailCallForHelp5
+      orGroup: Paper
+    - id: FlashlightLantern
+      orGroup: Gift
+    - id: Crowbar
+      orGroup: Gift
+      prob: 0.5
+    - id: CrowbarRed
+      orGroup: Gift
+      prob: 0.5
+    - id: ClothingMaskGas
+      orGroup: Gift
+    - id: WeaponFlareGun
+      orGroup: Gift
+      prob: 0.25
+
+- type: entity
+  parent: BaseMail
+  id: MailCheese
+  suffix: cheese
+  components:
+  - type: Mail
+    isFragile: true
+    isPriority: true
+    contents:
+    - id: FoodCheese
+    - id: KnifePlastic
 
 - type: entity
   parent: BaseMail
@@ -553,6 +599,52 @@
   - type: Mail
     contents:
     - id: ClothingEyesGlassesSunglasses
+
+- type: entity
+  parent: BaseMail
+  id: MailVagueThreat
+  suffix: vague-threat
+  components:
+  - type: Mail
+    contents:
+    - id: PaperMailVagueThreat1
+      orGroup: Paper
+    - id: PaperMailVagueThreat2
+      orGroup: Paper
+    - id: PaperMailVagueThreat3
+      orGroup: Paper
+    - id: PaperMailVagueThreat4
+      orGroup: Paper
+    - id: PaperMailVagueThreat5
+      orGroup: Paper
+    - id: PaperMailVagueThreat6
+      orGroup: Paper
+    - id: PaperMailVagueThreat7
+      orGroup: Paper
+    - id: PaperMailVagueThreat8
+      orGroup: Paper
+    - id: PaperMailVagueThreat9
+      orGroup: Paper
+    - id: PaperMailVagueThreat10
+      orGroup: Paper
+    - id: PaperMailVagueThreat11
+      orGroup: Paper
+    - id: PaperMailVagueThreat12
+      orGroup: Paper
+    - id: KitchenKnife
+      orGroup: ThreateningObject
+    - id: ButchCleaver
+      orGroup: ThreateningObject
+    - id: CombatKnife
+      orGroup: ThreateningObject
+    - id: SurvivalKnife
+      orGroup: ThreateningObject
+    - id: SoapHomemade
+      orGroup: ThreateningObject
+    - id: FoodMeat
+      orGroup: ThreateningObject
+    - id: OrganHumanHeart
+      orGroup: ThreateningObject
 
 - type: entity
   parent: BaseMail

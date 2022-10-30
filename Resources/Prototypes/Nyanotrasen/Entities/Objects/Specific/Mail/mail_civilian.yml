@@ -25,6 +25,54 @@
 
 - type: entity
   parent: BaseMail
+  id: MailBotanistSeeds
+  suffix: seeds
+  components:
+  - type: Mail
+    contents:
+    - id: AloeSeeds
+      orGroup: Seeds
+    - id: AmbrosiaVulgarisSeeds
+      orGroup: Seeds
+    - id: AppleSeeds
+      orGroup: Seeds
+    - id: BananaSeeds
+      orGroup: Seeds
+    - id: CarrotSeeds
+      orGroup: Seeds
+    - id: ChanterelleSeeds
+      orGroup: Seeds
+    - id: ChiliSeeds
+      orGroup: Seeds
+    - id: CornSeeds
+      orGroup: Seeds
+    - id: EggplantSeeds
+      orGroup: Seeds
+    - id: GalaxythistleSeeds
+      orGroup: Seeds
+    - id: LemonSeeds
+      orGroup: Seeds
+    - id: LingzhiSeeds
+      orGroup: Seeds
+    - id: OatSeeds
+      orGroup: Seeds
+    - id: OnionSeeds
+      orGroup: Seeds
+    - id: PoppySeeds
+      orGroup: Seeds
+    - id: PotatoSeeds
+      orGroup: Seeds
+    - id: SugarcaneSeeds
+      orGroup: Seeds
+    - id: TomatoSeeds
+      orGroup: Seeds
+    - id: TowercapSeeds
+      orGroup: Seeds
+    - id: WheatSeeds
+      orGroup: Seeds
+
+- type: entity
+  parent: BaseMail
   id: MailClownGildedBikeHorn
   suffix: honk
   components:
@@ -44,6 +92,27 @@
     - id: BikeHorn
     - id: FoodPieBananaCream
     - id: FoodBanana
+
+- type: entity
+  parent: BaseMail
+  id: MailHoPBureaucracy
+  suffix: hoppaper
+  components:
+  - type: Mail
+    contents:
+    - id: Paper
+      maxAmount: 3
+
+- type: entity
+  parent: BaseMail
+  id: MailHoPSupplement
+  suffix: hopsupplement
+  components:
+  - type: Mail
+    contents:
+    - id: ClearPDA
+    - id: ClothingHeadsetGrey
+    - id: Paper
 
 - type: entity
   parent: BaseMail
