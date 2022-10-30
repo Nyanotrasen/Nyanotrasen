@@ -16,6 +16,7 @@ mail-penalty-expired = DELIVERY PAST DUE. CARGO BANK ACCOUNT PENALIZED BY {$cred
 command-mailto-description = Queue a parcel to be delivered to an entity. Example usage: `mailto 1234 5678 false false`. The target container's contents will be transferred to an actual mail parcel.
 command-mailto-help = Usage: {$command} <recipient entityUid> <container entityUid> [is-fragile: true or false] [is-priority: true or false]
 command-mailto-no-mailreceiver = Target recipient entity does not have a {$requiredComponent}.
+command-mailto-no-blankmail = The {$blankMail} prototype doesn't exist. Something is very wrong. Contact a programmer.
 command-mailto-bogus-mail = {$blankMail} did not have {$requiredMailComponent}. Something is very wrong. Contact a programmer.
 command-mailto-invalid-container = Target container entity does not have a {$requiredContainer} container.
 command-mailto-unable-to-receive = Target recipient entity was unable to be setup for receiving mail. ID may be missing.

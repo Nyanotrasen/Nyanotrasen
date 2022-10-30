@@ -1,6 +1,7 @@
 using System.Linq;
 using Robust.Shared.Console;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
 using Content.Shared.Administration;
 using Content.Server.Administration;
 using Content.Server.Mail.Components;
@@ -15,6 +16,7 @@ public sealed class MailToCommand : IConsoleCommand
     public string Help => Loc.GetString("command-mailto-help", ("command", Command));
 
     [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     private readonly string _blankMailPrototype = "MailAdminFun";
@@ -61,6 +63,12 @@ public sealed class MailToCommand : IConsoleCommand
         if (!_entityManager.TryGetComponent(recipientUid, out MailReceiverComponent? mailReceiver))
         {
             shell.WriteLine(Loc.GetString("command-mailto-no-mailreceiver", ("requiredComponent", nameof(MailReceiverComponent))));
+            return;
+        }
+
+        if (!_prototypeManager.HasIndex<EntityPrototype>(_blankMailPrototype))
+        {
+            shell.WriteLine(Loc.GetString("command-mailto-no-blankmail", ("blankMail", _blankMailPrototype)));
             return;
         }
 
