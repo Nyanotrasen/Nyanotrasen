@@ -10,12 +10,12 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Item;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
+using Content.Server.Emag;
 using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
@@ -188,6 +188,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
                     Assert.That(availableMail.Contains(entityPrototype.ID),
                         $"{entityPrototype.ID} is declared but was not found in any MailDeliveryPool.");
+                }
+
+                // Check all mail that's defined in the pools to see if it exists.
+                foreach (var entityPrototype in availableMail)
+                {
+                    Assert.IsTrue(prototypeManager.HasIndex<EntityPrototype>(entityPrototype),
+                        $"{entityPrototype} is assigned to a MailDeliveryPool but is not defined anywhere.");
                 }
             });
 
@@ -620,25 +627,29 @@ namespace Content.IntegrationTests.Tests.Mail
                 idCardSystem.TryChangeFullName(realCandidate1ID, name);
                 idCardSystem.TryChangeJobTitle(realCandidate1ID, job);
 
-                // Most of this is sanity checking due to how tests interact
-                // with each other when pairs are borrowed. These tests run
-                // fine when filtered alone.
+                // Conduct some basic sanity checking. If any of the following
+                // tests fail, something probably changed in how the core
+                // components work.
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                // I have no idea why the human dummy doesn't have hands on GitHub tests.
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
+                // The following test might indicate a format change with BodyComponent.
+                Assert.That(handsComponent.Count, Is.GreaterThan(0),
+                    "Human dummy candidate did not spawn with any hands.");
 
+                // It would be strange to have hands but no active hand, since
+                // the first hand added is typically made the active.
                 Assert.IsNotNull(handsComponent.ActiveHand,
                     "Human dummy candidate does not have an ActiveHand.");
 
+                // This is just paranoia here.
                 Assert.IsTrue(entityManager.HasComponent<ItemComponent>(realCandidate1ID),
                     "Human dummy candidate's ID does not have Item component.");
 
-                // Force pickup because other tests might have done weird things.
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                // This should pass if everything before it did.
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
                 mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
@@ -706,12 +717,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 entityManager.EventBus.RaiseLocalEvent(mail,
                     new AfterInteractUsingEvent(
@@ -805,12 +814,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -862,12 +869,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -936,12 +941,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 eventArgs = new AfterInteractUsingEvent(
                     realCandidate1,
@@ -1098,12 +1101,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
@@ -1154,12 +1155,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
-                    "Human dummy candidate did not have hands.");
+                    "Human dummy candidate did not have a HandsComponent.");
 
-                /* if (handsComponent.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent.ActiveHand!, realCandidate1ID, handsComponent);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "The number of mail recipients was incorrect.");
@@ -1233,12 +1232,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent1;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent1!),
-                    "Human dummy candidate #1 did not have hands.");
+                    "Human dummy candidate #1 did not have a HandsComponent.");
 
-                /* if (handsComponent1.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate1, "hand", HandLocation.Right, handsComponent1); */
-
-                handsSystem.DoPickup(realCandidate1, handsComponent1.ActiveHand!, realCandidate1ID, handsComponent1);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate #1 was unable to pickup his ID.");
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(1),
                     "Number of mail recipients is incorrect.");
@@ -1251,15 +1248,82 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 HandsComponent handsComponent2;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate2, out handsComponent2!),
-                    "Human dummy candidate #2 did not have hands.");
+                    "Human dummy candidate #2 did not have a HandsComponent.");
 
-                /* if (handsComponent2.Count < 1) */
-                /*     handsSystem.AddHand(realCandidate2, "hand", HandLocation.Right, handsComponent2); */
-
-                handsSystem.DoPickup(realCandidate2, handsComponent2.ActiveHand!, realCandidate2ID, handsComponent2);
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate2, realCandidate2ID),
+                    "Human dummy candidate #2 was unable to pickup his ID.");
 
                 Assert.That(mailSystem.GetMailRecipientCandidates(teleporter).Count, Is.EqualTo(2),
                     "Number of mail recipients is incorrect.");
+
+                mapManager.DeleteMap(testMap.MapId);
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestMailIsEmaggedProperly()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+            await server.WaitIdleAsync();
+
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var emagSystem = entitySystemManager.GetEntitySystem<EmagSystem>();
+            var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
+
+            var testMap = await PoolManager.CreateTestMap(pairTracker);
+
+            await server.WaitAssertion(() =>
+            {
+                var station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.GridEntityId}, $"Clown Town");
+                var coordinates = testMap.GridCoords;
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                EntityUid mail = entityManager.SpawnEntity("TestMail", coordinates);
+                EntityUid clown = entityManager.SpawnEntity("HumanDummy", coordinates);
+
+                var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
+
+                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+
+                var mailComponent = entityManager.GetComponent<MailComponent>(mail);
+                Assert.IsTrue(mailComponent.IsLocked,
+                    "New mail was not locked.");
+                Assert.IsTrue(mailComponent.IsProfitable,
+                    "New mail was not profitable.");
+
+                StationBankAccountComponent? stationBankAccountComponent = null;
+                int? previousBalance = null;
+
+                foreach (var account in entityManager.EntityQuery<StationBankAccountComponent>())
+                {
+                    if (stationSystem.GetOwningStation(account.Owner) != stationSystem.GetOwningStation(mail))
+                            continue;
+
+                    stationBankAccountComponent = account;
+                    previousBalance = account.Balance;
+                    break;
+                }
+
+                Assert.IsNotNull(stationBankAccountComponent,
+                    "Unable to find matching StationBankAccountComponent for mail parcel.");
+
+                emagSystem.DoEmag(mail, clown);
+
+                var currentBalance = stationBankAccountComponent!.Balance;
+
+                Assert.IsFalse(mailComponent.IsLocked,
+                    "Emagged mail was not unlocked.");
+                Assert.IsFalse(mailComponent.IsProfitable,
+                    "Emagged mail was profitable.");
+                Assert.That(previousBalance, Is.EqualTo(currentBalance),
+                    "Station's bank account balance changed after mail was emagged.");
 
                 mapManager.DeleteMap(testMap.MapId);
             });
