@@ -9,6 +9,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Verbs;
+using Content.Shared.Destructible;
 using Robust.Server.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -107,14 +108,9 @@ public sealed class SharpSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", ev.Entity), ("knife", ev.Sharp)),
             popupEnt, Filter.Entities(ev.User), popupType);
 
-        if (hasBody)
-        {
-            _bodySystem.GibBody(body!.Owner, body: body);
-        }
-        else
-        {
-            QueueDel(ev.Entity);
-        }
+        var args = new DestructionEventArgs();
+        RaiseLocalEvent(ev.Entity, args, false);
+        QueueDel(ev.Entity);
     }
 
     private void OnDoafterCancelled(SharpButcherDoafterCancelled ev)
