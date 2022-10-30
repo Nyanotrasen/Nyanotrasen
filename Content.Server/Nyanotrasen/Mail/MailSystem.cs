@@ -282,9 +282,7 @@ namespace Content.Server.Mail
             // This should be a general-purpose feature for all containers in the future.
             foreach (var entity in contents.ContainedEntities.ToArray())
             {
-                var result = _damageableSystem.TryChangeDamage(entity, args.DamageDelta);
-                if (result != null)
-                    Logger.Debug($"Mail transferred damage result: {result.Total}");
+                _damageableSystem.TryChangeDamage(entity, args.DamageDelta);
             }
         }
 
@@ -373,8 +371,6 @@ namespace Content.Server.Mail
                 }
             }
 
-            Logger.Debug($"Was unable to find Department for jobTitle: {jobTitle}");
-
             jobDepartment = null;
             return false;
         }
@@ -389,8 +385,6 @@ namespace Content.Server.Mail
                     return true;
                 }
             }
-
-            Logger.Debug($"Was unable to find Prototype for jobTitle: {jobTitle}");
 
             jobPrototype = null;
             return false;
@@ -407,8 +401,6 @@ namespace Content.Server.Mail
                 }
             }
 
-            Logger.Debug($"Was unable to find Icon for jobTitle: {jobTitle}");
-
             jobIcon = null;
             return false;
         }
@@ -423,7 +415,7 @@ namespace Content.Server.Mail
         {
             var mailComp = EnsureComp<MailComponent>(uid);
 
-            var container = _containerSystem.EnsureContainer<Container>(uid, "contents", out var contents);
+            var container = _containerSystem.EnsureContainer<Container>(uid, "contents");
             foreach (var item in EntitySpawnCollection.GetSpawns(mailComp.Contents, _random))
             {
                 var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
@@ -435,8 +427,6 @@ namespace Content.Server.Mail
                 else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
                 {
                     mailComp.IsFragile = true;
-
-                    Logger.Debug($"Spawned a fragile entity {ToPrettyString(entity)} for mail {uid}");
                 }
             }
 
@@ -464,8 +454,6 @@ namespace Content.Server.Mail
                 Timer.Spawn((int) component.priorityDuration.TotalMilliseconds,
                     () => PenalizeStationFailedDelivery(uid, mailComp, "mail-penalty-expired"),
                     mailComp.priorityCancelToken.Token);
-
-                Logger.Debug($"{ToPrettyString(uid)} has been marked as priority mail");
             }
 
             if (TryMatchJobTitleToIcon(recipientJob, out string? icon))
