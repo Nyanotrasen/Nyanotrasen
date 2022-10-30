@@ -67,10 +67,10 @@
       - CannotSuicide
       - DoorBumpOpener
   - type: Body
-    template: PrimateTemplate
-    preset: PrimatePreset
+    prototype: Primate
   - type: InnateTool
     tools:
+      - id: WelderIfrit
       - id: WelderIfrit
   - type: Hands
   - type: RandomMetadata
@@ -86,8 +86,13 @@
   parent: WelderExperimental
   id: WelderIfrit
   name: ifrit hand
-  description: The welding hand of an ifrit. Placeholder sprite.
+  description: The welding hand of an ifrit.
   components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
+  - type: Item
+    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
+# TODO make inhand welder flame unshaded somehow
   - type: SolutionContainerManager
     solutions:
       Welder:
@@ -102,7 +107,26 @@
       types: # When lit, negate standard melee damage and replace with heat
         Heat: 10
         Blunt: -10
+    welderOnSounds:
+      collection: WelderIfritHandOn
+    welderOffSounds:
+      collection: WelderIfritHandOff
+  - type: Tool
+    useSound:
+      collection: WelderIfritHand
+  - type: MeleeWeapon
+    soundHit:
+      collection: WelderIfritHand
+# TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
+# similar to EnergySword. will have to go in ToolSystem.Welder.cs
+# for now, just make it sound like it's on fire no matter what because it
+# sounds cooler than the default fizzling noise.
   - type: AutoRegenReagent
     solution: Welder
     reagents:
       - Phlogiston
+  - type: PointLight
+    enabled: false
+    radius: 2
+    energy: 1.5
+    color: orange

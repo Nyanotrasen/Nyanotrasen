@@ -707,8 +707,6 @@
   components:
   - type: CombatMode
     disarm: null
-  - type: NameIdentifier
-    group: Monkey
   - type: SentienceTarget
     flavorKind: primate
   - type: Inventory
@@ -738,8 +736,7 @@
   - type: Speech
     speechSounds: Monkey
   - type: Body
-    template: PrimateTemplate
-    preset: PrimatePreset
+    prototype: Primate
   - type: DamageStateVisuals
     states:
       Alive:
@@ -760,6 +757,10 @@
   - type: MonkeyAccent
   - type: Puller
   - type: CanHostGuardian
+  - type: DiseaseCarrier
+  - type: Tag
+    tags:
+    - GunsDisabled
 
 - type: entity
   name: mouse
@@ -1329,6 +1330,7 @@
     interactSuccessString: petting-success-tarantula
     interactFailureString: petting-failure-generic
   - type: Puller
+  - type: Arachne
 
 - type: entity
   name: tarantula

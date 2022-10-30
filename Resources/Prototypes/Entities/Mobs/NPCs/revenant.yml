@@ -46,8 +46,6 @@
     drawFov: false
   - type: DoAfter
   - type: Alerts
-  - type: NameIdentifier
-    group: GenericNumber
   - type: GhostTakeoverAvailable
     makeSentient: true
     name: Revenant

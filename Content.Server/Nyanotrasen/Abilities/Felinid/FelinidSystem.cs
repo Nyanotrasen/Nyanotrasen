@@ -6,6 +6,7 @@ using Content.Shared.Item;
 using Content.Shared.Inventory;
 using Content.Shared.Hands;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.IdentityManagement;
 using Content.Server.Body.Components;
 using Content.Server.Medical;
 using Content.Server.Nutrition.EntitySystems;
@@ -101,7 +102,7 @@ namespace Content.Server.Abilities.Felinid
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", uid)), uid, Filter.Pvs(uid));
+            _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid, Filter.Pvs(uid));
             SoundSystem.Play("/Audio/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
             AddComp<CoughingUpHairballComponent>(uid);

@@ -45,7 +45,7 @@ public sealed class TelepathicArtifactSystem : EntitySystem
             // show it as a popup, but only for the victim
             _popupSystem.PopupEntity(msg, victimUid, Filter.Entities(victimUid));
             if (_random.Prob(0.05f))
-                _sharedGlimmerSystem.AddToGlimmer(1);
+                _sharedGlimmerSystem.Glimmer++;
         }
     }
 }

@@ -62,8 +62,6 @@
     - SlowedDown
     - Stutter
     - Electrocution
-  - type: NameIdentifier
-    group: GenericNumber
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8
@@ -89,8 +87,7 @@
   - type: InputMover
   - type: MobMover
   - type: Body
-    template: BotTemplate
-    preset: BotPreset
+    prototype: Bot
 
 - type: entity
   parent: MobSiliconBase
