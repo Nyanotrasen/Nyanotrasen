@@ -49,13 +49,9 @@ namespace Content.IntegrationTests.Tests.Mail
   id: HumanDummy
   name: HumanDummy
   components:
-  - type: Inventory
-  - type: ContainerContainer
   - type: Hands
   - type: Body
-    template: HumanoidTemplate
-    preset: HumanPreset
-    centerSlot: torso
+    prototype: Human
   - type: MailReceiver
 
 - type: entity
