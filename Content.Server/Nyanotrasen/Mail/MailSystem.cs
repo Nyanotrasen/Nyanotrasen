@@ -84,10 +84,10 @@ namespace Content.Server.Mail
 
                 mailTeleporter.Accumulator += frameTime;
 
-                if (mailTeleporter.Accumulator < mailTeleporter.teleportInterval.TotalSeconds)
+                if (mailTeleporter.Accumulator < mailTeleporter.TeleportInterval.TotalSeconds)
                     continue;
 
-                mailTeleporter.Accumulator -= (float) mailTeleporter.teleportInterval.TotalSeconds;
+                mailTeleporter.Accumulator -= (float) mailTeleporter.TeleportInterval.TotalSeconds;
 
                 SpawnMail(mailTeleporter.Owner, mailTeleporter);
             }
