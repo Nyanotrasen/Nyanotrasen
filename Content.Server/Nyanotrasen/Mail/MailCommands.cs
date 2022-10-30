@@ -72,15 +72,6 @@ public sealed class MailToCommand : IConsoleCommand
             return;
         }
 
-        var mailUid = _entityManager.SpawnEntity(_blankMailPrototype, _entityManager.GetComponent<TransformComponent>(containerUid).Coordinates);
-        var mailContents = _containerSystem.EnsureContainer<Container>(mailUid, _mailContainer);
-
-        if (!_entityManager.TryGetComponent(mailUid, out MailComponent? mailComponent))
-        {
-            shell.WriteLine(Loc.GetString("command-mailto-bogus-mail", ("blankMail", _blankMailPrototype), ("requiredMailComponent", nameof(MailComponent))));
-            return;
-        }
-
         if (!_containerSystem.TryGetContainer(containerUid, _container, out var targetContainer))
         {
             shell.WriteLine(Loc.GetString("command-mailto-invalid-container", ("requiredContainer", _container)));
@@ -96,6 +87,15 @@ public sealed class MailToCommand : IConsoleCommand
         if (!_mailSystem.TryGetMailTeleporterForReceiver(mailReceiver, out MailTeleporterComponent? teleporterComponent))
         {
             shell.WriteLine(Loc.GetString("command-mailto-no-teleporter-found"));
+            return;
+        }
+
+        var mailUid = _entityManager.SpawnEntity(_blankMailPrototype, _entityManager.GetComponent<TransformComponent>(containerUid).Coordinates);
+        var mailContents = _containerSystem.EnsureContainer<Container>(mailUid, _mailContainer);
+
+        if (!_entityManager.TryGetComponent(mailUid, out MailComponent? mailComponent))
+        {
+            shell.WriteLine(Loc.GetString("command-mailto-bogus-mail", ("blankMail", _blankMailPrototype), ("requiredMailComponent", nameof(MailComponent))));
             return;
         }
 
