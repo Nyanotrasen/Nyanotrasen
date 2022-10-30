@@ -183,7 +183,9 @@ namespace Content.IntegrationTests.Tests.Mail
                 // Check all mail that's defined and see if it exists in this pool of pools.
                 foreach (var entityPrototype in prototypeManager.EnumeratePrototypes<EntityPrototype>())
                 {
-                    if (entityPrototype.Parents == null || !entityPrototype.Parents.Contains("BaseMail"))
+                    if (entityPrototype.Parents == null
+                        || !entityPrototype.Parents.Contains("BaseMail")
+                        || entityPrototype.ID == "MailAdminFun")
                         continue;
 
                     Assert.That(availableMail.Contains(entityPrototype.ID),
@@ -214,7 +216,9 @@ namespace Content.IntegrationTests.Tests.Mail
             {
                 foreach (var entityPrototype in prototypeManager.EnumeratePrototypes<EntityPrototype>())
                 {
-                    if (entityPrototype.Parents == null || !entityPrototype.Parents.Contains("BaseMail"))
+                    if (entityPrototype.Parents == null
+                        || !entityPrototype.Parents.Contains("BaseMail")
+                        || entityPrototype.ID == "MailAdminFun")
                         continue;
 
                     var mailComponent = entityPrototype.Components["Mail"].Component;

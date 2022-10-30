@@ -503,6 +503,49 @@ namespace Content.Server.Mail
         }
 
         /// <summary>
+        /// Try to match a mail receiver to a mail teleporter.
+        /// </summary>
+        public bool TryGetMailTeleporterForReceiver(MailReceiverComponent receiver, [NotNullWhen(true)] out MailTeleporterComponent? teleporterComponent)
+        {
+            foreach (var mailTeleporter in EntityQuery<MailTeleporterComponent>())
+            {
+                if (_stationSystem.GetOwningStation(receiver.Owner) == _stationSystem.GetOwningStation(mailTeleporter.Owner))
+                {
+                    teleporterComponent = mailTeleporter;
+                    return true;
+                }
+            }
+
+            teleporterComponent = null;
+            return false;
+        }
+
+        /// <summary>
+        /// Try to construct a recipient struct for a mail parcel based on a receiver.
+        /// </summary>
+        public bool TryGetMailRecipientForReceiver(MailReceiverComponent receiver, [NotNullWhen(true)] out MailRecipient? recipient)
+        {
+            // Because of the way this works, people are not considered
+            // candidates for mail if there is no valid PDA or ID in their slot
+            // or active hand. A better future solution might be checking the
+            // station records, possibly cross-referenced with the medical crew
+            // scanner to look for living recipients. TODO
+
+            if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
+                && TryComp<AccessComponent>(idCard.Owner, out var access)
+                && idCard.FullName != null
+                && idCard.JobTitle != null)
+            {
+                HashSet<String> accessTags = access.Tags;
+                recipient = new MailRecipient(idCard.FullName, idCard.JobTitle, accessTags);
+                return true;
+            }
+
+            recipient = null;
+            return false;
+        }
+
+        /// <summary>
         /// Get the list of valid mail recipients for a mail teleporter.
         /// </summary>
         public List<MailRecipient> GetMailRecipientCandidates(EntityUid uid)
@@ -511,22 +554,11 @@ namespace Content.Server.Mail
 
             foreach (var receiver in EntityQuery<MailReceiverComponent>())
             {
-                // Because of the way this works, people are not considered
-                // candidates for mail if there is no PDA or ID in their slot
-                // or active hand. A better future solution might be checking
-                // the station records, possibly cross-referenced with the
-                // medical crew scanner to look for living recipients. TODO
                 if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
-                if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
-                    && TryComp<AccessComponent>(idCard.Owner, out var access)
-                    && idCard.FullName != null
-                    && idCard.JobTitle != null)
-                {
-                    HashSet<String> accessTags = access.Tags;
-                    var candidateTuple = new MailRecipient(idCard.FullName, idCard.JobTitle, accessTags);
-                    candidateList.Add(candidateTuple);
-                }
+                    continue;
+
+                if (TryGetMailRecipientForReceiver(receiver, out MailRecipient? recipient))
+                    candidateList.Add(recipient.Value);
             }
 
             return candidateList;
@@ -605,6 +637,9 @@ namespace Content.Server.Mail
                 var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
                 SetupMail(mail, component, candidate.Name, candidate.Job, candidate.AccessTags);
             }
+
+            if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
+                _containerSystem.EmptyContainer(queued);
 
             _audioSystem.PlayPvs(component.TeleportSound, uid);
         }
