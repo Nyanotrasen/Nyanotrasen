@@ -220,11 +220,19 @@
   components:
   - type: Mail
     contents:
+    - id: UniformSchoolgirlBlack
+      orGroup: Color
     - id: UniformSchoolgirlBlue
+      orGroup: Color
+    - id: UniformSchoolgirlCyan
       orGroup: Color
     - id: UniformSchoolgirlGreen
       orGroup: Color
     - id: UniformSchoolgirlOrange
+      orGroup: Color
+    - id: UniformSchoolgirlPink
+      orGroup: Color
+    - id: UniformSchoolgirlPurple
       orGroup: Color
     - id: UniformSchoolgirlRed
       orGroup: Color
