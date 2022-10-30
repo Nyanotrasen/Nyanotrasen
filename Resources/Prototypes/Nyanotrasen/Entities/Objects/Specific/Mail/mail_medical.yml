@@ -29,6 +29,16 @@
 
 - type: entity
   parent: BaseMail
+  id: MailMedicalEmergencyPens
+  suffix: medipens
+  components:
+  - type: Mail
+    contents:
+    - id: EmergencyMedipen
+      maxAmount: 3
+
+- type: entity
+  parent: BaseMail
   id: MailMedicalMedicinePills
   suffix: medicinepills
   components:

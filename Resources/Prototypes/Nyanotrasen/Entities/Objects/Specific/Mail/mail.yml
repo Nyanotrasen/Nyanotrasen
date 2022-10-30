@@ -263,6 +263,7 @@
   suffix: figurine
   components:
   - type: Mail
+    isFragile: true
     contents:
     - id: ToyAi
       orGroup: Toy
@@ -407,6 +408,14 @@
   - type: Mail
     contents:
     - id: SpaceCash100
+      orGroup: Cash
+      prob: 0.3
+    - id: SpaceCash500
+      orGroup: Cash
+      prob: 0.6
+    - id: SpaceCash1000
+      orGroup: Cash
+      prob: 0.3
 
 - type: entity
   parent: BaseMail

@@ -1,9 +1,35 @@
 - type: entity
   parent: BaseMail
+  id: MailBotanistChemicalBottles
+  suffix: botanistchemicals
+  components:
+  - type: Mail
+    contents:
+    - id: RobustHarvestChemistryBottle
+      orGroup: Chemical
+      prob: 0.6
+    - id: WeedSpray
+      orGroup: Chemical
+      prob: 0.4
+
+- type: entity
+  parent: BaseMail
+  id: MailBotanistMutagen
+  suffix: mutagen
+  components:
+  - type: Mail
+    isFragile: true
+    isPriority: true
+    contents:
+    - id: UnstableMutagenChemistryBottle
+
+- type: entity
+  parent: BaseMail
   id: MailClownGildedBikeHorn
   suffix: honk
   components:
   - type: Mail
+    isFragile: true
     contents:
     - id: BikeHornInstrument
 
@@ -13,6 +39,7 @@
   suffix: honk
   components:
   - type: Mail
+    isFragile: true
     contents:
     - id: BikeHorn
     - id: FoodPieBananaCream
@@ -20,10 +47,40 @@
 
 - type: entity
   parent: BaseMail
+  id: MailMimeArtsCrafts
+  suffix: artscrafts
+  components:
+  - type: Mail
+    contents:
+    - id: CrayonBox
+    - id: Paper
+      maxAmount: 3
+
+- type: entity
+  parent: BaseMail
+  id: MailMimeBlankBook
+  suffix: blankbook
+  components:
+  - type: Mail
+    contents:
+      - id: BookRandom
+
+- type: entity
+  parent: BaseMail
+  id: MailMimeBottleOfNothing
+  suffix: bottleofnothing
+  components:
+  - type: Mail
+    contents:
+      - id: DrinkBottleOfNothingFull
+
+- type: entity
+  parent: BaseMail
   id: MailMusicianInstrumentSmall
   suffix: instrument-small
   components:
   - type: Mail
+    isFragile: true
     contents:
     - id: FluteInstrument
       orGroup: Instrument
@@ -35,3 +92,23 @@
       orGroup: Instrument
     - id: RecorderInstrument
       orGroup: Instrument
+
+- type: entity
+  parent: BaseMail
+  id: MailPassengerMoney
+  suffix: passengermoney
+  components:
+  - type: Mail
+    contents:
+    - id: SpaceCash100
+      orGroup: Cash
+      prob: 0.1
+      maxAmount: 10
+    - id: SpaceCash500
+      orGroup: Cash
+      prob: 0.3
+      maxAmount: 5
+    - id: SpaceCash1000
+      orGroup: Cash
+      prob: 0.6
+      maxAmount: 3

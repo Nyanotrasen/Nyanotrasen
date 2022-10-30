@@ -1,44 +1,45 @@
 - type: mailDeliveryPool
   id: RandomMailDeliveryPool
   everyone:
-    MailAlcohol: 1
+    MailAlcohol: 0.5
     MailBible: 1
-    MailBikeHorn: 1
+    MailBikeHorn: 0.5
     MailBlockGameDIY: 1
     MailCake: 1
     MailChocolate: 1
-    MailCigarettes: 1
-    MailCigars: 1
-    MailCookies: 1
-    MailCosplayArc: 1
-    MailCosplayGeisha: 1
-    MailCosplayMaid: 1
-    MailCosplayNurse: 1
-    MailCosplaySchoolgirl: 1
-    MailCosplayWizard: 1
+    MailCigarettes: 0.5
+    MailCigars: 0.5
+    MailCookies: 1.1
+    MailCosplayArc: 0.5
+    MailCosplayGeisha: 0.5
+    MailCosplayMaid: 0.5
+    MailCosplayNurse: 0.5
+    MailCosplaySchoolgirl: 0.5
+    MailCosplayWizard: 0.5
     MailCrayon: 1
     MailFigurine: 1
-    MailFishingCap: 1
+    MailFishingCap: 0.5
     MailFlashlight: 1
     MailFlowers: 1
-    MailHighlander: 0.11
+    MailHighlander: 0.12
     MailHighlanderDulled: 1
     MailHoneyBuns: 1
     MailJunkFood: 1
     MailKatana: 1
     MailKnife: 1
     MailMoney: 1
-    MailMuffins: 1
-    MailNoir: 1
+    MailMuffins: 1.1
+    MailNoir: 0.5
     MailPAI: 1
     MailPlushie: 1
     MailRestraints: 1
-    MailSixPack: 1
-    MailSkub: 1
+    MailSixPack: 0.5
+    MailSkub: 0.5
     MailSoda: 1
     MailSpaceVillainDIY: 1
     MailSunglasses: 1
-    MailWinterCoat: 1
+    # This is mainly for Glacier.
+    MailWinterCoat: 1.5
 
   # Department and job-specific mail can have slightly higher weights,
   # since they'll be merged with the everyone pool.
@@ -46,6 +47,7 @@
     Medical:
       MailMedicalBasicSupplies: 2
       MailMedicalChemistrySupplement: 2
+      MailMedicalEmergencyPens: 3
       MailMedicalMedicinePills: 2
       MailMedicalSheetPlasma: 1
       MailMedicalSpaceacillin: 1
@@ -68,18 +70,34 @@
       MailEpistemologyResearchDisk: 1
       MailEpistemologyTinfoilHat: 1
       MailSignallerKit: 1
+    # All heads of staff are in Command and not their departments, technically.
+    # So any items from the departments above that should also be sent to the
+    # respective department heads should be duplicated below.
     Command:
       MailCommandPinpointerNuclear: 0.5
 
   jobs:
+    Botanist:
+      MailBotanistChemicalBottles: 2
+      MailBotanistMutagen: 1
     Clown:
       MailClownGildedBikeHorn: 0.5
       MailClownHonkSupplement: 3
     ForensicMantis:
       MailForensicMantisForensicSupplement: 2
+    ChiefMedicalOfficer:
+      MailMedicalEmergencyPens: 2
+      MailMedicalMedicinePills: 3
+      MailMedicalSheetPlasma: 2
     Lawyer:
       MailSecuritySpaceLaw: 2
+    Mime:
+      MailMimeArtsCrafts: 3
+      MailMimeBlankBook: 2
+      MailMimeBottleOfNothing: 1
     Musician:
       MailMusicianInstrumentSmall: 1
+    Passenger:
+      MailPassengerMoney: 3
     Warden:
       MailWardenCrowdControl: 2
