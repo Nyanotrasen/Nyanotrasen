@@ -3184,5 +3184,14 @@ Entries:
   - {message: 'Remove changeling and wizard randomHumanAppearance, since it overwrites random metadata names.', type: Remove}
   id: 310000
   time: '2022-10-28T14:10:38.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Draconic Bloodstream trait - 0.075 Ichor per second.', type: Add}
+  - {message: 'Partial "Religious" trait - SpellbookUser and BibleUser components.', type: Add}
+  - {message: 'Fix unfinished XenoOutbreak not being removed from roundstart.', type: Fix}
+  - {message: 'Un-buffed Ichor, but added asphyxiation healing.', type: Tweak}
+  - {message: 'Fixed Monochromatic Colorblindness capitalization.', type: Tweak}
+  id: 320000
+  time: '2022-10-31T14:32:02.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Remove/Tweak/Fix}

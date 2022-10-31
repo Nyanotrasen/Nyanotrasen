@@ -1,0 +1,16 @@
+- type: trait
+  id: Religious
+  name: Religious
+  components:
+    # - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
+    - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) has this component
+
+- type: trait
+  id: DragonsBlood
+  name: Draconic Bloodstream
+  components:
+    - type: AutoRegenReagent
+      solution: chemicals
+      reagents:
+        - Ichor
+      unitsPerSecond: 0.075 # 0.55

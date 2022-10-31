@@ -66,11 +66,11 @@
     !type:GenericGameRuleConfiguration
     id: Zombie
 
-- type gameRule
-  id: XenoOutbreak
-  config:
-    !type:GenericGameRuleConfiguration
-    id: XenoOutbreak
+# - type gameRule
+#   id: XenoOutbreak
+#   config:
+#     !type:GenericGameRuleConfiguration
+#     id: XenoOutbreak
 
 # event schedulers
 - type: gameRule

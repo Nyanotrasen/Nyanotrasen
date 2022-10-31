@@ -67,17 +67,17 @@
       effects:
       - !type:SatiateThirst
         factor: 1.5
-    # Dragon doesn't require airloss healing, so omnizine is still best for humans.
     Medicine:
       effects:
       - !type:HealthChange
         damage:
           groups:
-            Burn: -10
-            Brute: -10
-            Toxin: -5
+            Burn: -5
+            Brute: -5
+            Toxin: -3
+            Airloss: -3
           types:
-            Bloodloss: -5
+            Bloodloss: -3
   # Just in case you REALLY want to water your plants
   plantMetabolism:
   - !type:PlantAdjustWater

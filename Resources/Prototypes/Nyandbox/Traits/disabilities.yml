@@ -1,6 +1,6 @@
 - type: trait
   id: ColorBlindnessMonochrome
-  name: Monochromatic ColorBlindness
+  name: Monochromatic Colorblindness
   components:
     - type: Monochromacy
 
@@ -8,7 +8,7 @@
   id: EasyDrunk
   name: Low Alcohol Tolerance
   components:
-    - type: Drunk
+    # - type: Drunk
     - type: AutoRegenReagent
       solution: chemicals
       reagents:
