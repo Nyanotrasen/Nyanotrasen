@@ -63,10 +63,10 @@
   flavor: metallic
   color: "#f4692e"
   metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 1.5
+    # Drink:
+    #   effects:
+    #   - !type:SatiateThirst
+    #     factor: 1.5
     Medicine:
       effects:
       - !type:HealthChange

@@ -1,28 +1,32 @@
 - type: trait
   id: ColorBlindnessMonochrome
   name: Monochromatic Colorblindness
+  description: Your eyes have permanent incurable damage, causing you to only see along a greyscale of color.
   components:
     - type: Monochromacy
 
 - type: trait
   id: EasyDrunk
   name: Low Alcohol Tolerance
+  description: You get drunk really easy, often ending up vomiting.
   components:
     # - type: Drunk
     - type: AutoRegenReagent
       solution: chemicals
       reagents:
         - Ethanol
-      unitsPerSecond: 0.5 # 0.55
+      unitsPerSecond: 0.45 # 0.55
 
 - type: trait
   id: FakeMime
   name: Mute
+  description: For one reason or another you will not speak, ever, and communicate through miming or writing.
   components:
     - type: MuteTrait
 
 # - type: trait
 #   id: Deaf
 #   name: Deaf
+#   description: You are unable to hear anyone speak, others have to communicate through writing or miming.
 #   components:
     # - type: DeafTrait

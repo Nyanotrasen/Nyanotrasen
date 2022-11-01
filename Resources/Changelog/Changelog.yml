@@ -3193,5 +3193,12 @@ Entries:
   - {message: 'Fixed Monochromatic Colorblindness capitalization.', type: Tweak}
   id: 320000
   time: '2022-10-31T14:32:02.0000000+00:00'
+- author: 'DEATHB4DEFEAT'
+  changes:
+  - {message: 'Draconic Bloodstream trait - 0.02 Ichor per second.', type: Tweak}
+  - {message: 'Support for Trait descriptions.', type: Add}
+  - {message: 'All traits have new descriptions.', type: Add}
+  id: 330000
+  time: '2022-11-1T13:12:48.0000000+00:00'
 
 #  - {message: 'Something.', type: Add/Remove/Tweak/Fix}

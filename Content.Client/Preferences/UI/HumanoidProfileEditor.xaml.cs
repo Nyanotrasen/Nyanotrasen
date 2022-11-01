@@ -1260,7 +1260,7 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = $"{trait.Name}"};
+                _checkBox = new CheckBox {Text = $"{trait.Name}\n  -  {trait.Description}"};
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
                 AddChild(new BoxContainer
