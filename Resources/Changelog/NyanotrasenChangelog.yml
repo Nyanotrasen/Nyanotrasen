@@ -573,3 +573,20 @@ Entries:
     type: Add
   id: 63
   time: '2022-11-01T00:48:48.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Arachne whitelists and blacklists updated for uplink items and random
+      humanoid spawns.
+    type: Fix
+  - message: Arachne PDA slot is in the correct location.
+    type: Fix
+  - message: Revenants, familiars, etc cannot get mindbreakered.
+    type: Fix
+  - message: Fixed multiple popups on bags of holding.
+    type: Fix
+  - message: Glimmer objective rasied to 500 and difficulty adjusted accordingly.
+    type: Tweak
+  - message: New 'lspsionics' command for developers and admins.
+    type: Add
+  id: 64
+  time: '2022-11-01T02:24:52.0000000+00:00'
