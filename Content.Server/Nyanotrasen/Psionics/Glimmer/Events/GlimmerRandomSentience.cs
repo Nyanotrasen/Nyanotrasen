@@ -21,6 +21,9 @@ public sealed class GlimmerRandomSentience : GlimmerEventSystem
 
         foreach (var target in targetList)
         {
+            if (HasComp<GhostTakeoverAvailableComponent>(target.Owner))
+                continue;
+
             if (toMakeSentient-- == 0)
                 break;
 
