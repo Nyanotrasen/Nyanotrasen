@@ -2,9 +2,9 @@
 - type: weightedRandom
   id: TraitorObjectiveGroups
   weights:
-    TraitorObjectiveGroupSteal: 1
-    TraitorObjectiveGroupKill: 1
-    TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
+    # TraitorObjectiveGroupSteal: 1
+    # TraitorObjectiveGroupKill: 1
+    # TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
 
 - type: weightedRandom
@@ -38,6 +38,6 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
-    Glimmer400Objective: 1
+    RaiseGlimmerObjective: 1
 
 #Changeling, crew, wizard, when you code it...
