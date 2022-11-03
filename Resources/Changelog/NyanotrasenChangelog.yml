@@ -604,3 +604,16 @@ Entries:
     type: Add
   id: 66
   time: '2022-11-03T02:27:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Doubled glimmer production from probers and drains (per advice of one
+      Sidney K. Meier).
+    type: Tweak
+  - message: Noospheric zap event's glimmer bonus halved.
+    type: Tweak
+  - message: Min/Max players on each of the maps in our pool has been made more consistent.
+    type: Tweak
+  - message: Fixed techfab deconstruction.
+    type: Fix
+  id: 67
+  time: '2022-11-03T02:32:51.0000000+00:00'
