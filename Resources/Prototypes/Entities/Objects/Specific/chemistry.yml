@@ -280,7 +280,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 75
   - type: SolutionSpiker
     sourceSolution: food
   - type: DeleteOnTrigger
