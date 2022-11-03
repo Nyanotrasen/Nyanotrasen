@@ -496,6 +496,10 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Arachne
 
 - type: listing
   id: UplinkgClothingThievingGloves
@@ -523,6 +527,10 @@
     Telecrystal: 8
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Arachne
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -532,6 +540,10 @@
     Telecrystal: 2
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Arachne
 
 - type: listing
   id: UplinkEVASyndie
@@ -550,6 +562,10 @@
     Telecrystal: 12
   categories:
   - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    blacklist:
+    - Arachne
 
 # Misc
 

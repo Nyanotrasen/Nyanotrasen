@@ -31,6 +31,8 @@
   config:
     !type:GlimmerEventRuleConfiguration
     id: NoosphericFry
+    minimumGlimmer: 300
+    maximumGlimmer: 900
 
 - type: gameRule
   id: PsionicCatGotYourTongue

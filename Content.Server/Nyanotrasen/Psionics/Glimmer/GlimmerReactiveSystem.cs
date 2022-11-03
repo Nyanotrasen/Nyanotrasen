@@ -21,7 +21,6 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly BeamSystem _beam = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
 
         public float Accumulator = 0;
@@ -186,7 +185,7 @@ namespace Content.Server.Psionics.Glimmer
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }
 
-        private void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
+        public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
             foreach (var target in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))

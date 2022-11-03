@@ -77,6 +77,7 @@
     nameSegments: [names_golem]
   - type: PotentialPsionic
   - type: Psionic
+    removable: false
   - type: PyrokinesisPower
   - type: Grammar
     attributes:
@@ -92,7 +93,6 @@
     sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
   - type: Item
     sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
-# TODO make inhand welder flame unshaded somehow
   - type: SolutionContainerManager
     solutions:
       Welder:
