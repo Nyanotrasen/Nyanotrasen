@@ -88,7 +88,7 @@ namespace Content.Server.Psionics
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
@@ -104,6 +104,8 @@ namespace Content.Server.Psionics
 
             if (applyGlimmer)
                 chance += ((float) _glimmerSystem.Glimmer / 1000);
+
+            chance *= multiplier;
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))
