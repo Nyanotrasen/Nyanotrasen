@@ -3203,6 +3203,8 @@ Entries:
 - author: 'DEATHB4DEFEAT'
   changes:
   - {message: 'BIG pills (75u).', type: Tweak}
+  - {message: 'Arachnid trait (unused since i havent fixed the issue with addComponentSpecial).', type: Add}
+  - {message: 'Religious trait is now hidden til I fix addComponentSpecial.', type: Remove}
   id: 340000
   time: '2022-11-3T12:34:54.0000000+00:00'
 

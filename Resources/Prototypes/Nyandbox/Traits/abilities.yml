@@ -1,10 +1,10 @@
-- type: trait
-  id: Religious
-  name: Religious
-  description: Allows you to use Bibles and Spellbooks (only spellbooks for now, bible is buggy, this is also probably a temporary name).
-  components:
-    # - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
-    - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) has this component
+# - type: trait
+#   id: Religious
+#   name: Religious
+#   description: Allows you to use Bibles and Spellbooks (only spellbooks for now, bible is buggy, this is also probably a temporary name).
+#   components:
+#     - type: BibleUser # Need to fix addComponentSpecial to check if component already exists, else it causes a fatal error
+#     - type: SpellbookUser # This works for now though since nobody except wizards (which are ghost role, and can't get traits) have this component
 
 - type: trait
   id: DragonsBlood
@@ -16,3 +16,10 @@
       reagents:
         - Ichor
       unitsPerSecond: 0.02 # 0.55
+
+# - type: trait
+#   id: Arachnid
+#   name: Arachnid
+#   description: Allows you to spin webs, like the Arachne.
+#   components:
+#     - type: Arachne
