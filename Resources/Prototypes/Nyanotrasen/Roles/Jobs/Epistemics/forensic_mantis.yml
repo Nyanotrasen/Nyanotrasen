@@ -1,6 +1,7 @@
 - type: job
   id: ForensicMantis
-  name: "forensic mantis"
+  name: job-name-mantis
+  description: job-desc-mantis
   playTimeTracker: JobForensicMantis
   requirements:
     - !type:OverallPlaytimeRequirement
