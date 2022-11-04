@@ -1,6 +1,7 @@
 - type: job
   id: Mystagogue
-  name: "mystagogue"
+  name: job-name-mystagogue
+  description: job-desc-mystagogue
   weight: 10
   startingGear: MystagogueGear
   playTimeTracker: JobMystagogue
