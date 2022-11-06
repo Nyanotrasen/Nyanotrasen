@@ -256,7 +256,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 3
+  - index: 2
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -2124,75 +2124,75 @@ entities:
           color: '#ED8E2E53'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: -2,-33
-        853:
+        852:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSw
           coordinates: -8,-54
-        855:
+        853:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNw
           coordinates: -8,-51
-        856:
+        854:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: -2,-51
-        857:
+        855:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
           coordinates: -2,-54
-        858:
+        856:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -3,-54
-        859:
+        857:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -4,-54
-        860:
+        858:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -5,-54
-        861:
+        859:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -6,-54
-        862:
+        860:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -7,-54
-        863:
+        861:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: -8,-53
-        864:
+        862:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: -8,-52
-        865:
+        863:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -7,-51
-        866:
+        864:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -6,-51
-        867:
+        865:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -5,-51
-        868:
+        866:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -4,-51
-        869:
+        867:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -3,-51
-        870:
+        868:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: -2,-52
-        871:
+        869:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: -2,-53
@@ -2614,7 +2614,7 @@ entities:
           color: '#FFFFFFFF'
           id: WarnLineS
           coordinates: 12.547939,-63.996613
-        873:
+        870:
           color: '#334E6DC8'
           id: HalfTileOverlayGreyscale180
           coordinates: 30,-43
@@ -13813,8 +13813,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -13843,8 +13843,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -14528,8 +14528,6 @@ entities:
   - pos: 3.4343767,-0.87257516
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 102
   type: LockerBotanistFilled
   components:
@@ -14870,8 +14868,6 @@ entities:
   - pos: -3.5,0.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 156
@@ -14880,8 +14876,6 @@ entities:
   - pos: 1.5,-0.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 157
@@ -15673,8 +15667,6 @@ entities:
   - pos: 0.29483318,-5.636486
     parent: 9
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 279
   type: SignBar
   components:
@@ -17175,14 +17167,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 524
   type: TableGlass
   components:
@@ -17777,8 +17761,6 @@ entities:
   - pos: 18.5,-15.5
     parent: 9
     type: Transform
-  - bodyType: Dynamic
-    type: Physics
 - uid: 622
   type: Floodlight
   components:
@@ -17793,8 +17775,6 @@ entities:
   - pos: 18.5,-16.5
     parent: 9
     type: Transform
-  - bodyType: Dynamic
-    type: Physics
 - uid: 624
   type: PowerCellMedium
   components:
@@ -18843,10 +18823,6 @@ entities:
   - pos: -1.5,-13.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 794
   type: Table
   components:
@@ -19480,16 +19456,12 @@ entities:
   - pos: -7.5,-18.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 897
   type: HospitalCurtainsOpen
   components:
   - pos: -7.5,-17.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 898
   type: WallSolid
   components:
@@ -19928,12 +19900,6 @@ entities:
   - pos: -11.5,-21.5
     parent: 9
     type: Transform
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 971
   type: BoxMouthSwab
   components:
@@ -19976,24 +19942,18 @@ entities:
   - pos: -13.277969,-23.09526
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 978
   type: Beaker
   components:
   - pos: -13.465469,-23.303738
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 979
   type: LargeBeaker
   components:
   - pos: -13.715469,-23.09526
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 980
   type: chem_dispenser
   components:
@@ -20516,24 +20476,18 @@ entities:
   - pos: 2.7458148,-24.139122
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 1066
   type: LargeBeaker
   components:
   - pos: 4.6624813,-22.440025
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 1067
   type: LargeBeaker
   components:
   - pos: 1.6416478,-21.335093
     parent: 9
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 1068
   type: Paper
   components:
@@ -20903,16 +20857,6 @@ entities:
     - machine_parts
     - machine_board
     type: Construction
-  - containers:
-      clonepod-bodyContainer: !type:ContainerSlot {}
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
-  - inputs:
-      CloningPodReceiver: []
-    type: SignalReceiver
 - uid: 1127
   type: MedicalScanner
   components:
@@ -21372,10 +21316,6 @@ entities:
   - pos: -0.5,-34.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 1203
   type: ChairOfficeLight
   components:
@@ -23066,10 +23006,6 @@ entities:
   - pos: 29.5,9.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 1472
   type: TableCounterMetal
   components:
@@ -23620,8 +23556,6 @@ entities:
   - pos: 1.5,-32.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 1560
@@ -24837,8 +24771,6 @@ entities:
   - pos: -16.5,-47.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 1747
   type: GeneratorBasic
   components:
@@ -27485,8 +27417,6 @@ entities:
   - pos: -12.5,-56.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 2157
@@ -27495,8 +27425,6 @@ entities:
   - pos: -8.5,-56.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 2158
@@ -27902,14 +27830,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2220
   type: FirelockGlass
   components:
@@ -28445,14 +28365,6 @@ entities:
     pos: 53.5,-85.5
     parent: 9
     type: Transform
-  - solution: bucket
-    type: Drink
-  - containers:
-      storagebase: !type:Container
-        ents: []
-      mop_slot: !type:ContainerSlot {}
-      trashbag_slot: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 2308
   type: CigarGoldCase
   components:
@@ -30177,8 +30089,6 @@ entities:
   - pos: 0.75316644,-5.6260614
     parent: 9
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 2593
   type: Table
   components:
@@ -30245,14 +30155,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2601
   type: Table
   components:
@@ -30461,30 +30363,18 @@ entities:
   - pos: 34.5,-12.5
     parent: 9
     type: Transform
-  - solution: bucket
-    type: Drink
-  - containers:
-      storagebase: !type:Container
-        ents: []
-      mop_slot: !type:ContainerSlot {}
-      trashbag_slot: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 2635
   type: MopBucket
   components:
   - pos: 34.505726,-13.453975
     parent: 9
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 2636
   type: FloorDrain
   components:
   - pos: 33.5,-12.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 2637
@@ -31457,14 +31347,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2796
   type: PoweredSmallLight
   components:
@@ -31476,14 +31358,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2797
   type: PoweredSmallLight
   components:
@@ -31495,14 +31369,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2798
   type: PoweredSmallLight
   components:
@@ -31514,14 +31380,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2799
   type: ChairOfficeLight
   components:
@@ -31571,10 +31429,6 @@ entities:
   - pos: 48.5,1.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2807
   type: Rack
   components:
@@ -31772,14 +31626,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2839
   type: PoweredSmallLight
   components:
@@ -31790,14 +31636,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2840
   type: Airlock
   components:
@@ -32741,10 +32579,6 @@ entities:
   - pos: 39.5,-11.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 2991
   type: TableWood
   components:
@@ -34334,14 +34168,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3248
   type: WallReinforced
   components:
@@ -38239,14 +38065,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3805
   type: CarpetBlack
   components:
@@ -38830,8 +38648,6 @@ entities:
   - pos: 12.5,-59.5
     parent: 9
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
 - uid: 3897
   type: Grille
   components:
@@ -39129,14 +38945,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3944
   type: WallReinforced
   components:
@@ -39166,14 +38974,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3948
   type: WallReinforced
   components:
@@ -39220,14 +39020,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3955
   type: WallSolid
   components:
@@ -39399,10 +39191,6 @@ entities:
   - pos: 12.5,-70.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 3983
   type: Chair
   components:
@@ -41084,14 +40872,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4251
   type: PoweredSmallLight
   components:
@@ -41103,14 +40883,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4252
   type: PoweredSmallLight
   components:
@@ -41122,14 +40894,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4253
   type: PoweredSmallLight
   components:
@@ -41141,14 +40905,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4254
   type: Grille
   components:
@@ -41317,14 +41073,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4275
   type: Catwalk
   components:
@@ -41500,14 +41248,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4302
   type: WallSolid
   components:
@@ -42082,12 +41822,6 @@ entities:
   - pos: 35.5,-83.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 2500
-    type: ApcPowerReceiver
-  - radius: 2.5
-    type: PointLight
 - uid: 4393
   type: WallReinforced
   components:
@@ -60076,14 +59810,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7336
   type: PoweredSmallLight
   components:
@@ -60095,14 +59821,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7337
   type: Poweredlight
   components:
@@ -60129,14 +59847,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7340
   type: PoweredSmallLight
   components:
@@ -60148,14 +59858,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7341
   type: PoweredSmallLight
   components:
@@ -60167,14 +59869,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7342
   type: PoweredSmallLight
   components:
@@ -60186,14 +59880,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7343
   type: PoweredSmallLight
   components:
@@ -60205,14 +59891,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7344
   type: PoweredSmallLight
   components:
@@ -60223,14 +59901,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7345
   type: Firelock
   components:
@@ -60248,14 +59918,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7347
   type: PoweredSmallLight
   components:
@@ -60266,14 +59928,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7348
   type: PoweredSmallLight
   components:
@@ -60284,14 +59938,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7349
   type: PoweredSmallLight
   components:
@@ -60302,14 +59948,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7350
   type: PoweredlightLED
   components:
@@ -60330,14 +59968,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7352
   type: PoweredSmallLight
   components:
@@ -60348,14 +59978,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7353
   type: PoweredSmallLight
   components:
@@ -60367,14 +59989,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7354
   type: PoweredSmallLight
   components:
@@ -60386,14 +60000,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7355
   type: PoweredSmallLight
   components:
@@ -60404,14 +60010,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7356
   type: PoweredSmallLight
   components:
@@ -60423,14 +60021,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7357
   type: Grille
   components:
@@ -60448,14 +60038,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7359
   type: PoweredSmallLight
   components:
@@ -60466,14 +60048,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7360
   type: PoweredSmallLight
   components:
@@ -60484,14 +60058,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7361
   type: CableApcExtension
   components:
@@ -60820,8 +60386,6 @@ entities:
     pos: -5.5,-0.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasPressurePump
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 7415
@@ -61455,14 +61019,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7493
   type: PoweredSmallLight
   components:
@@ -61474,14 +61030,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7494
   type: Grille
   components:
@@ -63601,16 +63149,12 @@ entities:
   - pos: 62.5,-72.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7802
   type: HospitalCurtainsOpen
   components:
   - pos: 62.5,-74.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7803
   type: WallReinforced
   components:
@@ -63771,8 +63315,6 @@ entities:
   - pos: 62.5,-76.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7827
   type: SpawnPointAtmos
   components:
@@ -65756,14 +65298,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8123
   type: CableApcExtension
   components:
@@ -65811,14 +65345,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8130
   type: PoweredlightLED
   components:
@@ -66113,14 +65639,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8170
   type: SubstationBasic
   components:
@@ -66474,14 +65992,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8225
   type: PoweredSmallLight
   components:
@@ -66492,14 +66002,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8226
   type: Poweredlight
   components:
@@ -66598,14 +66100,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8237
   type: PoweredSmallLight
   components:
@@ -66617,14 +66111,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8238
   type: PoweredlightBlueInterior
   components:
@@ -66657,14 +66143,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8242
   type: Poweredlight
   components:
@@ -68036,14 +67514,6 @@ entities:
   - pos: 61.5,6.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 8438
   type: GasPort
   components:
@@ -68056,29 +67526,25 @@ entities:
 - uid: 8439
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 73.5,15.5
+  - pos: 73.5,15.5
     parent: 9
     type: Transform
 - uid: 8440
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 73.5,17.5
+  - pos: 73.5,17.5
     parent: 9
     type: Transform
 - uid: 8441
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 86.5,17.5
+  - pos: 86.5,17.5
     parent: 9
     type: Transform
 - uid: 8442
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 86.5,15.5
+  - pos: 86.5,15.5
     parent: 9
     type: Transform
 - uid: 8443
@@ -68585,8 +68051,6 @@ entities:
     pos: 16.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8515
@@ -68715,8 +68179,6 @@ entities:
     pos: 14.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8532
@@ -68819,7 +68281,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#FF0000FF'
     type: AtmosPipeColor
@@ -68840,7 +68301,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#FFFF00FF'
     type: AtmosPipeColor
@@ -68915,8 +68375,6 @@ entities:
     pos: 8.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8558
@@ -69011,8 +68469,6 @@ entities:
     pos: 7.5,-91.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8572
@@ -69023,8 +68479,6 @@ entities:
   - pos: 6.5,-92.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8573
@@ -69060,8 +68514,6 @@ entities:
     pos: 18.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8577
@@ -69265,8 +68717,6 @@ entities:
     pos: 12.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8602
@@ -69459,7 +68909,6 @@ entities:
     parent: 9
     type: Transform
   - transferRate: 1
-    enabled: False
     type: GasVolumePump
   - color: '#00FF00FF'
     type: AtmosPipeColor
@@ -69603,7 +69052,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#00FF00FF'
     type: AtmosPipeColor
@@ -69615,7 +69063,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#00FF00FF'
     type: AtmosPipeColor
@@ -69843,8 +69290,7 @@ entities:
 - uid: 8679
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 23.5,-94.5
+  - pos: 23.5,-94.5
     parent: 9
     type: Transform
 - uid: 8680
@@ -69983,8 +69429,6 @@ entities:
     pos: 10.5,-97.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8698
@@ -69995,8 +69439,6 @@ entities:
   - pos: 6.5,-96.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 8699
@@ -70205,14 +69647,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 8729
   type: GasPipeStraight
   components:
@@ -70528,8 +69962,6 @@ entities:
     pos: 10.5,-89.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasPressurePump
   - color: '#0000FFFF'
     type: AtmosPipeColor
 - uid: 8770
@@ -70835,7 +70267,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
 - uid: 8815
   type: ReinforcedPlasmaWindow
@@ -70897,7 +70328,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#FF00FFFF'
     type: AtmosPipeColor
@@ -72498,14 +71928,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 9013
   type: GasPipeStraight
   components:
@@ -83965,22 +83387,19 @@ entities:
 - uid: 10328
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -1.5,-1.5
+  - pos: -1.5,-1.5
     parent: 9
     type: Transform
 - uid: 10329
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -6.5,-1.5
+  - pos: -6.5,-1.5
     parent: 9
     type: Transform
 - uid: 10330
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -2.5,-5.5
+  - pos: -2.5,-5.5
     parent: 9
     type: Transform
 - uid: 10331
@@ -85745,7 +85164,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
 - uid: 10547
   type: GasPressurePump
@@ -85755,7 +85173,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
 - uid: 10548
   type: GasPressurePump
@@ -85765,7 +85182,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
 - uid: 10549
   type: Poweredlight
@@ -95355,8 +94771,6 @@ entities:
   - pos: 46.5,-25.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
   - fixtures: []
     type: Fixtures
 - uid: 11910
@@ -95395,8 +94809,6 @@ entities:
   - pos: 46.5,-25.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 11915
   type: RandomPosterLegit
   components:
@@ -95409,10 +94821,6 @@ entities:
   - pos: 24.5,-85.5
     parent: 9
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 11917
   type: ChairOfficeDark
   components:
@@ -95507,14 +94915,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 11932
   type: CarpetBlack
   components:
@@ -95929,15 +95329,13 @@ entities:
 - uid: 11992
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 11.5,-91.5
+  - pos: 11.5,-91.5
     parent: 9
     type: Transform
 - uid: 11993
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 11.5,-92.5
+  - pos: 11.5,-92.5
     parent: 9
     type: Transform
 - uid: 11994
@@ -95948,7 +95346,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#FF0000FF'
     type: AtmosPipeColor
@@ -98023,14 +97420,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 12303
   type: Cigarette
   components:
@@ -98161,14 +97550,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 12323
   type: Chair
   components:
@@ -98186,14 +97567,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 12325
   type: PoweredSmallLight
   components:
@@ -98205,14 +97578,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 12326
   type: PoweredlightBlueInterior
   components:
@@ -102620,8 +101985,6 @@ entities:
   - pos: 13.5,-65.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 12896
@@ -102631,8 +101994,6 @@ entities:
     pos: 14.5,-64.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasPressurePump
 - uid: 12897
   type: GasPipeStraight
   components:
@@ -103198,8 +102559,7 @@ entities:
 - uid: 12987
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 87.5,-81.5
+  - pos: 87.5,-81.5
     parent: 9
     type: Transform
 - uid: 12988
@@ -103358,14 +102718,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 13013
   type: FirelockGlass
   components:
@@ -103757,8 +103109,7 @@ entities:
 - uid: 13074
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 17.5,-94.5
+  - pos: 17.5,-94.5
     parent: 9
     type: Transform
 - uid: 13075
@@ -105992,42 +105343,18 @@ entities:
   - pos: 12.5,-93.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 13421
   type: PortableScrubber
   components:
   - pos: 13.5,-93.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 13422
   type: PortableScrubber
   components:
   - pos: 14.5,-93.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 13423
   type: ClothingMaskGasAtmos
   components:
@@ -106269,8 +105596,6 @@ entities:
   - pos: 24.5,-88.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 13456
@@ -106297,7 +105622,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
   - color: '#FF8800FF'
     type: AtmosPipeColor
@@ -106346,7 +105670,6 @@ entities:
   - inletTwoConcentration: 0.27999997
     inletOneConcentration: 0.72
     targetPressure: 4500
-    enabled: False
     type: GasMixer
   - color: '#0000FFFF'
     type: AtmosPipeColor
@@ -106581,7 +105904,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasMixer
 - uid: 13501
   type: GasPipeStraight
@@ -106617,7 +105939,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasMixer
 - uid: 13505
   type: GasPipeStraight
@@ -106740,7 +106061,6 @@ entities:
     parent: 9
     type: Transform
   - targetPressure: 4500
-    enabled: False
     type: GasPressurePump
 - uid: 13520
   type: GasPassiveVent
@@ -108288,14 +107608,6 @@ entities:
   - pos: -13.5,-10.5
     parent: 9
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 13745
   type: GasPort
   components:
@@ -109670,11 +108982,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 13963
   type: PoweredLightPostSmall
   components:
@@ -109683,11 +108990,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 13964
   type: PoweredLightPostSmall
   components:
@@ -109696,11 +108998,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 13965
   type: PoweredLightPostSmall
   components:
@@ -109709,11 +109006,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 13966
   type: CableMV
   components:
@@ -111084,8 +110376,7 @@ entities:
 - uid: 14176
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 82.5,-13.5
+  - pos: 82.5,-13.5
     parent: 9
     type: Transform
 - uid: 14177
@@ -111115,8 +110406,7 @@ entities:
 - uid: 14181
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 80.5,-20.5
+  - pos: 80.5,-20.5
     parent: 9
     type: Transform
 - uid: 14182
@@ -111787,14 +111077,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 14288
   type: PoweredSmallLight
   components:
@@ -111805,14 +111087,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 14289
   type: PoweredSmallLight
   components:
@@ -111824,14 +111098,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 14290
   type: ReinforcedGirder
   components:
@@ -114920,8 +114186,7 @@ entities:
 - uid: 14794
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 80.5,-53.5
+  - pos: 80.5,-53.5
     parent: 9
     type: Transform
 - uid: 14795
@@ -115816,8 +115081,6 @@ entities:
   - pos: 27.5,-95.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasPressurePump
 - uid: 14932
   type: RadioHandheld
   components:
@@ -115831,8 +115094,6 @@ entities:
     pos: 27.5,-96.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: GasFilter
 - uid: 14934
   type: GasPort
   components:
@@ -116167,14 +115428,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 14981
   type: Poweredlight
   components:
@@ -116488,8 +115741,7 @@ entities:
 - uid: 15030
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 43.5,-56.5
+  - pos: 43.5,-56.5
     parent: 9
     type: Transform
 - uid: 15031
@@ -117224,6 +116476,12 @@ entities:
   - pos: 51.5,-54.5
     parent: 9
     type: Transform
+- uid: 15148
+  type: MachineArtifactAnalyzer
+  components:
+  - pos: 16.5,-63.5
+    parent: 9
+    type: Transform
 - uid: 15149
   type: ReinforcedWindow
   components:
@@ -117943,15 +117201,13 @@ entities:
 - uid: 15266
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 79.5,-77.5
+  - pos: 79.5,-77.5
     parent: 9
     type: Transform
 - uid: 15267
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 79.5,-76.5
+  - pos: 79.5,-76.5
     parent: 9
     type: Transform
 - uid: 15268
@@ -118199,4 +117455,10 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 15304
+  type: ComputerAnalysisConsole
+  components:
+  - pos: 17.5,-63.5
+    parent: 9
+    type: Transform
 ...
