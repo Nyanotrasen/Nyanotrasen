@@ -175,7 +175,7 @@ namespace Content.Server.Psionics.Glimmer
             if (tier < GlimmerTier.High)
                 return;
 
-            var totalIntensity = _sharedGlimmerSystem.Glimmer;
+            var totalIntensity = (float) (_sharedGlimmerSystem.Glimmer * 1.25);
             var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
             var maxIntensity = 20;
 
