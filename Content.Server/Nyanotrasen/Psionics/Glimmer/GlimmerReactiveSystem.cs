@@ -175,11 +175,11 @@ namespace Content.Server.Psionics.Glimmer
             if (tier < GlimmerTier.High)
                 return;
 
-            var totalIntensity = _sharedGlimmerSystem.Glimmer;
+            var totalIntensity = (float) (_sharedGlimmerSystem.Glimmer * 1.25);
             var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
             var maxIntensity = 20;
 
-            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.05f, 0.15f);
+            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.1f, 0.15f);
             _sharedGlimmerSystem.Glimmer -= (int) removed;
             BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
