@@ -1,2 +1,2 @@
-objective-condition-glimmer-400-title = Ensure glimmer reaches 400Ψ.
-objective-condition-glimmer-400-description = We need you to pump the noösphere surrounding the station to at least 400Ψ and keep it that way.
+objective-condition-raise-glimmer-title = Ensure glimmer reaches {$target}Ψ.
+objective-condition-raise-glimmer-description = We need you to pump the noösphere surrounding the station to at least {$target}Ψ and keep it that way.

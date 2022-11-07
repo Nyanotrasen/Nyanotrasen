@@ -96,6 +96,9 @@ namespace Content.Server.Abilities.Psionics
             if (!TryComp<PsionicComponent>(uid, out var psionic))
                 return;
 
+            if (!psionic.Removable)
+                return;
+
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>("RandomPsionicPowerPool", out var pool))
             {
                 Logger.Error("Can't index the random psionic power pool!");
