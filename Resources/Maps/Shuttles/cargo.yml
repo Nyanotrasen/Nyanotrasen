@@ -8,81 +8,116 @@ tilemap:
   1: FloorArcadeBlue
   2: FloorArcadeBlue2
   3: FloorArcadeRed
-  4: FloorAsteroidIronsand1
-  5: FloorAsteroidIronsand2
-  6: FloorAsteroidIronsand3
-  7: FloorAsteroidIronsand4
-  8: FloorBoxing
-  9: FloorCarpetClown
-  10: FloorCarpetOffice
-  11: FloorEighties
-  12: FloorGrassJungle
-  13: FloorGym
-  14: FloorMetalDiamond
-  15: FloorShuttleBlue
-  16: FloorShuttleOrange
-  17: FloorShuttlePurple
-  18: FloorShuttleRed
-  19: FloorShuttleWhite
-  20: FloorAsteroidCoarseSand0
-  21: FloorAsteroidCoarseSand1
-  22: FloorAsteroidCoarseSand2
-  23: FloorAsteroidCoarseSandDug
-  24: FloorAsteroidSand
-  25: FloorAsteroidTile
-  26: FloorBar
-  27: FloorBlue
-  28: FloorBlueCircuit
-  29: FloorClown
-  30: FloorDark
-  31: FloorElevatorShaft
-  32: FloorFreezer
-  33: FloorGlass
-  34: FloorGold
-  35: FloorGrass
-  36: FloorGreenCircuit
-  37: FloorHydro
-  38: FloorKitchen
-  39: FloorLaundry
-  40: FloorLino
-  41: FloorMime
-  42: FloorMono
-  43: FloorReinforced
-  44: FloorRGlass
-  45: FloorRockVault
-  46: FloorShowroom
-  47: FloorSilver
-  48: FloorSnow
-  49: FloorSteel
-  50: FloorSteelDirty
-  51: FloorTechMaint
-  52: FloorWhite
-  53: FloorWood
-  54: Lattice
-  55: Plating
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBlue
+  14: FloorBlueCircuit
+  15: FloorBoxing
+  16: FloorCarpetClown
+  17: FloorCarpetOffice
+  18: FloorCave
+  19: FloorCaveDrought
+  20: FloorClown
+  21: FloorDark
+  22: FloorDarkDiagonal
+  23: FloorDarkDiagonalMini
+  24: FloorDarkHerringbone
+  25: FloorDarkMini
+  26: FloorDarkMono
+  27: FloorDarkOffset
+  28: FloorDarkPavement
+  29: FloorDarkPavementVertical
+  30: FloorDarkPlastic
+  31: FloorDirt
+  32: FloorEighties
+  33: FloorElevatorShaft
+  34: FloorFreezer
+  35: FloorGlass
+  36: FloorGold
+  37: FloorGrass
+  38: FloorGrassDark
+  39: FloorGrassJungle
+  40: FloorGrassLight
+  41: FloorGreenCircuit
+  42: FloorGym
+  43: FloorHydro
+  44: FloorKitchen
+  45: FloorLaundry
+  46: FloorLino
+  47: FloorMetalDiamond
+  48: FloorMime
+  49: FloorMono
+  50: FloorPlastic
+  51: FloorRGlass
+  52: FloorReinforced
+  53: FloorRockVault
+  54: FloorShowroom
+  55: FloorShuttleBlue
+  56: FloorShuttleOrange
+  57: FloorShuttlePurple
+  58: FloorShuttleRed
+  59: FloorShuttleWhite
+  60: FloorSilver
+  61: FloorSnow
+  62: FloorSteel
+  63: FloorSteelDiagonal
+  64: FloorSteelDiagonalMini
+  65: FloorSteelDirty
+  66: FloorSteelHerringbone
+  67: FloorSteelMini
+  68: FloorSteelMono
+  69: FloorSteelOffset
+  70: FloorSteelPavement
+  71: FloorSteelPavementVertical
+  72: FloorTechMaint
+  73: FloorTechMaint2
+  74: FloorTechMaint3
+  75: FloorWhite
+  76: FloorWhiteDiagonal
+  77: FloorWhiteDiagonalMini
+  78: FloorWhiteHerringbone
+  79: FloorWhiteMini
+  80: FloorWhiteMono
+  81: FloorWhiteOffset
+  82: FloorWhitePavement
+  83: FloorWhitePavementVertical
+  84: FloorWhitePlastic
+  85: FloorWood
+  86: FloorWoodTile
+  87: Lattice
+  88: Plating
 grids:
-- settings:
+- uid: 0
+  settings:
     chunksize: 16
     tilesize: 1
   chunks:
   - ind: -1,0
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAADEAAAAxAAAAMQAAADEAAAAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAxAAAAMQAAADEAAAAxAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAxAAAAMQAAADEAAAAxAAAAMQAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAADEAAAAxAAAAMQAAADEAAAAxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAA3AAAAMQAAADEAAAAxAAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAANwAAABMAAAAPAAAAEwAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAADcAAAA3AAAADwAAADcAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAANwAAADcAAAA3AAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAAPgAAAD4AAAA+AAAAPgAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+AAAAPgAAAD4AAAA+AAAAPgAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAD4AAAA+AAAAPgAAAD4AAAA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAPgAAAD4AAAA+AAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAADsAAAA3AAAAOwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAANwAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
   - ind: 0,0
-    tiles: MQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    tiles: PgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
   - ind: -1,-1
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAA3AAAANwAAADcAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAADcAAAAzAAAANwAAADMAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAAxAAAAMQAAADEAAAAxAAAAMQAAAA==
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABIAAAAWAAAAEgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAA+AAAAPgAAAD4AAAA+AAAAPgAAAA==
   - ind: 0,-1
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 entities:
 - uid: 0
   components:
+  - type: MetaData
   - pos: 2.2710133,-2.4148211
-    parent: null
+    parent: 37
     type: Transform
-  - index: 0
-    type: MapGrid
-  - angularDamping: 100
-    linearDamping: 50
+  - type: MapGrid
+  - type: Broadphase
+  - angularDamping: 0.05
+    linearDamping: 0.05
     fixedRotation: False
     bodyType: Dynamic
     type: Physics
@@ -90,6 +125,7 @@ entities:
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
+    enabled: True
     type: Gravity
   - chunkCollection:
       -1,0:
@@ -502,11 +538,19 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - volume: 2500
       temperature: 293.15
       moles:
       - 21.824879
       - 82.10312
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -524,11 +568,19 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - volume: 2500
       temperature: 184.23123
       moles:
       - 13.64055
       - 51.31445
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -546,11 +598,19 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - volume: 2500
       temperature: 286.34256
       moles:
       - 21.313358
       - 80.178825
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -568,11 +628,19 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - volume: 2500
       temperature: 265.9203
       moles:
       - 19.778797
       - 74.40595
+      - 0
+      - 0
+      - 0
+      - 0
       - 0
       - 0
       - 0
@@ -590,6 +658,10 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     - volume: 2500
       temperature: 196.33333
       moles:
@@ -601,7 +673,15 @@ entities:
       - 0
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
     type: GridAtmosphere
+  - type: OccluderTree
+  - type: Shuttle
+  - type: GridPathfinding
+  - type: RadiationGridResistance
 - uid: 1
   type: BlastDoor
   components:
@@ -609,11 +689,13 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 57
+      Open:
+      - port: On
+        uid: 35
+      Close:
+      - port: Off
+        uid: 35
+      Toggle: []
     type: SignalReceiver
 - uid: 2
   type: BlastDoor
@@ -622,11 +704,13 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 56
+      Open:
+      - port: On
+        uid: 34
+      Close:
+      - port: Off
+        uid: 34
+      Toggle: []
     type: SignalReceiver
 - uid: 3
   type: BlastDoor
@@ -635,11 +719,13 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 55
+      Open:
+      - port: On
+        uid: 34
+      Close:
+      - port: Off
+        uid: 34
+      Toggle: []
     type: SignalReceiver
 - uid: 4
   type: WallShuttle
@@ -834,27 +920,43 @@ entities:
     parent: 0
     type: Transform
 - uid: 34
-  type: TwoWayLever
+  type: SignalSwitch
   components:
-  - pos: -3.5,1.5
+  - rot: 1.5707963267948966 rad
+    pos: -5.5,2.5
     parent: 0
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
-      Left:
+      On:
+      - port: Open
+        uid: 3
+      - port: Open
+        uid: 2
+      - port: Forward
+        uid: 36
+      - port: Forward
+        uid: 48
+      - port: Forward
+        uid: 49
       - port: Forward
         uid: 43
       - port: Forward
         uid: 42
       - port: Forward
         uid: 41
-      Right:
-      - port: Reverse
-        uid: 43
-      - port: Reverse
-        uid: 42
-      - port: Reverse
-        uid: 41
-      Middle:
+      Off:
+      - port: Close
+        uid: 3
+      - port: Close
+        uid: 2
+      - port: Off
+        uid: 36
+      - port: Off
+        uid: 48
+      - port: Off
+        uid: 49
       - port: Off
         uid: 43
       - port: Off
@@ -863,92 +965,75 @@ entities:
         uid: 41
     type: SignalTransmitter
 - uid: 35
-  type: TwoWayLever
+  type: SignalSwitch
   components:
-  - pos: -1.5,1.5
+  - rot: -1.5707963267948966 rad
+    pos: 0.5,2.5
     parent: 0
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
-      Left:
-      - port: Forward
-        uid: 51
-      - port: Forward
-        uid: 46
-      - port: Forward
-        uid: 167
-      Right:
+      On:
+      - port: Open
+        uid: 1
+      - port: Open
+        uid: 54
+      - port: Reverse
+        uid: 40
+      - port: Reverse
+        uid: 39
+      - port: Reverse
+        uid: 38
       - port: Reverse
         uid: 51
       - port: Reverse
         uid: 46
       - port: Reverse
         uid: 167
-      Middle:
+      Off:
+      - port: Close
+        uid: 1
+      - port: Close
+        uid: 54
       - port: Off
         uid: 51
       - port: Off
         uid: 46
       - port: Off
         uid: 167
+      - port: Off
+        uid: 40
+      - port: Off
+        uid: 39
+      - port: Off
+        uid: 38
     type: SignalTransmitter
 - uid: 36
-  type: TwoWayLever
+  type: ConveyorBelt
   components:
-  - pos: -1.5,3.5
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,4.5
     parent: 0
     type: Transform
-  - outputs:
-      Left:
-      - port: Forward
-        uid: 38
-      - port: Forward
-        uid: 39
-      - port: Forward
-        uid: 40
-      Right:
-      - port: Reverse
-        uid: 38
-      - port: Reverse
-        uid: 39
-      - port: Reverse
-        uid: 40
-      Middle:
+  - inputs:
+      Reverse: []
+      Forward:
+      - port: On
+        uid: 34
+      Off:
       - port: Off
-        uid: 38
-      - port: Off
-        uid: 39
-      - port: Off
-        uid: 40
-    type: SignalTransmitter
+        uid: 34
+    type: SignalReceiver
 - uid: 37
-  type: TwoWayLever
   components:
-  - pos: -3.5,3.5
-    parent: 0
-    type: Transform
-  - outputs:
-      Left:
-      - port: Forward
-        uid: 49
-      - port: Forward
-        uid: 48
-      - port: Forward
-        uid: 47
-      Right:
-      - port: Reverse
-        uid: 49
-      - port: Reverse
-        uid: 48
-      - port: Reverse
-        uid: 47
-      Middle:
-      - port: Off
-        uid: 49
-      - port: Off
-        uid: 48
-      - port: Off
-        uid: 47
-    type: SignalTransmitter
+  - type: MetaData
+  - type: Transform
+  - index: 2
+    type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 38
   type: ConveyorBelt
   components:
@@ -958,14 +1043,12 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
-        uid: 36
-      Forward:
-      - port: Left
-        uid: 36
+      - port: On
+        uid: 35
+      Forward: []
       Off:
-      - port: Middle
-        uid: 36
+      - port: Off
+        uid: 35
     type: SignalReceiver
 - uid: 39
   type: ConveyorBelt
@@ -976,14 +1059,12 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
-        uid: 36
-      Forward:
-      - port: Left
-        uid: 36
+      - port: On
+        uid: 35
+      Forward: []
       Off:
-      - port: Middle
-        uid: 36
+      - port: Off
+        uid: 35
     type: SignalReceiver
 - uid: 40
   type: ConveyorBelt
@@ -994,14 +1075,12 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
-        uid: 36
-      Forward:
-      - port: Left
-        uid: 36
+      - port: On
+        uid: 35
+      Forward: []
       Off:
-      - port: Middle
-        uid: 36
+      - port: Off
+        uid: 35
     type: SignalReceiver
 - uid: 41
   type: ConveyorBelt
@@ -1011,14 +1090,12 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Reverse:
-      - port: Right
-        uid: 34
+      Reverse: []
       Forward:
-      - port: Left
+      - port: On
         uid: 34
       Off:
-      - port: Middle
+      - port: Off
         uid: 34
     type: SignalReceiver
 - uid: 42
@@ -1029,14 +1106,12 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Reverse:
-      - port: Right
-        uid: 34
+      Reverse: []
       Forward:
-      - port: Left
+      - port: On
         uid: 34
       Off:
-      - port: Middle
+      - port: Off
         uid: 34
     type: SignalReceiver
 - uid: 43
@@ -1047,14 +1122,12 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Reverse:
-      - port: Right
-        uid: 34
+      Reverse: []
       Forward:
-      - port: Left
+      - port: On
         uid: 34
       Off:
-      - port: Middle
+      - port: Off
         uid: 34
     type: SignalReceiver
 - uid: 44
@@ -1104,32 +1177,12 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
+      - port: On
         uid: 35
-      Forward:
-      - port: Left
-        uid: 35
+      Forward: []
       Off:
-      - port: Middle
+      - port: Off
         uid: 35
-    type: SignalReceiver
-- uid: 47
-  type: ConveyorBelt
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -3.5,4.5
-    parent: 0
-    type: Transform
-  - inputs:
-      Reverse:
-      - port: Right
-        uid: 37
-      Forward:
-      - port: Left
-        uid: 37
-      Off:
-      - port: Middle
-        uid: 37
     type: SignalReceiver
 - uid: 48
   type: ConveyorBelt
@@ -1139,15 +1192,13 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Reverse:
-      - port: Right
-        uid: 37
+      Reverse: []
       Forward:
-      - port: Left
-        uid: 37
+      - port: On
+        uid: 34
       Off:
-      - port: Middle
-        uid: 37
+      - port: Off
+        uid: 34
     type: SignalReceiver
 - uid: 49
   type: ConveyorBelt
@@ -1157,15 +1208,13 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Reverse:
-      - port: Right
-        uid: 37
+      Reverse: []
       Forward:
-      - port: Left
-        uid: 37
+      - port: On
+        uid: 34
       Off:
-      - port: Middle
-        uid: 37
+      - port: Off
+        uid: 34
     type: SignalReceiver
 - uid: 50
   type: AirlockExternalGlassShuttleLocked
@@ -1208,13 +1257,11 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
+      - port: On
         uid: 35
-      Forward:
-      - port: Left
-        uid: 35
+      Forward: []
       Off:
-      - port: Middle
+      - port: Off
         uid: 35
     type: SignalReceiver
 - uid: 52
@@ -1288,64 +1335,14 @@ entities:
     parent: 0
     type: Transform
   - inputs:
-      Open: []
-      Close: []
-      Toggle:
-      - port: Pressed
-        uid: 58
+      Open:
+      - port: On
+        uid: 35
+      Close:
+      - port: Off
+        uid: 35
+      Toggle: []
     type: SignalReceiver
-- uid: 55
-  type: SignalButton
-  components:
-  - pos: -5.5,-0.5
-    parent: 0
-    type: Transform
-  - fixtures: []
-    type: Fixtures
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 3
-    type: SignalTransmitter
-- uid: 56
-  type: SignalButton
-  components:
-  - pos: -5.5,5.5
-    parent: 0
-    type: Transform
-  - fixtures: []
-    type: Fixtures
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 2
-    type: SignalTransmitter
-- uid: 57
-  type: SignalButton
-  components:
-  - pos: 0.5,5.5
-    parent: 0
-    type: Transform
-  - fixtures: []
-    type: Fixtures
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 1
-    type: SignalTransmitter
-- uid: 58
-  type: SignalButton
-  components:
-  - pos: 0.5,-0.5
-    parent: 0
-    type: Transform
-  - fixtures: []
-    type: Fixtures
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 54
-    type: SignalTransmitter
 - uid: 59
   type: Thruster
   components:
@@ -1476,10 +1473,6 @@ entities:
   - pos: -2.5,8.5
     parent: 0
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 79
   type: APCHyperCapacity
   components:
@@ -1511,30 +1504,18 @@ entities:
   - pos: -2.5,-3.5
     parent: 0
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 84
   type: SMESBasic
   components:
   - pos: -2.5,-2.5
     parent: 0
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 85
   type: SubstationBasic
   components:
   - pos: -1.5,-2.5
     parent: 0
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 86
   type: CableHV
   components:
@@ -2080,13 +2061,11 @@ entities:
     type: Transform
   - inputs:
       Reverse:
-      - port: Right
+      - port: On
         uid: 35
-      Forward:
-      - port: Left
-        uid: 35
+      Forward: []
       Off:
-      - port: Middle
+      - port: Off
         uid: 35
     type: SignalReceiver
 - uid: 168
