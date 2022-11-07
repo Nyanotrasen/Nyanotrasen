@@ -82,6 +82,7 @@
   - type: Grammar
     attributes:
       proper: true
+  - type: MovementIgnoreGravity
 
 - type: entity
   parent: WelderExperimental

@@ -294,6 +294,8 @@
       - EmitterCircuitboard
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
+      - AnalysisComputerCircuitboard
+      - ArtifactAnalyzerMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -343,6 +345,9 @@
       - ShellShotgunFlare
       - ShellTranquilizer
       - ShellSoulbreaker
+      - TargetHuman
+      - TargetSyndicate
+      - TargetClown
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber

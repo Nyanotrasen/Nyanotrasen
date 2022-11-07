@@ -191,6 +191,8 @@ entities:
 - uid: 0
   type: VendingMachineTheater
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 1.5,-13.5
     parent: 7
     type: Transform
@@ -249,6 +251,7 @@ entities:
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
+    enabled: True
     type: Gravity
   - chunkCollection:
       -1,0:
@@ -6342,7 +6345,7 @@ entities:
       -15,-10: 0
       -15,-9: 0
       -15,-8: 0
-      -15,-7: 0
+      -15,-7: 1
       -15,-6: 0
       -15,-5: 0
       -14,-16: 0
@@ -6365,8 +6368,8 @@ entities:
       -13,-3: 0
       -12,-16: 0
       -12,-15: 0
-      -12,-14: 0
-      -12,-13: 0
+      -12,-14: 1
+      -12,-13: 1
       -12,-12: 0
       -12,-11: 0
       -12,-10: 0
@@ -6402,7 +6405,7 @@ entities:
       -10,-2: 0
       -10,-1: 0
       -9,-16: 0
-      -9,-15: 0
+      -9,-15: 1
       -9,-14: 0
       -9,-13: 0
       -9,-12: 0
@@ -6449,7 +6452,7 @@ entities:
       -7,-3: 0
       -7,-2: 0
       -7,-1: 0
-      -6,-16: 0
+      -6,-16: 1
       -6,-15: 0
       -6,-14: 0
       -6,-13: 0
@@ -6465,7 +6468,7 @@ entities:
       -6,-3: 0
       -6,-2: 0
       -6,-1: 0
-      -5,-16: 0
+      -5,-16: 1
       -5,-15: 0
       -5,-14: 0
       -5,-13: 0
@@ -6539,12 +6542,12 @@ entities:
       -10,0: 0
       -9,0: 0
       -9,1: 0
-      -8,0: 1
-      -8,1: 1
-      -8,2: 1
-      -7,0: 1
-      -7,1: 1
-      -7,2: 1
+      -8,0: 2
+      -8,1: 2
+      -8,2: 2
+      -7,0: 2
+      -7,1: 2
+      -7,2: 3
       -6,0: 0
       -6,1: 0
       -6,2: 0
@@ -6632,7 +6635,7 @@ entities:
       -19,-7: 0
       -19,-6: 0
       -18,-10: 0
-      -18,-9: 0
+      -18,-9: 1
       -18,-8: 0
       -18,-7: 0
       -18,-6: 0
@@ -6792,8 +6795,8 @@ entities:
       -4,-26: 0
       -4,-25: 0
       -4,-24: 0
-      -4,-23: 0
-      -4,-22: 0
+      -4,-23: 1
+      -4,-22: 1
       -4,-21: 0
       -4,-20: 0
       -4,-19: 0
@@ -7098,7 +7101,7 @@ entities:
       -19,-25: 0
       -19,-24: 0
       -19,-23: 0
-      -19,-22: 0
+      -19,-22: 1
       -19,-21: 0
       -19,-20: 0
       -19,-19: 0
@@ -7111,7 +7114,7 @@ entities:
       -18,-27: 0
       -18,-26: 0
       -18,-25: 0
-      -18,-24: 0
+      -18,-24: 1
       -18,-23: 0
       -18,-22: 0
       -18,-21: 0
@@ -7152,7 +7155,7 @@ entities:
       -10,-32: 0
       -10,-31: 0
       -10,-30: 0
-      -10,-29: 0
+      -10,-29: 1
       -10,-28: 0
       -9,-32: 0
       -9,-31: 0
@@ -7613,7 +7616,7 @@ entities:
       7,-13: 0
       7,-12: 0
       7,-11: 0
-      7,-10: 0
+      7,-10: 1
       7,-9: 0
       7,-8: 0
       7,-7: 0
@@ -7633,7 +7636,7 @@ entities:
       12,-15: 0
       13,-16: 0
       13,-15: 0
-      0,1: 0
+      0,1: 1
       0,2: 0
       0,3: 0
       0,4: 0
@@ -7700,7 +7703,7 @@ entities:
       5,5: 0
       5,6: 0
       5,7: 0
-      5,8: 0
+      5,8: 1
       5,9: 0
       5,10: 0
       5,11: 0
@@ -7764,8 +7767,8 @@ entities:
       7,-18: 0
       7,-17: 0
       8,-20: 0
-      8,-19: 0
-      8,-18: 0
+      8,-19: 1
+      8,-18: 1
       8,-17: 0
       9,-20: 0
       9,-19: 0
@@ -7828,7 +7831,7 @@ entities:
       -17,11: 0
       -17,12: 0
       -17,13: 0
-      -17,14: 0
+      -17,14: 1
       -16,0: 0
       -16,1: 0
       -16,2: 0
@@ -7890,9 +7893,9 @@ entities:
       -13,13: 0
       -13,14: 0
       -12,0: 0
-      -12,1: 0
-      -12,2: 0
-      -12,3: 0
+      -12,1: 4
+      -12,2: 1
+      -12,3: 1
       -12,4: 0
       -12,5: 0
       -12,6: 0
@@ -7962,7 +7965,7 @@ entities:
       -7,3: 0
       -7,4: 0
       -7,5: 0
-      -7,6: 0
+      -7,6: 1
       -7,7: 0
       -7,8: 0
       -7,9: 0
@@ -8029,7 +8032,7 @@ entities:
       -2,2: 0
       -2,3: 0
       -2,4: 0
-      -2,5: 0
+      -2,5: 1
       -2,6: 0
       -2,7: 0
       -2,8: 0
@@ -8094,7 +8097,7 @@ entities:
       10,-2: 0
       10,-1: 0
       11,-8: 0
-      11,-7: 0
+      11,-7: 1
       11,-6: 0
       11,-5: 0
       11,-4: 0
@@ -8226,7 +8229,7 @@ entities:
       -21,-1: 0
       -20,-11: 0
       -20,-10: 0
-      -20,-9: 0
+      -20,-9: 1
       -20,-8: 0
       -20,-7: 0
       -20,-6: 0
@@ -8234,7 +8237,7 @@ entities:
       -20,-4: 0
       -20,-3: 0
       -20,-2: 0
-      -20,-1: 0
+      -20,-1: 1
       -19,-10: 0
       -19,-5: 0
       -19,-4: 0
@@ -8273,7 +8276,7 @@ entities:
       12,7: 0
       12,8: 0
       12,9: 0
-      12,10: 0
+      12,10: 1
       12,11: 0
       13,3: 0
       13,4: 0
@@ -8293,7 +8296,7 @@ entities:
       14,9: 0
       -28,20: 0
       -28,21: 0
-      -28,22: 0
+      -28,22: 1
       -27,19: 0
       -27,20: 0
       -27,21: 0
@@ -8303,7 +8306,7 @@ entities:
       -26,19: 0
       -26,20: 0
       -26,21: 0
-      -26,22: 0
+      -26,22: 1
       -26,23: 0
       -26,24: 0
       -25,16: 0
@@ -8323,8 +8326,8 @@ entities:
       -24,21: 0
       -24,22: 0
       -24,23: 0
-      -23,16: 0
-      -23,17: 0
+      -23,16: 1
+      -23,17: 1
       -23,18: 0
       -23,19: 0
       -23,20: 0
@@ -8368,7 +8371,7 @@ entities:
       -19,18: 0
       -19,19: 0
       -19,20: 0
-      -19,21: 0
+      -19,21: 1
       -19,22: 0
       -19,23: 0
       -19,24: 0
@@ -8434,8 +8437,8 @@ entities:
       -15,17: 0
       -15,18: 0
       -15,19: 0
-      -14,16: 0
-      -14,17: 0
+      -14,16: 1
+      -14,17: 1
       -14,18: 0
       -14,19: 0
       -13,16: 0
@@ -8512,7 +8515,7 @@ entities:
       -2,16: 0
       -2,17: 0
       -2,18: 0
-      -2,19: 0
+      -2,19: 1
       -2,20: 0
       -2,21: 0
       -2,22: 0
@@ -8577,7 +8580,7 @@ entities:
       13,-14: 0
       13,-13: 0
       14,-16: 0
-      14,-15: 0
+      14,-15: 1
       14,-14: 0
       14,-13: 0
       15,-16: 0
@@ -8669,7 +8672,7 @@ entities:
       -13,24: 0
       -13,25: 0
       -13,26: 0
-      -13,27: 0
+      -13,27: 1
       -13,28: 0
       -13,29: 0
       -13,30: 0
@@ -8690,9 +8693,9 @@ entities:
       -11,27: 0
       -11,28: 0
       -11,29: 0
-      -11,30: 0
+      -11,30: 1
       -10,23: 0
-      -10,24: 0
+      -10,24: 1
       -10,25: 0
       -10,26: 0
       -10,27: 0
@@ -8700,7 +8703,7 @@ entities:
       -10,29: 0
       -10,30: 0
       -9,23: 0
-      -9,24: 0
+      -9,24: 1
       -9,25: 0
       -9,26: 0
       -9,27: 0
@@ -8754,12 +8757,12 @@ entities:
       -3,30: 0
       -3,31: 0
       -2,23: 0
-      -2,24: 0
-      -2,25: 0
+      -2,24: 1
+      -2,25: 1
       -2,26: 0
       -2,27: 0
       -2,28: 0
-      -2,29: 0
+      -2,29: 1
       -2,30: 0
       -2,31: 0
       -1,23: 0
@@ -8777,14 +8780,14 @@ entities:
       0,26: 0
       0,27: 0
       0,28: 0
-      0,29: 0
+      0,29: 1
       0,30: 0
       0,31: 0
       1,23: 0
       1,24: 0
       1,25: 0
       1,26: 0
-      1,27: 0
+      1,27: 1
       1,28: 0
       1,29: 0
       1,30: 0
@@ -8793,7 +8796,7 @@ entities:
       2,24: 0
       2,25: 0
       2,26: 0
-      2,27: 0
+      2,27: 1
       2,28: 0
       2,29: 0
       2,30: 0
@@ -8802,7 +8805,7 @@ entities:
       3,24: 0
       3,25: 0
       3,26: 0
-      3,27: 0
+      3,27: 1
       3,28: 0
       3,29: 0
       3,30: 0
@@ -8826,9 +8829,9 @@ entities:
       5,20: 0
       5,21: 0
       5,22: 0
-      5,23: 0
-      5,24: 0
-      5,25: 0
+      5,23: 1
+      5,24: 1
+      5,25: 1
       5,26: 0
       5,27: 0
       5,28: 0
@@ -9059,11 +9062,11 @@ entities:
       15,-25: 0
       15,-24: 0
       15,-23: 0
-      15,-22: 0
+      15,-22: 1
       15,-21: 0
       15,-20: 0
       15,-19: 0
-      15,-18: 0
+      15,-18: 1
       15,-17: 0
       16,-28: 0
       16,-27: 0
@@ -9117,7 +9120,7 @@ entities:
       22,-23: 0
       22,-22: 0
       22,-21: 0
-      22,-20: 0
+      22,-20: 1
       22,-19: 0
       22,-18: 0
       22,-17: 0
@@ -9239,8 +9242,8 @@ entities:
       -3,32: 0
       -2,32: 0
       -1,32: 0
-      10,1: 0
-      10,2: 0
+      10,1: 1
+      10,2: 1
       11,1: 0
       11,2: 0
       12,1: 0
@@ -9270,7 +9273,7 @@ entities:
       25,13: 0
       25,14: 0
       25,15: 0
-      26,12: 0
+      26,12: 1
       26,13: 0
       26,14: 0
       26,15: 0
@@ -9345,7 +9348,7 @@ entities:
       21,29: 0
       21,30: 0
       21,31: 0
-      22,16: 0
+      22,16: 1
       22,17: 0
       22,18: 0
       22,27: 0
@@ -9400,7 +9403,7 @@ entities:
       27,17: 0
       27,18: 0
       27,19: 0
-      27,20: 0
+      27,20: 1
       27,21: 0
       27,27: 0
       27,28: 0
@@ -9507,9 +9510,9 @@ entities:
       21,34: 0
       21,35: 0
       21,36: 0
-      21,37: 2
-      21,38: 2
-      21,39: 2
+      21,37: 5
+      21,38: 5
+      21,39: 5
       21,40: 0
       22,32: 0
       22,33: 0
@@ -9525,9 +9528,9 @@ entities:
       23,34: 0
       23,35: 0
       23,36: 0
-      23,37: 3
-      23,38: 3
-      23,39: 3
+      23,37: 6
+      23,38: 6
+      23,39: 6
       23,40: 0
       24,32: 0
       24,33: 0
@@ -9684,7 +9687,7 @@ entities:
       35,33: 0
       35,34: 0
       -26,11: 0
-      -26,12: 0
+      -26,12: 1
       -26,13: 0
       -24,27: 0
       -23,27: 0
@@ -9738,7 +9741,7 @@ entities:
       -14,23: 0
       -13,20: 0
       -13,31: 0
-      -12,20: 0
+      -12,20: 1
       -8,28: 0
       -8,29: 0
       -8,30: 0
@@ -9750,8 +9753,8 @@ entities:
       17,9: 0
       17,10: 0
       18,7: 0
-      18,8: 0
-      18,9: 0
+      18,8: 1
+      18,9: 1
       18,10: 0
       18,11: 0
       18,12: 0
@@ -9961,7 +9964,7 @@ entities:
       -25,2: 0
       -25,3: 0
       -25,4: 0
-      -25,5: 0
+      -25,5: 1
       -25,6: 0
       -25,7: 0
       -25,8: 0
@@ -9977,7 +9980,7 @@ entities:
       -24,7: 0
       -24,8: 0
       -24,9: 0
-      -24,10: 0
+      -24,10: 1
       -23,0: 0
       -23,1: 0
       -23,2: 0
@@ -9988,7 +9991,7 @@ entities:
       -23,7: 0
       -23,8: 0
       -23,9: 0
-      -23,10: 0
+      -23,10: 1
       -22,3: 0
       -22,4: 0
       -22,5: 0
@@ -10106,7 +10109,7 @@ entities:
       14,-11: 0
       14,-10: 0
       14,-9: 0
-      15,-12: 0
+      15,-12: 1
       15,-11: 0
       15,-10: 0
       15,-9: 0
@@ -10140,7 +10143,7 @@ entities:
       -30,14: 0
       -29,4: 0
       -29,5: 0
-      -29,6: 0
+      -29,6: 1
       -29,7: 0
       -29,8: 0
       -29,9: 0
@@ -10290,7 +10293,7 @@ entities:
       -27,27: 0
       -27,28: 0
       -27,29: 0
-      -27,30: 0
+      -27,30: 1
       -27,31: 0
       -26,25: 0
       -26,26: 0
@@ -10387,7 +10390,7 @@ entities:
       -16,29: 0
       -16,30: 0
       -15,29: 0
-      -15,30: 0
+      -15,30: 1
       8,-32: 0
       8,-31: 0
       8,-30: 0
@@ -10441,7 +10444,7 @@ entities:
       -30,-24: 0
       -30,-23: 0
       -30,-22: 0
-      -30,-21: 0
+      -30,-21: 1
       -30,-20: 0
       -30,-19: 0
       -30,-18: 0
@@ -10484,7 +10487,7 @@ entities:
       -27,-27: 0
       -27,-26: 0
       -27,-25: 0
-      -27,-24: 0
+      -27,-24: 1
       -27,-23: 0
       -27,-22: 0
       -27,-21: 0
@@ -10647,17 +10650,17 @@ entities:
       31,10: 0
       31,11: 0
       31,12: 0
-      19,19: 0
+      19,19: 1
       19,20: 0
       19,21: 0
       19,22: 0
       19,23: 0
-      20,19: 0
+      20,19: 1
       20,20: 0
       20,21: 0
       20,22: 0
       20,23: 0
-      21,19: 0
+      21,19: 1
       21,20: 0
       21,21: 0
       21,24: 0
@@ -11272,7 +11275,7 @@ entities:
       -14,32: 0
       -14,34: 0
       21,23: 0
-      21,25: 0
+      21,25: 1
       21,26: 0
       22,23: 0
       22,25: 0
@@ -11663,10 +11666,55 @@ entities:
       - 0
       - 0
     - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.213781
+      - 79.80423
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
       temperature: 235
       moles:
       - 21.824879
       - 82.10312
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 235
+      moles:
+      - 21.213781
+      - 79.80423
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.62118
+      - 81.33682
       - 0
       - 0
       - 0
@@ -11718,14 +11766,16 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 2
     type: Map
-  - type: Broadphase
   - type: PhysicsMap
+  - type: Broadphase
   - type: OccluderTree
 - uid: 9
   type: VendingMachineForensicsDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -4.5,27.5
     parent: 7
     type: Transform
@@ -11938,7 +11988,7 @@ entities:
   type: Mirror
   components:
   - rot: -1.5707963267948966 rad
-    pos: -5.6649933,-30.472517
+    pos: -5.5,-30.5
     parent: 7
     type: Transform
 - uid: 44
@@ -12651,6 +12701,8 @@ entities:
 - uid: 153
   type: VendingMachineGames
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -2.5,-5.5
     parent: 7
     type: Transform
@@ -12747,6 +12799,8 @@ entities:
 - uid: 166
   type: VendingMachineChefDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -4.5,4.5
     parent: 7
     type: Transform
@@ -12767,6 +12821,8 @@ entities:
 - uid: 169
   type: VendingBarDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -6.5,-12.5
     parent: 7
     type: Transform
@@ -13066,10 +13122,6 @@ entities:
   - pos: -18.5,22.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 217
   type: LockerChiefMedicalOfficerFilled
   components:
@@ -13568,6 +13620,8 @@ entities:
 - uid: 295
   type: VendingMachineMedical
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -19.5,7.5
     parent: 7
     type: Transform
@@ -13726,6 +13780,8 @@ entities:
 - uid: 317
   type: VendingMachineCola
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -30.5,-2.5
     parent: 7
     type: Transform
@@ -14116,16 +14172,6 @@ entities:
     - machine_parts
     - machine_board
     type: Construction
-  - containers:
-      clonepod-bodyContainer: !type:ContainerSlot {}
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
-  - inputs:
-      CloningPodReceiver: []
-    type: SignalReceiver
 - uid: 380
   type: ComputerCloningConsole
   components:
@@ -14508,12 +14554,6 @@ entities:
   - pos: -19.5,3.5
     parent: 7
     type: Transform
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 438
   type: BedsheetMedical
   components:
@@ -14552,8 +14592,6 @@ entities:
   - pos: 0.5,29.5
     parent: 7
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
 - uid: 444
   type: MedicalBed
   components:
@@ -14882,14 +14920,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 493
   type: PoweredSmallLight
   components:
@@ -14901,14 +14931,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 494
   type: PoweredSmallLight
   components:
@@ -14919,14 +14941,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 495
   type: Poweredlight
   components:
@@ -15189,8 +15203,6 @@ entities:
   - pos: 11.5,-10.5
     parent: 7
     type: Transform
-  - bodyType: Dynamic
-    type: Physics
 - uid: 536
   type: Window
   components:
@@ -15226,12 +15238,16 @@ entities:
 - uid: 541
   type: VendingMachineHydrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -7.5,6.5
     parent: 7
     type: Transform
 - uid: 542
   type: VendingMachineSeeds
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -0.5,7.5
     parent: 7
     type: Transform
@@ -15258,6 +15274,8 @@ entities:
 - uid: 546
   type: VendingMachineNutri
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -0.5,10.5
     parent: 7
     type: Transform
@@ -15267,8 +15285,6 @@ entities:
   - pos: 10.5,-10.5
     parent: 7
     type: Transform
-  - bodyType: Dynamic
-    type: Physics
 - uid: 548
   type: ClosetWallEmergencyFilledRandom
   components:
@@ -15285,15 +15301,13 @@ entities:
 - uid: 550
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -5.5,1.5
+  - pos: -5.5,1.5
     parent: 7
     type: Transform
 - uid: 551
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -8.5,2.5
+  - pos: -8.5,2.5
     parent: 7
     type: Transform
 - uid: 552
@@ -15753,6 +15767,8 @@ entities:
 - uid: 625
   type: VendingMachineDinnerware
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -4.5,3.5
     parent: 7
     type: Transform
@@ -16140,16 +16156,12 @@ entities:
   - pos: -14.5,3.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 686
   type: HospitalCurtainsOpen
   components:
   - pos: -14.5,5.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 687
   type: WallSolid
   components:
@@ -16501,8 +16513,6 @@ entities:
   - pos: -17.5,3.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 742
   type: MedicalBed
   components:
@@ -17277,6 +17287,8 @@ entities:
 - uid: 860
   type: VendingMachineViroDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -22.5,5.5
     parent: 7
     type: Transform
@@ -17356,10 +17368,6 @@ entities:
   - pos: 13.5,6.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 871
   type: Grille
   components:
@@ -17666,8 +17674,6 @@ entities:
   - pos: 14.5,-4.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 915
   type: WallReinforced
   components:
@@ -17929,6 +17935,8 @@ entities:
 - uid: 953
   type: VendingMachineMediDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -21.5,10.5
     parent: 7
     type: Transform
@@ -18048,14 +18056,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 972
   type: CableMV
   components:
@@ -18401,10 +18401,6 @@ entities:
   - pos: 12.5,6.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 1028
   type: TableReinforced
   components:
@@ -18460,8 +18456,6 @@ entities:
   - pos: 29.5,12.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 1037
   type: TableWood
   components:
@@ -18571,14 +18565,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1052
   type: CableApcExtension
   components:
@@ -18657,14 +18643,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1064
   type: Grille
   components:
@@ -20055,6 +20033,8 @@ entities:
 - uid: 1272
   type: VendingMachineSec
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 12.5,-20.5
     parent: 7
     type: Transform
@@ -20079,6 +20059,8 @@ entities:
 - uid: 1276
   type: VendingMachineSecDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 9.5,-17.5
     parent: 7
     type: Transform
@@ -20801,6 +20783,8 @@ entities:
 - uid: 1388
   type: VendingMachineBooze
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -10.5,-28.5
     parent: 7
     type: Transform
@@ -20960,10 +20944,6 @@ entities:
   - pos: -5.5,-26.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 1413
   type: WallSolid
   components:
@@ -21497,6 +21477,8 @@ entities:
 - uid: 1497
   type: VendingMachineDonut
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 12.5,-22.5
     parent: 7
     type: Transform
@@ -22469,6 +22451,8 @@ entities:
 - uid: 1646
   type: VendingMachineGames
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 16.5,-26.5
     parent: 7
     type: Transform
@@ -22483,14 +22467,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1648
   type: WallReinforced
   components:
@@ -23163,6 +23139,8 @@ entities:
 - uid: 1754
   type: VendingMachineSnack
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 1.5,-5.5
     parent: 7
     type: Transform
@@ -23680,14 +23658,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1837
   type: PoweredSmallLight
   components:
@@ -23699,14 +23669,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1838
   type: PoweredSmallLight
   components:
@@ -23718,14 +23680,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1839
   type: CableApcExtension
   components:
@@ -23743,14 +23697,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 1841
   type: CableApcExtension
   components:
@@ -23899,8 +23845,6 @@ entities:
   - pos: 26.5,32.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasPressurePump
 - uid: 1865
   type: GasPipeStraight
   components:
@@ -24128,8 +24072,6 @@ entities:
     pos: 16.5,31.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasPressurePump
   - color: '#947507FF'
     type: AtmosPipeColor
 - uid: 1902
@@ -24631,8 +24573,6 @@ entities:
     pos: 27.5,33.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasPressurePump
 - uid: 1982
   type: ToolboxMechanicalFilled
   components:
@@ -24964,8 +24904,7 @@ entities:
 - uid: 2036
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    rot: -1.5707963267948966 rad
+  - rot: -1.5707963267948966 rad
     pos: -32.5,-0.5
     parent: 7
     type: Transform
@@ -24978,6 +24917,8 @@ entities:
 - uid: 2038
   type: VendingMachineSeedsUnlocked
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 19.5,-29.5
     parent: 7
     type: Transform
@@ -25424,8 +25365,7 @@ entities:
 - uid: 2105
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    rot: -1.5707963267948966 rad
+  - rot: -1.5707963267948966 rad
     pos: -32.5,-8.5
     parent: 7
     type: Transform
@@ -25465,14 +25405,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2111
   type: WallSolid
   components:
@@ -26500,6 +26432,8 @@ entities:
 - uid: 2276
   type: VendingMachineEngiDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 17.5,16.5
     parent: 7
     type: Transform
@@ -26551,14 +26485,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2284
   type: PoweredSmallLight
   components:
@@ -26570,14 +26496,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2285
   type: Rack
   components:
@@ -27025,8 +26943,6 @@ entities:
   - pos: 14.601148,-29.351398
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 2341
   type: Table
   components:
@@ -27057,14 +26973,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2345
   type: PoweredSmallLight
   components:
@@ -27075,14 +26983,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 2346
   type: ClosetMaintenanceFilledRandom
   components:
@@ -27138,16 +27038,14 @@ entities:
 - uid: 2354
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    rot: -1.5707963267948966 rad
+  - rot: -1.5707963267948966 rad
     pos: -32.5,-6.5
     parent: 7
     type: Transform
 - uid: 2355
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    rot: -1.5707963267948966 rad
+  - rot: -1.5707963267948966 rad
     pos: -32.5,1.5
     parent: 7
     type: Transform
@@ -27491,6 +27389,8 @@ entities:
   - pos: 16.5,32.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -27752,12 +27652,6 @@ entities:
   - pos: 10.5,25.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 2500
-    type: ApcPowerReceiver
-  - radius: 2.5
-    type: PointLight
 - uid: 2445
   type: Grille
   components:
@@ -28277,8 +28171,6 @@ entities:
     pos: 22.5,31.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasMixer
   - color: '#947507FF'
     type: AtmosPipeColor
 - uid: 2523
@@ -28419,6 +28311,8 @@ entities:
 - uid: 2543
   type: VendingMachineTankDispenserEVA
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 16.5,12.5
     parent: 7
     type: Transform
@@ -28601,6 +28495,8 @@ entities:
   - pos: 23.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2573
   type: WallReinforced
   components:
@@ -28647,6 +28543,8 @@ entities:
   - pos: 21.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 2580
   type: GasPipeTJunction
   components:
@@ -28858,8 +28756,6 @@ entities:
     pos: 20.5,31.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasMixer
   - color: '#947507FF'
     type: AtmosPipeColor
 - uid: 2613
@@ -29098,6 +28994,8 @@ entities:
 - uid: 2650
   type: VendingMachineBooze
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -8.5,-8.5
     parent: 7
     type: Transform
@@ -29301,8 +29199,6 @@ entities:
     pos: 21.5,33.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasFilter
   - color: '#990000FF'
     type: AtmosPipeColor
 - uid: 2678
@@ -29312,8 +29208,6 @@ entities:
     pos: 23.5,33.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasFilter
 - uid: 2679
   type: Bed
   components:
@@ -30133,8 +30027,6 @@ entities:
   - pos: 14.5,27.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasPressurePump
 - uid: 2794
   type: GasPressurePump
   components:
@@ -30142,8 +30034,6 @@ entities:
     pos: 15.5,28.5
     parent: 7
     type: Transform
-  - enabled: False
-    type: GasPressurePump
   - color: '#990000FF'
     type: AtmosPipeColor
 - uid: 2795
@@ -30656,6 +30546,8 @@ entities:
 - uid: 2859
   type: VendingMachineCoffee
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 8.5,-19.5
     parent: 7
     type: Transform
@@ -36487,14 +36379,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 3569
   type: CableMV
   components:
@@ -37292,6 +37176,8 @@ entities:
 - uid: 3699
   type: VendingMachineJaniDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 8.5,8.5
     parent: 7
     type: Transform
@@ -39759,9 +39645,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
   - inputs:
       On:
       - port: Off
@@ -40230,6 +40113,8 @@ entities:
 - uid: 4146
   type: VendingMachineChapel
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -1.5,22.5
     parent: 7
     type: Transform
@@ -41327,14 +41212,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4296
   type: PoweredSmallLight
   components:
@@ -41346,14 +41223,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4297
   type: WallReinforced
   components:
@@ -41405,14 +41274,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4304
   type: Grille
   components:
@@ -41428,6 +41289,8 @@ entities:
 - uid: 4306
   type: VendingMachineCigs
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -22.5,-21.5
     parent: 7
     type: Transform
@@ -41562,14 +41425,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4325
   type: WallReinforced
   components:
@@ -41617,14 +41472,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4331
   type: PoweredSmallLight
   components:
@@ -41636,14 +41483,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4332
   type: CableApcExtension
   components:
@@ -41752,14 +41591,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4349
   type: GasPipeStraight
   components:
@@ -41785,14 +41616,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4352
   type: CableApcExtension
   components:
@@ -41969,6 +41792,8 @@ entities:
   - pos: -8.5,21.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       On:
       - port: On
@@ -42224,14 +42049,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4414
   type: Catwalk
   components:
@@ -42288,10 +42105,6 @@ entities:
   - pos: 11.5,6.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 4423
   type: SpawnPointChemist
   components:
@@ -42301,6 +42114,8 @@ entities:
 - uid: 4424
   type: VendingMachineChemDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -16.5,12.5
     parent: 7
     type: Transform
@@ -42855,6 +42670,8 @@ entities:
 - uid: 4509
   type: VendingMachineChang
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -30.5,-4.5
     parent: 7
     type: Transform
@@ -43727,8 +43544,6 @@ entities:
   - pos: 4.9354343,8.464239
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 4635
   type: MopItem
   components:
@@ -43738,6 +43553,8 @@ entities:
 - uid: 4636
   type: VendingMachineEngivend
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 14.5,12.5
     parent: 7
     type: Transform
@@ -43753,6 +43570,8 @@ entities:
 - uid: 4638
   type: VendingMachineYouTool
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 15.5,12.5
     parent: 7
     type: Transform
@@ -44095,11 +43914,6 @@ entities:
   - pos: 1.0657196,-11.409435
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-      PneumaticCannon-gasTank: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 4686
   type: RevolverCapGun
   components:
@@ -44313,8 +44127,6 @@ entities:
   - pos: -7.5,-32.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 4709
   type: Sink
   components:
@@ -45310,7 +45122,7 @@ entities:
   type: Mirror
   components:
   - rot: 1.5707963267948966 rad
-    pos: -1.5892727,-9.328011
+    pos: -1.5,-9.5
     parent: 7
     type: Transform
 - uid: 4850
@@ -45410,14 +45222,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4861
   type: PoweredSmallLight
   components:
@@ -45429,14 +45233,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 4862
   type: Poweredlight
   components:
@@ -45525,6 +45321,8 @@ entities:
     pos: 16.5,-0.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -46214,16 +46012,12 @@ entities:
   - pos: -5.6907783,10.748014
     parent: 7
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 4970
   type: LargeBeaker
   components:
   - pos: -5.3678617,10.602081
     parent: 7
     type: Transform
-  - solution: beaker
-    type: Drink
 - uid: 4971
   type: BoxMouthSwab
   components:
@@ -47728,12 +47522,16 @@ entities:
 - uid: 5195
   type: PersonalAI
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -9.49243,26.631329
     parent: 7
     type: Transform
 - uid: 5196
   type: PersonalAI
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -4.9665303,25.507143
     parent: 7
     type: Transform
@@ -48195,6 +47993,8 @@ entities:
 - uid: 5249
   type: VendingMachineCart
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 9.5,-4.5
     parent: 7
     type: Transform
@@ -48359,8 +48159,6 @@ entities:
   - pos: 25.5,-19.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 5273
   type: SignalButton
   components:
@@ -48370,6 +48168,8 @@ entities:
     pos: 9.5,-0.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -48402,6 +48202,8 @@ entities:
     pos: 16.5,52.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5278
   type: GrilleBroken
   components:
@@ -48409,6 +48211,8 @@ entities:
     pos: 19.5,54.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5279
   type: CigarCase
   components:
@@ -49189,20 +48993,12 @@ entities:
   - pos: 23.555655,-21.381088
     parent: 7
     type: Transform
-  - containers:
-      ballistic-ammo: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 5394
   type: MagazinePistolSubMachineGunTopMounted
   components:
   - pos: 23.56607,-21.235155
     parent: 7
     type: Transform
-  - containers:
-      ballistic-ammo: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 5395
   type: Poweredlight
   components:
@@ -49215,12 +49011,16 @@ entities:
 - uid: 5396
   type: VendingMachineCoffee
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -0.5,-17.5
     parent: 7
     type: Transform
 - uid: 5397
   type: VendingMachineSnack
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 1.5,-17.5
     parent: 7
     type: Transform
@@ -49406,12 +49206,16 @@ entities:
 - uid: 5427
   type: VendingMachineDiscount
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -7.5,-1.5
     parent: 7
     type: Transform
 - uid: 5428
   type: VendingMachineCola
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -6.5,-1.5
     parent: 7
     type: Transform
@@ -49488,18 +49292,24 @@ entities:
 - uid: 5440
   type: VendingMachineSnack
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 3.5,6.5
     parent: 7
     type: Transform
 - uid: 5441
   type: VendingMachineCigs
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 4.5,4.5
     parent: 7
     type: Transform
 - uid: 5442
   type: VendingMachineCigs
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -4.5,-5.5
     parent: 7
     type: Transform
@@ -49542,6 +49352,8 @@ entities:
 - uid: 5448
   type: VendingMachineDonut
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -6.5,12.5
     parent: 7
     type: Transform
@@ -49554,6 +49366,8 @@ entities:
 - uid: 5450
   type: VendingMachineCoffee
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -7.5,12.5
     parent: 7
     type: Transform
@@ -49843,7 +49657,7 @@ entities:
   type: Mirror
   components:
   - rot: -1.5707963267948966 rad
-    pos: 0.53572726,-9.366898
+    pos: 0.5,-9.5
     parent: 7
     type: Transform
 - uid: 5486
@@ -51426,14 +51240,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 5675
   type: AirlockMaintLocked
   components:
@@ -51587,6 +51393,8 @@ entities:
 - uid: 5697
   type: VendingMachineGames
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -2.5,-17.5
     parent: 7
     type: Transform
@@ -51690,6 +51498,8 @@ entities:
   - pos: -28.5,30.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5714
   type: GasVentPump
   components:
@@ -51718,6 +51528,8 @@ entities:
     pos: -28.5,30.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 5718
   type: ShardGlass
   components:
@@ -52079,6 +51891,8 @@ entities:
 - uid: 5772
   type: VendingMachineSovietSoda
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -33.5,33.5
     parent: 7
     type: Transform
@@ -52304,6 +52118,8 @@ entities:
   - pos: -10.5,-31.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
   - outputs:
       Pressed:
       - port: Toggle
@@ -52432,8 +52248,6 @@ entities:
   - pos: 23.5,-23.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 5816
   type: ClosetMaintenanceFilledRandom
   components:
@@ -52470,24 +52284,18 @@ entities:
   - pos: -0.44188207,1.3674624
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 5822
   type: Bucket
   components:
   - pos: -6.1712074,10.802549
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 5823
   type: Bucket
   components:
   - pos: -6.0462074,10.541952
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 5824
   type: Catwalk
   components:
@@ -52680,28 +52488,12 @@ entities:
   - pos: 18.5,27.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 5846
   type: PortableScrubber
   components:
   - pos: 17.5,27.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      machine_board: !type:Container
-        ents: []
-      machine_parts: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 5847
   type: CableApcExtension
   components:
@@ -52869,12 +52661,16 @@ entities:
 - uid: 5873
   type: PersonalAI
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -7.5098042,-24.221384
     parent: 7
     type: Transform
 - uid: 5874
   type: PersonalAI
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -0.30353338,-22.628323
     parent: 7
     type: Transform
@@ -53052,6 +52848,8 @@ entities:
 - uid: 5897
   type: PersonalAI
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 19.392117,-19.49079
     parent: 7
     type: Transform
@@ -53818,6 +53616,8 @@ entities:
     pos: 29.5,19.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 6000
   type: WindowReinforcedDirectional
   components:
@@ -55800,6 +55600,8 @@ entities:
 - uid: 6272
   type: VendingMachineTankDispenserEVA
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 0.5,32.5
     parent: 7
     type: Transform
@@ -56045,6 +55847,8 @@ entities:
 - uid: 6307
   type: VendingMachineSalvage
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 0.5,27.5
     parent: 7
     type: Transform
@@ -56233,6 +56037,8 @@ entities:
 - uid: 6338
   type: VendingMachineLawDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -27.5,-26.5
     parent: 7
     type: Transform
@@ -56432,10 +56238,6 @@ entities:
   - pos: -22.5,-27.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 6371
   type: Grille
   components:
@@ -57730,6 +57532,8 @@ entities:
 - uid: 6563
   type: VendingMachineGames
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -19.5,-16.5
     parent: 7
     type: Transform
@@ -57742,6 +57546,8 @@ entities:
 - uid: 6565
   type: VendingMachineClothing
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -22.5,-20.5
     parent: 7
     type: Transform
@@ -57783,14 +57589,6 @@ entities:
     pos: 6.5,10.5
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
-  - containers:
-      storagebase: !type:Container
-        ents: []
-      mop_slot: !type:ContainerSlot {}
-      trashbag_slot: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 6572
   type: Catwalk
   components:
@@ -58994,6 +58792,8 @@ entities:
 - uid: 6772
   type: VendingMachineYouTool
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -0.5,17.5
     parent: 7
     type: Transform
@@ -59238,6 +59038,8 @@ entities:
 - uid: 6806
   type: VendingMachineCigs
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -2.5,16.5
     parent: 7
     type: Transform
@@ -59430,6 +59232,8 @@ entities:
 - uid: 6838
   type: VendingMachineCoffee
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 33.5,12.5
     parent: 7
     type: Transform
@@ -59606,14 +59410,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 6866
   type: PoweredSmallLightEmpty
   components:
@@ -59623,14 +59419,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 6867
   type: PoweredSmallLightEmpty
   components:
@@ -59640,14 +59428,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 6868
   type: ConveyorBelt
   components:
@@ -59722,8 +59502,6 @@ entities:
   - pos: -7.5,-30.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 6876
   type: WallReinforced
   components:
@@ -59797,24 +59575,18 @@ entities:
   - pos: -2.3037581,32.439365
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 6888
   type: Bucket
   components:
   - pos: -2.1995916,32.647842
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 6889
   type: Bucket
   components:
   - pos: -2.1058416,32.439365
     parent: 7
     type: Transform
-  - solution: bucket
-    type: Drink
 - uid: 6890
   type: PartRodMetal
   components:
@@ -60133,14 +59905,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 6932
   type: CableMV
   components:
@@ -62800,14 +62564,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7315
   type: Grille
   components:
@@ -62837,14 +62593,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7319
   type: CableMV
   components:
@@ -62862,14 +62610,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7321
   type: CableMV
   components:
@@ -62883,14 +62623,6 @@ entities:
     pos: -27.5,27.5
     parent: 7
     type: Transform
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7323
   type: PoweredSmallLightEmpty
   components:
@@ -62898,14 +62630,6 @@ entities:
     pos: -29.5,31.5
     parent: 7
     type: Transform
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7324
   type: CableMV
   components:
@@ -62923,14 +62647,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7326
   type: Table
   components:
@@ -62948,14 +62664,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7328
   type: Table
   components:
@@ -62973,14 +62681,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7330
   type: ComfyChair
   components:
@@ -62997,14 +62697,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7332
   type: CableApcExtension
   components:
@@ -63938,8 +63630,6 @@ entities:
   - pos: 12.5,-4.5
     parent: 7
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7477
   type: CarpetBlue
   components:
@@ -64264,14 +63954,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7522
   type: CableApcExtension
   components:
@@ -64368,14 +64050,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7537
   type: Poweredlight
   components:
@@ -64395,14 +64069,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7539
   type: CableMV
   components:
@@ -64420,14 +64086,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7541
   type: PoweredSmallLight
   components:
@@ -64438,14 +64096,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7542
   type: Poweredlight
   components:
@@ -64553,8 +64203,7 @@ entities:
 - uid: 7558
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 26.5,-27.5
+  - pos: 26.5,-27.5
     parent: 7
     type: Transform
 - uid: 7559
@@ -65571,14 +65220,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7708
   type: MouseTimedSpawner
   components:
@@ -65621,10 +65262,6 @@ entities:
   - pos: 8.5,-0.5
     parent: 7
     type: Transform
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 7715
   type: SpawnPointCyborg
   components:
@@ -66014,8 +65651,6 @@ entities:
   - pos: -14.5,30.5
     parent: 7
     type: Transform
-  - isPlaceable: False
-    type: PlaceableSurface
 - uid: 7779
   type: WallReinforced
   components:
@@ -66654,6 +66289,8 @@ entities:
 - uid: 7866
   type: VendingMachineAtmosDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 21.5,24.5
     parent: 7
     type: Transform
@@ -66692,14 +66329,6 @@ entities:
     pos: -32.5,29.5
     parent: 7
     type: Transform
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 7870
   type: TableReinforced
   components:
@@ -66758,12 +66387,16 @@ entities:
     pos: 33.5,53.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7879
   type: GrilleBroken
   components:
   - pos: 32.5,54.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7880
   type: Grille
   components:
@@ -66795,6 +66428,8 @@ entities:
     pos: 23.5,54.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7885
   type: GrilleBroken
   components:
@@ -66802,6 +66437,8 @@ entities:
     pos: 28.5,54.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7886
   type: Grille
   components:
@@ -66858,6 +66495,8 @@ entities:
     pos: 44.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7894
   type: Grille
   components:
@@ -66921,6 +66560,8 @@ entities:
     pos: 55.5,38.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7903
   type: GrilleBroken
   components:
@@ -66928,6 +66569,8 @@ entities:
     pos: 52.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7904
   type: Grille
   components:
@@ -66956,6 +66599,8 @@ entities:
     pos: 60.5,33.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7908
   type: GrilleBroken
   components:
@@ -66963,6 +66608,8 @@ entities:
     pos: 61.5,30.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7909
   type: GrilleBroken
   components:
@@ -66970,6 +66617,8 @@ entities:
     pos: 50.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7910
   type: GrilleBroken
   components:
@@ -66977,6 +66626,8 @@ entities:
     pos: 39.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7911
   type: GrilleBroken
   components:
@@ -66984,12 +66635,16 @@ entities:
     pos: 38.5,43.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7912
   type: GrilleBroken
   components:
   - pos: 38.5,48.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7913
   type: GrilleBroken
   components:
@@ -66997,6 +66652,8 @@ entities:
     pos: 44.5,39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7914
   type: Grille
   components:
@@ -67031,6 +66688,8 @@ entities:
   - pos: 61.5,28.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7919
   type: GrilleBroken
   components:
@@ -67038,12 +66697,16 @@ entities:
     pos: 62.5,24.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7920
   type: GrilleBroken
   components:
   - pos: 62.5,20.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7921
   type: GrilleBroken
   components:
@@ -67051,6 +66714,8 @@ entities:
     pos: 62.5,21.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7922
   type: GrilleBroken
   components:
@@ -67058,12 +66723,16 @@ entities:
     pos: 62.5,20.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7923
   type: GrilleBroken
   components:
   - pos: 62.5,20.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7924
   type: Grille
   components:
@@ -67107,6 +66776,8 @@ entities:
     pos: -15.5,55.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7931
   type: GrilleBroken
   components:
@@ -67114,6 +66785,8 @@ entities:
     pos: -18.5,55.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7932
   type: Grille
   components:
@@ -67163,6 +66836,8 @@ entities:
     pos: -20.5,56.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7939
   type: GrilleBroken
   components:
@@ -67170,6 +66845,8 @@ entities:
     pos: -24.5,55.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7940
   type: Grille
   components:
@@ -67226,6 +66903,8 @@ entities:
     pos: -33.5,51.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7948
   type: GrilleBroken
   components:
@@ -67233,6 +66912,8 @@ entities:
     pos: -30.5,53.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7949
   type: GrilleBroken
   components:
@@ -67240,6 +66921,8 @@ entities:
     pos: -30.5,53.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7950
   type: GrilleBroken
   components:
@@ -67247,6 +66930,8 @@ entities:
     pos: -27.5,54.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7951
   type: GrilleBroken
   components:
@@ -67254,12 +66939,16 @@ entities:
     pos: -35.5,50.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7952
   type: GrilleBroken
   components:
   - pos: -35.5,50.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7953
   type: Grille
   components:
@@ -67334,12 +67023,16 @@ entities:
     pos: -42.5,33.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7964
   type: GrilleBroken
   components:
   - pos: -42.5,31.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7965
   type: Grille
   components:
@@ -67361,12 +67054,16 @@ entities:
     pos: -41.5,29.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7968
   type: GrilleBroken
   components:
   - pos: -41.5,37.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7969
   type: GrilleBroken
   components:
@@ -67374,6 +67071,8 @@ entities:
     pos: -40.5,40.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7970
   type: Grille
   components:
@@ -67388,6 +67087,8 @@ entities:
     pos: -38.5,43.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7972
   type: Grille
   components:
@@ -67444,6 +67145,8 @@ entities:
     pos: -35.5,-35.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7980
   type: Grille
   components:
@@ -67514,6 +67217,8 @@ entities:
     pos: -34.5,-39.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7990
   type: GrilleBroken
   components:
@@ -67521,6 +67226,8 @@ entities:
     pos: -28.5,-43.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 7991
   type: Grille
   components:
@@ -67696,6 +67403,8 @@ entities:
     pos: 14.5,-42.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8016
   type: GrilleBroken
   components:
@@ -67703,6 +67412,8 @@ entities:
     pos: 20.5,-42.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8017
   type: Grille
   components:
@@ -67745,6 +67456,8 @@ entities:
     pos: 23.5,-41.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8023
   type: GrilleBroken
   components:
@@ -67752,6 +67465,8 @@ entities:
     pos: 29.5,-41.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8024
   type: Grille
   components:
@@ -67801,6 +67516,8 @@ entities:
     pos: 34.5,-38.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8031
   type: GrilleBroken
   components:
@@ -67808,6 +67525,8 @@ entities:
     pos: 37.5,-34.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8032
   type: GrilleBroken
   components:
@@ -67815,6 +67534,8 @@ entities:
     pos: 39.5,-29.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8033
   type: Grille
   components:
@@ -67856,6 +67577,8 @@ entities:
   - pos: 39.5,-23.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8039
   type: Grille
   components:
@@ -67904,6 +67627,8 @@ entities:
   - pos: 40.5,-11.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8047
   type: GrilleBroken
   components:
@@ -67911,6 +67636,8 @@ entities:
     pos: 40.5,-19.5
     parent: 7
     type: Transform
+  - canCollide: False
+    type: Physics
 - uid: 8048
   type: HandLabeler
   components:
@@ -68176,6 +67903,8 @@ entities:
 - uid: 8085
   type: VendingMachineCargoDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 8.5,1.5
     parent: 7
     type: Transform
@@ -68240,4 +67969,16 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 8095
+  type: MachineArtifactAnalyzer
+  components:
+  - pos: -13.5,33.5
+    parent: 7
+    type: Transform
+- uid: 8096
+  type: ComputerAnalysisConsole
+  components:
+  - pos: -12.5,33.5
+    parent: 7
+    type: Transform
 ...
