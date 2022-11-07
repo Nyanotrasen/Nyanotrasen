@@ -112,7 +112,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 4
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -1276,16 +1276,12 @@ entities:
   - pos: 1.5,-6.5
     parent: 15
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 112
   type: HospitalCurtainsOpen
   components:
   - pos: 2.5,-6.5
     parent: 15
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 113
   type: ShardGlassReinforced
   components:
@@ -3085,14 +3081,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 401
   type: PoweredSmallLight
   components:
@@ -3103,14 +3091,6 @@ entities:
     type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 402
   type: ToolboxEmergencyFilled
   components:
