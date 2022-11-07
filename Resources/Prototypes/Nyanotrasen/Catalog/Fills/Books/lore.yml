@@ -1,15 +1,21 @@
-- id: entity
+- type: entity
   name: epistemics book
-  parent: BookRandom
-  id: BookSalvageEpistemicsRandom # in case someone else adds new ones and we need a spawner???
-  description: 'A metallic hardcover book.'
+  parent: BookRandom # placeholder
+  id: BookSalvageEpistemics
+  noSpawn: true
+  description: 'A metallic hardcover book. ' # trailing space due to paper
+
+- type: entity
+  name: epistemics book
+  parent: BookSalvageEpistemics
+  id: BookSalvageEpistemicsRandom
   components:
   - type: RandomSpawner
     prototypes:
     - BookSalvageEpistemics1
     offset: 0.1
 
-- id: entity
+- type: entity
   parent: BookSalvageEpistemics
   id: BookSalvageEpistemics1
   suffix: 1
