@@ -764,11 +764,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
+            EntityUid teleporter = default;
+
             await server.WaitAssertion(() =>
             {
                 var coordinates = testMap.GridCoords;
 
-                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
 
                 var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
 
@@ -776,8 +778,12 @@ namespace Content.IntegrationTests.Tests.Mail
                     "MailTeleporter somehow had mail on its tile at spawn.");
 
                 EntityUid mail = entityManager.SpawnEntity("TestMail", coordinates);
-
-                undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+            });
+            // Let the physics simulation shake out for a few ticks.
+            await server.WaitRunTicks(15);
+            await server.WaitAssertion(() =>
+            {
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
 
                 Assert.That(undeliveredParcelCount, Is.EqualTo(1),
                     "MailTeleporter isn't detecting undelivered parcels on its tile.");
@@ -805,11 +811,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
+            EntityUid teleporter = default;
+
             await server.WaitAssertion(() =>
             {
                 var coordinates = testMap.GridCoords;
 
-                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
+                teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
                 EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
                 EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
 
@@ -831,8 +839,11 @@ namespace Content.IntegrationTests.Tests.Mail
                     "MailTeleporter isn't starting with no mail.");
 
                 mailSystem.SpawnMail(teleporter, teleporterComponent);
-
-                undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+            });
+            await server.WaitRunTicks(15);
+            await server.WaitAssertion(() =>
+            {
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
 
                 Assert.That(undeliveredParcelCount, Is.GreaterThan(0),
                     "MailTeleporter failed to teleport in mail.");
@@ -860,11 +871,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
+            EntityUid teleporter = default;
+
             await server.WaitAssertion(() =>
             {
                 var coordinates = testMap.GridCoords;
 
-                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysOneAtATime", coordinates);
+                teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysOneAtATime", coordinates);
                 EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
                 EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
 
@@ -880,9 +893,18 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
+                var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
+
+                Assert.That(undeliveredParcelCount, Is.EqualTo(0),
+                    "MailTeleporter isn't starting with no mail.");
+
                 for (int i = 0; i < 6; ++i)
                     mailSystem.SpawnMail(teleporter, teleporterComponent);
 
+            });
+            await server.WaitRunTicks(15);
+            await server.WaitAssertion(() =>
+            {
                 var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
 
                 Assert.That(undeliveredParcelCount, Is.GreaterThan(0),
@@ -1089,11 +1111,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
+            EntityUid teleporter = default;
+
             await server.WaitAssertion(() =>
             {
                 var coordinates = testMap.GridCoords;
 
-                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysHonks", coordinates);
+                teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysHonks", coordinates);
                 EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
                 EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
 
@@ -1113,7 +1137,10 @@ namespace Content.IntegrationTests.Tests.Mail
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
                 mailSystem.SpawnMail(teleporter, teleporterComponent);
-
+            });
+            await server.WaitRunTicks(15);
+            await server.WaitAssertion(() =>
+            {
                 var undeliveredParcelCount = mailSystem.GetUndeliveredParcelCount(teleporter);
 
                 Assert.That(undeliveredParcelCount, Is.EqualTo(1),
@@ -1143,11 +1170,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
+            EntityUid teleporter = default;
+
             await server.WaitAssertion(() =>
             {
                 var coordinates = testMap.GridCoords;
 
-                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporterHonkAndNothing", coordinates);
+                teleporter = entityManager.SpawnEntity("TestMailTeleporterHonkAndNothing", coordinates);
                 EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
                 EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
 
@@ -1171,7 +1200,10 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 for (int i = 0; i < 5; ++i)
                     mailSystem.SpawnMail(teleporter, teleporterComponent);
-
+            });
+            await server.WaitRunTicks(15);
+            await server.WaitAssertion(() =>
+            {
                 var undeliveredParcels = mailSystem.GetUndeliveredParcels(teleporter);
 
                 Assert.That(undeliveredParcels.Count, Is.EqualTo(5),

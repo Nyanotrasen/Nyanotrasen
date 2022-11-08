@@ -473,7 +473,7 @@ namespace Content.Server.Mail
             // parcels spawned by the teleporter and see if they're not carried
             // by someone, but this is simple, and simple is good.
             List<EntityUid> undeliveredParcels = new();
-            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic))
+            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
             {
                 if (HasComp<MailComponent>(entityInTile))
                     undeliveredParcels.Add(entityInTile);
