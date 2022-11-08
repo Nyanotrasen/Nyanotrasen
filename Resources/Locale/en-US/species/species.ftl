@@ -7,3 +7,4 @@ species-name-reptilian = Reptilian
 species-name-slime = Slime Person
 species-name-oni = Oni
 species-name-arachne = Arachne
+species-name-diona = Diona
