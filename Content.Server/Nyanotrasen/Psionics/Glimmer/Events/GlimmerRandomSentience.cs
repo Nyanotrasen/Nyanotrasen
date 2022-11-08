@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.Speech.Components;
+using Content.Server.MobState;
 
 namespace Content.Server.Psionics.Glimmer;
 /// <summary>
@@ -9,6 +10,7 @@ namespace Content.Server.Psionics.Glimmer;
 /// </summary>
 public sealed class GlimmerRandomSentience : GlimmerEventSystem
 {
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     public override string Prototype => "GlimmerRandomSentience";
     public override void Started()
     {
@@ -22,6 +24,9 @@ public sealed class GlimmerRandomSentience : GlimmerEventSystem
         foreach (var target in targetList)
         {
             if (HasComp<GhostTakeoverAvailableComponent>(target.Owner))
+                continue;
+
+            if (!_mobStateSystem.IsAlive(target.Owner))
                 continue;
 
             if (toMakeSentient-- == 0)
