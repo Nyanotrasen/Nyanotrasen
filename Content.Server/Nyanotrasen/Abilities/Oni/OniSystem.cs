@@ -1,8 +1,8 @@
 using Content.Server.Tools;
 using Content.Shared.Tools.Components;
+using Content.Shared.Damage.Events;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Containers;
-using Content.Server.Damage.Events;
-using Content.Server.Weapons.Melee.Events;
 
 namespace Content.Server.Abilities.Oni
 {
