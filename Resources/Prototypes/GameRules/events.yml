@@ -1,4 +1,14 @@
 ﻿- type: gameRule
+  id: BluespaceArtifact
+  config:
+    !type:StationEventRuleConfiguration
+    id: BluespaceArtifact
+    weight: 5
+    maxOccurrences: 5
+    startAfter: 30
+    endAfter: 35
+
+- type: gameRule
   id: BreakerFlip
   config:
     !type:StationEventRuleConfiguration
@@ -8,16 +18,16 @@
     maxOccurrences: 5
     minimumPlayers: 15
 
-# - type: gameRule
-#   id: BureaucraticError
-#   config:
-#     !type:StationEventRuleConfiguration
-#     id: BureaucraticError
-#     startAnnouncement: station-event-bureaucratic-error-announcement
-#     minimumPlayers: 25
-#     weight: 5
-#     maxOccurrences: 2
-#     endAfter: 1
+- type: gameRule
+  id: BureaucraticError
+  config:
+    !type:StationEventRuleConfiguration
+    id: BureaucraticError
+    startAnnouncement: station-event-bureaucratic-error-announcement
+    minimumPlayers: 25
+    weight: 5
+    maxOccurrences: 2
+    endAfter: 1
 
 - type: gameRule
   id: DiseaseOutbreak
@@ -26,22 +36,24 @@
     startAnnouncement: station-event-disease-outbreak-announcement
     startAudio:
       path: /Audio/Announcements/outbreak7.ogg
+      params:
+        volume: -4
     id: DiseaseOutbreak
     weight: 5
     endAfter: 1
     earliestStart: 15
     maxOccurrences: 3
 
-- type: gameRule
-  id: Dragon
-  config:
-    !type:StationEventRuleConfiguration
-    id: Dragon
-    weight: 10
-    endAfter: 2
-    earliestStart: 15
-    maxOccurrences: 7
-    minimumPlayers: 15
+# - type: gameRule
+#   id: Dragon
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: Dragon
+#     weight: 10
+#     endAfter: 2
+#     earliestStart: 15
+#     maxOccurrences: 7
+#     minimumPlayers: 15
 
 # - type: gameRule
 #   id: RevenantSpawn
@@ -103,6 +115,8 @@
     endAnnouncement: station-event-meteor-swarm-end-announcement
     startAudio:
       path: /Audio/Announcements/meteors.ogg
+      params:
+        volume: -4
     startAfter: 30
 
 - type: gameRule
@@ -127,6 +141,8 @@
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
       path: /Audio/Announcements/power_off.ogg
+      params:
+       volume: -4
     startAfter: 12
 
 # - type: gameRule
@@ -165,12 +181,12 @@
     maxOccurrences: 2
     endAfter: 60
 
-- type: gameRule
-  id: ZombieOutbreak
-  config:
-    !type:StationEventRuleConfiguration
-    id: Zombie
-    earliestStart: 50
-    weight: 2.5
-    endAfter: 1
-    maxOccurrences: 1
+# - type: gameRule
+#   id: ZombieOutbreak
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: Zombie
+#     earliestStart: 50
+#     weight: 2.5
+#     endAfter: 1
+#     maxOccurrences: 1

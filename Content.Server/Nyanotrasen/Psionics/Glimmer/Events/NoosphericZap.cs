@@ -44,7 +44,7 @@ public sealed class NoosphericZap : GlimmerEventSystem
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize-potential-regained"), psion.Owner, Filter.Entities(psion.Owner), Shared.Popups.PopupType.LargeCaution);
                 } else
                 {
-                    _psionicsSystem.RollPsionics(psion.Owner, psion);
+                    _psionicsSystem.RollPsionics(psion.Owner, psion, multiplier: 0.25f);
                     _popupSystem.PopupEntity(Loc.GetString("noospheric-zap-seize"), psion.Owner, Filter.Entities(psion.Owner), Shared.Popups.PopupType.LargeCaution);
                 }
             }

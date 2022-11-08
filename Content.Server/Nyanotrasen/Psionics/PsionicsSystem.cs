@@ -2,10 +2,9 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.MobState;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Damage.Events;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Weapons.Melee.Events;
-using Content.Server.Damage.Events;
-using Content.Server.GameTicking;
 using Content.Server.Electrocution;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
@@ -88,7 +87,7 @@ namespace Content.Server.Psionics
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
@@ -104,6 +103,8 @@ namespace Content.Server.Psionics
 
             if (applyGlimmer)
                 chance += ((float) _glimmerSystem.Glimmer / 1000);
+
+            chance *= multiplier;
 
             chance = Math.Clamp(chance, 0, 1);
             if (_random.Prob(chance))

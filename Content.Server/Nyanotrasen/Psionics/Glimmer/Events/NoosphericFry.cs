@@ -22,6 +22,7 @@ public sealed class NoosphericFry : GlimmerEventSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
+    [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
 
 
     public override string Prototype => "NoosphericFry";
@@ -80,6 +81,11 @@ public sealed class NoosphericFry : GlimmerEventSystem
             }
 
             _damageableSystem.TryChangeDamage(pair.wearer, damage, true, true);
+        }
+
+        foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
+        {
+            _glimmerReactiveSystem.BeamRandomNearProber(reactive.Owner, 3);
         }
     }
 }

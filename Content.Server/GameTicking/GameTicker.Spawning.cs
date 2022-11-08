@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Linq;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
+using Content.Shared.IdentityManagement;
 using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
@@ -65,9 +66,17 @@ namespace Content.Server.GameTicking
 
             // Calculate extended access for stations.
             var stationJobCounts = _stationSystem.Stations.ToDictionary(e => e, _ => 0);
-            foreach (var (_, (_, station)) in assignedJobs)
+            foreach (var (netUser, (job, station)) in assignedJobs)
             {
-                stationJobCounts[station] += 1;
+                if (job == null)
+                {
+                    var playerSession = _playerManager.GetSessionByUserId(netUser);
+                    _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
+                }
+                else
+                {
+                    stationJobCounts[station] += 1;
+                }
             }
 
             _stationJobs.CalcExtendedAccess(stationJobCounts);
@@ -75,6 +84,9 @@ namespace Content.Server.GameTicking
             // Spawn everybody in!
             foreach (var (player, (job, station)) in assignedJobs)
             {
+                if (job == null)
+                    continue;
+
                 SpawnPlayer(_playerManager.GetSessionByUserId(player), profiles[player], station, job, false);
             }
 
@@ -188,7 +200,7 @@ namespace Content.Server.GameTicking
                 _chatSystem.DispatchStationAnnouncement(station,
                     Loc.GetString(
                         "latejoin-arrival-announcement",
-                    ("character", MetaData(mob).EntityName),
+                    ("character", Identity.Entity(mob, EntityManager)),
                     ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
                     ), Loc.GetString("latejoin-arrival-sender"),
                     playDefaultSound: false);
@@ -325,8 +337,10 @@ namespace Content.Server.GameTicking
 
                 if (_mapManager.TryFindGridAt(toMap, out var foundGrid))
                 {
+                    var gridXform = Transform(foundGrid.GridEntityId);
+
                     return new EntityCoordinates(foundGrid.GridEntityId,
-                        foundGrid.InvWorldMatrix.Transform(toMap.Position));
+                        gridXform.InvWorldMatrix.Transform(toMap.Position));
                 }
 
                 return spawn;

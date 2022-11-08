@@ -1,6 +1,7 @@
 - type: job
   id: Cyborg
-  name: "cyborg"
+  name: job-name-cyborg
+  description: job-desc-cyborg
   playTimeTracker: JobCyborg
   requirements:
     - !type:OverallPlaytimeRequirement

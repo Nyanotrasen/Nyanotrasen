@@ -515,3 +515,185 @@ Entries:
     type: Tweak
   id: 57
   time: '2022-10-28T10:50:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Panic bunker works now for when the hub is like... this.
+    type: Add
+  id: 58
+  time: '2022-10-29T12:39:20.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites and sounds for the Ifrit's hand.
+    type: Add
+  id: 59
+  time: '2022-10-29T22:28:26.0000000+00:00'
+- author: Kroma
+  changes:
+  - message: Resolved several issues with Pebble.
+    type: Fix
+  id: 60
+  time: '2022-10-30T10:54:32.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added job icon stamps for mail to make it easier to sort.
+    type: Add
+  - message: Added fragile mail. If you break it, you're in trouble.
+    type: Add
+  - message: Added priority mail. Get it delivered on time or face a penalty.
+    type: Add
+  - message: Added mail for specific jobs and departments.
+    type: Add
+  - message: Added a lot of new possible deliveries you can receive.
+    type: Add
+  - message: Mail will now change appearance when damaged.
+    type: Add
+  - message: Damage to mail will harm its contents too.
+    type: Add
+  - message: Mail parcels can be emagged open now.
+    type: Fix
+  - message: Mail teleporters have a limit on undelivered mail now to prevent it from
+      piling up.
+    type: Tweak
+  - message: One of the new Arachne tailors made a jumpskirt variant of the mailman
+      uniform!
+    type: Add
+  - message: That same tailor redesigned the standard mailman uniform and hat.
+    type: Tweak
+  id: 61
+  time: '2022-10-31T01:14:50.0000000+00:00'
+- author: spessCarp
+  changes:
+  - message: Wrote several letters that can be received in the mail.
+    type: Add
+  id: 62
+  time: '2022-10-31T01:14:51.0000000+00:00'
+- author: kromabae
+  changes:
+  - message: qol changes to pebble
+    type: Add
+  id: 63
+  time: '2022-11-01T00:48:48.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Arachne whitelists and blacklists updated for uplink items and random
+      humanoid spawns.
+    type: Fix
+  - message: Arachne PDA slot is in the correct location.
+    type: Fix
+  - message: Revenants, familiars, etc cannot get mindbreakered.
+    type: Fix
+  - message: Fixed multiple popups on bags of holding.
+    type: Fix
+  - message: Glimmer objective rasied to 500 and difficulty adjusted accordingly.
+    type: Tweak
+  - message: New 'lspsionics' command for developers and admins.
+    type: Add
+  id: 64
+  time: '2022-11-01T02:24:52.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Reenabled the non-social objective groups. Woops.
+    type: Fix
+  - message: All animals are now eligible for awakening.
+    type: Tweak
+  id: 65
+  time: '2022-11-01T23:24:09.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: additional pebble fixes and qol
+    type: Add
+  id: 66
+  time: '2022-11-03T02:27:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Doubled glimmer production from probers and drains (per advice of one
+      Sidney K. Meier).
+    type: Tweak
+  - message: Noospheric zap event's glimmer bonus halved.
+    type: Tweak
+  - message: Min/Max players on each of the maps in our pool has been made more consistent.
+    type: Tweak
+  - message: Fixed techfab deconstruction.
+    type: Fix
+  id: 67
+  time: '2022-11-03T02:32:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The fry event has new behavior.
+    type: Add
+  id: 68
+  time: '2022-11-03T02:45:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added descriptions to all of our jobs now that that is... supported.
+      Although I checked the code and nothing ever reads or displays it anywhere.
+    type: Add
+  id: 69
+  time: '2022-11-04T00:17:47.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Huge angle update.
+    type: Add
+  id: 70
+  time: '2022-11-06T23:07:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  - message: Updated maps for xenoarch.
+    type: Add
+  - message: Adjusted current content to account for xenoarchaeology.
+    type: Tweak
+  - message: Removed the buyable random artifacts; we have other sources.
+    type: Remove
+  - message: Reduced prober points per second slightly to adjust for the new xenoarch
+      source.
+    type: Tweak
+  - message: Noospheric zap's bonus chance to gain psionics halved again.
+    type: Tweak
+  - message: Glimmer prober explosion strength increased by 25%.
+    type: Tweak
+  - message: Possible glimmer loss on prober destruction changed to the upper half
+      of the current range.
+    type: Tweak
+  - message: Ifrit movement ignores gravity.
+    type: Tweak
+  id: 71
+  time: '2022-11-06T23:58:36.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added stuff related to the new Xeno Archeology.
+    type: Add
+  - message: Changed the Arrivals shuttle doors.
+    type: Tweak
+  id: 72
+  time: '2022-11-07T04:10:10.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Artifact Research room for Epistemic
+    type: Add
+  id: 73
+  time: '2022-11-07T05:43:30.0000000+00:00'
+- author: router
+  changes:
+  - message: Added an epistemics book to salvage and mail. Hope you like reading about
+      the noosphere.
+    type: Add
+  id: 74
+  time: '2022-11-07T19:46:59.0000000+00:00'
+- author: Torun
+  changes:
+  - message: Lighthouse now has a new automatic loading dock in Cargo and a mass scanner
+      console in Salvage.
+    type: Add
+  - message: Lighthouse now has air alarms in the majority of the map. Take a deep
+      breath when the meteors hit, because now you can.
+    type: Tweak
+  id: 75
+  time: '2022-11-07T19:50:04.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  id: 76
+  time: '2022-11-08T22:00:23.0000000+00:00'
