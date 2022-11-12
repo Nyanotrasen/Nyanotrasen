@@ -5,6 +5,7 @@
   startingGear: GladiatorGear
   icon: "Boxer"  #<- 
   supervisors: job-supervisors-hop
+  SetPreference: false
   #access:
   special:
   - !type:AddComponentSpecial
