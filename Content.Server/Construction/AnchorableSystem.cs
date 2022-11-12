@@ -106,7 +106,7 @@ namespace Content.Server.Construction
             );
         }
 
-        private bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
+        public bool TileFree(EntityCoordinates coordinates, PhysicsComponent anchorBody)
         {
             // Probably ignore CanCollide on the anchoring body?
             var gridUid = coordinates.GetGridUid(EntityManager);
