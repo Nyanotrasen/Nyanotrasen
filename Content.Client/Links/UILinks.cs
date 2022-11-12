@@ -7,6 +7,6 @@
         public const string Discord = "https://discord.gg/s7Er9mejpp";
         public const string BugReport = "https://github.com/Nyanotrasen/Nyanotrasen/issues/new/choose";
         public const string Website = "https://nyanotrasen.moe";
-        public const string Wiki = "https://wiki.spacestation14.io";
+        public const string Wiki = "https://wiki.nyanotrasen.moe";
     }
 }
