@@ -15,7 +15,6 @@
       shader: unshaded
       map: ["enum.DiseaseMachineVisualLayers.IsOn"]
     netsync: false
-  - type: DiseaseVaccineCreator
   - type: DiseaseMachine
     machineOutput: Vaccine
   - type: Appearance
@@ -28,3 +27,33 @@
     containers:
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ResearchClient
+  - type: DiseaseVaccineCreator
+  - type: ActivatableUI
+    key: enum.VaccineMachineUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+    - key: enum.VaccineMachineUiKey.Key
+      type: VaccineMachineBoundUserInterface
+    - key: enum.ResearchClientUiKey.Key
+      type: ResearchClientBoundUserInterface
+  - type: MaterialStorage
+    materialWhiteList:
+    - Biomass
