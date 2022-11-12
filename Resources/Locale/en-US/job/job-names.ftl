@@ -52,6 +52,7 @@ job-name-cataloguer = cataloguer
 job-name-cyborg = cyborg
 job-name-medical-cyborg = medical cyborg
 job-name-salvage-technician = salvage technician
+job-name-gladiator = gladiator
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician
