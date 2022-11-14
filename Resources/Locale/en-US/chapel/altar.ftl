@@ -1,0 +1,1 @@
+altar-sacrifice-verb = Sacrifice
