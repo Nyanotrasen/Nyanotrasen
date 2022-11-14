@@ -11,8 +11,10 @@ using Content.Server.Stunnable;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Players;
+using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Player;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Chapel
@@ -24,6 +26,8 @@ namespace Content.Server.Chapel
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly PopupSystem _popups = default!;
 
         public override void Initialize()
         {
@@ -61,6 +65,8 @@ namespace Content.Server.Chapel
             if (sacrificee == null)
                 return;
 
+            _popups.PopupEntity(Loc.GetString("altar-popup", ("user", args.User), ("target", sacrificee)), uid, Filter.Pvs(uid), Shared.Popups.PopupType.LargeCaution);
+
             AlternativeVerb verb = new()
             {
                 Act = () =>
@@ -90,6 +96,7 @@ namespace Content.Server.Chapel
                 return;
 
             QueueDel(args.Target);
+            _audioSystem.PlayPvs(altarComp.FinishSound, args.Altar);
 
             Spawn(pool.Pick(), Transform(args.Altar).Coordinates);
 
@@ -122,6 +129,7 @@ namespace Content.Server.Chapel
                 return;
 
             altarComponent.CancelToken = null;
+            altarComponent.SacrificeStingStream?.Stop();
         }
 
         public void AttemptSacrifice(EntityUid agent, EntityUid patient, EntityUid altar, SacrificialAltarComponent? component = null)
@@ -134,6 +142,7 @@ namespace Content.Server.Chapel
 
             _stunSystem.TryParalyze(patient, component.SacrificeTime, true);
 
+            component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
             component.CancelToken = new CancellationTokenSource();
             _doAfterSystem.DoAfter(new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient)
             {

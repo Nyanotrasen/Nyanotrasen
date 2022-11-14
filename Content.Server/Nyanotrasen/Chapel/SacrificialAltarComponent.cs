@@ -1,4 +1,5 @@
 using System.Threading;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Chapel
 {
@@ -8,7 +9,15 @@ namespace Content.Server.Chapel
         public CancellationTokenSource? CancelToken;
 
         [DataField("sacrificeTime")]
-        public TimeSpan SacrificeTime = TimeSpan.FromSeconds(8);
+        public TimeSpan SacrificeTime = TimeSpan.FromSeconds(8.35);
+
+        [DataField("sacrificeSound")]
+        public SoundSpecifier SacrificeSoundPath = new SoundPathSpecifier("/Audio/Effects/clang2.ogg");
+
+        [DataField("finishSound")]
+        public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/Effects/gib1.ogg");
+
+        public IPlayingAudioStream? SacrificeStingStream;
 
         [DataField("requiresBibleUser")]
         public bool RequiresBibleUser = true;
