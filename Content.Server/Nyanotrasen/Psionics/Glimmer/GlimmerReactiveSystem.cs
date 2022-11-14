@@ -2,13 +2,17 @@ using Content.Server.Power.Components;
 using Content.Server.Electrocution;
 using Content.Server.Beam;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Construction;
+using Content.Server.Coordinates.Helpers;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.MobState.Components;
+using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -22,6 +26,9 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly BeamSystem _beam = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
+        [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
+        [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
+
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -39,6 +46,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         }
 
         /// <summary>
@@ -120,6 +128,9 @@ namespace Content.Server.Psionics.Glimmer
 
             if (args.CurrentTier >= GlimmerTier.Dangerous)
             {
+                if (!Transform(uid).Anchored)
+                    AnchorOrExplode(uid);
+
                 receiver.PowerDisabled = false;
                 receiver.NeedsPower = false;
             } else
@@ -185,6 +196,16 @@ namespace Content.Server.Psionics.Glimmer
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }
 
+        private void OnUnanchorAttempt(EntityUid uid, SharedGlimmerReactiveComponent component, UnanchorAttemptEvent args)
+        {
+            if (_sharedGlimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            {
+                _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
+                _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                args.Cancel();
+            }
+        }
+
         public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
@@ -243,6 +264,20 @@ namespace Content.Server.Psionics.Glimmer
 
             _beam.TryCreateBeam(prober, target, beamproto);
             BeamCooldown += 3f;
+        }
+
+        private void AnchorOrExplode(EntityUid uid)
+        {
+            if (!TryComp<PhysicsComponent>(uid, out var physics))
+                return;
+
+            if (!_anchorableSystem.TileFree(Transform(uid).Coordinates, physics))
+            {
+                _destructibleSystem.DestroyEntity(uid);
+                return;
+            }
+            Transform(uid).Coordinates.SnapToGrid();
+            Transform(uid).Anchored = true;
         }
 
         private void Reset(RoundRestartCleanupEvent args)

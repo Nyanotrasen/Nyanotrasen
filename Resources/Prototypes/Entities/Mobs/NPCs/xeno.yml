@@ -57,6 +57,8 @@
     thresholds:
       0: Alive
       200: Dead
+  - type: Stamina
+    excess: 200
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
     bloodlossDamage:
@@ -72,7 +74,7 @@
     angle: 0
     soundHit:
      collection: AlienClaw
-    animation: WeaponArcClaw
+    animation: WeaponArcBite
     damage:
       groups:
         Brute: 12
@@ -134,6 +136,8 @@
     thresholds:
       0: Alive
       300: Dead
+  - type: Stamina
+    excess: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       250: 0.7
@@ -164,6 +168,8 @@
     thresholds:
       0: Alive
       200: Dead
+  - type: Stamina
+    excess: 200
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.0
     baseSprintSpeed : 5.5
@@ -196,7 +202,9 @@
   - type: MobState
     thresholds:
       0: Alive
-      1350: Dead
+      1500: Dead
+  - type: Stamina
+    excess: 1500
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.8
     baseSprintSpeed : 3.8
@@ -235,6 +243,8 @@
     thresholds:
       0: Alive
       550: Dead
+  - type: Stamina
+    excess: 550
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.3
     baseSprintSpeed : 4.2
@@ -273,6 +283,8 @@
     thresholds:
       0: Alive
       250: Dead
+  - type: Stamina
+    excess: 250
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.7
     baseSprintSpeed : 6.0
@@ -321,6 +333,8 @@
     thresholds:
       0: Alive
       300: Dead
+  - type: Stamina
+    excess: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       250: 0.4

@@ -1,0 +1,26 @@
+- type: job
+  id: Gladiator
+  name: job-name-gladiator #<- here
+  playTimeTracker: JobBoxer
+  startingGear: GladiatorGear
+  icon: "Boxer"  #<- 
+  supervisors: job-supervisors-security
+  setPreference: false
+  #access:
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Boxer
+      modifiers:
+        coefficients: #Remember these only apply to unarmed
+          Blunt: 1.5
+          Slash: 1.5
+          Piercing: 1.5
+
+- type: startingGear
+  id: GladiatorGear
+  equipment:
+    jumpsuit: UniformShortsRed
+    outerClothing: ClothingOuterArmorGladiator
+  innerclothingskirt: UniformShortsRedWithTop
+  #any other possessions, spawn in cell
