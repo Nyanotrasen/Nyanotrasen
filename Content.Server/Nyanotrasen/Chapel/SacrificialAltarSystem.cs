@@ -10,8 +10,10 @@ using Content.Server.Bible.Components;
 using Content.Server.Stunnable;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
+using Content.Server.Players;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Chapel
 {
@@ -101,6 +103,17 @@ namespace Content.Server.Chapel
 
             int reduction = _robustRandom.Next(altarComp.GlimmerReductionMin, altarComp.GlimmerReductionMax);
             _glimmerSystem.Glimmer -= reduction;
+
+            if (!TryComp<ActorComponent>(args.Target, out var actor))
+                return;
+
+            if (actor.PlayerSession.ContentData()?.Mind != null)
+            {
+                var trap = Spawn(altarComp.TrapPrototype, Transform(args.Altar).Coordinates);
+                actor.PlayerSession.ContentData()?.Mind?.TransferTo(trap);
+                MetaData(trap).EntityName = Loc.GetString("soul-entity-name", ("trapped", args.Target));
+                MetaData(trap).EntityDescription = Loc.GetString("soul-entity-desc", ("trapped", args.Target));
+            }
         }
 
         private void OnSacrificeCancelled(SacrificeCancelledEvent args)

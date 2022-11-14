@@ -29,6 +29,6 @@ namespace Content.Server.Chapel
         public int GlimmerReductionMax = 100;
 
         [DataField("trapPrototype")]
-        public string trapPrototype = "PersonalAI";
+        public string TrapPrototype = "CrystalSoul";
     }
 }
