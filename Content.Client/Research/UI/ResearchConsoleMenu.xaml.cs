@@ -36,6 +36,7 @@ namespace Content.Client.Research.UI
 
             PointLabel.Text = Loc.GetString("research-console-menu-research-points-text", ("points", 0));
             PointsPerSecondLabel.Text = Loc.GetString("research-console-menu-points-per-second-text", ("pointsPerSecond", 0));
+            PointLimitLabel.Text = Loc.GetString("research-console-menu-points-limit-text", ("pointsLimit", 0));
 
             UnlockButton.Text = Loc.GetString("research-console-menu-server-unlock-button");
 
@@ -169,6 +170,7 @@ namespace Content.Client.Research.UI
         {
             PointLabel.Text = Loc.GetString("research-console-menu-research-points-text", ("points", Owner.Points));
             PointsPerSecondLabel.Text = Loc.GetString("research-console-menu-points-per-second-text", ("pointsPerSecond", Owner.PointsPerSecond));
+            PointLimitLabel.Text = Loc.GetString("research-console-menu-points-limit-text", ("pointsLimit", Owner.PointLimit));
         }
 
         /// <summary>
