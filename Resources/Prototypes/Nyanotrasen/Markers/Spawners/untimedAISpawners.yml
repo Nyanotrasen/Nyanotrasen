@@ -1,21 +1,6 @@
-
-- type: entity
-  name: Xeno AI Spawner
-  id: XenoAISpawner
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-      - state: blue
-      - texture: Mobs/Aliens/Xenos/burrower.rsi/crit.png
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobXeno
-      
 - type: entity
   name: Carp Spawner
-  id: CarpSpawner100
+  id: CarpSpawnerMundane
   parent: MarkerBase
   suffix: 100
   components:
@@ -25,4 +10,18 @@
         - texture: Mobs/Aliens/Carps/space.rsi/icon.png
     - type: RandomSpawner
       prototypes:
-        - MobCarpSalvage
+        - MobCarp
+
+- type: entity
+  name: NPC Space Tick Spawner
+  id: SpaceTickSpawnerNPC
+  parent: MarkerBase
+  suffix: 100
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - texture: Mobs/Aliens/Xenos/spacetick.rsi/icon.png
+    - type: ConditionalSpawner
+      prototypes:
+        - MobTick
