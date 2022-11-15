@@ -6,6 +6,9 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Maps;
+using Content.Shared.Physics;
+using Content.Shared.Doors.Components;
+using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
@@ -17,8 +20,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Content.Shared.Physics;
-using Content.Shared.Doors.Components;
 
 namespace Content.Server.Arachne
 {
@@ -30,6 +31,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private readonly BuckleSystem _buckleSystem = default!;
 
         public override void Initialize()
         {
@@ -85,7 +87,7 @@ namespace Content.Server.Arachne
                     strap.Enabled = true;
                     if (_prototypeManager.TryIndex<InstantActionPrototype>("Sleep", out var sleep))
                         _actions.RemoveAction(uid, new InstantAction(sleep), null);
-                    buckle.TryBuckle(args.User, uid);
+                    _buckleSystem.TryBuckle(args.User, args.User, uid, buckle);
                 },
                 Text = Loc.GetString("rest-on-web"),
                 Priority = 2
