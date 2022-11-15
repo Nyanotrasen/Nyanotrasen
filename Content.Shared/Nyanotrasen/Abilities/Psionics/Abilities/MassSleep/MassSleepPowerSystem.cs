@@ -4,6 +4,7 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Damage;
 using Content.Shared.MobState.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -13,6 +14,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -27,6 +30,8 @@ namespace Content.Shared.Abilities.Psionics
                 return;
 
             component.MassSleepPowerAction = new WorldTargetAction(massSleep);
+            if (massSleep.UseDelay != null)
+                component.MassSleepPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) massSleep.UseDelay);
             _actions.AddAction(uid, component.MassSleepPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

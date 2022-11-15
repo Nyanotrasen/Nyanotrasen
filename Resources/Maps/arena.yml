@@ -46245,37 +46245,37 @@ entities:
     id: Captain's VIP Box Seats
     type: SurveillanceCamera
 - uid: 1628
-  type: SpaceTickSpawner
+  type: SpaceTickSpawnerNPC
   components:
   - pos: -24.5,-28.5
     parent: 0
     type: Transform
 - uid: 1629
-  type: CarpSpawner100
+  type: CarpSpawnerMundane
   components:
   - pos: -21.5,-29.5
     parent: 0
     type: Transform
 - uid: 1630
-  type: SpaceTickSpawner
+  type: SpaceTickSpawnerNPC
   components:
   - pos: -23.5,-28.5
     parent: 0
     type: Transform
 - uid: 1631
-  type: SpaceTickSpawner
+  type: SpaceTickSpawnerNPC
   components:
   - pos: -23.5,-29.5
     parent: 0
     type: Transform
 - uid: 1632
-  type: SpaceTickSpawner
+  type: SpaceTickSpawnerNPC
   components:
   - pos: -24.5,-29.5
     parent: 0
     type: Transform
 - uid: 1633
-  type: CarpSpawner100
+  type: CarpSpawnerMundane
   components:
   - pos: -19.5,-28.5
     parent: 0
@@ -65669,7 +65669,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 4707
-  type: XenoAISpawner
+  type: CarpSpawnerMundane
   components:
   - pos: -16.5,-33.5
     parent: 0
@@ -191161,7 +191161,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 22427
-  type: CarpSpawner100
+  type: CarpSpawnerMundane
   components:
   - pos: -21.5,-28.5
     parent: 0

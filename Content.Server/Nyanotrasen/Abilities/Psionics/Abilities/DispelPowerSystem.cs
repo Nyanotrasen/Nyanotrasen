@@ -9,6 +9,7 @@ using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -22,6 +23,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
 
         public override void Initialize()
         {
@@ -43,6 +46,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.DispelPowerAction = new EntityTargetAction(action);
+            if (action.UseDelay != null)
+                component.DispelPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) action.UseDelay);
             _actions.AddAction(uid, component.DispelPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

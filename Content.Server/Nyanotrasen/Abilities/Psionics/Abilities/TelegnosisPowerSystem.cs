@@ -3,10 +3,8 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.Mind.Components;
-using Content.Server.Visible;
 using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
-
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -17,6 +15,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwap = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         public override void Initialize()
         {
@@ -29,10 +28,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnInit(EntityUid uid, TelegnosisPowerComponent component, ComponentInit args)
         {
-            if (!_prototypeManager.TryIndex<InstantActionPrototype>("Telegnosis", out var metapsionic))
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("Telegnosis", out var telegnosis))
                 return;
 
-            component.TelegnosisPowerAction = new InstantAction(metapsionic);
+            component.TelegnosisPowerAction = new InstantAction(telegnosis);
+            if (telegnosis.UseDelay != null)
+                component.TelegnosisPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) telegnosis.UseDelay);
             _actions.AddAction(uid, component.TelegnosisPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

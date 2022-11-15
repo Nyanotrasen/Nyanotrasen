@@ -2,9 +2,10 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Server.Psionics;
-using Robust.Shared.Prototypes;
 using Content.Shared.StatusEffect;
 using Content.Server.Stunnable;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -15,6 +16,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly StunSystem _stunSystem = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -29,6 +32,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.NoosphericZapPowerAction = new EntityTargetAction(noosphericZap);
+            if (noosphericZap.UseDelay != null)
+                component.NoosphericZapPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) noosphericZap.UseDelay);
             _actions.AddAction(uid, component.NoosphericZapPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

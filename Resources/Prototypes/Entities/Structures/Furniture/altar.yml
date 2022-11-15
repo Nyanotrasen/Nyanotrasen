@@ -26,8 +26,11 @@
   - type: Sprite
     netsync: false
     snapCardinals: true
-  - type: Climbable
   - type: Clickable
+  - type: SacrificialAltar
+  - type: Strap
+    position: Down
+    rotation: -90
 
 - type: entity
   id: AltarNanotrasen
