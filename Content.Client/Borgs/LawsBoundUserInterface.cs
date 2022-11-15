@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Borgs.UI
+namespace Content.Client.Borgs
 {
     [UsedImplicitly]
     public sealed class LawsBoundUserInterface : BoundUserInterface
