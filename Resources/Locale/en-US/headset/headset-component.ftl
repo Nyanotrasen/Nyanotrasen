@@ -18,3 +18,4 @@ chat-radio-security = Security
 chat-radio-service = Service
 chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
+chat-radio-binary = Binary
