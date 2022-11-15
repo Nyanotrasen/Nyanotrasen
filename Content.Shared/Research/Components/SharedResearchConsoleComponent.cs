@@ -38,10 +38,12 @@ namespace Content.Shared.Research.Components
     {
         public int Points;
         public int PointsPerSecond;
-        public ResearchConsoleBoundInterfaceState(int points, int pointsPerSecond)
+        public int PointsLimit;
+        public ResearchConsoleBoundInterfaceState(int points, int pointsPerSecond, int pointsLimit)
         {
             Points = points;
             PointsPerSecond = pointsPerSecond;
+            PointsLimit = pointsLimit;
         }
     }
 }

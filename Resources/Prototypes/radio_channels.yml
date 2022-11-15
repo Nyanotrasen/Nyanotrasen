@@ -67,3 +67,10 @@
   keycode: 't'
   frequency: 1213
   color: "#8f4a4b"
+
+- type: radioChannel
+  id: Binary
+  name: chat-radio-binary
+  keycode: 'b'
+  frequency: 0101
+  color: "#cfe2f3" #sadly can't jojoke because black colors are too hard to read in this ui
