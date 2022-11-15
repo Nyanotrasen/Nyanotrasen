@@ -20,15 +20,3 @@
     Plastic: 200
     Steel: 200
     Glass: 600
-
-- type: latheRecipe
-  id: LightReplacer
-  icon:
-    sprite: Objects/Specific/Janitorial/light_replacer.rsi
-    state: icon
-  result: LightReplacer
-  completetime: 3
-  materials:
-    Plastic: 200
-    Steel: 200
-    Glass: 600

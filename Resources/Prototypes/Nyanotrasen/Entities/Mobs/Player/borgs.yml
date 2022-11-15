@@ -63,7 +63,21 @@
     prototype: Drone
   - type: InnateTool
   - type: InnateItem
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+  - type: ActiveRadio
     channels:
     - Common
     - Engineering
@@ -133,7 +147,21 @@
       - id: FireExtinguisher
       - id: StackHolderFloorTile
   - type: InnateItem
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Engineering
+    - Medical
+    - Science
+    - Service
+  - type: ActiveRadio
     channels:
     - Common
     - Engineering
@@ -175,7 +203,15 @@
       - id: FireExtinguisher
       - id: StackHolderHealingItem
   - type: ItemSlots
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Medical
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Medical
+  - type: ActiveRadio
     channels:
     - Common
     - Medical
