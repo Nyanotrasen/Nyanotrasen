@@ -42,6 +42,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.MindSwapPowerAction = new EntityTargetAction(mindSwap);
+            if (mindSwap.UseDelay != null)
+                component.MindSwapPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) mindSwap.UseDelay);
             _actions.AddAction(uid, component.MindSwapPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
