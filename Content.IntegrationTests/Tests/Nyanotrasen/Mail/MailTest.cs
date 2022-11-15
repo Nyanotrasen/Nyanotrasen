@@ -268,7 +268,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -315,13 +315,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
                 mailSystem.SetupMail(mailPriority, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -370,13 +370,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
                 mailSystem.SetupMail(mailFragile, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -424,7 +424,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -453,13 +453,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                mailSystem.TryMatchJobTitleToDepartment("passenger", out string? jobDepartment);
+                mailSystem.TryMatchJobTitleToDepartment("assistant", out string? jobDepartment);
 
                 Assert.IsNotNull(jobDepartment,
-                    "MailSystem was unable to match the passenger job title to a department.");
+                    "MailSystem was unable to match the assistant job title to a department.");
 
                 Assert.That(jobDepartment, Is.EqualTo("Civilian"),
-                    "MailSystem was unable to match the passenger job title to the Civilian department.");
+                    "MailSystem was unable to match the assistant job title to the Civilian department.");
             });
 
             await pairTracker.CleanReturnAsync();
@@ -478,13 +478,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                mailSystem.TryMatchJobTitleToIcon("passenger", out string? jobIcon);
+                mailSystem.TryMatchJobTitleToIcon("assistant", out string? jobIcon);
 
                 Assert.IsNotNull(jobIcon,
-                    "MailSystem was unable to match the passenger job title to a job icon.");
+                    "MailSystem was unable to match the assistant job title to a job icon.");
 
                 Assert.That(jobIcon, Is.EqualTo("Passenger"),
-                    "MailSystem was unable to match the passenger job title to the Passenger job icon.");
+                    "MailSystem was unable to match the assistant job title to the Passenger job icon.");
             });
 
             await pairTracker.CleanReturnAsync();
@@ -517,7 +517,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -531,7 +531,7 @@ namespace Content.IntegrationTests.Tests.Mail
                     "MailVisuals.JobIcon was not a string.");
 
                 Assert.That((string) jobIcon, Is.EqualTo("Passenger"),
-                    $"The passenger job was not matched to the Passenger icon.");
+                    $"The assistant job was not matched to the Passenger icon.");
 
                 mapManager.DeleteMap(testMap.MapId);
             });
@@ -570,7 +570,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -632,7 +632,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
@@ -1402,7 +1402,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
                     Name = "Bob",
-                    Job = "passenger",
+                    Job = "assistant",
                     AccessTags = new HashSet<string>(),
                     MayReceivePriorityMail = true,
                 });
