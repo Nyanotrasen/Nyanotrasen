@@ -1,0 +1,35 @@
+using Robust.Shared.Serialization;
+
+namespace Content.Shared.Disease.Components
+{
+    [NetSerializable, Serializable]
+    public enum LawsUiKey : byte
+    {
+        Key,
+    }
+
+    /// <summary>
+    ///     Just manual UI update.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class LawsSyncRequestMessage : BoundUserInterfaceMessage
+    {
+        public LawsSyncRequestMessage()
+        {}
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class LawsUpdateState : BoundUserInterfaceState
+    {
+        public HashSet<string> Laws;
+
+        public LawsUpdateState(HashSet<string> laws)
+        {
+            Laws = laws;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class LawsBoundInterfaceState : BoundUserInterfaceState
+    {}
+}

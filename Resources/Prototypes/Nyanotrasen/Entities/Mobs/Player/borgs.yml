@@ -135,6 +135,21 @@
   - type: Strap
     position: Stand
     buckleOffset: "0,0.15"
+  - type: UserInterface
+    interfaces:
+      - key: enum.LawsUiKey.Key
+        type: LawsBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      - key: enum.LawsUiKey.Key
+        toggleAction:
+          name: action-name-show-laws
+          description: action-description-show-laws
+          icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+          iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
+          keywords: [ "AI", "console", "interface", "laws", "borg" ]
+          priority: -3
+          event: !type:ToggleIntrinsicUIEvent
 
 - type: entity
   parent: PlayerCyborgBase
