@@ -752,3 +752,19 @@ Entries:
     type: Add
   id: 84
   time: '2022-11-14T21:43:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: All familiars now have access to telepathy.
+    type: Add
+  - message: Clerics and the mystagogue (so, anyone that can use bibles) can now sacrifice
+      psychics on altars for rewards and reducing glimmer.
+    type: Add
+  - message: All psionic powers now start on cooldown.
+    type: Tweak
+  - message: Removed the ghost roles from the arena mobs.
+    type: Remove
+  - message: Removed the suicide command completely so it's clearer that only ghost
+      is available.
+    type: Remove
+  id: 85
+  time: '2022-11-15T00:34:37.0000000+00:00'
