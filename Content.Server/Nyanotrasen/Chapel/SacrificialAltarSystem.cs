@@ -5,6 +5,8 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Server.Buckle.Components;
 using Content.Server.Bible.Components;
 using Content.Server.Stunnable;
@@ -28,6 +30,8 @@ namespace Content.Server.Chapel
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+
 
         public override void Initialize()
         {
@@ -91,6 +95,8 @@ namespace Content.Server.Chapel
                 return;
 
             altarComp.CancelToken = null;
+
+            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} sacrified {ToPrettyString(args.Target):target} on {ToPrettyString(args.Altar):altar}");
 
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(altarComp.RewardPool, out var pool))
                 return;
