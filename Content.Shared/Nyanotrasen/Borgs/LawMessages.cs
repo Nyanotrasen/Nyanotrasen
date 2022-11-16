@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Disease.Components
+namespace Content.Shared.Borgs
 {
     [NetSerializable, Serializable]
     public enum LawsUiKey : byte
@@ -27,6 +27,16 @@ namespace Content.Shared.Disease.Components
         {
             Laws = laws;
         }
+    }
+
+    /// <summary>
+    ///     Ask server to state our laws.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public sealed class StateLawsMessage : BoundUserInterfaceMessage
+    {
+        public StateLawsMessage()
+        {}
     }
 
     [Serializable, NetSerializable]

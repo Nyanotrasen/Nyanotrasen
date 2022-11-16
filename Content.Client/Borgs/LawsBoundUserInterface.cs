@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using Content.Shared.Borgs;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Borgs
@@ -25,7 +26,10 @@ namespace Content.Client.Borgs
             _lawsMenu.OpenCentered();
         }
 
-
+        public void StateLawsMessage()
+        {
+            SendMessage(new StateLawsMessage());
+        }
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);

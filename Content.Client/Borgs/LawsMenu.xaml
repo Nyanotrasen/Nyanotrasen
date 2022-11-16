@@ -10,14 +10,24 @@
                       VerticalExpand="True"
                       SizeFlagsStretchRatio="2"
                       SeparationOverride="10">
-            <BoxContainer Orientation="Vertical"
+            <BoxContainer Name="Laws"
+                          Orientation="Vertical"
                           HorizontalExpand="True"
                           VerticalExpand="True">
                 <Label Text="{Loc 'silicon-laws-label'}" />
-                <ItemList Name="Laws"
-                          HorizontalExpand="False"
+            </BoxContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal"
+                      HorizontalExpand="True"
+                      VerticalExpand="True"
+                      SizeFlagsStretchRatio="2"
+                      SeparationOverride="10">
+            <BoxContainer Orientation="Vertical"
+                          HorizontalExpand="True"
                           VerticalExpand="True">
-                </ItemList>
+                    <Button Name="StateLawsButton"
+                            Access="Public"
+                            Text="{Loc 'state-laws-button'}" />
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
