@@ -94,13 +94,6 @@
     spawned:
     - id: FoodMeatXeno
       amount: 5
-  - type: GhostTakeoverAvailable
-    allowMovement: true
-    allowSpeech: false
-    makeSentient: true
-    name: xeno
-    description: You are a xeno, co-operate with your hive to kill all crewmembers!
-    rules: You are an antagonist, smack, slash, and wack!
   - type: TypingIndicator
     proto: alien
   - type: Temperature
@@ -120,10 +113,12 @@
   - type: Psionic
     removable: false
 
+# NPC versions
+
 - type: entity
   name: Praetorian
   parent: MobXeno
-  id: MobXenoPraetorian
+  id: MobXenoPraetorianNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -155,7 +150,7 @@
 - type: entity
   name: Drone
   parent: MobXeno
-  id: MobXenoDrone
+  id: MobXenoDroneNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -190,7 +185,7 @@
 - type: entity
   name: Queen
   parent: MobXeno
-  id: MobXenoQueen
+  id: MobXenoQueenNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -230,7 +225,7 @@
 - type: entity
   name: Ravager
   parent: MobXeno
-  id: MobXenoRavager
+  id: MobXenoRavagerNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -270,7 +265,7 @@
 - type: entity
   name: Runner
   parent: MobXeno
-  id: MobXenoRunner
+  id: MobXenoRunnerNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -309,8 +304,8 @@
 
 - type: entity
   name: Rouny
-  parent: MobXenoRunner
-  id: MobXenoRouny
+  parent: MobXenoRunnerNPC
+  id: MobXenoRounyNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -320,7 +315,7 @@
 - type: entity
   name: Spitter
   parent: MobXeno
-  id: MobXenoSpitter
+  id: MobXenoSpitterNPC
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -348,6 +343,111 @@
       - MobMask
       layer:
       - MobLayer
+
+#GhostTakeover
+
+- type: entity
+  name: Burrower
+  id: MobXenoPlayer
+  parent: MobXeno 
+  components: 
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!  
+
+- type: entity
+  name: Praetorian
+  parent: MobXenoPraetorianNPC
+  id: MobXenoPraetorian
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+- type: entity
+  name: Drone
+  parent: MobXenoDroneNPC
+  id: MobXenoDrone
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+- type: entity
+  name: Queen
+  parent: MobXenoQueenNPC
+  id: MobXenoQueen
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+- type: entity
+  name: Ravager
+  parent: MobXenoRavagerNPC
+  id: MobXenoRavager
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+- type: entity
+  name: Runner
+  parent: MobXenoRunnerNPC
+  id: MobXenoRunner
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+- type: entity
+  name: Rouny
+  parent: MobXenoRunner
+  id: MobXenoRouny
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/Xenos/rouny.rsi
+    offset: 0,0.6
+
+- type: entity
+  name: Spitter
+  parent: MobXenoSpitterNPC
+  id: MobXenoSpitter
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: xeno
+    description: You are a xeno, co-operate with your hive to kill all crewmembers!
+    rules: You are an antagonist, smack, slash, and wack!
+
+#Snakes
 
 - type: entity
   name: space adder

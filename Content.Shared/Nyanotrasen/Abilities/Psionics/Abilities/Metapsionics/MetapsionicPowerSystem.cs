@@ -4,6 +4,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Abilities.Psionics
 {
@@ -15,6 +16,8 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
 
         public override void Initialize()
         {
@@ -30,6 +33,8 @@ namespace Content.Shared.Abilities.Psionics
                 return;
 
             component.MetapsionicPowerAction = new InstantAction(metapsionicPulse);
+            if (metapsionicPulse.UseDelay != null)
+                component.MetapsionicPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) metapsionicPulse.UseDelay);
             _actions.AddAction(uid, component.MetapsionicPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

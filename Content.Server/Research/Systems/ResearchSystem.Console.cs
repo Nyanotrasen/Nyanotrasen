@@ -61,13 +61,14 @@ public sealed partial class ResearchSystem
         if (!Resolve(component.Owner, ref clientComponent, false) ||
             clientComponent.Server == null)
         {
-            state = new ResearchConsoleBoundInterfaceState(default, default);
+            state = new ResearchConsoleBoundInterfaceState(default, default, default);
         }
         else
         {
             var points = clientComponent.ConnectedToServer ? clientComponent.Server.Points : 0;
             var pointsPerSecond = clientComponent.ConnectedToServer ? PointsPerSecond(clientComponent.Server) : 0;
-            state = new ResearchConsoleBoundInterfaceState(points, pointsPerSecond);
+            var pointLimit = clientComponent.ConnectedToServer ? (clientComponent.Server.PassiveLimitPerSource * clientComponent.Server.PointSources.Count) : 0;
+            state = new ResearchConsoleBoundInterfaceState(points, pointsPerSecond, pointLimit);
         }
         _uiSystem.GetUiOrNull(component.Owner, ResearchConsoleUiKey.Key)?.SetState(state);
     }

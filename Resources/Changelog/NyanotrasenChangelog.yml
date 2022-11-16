@@ -708,3 +708,123 @@ Entries:
     type: Add
   id: 77
   time: '2022-11-08T23:42:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated Angle, fixing a lot of atmos and atmos device issues.
+    type: Add
+  id: 78
+  time: '2022-11-10T23:09:56.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - message: Updated Tortuga for new content. Mail now only routes to the mailroom.
+    type: Add
+  id: 79
+  time: '2022-11-10T23:10:40.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  - message: Early merged my vaccinator rework. Be sure to report any bugs.
+    type: Add
+  id: 80
+  time: '2022-11-12T01:49:48.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Added new round end sound.
+    type: Add
+  id: 81
+  time: '2022-11-12T08:13:25.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added icon for the Ifrit's Pyrokinesis power.
+    type: Add
+  id: 82
+  time: '2022-11-13T01:23:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Adjusted how recipients of Priority mail are determined.
+    type: Tweak
+  id: 83
+  time: '2022-11-13T01:27:45.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Fixes for Lighthouse
+    type: Add
+  id: 84
+  time: '2022-11-14T21:43:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: All familiars now have access to telepathy.
+    type: Add
+  - message: Clerics and the mystagogue (so, anyone that can use bibles) can now sacrifice
+      psychics on altars for rewards and reducing glimmer.
+    type: Add
+  - message: All psionic powers now start on cooldown.
+    type: Tweak
+  - message: Removed the ghost roles from the arena mobs.
+    type: Remove
+  - message: Removed the suicide command completely so it's clearer that only ghost
+      is available.
+    type: Remove
+  id: 85
+  time: '2022-11-15T00:34:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Lots of upstream reworks merged in. Report any bugs in the Nyanotrasen
+      discord at www.nyanotrasen.moe
+    type: Add
+  - message: Borgs can now speak on radio.
+    type: Add
+  - message: I gave up on the unique arachne buckling stuff until buckle rework finishes.
+    type: Tweak
+  id: 86
+  time: '2022-11-15T20:51:54.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added binary channel.
+    type: Add
+  - message: Passenger is 'Assistant' once again. SOVL confirmed.
+    type: Add
+  - message: Research computer UIs now show the current point limit.
+    type: Add
+  id: 87
+  time: '2022-11-15T22:51:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Laws now have a UI, admittedly one that probably needs a few aesthetics
+      passes.
+    type: Add
+  - message: Drones can now see their laws.
+    type: Add
+  - message: Added a cooldown to stating laws.
+    type: Add
+  - message: Rewrote default borg laws to be a bit simpler.
+    type: Tweak
+  id: 88
+  time: '2022-11-16T00:53:50.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a button to the escape menu to apply for whitelist.
+    type: Add
+  id: 89
+  time: '2022-11-16T01:14:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the ability to overload the AME. Braindead griefers have to find
+      another strategy to speedrun permaban.
+    type: Remove
+  id: 90
+  time: '2022-11-16T01:50:01.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Significant changes to angle. Updated for christmas, fixed up atmos,
+      moved circuit imprinter to engineering.
+    type: Tweak
+  id: 91
+  time: '2022-11-16T02:57:35.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Slightly increased sec, eng, and epi roles on angle.
+    type: Tweak
+  id: 92
+  time: '2022-11-16T04:11:39.0000000+00:00'

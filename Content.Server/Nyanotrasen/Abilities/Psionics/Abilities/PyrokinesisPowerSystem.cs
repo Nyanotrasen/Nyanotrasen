@@ -6,6 +6,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -16,6 +17,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly FlammableSystem _flammableSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -30,6 +33,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.PyrokinesisPowerAction = new EntityTargetAction(pyrokinesis);
+            if (pyrokinesis.UseDelay != null)
+                component.PyrokinesisPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) pyrokinesis.UseDelay);
             _actions.AddAction(uid, component.PyrokinesisPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

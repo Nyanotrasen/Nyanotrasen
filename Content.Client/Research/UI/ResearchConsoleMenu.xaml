@@ -67,6 +67,7 @@
                           SizeFlagsStretchRatio="1">
                 <Label Name="PointLabel" />
                 <Label Name="PointsPerSecondLabel" />
+                <Label Name="PointLimitLabel" />
                 <BoxContainer Orientation="Vertical"
                               Align="End"
                               HorizontalExpand="True"

@@ -19,6 +19,7 @@
     amount: 1
   - !type:PlantAdjustHealth
     amount: 0.5
+  pricePerUnit: 2
 
 - type: reagent
   id: Vitamin
@@ -49,6 +50,7 @@
           type: Vampiric
           shouldHave: false
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+  pricePerUnit: 2.5
 
 - type: reagent
   id: Protein
@@ -69,4 +71,5 @@
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
       - !type:SatiateHunger
+  pricePerUnit: 3
 

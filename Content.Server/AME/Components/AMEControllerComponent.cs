@@ -165,7 +165,7 @@ namespace Content.Server.AME.Components
                     ToggleInjection();
                     break;
                 case UiButton.IncreaseFuel:
-                    InjectionAmount += 2;
+                    InjectionAmount = Math.Min(InjectionAmount + 2, GetCoreCount() * 2);
                     break;
                 case UiButton.DecreaseFuel:
                     InjectionAmount = InjectionAmount > 0 ? InjectionAmount -= 2 : 0;

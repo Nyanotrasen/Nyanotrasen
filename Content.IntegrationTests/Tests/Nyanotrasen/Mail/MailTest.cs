@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Robust.Server.Player;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -13,12 +14,15 @@ using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
+using Content.Shared.MobState;
+using Content.Shared.MobState.Components;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.Emag;
 using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.Mind;
 using Content.Server.Station.Systems;
 
 namespace Content.IntegrationTests.Tests.Mail
@@ -52,7 +56,12 @@ namespace Content.IntegrationTests.Tests.Mail
   - type: Hands
   - type: Body
     prototype: Human
+  - type: MobState
   - type: MailReceiver
+
+- type: entity
+  id: GhostDummy
+  name: GhostDummy
 
 - type: entity
   id: TestMailTeleporter
@@ -234,7 +243,7 @@ namespace Content.IntegrationTests.Tests.Mail
         }
 
         [Test]
-        public async Task TestTeleporterCanSpawnPriorityMail()
+        public async Task TestTeleporterCanSetupPriorityMail()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
             var server = pairTracker.Pair.Server;
@@ -257,7 +266,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 var mailComponent = entityManager.GetComponent<MailComponent>(mail);
 
@@ -299,8 +313,18 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
-                mailSystem.SetupMail(mailPriority, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
+                mailSystem.SetupMail(mailPriority, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 var mailComponent = entityManager.GetComponent<MailComponent>(mail);
                 var mailPriorityComponent = entityManager.GetComponent<MailComponent>(mailPriority);
@@ -344,8 +368,18 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
-                mailSystem.SetupMail(mailFragile, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
+                mailSystem.SetupMail(mailFragile, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 var mailComponent = entityManager.GetComponent<MailComponent>(mail);
                 var mailFragileComponent = entityManager.GetComponent<MailComponent>(mailFragile);
@@ -388,7 +422,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 var mailComponent = entityManager.GetComponent<MailComponent>(mail);
 
@@ -414,13 +453,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                mailSystem.TryMatchJobTitleToDepartment("passenger", out string? jobDepartment);
+                mailSystem.TryMatchJobTitleToDepartment("assistant", out string? jobDepartment);
 
                 Assert.IsNotNull(jobDepartment,
-                    "MailSystem was unable to match the passenger job title to a department.");
+                    "MailSystem was unable to match the assistant job title to a department.");
 
                 Assert.That(jobDepartment, Is.EqualTo("Civilian"),
-                    "MailSystem was unable to match the passenger job title to the Civilian department.");
+                    "MailSystem was unable to match the assistant job title to the Civilian department.");
             });
 
             await pairTracker.CleanReturnAsync();
@@ -439,13 +478,13 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                mailSystem.TryMatchJobTitleToIcon("passenger", out string? jobIcon);
+                mailSystem.TryMatchJobTitleToIcon("assistant", out string? jobIcon);
 
                 Assert.IsNotNull(jobIcon,
-                    "MailSystem was unable to match the passenger job title to a job icon.");
+                    "MailSystem was unable to match the assistant job title to a job icon.");
 
                 Assert.That(jobIcon, Is.EqualTo("Passenger"),
-                    "MailSystem was unable to match the passenger job title to the Passenger job icon.");
+                    "MailSystem was unable to match the assistant job title to the Passenger job icon.");
             });
 
             await pairTracker.CleanReturnAsync();
@@ -476,7 +515,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 object jobIcon;
 
@@ -487,7 +531,7 @@ namespace Content.IntegrationTests.Tests.Mail
                     "MailVisuals.JobIcon was not a string.");
 
                 Assert.That((string) jobIcon, Is.EqualTo("Passenger"),
-                    $"The passenger job was not matched to the Passenger icon.");
+                    $"The assistant job was not matched to the Passenger icon.");
 
                 mapManager.DeleteMap(testMap.MapId);
             });
@@ -524,7 +568,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 Assert.IsTrue(containerSystem.TryGetContainer(mail, "contents", out var contents),
                     "Mail did not have contents container.");
@@ -581,7 +630,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 mailComponent = entityManager.GetComponent<MailComponent>(mail);
             });
@@ -656,7 +710,12 @@ namespace Content.IntegrationTests.Tests.Mail
                     "Human dummy candidate was unable to pickup his ID.");
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
-                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = name,
+                    Job = job,
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 entityManager.EventBus.RaiseLocalEvent(mail,
                     new AfterInteractUsingEvent(
@@ -717,7 +776,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "clown",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
@@ -963,7 +1027,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, name, job, new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = name,
+                    Job = job,
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 HandsComponent handsComponent;
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
@@ -1052,7 +1121,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
                 mailComponent = entityManager.GetComponent<MailComponent>(mail);
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "clown", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "clown",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
             });
             await server.WaitRunTicks(5);
@@ -1326,7 +1400,12 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 var teleporterComponent = entityManager.GetComponent<MailTeleporterComponent>(teleporter);
 
-                mailSystem.SetupMail(mail, teleporterComponent, "Bob", "passenger", new HashSet<string>());
+                mailSystem.SetupMail(mail, teleporterComponent, new MailRecipient {
+                    Name = "Bob",
+                    Job = "assistant",
+                    AccessTags = new HashSet<string>(),
+                    MayReceivePriorityMail = true,
+                });
 
                 var mailComponent = entityManager.GetComponent<MailComponent>(mail);
                 Assert.IsTrue(mailComponent.IsLocked,
@@ -1360,6 +1439,106 @@ namespace Content.IntegrationTests.Tests.Mail
                     "Emagged mail was profitable.");
                 Assert.That(previousBalance, Is.EqualTo(currentBalance),
                     "Station's bank account balance changed after mail was emagged.");
+
+                mapManager.DeleteMap(testMap.MapId);
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+
+        [Test]
+        public async Task TestNoMindlessPriorityMail()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{ExtraPrototypes = Prototypes});
+            var server = pairTracker.Pair.Server;
+            await server.WaitIdleAsync();
+
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var playerManager = server.ResolveDependency<IPlayerManager>();
+
+            var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
+            var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
+            var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+
+            var testMap = await PoolManager.CreateTestMap(pairTracker);
+
+            await server.WaitAssertion(() =>
+            {
+                var coordinates = testMap.GridCoords;
+
+                EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporterAlwaysPriority", coordinates);
+                EntityUid mail = entityManager.SpawnEntity("TestMail", coordinates);
+
+                EntityUid realCandidate1 = entityManager.SpawnEntity("HumanDummy", coordinates);
+                EntityUid realCandidate1ID = entityManager.SpawnEntity("ClownIDCard", coordinates);
+
+                idCardSystem.TryChangeFullName(realCandidate1ID, "Bob");
+                idCardSystem.TryChangeJobTitle(realCandidate1ID, "Clown");
+
+                HandsComponent handsComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out handsComponent!),
+                    "Human dummy candidate did not have a HandsComponent.");
+
+                Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
+                    "Human dummy candidate was unable to pickup his ID.");
+
+                MailReceiverComponent mailReceiverComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out mailReceiverComponent!),
+                    "Human dummy candidate did not have a MailReceiverComponent.");
+
+                // Test the mindless state.
+                MailRecipient? recipient;
+                Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
+                    "Human dummy candidate was unable to be converted into a MailRecipient.");
+
+                Assert.IsFalse(recipient?.MayReceivePriorityMail,
+                    "Mindless human dummy candidate can receive Priority mail.");
+
+                // Install a mind with a valid session into this dummy.
+                var player = playerManager.ServerSessions.Single();
+                var mind = new Mind(player.UserId);
+                mind.ChangeOwningPlayer(player.UserId);
+                mind.TransferTo(realCandidate1);
+
+                Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
+                    "Human dummy candidate was unable to be converted into a MailRecipient after mind installation.");
+
+                Assert.IsTrue(recipient?.MayReceivePriorityMail,
+                    "Mindful human dummy candidate cannot receive Priority mail.");
+
+                // Make the dummy dead.
+                MobStateComponent mobStateComponent;
+                Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out mobStateComponent!),
+                    "Human dummy candidate did not have a MobStateComponent.");
+
+                mobStateComponent.CurrentState = DamageState.Dead;
+
+                Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
+                    "Human dummy candidate was unable to be converted into a MailRecipient after setting MobState to Dead.");
+
+                Assert.IsTrue(recipient?.MayReceivePriorityMail,
+                    "Mindful and dead human dummy candidate cannot receive Priority mail.");
+
+                // Ghost the dummy's mind.
+                var ghost = entityManager.SpawnEntity("GhostDummy", coordinates);
+                mind.Visit(ghost);
+
+                Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
+                    "Human dummy candidate was unable to be converted into a MailRecipient after ghosting.");
+
+                Assert.IsTrue(recipient?.MayReceivePriorityMail,
+                    "Mindful and dead human dummy candidate cannot receive Priority mail.");
+
+                // Sever the connection between the dummy and the mind.
+                mind.TransferTo(ghost);
+                Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
+                    "Human dummy candidate was unable to be converted into a MailRecipient after cutting ties with his mind.");
+
+                Assert.IsFalse(recipient?.MayReceivePriorityMail,
+                    "Mindless and dead human dummy candidate can receive Priority mail.");
 
                 mapManager.DeleteMap(testMap.MapId);
             });

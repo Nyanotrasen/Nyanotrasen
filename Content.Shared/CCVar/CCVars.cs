@@ -253,6 +253,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.panic_bunker.enabled", false, CVar.SERVERONLY);
 
         /// <summary>
+        /// Panic bunker when no admins are on.
+        /// </summary>
+        public static readonly CVarDef<bool> AdminPanic =
+            CVarDef.Create("game.admin_panic.enabled", false, CVar.SERVERONLY);
+
+        /// <summary>
         /// Minimum age of the account (from server's PoV, so from first-seen date) in minutes.
         /// </summary>
         public static readonly CVarDef<int> PanicBunkerMinAccountAge =
@@ -1033,6 +1039,19 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> EmergencyRecallTurningPoint =
             CVarDef.Create("shuttle.recall_turning_point", 0.5f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Time in minutes after round start to auto-call the shuttle. Set to zero to disable.
+        /// </summary>
+        public static readonly CVarDef<int> EmergencyShuttleAutoCallTime =
+            CVarDef.Create("shuttle.auto_call_time", 90, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Time in minutes after the round was extended (by recalling the shuttle) to call
+        ///     the shuttle again.
+        /// </summary>
+        public static readonly CVarDef<int> EmergencyShuttleAutoCallExtensionTime =
+            CVarDef.Create("shuttle.auto_call_extension_time", 45, CVar.SERVERONLY);
 
         /// <summary>
         /// The map to load for CentCom for the emergency shuttle to dock to.

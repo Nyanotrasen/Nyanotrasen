@@ -18,6 +18,7 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Fluids.Components;
 using Content.Server.Mail.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -411,7 +412,7 @@ namespace Content.Server.Mail
         /// <remarks>
         /// This is separate mostly so the unit tests can get to it.
         /// </remarks>
-        public void SetupMail(EntityUid uid, MailTeleporterComponent component, string recipientName, string recipientJob, HashSet<String> accessTags)
+        public void SetupMail(EntityUid uid, MailTeleporterComponent component, MailRecipient recipient)
         {
             var mailComp = EnsureComp<MailComponent>(uid);
 
@@ -433,8 +434,13 @@ namespace Content.Server.Mail
             if (_random.Prob(component.PriorityChance))
                 mailComp.IsPriority = true;
 
-            mailComp.RecipientJob = recipientJob;
-            mailComp.Recipient = recipientName;
+            // This needs to override both the random probability and the
+            // entity prototype, so this is fine.
+            if (!recipient.MayReceivePriorityMail)
+                mailComp.IsPriority = false;
+
+            mailComp.RecipientJob = recipient.Job;
+            mailComp.Recipient = recipient.Name;
 
             if (mailComp.IsFragile)
             {
@@ -456,11 +462,11 @@ namespace Content.Server.Mail
                     mailComp.priorityCancelToken.Token);
             }
 
-            if (TryMatchJobTitleToIcon(recipientJob, out string? icon))
+            if (TryMatchJobTitleToIcon(recipient.Job, out string? icon))
                 _appearanceSystem.SetData(uid, MailVisuals.JobIcon, icon);
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
-            accessReader.AccessLists.Add(accessTags);
+            accessReader.AccessLists.Add(recipient.AccessTags);
         }
 
         /// <summary>
@@ -525,7 +531,20 @@ namespace Content.Server.Mail
                 && idCard.JobTitle != null)
             {
                 HashSet<String> accessTags = access.Tags;
-                recipient = new MailRecipient(idCard.FullName, idCard.JobTitle, accessTags);
+
+                var mayReceivePriorityMail = true;
+
+                if (TryComp<MindComponent>(receiver.Owner, out MindComponent? mind)
+                    && mind.Mind?.Session == null)
+                {
+                    mayReceivePriorityMail = false;
+                }
+
+                recipient = new MailRecipient(idCard.FullName,
+                    idCard.JobTitle,
+                    accessTags,
+                    mayReceivePriorityMail);
+
                 return true;
             }
 
@@ -623,7 +642,7 @@ namespace Content.Server.Mail
                 }
 
                 var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
-                SetupMail(mail, component, candidate.Name, candidate.Job, candidate.AccessTags);
+                SetupMail(mail, component, candidate);
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
@@ -675,12 +694,14 @@ namespace Content.Server.Mail
         public string Name;
         public string Job;
         public HashSet<String> AccessTags;
+        public bool MayReceivePriorityMail;
 
-        public MailRecipient(string name, string job, HashSet<String> accessTags)
+        public MailRecipient(string name, string job, HashSet<String> accessTags, bool mayReceivePriorityMail)
         {
             Name = name;
             Job = job;
             AccessTags = accessTags;
+            MayReceivePriorityMail = mayReceivePriorityMail;
         }
     }
 }

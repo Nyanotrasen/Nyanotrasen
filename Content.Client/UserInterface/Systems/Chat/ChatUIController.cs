@@ -52,6 +52,7 @@ public sealed class ChatUIController : UIController
     public const char AliasLocal = '.';
     public const char AliasConsole = '/';
     public const char AliasDead = '\\';
+    public const char AliasLOOC = '(';
     public const char AliasOOC = '[';
     public const char AliasEmotes = '@';
     public const char AliasAdmin = ']';
@@ -59,12 +60,13 @@ public sealed class ChatUIController : UIController
     public const char AliasWhisper = ',';
     public const char AliasTelepathic = '=';
 
-    private static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
+    public static readonly Dictionary<char, ChatSelectChannel> PrefixToChannel = new()
     {
         {AliasLocal, ChatSelectChannel.Local},
         {AliasWhisper, ChatSelectChannel.Whisper},
         {AliasTelepathic, ChatSelectChannel.Telepathic},
         {AliasConsole, ChatSelectChannel.Console},
+        {AliasLOOC, ChatSelectChannel.LOOC},
         {AliasOOC, ChatSelectChannel.OOC},
         {AliasEmotes, ChatSelectChannel.Emotes},
         {AliasAdmin, ChatSelectChannel.Admin},
@@ -72,7 +74,7 @@ public sealed class ChatUIController : UIController
         {AliasDead, ChatSelectChannel.Dead}
     };
 
-    private static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes =
+    public static readonly Dictionary<ChatSelectChannel, char> ChannelPrefixes =
         PrefixToChannel.ToDictionary(kv => kv.Value, kv => kv.Key);
 
     /// <summary>
@@ -373,24 +375,6 @@ public sealed class ChatUIController : UIController
     public static string GetChannelSelectorName(ChatSelectChannel channelSelector)
     {
         return channelSelector.ToString();
-    }
-
-    public static char GetChannelSelectorPrefix(ChatSelectChannel channelSelector)
-    {
-        return channelSelector switch
-        {
-            ChatSelectChannel.Local => '.',
-            ChatSelectChannel.Whisper => ',',
-            ChatSelectChannel.Radio => ';',
-            ChatSelectChannel.Telepathic => '`',
-            ChatSelectChannel.LOOC => '(',
-            ChatSelectChannel.OOC => '[',
-            ChatSelectChannel.Emotes => '@',
-            ChatSelectChannel.Dead => '\\',
-            ChatSelectChannel.Admin => ']',
-            ChatSelectChannel.Console => '/',
-            _ => ' '
-        };
     }
 
     private void UpdateChannelPermissions()

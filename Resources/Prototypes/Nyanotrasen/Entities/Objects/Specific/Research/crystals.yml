@@ -12,3 +12,17 @@
   - type: Tag
     tags:
       - NormalityCrystal
+
+- type: entity
+  parent: BaseItem
+  id: CrystalSoul
+  name: soul crystal
+  description: Contains a soul. Placeholder sprite.
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+    color: purple
+  - type: Speech
+  - type: Psionic

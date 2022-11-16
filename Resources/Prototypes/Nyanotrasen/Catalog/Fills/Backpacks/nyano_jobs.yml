@@ -14,7 +14,7 @@
 - type: entity
   noSpawn: true
   parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelDetectiveFilled
+  id: ClothingBackpackDuffelMantisFilled
   components:
     - type: StorageFill
       contents:
@@ -27,7 +27,7 @@
 - type: entity
   noSpawn: true
   parent: ClothingBackpackSatchel
-  id: ClothingBackpackSatchelDetectiveFilled
+  id: ClothingBackpackSatchelMantisFilled
   components:
     - type: StorageFill
       contents:
