@@ -1,2 +1,4 @@
-state-laws-action = State Laws
-state-laws-action-desc = State the laws you're bound by.
+state-laws-button = State Laws
+
+law-window-title = Laws
+silicon-laws-label = Your Laws:

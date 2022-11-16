@@ -1,34 +1,41 @@
-using Content.Shared.Actions;
+using Content.Shared.Borgs;
 using Content.Server.Chat.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Borgs
 {
     public sealed class LawsSystem : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<LawsComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<LawsComponent, StateLawsActionEvent>(OnStateLaws);
+            SubscribeLocalEvent<LawsComponent, StateLawsMessage>(OnStateLaws);
         }
 
-        private void OnInit(EntityUid uid, LawsComponent component, ComponentInit args)
+        private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsMessage args)
         {
-            _actionsSystem.AddAction(uid, component.StateLawsAction, uid);
+            StateLaws(uid, component);
         }
 
-        private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsActionEvent args)
+    public void StateLaws(EntityUid uid, LawsComponent? component = null)
         {
-            int i = 1;
+            if (!Resolve(uid, ref component))
+                return;
+
+            if (!component.CanState)
+                return;
+
+            if (component.StateTime != null && _timing.CurTime < component.StateTime)
+                return;
+
+            component.StateTime = _timing.CurTime + component.StateCD;
+
             foreach (var law in component.Laws)
             {
-                var message = ("Law " + i +": " + law);
-                _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
-                i++;
+                _chat.TrySendInGameICMessage(uid, law, InGameICChatType.Speak, false);
             }
         }
     }
-    public sealed class StateLawsActionEvent : InstantActionEvent {}
 }

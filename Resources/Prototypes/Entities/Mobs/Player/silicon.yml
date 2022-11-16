@@ -86,6 +86,8 @@
     interfaces:
     - key: enum.StrippingUiKey.Key
       type: StrippableBoundUserInterface
+    - key: enum.LawsUiKey.Key
+      type: LawsBoundUserInterface
   - type: GhostTakeoverAvailable
     makeSentient: true
     name: Maintenance Drone
@@ -95,6 +97,12 @@
       1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
       2. You may not harm any being, regardless of intent or circumstance.
       3. Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
+  - type: Laws
+    canState: false
+    laws:
+    - You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
+    - You may not harm any being, regardless of intent or circumstance.
+    - Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
   - type: MovementSpeedModifier
     baseWalkSpeed : 5
     baseSprintSpeed : 5
@@ -179,6 +187,17 @@
   - type: SurveillanceCamera
     setupAvailableNetworks:
       - SurveillanceCameraSilicon
+  - type: IntrinsicUI
+    uis:
+      - key: enum.LawsUiKey.Key
+        toggleAction:
+          name: action-name-show-laws
+          description: action-description-show-laws
+          icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+          iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
+          keywords: [ "AI", "console", "interface", "laws", "borg" ]
+          priority: -3
+          event: !type:ToggleIntrinsicUIEvent
 
 - type: entity
   name: onestar mecha
