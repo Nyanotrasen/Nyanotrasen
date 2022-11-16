@@ -349,7 +349,8 @@
 - type: entity
   name: Burrower
   id: MobXenoPlayer
-  parent: MobXeno  
+  parent: MobXeno 
+  components: 
   - type: GhostTakeoverAvailable
     allowMovement: true
     allowSpeech: false
