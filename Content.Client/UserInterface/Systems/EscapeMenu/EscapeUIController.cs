@@ -100,6 +100,7 @@ public sealed class EscapeUIController : UIController, IOnStateEntered<GameplayS
         {
             _uri.OpenUri(UILinks.Discord);
         };
+
         CommandBinds.Builder
             .Bind(EngineKeyFunctions.EscapeMenu,
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
