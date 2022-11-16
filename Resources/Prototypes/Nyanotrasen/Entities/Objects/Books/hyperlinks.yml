@@ -10,6 +10,9 @@
     - state: book_space_law
   - type: HyperlinkBook
     url: https://wiki.nyanotrasen.moe/Space_Law
+  - type: Tag
+    tags:
+    - Book
 
 - type: entity
   parent: HyperlinkBookSpaceLaw
