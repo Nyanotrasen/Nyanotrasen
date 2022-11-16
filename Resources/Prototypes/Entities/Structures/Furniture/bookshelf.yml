@@ -58,6 +58,7 @@
       storagebase: !type:Container
         ents: []
   - type: Appearance
+  - type: InteractionOutline
   - type: StorageFill
     contents:
       - id: HyperlinkBookSpaceLaw
