@@ -253,6 +253,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.panic_bunker.enabled", false, CVar.SERVERONLY);
 
         /// <summary>
+        /// Panic bunker when no admins are on.
+        /// </summary>
+        public static readonly CVarDef<bool> AdminPanic =
+            CVarDef.Create("game.admin_panic.enabled", false, CVar.SERVERONLY);
+
+        /// <summary>
         /// Minimum age of the account (from server's PoV, so from first-seen date) in minutes.
         /// </summary>
         public static readonly CVarDef<int> PanicBunkerMinAccountAge =

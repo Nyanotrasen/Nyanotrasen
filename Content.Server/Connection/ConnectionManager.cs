@@ -113,28 +113,32 @@ namespace Content.Server.Connection
                 }
             }
 
-            int i = 0;
-            foreach (var admin in _admin.ActiveAdmins)
-            {
-                i++;
-            }
-            if (i == 0)
-            {
-                var record = await _dbManager.GetPlayerRecordByUserId(userId);
 
-                if ((record is null ||
-                    (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) > 0)))
+            if (_cfg.GetCVar(CCVars.AdminPanic))
+            {
+                int i = 0;
+                foreach (var admin in _admin.ActiveAdmins)
                 {
-                    return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-no-admins"), null);
+                    i++;
                 }
-            }
+                if (i == 0)
+                {
+                    var record = await _dbManager.GetPlayerRecordByUserId(userId);
 
-            var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
-                            ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
-                            status == PlayerGameStatus.JoinedGame;
-            if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
-            {
-                return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
+                    if ((record is null ||
+                        (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) > 0)))
+                    {
+                        return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-no-admins"), null);
+                    }
+                }
+
+                var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
+                                ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
+                                status == PlayerGameStatus.JoinedGame;
+                if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
+                {
+                    return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
+                }
             }
 
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, includeUnbanned: false);
