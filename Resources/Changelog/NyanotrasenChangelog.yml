@@ -808,3 +808,10 @@ Entries:
     type: Add
   id: 89
   time: '2022-11-16T01:14:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the ability to overload the AME. Braindead griefers have to find
+      another strategy to speedrun permaban.
+    type: Remove
+  id: 90
+  time: '2022-11-16T01:50:01.0000000+00:00'
