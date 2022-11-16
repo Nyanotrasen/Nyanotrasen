@@ -789,3 +789,16 @@ Entries:
     type: Add
   id: 87
   time: '2022-11-15T22:51:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Laws now have a UI, admittedly one that probably needs a few aesthetics
+      passes.
+    type: Add
+  - message: Drones can now see their laws.
+    type: Add
+  - message: Added a cooldown to stating laws.
+    type: Add
+  - message: Rewrote default borg laws to be a bit simpler.
+    type: Tweak
+  id: 88
+  time: '2022-11-16T00:53:50.0000000+00:00'
