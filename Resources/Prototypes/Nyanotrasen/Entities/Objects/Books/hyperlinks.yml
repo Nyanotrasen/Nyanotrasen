@@ -142,3 +142,15 @@
     - state: book_infections
   - type: HyperlinkBook
     url: https://wiki.nyanotrasen.moe/Medical
+
+- type: entity
+  parent: HyperlinkBookSpaceLaw
+  id: HyperlinkBookHacking
+  name: guide to hacking
+  description: For emergency use only.
+  components:
+  - type: Sprite
+    layers:
+    - state: book_hacking
+  - type: HyperlinkBook
+    url: https://wiki.nyanotrasen.moe/Hacking

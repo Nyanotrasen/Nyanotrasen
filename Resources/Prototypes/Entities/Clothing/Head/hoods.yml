@@ -90,6 +90,9 @@
     sprite: Clothing/Head/Hoods/chaplain.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/chaplain.rsi
+  - type: Tag
+    tags:
+    - HidesHair
 
 - type: entity
   parent: ClothingHeadBase
@@ -101,6 +104,9 @@
     sprite: Clothing/Head/Hoods/cult.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/cult.rsi
+  - type: Tag
+    tags:
+    - HidesHair
 
 - type: entity
   parent: ClothingHeadBase
@@ -112,6 +118,9 @@
     sprite: Clothing/Head/Hoods/nun.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/nun.rsi
+  - type: Tag
+    tags:
+    - HidesHair
 
 - type: entity
   parent: ClothingHeadBase
@@ -128,3 +137,6 @@
       coefficients:
         Heat: 0.95
         Radiation: 0.65
+  - type: Tag
+    tags:
+    - HidesHair
