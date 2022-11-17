@@ -862,3 +862,43 @@ Entries:
     type: Add
   id: 97
   time: '2022-11-17T14:29:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed using telegnosis inside containers.
+    type: Fix
+  - message: Drones can now hear binary.
+    type: Add
+  - message: Added new drone law allowing them to accept orders given in binary channel,
+      regardless of the nature of the being.
+    type: Add
+  - message: Removed 'a miserable pile of...' desc from humanoids.
+    type: Remove
+  - message: Docks are at least temporarily indestructible.
+    type: Tweak
+  - message: Removed a bunch of bloat items from head lockers.
+    type: Remove
+  - message: Advanced machine parts and RPED are now available in the eng techfab.
+      CE spaswns with an RPED in their locker.
+    type: Add
+  - message: Removed advanced machine parts from other lathes.
+    type: Remove
+  - message: Bibles fit on bookshelves.
+    type: Fix
+  - message: Oracle will not ask for targets.
+    type: Fix
+  - message: Added an alt verb for the hyperlink book for increased discoverability,
+      as they are made for newer players.
+    type: Add
+  - message: Added a guide on hacking to the library.
+    type: Add
+  - message: Ethanol has been adjusted for proper scaling.
+    type: Fix
+  - message: Nuke ops is now about 250% more likely. It really brings out the best
+      in everyone.
+    type: Tweak
+  - message: Added wands and spellbooks to the altar sacrifice reward pool.
+    type: Add
+  - message: Hoods hide hair again.
+    type: Fix
+  id: 98
+  time: '2022-11-17T15:34:13.0000000+00:00'
