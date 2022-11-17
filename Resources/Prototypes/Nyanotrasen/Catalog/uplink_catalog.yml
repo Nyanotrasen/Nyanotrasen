@@ -29,3 +29,17 @@
     blacklist:
       components:
       - SurplusBundle
+
+- type: listing
+  id: UplinkRickenbacker
+  name: Rickenbacker 4001
+  description: When it comes down to it, there are very few people who will swing the bat.
+  productEntity: Rickenbacker4001Instrument
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeapons
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Musician
