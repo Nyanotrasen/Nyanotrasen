@@ -65,6 +65,9 @@ namespace Content.Server.Research.Oracle
             "MopBucket",
             "FoodOnionRed",
             "FoodGatfruit",
+            "TargetHuman",
+            "TargetSyndicate",
+            "TargetClown",
         };
 
 
