@@ -1,0 +1,213 @@
+- type: entity
+  name: golem
+  id: MobGolemCult
+  description: An artificial construct imitating life, although it contains a mortal soul.
+  components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_chest
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_head
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_r_arm
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_l_arm
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_r_leg
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_l_leg
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_l_hand
+    - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      color: "#e8b59b"
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: cultgolem_r_hand
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "id" ]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+  - type: LagCompensation
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPieReaction
+  - type: Flashable
+  - type: Polymorphable
+  - type: Identity
+  - type: Hands
+  - type: MovementSpeedModifier
+  - type: MovedByPressure
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: IdExaminable
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+  - type: Stamina
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - Drunk
+      - SlurredSpeech
+      - PressureImmunity
+      - Muted
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - PsionicsDisabled
+      - PsionicallyInsulated
+  - type: Inventory
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Icon
+    sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+    state: full
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 400
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Body
+    prototype: Golem
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 400
+        behaviors:
+          - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: Appearance
+    visuals:
+      - type: RotationVisualizer
+      - type: BuckleVisualizer
+      - type: CreamPiedVisualizer
+        state: creampie_human
+  - type: CombatMode
+    canDisarm: true
+  - type: Climbing
+  - type: Cuffable
+  - type: Ensnareable
+    sprite: Objects/Misc/ensnare.rsi
+    state: icon
+  - type: AnimationPlayer
+  - type: Buckle
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcFist
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10
+  - type: Pullable
+  - type: DoAfter
+  - type: CreamPied
+  - type: Stripping
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      - key: enum.VoiceMaskUIKey.Key
+        type: VoiceMaskBoundUserInterface
+      - key: enum.HumanoidMarkingModifierKey.Key
+        type: HumanoidMarkingModifierBoundUserInterface
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
+  - type: Puller
+  - type: Speech
+    speechSounds: Baritone
+  - type: Vocal
+  - type: Emoting
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: StandingState
+  - type: CanEscapeInventory
+  - type: MobPrice
+    price: 6000
+    deathPenalty: 0.1
