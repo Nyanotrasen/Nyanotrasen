@@ -97,7 +97,7 @@
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/engineering.rsi
- 
+
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltScience
@@ -120,7 +120,6 @@
   components:
   - type: Headset
     channels:
-    - Command
     - Common
     - Supply
   - type: Sprite
