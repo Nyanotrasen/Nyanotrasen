@@ -916,3 +916,28 @@ Entries:
     type: Tweak
   id: 100
   time: '2022-11-21T02:34:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added an atmospherics guide book to the library.
+    type: Add
+  - message: Tool vendor now requires maintenance access.
+    type: Add
+  - message: Assistants and psychiatrists no longer have maintenance access.
+    type: Remove
+  - message: All jobs gain maintenance access when station is in extended access mode.
+      (Under 25 players.)
+    type: Add
+  - message: Removed holoparasite.
+    type: Remove
+  - message: Psionic clothing counts as psionic.
+    type: Fix
+  - message: Fixed vaccinator machine upgrade description.
+    type: Fix
+  - message: "New behavior during no\xF6spheric fry event."
+    type: Add
+  - message: Reduced chance of books and wands from altar sacrifices.
+    type: Tweak
+  - message: Tortuga min players increased to 45.
+    type: Tweak
+  id: 101
+  time: '2022-11-21T22:58:20.0000000+00:00'
