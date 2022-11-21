@@ -121,6 +121,7 @@
       - PsionicsDisabled
       - PsionicallyInsulated
   - type: Inventory
+    templateId: golem
   - type: Clickable
   - type: InteractionOutline
   - type: Icon
@@ -167,7 +168,7 @@
       - type: CreamPiedVisualizer
         state: creampie_human
   - type: CombatMode
-    canDisarm: true
+    disarm: null
   - type: Climbing
   - type: Cuffable
   - type: Ensnareable
@@ -211,3 +212,17 @@
   - type: MobPrice
     price: 6000
     deathPenalty: 0.1
+  - type: Mind
+  - type: Input
+    context: "human"
+  - type: MobMover
+  - type: InputMover
+  - type: Alerts
+  - type: Actions
+  - type: Eye
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
+  - type: Faction
+    factions:
+    - NanoTrasen
