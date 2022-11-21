@@ -61,6 +61,9 @@ namespace Content.Server.Abilities.Psionics
 
         public void AddPsionics(EntityUid uid, string powerComp)
         {
+            if (Deleted(uid))
+                return;
+
             if (HasComp<PsionicComponent>(uid))
                 return;
 
