@@ -908,3 +908,11 @@ Entries:
     type: Add
   id: 99
   time: '2022-11-20T19:52:20.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed the missing pipe in Epistemics' anomaly lab.
+    type: Fix
+  - message: Adjusted some firelocks and air alarms, amongst other things.
+    type: Tweak
+  id: 100
+  time: '2022-11-21T02:34:14.0000000+00:00'
