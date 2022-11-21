@@ -154,3 +154,15 @@
     - state: book_hacking
   - type: HyperlinkBook
     url: https://wiki.nyanotrasen.moe/Hacking
+
+- type: entity
+  parent: HyperlinkBookSpaceLaw
+  id: HyperlinkBookAtmos
+  name: guide to atmospherics
+  description: How to make sure everyone has air to breathe.
+  components:
+  - type: Sprite
+    layers:
+    - state: book_engineering2
+  - type: HyperlinkBook
+    url: https://wiki.nyanotrasen.moe/Atmospheric_Science

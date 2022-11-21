@@ -11,6 +11,7 @@
   - type: VisionCorrection
   - type: ClothingGrantPsionicPower
     power: TelegnosisPower
+  - type: Psionic
 
 - type: entity
   id: BedsheetInvisibilityCloak
@@ -24,6 +25,7 @@
     sprite: Clothing/Neck/Bedsheets/black.rsi
   - type: ClothingGrantPsionicPower
     power: PsionicInvisibilityPower
+  - type: Psionic
 
 - type: entity
   parent: ClothingHandsBase
@@ -43,6 +45,7 @@
   - type: FingerprintMask
   - type: ClothingGrantPsionicPower
     power: DispelPower
+  - type: Psionic
 
 - type: entity
   parent: ClothingHandsBase
@@ -60,3 +63,4 @@
   - type: FingerprintMask
   - type: ClothingGrantPsionicPower
     power: NoosphericZapPower
+  - type: Psionic
