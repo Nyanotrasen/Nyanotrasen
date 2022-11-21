@@ -204,21 +204,21 @@
 
 #Utility
 
-- type: listing
-  id: UplinkHoloparaKit
-  name: Holoparasite Kit
-  description: The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active. The guardian can punch rapidly and is immune to hazardous environments and bullets, but shares any damage it takes with the user.
-  icon: /Textures/Objects/Misc/guardian_info.rsi/icon.png
-  productEntity: BoxHoloparasite
-  cost:
-    Telecrystal: 14
-  categories:
-  - UplinkUtility
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+# - type: listing
+#   id: UplinkHoloparaKit
+#   name: Holoparasite Kit
+#   description: The pride and joy of Cybersun. Contains an injector that hosts a sentient metaphysical guardian made of hard light which resides in the user's body when not active. The guardian can punch rapidly and is immune to hazardous environments and bullets, but shares any damage it takes with the user.
+#   icon: /Textures/Objects/Misc/guardian_info.rsi/icon.png
+#   productEntity: BoxHoloparasite
+#   cost:
+#     Telecrystal: 14
+#   categories:
+#   - UplinkUtility
+#   conditions:
+#   - !type:StoreWhitelistCondition
+#     blacklist:
+#       tags:
+#       - NukeOpsUplink
 
 - type: listing
   id: UplinkHolster
