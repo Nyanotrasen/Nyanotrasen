@@ -54,7 +54,7 @@ namespace Content.Server.Arachne
         private void OnWebInit(EntityUid uid, WebComponent component, ComponentInit args)
         {
             if (TryComp<StrapComponent>(uid, out var strap))
-                strap.Enabled = false;
+                _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
         private void OnBuckleChange(EntityUid uid, WebComponent component, BuckleChangeEvent args)
@@ -63,7 +63,7 @@ namespace Content.Server.Arachne
                 return;
 
             if (!args.Buckling)
-                strap.Enabled = false;
+                _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
         private void AddRestVerb(EntityUid uid, WebComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -84,7 +84,7 @@ namespace Content.Server.Arachne
             {
                 Act = () =>
                 {
-                    strap.Enabled = true;
+                    _buckleSystem.StrapSetEnabled(uid, true, strap);
                     if (_prototypeManager.TryIndex<InstantActionPrototype>("Sleep", out var sleep))
                         _actions.RemoveAction(uid, new InstantAction(sleep), null);
                     _buckleSystem.TryBuckle(args.User, args.User, uid, buckle);
@@ -101,7 +101,7 @@ namespace Content.Server.Arachne
                 return;
 
             if (HasComp<ArachneComponent>(args.Entity))
-                strap.Enabled = false;
+                _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
         private void OnSpinWeb(SpinWebActionEvent args)

@@ -747,6 +747,8 @@
   - type: Tag
     tags:
       - DroneUsable
+  - type: AccessReader
+    access: [["Maintenance"]]
 
 - type: entity
   parent: VendingMachine
