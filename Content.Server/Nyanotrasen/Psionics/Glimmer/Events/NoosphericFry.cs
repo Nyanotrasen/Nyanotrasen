@@ -7,7 +7,11 @@ using Content.Server.MobState;
 using Content.Server.Popups;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Power.Components;
+using Content.Server.Construction;
 using Robust.Shared.Player;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server.Psionics.Glimmer;
 /// <summary>
@@ -23,7 +27,8 @@ public sealed class NoosphericFry : GlimmerEventSystem
     [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
-
+    [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
+    [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
 
     public override string Prototype => "NoosphericFry";
     public override void Started()
@@ -83,9 +88,25 @@ public sealed class NoosphericFry : GlimmerEventSystem
             _damageableSystem.TryChangeDamage(pair.wearer, damage, true, true);
         }
 
+        // for probers:
         foreach (var reactive in EntityQuery<SharedGlimmerReactiveComponent>())
         {
+            if (!TryComp<PhysicsComponent>(reactive.Owner, out var physics))
+                return;
+
+            // shoot out three bolts of lighting...
             _glimmerReactiveSystem.BeamRandomNearProber(reactive.Owner, 3);
+
+            // try to anchor if we can
+            if (!Transform(reactive.Owner).Anchored && _anchorableSystem.TileFree(Transform(reactive.Owner).Coordinates, physics))
+                Transform(reactive.Owner).Anchored = true;
+
+            if (!TryComp<ApcPowerReceiverComponent>(reactive.Owner, out var power))
+                continue;
+
+            // If it's been turned off, turn it back on.
+            if (power.PowerDisabled)
+                _powerReceiverSystem.TogglePower(reactive.Owner, false);
         }
     }
 }
