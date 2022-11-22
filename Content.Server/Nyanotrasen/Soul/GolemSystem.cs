@@ -87,6 +87,8 @@ namespace Content.Server.Soul
             if (!TryComp<ActorComponent>(uid, out var actor))
                 return;
 
+            MetaData(uid).EntityName = Loc.GetString("golem-base-name");
+            MetaData(uid).EntityDescription = Loc.GetString("golem-base-desc");
             actor.PlayerSession.ContentData()?.Mind?.TransferTo(item);
         }
 
@@ -128,6 +130,7 @@ namespace Content.Server.Soul
                 if (_prototypes.TryIndex<DatasetPrototype>("names_golem", out var names))
                     MetaData(uid).EntityName = _robustRandom.Pick(names.Values);
             }
+            MetaData(uid).EntityDescription = Loc.GetString("golem-installed-desc");
 
             if (TryComp<LawsComponent>(uid, out var laws))
             {
