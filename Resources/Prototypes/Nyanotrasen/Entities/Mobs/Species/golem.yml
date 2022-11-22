@@ -16,6 +16,11 @@
       color: "#e8b59b"
       sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
       state: cultgolem_head
+    - map: [ "enum.ToggleVisuals.Layer" ]
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: lights
+      visible: false
+      shader: unshaded
     - map: [ "enum.HumanoidVisualLayers.RArm" ]
       color: "#e8b59b"
       sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
@@ -232,3 +237,9 @@
         name: SoulCrystal
         locked: true
   - type: Golem
+  - type: GenericVisualizer
+    visuals:
+     enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }

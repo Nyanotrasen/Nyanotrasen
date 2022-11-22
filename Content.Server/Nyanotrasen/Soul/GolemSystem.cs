@@ -1,11 +1,13 @@
 using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Toggleable;
 
 namespace Content.Server.Soul
 {
     public sealed class GolemSystem : EntitySystem
     {
         [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         private const string CrystalSlot = "crystal_slot";
         public override void Initialize()
         {
@@ -34,6 +36,9 @@ namespace Content.Server.Soul
             _slotsSystem.SetLock(args.Target.Value, CrystalSlot, false, slots);
             _slotsSystem.TryInsert(args.Target.Value, CrystalSlot, uid, args.User, slots);
             _slotsSystem.SetLock(args.Target.Value, CrystalSlot, true, slots);
+
+            if (TryComp<AppearanceComponent>(args.Target, out var appearance))
+                _appearance.SetData(args.Target.Value, ToggleVisuals.Toggled, true, appearance);
         }
     }
 }
