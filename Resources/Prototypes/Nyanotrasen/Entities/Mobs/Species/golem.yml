@@ -204,6 +204,10 @@
         type: HumanoidMarkingModifierBoundUserInterface
       - key: enum.StrippingUiKey.Key
         type: StrippableBoundUserInterface
+      - key: enum.LawsUiKey.Key
+        type: LawsBoundUserInterface
+      - key: enum.GolemUiKey.Key
+        type: GolemBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Baritone
@@ -243,3 +247,17 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+  - type: Psionic
+    removable: false
+  - type: Laws
+  - type: IntrinsicUI
+    uis:
+      - key: enum.LawsUiKey.Key
+        toggleAction:
+          name: action-name-show-laws
+          description: action-description-show-laws
+          icon: Structures/Wallmounts/posters.rsi/poster11_legit.png #someone wanna make new icons?
+          iconOn: Structures/Wallmounts/posters.rsi/poster11_legit.png
+          keywords: [ "AI", "console", "interface", "laws", "borg" ]
+          priority: -3
+          event: !type:ToggleIntrinsicUIEvent
