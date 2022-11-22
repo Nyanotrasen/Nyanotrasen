@@ -30,7 +30,7 @@ public sealed class PsionicCatGotYourTongue : GlimmerEventSystem
         foreach (var psion in psionicList)
         {
             _statusEffectsSystem.TryAddStatusEffect(psion.Owner, "Muted", TimeSpan.FromSeconds(_robustRandom.NextFloat(20, 80)), false, "Muted");
-            _sharedAudioSystem.PlayGlobal("/Audio/Voice/Felinid/cat_scream1.ogg", Filter.Entities(psion.Owner));
+            _sharedAudioSystem.PlayGlobal("/Audio/Voice/Felinid/cat_scream1.ogg", Filter.Entities(psion.Owner), false);
         }
     }
 }
