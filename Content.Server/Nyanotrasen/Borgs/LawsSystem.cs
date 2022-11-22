@@ -19,7 +19,7 @@ namespace Content.Server.Borgs
             StateLaws(uid, component);
         }
 
-    public void StateLaws(EntityUid uid, LawsComponent? component = null)
+        public void StateLaws(EntityUid uid, LawsComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return;
@@ -36,6 +36,24 @@ namespace Content.Server.Borgs
             {
                 _chat.TrySendInGameICMessage(uid, law, InGameICChatType.Speak, false);
             }
+        }
+
+        public void ClearLaws(EntityUid uid, LawsComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, false))
+                return;
+
+            component.Laws.Clear();
+            Dirty(component);
+        }
+
+        public void AddLaw(EntityUid uid, string law, LawsComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, false))
+                return;
+
+            component.Laws.Add(law);
+            Dirty(component);
         }
     }
 }

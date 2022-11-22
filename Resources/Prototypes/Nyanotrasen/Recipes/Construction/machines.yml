@@ -31,3 +31,20 @@
   canBuildInImpassable: false
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: Golem
+  name: golem
+  description: Your very own personal servant! Requires a soul crystal to activate.
+  graph: Golem
+  startNode: start
+  targetNode: golem
+  category: construction-category-machines
+  icon:
+      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+      state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: False
+  conditions:
+    - !type:TileNotBlocked

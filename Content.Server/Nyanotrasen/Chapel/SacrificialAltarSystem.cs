@@ -14,6 +14,7 @@ using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Players;
 using Content.Server.Popups;
+using Content.Server.Soul;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
@@ -124,6 +125,10 @@ namespace Content.Server.Chapel
             {
                 var trap = Spawn(altarComp.TrapPrototype, Transform(args.Altar).Coordinates);
                 actor.PlayerSession.ContentData()?.Mind?.TransferTo(trap);
+
+                if (TryComp<SoulCrystalComponent>(trap, out var crystalComponent))
+                    crystalComponent.TrueName = MetaData(args.Target).EntityName;
+
                 MetaData(trap).EntityName = Loc.GetString("soul-entity-name", ("trapped", args.Target));
                 MetaData(trap).EntityDescription = Loc.GetString("soul-entity-desc", ("trapped", args.Target));
             }
