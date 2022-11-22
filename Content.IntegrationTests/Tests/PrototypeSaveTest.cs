@@ -62,7 +62,7 @@ public sealed class PrototypeSaveTest
         "BaseGeneratorWallmountFrame",
         "GeneratorWallmountBasic",
         "GeneratorWallmountAPU",
-        "MobGolem",
+        "MobGolemCult",
         "Lightning",
         "LightningRevenant",
         "ChargedLightning",
