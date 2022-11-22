@@ -1,0 +1,69 @@
+- type: entity
+  parent: MarkerBase
+  id: RandomBoards
+  name: random machine board spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - texture: Objects/Misc/module.rsi/airalarm_electronics.png
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - AutolatheMachineCircuitboard
+      - ProtolatheMachineCircuitboard
+      - CircuitImprinterMachineCircuitboard
+      - ArtifactAnalyzerMachineCircuitboard
+      - ThermomachineFreezerMachineCircuitBoard
+      - ThermomachineHeaterMachineCircuitBoard
+      - PortableScrubberMachineCircuitBoard
+      - ChemMasterMachineCircuitboard
+      - HydroponicsTrayMachineCircuitboard
+      - SeedExtractorMachineCircuitboard
+      - SMESMachineCircuitboard
+      - SubstationMachineCircuitboard
+      - GeneratorPlasmaMachineCircuitboard
+      - GeneratorUraniumMachineCircuitboard
+      - ReagentGrinderMachineCircuitboard
+      - OreProcessorMachineCircuitboard
+      - MicrowaveMachineCircuitboard
+      - SurveillanceWirelessCameraMovableCircuitboard
+      - PowerComputerCircuitboard
+      - ComputerTelevisionCircuitboard
+      - PowerMonitoringComputerCircuitboard
+      - SolarControlComputerCircuitboard
+      - AirAlarmElectronics
+      - FireAlarmElectronics
+      - MailingUnitElectronics
+      - DoorElectronics
+      - FirelockElectronics
+      - APCElectronics
+      - WallmountSubstationElectronics
+      - WallmountGeneratorElectronics
+      - WallmountGeneratorAPUElectronics
+      - SolarTrackerElectronics
+      - Mousetrap
+      - RadioHandheld
+    chance: 0.8
+    rarePrototypes:
+      - TraversalDistorterMachineCircuitboard
+      - CloningPodMachineCircuitboard
+      - MedicalScannerMachineCircuitboard
+      - ChemDispenserMachineCircuitboard
+      - DawInstrumentMachineCircuitboard
+      - StasisBedMachineCircuitboard
+      - EmitterCircuitboard
+      - SurveillanceCameraWirelessRouterCircuitboard
+      - GasRecyclerMachineCircuitboard
+      - SurveillanceWirelessCameraMonitorCircuitboard
+      - BodyScannerComputerCircuitboard
+      - ShuttleConsoleCircuitboard
+      - CloningConsoleComputerCircuitboard
+      - RemoteSignaller
+      - TimerTrigger
+      - SignalTrigger
+      - VoiceTrigger
+      - ExplosivePayload
+      - ChemicalPayload
+      - FlashPayload
+    rareChance: 0.05
