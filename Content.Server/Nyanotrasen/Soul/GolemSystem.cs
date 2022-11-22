@@ -3,7 +3,9 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
 using Content.Server.Abilities.Psionics;
+using Content.Server.Players;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Soul
 {
@@ -32,6 +34,9 @@ namespace Content.Server.Soul
             if (!TryComp<ItemSlotsComponent>(args.Target, out var slots))
                 return;
 
+            if (!TryComp<ActorComponent>(uid, out var actor))
+                return;
+
             if (!_slotsSystem.TryGetSlot(args.Target.Value, CrystalSlot, out var crystalSlot, slots)) // does it not have a crystal slot?
                 return;
 
@@ -42,6 +47,8 @@ namespace Content.Server.Soul
             _slotsSystem.SetLock(args.Target.Value, CrystalSlot, false, slots);
             _slotsSystem.TryInsert(args.Target.Value, CrystalSlot, uid, args.User, slots);
             _slotsSystem.SetLock(args.Target.Value, CrystalSlot, true, slots);
+
+            actor.PlayerSession.ContentData()?.Mind?.TransferTo(args.Target.Value);
 
             if (TryComp<AppearanceComponent>(args.Target, out var appearance))
                 _appearance.SetData(args.Target.Value, ToggleVisuals.Toggled, true, appearance);
@@ -63,6 +70,11 @@ namespace Content.Server.Soul
 
             if (TryComp<AppearanceComponent>(uid, out var appearance))
                 _appearance.SetData(uid, ToggleVisuals.Toggled, false, appearance);
+
+            if (!TryComp<ActorComponent>(uid, out var actor))
+                return;
+
+            actor.PlayerSession.ContentData()?.Mind?.TransferTo(item);
         }
     }
 }
