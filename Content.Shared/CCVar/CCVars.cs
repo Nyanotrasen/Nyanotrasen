@@ -832,12 +832,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> HolidaysEnabled = CVarDef.Create("holidays.enabled", true, CVar.SERVERONLY);
 
         /*
-         * Branding stuff
-         */
-
-        public static readonly CVarDef<bool> BrandingSteam = CVarDef.Create("branding.steam", false, CVar.CLIENTONLY);
-
-        /*
          * OOC
          */
 

@@ -34,5 +34,5 @@ public sealed partial class StationConfig
     /// Set to -1 to disable extended access.
     /// </remarks>
     [DataField("extendedAccessThreshold")]
-    public int ExtendedAccessThreshold { get; set; } = 15;
+    public int ExtendedAccessThreshold { get; set; } = 25;
 }
