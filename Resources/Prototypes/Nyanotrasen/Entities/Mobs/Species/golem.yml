@@ -144,11 +144,11 @@
     prototype: Golem
   - type: Damageable
     damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
   - type: MobState
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      100: Dead
   - type: Destructible
     thresholds:
       - trigger:
