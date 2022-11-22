@@ -226,3 +226,9 @@
   - type: Faction
     factions:
     - NanoTrasen
+  - type: ItemSlots
+    slots:
+      crystal_slot:
+        name: SoulCrystal
+        locked: true
+  - type: Golem
