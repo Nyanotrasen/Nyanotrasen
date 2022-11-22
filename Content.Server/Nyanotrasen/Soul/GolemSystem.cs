@@ -1,6 +1,9 @@
 using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
+using Content.Server.Abilities.Psionics;
+using Robust.Shared.Random;
 
 namespace Content.Server.Soul
 {
@@ -8,11 +11,14 @@ namespace Content.Server.Soul
     {
         [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly ThrowingSystem _throwing = default!;
+        [Dependency] private readonly IRobustRandom _robustRandom = default!;
         private const string CrystalSlot = "crystal_slot";
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<SoulCrystalComponent, AfterInteractEvent>(OnAfterInteract);
+            SubscribeLocalEvent<GolemComponent, DispelledEvent>(OnDispelled);
         }
 
         private void OnAfterInteract(EntityUid uid, SoulCrystalComponent component, AfterInteractEvent args)
@@ -39,6 +45,24 @@ namespace Content.Server.Soul
 
             if (TryComp<AppearanceComponent>(args.Target, out var appearance))
                 _appearance.SetData(args.Target.Value, ToggleVisuals.Toggled, true, appearance);
+        }
+
+        private void OnDispelled(EntityUid uid, GolemComponent component, DispelledEvent args)
+        {
+            _slotsSystem.SetLock(uid, CrystalSlot, false);
+            _slotsSystem.TryEject(uid, CrystalSlot, null, out var item);
+            _slotsSystem.SetLock(uid, CrystalSlot, true);
+
+            if (item == null)
+                return;
+
+            args.Handled = true;
+
+            Vector2 direction = (_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
+            _throwing.TryThrow(item.Value, direction, _robustRandom.Next(1, 10));
+
+            if (TryComp<AppearanceComponent>(uid, out var appearance))
+                _appearance.SetData(uid, ToggleVisuals.Toggled, false, appearance);
         }
     }
 }
