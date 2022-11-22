@@ -262,3 +262,6 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
+  - type: Construction
+    graph: Golem
+    node: golem
