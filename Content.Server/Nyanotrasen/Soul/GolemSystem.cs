@@ -5,6 +5,7 @@ using Content.Shared.Toggleable;
 using Content.Shared.Soul;
 using Content.Shared.Borgs;
 using Content.Shared.Dataset;
+using Content.Shared.MobState;
 using Content.Shared.Administration.Logs;
 using Content.Server.Borgs;
 using Content.Server.Abilities.Psionics;
@@ -25,6 +26,7 @@ namespace Content.Server.Soul
         [Dependency] private readonly IPrototypeManager _prototypes = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly LawsSystem _laws = default!;
+        [Dependency] private readonly AudioSystem _audioSystem = default!;
 
         private const string CrystalSlot = "crystal_slot";
 
@@ -33,6 +35,7 @@ namespace Content.Server.Soul
             base.Initialize();
             SubscribeLocalEvent<SoulCrystalComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<GolemComponent, DispelledEvent>(OnDispelled);
+            SubscribeLocalEvent<GolemComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<GolemComponent, GolemInstallRequestMessage>(OnInstallRequest);
             SubscribeLocalEvent<GolemComponent, GolemNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<GolemComponent, GolemMasterNameChangedMessage>(OnMasterNameChanged);
@@ -90,6 +93,21 @@ namespace Content.Server.Soul
             MetaData(uid).EntityName = Loc.GetString("golem-base-name");
             MetaData(uid).EntityDescription = Loc.GetString("golem-base-desc");
             actor.PlayerSession.ContentData()?.Mind?.TransferTo(item);
+            Dirty(uid);
+            Dirty(MetaData(uid));
+        }
+
+        private void OnMobStateChanged(EntityUid uid, GolemComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState != DamageState.Dead)
+                return;
+
+            QueueDel(uid);
+            var ev = new DispelledEvent();
+            RaiseLocalEvent(uid, ev, false);
+
+            Spawn("Ash", Transform(uid).Coordinates);
+            _audioSystem.PlayPvs(component.DeathSound, uid);
         }
 
         private void OnInstallRequest(EntityUid uid, GolemComponent component, GolemInstallRequestMessage args)
@@ -158,6 +176,7 @@ namespace Content.Server.Soul
             component.Master = null;
             component.GolemName = null;
             Dirty(uid);
+            Dirty(MetaData(uid));
         }
 
         private void OnNameChanged(EntityUid uid, GolemComponent golemComponent, GolemNameChangedMessage args)

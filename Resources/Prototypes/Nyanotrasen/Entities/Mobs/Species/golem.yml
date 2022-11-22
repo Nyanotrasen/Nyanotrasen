@@ -148,19 +148,11 @@
     prototype: Golem
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+    damageModifierSet: Metallic
   - type: MobState
     thresholds:
       0: Alive
       100: Dead
-  - type: Destructible
-    thresholds:
-      - trigger:
-          !type:DamageTypeTrigger
-          damageType: Blunt
-          damage: 100
-        behaviors:
-          - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
