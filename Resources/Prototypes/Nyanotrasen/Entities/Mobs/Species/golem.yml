@@ -1,7 +1,8 @@
 - type: entity
   name: golem
   id: MobGolemCult
-  description: An artificial construct imitating life, although it contains a mortal soul.
+  suffix: shell
+  description: An artificial construct imitating life. This one has no soul installed yet.
   components:
   - type: Sprite
     netsync: false
@@ -78,6 +79,8 @@
     tags:
     - CanPilot
     - DoorBumpOpener
+    - ShoesRequiredStepTriggerImmune
+    - GunsDisabled
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -115,15 +118,8 @@
       - Stun
       - KnockedDown
       - SlowedDown
-      - Stutter
-      - SeeingRainbows
-      - Electrocution
-      - Drunk
-      - SlurredSpeech
       - Muted
       - Pacified
-      - PsionicsDisabled
-      - PsionicallyInsulated
   - type: Inventory
     templateId: golem
   - type: Clickable
@@ -164,7 +160,7 @@
       - type: CreamPiedVisualizer
         state: creampie_human
   - type: CombatMode
-    disarm: null
+    canDisarm: true
   - type: Climbing
   - type: Cuffable
   - type: Ensnareable
@@ -183,7 +179,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 15
+        Blunt: 12
   - type: Pullable
   - type: DoAfter
   - type: CreamPied

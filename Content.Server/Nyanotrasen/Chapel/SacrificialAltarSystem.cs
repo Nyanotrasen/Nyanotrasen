@@ -48,7 +48,8 @@ namespace Content.Server.Chapel
             if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
                 return;
 
-            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(args.User))
+            // you need psionic OR bible user
+            if (!HasComp<PsionicComponent>(args.User) && !HasComp<BibleUserComponent>(args.User))
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -105,7 +106,10 @@ namespace Content.Server.Chapel
             QueueDel(args.Target);
             _audioSystem.PlayPvs(altarComp.FinishSound, args.Altar);
 
-            Spawn(pool.Pick(), Transform(args.Altar).Coordinates);
+            var chance = HasComp<BibleUserComponent>(args.User) ? altarComp.RewardPoolChanceBibleUser : altarComp.RewardPoolChance;
+
+            if (_robustRandom.Prob(chance))
+                Spawn(pool.Pick(), Transform(args.Altar).Coordinates);
 
             int i = _robustRandom.Next(altarComp.BluespaceRewardMin, altarComp.BlueSpaceRewardMax);
 
