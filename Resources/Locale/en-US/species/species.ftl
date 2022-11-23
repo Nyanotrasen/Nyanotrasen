@@ -1,6 +1,6 @@
 ﻿## Species Names
 
-species-name-human = Human
+species-name-human = Unmutated Human
 species-name-dwarf = Dwarf
 species-name-felinid = Felinid
 species-name-reptilian = Reptilian
