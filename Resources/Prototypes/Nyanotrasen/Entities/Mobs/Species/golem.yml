@@ -257,3 +257,6 @@
   - type: Construction
     graph: Golem
     node: golem
+  - type: Repairable
+    fuelcost: 60
+    doAfterDelay: 32
