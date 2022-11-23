@@ -15,8 +15,8 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
-    state: wings_default
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: default
 
 - type: marking
   id: MothWingsLook1
@@ -24,7 +24,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
     state: wings_look1
 
 - type: marking
@@ -33,7 +33,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
     state: wings_look2
 
 - type: marking
@@ -42,7 +42,7 @@
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
     state: wings_look3
 
 # Other markings
