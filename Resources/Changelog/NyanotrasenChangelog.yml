@@ -981,3 +981,16 @@ Entries:
     type: Fix
   id: 107
   time: '2022-11-23T04:03:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: A bunch of golem fixes.
+    type: Fix
+  - message: Reverted extended access change.
+    type: Fix
+  - message: Psionics can use the altar now too, although bible user gives you a better
+      chance of rewards.
+    type: Add
+  - message: Changed language regarding all the different human morphotypes.
+    type: Tweak
+  id: 108
+  time: '2022-11-23T20:28:10.0000000+00:00'
