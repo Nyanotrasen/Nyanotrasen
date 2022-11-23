@@ -45,7 +45,7 @@ job-name-zookeeper = zookeeper
 #Nyano
 job-name-mystagogue = mystagogue
 job-name-mantis = forensic mantis
-job-name-epistemologist = epistemologist
+job-name-epistemologist = acolyte
 job-name-boxer = boxer
 job-name-mail-carrier = mail-carrier
 job-name-cataloguer = cataloguer
