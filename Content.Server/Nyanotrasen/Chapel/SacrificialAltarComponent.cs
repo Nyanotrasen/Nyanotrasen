@@ -19,11 +19,14 @@ namespace Content.Server.Chapel
 
         public IPlayingAudioStream? SacrificeStingStream;
 
-        [DataField("requiresBibleUser")]
-        public bool RequiresBibleUser = true;
-
         [DataField("rewardPool")]
         public string RewardPool = "PsionicArtifactPool";
+
+        [DataField("rewardPoolChance")]
+        public float RewardPoolChance = 0.1f;
+
+        [DataField("rewardPoolChanceBibleUser")]
+        public float RewardPoolChanceBibleUser = 0.5f;
 
         [DataField("bluespaceRewardMin")]
         public int BluespaceRewardMin = 1;
