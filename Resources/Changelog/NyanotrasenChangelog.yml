@@ -1010,3 +1010,40 @@ Entries:
     type: Tweak
   id: 110
   time: '2022-11-24T00:49:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Replaced the awful moth damage modifier set with something better.
+    type: Tweak
+  - message: Removed supply radio and merged it with service.
+    type: Remove
+  - message: Sophic grammateus has a cooldown on stating the glimmer level.
+    type: Fix
+  - message: Added lotophagoi oil, a drug much better at rolling for psionics than
+      space drugs but harder to acquire. The chance approaches 100% somewhere between
+      200 and 300 glimmer.
+    type: Add
+  - message: Only humanoids can sacrifice on the altar.
+    type: Fix
+  - message: The mail teleporter can be turned on and off, and starts off.
+    type: Tweak
+  - message: Added a mouth slot to monkey inventory template.
+    type: Tweak
+  - message: Destroying artifacts now increases glimmer, but much more effecient research
+      point / glimmer ratio than probers.
+    type: Tweak
+  - message: New objective to get golemized.
+    type: Add
+  - message: Probers' destructive capabilities increased a bit more.
+    type: Tweak
+  - message: Added description to QSIs explaining what they do.
+    type: Add
+  - message: Meteors are rarer.
+    type: Tweak
+  - message: Mantis is back to getting guaranteed metapsionic power (until psychometry)
+      and is temporarily not a valid traitor anymore.
+    type: Tweak
+  - message: Finally actually renamed cleric to golemancer. It might stay that way
+      until we get variant roles.
+    type: Tweak
+  id: 111
+  time: '2022-11-24T20:49:42.0000000+00:00'
