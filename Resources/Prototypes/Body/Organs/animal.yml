@@ -45,7 +45,7 @@
       stomach:
         maxVol: 100
   - type: Stomach
-    maxVolume: 10
+    maxVolume: 25
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Animal ]
