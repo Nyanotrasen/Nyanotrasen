@@ -1000,3 +1000,13 @@ Entries:
     type: Fix
   id: 109
   time: '2022-11-23T21:28:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Renamed cleric to golemancer. Permanent? Who knows.
+    type: Tweak
+  - message: Removed corgi meat objective. Too many weird behaviors and edge cases.
+    type: Remove
+  - message: Changed several descriptions of things in text to make them more clear.
+    type: Tweak
+  id: 110
+  time: '2022-11-24T00:49:18.0000000+00:00'
