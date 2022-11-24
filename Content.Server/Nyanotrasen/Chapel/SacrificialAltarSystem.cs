@@ -52,6 +52,10 @@ namespace Content.Server.Chapel
             if (!HasComp<PsionicComponent>(args.User) && !HasComp<BibleUserComponent>(args.User))
                 return;
 
+            // and no golems or familiars or whatever should be sacrificing
+            if (!HasComp<HumanoidComponent>(args.User))
+                return;
+
             if (!TryComp<StrapComponent>(uid, out var strap))
                 return;
 
