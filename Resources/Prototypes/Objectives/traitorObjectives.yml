@@ -164,21 +164,6 @@
       owner: job-name-qm
 
 - type: objective
-  id: CorgiMeatStealObjective
-  issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
-  conditions:
-    - !type:StealCondition
-      prototype: FoodMeatCorgi
-      owner: objective-condition-steal-Ian
-
-- type: objective
   id: CaptainGunStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
