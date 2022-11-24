@@ -7,6 +7,7 @@ using Content.Server.Radio.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.Abilities.Psionics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Research.SophicScribe
 {
@@ -16,6 +17,7 @@ namespace Content.Server.Research.SophicScribe
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Update(float frameTime)
         {
@@ -47,6 +49,12 @@ namespace Content.Server.Research.SophicScribe
         }
         private void OnInteractHand(EntityUid uid, SophicScribeComponent component, InteractHandEvent args)
         {
+            //TODO: the update function should be removed eventually too.
+            if (component.StateTime != null && _timing.CurTime < component.StateTime)
+                return;
+
+            component.StateTime = _timing.CurTime + component.StateCD;
+
             _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _sharedGlimmerSystem.Glimmer)), InGameICChatType.Speak, true);
         }
 

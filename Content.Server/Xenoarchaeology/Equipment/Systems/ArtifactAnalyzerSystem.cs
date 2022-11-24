@@ -14,6 +14,7 @@ using Content.Shared.MachineLinking.Events;
 using Content.Shared.Popups;
 using Content.Shared.Research.Components;
 using Content.Shared.Xenoarchaeology.Equipment;
+using Content.Shared.Psionics.Glimmer;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -37,6 +38,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -328,7 +330,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             ResetAnalyzer(component.AnalyzerEntity.Value);
         }
 
-        client.Server.Points += _artifact.GetResearchPointValue(entToDestroy.Value);
+        var points = _artifact.GetResearchPointValue(entToDestroy.Value);
+
+        client.Server.Points += points;
+        _glimmerSystem.Glimmer += (int) points / 1000;
         EntityManager.DeleteEntity(entToDestroy.Value);
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
