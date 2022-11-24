@@ -56,6 +56,7 @@
     - ClothingHandsGlovesNitrile
     - ClothingMaskSterile
     - DiseaseSwab
+    - Implanter
 
 - type: technology
   name: technologies-advanced-botany
@@ -303,6 +304,7 @@
     - FireAlarmElectronics
     - MailingUnitElectronics
     - HolofanProjector
+    - RPED
 
 - type: technology
   name: technologies-material-sheet-printing
@@ -352,6 +354,7 @@
   unlockedRecipes:
     - ShuttleConsoleCircuitboard
     - Drone
+    - RadarConsoleCircuitboard
 
 # Electromagnetic Theory Technology Tree
 
@@ -378,7 +381,10 @@
     - SubstationMachineCircuitboard
     - HydroponicsTrayMachineCircuitboard
     - SolarControlComputerCircuitboard
+    - PowerComputerCircuitboard
     - GeneratorPlasmaMachineCircuitboard
+    - AnalysisComputerCircuitboard
+    - ArtifactAnalyzerMachineCircuitboard
     - Signaller
     - SignalTrigger
     - VoiceTrigger
@@ -487,36 +493,6 @@
     - RightArmBorg
 
 - type: technology
-  name: "robotics technology"
-  id: RoboticsTechnology
-  description: Robot parts.
-  icon:
-    sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
-  requiredPoints: 10000
-  requiredTechnologies:
-    - CompactPowerTechnology
-  unlockedRecipes:
-    - ProximitySensor
-    - LeftArmBorg
-    - RightArmBorg
-
-- type: technology
-  name: technologies-robotics-technology
-  id: RoboticsTechnology
-  description: technologies-robotics-technology-description
-  icon:
-    sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
-  requiredPoints: 10000
-  requiredTechnologies:
-    - CompactPowerTechnology
-  unlockedRecipes:
-    - ProximitySensor
-    - LeftArmBorg
-    - RightArmBorg
-
-- type: technology
   name: technologies-adv-parts-technology
   id: AdvancedPartsTechnology
   description: technologies-adv-parts-technology-description
@@ -526,7 +502,6 @@
   requiredPoints: 8000
   requiredTechnologies:
     - BasicPartsTechnology
-    - IndustrialEngineering
     - PowerCellBasic
   unlockedRecipes:
     - AdvancedCapacitorStockPart
@@ -534,6 +509,7 @@
     - HighPowerMicroLaserStockPart
     - NanoManipulatorStockPart
     - AdvancedScanningModuleStockPart
+    - TraversalDistorterMachineCircuitboard #sigh
 
 # Bluespace Theory Technology Tree
 

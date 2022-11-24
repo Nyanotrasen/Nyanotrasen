@@ -16,6 +16,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -30,6 +31,8 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
+
 
         public override void Initialize()
         {
@@ -83,6 +86,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.PsionicRegenerationPowerAction = new InstantAction(metapsionic);
+            if (metapsionic.UseDelay != null)
+                component.PsionicRegenerationPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) metapsionic.UseDelay);
             _actions.AddAction(uid, component.PsionicRegenerationPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

@@ -1,5 +1,4 @@
 using Content.Server.Body.Systems;
-using Content.Shared.Drone;
 using Content.Server.Drone.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
@@ -8,6 +7,7 @@ using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Server.UserInterface;
 using Content.Shared.Body.Components;
+using Content.Shared.Drone;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
@@ -36,8 +36,8 @@ namespace Content.Server.Drone
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
-            SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
+            // SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+            // SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<DroneComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<DroneComponent, MindAddedMessage>(OnMindAdded);
@@ -46,25 +46,25 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
         }
 
-        private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
-        {
-            if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
-                args.Cancel();
+        // private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
+        // {
+        //     if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
+        //         args.Cancel();
 
-            // if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
-            // {
-            //     if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
-            //         args.Cancel();
-            // }
-        }
+        //     if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
+        //     {
+        //         if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
+        //             args.Cancel();
+        //     }
+        // }
 
-        private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
-        {
-            // if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
-            // {
-            //     args.Cancel();
-            // }
-        }
+        // private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
+        // {
+        //     if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
+        //     {
+        //         args.Cancel();
+        //     }
+        // }
 
         private void OnExamined(EntityUid uid, DroneComponent component, ExaminedEvent args)
         {
@@ -87,7 +87,7 @@ namespace Content.Server.Drone
 
                 if (TryComp<BodyComponent>(uid, out var body))
                     _bodySystem.GibBody(uid, body: body);
-                Del(uid);
+                QueueDel(uid);
             }
         }
 

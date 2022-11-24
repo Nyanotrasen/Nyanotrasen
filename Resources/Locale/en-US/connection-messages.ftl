@@ -21,5 +21,5 @@ ban-expires = This ban is for {$duration} minutes and will expire at {$time} UTC
 ban-banned-1 = You, or another user of this computer or connection, are banned from playing here.
 ban-banned-2 = The ban reason is: "{$reason}"
 
-soft-player-cap-full = The server is full! If this is the soft limit you can request whitelisting in the Discord - discord.gg/49KeKwXc8g
+soft-player-cap-full = The server is full!
 panic-bunker-account-denied = We are not accepting new accounts without whitelisting. Connect to the Nyanotrasen Discord at discord.gg/49KeKwXc8g

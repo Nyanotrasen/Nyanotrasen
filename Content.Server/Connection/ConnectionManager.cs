@@ -8,7 +8,7 @@ using Content.Shared.GameTicking;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
-
+using Content.Server.Administration.Managers;
 
 namespace Content.Server.Connection
 {
@@ -27,6 +27,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerNetManager _netMgr = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IAdminManager _admin = default!;
 
         public void Initialize()
         {
@@ -104,13 +105,33 @@ namespace Content.Server.Connection
             if (_cfg.GetCVar(CCVars.PanicBunkerEnabled))
             {
                 var record = await _dbManager.GetPlayerRecordByUserId(userId);
-                // If they have no record OR the record is both under the minimum age and not whitelisted, reject
+
                 if ((record is null ||
-                    (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) < 0)
-                    && !await _db.GetWhitelistStatusAsync(userId)))
+                    (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) > 0)))
                 {
                     return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-account-denied"), null);
                 }
+            }
+
+
+            if (_cfg.GetCVar(CCVars.AdminPanic))
+            {
+                int i = 0;
+                foreach (var admin in _admin.ActiveAdmins)
+                {
+                    i++;
+                }
+                if (i == 0)
+                {
+                    var record = await _dbManager.GetPlayerRecordByUserId(userId);
+
+                    if ((record is null ||
+                        (record.FirstSeenTime.CompareTo(DateTimeOffset.Now - TimeSpan.FromMinutes(_cfg.GetCVar(CCVars.PanicBunkerMinAccountAge))) > 0)))
+                    {
+                        return (ConnectionDenyReason.Panic, Loc.GetString("panic-bunker-no-admins"), null);
+                    }
+                }
+
             }
 
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&

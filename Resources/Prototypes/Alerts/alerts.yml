@@ -273,12 +273,6 @@
   description: alerts-vow-broken-desc
 
 - type: alert
-  id: Muted
-  icons: [ /Textures/Interface/Actions/scream.png ]
-  name: silenced
-  description: You cannot speak for one reason or another..
-
-- type: alert
   id: Pulled
   icons: [ /Textures/Interface/Alerts/Pull/pulled.png ]
   onClick: !type:StopBeingPulled  { }

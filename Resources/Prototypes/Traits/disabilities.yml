@@ -1,14 +1,17 @@
 ﻿- type: trait
   id: Blindness
-  name: Blindness
-  description: You are unable to see much farther than half a tile in front of you, glasses might help this (in the future).
+  name: trait-blindness-name
+  description: trait-blindness-desc
+  whitelist:
+    components:
+      - Blindable
   components:
     - type: PermanentBlindness
 
 - type: trait
   id: Narcolepsy
-  name: Narcolepsy
-  description: You randomly lose all energy and fall asleep for 10-30 seconds, you have no control over this.
+  name: trait-narcolepsy-name
+  description: trait-narcolepsy-decs
   components:
     - type: Narcolepsy
       timeBetweenIncidents: 300, 600
@@ -16,8 +19,7 @@
 
 - type: trait
   id: Pacifist
-  name: Pacifist
-  description: You hate violence, violence is awful, you would never hurt a living thing!
+  name: trait-pacifist-name
   components:
     - type: Pacifist
 

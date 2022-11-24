@@ -1,6 +1,7 @@
 - type: job
   id: Cataloguer
-  name: "cataloguer"
+  name: job-name-cataloguer
+  description: job-desc-cataloguer
   setPreference: false
   startingGear: CataloguerGear
   playTimeTracker: JobCataloguer
@@ -8,6 +9,8 @@
   supervisors: "the mystagogue"
   access:
   - Research
+  extendedAccess:
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

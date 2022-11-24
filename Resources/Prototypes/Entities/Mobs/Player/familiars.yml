@@ -30,6 +30,8 @@
     unitsToSucc: 5
   - type: Body
     prototype: VampiricAnimal
+  - type: Psionic
+    removable: false
 
 - type: entity
   name: Cerberus
@@ -80,3 +82,5 @@
     showExamineInfo: true
   - type: Familiar
   - type: Dispellable
+  - type: Psionic
+    removable: false

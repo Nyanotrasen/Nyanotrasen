@@ -119,7 +119,7 @@
   id: NoosphericZap
   name: action-name-noospheric-zap
   description: action-description-noospheric-zap
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
   useDelay: 120
   range: 8
   serverEvent: !type:NoosphericZapPowerActionEvent
@@ -128,7 +128,7 @@
   id: Pyrokinesis
   name: action-name-pyrokinesis
   description: action-description-pyrokinesis
-  icon: Interface/VerbIcons/sentient.svg.192dpi.png
+  icon: Nyanotrasen/Interface/VerbIcons/pyrokinesis.png
   useDelay: 50
   range: 8
   serverEvent: !type:PyrokinesisPowerActionEvent

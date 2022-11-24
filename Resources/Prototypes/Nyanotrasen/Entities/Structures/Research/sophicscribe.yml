@@ -7,7 +7,15 @@
   - type: SophicScribe
   - type: Speech
     speechSounds: Tenor
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Science
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Science
+  - type: ActiveRadio
     channels:
     - Common
     - Science

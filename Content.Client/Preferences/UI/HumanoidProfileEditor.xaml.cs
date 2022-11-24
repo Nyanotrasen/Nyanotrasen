@@ -1099,6 +1099,7 @@ namespace Content.Client.Preferences.UI
 
             private StripeBack _lockStripe;
             private Label _requirementsLabel;
+            private Label _jobTitle;
 
             public JobPrioritySelector(JobPrototype job)
             {
@@ -1156,13 +1157,26 @@ namespace Content.Client.Preferences.UI
                     }
                 };
 
+                _jobTitle = new Label()
+                {
+                    Text = job.LocalizedName,
+                    MinSize = (175, 0),
+                    MouseFilter = MouseFilterMode.Stop
+                };
+
+                if (job.LocalizedDescription != null)
+                {
+                    _jobTitle.ToolTip = job.LocalizedDescription;
+                    _jobTitle.TooltipDelay = 0.2f;
+                }
+
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
                     Children =
                     {
                         icon,
-                        new Label {Text = job.LocalizedName, MinSize = (175, 0)},
+                        _jobTitle,
                         _optionButton,
                         _lockStripe,
                     }
@@ -1227,6 +1241,12 @@ namespace Content.Client.Preferences.UI
                 _checkBox = new CheckBox {Text = $"{antag.Name}"};
                 _checkBox.OnToggled += OnCheckBoxToggled;
 
+                if (antag.Description != null)
+                {
+                    _checkBox.ToolTip = antag.Description;
+                    _checkBox.TooltipDelay = 0.2f;
+                }
+
                 AddChild(new BoxContainer
                 {
                     Orientation = LayoutOrientation.Horizontal,
@@ -1260,8 +1280,14 @@ namespace Content.Client.Preferences.UI
             {
                 Trait = trait;
 
-                _checkBox = new CheckBox {Text = $"{trait.Name}\n  -  {trait.Description}"};
+                _checkBox = new CheckBox {Text = $"{trait.Name}"};
                 _checkBox.OnToggled += OnCheckBoxToggled;
+
+                if (trait.Description != null)
+                {
+                    _checkBox.ToolTip = trait.Description;
+                    _checkBox.TooltipDelay = 0.2f;
+                }
 
                 AddChild(new BoxContainer
                 {

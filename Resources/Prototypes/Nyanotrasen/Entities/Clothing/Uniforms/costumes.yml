@@ -23,6 +23,16 @@
 
 - type: entity
   parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlBlack
+  name: black schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/black.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/black.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
   id: UniformSchoolgirlBlue
   name: blue schoolgirl uniform
   components:
@@ -30,6 +40,16 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlCyan
+  name: cyan schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/cyan.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/cyan.rsi
 
 - type: entity
   parent: UniformSchoolgirlRed
@@ -50,6 +70,26 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/orange.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlPink
+  name: pink schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/pink.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/pink.rsi
+
+- type: entity
+  parent: UniformSchoolgirlRed
+  id: UniformSchoolgirlPurple
+  name: purple schoolgirl uniform
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/purple.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/purple.rsi
 
 - type: entity
   parent: ClothingUniformBase

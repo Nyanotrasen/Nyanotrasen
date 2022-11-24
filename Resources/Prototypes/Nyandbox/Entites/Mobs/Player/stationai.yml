@@ -120,7 +120,18 @@
     radius: 3
     energy: 1
     color: "#9dc5c9"
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+  - type: IntrinsicRadioTransmitter
     channels:
     - Common
     - Command
@@ -242,7 +253,7 @@
   - type: Eye
   - type: Mind
     showExamineInfo: true
-  - type: IntrinsicRadio
+  - type: IntrinsicRadioReceiver
     channels:
     - Common
     - Command
@@ -253,6 +264,19 @@
     - Security
     - Service
     - Supply
+    - Binary
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Binary
   - type: Faction
     factions:
     - NanoTrasen

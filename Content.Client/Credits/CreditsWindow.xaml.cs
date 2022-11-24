@@ -28,9 +28,9 @@ namespace Content.Client.Credits
 
         private static readonly Dictionary<string, int> PatronTierPriority = new()
         {
-            ["Nuclear Operative"] = 1,
-            ["Syndicate Agent"] = 2,
-            ["Revolutionary"] = 3
+            ["Mystagogue"] = 1,
+            ["Forensic Mantis"] = 2,
+            ["Psionic"] = 3
         };
 
         public CreditsWindow()
@@ -66,20 +66,15 @@ namespace Content.Client.Credits
         {
             var patrons = LoadPatrons();
 
-            // Do not show "become a patron" button on Steam builds
-            // since Patreon violates Valve's rules about alternative storefronts.
-            if (!_cfg.GetCVar(CCVars.BrandingSteam))
+            Button patronButton;
+            patronsContainer.AddChild(patronButton = new Button
             {
-                Button patronButton;
-                patronsContainer.AddChild(patronButton = new Button
-                {
-                    Text = Loc.GetString("credits-window-become-patron-button"),
-                    HorizontalAlignment = HAlignment.Center
-                });
+                Text = Loc.GetString("credits-window-become-patron-button"),
+                HorizontalAlignment = HAlignment.Center
+            });
 
-                patronButton.OnPressed +=
-                    _ => IoCManager.Resolve<IUriOpener>().OpenUri(UILinks.Patreon);
-            }
+            patronButton.OnPressed +=
+                _ => IoCManager.Resolve<IUriOpener>().OpenUri(UILinks.Patreon);
 
             var first = true;
             foreach (var tier in patrons.GroupBy(p => p.Tier).OrderBy(p => PatronTierPriority[p.Key]))

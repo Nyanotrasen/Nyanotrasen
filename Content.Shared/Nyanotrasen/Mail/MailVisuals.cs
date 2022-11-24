@@ -9,6 +9,11 @@ namespace Content.Shared.Mail
     public enum MailVisuals : byte
     {
         IsLocked,
-        IsTrash
+        IsTrash,
+        IsBroken,
+        IsFragile,
+        IsPriority,
+        IsPriorityInactive,
+        JobIcon,
     }
 }

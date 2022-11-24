@@ -18,6 +18,8 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ScienceTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -87,6 +89,8 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ServiceTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -154,16 +158,23 @@
       map: ["enum.LatheVisualLayers.IsInserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
     dynamicRecipes:
       - Flash
       - MicroManipulatorStockPart
+      - NanoManipulatorStockPart
       - ScanningModuleStockPart
+      - AdvancedScanningModuleStockPart
       - MicroLaserStockPart
+      - HighPowerMicroLaserStockPart
       - MatterBinStockPart
+      - AdvancedMatterBinStockPart
       - CapacitorStockPart
+      - AdvancedCapacitorStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -171,6 +182,7 @@
       - FireAlarmElectronics
       - HolofanProjector
       - Drone
+      - RPED
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

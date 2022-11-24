@@ -18,3 +18,12 @@
     sprite: Nyanotrasen/Structures/Wallmounts/posters.rsi
     state: poster_dontpanic
 
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSaucerNumberOne
+  name: "Saucer #1!"
+  description: "Out of every station in the NyanoTrasen jurisdiction, Saucer was rated #1 out of 5! Congratulations!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/posters.rsi
+    state: poster_saucer1

@@ -98,6 +98,8 @@
           Quantity: 12
         - ReagentId: TranexamicAcid
           Quantity: 3
+  - type: Tag
+    tags: []
 
 - type: entity
   name: anti-poison medipen
@@ -114,6 +116,8 @@
           Quantity: 10
         - ReagentId: Epinephrine
           Quantity: 5
+  - type: Tag
+    tags: []
 
 - type: entity
   name: space medipen
@@ -144,6 +148,8 @@
             Quantity: 10
           - ReagentId: Barozine
             Quantity: 20
+  - type: Tag
+    tags: []
 
 - type: entity
   name: magic medipen

@@ -1,6 +1,7 @@
 using Content.Server.Power.EntitySystems;
-using Content.Server.Station.Systems;
 using Content.Server.Research.Components;
+using Content.Server.Station.Systems;
+using Content.Server.Disease.Components;
 using Content.Shared.Research.Prototypes;
 
 namespace Content.Server.Research;
@@ -49,6 +50,14 @@ public sealed partial class ResearchSystem
             source.Server = component;
         }
 
+        // as another note post bulldoze, registration and the server id stuff sucks but whatever does register them
+        // should probably be an event
+        if (TryComp<DiseaseVaccineCreatorComponent>(clientComponent.Owner, out var creator)
+            && TryComp<DiseaseServerComponent>(component.Owner, out var diseaseServer))
+        {
+            creator.DiseaseServer = diseaseServer;
+        }
+
         if (component.Clients.Contains(clientComponent)) return false;
         component.Clients.Add(clientComponent);
         clientComponent.Server = component;
@@ -70,7 +79,7 @@ public sealed partial class ResearchSystem
         TechnologyDatabaseComponent? databaseComponent = null)
     {
         if (!Resolve(component.Owner, ref databaseComponent, false)) return false;
-        return databaseComponent.IsTechnologyUnlocked(prototype);
+        return databaseComponent.IsTechnologyUnlocked(prototype.ID);
     }
 
     public bool CanUnlockTechnology(ResearchServerComponent component, TechnologyPrototype technology, TechnologyDatabaseComponent? databaseComponent = null)

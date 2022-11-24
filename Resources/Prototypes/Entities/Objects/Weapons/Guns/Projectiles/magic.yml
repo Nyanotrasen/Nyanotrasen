@@ -11,9 +11,9 @@
     - state: fireball
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 6
-    totalIntensity: 200
+    maxIntensity: 20
+    intensitySlope: 3
+    totalIntensity: 100
     maxTileBreak: 0
 
 - type: entity

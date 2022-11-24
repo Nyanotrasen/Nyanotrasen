@@ -33,7 +33,6 @@ public sealed class EscapeInventorySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CanEscapeInventoryComponent, MoveInputEvent>(OnRelayMovement);
-        SubscribeLocalEvent<CanEscapeInventoryComponent, UpdateCanMoveEvent>(OnMoveAttempt);
         SubscribeLocalEvent<CanEscapeInventoryComponent, EscapeDoAfterComplete>(OnEscapeComplete);
         SubscribeLocalEvent<CanEscapeInventoryComponent, EscapeDoAfterCancel>(OnEscapeFail);
         SubscribeLocalEvent<CanEscapeInventoryComponent, DroppedEvent>(OnDropped);
@@ -68,12 +67,6 @@ public sealed class EscapeInventorySystem : EntitySystem
         // Uncontested
         if (HasComp<SharedStorageComponent>(container.Owner) || HasComp<InventoryComponent>(container.Owner))
             AttemptEscape(uid, container.Owner, component);
-    }
-
-    private void OnMoveAttempt(EntityUid uid, CanEscapeInventoryComponent component, UpdateCanMoveEvent args)
-    {
-        if (_containerSystem.IsEntityOrParentInContainer(uid))
-            args.Cancel();
     }
 
     public void AttemptEscape(EntityUid user, EntityUid container, CanEscapeInventoryComponent component, float multiplier = 1f)

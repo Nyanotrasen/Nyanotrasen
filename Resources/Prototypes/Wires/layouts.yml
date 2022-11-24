@@ -4,6 +4,7 @@
   - !type:PowerWireAction
   - !type:PowerWireAction
     pulseTimeout: 15
+  - !type:AccessWireAction
   - !type:DoorBoltWireAction
   - !type:DoorBoltLightWireAction
   - !type:DoorTimingWireAction
@@ -22,14 +23,11 @@
   id: AirlockArmory
 
 - type: wireLayout
-  parent: Airlock
-  id: Windoors
-
-- type: wireLayout
   id: HighSec
   wires:
   - !type:PowerWireAction
     pulseTimeout: 10
+  - !type:AccessWireAction
   - !type:DoorBoltWireAction
   - !type:DoorBoltLightWireAction
   - !type:DoorTimingWireAction
@@ -55,6 +53,7 @@
   id: FireAlarm
   wires:
   - !type:PowerWireAction
+  - !type:AccessWireAction
   - !type:AtmosMonitorDeviceNetWire
     alarmOnPulse: true
 

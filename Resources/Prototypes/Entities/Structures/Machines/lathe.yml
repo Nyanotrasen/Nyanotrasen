@@ -160,7 +160,7 @@
     dynamicRecipes:
       - LightTube
       - LightBulb
-      - SheetSteel
+      - SheetSteel #these sheet recipe costs don't scale with upgrades
       - SheetPlasteel
       - SheetPlasma
       - SheetGlass1
@@ -186,6 +186,7 @@
       - LargeBeaker
       - Dropper
       - Syringe
+      - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
       - ChemicalMedipen
@@ -196,11 +197,6 @@
       - MicroLaserStockPart
       - MatterBinStockPart
       - CapacitorStockPart
-      - AdvancedCapacitorStockPart
-      - AdvancedMatterBinStockPart
-      - HighPowerMicroLaserStockPart
-      - NanoManipulatorStockPart
-      - AdvancedScanningModuleStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -222,7 +218,6 @@
       - ProximitySensor
       - LeftArmBorg
       - RightArmBorg
-      - HolofanProjector
 
 - type: entity
   parent: Protolathe
@@ -275,12 +270,14 @@
       - SurveillanceWirelessCameraAnchoredCircuitboard
       - HydroponicsTrayMachineCircuitboard
       - SolarControlComputerCircuitboard
+      - PowerComputerCircuitboard
       - AutolatheMachineCircuitboard
       - ProtolatheMachineCircuitboard
       - ReagentGrinderMachineCircuitboard
       - MicrowaveMachineCircuitboard
       - UniformPrinterMachineCircuitboard
       - ShuttleConsoleCircuitboard
+      - RadarConsoleCircuitboard
       - CircuitImprinterMachineCircuitboard
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
@@ -294,6 +291,9 @@
       - EmitterCircuitboard
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
+      - AnalysisComputerCircuitboard
+      - ArtifactAnalyzerMachineCircuitboard
+      - TraversalDistorterMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -329,9 +329,13 @@
       - Flash
       - FlashPayload
       - Handcuffs
+      - Zipties
       - Stunbaton
       - InsulativeHeadcage
       - ShockCollar
+      - ForensicPad
+      - ClothingEyesGlassesSecurity
+      - RiotShield
       - CartridgePistol
       - ShellShotgun
       - CartridgeLightRifle
@@ -343,6 +347,9 @@
       - ShellShotgunFlare
       - ShellTranquilizer
       - ShellSoulbreaker
+      - TargetHuman
+      - TargetSyndicate
+      - TargetClown
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber
@@ -393,6 +400,7 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    machinePartPrintSpeed: Laser
     dynamicRecipes:
       - HandheldHealthAnalyzer
       - ClothingHandsGlovesLatex
@@ -414,6 +422,8 @@
       - MagicMedipen
       - Dropper
       - Syringe
+      - Implanter
+      - PillCanister
       - BodyBag
       - PillCanister #Everything below this is shared with other lathes
       - FlashlightLantern

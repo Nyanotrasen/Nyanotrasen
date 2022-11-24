@@ -1,12 +1,15 @@
 - type: job
   id: Epistemologist
-  name: "epistemologist"
+  name: job-name-epistemologist
+  description: job-desc-epistemologist
   startingGear: EpistemologistGear
   playTimeTracker: JobEpistemologist
   icon: "Scientist"
   supervisors: "the mystagogue"
   access:
   - Research
+  extendedAccess:
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

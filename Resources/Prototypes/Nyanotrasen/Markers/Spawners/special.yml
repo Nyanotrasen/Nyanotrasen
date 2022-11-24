@@ -1,0 +1,12 @@
+- type: entity
+  name: golem shell spawner
+  id: SpawnMobGolemCult
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - texture:  Nyanotrasen/Mobs/Species/Golem/cult.rsi/full.png
+  - type: ConditionalSpawner
+    prototypes:
+      - MobGolemCult

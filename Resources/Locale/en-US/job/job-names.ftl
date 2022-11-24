@@ -24,10 +24,10 @@ job-name-lawyer = lawyer
 job-name-mime = mime
 job-name-ce = chief engineer
 job-name-janitor = janitor
-job-name-chaplain = chaplain
+job-name-chaplain = golemancer
 job-name-botanist = botanist
 job-name-bartender = bartender
-job-name-passenger = passenger
+job-name-passenger = assistant
 job-name-salvagespec = salvage specialist
 job-name-qm = quartermaster
 job-name-cargotech = cargo technician
@@ -45,6 +45,14 @@ job-name-zookeeper = zookeeper
 #Nyano
 job-name-mystagogue = mystagogue
 job-name-mantis = forensic mantis
+job-name-epistemologist = acolyte
+job-name-boxer = boxer
+job-name-mail-carrier = mail-carrier
+job-name-cataloguer = cataloguer
+job-name-cyborg = cyborg
+job-name-medical-cyborg = medical cyborg
+job-name-salvage-technician = salvage technician
+job-name-gladiator = gladiator
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician
@@ -53,7 +61,7 @@ JobBotanist = botanist
 JobCaptain = captain
 JobCargoTechnician = cargo technician
 JobCentralCommandOfficial = central command official
-JobChaplain = chaplain
+JobChaplain = golemancer
 JobChef = chef
 JobChemist = chemist
 JobChiefEngineer = chief engineer

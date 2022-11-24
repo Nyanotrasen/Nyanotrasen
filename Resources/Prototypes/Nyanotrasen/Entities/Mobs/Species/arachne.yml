@@ -4,7 +4,6 @@
   parent: BaseMobHuman
   id: MobArachneBase
   abstract: true
-  description: A miserable pile of legs.
   components:
   - type: Sprite
     netsync: false

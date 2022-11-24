@@ -501,3 +501,512 @@ Entries:
     type: Add
   id: 55
   time: '2022-10-28T03:58:51.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Pebble Station
+    type: Add
+  id: 56
+  time: '2022-10-28T10:48:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed Atlas.
+    type: Remove
+  - message: Improved some server config stuff.
+    type: Tweak
+  id: 57
+  time: '2022-10-28T10:50:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Panic bunker works now for when the hub is like... this.
+    type: Add
+  id: 58
+  time: '2022-10-29T12:39:20.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added sprites and sounds for the Ifrit's hand.
+    type: Add
+  id: 59
+  time: '2022-10-29T22:28:26.0000000+00:00'
+- author: Kroma
+  changes:
+  - message: Resolved several issues with Pebble.
+    type: Fix
+  id: 60
+  time: '2022-10-30T10:54:32.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added job icon stamps for mail to make it easier to sort.
+    type: Add
+  - message: Added fragile mail. If you break it, you're in trouble.
+    type: Add
+  - message: Added priority mail. Get it delivered on time or face a penalty.
+    type: Add
+  - message: Added mail for specific jobs and departments.
+    type: Add
+  - message: Added a lot of new possible deliveries you can receive.
+    type: Add
+  - message: Mail will now change appearance when damaged.
+    type: Add
+  - message: Damage to mail will harm its contents too.
+    type: Add
+  - message: Mail parcels can be emagged open now.
+    type: Fix
+  - message: Mail teleporters have a limit on undelivered mail now to prevent it from
+      piling up.
+    type: Tweak
+  - message: One of the new Arachne tailors made a jumpskirt variant of the mailman
+      uniform!
+    type: Add
+  - message: That same tailor redesigned the standard mailman uniform and hat.
+    type: Tweak
+  id: 61
+  time: '2022-10-31T01:14:50.0000000+00:00'
+- author: spessCarp
+  changes:
+  - message: Wrote several letters that can be received in the mail.
+    type: Add
+  id: 62
+  time: '2022-10-31T01:14:51.0000000+00:00'
+- author: kromabae
+  changes:
+  - message: qol changes to pebble
+    type: Add
+  id: 63
+  time: '2022-11-01T00:48:48.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Arachne whitelists and blacklists updated for uplink items and random
+      humanoid spawns.
+    type: Fix
+  - message: Arachne PDA slot is in the correct location.
+    type: Fix
+  - message: Revenants, familiars, etc cannot get mindbreakered.
+    type: Fix
+  - message: Fixed multiple popups on bags of holding.
+    type: Fix
+  - message: Glimmer objective rasied to 500 and difficulty adjusted accordingly.
+    type: Tweak
+  - message: New 'lspsionics' command for developers and admins.
+    type: Add
+  id: 64
+  time: '2022-11-01T02:24:52.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Reenabled the non-social objective groups. Woops.
+    type: Fix
+  - message: All animals are now eligible for awakening.
+    type: Tweak
+  id: 65
+  time: '2022-11-01T23:24:09.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: additional pebble fixes and qol
+    type: Add
+  id: 66
+  time: '2022-11-03T02:27:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Doubled glimmer production from probers and drains (per advice of one
+      Sidney K. Meier).
+    type: Tweak
+  - message: Noospheric zap event's glimmer bonus halved.
+    type: Tweak
+  - message: Min/Max players on each of the maps in our pool has been made more consistent.
+    type: Tweak
+  - message: Fixed techfab deconstruction.
+    type: Fix
+  id: 67
+  time: '2022-11-03T02:32:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The fry event has new behavior.
+    type: Add
+  id: 68
+  time: '2022-11-03T02:45:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added descriptions to all of our jobs now that that is... supported.
+      Although I checked the code and nothing ever reads or displays it anywhere.
+    type: Add
+  id: 69
+  time: '2022-11-04T00:17:47.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Huge angle update.
+    type: Add
+  id: 70
+  time: '2022-11-06T23:07:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  - message: Updated maps for xenoarch.
+    type: Add
+  - message: Adjusted current content to account for xenoarchaeology.
+    type: Tweak
+  - message: Removed the buyable random artifacts; we have other sources.
+    type: Remove
+  - message: Reduced prober points per second slightly to adjust for the new xenoarch
+      source.
+    type: Tweak
+  - message: Noospheric zap's bonus chance to gain psionics halved again.
+    type: Tweak
+  - message: Glimmer prober explosion strength increased by 25%.
+    type: Tweak
+  - message: Possible glimmer loss on prober destruction changed to the upper half
+      of the current range.
+    type: Tweak
+  - message: Ifrit movement ignores gravity.
+    type: Tweak
+  id: 71
+  time: '2022-11-06T23:58:36.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added stuff related to the new Xeno Archeology.
+    type: Add
+  - message: Changed the Arrivals shuttle doors.
+    type: Tweak
+  id: 72
+  time: '2022-11-07T04:10:10.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Artifact Research room for Epistemic
+    type: Add
+  id: 73
+  time: '2022-11-07T05:43:30.0000000+00:00'
+- author: router
+  changes:
+  - message: Added an epistemics book to salvage and mail. Hope you like reading about
+      the noosphere.
+    type: Add
+  id: 74
+  time: '2022-11-07T19:46:59.0000000+00:00'
+- author: Torun
+  changes:
+  - message: Lighthouse now has a new automatic loading dock in Cargo and a mass scanner
+      console in Salvage.
+    type: Add
+  - message: Lighthouse now has air alarms in the majority of the map. Take a deep
+      breath when the meteors hit, because now you can.
+    type: Tweak
+  id: 75
+  time: '2022-11-07T19:50:04.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  id: 76
+  time: '2022-11-08T22:00:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Glimmer awakening event won't target dead mobs.
+    type: Fix
+  - message: Removed most of the mechanically enforced drone laws, since they are
+      whitelisted here.
+    type: Remove
+  - message: New glimmer prober behavior.
+    type: Add
+  id: 77
+  time: '2022-11-08T23:42:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Updated Angle, fixing a lot of atmos and atmos device issues.
+    type: Add
+  id: 78
+  time: '2022-11-10T23:09:56.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - message: Updated Tortuga for new content. Mail now only routes to the mailroom.
+    type: Add
+  id: 79
+  time: '2022-11-10T23:10:40.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  - message: Early merged my vaccinator rework. Be sure to report any bugs.
+    type: Add
+  id: 80
+  time: '2022-11-12T01:49:48.0000000+00:00'
+- author: Daemon
+  changes:
+  - message: Added new round end sound.
+    type: Add
+  id: 81
+  time: '2022-11-12T08:13:25.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added icon for the Ifrit's Pyrokinesis power.
+    type: Add
+  id: 82
+  time: '2022-11-13T01:23:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Adjusted how recipients of Priority mail are determined.
+    type: Tweak
+  id: 83
+  time: '2022-11-13T01:27:45.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Fixes for Lighthouse
+    type: Add
+  id: 84
+  time: '2022-11-14T21:43:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: All familiars now have access to telepathy.
+    type: Add
+  - message: Clerics and the mystagogue (so, anyone that can use bibles) can now sacrifice
+      psychics on altars for rewards and reducing glimmer.
+    type: Add
+  - message: All psionic powers now start on cooldown.
+    type: Tweak
+  - message: Removed the ghost roles from the arena mobs.
+    type: Remove
+  - message: Removed the suicide command completely so it's clearer that only ghost
+      is available.
+    type: Remove
+  id: 85
+  time: '2022-11-15T00:34:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Lots of upstream reworks merged in. Report any bugs in the Nyanotrasen
+      discord at www.nyanotrasen.moe
+    type: Add
+  - message: Borgs can now speak on radio.
+    type: Add
+  - message: I gave up on the unique arachne buckling stuff until buckle rework finishes.
+    type: Tweak
+  id: 86
+  time: '2022-11-15T20:51:54.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added binary channel.
+    type: Add
+  - message: Passenger is 'Assistant' once again. SOVL confirmed.
+    type: Add
+  - message: Research computer UIs now show the current point limit.
+    type: Add
+  id: 87
+  time: '2022-11-15T22:51:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Laws now have a UI, admittedly one that probably needs a few aesthetics
+      passes.
+    type: Add
+  - message: Drones can now see their laws.
+    type: Add
+  - message: Added a cooldown to stating laws.
+    type: Add
+  - message: Rewrote default borg laws to be a bit simpler.
+    type: Tweak
+  id: 88
+  time: '2022-11-16T00:53:50.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a button to the escape menu to apply for whitelist.
+    type: Add
+  id: 89
+  time: '2022-11-16T01:14:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed the ability to overload the AME. Braindead griefers have to find
+      another strategy to speedrun permaban.
+    type: Remove
+  id: 90
+  time: '2022-11-16T01:50:01.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Significant changes to angle. Updated for christmas, fixed up atmos,
+      moved circuit imprinter to engineering.
+    type: Tweak
+  id: 91
+  time: '2022-11-16T02:57:35.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Slightly increased sec, eng, and epi roles on angle.
+    type: Tweak
+  id: 92
+  time: '2022-11-16T04:11:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a bunch of new books that link to the wiki.
+    type: Add
+  id: 93
+  time: '2022-11-16T16:53:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Derotated glacier until some issues are fixed.
+    type: Remove
+  id: 94
+  time: '2022-11-16T17:48:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The library is stocked now.
+    type: Add
+  id: 95
+  time: '2022-11-16T17:47:22.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a medical outpost between arrivals and engineering.
+    type: Add
+  - message: Made things more Christmas-y.
+    type: Tweak
+  - message: Added more air alarms.
+    type: Tweak
+  id: 96
+  time: '2022-11-17T14:29:27.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Pebbles Changes 6
+    type: Add
+  id: 97
+  time: '2022-11-17T14:29:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed using telegnosis inside containers.
+    type: Fix
+  - message: Drones can now hear binary.
+    type: Add
+  - message: Added new drone law allowing them to accept orders given in binary channel,
+      regardless of the nature of the being.
+    type: Add
+  - message: Removed 'a miserable pile of...' desc from humanoids.
+    type: Remove
+  - message: Docks are at least temporarily indestructible.
+    type: Tweak
+  - message: Removed a bunch of bloat items from head lockers.
+    type: Remove
+  - message: Advanced machine parts and RPED are now available in the eng techfab.
+      CE spaswns with an RPED in their locker.
+    type: Add
+  - message: Removed advanced machine parts from other lathes.
+    type: Remove
+  - message: Bibles fit on bookshelves.
+    type: Fix
+  - message: Oracle will not ask for targets.
+    type: Fix
+  - message: Added an alt verb for the hyperlink book for increased discoverability,
+      as they are made for newer players.
+    type: Add
+  - message: Added a guide on hacking to the library.
+    type: Add
+  - message: Ethanol has been adjusted for proper scaling.
+    type: Fix
+  - message: Nuke ops is now about 250% more likely. It really brings out the best
+      in everyone.
+    type: Tweak
+  - message: Added wands and spellbooks to the altar sacrifice reward pool.
+    type: Add
+  - message: Hoods hide hair again.
+    type: Fix
+  id: 98
+  time: '2022-11-17T15:34:13.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added access wires to airlocks and fire alarms.
+    type: Add
+  id: 99
+  time: '2022-11-20T19:52:20.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed the missing pipe in Epistemics' anomaly lab.
+    type: Fix
+  - message: Adjusted some firelocks and air alarms, amongst other things.
+    type: Tweak
+  id: 100
+  time: '2022-11-21T02:34:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added an atmospherics guide book to the library.
+    type: Add
+  - message: Tool vendor now requires maintenance access.
+    type: Add
+  - message: Assistants and psychiatrists no longer have maintenance access.
+    type: Remove
+  - message: All jobs gain maintenance access when station is in extended access mode.
+      (Under 25 players.)
+    type: Add
+  - message: Removed holoparasite.
+    type: Remove
+  - message: Psionic clothing counts as psionic.
+    type: Fix
+  - message: Fixed vaccinator machine upgrade description.
+    type: Fix
+  - message: "New behavior during no\xF6spheric fry event."
+    type: Add
+  - message: Reduced chance of books and wands from altar sacrifices.
+    type: Tweak
+  - message: Tortuga min players increased to 45.
+    type: Tweak
+  id: 101
+  time: '2022-11-21T22:58:20.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed access requirement from youtool again. I want to observe the
+      assistant maint access change in isolation. It's very likely to get at least
+      partially reverted.
+    type: Tweak
+  id: 102
+  time: '2022-11-22T07:01:07.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added some wiring and pipes; moved a few lights.
+    type: Fix
+  id: 103
+  time: '2022-11-22T21:54:21.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added moths. I was not forced to do this at gunpoint.
+    type: Add
+  id: 104
+  time: '2022-11-22T23:25:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added atmos book as well as some info pieces in atmos.
+    type: Add
+  - message: Added fire extinguishers throughout the station.
+    type: Add
+  id: 105
+  time: '2022-11-22T23:32:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added golems for epistemics.
+    type: Add
+  id: 106
+  time: '2022-11-22T23:32:04.0000000+00:00'
+- author: router
+  changes:
+  - message: Moths go 'Bzzzzzzzzzzzz.' Moths no longer go 'AAAAAAAAAAAHHHH!'
+    type: Fix
+  id: 107
+  time: '2022-11-23T04:03:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: A bunch of golem fixes.
+    type: Fix
+  - message: Reverted extended access change.
+    type: Fix
+  - message: Psionics can use the altar now too, although bible user gives you a better
+      chance of rewards.
+    type: Add
+  - message: Changed language regarding all the different human morphotypes.
+    type: Tweak
+  id: 108
+  time: '2022-11-23T20:28:10.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Aligned moth wings, eyes, and antennae.
+    type: Fix
+  id: 109
+  time: '2022-11-23T21:28:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Renamed cleric to golemancer. Permanent? Who knows.
+    type: Tweak
+  - message: Removed corgi meat objective. Too many weird behaviors and edge cases.
+    type: Remove
+  - message: Changed several descriptions of things in text to make them more clear.
+    type: Tweak
+  id: 110
+  time: '2022-11-24T00:49:18.0000000+00:00'

@@ -1,6 +1,7 @@
 - type: job
   id: MedicalCyborg
-  name: "medical cyborg"
+  name: job-name-medical-cyborg
+  description: job-desc-cyborg
   playTimeTracker: JobCyborg
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -10,9 +11,3 @@
   canBeAntag: false
   jobEntity: PlayerCyborgMedical
   startingGear: CyborgGear # for char preview only
-
-- type: startingGear
-  id: CyborgGear
-  equipment:
-    head: ClothingHeadHatCardborg
-    outerClothing: ClothingOuterCardborg
