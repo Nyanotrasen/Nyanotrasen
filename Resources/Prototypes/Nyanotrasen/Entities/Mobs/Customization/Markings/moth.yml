@@ -1,0 +1,48 @@
+# Antennas
+- type: marking
+  id: MothAntennasDefault
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
+    state: antenna_default
+
+# Wings
+- type: marking
+  id: MothWingsDefault
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: default
+
+- type: marking
+  id: MothWingsLook1
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: look1
+
+- type: marking
+  id: MothWingsLook2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: look2
+
+- type: marking
+  id: MothWingsLook3
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: look3
+
+# Other markings

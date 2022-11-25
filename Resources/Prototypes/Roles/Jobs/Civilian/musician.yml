@@ -8,6 +8,8 @@
   access:
   - Theatre
   - Service
+  extendedAccess:
+  - Maintenance
   special:
   - !type:GiveItemOnHolidaySpecial
     holiday: MikuDay

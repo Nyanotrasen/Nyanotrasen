@@ -17,7 +17,6 @@
     IDComputerBoardStealObjective: 1
     MagbootsStealObjective: 1
     SupplyConsoleBoardStealObjective: 1
-    CorgiMeatStealObjective: 1
     MantisKnifeStealObjective: 1
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
@@ -32,6 +31,7 @@
   weights:
     EscapeShuttleObjective: 1
     BecomePsionicObjective: 1
+    BecomeGolemObjective: 0.67
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

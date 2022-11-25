@@ -2,6 +2,7 @@
   parent: BaseItem
   id: QSI
   name: quantum spin inverter
+  description: When paired with another QSI, will teleport its activator to its bonded partner.
   components:
   - type: QuantumSpinInverter
   - type: Sprite

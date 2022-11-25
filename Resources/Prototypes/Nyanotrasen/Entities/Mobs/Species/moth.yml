@@ -1,0 +1,66 @@
+- type: entity
+  save: false
+  name: Base Moth
+  parent: BaseMobOrganic
+  id: BaseMobMoth
+  abstract: true
+  components:
+  - type: Humanoid
+    species: Moth
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi
+    state: full
+  - type: Body
+    prototype: Moth
+  - type: DiseaseCarrier
+    diseaseResist: 0.1
+  - type: Flammable
+    damage:
+      types:
+        Heat: 2 # moths should burn more easily
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moff # moff
+  - type: Temperature
+    heatDamageThreshold: 330
+    coldDamageThreshold: 195
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 0.25 #per second, scales with temperature & other constants
+  - type: MovementAlwaysTouching
+  - type: Fixtures
+    fixtures:
+      - shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 125 #lower density
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+
+- type: entity
+  save: false
+  name: Moth Dummy
+  parent: MobHumanDummy
+  id: MobMothDummy
+  noSpawn: true
+  description: A dummy moth meant to be used in character setup.
+  components:
+  - type: Humanoid
+    species: Moth
+
+#Weh

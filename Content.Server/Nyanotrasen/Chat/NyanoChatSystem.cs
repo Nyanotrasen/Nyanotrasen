@@ -64,7 +64,7 @@ namespace Content.Server.Nyanotrasen.Chat
 
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
 
-            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, clients.ToList(), Color.PaleVioletRed);
+            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
 
             if (_random.Prob(0.1f))
                 _glimmerSystem.Glimmer++;
@@ -73,7 +73,7 @@ namespace Content.Server.Nyanotrasen.Chat
             {
                 float obfuscation = (0.25f + (float) _glimmerSystem.Glimmer / 2000);
                 var obfuscated = _chatSystem.ObfuscateMessageReadability(message, obfuscation);
-                _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, GetDreamers(clients), Color.PaleVioletRed);
+                _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
             }
         }
     }

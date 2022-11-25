@@ -828,3 +828,222 @@ Entries:
     type: Tweak
   id: 92
   time: '2022-11-16T04:11:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a bunch of new books that link to the wiki.
+    type: Add
+  id: 93
+  time: '2022-11-16T16:53:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Derotated glacier until some issues are fixed.
+    type: Remove
+  id: 94
+  time: '2022-11-16T17:48:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The library is stocked now.
+    type: Add
+  id: 95
+  time: '2022-11-16T17:47:22.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a medical outpost between arrivals and engineering.
+    type: Add
+  - message: Made things more Christmas-y.
+    type: Tweak
+  - message: Added more air alarms.
+    type: Tweak
+  id: 96
+  time: '2022-11-17T14:29:27.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Pebbles Changes 6
+    type: Add
+  id: 97
+  time: '2022-11-17T14:29:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed using telegnosis inside containers.
+    type: Fix
+  - message: Drones can now hear binary.
+    type: Add
+  - message: Added new drone law allowing them to accept orders given in binary channel,
+      regardless of the nature of the being.
+    type: Add
+  - message: Removed 'a miserable pile of...' desc from humanoids.
+    type: Remove
+  - message: Docks are at least temporarily indestructible.
+    type: Tweak
+  - message: Removed a bunch of bloat items from head lockers.
+    type: Remove
+  - message: Advanced machine parts and RPED are now available in the eng techfab.
+      CE spaswns with an RPED in their locker.
+    type: Add
+  - message: Removed advanced machine parts from other lathes.
+    type: Remove
+  - message: Bibles fit on bookshelves.
+    type: Fix
+  - message: Oracle will not ask for targets.
+    type: Fix
+  - message: Added an alt verb for the hyperlink book for increased discoverability,
+      as they are made for newer players.
+    type: Add
+  - message: Added a guide on hacking to the library.
+    type: Add
+  - message: Ethanol has been adjusted for proper scaling.
+    type: Fix
+  - message: Nuke ops is now about 250% more likely. It really brings out the best
+      in everyone.
+    type: Tweak
+  - message: Added wands and spellbooks to the altar sacrifice reward pool.
+    type: Add
+  - message: Hoods hide hair again.
+    type: Fix
+  id: 98
+  time: '2022-11-17T15:34:13.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added access wires to airlocks and fire alarms.
+    type: Add
+  id: 99
+  time: '2022-11-20T19:52:20.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed the missing pipe in Epistemics' anomaly lab.
+    type: Fix
+  - message: Adjusted some firelocks and air alarms, amongst other things.
+    type: Tweak
+  id: 100
+  time: '2022-11-21T02:34:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added an atmospherics guide book to the library.
+    type: Add
+  - message: Tool vendor now requires maintenance access.
+    type: Add
+  - message: Assistants and psychiatrists no longer have maintenance access.
+    type: Remove
+  - message: All jobs gain maintenance access when station is in extended access mode.
+      (Under 25 players.)
+    type: Add
+  - message: Removed holoparasite.
+    type: Remove
+  - message: Psionic clothing counts as psionic.
+    type: Fix
+  - message: Fixed vaccinator machine upgrade description.
+    type: Fix
+  - message: "New behavior during no\xF6spheric fry event."
+    type: Add
+  - message: Reduced chance of books and wands from altar sacrifices.
+    type: Tweak
+  - message: Tortuga min players increased to 45.
+    type: Tweak
+  id: 101
+  time: '2022-11-21T22:58:20.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed access requirement from youtool again. I want to observe the
+      assistant maint access change in isolation. It's very likely to get at least
+      partially reverted.
+    type: Tweak
+  id: 102
+  time: '2022-11-22T07:01:07.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added some wiring and pipes; moved a few lights.
+    type: Fix
+  id: 103
+  time: '2022-11-22T21:54:21.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added moths. I was not forced to do this at gunpoint.
+    type: Add
+  id: 104
+  time: '2022-11-22T23:25:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added atmos book as well as some info pieces in atmos.
+    type: Add
+  - message: Added fire extinguishers throughout the station.
+    type: Add
+  id: 105
+  time: '2022-11-22T23:32:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added golems for epistemics.
+    type: Add
+  id: 106
+  time: '2022-11-22T23:32:04.0000000+00:00'
+- author: router
+  changes:
+  - message: Moths go 'Bzzzzzzzzzzzz.' Moths no longer go 'AAAAAAAAAAAHHHH!'
+    type: Fix
+  id: 107
+  time: '2022-11-23T04:03:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: A bunch of golem fixes.
+    type: Fix
+  - message: Reverted extended access change.
+    type: Fix
+  - message: Psionics can use the altar now too, although bible user gives you a better
+      chance of rewards.
+    type: Add
+  - message: Changed language regarding all the different human morphotypes.
+    type: Tweak
+  id: 108
+  time: '2022-11-23T20:28:10.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Aligned moth wings, eyes, and antennae.
+    type: Fix
+  id: 109
+  time: '2022-11-23T21:28:23.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Renamed cleric to golemancer. Permanent? Who knows.
+    type: Tweak
+  - message: Removed corgi meat objective. Too many weird behaviors and edge cases.
+    type: Remove
+  - message: Changed several descriptions of things in text to make them more clear.
+    type: Tweak
+  id: 110
+  time: '2022-11-24T00:49:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Replaced the awful moth damage modifier set with something better.
+    type: Tweak
+  - message: Removed supply radio and merged it with service.
+    type: Remove
+  - message: Sophic grammateus has a cooldown on stating the glimmer level.
+    type: Fix
+  - message: Added lotophagoi oil, a drug much better at rolling for psionics than
+      space drugs but harder to acquire. The chance approaches 100% somewhere between
+      200 and 300 glimmer.
+    type: Add
+  - message: Only humanoids can sacrifice on the altar.
+    type: Fix
+  - message: The mail teleporter can be turned on and off, and starts off.
+    type: Tweak
+  - message: Added a mouth slot to monkey inventory template.
+    type: Tweak
+  - message: Destroying artifacts now increases glimmer, but much more effecient research
+      point / glimmer ratio than probers.
+    type: Tweak
+  - message: New objective to get golemized.
+    type: Add
+  - message: Probers' destructive capabilities increased a bit more.
+    type: Tweak
+  - message: Added description to QSIs explaining what they do.
+    type: Add
+  - message: Meteors are rarer.
+    type: Tweak
+  - message: Mantis is back to getting guaranteed metapsionic power (until psychometry)
+      and is temporarily not a valid traitor anymore.
+    type: Tweak
+  - message: Finally actually renamed cleric to golemancer. It might stay that way
+      until we get variant roles.
+    type: Tweak
+  id: 111
+  time: '2022-11-24T20:49:42.0000000+00:00'

@@ -14,6 +14,7 @@ using Content.Server.DoAfter;
 using Content.Server.Humanoid;
 using Content.Server.Players;
 using Content.Server.Popups;
+using Content.Server.Soul;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
@@ -47,7 +48,12 @@ namespace Content.Server.Chapel
             if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
                 return;
 
-            if (component.RequiresBibleUser && !HasComp<BibleUserComponent>(args.User))
+            // you need psionic OR bible user
+            if (!HasComp<PsionicComponent>(args.User) && !HasComp<BibleUserComponent>(args.User))
+                return;
+
+            // and no golems or familiars or whatever should be sacrificing
+            if (!HasComp<HumanoidComponent>(args.User))
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -104,7 +110,10 @@ namespace Content.Server.Chapel
             QueueDel(args.Target);
             _audioSystem.PlayPvs(altarComp.FinishSound, args.Altar);
 
-            Spawn(pool.Pick(), Transform(args.Altar).Coordinates);
+            var chance = HasComp<BibleUserComponent>(args.User) ? altarComp.RewardPoolChanceBibleUser : altarComp.RewardPoolChance;
+
+            if (_robustRandom.Prob(chance))
+                Spawn(pool.Pick(), Transform(args.Altar).Coordinates);
 
             int i = _robustRandom.Next(altarComp.BluespaceRewardMin, altarComp.BlueSpaceRewardMax);
 
@@ -124,6 +133,10 @@ namespace Content.Server.Chapel
             {
                 var trap = Spawn(altarComp.TrapPrototype, Transform(args.Altar).Coordinates);
                 actor.PlayerSession.ContentData()?.Mind?.TransferTo(trap);
+
+                if (TryComp<SoulCrystalComponent>(trap, out var crystalComponent))
+                    crystalComponent.TrueName = MetaData(args.Target).EntityName;
+
                 MetaData(trap).EntityName = Loc.GetString("soul-entity-name", ("trapped", args.Target));
                 MetaData(trap).EntityDescription = Loc.GetString("soul-entity-desc", ("trapped", args.Target));
             }

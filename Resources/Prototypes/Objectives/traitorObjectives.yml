@@ -49,12 +49,30 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+        - BecomeGolemCondition
     - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
   conditions:
     - !type:BecomePsionicCondition
+
+- type: objective
+  id: BecomeGolemObjective
+  issuer: syndicate
+  difficultyOverride: 3.5
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+        - BecomePsionicCondition
+    - !type:NotRoleRequirement
+      roleId: ForensicMantis
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+  conditions:
+    - !type:BecomeGolemCondition
 
 - type: objective
   id: CMOHyposprayStealObjective
@@ -162,21 +180,6 @@
     - !type:StealCondition
       prototype: CargoRequestComputerCircuitboard
       owner: job-name-qm
-
-- type: objective
-  id: CorgiMeatStealObjective
-  issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
-  conditions:
-    - !type:StealCondition
-      prototype: FoodMeatCorgi
-      owner: objective-condition-steal-Ian
 
 - type: objective
   id: CaptainGunStealObjective

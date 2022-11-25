@@ -15,9 +15,6 @@
         prob: 0.7
       - id: ClothingHeadHatQMsoft
         prob: 0.8
-      - id: CargoRequestComputerCircuitboard
-      - id: CargoShuttleComputerCircuitboard
-      - id: CargoShuttleConsoleCircuitboard
       - id: CigPackGreen
         prob: 0.50
       - id: RubberStampQm
@@ -40,7 +37,6 @@
       - id: ClothingOuterHardsuitCap
       - id: ClothingMaskGasCaptain
       - id: WeaponDisabler
-      - id: CommsComputerCircuitboard
       - id: ClothingHeadsetAltCommand
       - id: SpaceCash1000
       - id: PlushieNuke
@@ -73,7 +69,6 @@
       - id: BoxPDA
       - id: BoxID
       - id: BoxHeadset
-      - id: IDComputerCircuitboard
       - id: WeaponDisabler
       - id: ClothingShoesColorBlack
         prob: 0.7
@@ -104,12 +99,11 @@
       - id: ClothingHeadHatBeretEngineering
       - id: ClothingShoesBootsMagAdv
       - id: ClothingHandsGlovesColorYellow
-      - id: CigarCase
-        prob: 0.15
       - id: DoorRemoteEngineering
       - id: RubberStampCE
       - id: JetpackVoidFilled
       - id: ClothingHeadsetAltEngineering
+      - id: RPED
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -127,14 +121,10 @@
       - id: ClothingOuterCoatLabCmo
       - id: ClothingMaskSterile
       - id: ClothingOuterHardsuitMedical
-      - id: DiagnoserMachineCircuitboard
-      - id: VaccinatorMachineCircuitboard
-        prob: 0.25
       - id: Hypospray
       - id: HandheldCrewMonitor
       - id: DoorRemoteMedical
       - id: RubberStampCMO
-      - id: MedicalTechFabCircuitboard
       - id: MaterialBiomass
         amount: 3
 
@@ -145,9 +135,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ResearchComputerCircuitboard
-      - id: ProtolatheMachineCircuitboard
-      - id: CircuitImprinterMachineCircuitboard
       - id: ClothingNeckCloakRd
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
@@ -156,8 +143,6 @@
       - id: DoorRemoteResearch
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
-      - id: AnalysisComputerCircuitboard
-      - id: ArtifactAnalyzerMachineCircuitboard
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -199,6 +184,5 @@
       - id: ClothingUniformJumpskirtHosFormal
       - id: ClothingUniformJumpsuitHosFormal
       - id: RubberStampHos
-      - id: SecurityTechFabCircuitboard
       - id: JetpackSecurityFilled
       - id: HyperlinkBookSpaceLaw

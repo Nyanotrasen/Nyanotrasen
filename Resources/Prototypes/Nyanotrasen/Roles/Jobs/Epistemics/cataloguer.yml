@@ -9,6 +9,8 @@
   supervisors: "the mystagogue"
   access:
   - Research
+  extendedAccess:
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:

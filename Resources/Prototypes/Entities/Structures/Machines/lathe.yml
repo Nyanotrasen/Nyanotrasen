@@ -186,6 +186,7 @@
       - LargeBeaker
       - Dropper
       - Syringe
+      - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
       - Flash
@@ -194,11 +195,6 @@
       - MicroLaserStockPart
       - MatterBinStockPart
       - CapacitorStockPart
-      - AdvancedCapacitorStockPart
-      - AdvancedMatterBinStockPart
-      - HighPowerMicroLaserStockPart
-      - NanoManipulatorStockPart
-      - AdvancedScanningModuleStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -220,7 +216,6 @@
       - ProximitySensor
       - LeftArmBorg
       - RightArmBorg
-      - HolofanProjector
 
 - type: entity
   parent: Protolathe
@@ -296,6 +291,7 @@
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
       - ArtifactAnalyzerMachineCircuitboard
+      - TraversalDistorterMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
@@ -422,6 +418,8 @@
       - CryostasisBeaker
       - Dropper
       - Syringe
+      - Implanter
+      - PillCanister
       - BodyBag
       - PillCanister #Everything below this is shared with other lathes
       - FlashlightLantern

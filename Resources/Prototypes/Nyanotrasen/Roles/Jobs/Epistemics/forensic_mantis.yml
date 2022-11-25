@@ -16,6 +16,7 @@
   icon: "Detective"
   supervisors: "the mystagogue"
   antagAdvantage: 4
+  canBeAntag: false
   access:
   - Research
   - Brig
@@ -24,9 +25,8 @@
   special:
   - !type:AddComponentSpecial
     components:
-    - type: PsionicBonusChance
-      flatBonus: 1
-      warn: false
+    - type: Psionic
+    - type: MetapsionicPower
 
 - type: startingGear
   id: ForensicMantisGear
