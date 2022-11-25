@@ -35,10 +35,10 @@ namespace Content.Server.Chapel
         public int BlueSpaceRewardMax = 4;
 
         [DataField("glimmerReductionMin")]
-        public int GlimmerReductionMin = 50;
+        public int GlimmerReductionMin = 30;
 
         [DataField("glimmerReductionMax")]
-        public int GlimmerReductionMax = 100;
+        public int GlimmerReductionMax = 60;
 
         [DataField("trapPrototype")]
         public string TrapPrototype = "CrystalSoul";
