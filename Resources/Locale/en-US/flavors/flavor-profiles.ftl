@@ -172,3 +172,6 @@ flavor-complex-medicine = like medicine
 flavor-complex-carpet = like a handful of fur
 flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz
+
+## Nyano???
+flavor-complex-enthralling = enthralling
