@@ -48,6 +48,9 @@ namespace Content.Server.Chapel
             if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
                 return;
 
+            if (args.User == args.Target)
+                return;
+
             // you need psionic OR bible user
             if (!HasComp<PsionicComponent>(args.User) && !HasComp<BibleUserComponent>(args.User))
                 return;
