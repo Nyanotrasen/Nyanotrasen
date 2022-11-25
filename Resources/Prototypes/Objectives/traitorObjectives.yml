@@ -68,6 +68,8 @@
         - DieCondition
         - BecomePsionicCondition
     - !type:NotRoleRequirement
+      roleId: Chaplain
+    - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
