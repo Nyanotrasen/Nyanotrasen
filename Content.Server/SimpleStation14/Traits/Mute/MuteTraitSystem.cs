@@ -5,7 +5,7 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Robust.Shared.Player;
 
-namespace Content.Server.Nyandbox.Traits.Mute
+namespace Content.Server.SimpleStation14.Traits.Mute
 {
     public sealed class MuteTraitSystem : EntitySystem
     {

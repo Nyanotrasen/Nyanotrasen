@@ -1,4 +1,4 @@
-namespace Content.Server.Nyandbox.Traits.Mute
+namespace Content.Server.SimpleStation14.Traits.Mute
 {
     /// <summary>
     /// Owner entity cannot speak.

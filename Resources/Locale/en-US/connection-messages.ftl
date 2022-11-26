@@ -1,4 +1,4 @@
-﻿whitelist-not-whitelisted = Nyandbox requires whitelisting above {$num} players. Connect to the Discord at discord.gg/49KeKwXc8g
+﻿whitelist-not-whitelisted = SimpleStation14 requires whitelisting above {$num} players. Connect to the Discord at discord.gg/49KeKwXc8g
 whitelist-end-round-kick = Non-whitelisted players are automatically kicked at round end. To apply for whitelisting, connect to the Discord at discord.gg/49KeKwXc8g
 
 command-whitelistadd-description = Adds the player with the given username to the server whitelist.

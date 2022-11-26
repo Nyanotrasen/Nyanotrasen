@@ -5,118 +5,118 @@
   name: admin observer
   noSpawn: true
   components:
-  - type: Tag
-    tags:
-    - CanPilot
-  - type: Input
-    context: "aghost"
-  - type: CombatMode
-    canDisarm: true
-  - type: Ghost
-    canInteract: true
-  - type: Sprite
-    overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
-    netsync: false
-    noRot: true
-    drawdepth: Ghosts
-    sprite: Nyandbox/Mobs/Ghosts/ghost_admin.rsi
-    state: animated
-    color: "#888888"
-    layers:
-      - state: animated
-        shader: unshaded
-  - type: PointLight
-    radius: 4.5
-    energy: 1.25
-  - type: Hands
-  - type: DoAfter
-  - type: Actions
-  - type: InputMover
-  - type: MovementSpeedModifier
-    baseSprintSpeed: 12
-    baseWalkSpeed: 8
-  - type: Physics
-    ignorePaused: true
-    bodyType: Kinematic
-  - type: Body
-    prototype: Aghost
-  - type: Access
-    groups:
-    - AllAccess
-  - type: UserInterface
-    interfaces:
-      - key: enum.SolarControlConsoleUiKey.Key
-        type: SolarControlConsoleBoundUserInterface
-      - key: enum.CommunicationsConsoleUiKey.Key
-        type: CommunicationsConsoleBoundUserInterface
-      - key: enum.RadarConsoleUiKey.Key
-        type: RadarConsoleBoundUserInterface
-      - key: enum.CargoConsoleUiKey.Orders
-        type: CargoOrderConsoleBoundUserInterface
-      - key: enum.CrewMonitoringUIKey.Key
-        type: CrewMonitoringBoundUserInterface
-  - type: IntrinsicUI
-    uis:
-      - key: enum.SolarControlConsoleUiKey.Key
-        toggleAction:
-          name: action-name-show-solar-console
-          description: action-description-show-solar-console
-          icon: Structures/Machines/parts.rsi/box_0.png
-          iconOn: Structures/Machines/parts.rsi/box_2.png
-          keywords: [ "AI", "console", "interface" ]
-          priority: -10
-          event: !type:ToggleIntrinsicUIEvent
-      - key: enum.CommunicationsConsoleUiKey.Key
-        toggleAction:
-          name: action-name-show-communications-console
-          description: action-description-show-communications-console
-          icon: Structures/Machines/parts.rsi/box_0.png
-          iconOn: Structures/Machines/parts.rsi/box_2.png
-          keywords: [ "AI", "console", "interface" ]
-          priority: -10
-          event: !type:ToggleIntrinsicUIEvent
-      - key: enum.RadarConsoleUiKey.Key
-        toggleAction:
-          name: action-name-show-radar-console
-          description: action-description-show-radar-console
-          icon: Structures/Machines/parts.rsi/box_0.png
-          iconOn: Structures/Machines/parts.rsi/box_2.png
-          keywords: [ "AI", "console", "interface" ]
-          priority: -10
-          event: !type:ToggleIntrinsicUIEvent
-      - key: enum.CargoConsoleUiKey.Orders
-        toggleAction:
-          name: action-name-show-cargo-console
-          description: action-description-show-cargo-console
-          icon: Structures/Machines/parts.rsi/box_0.png
-          iconOn: Structures/Machines/parts.rsi/box_2.png
-          keywords: [ "AI", "console", "interface" ]
-          priority: -10
-          event: !type:ToggleIntrinsicUIEvent
-      - key: enum.CrewMonitoringUIKey.Key
-        toggleAction:
-          name: action-name-show-crew-monitoring-console
-          description: action-description-crew-monitoring-console
-          icon: Structures/Machines/parts.rsi/box_0.png
-          iconOn: Structures/Machines/parts.rsi/box_2.png
-          keywords: [ "AI", "console", "interface" ]
-          priority: -10
-          event: !type:ToggleIntrinsicUIEvent
-  - type: SolarControlConsole # look ma i AM the computer!
-  - type: CommunicationsConsole
-    title: communicationsconsole-announcement-title-centcom
-    color: "#228b22"
-  - type: RadarConsole
-  - type: CargoOrderConsole
-  - type: CrewMonitoringConsole
-    snap: false
-    precision: 3
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SuitSensor
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: Thieving
-    stripTimeReduction: 9999
-    stealthy: true
-  - type: Stripping
+    - type: Tag
+      tags:
+        - CanPilot
+    - type: Input
+      context: "aghost"
+    - type: CombatMode
+      canDisarm: true
+    - type: Ghost
+      canInteract: true
+    - type: Sprite
+      overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
+      netsync: false
+      noRot: true
+      drawdepth: Ghosts
+      sprite: SimpleStation14/Mobs/Ghosts/ghost_admin.rsi
+      state: animated
+      color: "#888888"
+      layers:
+        - state: animated
+          shader: unshaded
+    - type: PointLight
+      radius: 4.5
+      energy: 1.25
+    - type: Hands
+    - type: DoAfter
+    - type: Actions
+    - type: InputMover
+    - type: MovementSpeedModifier
+      baseSprintSpeed: 12
+      baseWalkSpeed: 8
+    - type: Physics
+      ignorePaused: true
+      bodyType: Kinematic
+    - type: Body
+      prototype: Aghost
+    - type: Access
+      groups:
+        - AllAccess
+    - type: UserInterface
+      interfaces:
+        - key: enum.SolarControlConsoleUiKey.Key
+          type: SolarControlConsoleBoundUserInterface
+        - key: enum.CommunicationsConsoleUiKey.Key
+          type: CommunicationsConsoleBoundUserInterface
+        - key: enum.RadarConsoleUiKey.Key
+          type: RadarConsoleBoundUserInterface
+        - key: enum.CargoConsoleUiKey.Orders
+          type: CargoOrderConsoleBoundUserInterface
+        - key: enum.CrewMonitoringUIKey.Key
+          type: CrewMonitoringBoundUserInterface
+    - type: IntrinsicUI
+      uis:
+        - key: enum.SolarControlConsoleUiKey.Key
+          toggleAction:
+            name: action-name-show-solar-console
+            description: action-description-show-solar-console
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+        - key: enum.CommunicationsConsoleUiKey.Key
+          toggleAction:
+            name: action-name-show-communications-console
+            description: action-description-show-communications-console
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+        - key: enum.RadarConsoleUiKey.Key
+          toggleAction:
+            name: action-name-show-radar-console
+            description: action-description-show-radar-console
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+        - key: enum.CargoConsoleUiKey.Orders
+          toggleAction:
+            name: action-name-show-cargo-console
+            description: action-description-show-cargo-console
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+        - key: enum.CrewMonitoringUIKey.Key
+          toggleAction:
+            name: action-name-show-crew-monitoring-console
+            description: action-description-crew-monitoring-console
+            icon: Structures/Machines/parts.rsi/box_0.png
+            iconOn: Structures/Machines/parts.rsi/box_2.png
+            keywords: ["AI", "console", "interface"]
+            priority: -10
+            event: !type:ToggleIntrinsicUIEvent
+    - type: SolarControlConsole # look ma i AM the computer!
+    - type: CommunicationsConsole
+      title: communicationsconsole-announcement-title-centcom
+      color: "#228b22"
+    - type: RadarConsole
+    - type: CargoOrderConsole
+    - type: CrewMonitoringConsole
+      snap: false
+      precision: 3
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SuitSensor
+    - type: WirelessNetworkConnection
+      range: 500
+    - type: Thieving
+      stripTimeReduction: 9999
+      stealthy: true
+    - type: Stripping

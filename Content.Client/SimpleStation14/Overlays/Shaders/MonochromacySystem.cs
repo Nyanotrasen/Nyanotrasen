@@ -6,7 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Network;
 
-namespace Content.Client.Nyandbox.Overlays;
+namespace Content.Client.SimpleStation14.Overlays;
 public sealed class MonochromacySystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;

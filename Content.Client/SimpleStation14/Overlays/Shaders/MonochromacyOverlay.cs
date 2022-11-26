@@ -6,7 +6,7 @@ using Content.Shared.Abilities;
 using Robust.Client.GameObjects;
 using Content.Shared.Eye.Blinding;
 
-namespace Content.Client.Nyandbox.Overlays
+namespace Content.Client.SimpleStation14.Overlays
 {
     public sealed class MonochromacyOverlay : Overlay
     {
@@ -29,7 +29,7 @@ namespace Content.Client.Nyandbox.Overlays
         {
             if (ScreenTexture == null)
                 return;
-            if (_playerManager.LocalPlayer?.ControlledEntity is not {Valid: true} player)
+            if (_playerManager.LocalPlayer?.ControlledEntity is not { Valid: true } player)
                 return;
             if (!_entityManager.HasComponent<MonochromacyComponent>(player))
                 return;

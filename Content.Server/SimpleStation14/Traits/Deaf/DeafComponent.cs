@@ -1,4 +1,4 @@
-namespace Content.Server.Nyandbox.Traits.Deaf
+namespace Content.Server.SimpleStation14.Traits.Deaf
 {
     /// <summary>
     /// Owner entity cannot hear.
