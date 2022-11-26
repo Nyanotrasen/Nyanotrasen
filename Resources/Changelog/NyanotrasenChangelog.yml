@@ -1086,3 +1086,13 @@ Entries:
     type: Tweak
   id: 114
   time: '2022-11-25T19:31:55.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a security outpost below cargo.
+    type: Add
+  - message: Added golem shells.
+    type: Add
+  - message: Fixed the evac door that was unpowered.
+    type: Fix
+  id: 115
+  time: '2022-11-26T03:13:05.0000000+00:00'
