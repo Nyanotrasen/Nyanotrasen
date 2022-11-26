@@ -95,7 +95,7 @@ public sealed class NoosphericFry : GlimmerEventSystem
                 return;
 
             // shoot out three bolts of lighting...
-            _glimmerReactiveSystem.BeamRandomNearProber(reactive.Owner, 3);
+            _glimmerReactiveSystem.BeamRandomNearProber(reactive.Owner, 3, 12);
 
             // try to anchor if we can
             if (!Transform(reactive.Owner).Anchored && _anchorableSystem.TileFree(Transform(reactive.Owner).Coordinates, physics))

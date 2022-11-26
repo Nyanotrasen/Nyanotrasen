@@ -1010,3 +1010,89 @@ Entries:
     type: Tweak
   id: 110
   time: '2022-11-24T00:49:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Replaced the awful moth damage modifier set with something better.
+    type: Tweak
+  - message: Removed supply radio and merged it with service.
+    type: Remove
+  - message: Sophic grammateus has a cooldown on stating the glimmer level.
+    type: Fix
+  - message: Added lotophagoi oil, a drug much better at rolling for psionics than
+      space drugs but harder to acquire. The chance approaches 100% somewhere between
+      200 and 300 glimmer.
+    type: Add
+  - message: Only humanoids can sacrifice on the altar.
+    type: Fix
+  - message: The mail teleporter can be turned on and off, and starts off.
+    type: Tweak
+  - message: Added a mouth slot to monkey inventory template.
+    type: Tweak
+  - message: Destroying artifacts now increases glimmer, but much more effecient research
+      point / glimmer ratio than probers.
+    type: Tweak
+  - message: New objective to get golemized.
+    type: Add
+  - message: Probers' destructive capabilities increased a bit more.
+    type: Tweak
+  - message: Added description to QSIs explaining what they do.
+    type: Add
+  - message: Meteors are rarer.
+    type: Tweak
+  - message: Mantis is back to getting guaranteed metapsionic power (until psychometry)
+      and is temporarily not a valid traitor anymore.
+    type: Tweak
+  - message: Finally actually renamed cleric to golemancer. It might stay that way
+      until we get variant roles.
+    type: Tweak
+  id: 111
+  time: '2022-11-24T20:49:42.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: The Mystagogue now has a proper backup headset for Epistemics in the
+      locker.
+    type: Fix
+  id: 112
+  time: '2022-11-25T07:05:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a moth layering issue.
+    type: Fix
+  - message: You can no longer sacrifice yourself
+    type: Fix
+  - message: Golemancers will not get the objective to get golemized.
+    type: Fix
+  - message: Lotophagoi oil flavor properly appears.
+    type: Fix
+  - message: Fixed arachne ear slot not showing up in strip menu.
+    type: Fix
+  - message: Statues will not rotate (fixes grammateus during the mind swap event).
+    type: Fix
+  - message: Reduced sacrifice glimmer reduction by a bit.
+    type: Tweak
+  - message: Moths have their original hansds again. The jojoke has concluded.
+    type: Tweak
+  - message: Added automaturge clothes to the pietyvend.
+    type: Add
+  - message: Added a new lobby song.
+    type: Add
+  id: 113
+  time: '2022-11-25T19:09:40.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged a bunch of upstream bug fixes. Keep reporting bugs in our discord.
+    type: Tweak
+  - message: Updated patrons.
+    type: Tweak
+  id: 114
+  time: '2022-11-25T19:31:55.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a security outpost below cargo.
+    type: Add
+  - message: Added golem shells.
+    type: Add
+  - message: Fixed the evac door that was unpowered.
+    type: Fix
+  id: 115
+  time: '2022-11-26T03:13:05.0000000+00:00'

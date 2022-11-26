@@ -49,12 +49,32 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+        - BecomeGolemCondition
     - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
   conditions:
     - !type:BecomePsionicCondition
+
+- type: objective
+  id: BecomeGolemObjective
+  issuer: syndicate
+  difficultyOverride: 3.5
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+        - BecomePsionicCondition
+    - !type:NotRoleRequirement
+      roleId: Chaplain
+    - !type:NotRoleRequirement
+      roleId: ForensicMantis
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+  conditions:
+    - !type:BecomeGolemCondition
 
 - type: objective
   id: CMOHyposprayStealObjective
