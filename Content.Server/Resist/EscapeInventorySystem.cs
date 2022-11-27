@@ -90,6 +90,8 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnEscapeComplete(EntityUid uid, CanEscapeInventoryComponent component, EscapeDoAfterComplete ev)
     {
+        component.CancelToken?.Cancel();
+
         if (TryComp<BeingCarriedComponent>(uid, out var carried))
         {
             _carryingSystem.DropCarried(carried.Carrier, uid);
@@ -97,13 +99,12 @@ public sealed class EscapeInventorySystem : EntitySystem
         }
 
         //Drops the mob on the tile below the container
-        Transform(uid).AttachParentToContainerOrGrid(EntityManager);
-        component.CancelToken = null;
+        _containerSystem.AttachParentToContainerOrGrid(Transform(uid));
     }
 
     private void OnEscapeFail(EntityUid uid, CanEscapeInventoryComponent component, EscapeDoAfterCancel ev)
     {
-        component.CancelToken = null;
+        component.CancelToken?.Cancel();
     }
 
     private void OnDropped(EntityUid uid, CanEscapeInventoryComponent component, DroppedEvent args)
