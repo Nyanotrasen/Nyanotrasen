@@ -40,6 +40,7 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnRelayMovement(EntityUid uid, CanEscapeInventoryComponent component, ref MoveInputEvent args)
     {
+        Logger.Error("Cancel token null: " + (component.CancelToken == null));
         if (component.CancelToken != null)
             return;
 
@@ -90,7 +91,7 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnEscapeComplete(EntityUid uid, CanEscapeInventoryComponent component, EscapeDoAfterComplete ev)
     {
-        component.CancelToken?.Cancel();
+        component.CancelToken = null;
 
         if (TryComp<BeingCarriedComponent>(uid, out var carried))
         {
@@ -99,17 +100,17 @@ public sealed class EscapeInventorySystem : EntitySystem
         }
 
         //Drops the mob on the tile below the container
-        _containerSystem.AttachParentToContainerOrGrid(Transform(uid));
+        Transform(uid).AttachToGridOrMap();
     }
 
     private void OnEscapeFail(EntityUid uid, CanEscapeInventoryComponent component, EscapeDoAfterCancel ev)
     {
-        component.CancelToken?.Cancel();
+        component.CancelToken = null;
     }
 
     private void OnDropped(EntityUid uid, CanEscapeInventoryComponent component, DroppedEvent args)
     {
-        component.CancelToken?.Cancel();
+        component.CancelToken = null;
     }
 
     private sealed class EscapeDoAfterComplete : EntityEventArgs { }
