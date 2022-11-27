@@ -135,7 +135,8 @@ binds:
   key: MouseMiddle
 - function: EditorCopyObject
   type: State
-  key: P
+  key: MouseMiddle
+  mod1: Alt
 - function: SwapHands
   type: State
   key: X
@@ -499,3 +500,8 @@ binds:
   type: State
   key: Num9
   mod1: Shift
+
+- key: V
+  mod1: Alt
+  type: Command
+  function: vv /c/enthover

@@ -1,7 +1,7 @@
 - type: species
   id: Diona
   name: species-name-diona
-  roundStart: false
+  roundStart: true
   prototype: MobDiona
   sprites: MobDionaSprites
   markingLimits: MobDionaMarkingLimits
@@ -28,13 +28,27 @@
 
 - type: markingPoints
   id: MobDionaMarkingLimits
-  onlyWhitelisted: true
   points:
+    Hair:
+      points: 10
+      required: false
+    FacialHair:
+      points: 10
+      required: false
+    Tail:
+      points: 10
+      required: false
     HeadTop:
-      points: 1
+      points: 10
       required: false
     Chest:
-      points: 1
+      points: 10
+      required: false
+    Legs:
+      points: 20
+      required: false
+    Arms:
+      points: 20
       required: false
 
 - type: humanoidBaseSprite

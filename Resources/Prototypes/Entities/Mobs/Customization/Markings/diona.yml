@@ -2,43 +2,103 @@
   id: DionaThornsHead
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Diona]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Mobs/Customization/diona.rsi
-    state: thorns_head
+    - sprite: Mobs/Customization/diona.rsi
+      state: thorns_head
 
 - type: marking
   id: DionaThornsBody
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Diona]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Mobs/Customization/diona.rsi
-    state: thorns_body
+    - sprite: Mobs/Customization/diona.rsi
+      state: thorns_body
 
 - type: marking
   id: DionaFlowersHead
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [Diona]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Mobs/Customization/diona.rsi
-    state: flowers_head
+    - sprite: Mobs/Customization/diona.rsi
+      state: flowers_head
 
 - type: marking
   id: DionaFlowersBody
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Diona]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Mobs/Customization/diona.rsi
-    state: flowers_body
+    - sprite: Mobs/Customization/diona.rsi
+      state: flowers_body
 
 - type: marking
   id: DionaLeafCover
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [Diona]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Mobs/Customization/diona.rsi
-    state: leaf_cover
+    - sprite: Mobs/Customization/diona.rsi
+      state: leaf_cover

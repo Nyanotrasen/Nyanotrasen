@@ -1,70 +1,153 @@
-
 - type: marking
   id: OniHornSingleCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: single_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: single_curved
 
 - type: marking
   id: OniHornSingleLeftCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: single_left_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: single_left_curved
 
 - type: marking
   id: OniHornSingleRightCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: single_right_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: single_right_curved
 
 - type: marking
   id: OniHornDoubleCurvedOutwards
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: double_curved_outwards
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: double_curved_outwards
 
 - type: marking
   id: OniHornDoubleCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: double_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: double_curved
 
 - type: marking
   id: OniHornDoubleLeftBrokeCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: double_left_broke_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: double_left_broke_curved
 
 - type: marking
   id: OniHornDoubleRightBrokeCurved
   bodyPart: HeadTop
   markingCategory: HeadTop
   followSkinColor: false
-  speciesRestriction: [Human, Felinid, Reptilian, SlimePerson, Vox, Oni, Lamia]
+  speciesRestriction:
+    [
+      Human,
+      Felinid,
+      Reptilian,
+      SlimePerson,
+      Vox,
+      Oni,
+      Lamia,
+      Arachne,
+      Diona,
+      Moth,
+    ]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
-    state: double_right_broke_curved
+    - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
+      state: double_right_broke_curved
