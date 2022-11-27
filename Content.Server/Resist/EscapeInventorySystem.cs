@@ -40,7 +40,6 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnRelayMovement(EntityUid uid, CanEscapeInventoryComponent component, ref MoveInputEvent args)
     {
-        Logger.Error("Cancel token null: " + (component.CancelToken == null));
         if (component.CancelToken != null)
             return;
 
