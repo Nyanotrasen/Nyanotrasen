@@ -22,6 +22,7 @@
       collection: ToySqueak
   - type: ItemCooldown
   - type: Tag
+    tags:
     - Payload # yes, you can even make re-usable plushie grenades
   - type: UseDelay
     delay: 1.0
@@ -208,7 +209,7 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Effects/bite.ogg
-  - type: EmitSoundOnActivate
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/bite.ogg
   - type: MeleeWeapon
