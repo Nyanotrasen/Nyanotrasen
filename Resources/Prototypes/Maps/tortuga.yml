@@ -6,6 +6,7 @@
   stations:
     tortuga:
       mapNameTemplate: '{0} Tortuga Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_SealG.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: 'TG'
