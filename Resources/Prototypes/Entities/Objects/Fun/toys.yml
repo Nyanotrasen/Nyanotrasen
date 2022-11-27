@@ -110,6 +110,9 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/weh.ogg
@@ -129,6 +132,9 @@
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: MeleeWeapon
@@ -236,6 +242,9 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/rattle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/rattle.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
@@ -249,6 +258,9 @@
   - type: Sprite
     state: toy_mouse
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger # Piep!
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
@@ -272,6 +284,9 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/quack.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/quack.ogg
 
 - type: entity
   parent: BasePlushie
@@ -286,6 +301,9 @@
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: MeleeWeapon
@@ -355,6 +373,9 @@
   - type: Sprite
     state: ian
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/ian.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/ian.ogg
   - type: MeleeWeapon
