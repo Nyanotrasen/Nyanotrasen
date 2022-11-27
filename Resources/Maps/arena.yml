@@ -42257,8 +42257,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.619795
-      - 77.56971
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -42287,8 +42287,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 20.619795
-      - 77.56971
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -44250,7 +44250,7 @@ entities:
   - pos: 12.5,-24.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230073.55
+  - SecondsUntilStateChange: -231198.27
     state: Opening
     type: Door
 - uid: 310
@@ -48123,7 +48123,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108487.52
+  - SecondsUntilStateChange: -109612.234
     state: Closing
     type: Door
   - airBlocked: False
@@ -49246,7 +49246,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108487.52
+  - SecondsUntilStateChange: -109612.234
     state: Closing
     type: Door
   - airBlocked: False
@@ -49286,7 +49286,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108485.016
+  - SecondsUntilStateChange: -109609.73
     state: Closing
     type: Door
   - airBlocked: False
@@ -49308,7 +49308,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108485.016
+  - SecondsUntilStateChange: -109609.73
     state: Closing
     type: Door
   - airBlocked: False
@@ -55861,27 +55861,22 @@ entities:
     parent: 0
     type: Transform
 - uid: 2148
-  type: ComputerCloningConsole
+  type: CloningPod
   components:
-  - rot: 3.141592653589793 rad
-    pos: 22.5,-34.5
+  - pos: 20.5,-34.5
     parent: 0
     type: Transform
 - uid: 2149
-  type: CloningPod
-  components:
-  - pos: 21.5,-34.5
-    parent: 0
-    type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
-- uid: 2150
-  type: computerBodyScanner
+  type: ComputerCloningConsole
   components:
   - rot: 3.141592653589793 rad
-    pos: 20.5,-34.5
+    pos: 21.5,-34.5
+    parent: 0
+    type: Transform
+- uid: 2150
+  type: MedicalScanner
+  components:
+  - pos: 22.5,-34.5
     parent: 0
     type: Transform
 - uid: 2151
@@ -55897,15 +55892,15 @@ entities:
     parent: 0
     type: Transform
 - uid: 2153
-  type: computerBodyScanner
+  type: TableGlass
   components:
-  - pos: 16.5,-21.5
+  - pos: 17.5,-21.5
     parent: 0
     type: Transform
 - uid: 2154
-  type: MedicalScanner
+  type: TableGlass
   components:
-  - pos: 17.5,-21.5
+  - pos: 16.5,-21.5
     parent: 0
     type: Transform
 - uid: 2155
@@ -57799,7 +57794,7 @@ entities:
   - pos: 27.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230209.47
+  - SecondsUntilStateChange: -231334.19
     state: Opening
     type: Door
   - inputs:
@@ -57817,7 +57812,7 @@ entities:
   - pos: 27.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230209.47
+  - SecondsUntilStateChange: -231334.19
     state: Opening
     type: Door
   - inputs:
@@ -57835,7 +57830,7 @@ entities:
   - pos: 27.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230209.47
+  - SecondsUntilStateChange: -231334.19
     state: Opening
     type: Door
   - inputs:
@@ -57853,7 +57848,7 @@ entities:
   - pos: 27.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230209.47
+  - SecondsUntilStateChange: -231334.19
     state: Opening
     type: Door
   - inputs:
@@ -57871,7 +57866,7 @@ entities:
   - pos: 27.5,-38.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -230209.47
+  - SecondsUntilStateChange: -231334.19
     state: Opening
     type: Door
   - inputs:
@@ -65696,7 +65691,7 @@ entities:
 - uid: 3712
   type: BoxSterileMask
   components:
-  - pos: 17.631908,-23.399155
+  - pos: 16.505558,-21.343874
     parent: 0
     type: Transform
 - uid: 3713
@@ -65798,7 +65793,7 @@ entities:
 - uid: 3729
   type: HandheldHealthAnalyzer
   components:
-  - pos: 17.482426,-25.082226
+  - pos: 17.462543,-25.320255
     parent: 0
     type: Transform
 - uid: 3730
@@ -65828,8 +65823,7 @@ entities:
 - uid: 3734
   type: HandheldCrewMonitor
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 17.52172,-25.48853
+  - pos: 17.30297,-21.424147
     parent: 0
     type: Transform
 - uid: 3735
@@ -71412,7 +71406,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -127416.86
+  - SecondsUntilStateChange: -128541.57
     state: Closing
     type: Door
   - airBlocked: False
@@ -94284,7 +94278,7 @@ entities:
   - pos: 53.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -246594.22
+  - SecondsUntilStateChange: -247718.94
     state: Closing
     type: Door
   - enabled: False
@@ -94308,7 +94302,7 @@ entities:
   - pos: 54.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -246594.22
+  - SecondsUntilStateChange: -247718.94
     state: Closing
     type: Door
   - enabled: False
@@ -94416,7 +94410,7 @@ entities:
   - pos: 53.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -246597.86
+  - SecondsUntilStateChange: -247722.58
     state: Closing
     type: Door
   - enabled: False
@@ -94440,7 +94434,7 @@ entities:
   - pos: 54.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -246597.86
+  - SecondsUntilStateChange: -247722.58
     state: Closing
     type: Door
   - enabled: False
@@ -118680,7 +118674,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108492.3
+  - SecondsUntilStateChange: -109617.01
     state: Closing
     type: Door
   - airBlocked: False
@@ -118704,7 +118698,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -108492.3
+  - SecondsUntilStateChange: -109617.01
     state: Closing
     type: Door
   - airBlocked: False
