@@ -14,9 +14,6 @@ namespace Content.Server.Chapel
         [DataField("sacrificeSound")]
         public SoundSpecifier SacrificeSoundPath = new SoundPathSpecifier("/Audio/Effects/clang2.ogg");
 
-        [DataField("finishSound")]
-        public SoundSpecifier FinishSound = new SoundPathSpecifier("/Audio/Effects/gib1.ogg");
-
         public IPlayingAudioStream? SacrificeStingStream;
 
         [DataField("rewardPool")]
