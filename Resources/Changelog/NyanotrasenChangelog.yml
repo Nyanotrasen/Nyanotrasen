@@ -1129,3 +1129,34 @@ Entries:
     type: Tweak
   id: 120
   time: '2022-11-28T20:52:59.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed altar exploit.
+    type: Fix
+  - message: Altar gibs again.
+    type: Tweak
+  - message: Added a bunch of messages that should make people understand why altar
+      sacrifice is or is not working.
+    type: Add
+  - message: Stutter accent from the noospheric zap event reduced from 30s to 10s.
+    type: Tweak
+  - message: Oni can use guns again. They are just extremely inaccurate.
+    type: Add
+  - message: Artifact glimmer from sacrifice increased slightly.
+    type: Tweak
+  - message: Removed max occurences from noospheric storm.
+    type: Tweak
+  - message: Entities with laws open the UI for you when you attach to them.
+    type: Tweak
+  - message: Renamed more stuff.
+    type: Fix
+  - message: Cognizine behavior has been unified with the other methods of gaining
+      sentience.
+    type: Tweak
+  - message: Only humanoids can install golems.
+    type: Fix
+  - message: Timer trigger moved out of chem technology and is unlocked with the other
+      triggers.
+    type: Tweak
+  id: 121
+  time: '2022-11-28T20:58:48.0000000+00:00'
