@@ -48,17 +48,6 @@ namespace Content.Server.Chapel
             if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
                 return;
 
-            if (args.User == args.Target)
-                return;
-
-            // you need psionic OR bible user
-            if (!HasComp<PsionicComponent>(args.User) && !HasComp<BibleUserComponent>(args.User))
-                return;
-
-            // and no golems or familiars or whatever should be sacrificing
-            if (!HasComp<HumanoidComponent>(args.User))
-                return;
-
             if (!TryComp<StrapComponent>(uid, out var strap))
                 return;
 
@@ -66,19 +55,11 @@ namespace Content.Server.Chapel
 
             foreach (var entity in strap.BuckledEntities) // mm yes I love hashsets which can't be accessed via index
             {
-                if (!HasComp<PsionicComponent>(entity))
-                    return;
-
-                if (!HasComp<HumanoidComponent>(entity))
-                    return;
-
                 sacrificee = entity;
             }
 
             if (sacrificee == null)
                 return;
-
-            _popups.PopupEntity(Loc.GetString("altar-popup", ("user", args.User), ("target", sacrificee)), uid, Filter.Pvs(uid), Shared.Popups.PopupType.LargeCaution);
 
             AlternativeVerb verb = new()
             {
@@ -162,7 +143,42 @@ namespace Content.Server.Chapel
             if (component.CancelToken != null)
                 return;
 
+            // can't sacrifice yourself
+            if (agent == patient)
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-self"), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
+            // you need psionic OR bible user
+            if (!HasComp<PsionicComponent>(agent) && !HasComp<BibleUserComponent>(agent))
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-user"), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
+            // and no golems or familiars or whatever should be sacrificing
+            if (!HasComp<HumanoidComponent>(agent))
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-user-humanoid"), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
+            if (!HasComp<PsionicComponent>(patient))
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-target", ("target", patient)), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
+            if (!HasComp<HumanoidComponent>(patient))
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", patient)), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
             _stunSystem.TryParalyze(patient, component.SacrificeTime, true);
+
+            _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Filter.Pvs(altar), Shared.Popups.PopupType.LargeCaution);
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
             component.CancelToken = new CancellationTokenSource();
