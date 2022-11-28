@@ -113,7 +113,6 @@
     - ReagentGrinderMachineCircuitboard
     - PillCanister
     - ChemistryEmptyBottle01
-    - TimerTrigger
     - ChemicalPayload
 
 - type: technology
@@ -386,6 +385,7 @@
     - Signaller
     - SignalTrigger
     - VoiceTrigger
+    - TimerTrigger
 
 - type: technology
   name: technologies-compact-power-technology

@@ -1,6 +1,7 @@
 using Content.Shared.Borgs;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Borgs
 {
@@ -8,15 +9,26 @@ namespace Content.Server.Borgs
     {
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<LawsComponent, StateLawsMessage>(OnStateLaws);
+            SubscribeLocalEvent<LawsComponent, PlayerAttachedEvent>(OnPlayerAttached);
         }
 
         private void OnStateLaws(EntityUid uid, LawsComponent component, StateLawsMessage args)
         {
             StateLaws(uid, component);
+        }
+
+        private void OnPlayerAttached(EntityUid uid, LawsComponent component, PlayerAttachedEvent args)
+        {
+            if (!_uiSystem.TryGetUi(uid, LawsUiKey.Key, out var ui))
+                return;
+
+            _uiSystem.TryOpen(uid, LawsUiKey.Key, args.Player);
         }
 
         public void StateLaws(EntityUid uid, LawsComponent? component = null)

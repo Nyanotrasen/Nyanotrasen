@@ -10,6 +10,7 @@ using Content.Shared.Administration.Logs;
 using Content.Server.Borgs;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Players;
+using Content.Server.Humanoid;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -53,6 +54,9 @@ namespace Content.Server.Soul
                 return;
 
             if (!TryComp<ActorComponent>(args.User, out var userActor))
+                return;
+
+            if (!HasComp<HumanoidComponent>(args.User))
                 return;
 
             if (!_uiSystem.TryGetUi(args.Target.Value, GolemUiKey.Key, out var ui))
