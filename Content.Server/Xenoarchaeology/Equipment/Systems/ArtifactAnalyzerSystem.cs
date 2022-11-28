@@ -333,7 +333,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var points = _artifact.GetResearchPointValue(entToDestroy.Value);
 
         client.Server.Points += points;
-        _glimmerSystem.Glimmer += (int) points / 1000;
+        _glimmerSystem.Glimmer += (int) points / 800;
         EntityManager.DeleteEntity(entToDestroy.Value);
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
