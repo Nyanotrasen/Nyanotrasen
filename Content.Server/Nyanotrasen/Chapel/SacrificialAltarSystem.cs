@@ -1,6 +1,7 @@
 using System.Threading;
 using Content.Shared.Verbs;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Body.Components;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -15,6 +16,7 @@ using Content.Server.Humanoid;
 using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Soul;
+using Content.Server.Body.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
@@ -34,6 +36,7 @@ namespace Content.Server.Chapel
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly BodySystem _bodySystem = default!;
 
         public override void Initialize()
         {
@@ -92,8 +95,13 @@ namespace Content.Server.Chapel
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(altarComp.RewardPool, out var pool))
                 return;
 
-            QueueDel(args.Target);
-            _audioSystem.PlayPvs(altarComp.FinishSound, args.Altar);
+            if (TryComp<BodyComponent>(args.Target, out var body))
+            {
+                _bodySystem.GibBody(args.Target, true, body, false);
+            } else
+            {
+                QueueDel(args.Target);
+            }
 
             var chance = HasComp<BibleUserComponent>(args.User) ? altarComp.RewardPoolChanceBibleUser : altarComp.RewardPoolChance;
 
@@ -176,7 +184,6 @@ namespace Content.Server.Chapel
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", patient)), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
                 return;
             }
-
 
             if (HasComp<BibleUserComponent>(agent))
             {
