@@ -72,11 +72,12 @@
   - type: WiresVisuals
   - type: AccessReader
     access: [["Service"]]
-type: entity
+
+- type: entity
   parent: VendingMachine
   id: VendingMachineBoxingDrobe
   name: Boxing Drobe
-  description: All you need to be a boxing station star.
+  description: Always short on stock.
   components:
   - type: VendingMachine
     pack: BoxingDrobeInventory
