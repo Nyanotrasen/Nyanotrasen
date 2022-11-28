@@ -42,5 +42,13 @@ namespace Content.Server.Chapel
 
         [DataField("trapPrototype")]
         public string TrapPrototype = "CrystalSoul";
+
+        /// <summary>
+        ///     Antiexploit.
+        /// </summary>
+        public TimeSpan? StunTime = null;
+
+        [DataField("stateCD")]
+        public TimeSpan StunCD = TimeSpan.FromSeconds(30);
     }
 }

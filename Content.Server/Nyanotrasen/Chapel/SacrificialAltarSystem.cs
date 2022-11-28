@@ -19,6 +19,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Chapel
 {
@@ -32,7 +33,7 @@ namespace Content.Server.Chapel
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
         {
@@ -176,7 +177,15 @@ namespace Content.Server.Chapel
                 return;
             }
 
-            _stunSystem.TryParalyze(patient, component.SacrificeTime, true);
+
+            if (HasComp<BibleUserComponent>(agent))
+            {
+                if (component.StunTime == null || _timing.CurTime > component.StunTime)
+                {
+                    _stunSystem.TryParalyze(patient, component.SacrificeTime + TimeSpan.FromSeconds(1), true);
+                    component.StunTime = _timing.CurTime + component.StunCD;
+                }
+            }
 
             _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Filter.Pvs(altar), Shared.Popups.PopupType.LargeCaution);
 
