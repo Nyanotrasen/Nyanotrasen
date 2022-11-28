@@ -44,8 +44,8 @@ action-name-psionic-regeneration = Psionic Regeneration
 action-description-psionic-regeneration = Push your natural metabolism to the limit to power your body's regenerative capability.
 
 glimmer-report = Current Glimmer Level: {$level}Ψ.
-glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.
-glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}μΨ.
+glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}Ψ.
+glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}Ψ.
 glimmer-event-awakened-prefix = awakened {$entity}
 
 noospheric-zap-seize = You seize up!
