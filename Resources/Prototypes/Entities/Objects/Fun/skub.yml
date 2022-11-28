@@ -13,5 +13,11 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/skub.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/skub.ogg
+  - type: Tag
+    tags:
+    - Payload # skub grenade /!\
   - type: UseDelay
     delay: 2.0
