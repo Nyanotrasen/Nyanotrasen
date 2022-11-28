@@ -95,14 +95,6 @@ namespace Content.Server.Chapel
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(altarComp.RewardPool, out var pool))
                 return;
 
-            if (TryComp<BodyComponent>(args.Target, out var body))
-            {
-                _bodySystem.GibBody(args.Target, true, body, false);
-            } else
-            {
-                QueueDel(args.Target);
-            }
-
             var chance = HasComp<BibleUserComponent>(args.User) ? altarComp.RewardPoolChanceBibleUser : altarComp.RewardPoolChance;
 
             if (_robustRandom.Prob(chance))
@@ -132,6 +124,14 @@ namespace Content.Server.Chapel
 
                 MetaData(trap).EntityName = Loc.GetString("soul-entity-name", ("trapped", args.Target));
                 MetaData(trap).EntityDescription = Loc.GetString("soul-entity-desc", ("trapped", args.Target));
+            }
+
+            if (TryComp<BodyComponent>(args.Target, out var body))
+            {
+                _bodySystem.GibBody(args.Target, true, body, false);
+            } else
+            {
+                QueueDel(args.Target);
             }
         }
 
