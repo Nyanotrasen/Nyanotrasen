@@ -25,6 +25,7 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: DroneMachine
   - type: GhostRoleMobSpawner
     prototype: Drone
     makeSentient: true

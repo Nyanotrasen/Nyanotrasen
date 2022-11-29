@@ -20,10 +20,10 @@ namespace Content.Server.Ghost.Roles.Components
         private bool _deleteOnSpawn = true;
 
         [ViewVariables(VVAccess.ReadWrite)] [DataField("availableTakeovers")]
-        private int _availableTakeovers = 1;
+        public int AvailableTakeovers = 1;
 
         [ViewVariables]
-        private int _currentTakeovers = 0;
+        public int CurrentTakeovers = 0;
 
         [CanBeNull]
         [ViewVariables(VVAccess.ReadWrite)]
@@ -53,7 +53,7 @@ namespace Content.Server.Ghost.Roles.Components
             var ghostRoleSystem = EntitySystem.Get<GhostRoleSystem>();
             ghostRoleSystem.GhostRoleInternalCreateMindAndTransfer(session, Owner, mob, this);
 
-            if (++_currentTakeovers < _availableTakeovers)
+            if (++CurrentTakeovers < AvailableTakeovers)
                 return true;
 
             Taken = true;
