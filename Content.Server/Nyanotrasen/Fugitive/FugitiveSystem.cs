@@ -67,10 +67,7 @@ namespace Content.Server.Fugitive
         private void OnSpawned(EntityUid uid, FugitiveComponent component, GhostRoleSpawnerUsedEvent args)
         {
             if (TryComp<FugitiveCountdownComponent>(uid, out var cd))
-            {
-                Logger.Error("Setting announce time...");
                 cd.AnnounceTime = _timing.CurTime + cd.AnnounceCD;
-            }
         }
 
         private void OnMindAdded(EntityUid uid, FugitiveComponent component, MindAddedMessage args)
