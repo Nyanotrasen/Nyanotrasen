@@ -1,5 +1,6 @@
 station-event-fugitive-hunt-announcement = We've received a tip from GALPOL. Please check communications consoles for a sensitive message.
 
+fugitive-spawn = {CAPITALIZE(THE($name))} falls from the ceiling!
 
 fugi-report-ent-name = FUGITIVE REPORT: {$name}
 fugi-report-title = WANTED: {$name}

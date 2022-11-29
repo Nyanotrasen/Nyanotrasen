@@ -6,6 +6,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Communications;
 using Content.Server.Paper;
 using Content.Server.Humanoid;
+using Content.Server.Popups;
+using Content.Server.Stunnable;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
@@ -14,6 +16,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
+using Robust.Server.GameObjects;
+using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Fugitive
 {
@@ -27,7 +32,9 @@ namespace Content.Server.Fugitive
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly PaperSystem _paperSystem = default!;
-
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly StunSystem _stun = default!;
+        [Dependency] private readonly AudioSystem _audioSystem = default!;
 
         public override void Initialize()
         {
@@ -68,6 +75,14 @@ namespace Content.Server.Fugitive
         {
             if (TryComp<FugitiveCountdownComponent>(uid, out var cd))
                 cd.AnnounceTime = _timing.CurTime + cd.AnnounceCD;
+
+            _popupSystem.PopupEntity(Loc.GetString("fugitive-spawn", ("name", uid)), uid, Filter.Pvs(uid), Shared.Popups.PopupType.LargeCaution);
+
+            _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
+            _audioSystem.PlayPvs(component.SpawnSoundPath, uid);
+
+            var tile = Spawn("FloorTileItemSteel", Transform(uid).Coordinates);
+            tile.RandomOffset(0.3f);
         }
 
         private void OnMindAdded(EntityUid uid, FugitiveComponent component, MindAddedMessage args)

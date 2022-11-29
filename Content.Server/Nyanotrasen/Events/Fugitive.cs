@@ -23,21 +23,26 @@ public sealed class Fugitive : StationEventSystem
         var spawnLocations = EntityManager.EntityQuery<FugitiveSpawnLocationComponent, TransformComponent>().ToList();
         var backupSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
 
-        EntityCoordinates? spawn = new();
+        TransformComponent? spawn = new();
 
         if (spawnLocations.Count > 0)
         {
             var spawnLoc = _robustRandom.Pick(spawnLocations);
-            spawn = spawnLoc.Item2.Coordinates;
+            spawn = spawnLoc.Item2;
         } else if (backupSpawnLocations.Count > 0)
         {
             var spawnLoc = _robustRandom.Pick(backupSpawnLocations);
-            spawn = spawnLoc.Item2.Coordinates;
+            spawn = spawnLoc.Item2;
         }
 
         if (spawn == null)
             return;
 
-        Spawn("SpawnPointGhostFugitive", (EntityCoordinates) spawn);
+        if (spawn.GridUid == null)
+        {
+            return;
+        }
+
+        Spawn("SpawnPointGhostFugitive", spawn.Coordinates);
     }
 }
