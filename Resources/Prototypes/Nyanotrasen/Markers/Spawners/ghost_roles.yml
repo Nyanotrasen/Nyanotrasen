@@ -22,4 +22,14 @@
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
-    prototype:
+    prototype: MobHumanFugitive
+    name: Fugitive
+    description: You're an escaped prisoner. Make it out alive.
+    rules: |
+      You are the lightest of antags.
+      Murderboning = ban and whitelist removal.
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
