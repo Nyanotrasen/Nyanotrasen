@@ -230,6 +230,21 @@
       owner: job-name-mantis
 
 - type: objective
+  id: PonderingOrbTelepathicHOSStealObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+  conditions:
+    - !type:StealCondition
+      prototype: PonderingOrbTelepathicHOS
+      owner: job-name-hos
+
+- type: objective
   id: EscapeShuttleObjective
   issuer: syndicate
   requirements:
