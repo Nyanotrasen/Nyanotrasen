@@ -7,7 +7,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class MouseMigration : StationEventSystem
 {
     public static List<string> SpawnedPrototypeChoices = new List<string>() //we double up for that ez fake probability
-        {"MobMouse", "MobMouse1", "MobMouse2", "MobRatServant"};
+        {"MobMouse", "MobMouse1", "MobMouse2"};
 
     public override string Prototype => "MouseMigration";
 
