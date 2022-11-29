@@ -14,3 +14,12 @@
     layers:
       - state: green
       - texture: Mobs/Animals/bat.rsi/bat.png
+
+- type: entity
+  id: SpawnPointGhostFugitive
+  name: ghost role spawn point
+  suffix: Fugitive
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype:
