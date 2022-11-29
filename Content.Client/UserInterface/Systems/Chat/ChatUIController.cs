@@ -426,6 +426,7 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Admin;
             CanSendChannels |= ChatSelectChannel.Admin;
+            FilterableChannels |= ChatChannel.Telepathic;
         }
 
         // psionics

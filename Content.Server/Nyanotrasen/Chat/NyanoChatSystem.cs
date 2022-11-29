@@ -86,6 +86,11 @@ namespace Content.Server.Nyanotrasen.Chat
                 var obfuscated = _chatSystem.ObfuscateMessageReadability(message, obfuscation);
                 _chatManager.ChatMessageToMany(ChatChannel.Telepathic, obfuscated, messageWrap, source, hideChat, false, GetDreamers(clients), Color.PaleVioletRed);
             }
+
+            foreach (var repeater in EntityQuery<TelepathicRepeaterComponent>())
+            {
+                _chatSystem.TrySendInGameICMessage(repeater.Owner, message, InGameICChatType.Speak, false);
+            }
         }
     }
 }

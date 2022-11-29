@@ -1,0 +1,15 @@
+- type: entity
+  parent: PonderingOrb
+  id: PonderingOrbTelepathic
+  name: telepathic relay orb
+  description: Repeats whatever is being said in telepathic chat.
+  components:
+  - type: TelepathicRepeater
+  - type: Psionic
+  - type: Speech
+
+- type: entity
+  parent: PonderingOrbTelepathic
+  id: PonderingOrbTelepathicHOS
+  name: orb of compromise
+  description: Ceremonially gifted long ago to quell fears of a telepath uprising.
