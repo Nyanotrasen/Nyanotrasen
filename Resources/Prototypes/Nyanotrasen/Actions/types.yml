@@ -131,3 +131,11 @@
   description: action-desc-spin-web
   icon: Nyanotrasen/Structures/web.rsi/web1.png
   serverEvent: !type:SpinWebActionEvent
+
+- type: instantAction
+  id: RFSensitivity
+  name: action-name-rf-sensitivity
+  description: action-desc-rf-sensitivity
+  icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
+  useDelay: 3
+  serverEvent: !type:RFSensitivityPowerActionEvent

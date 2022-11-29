@@ -65,3 +65,6 @@ action-description-noospheric-zap = Shocks the conciousness of the target and le
 action-name-pyrokinesis = Pyrokinesis
 action-description-pyrokinesis = Light a flammable target on fire.
 pyrokinesis-power-used = A wisp of flame engulfs {THE($target)}, igniting {OBJECT($target)}!
+
+action-name-rf-sensitivity = Toggle RF Sensitivity
+action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and off.
