@@ -32,7 +32,12 @@ namespace Content.Server.Nyanotrasen.Chat
             return Filter.Empty()
                 .AddWhereAttachedEntity(entity => HasComp<PsionicComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
                 .Recipients
-                .Union(_adminManager.ActiveAdmins)
+                .Select(p => p.ConnectedClient);
+        }
+
+        private IEnumerable<INetChannel> GetAdminClients()
+        {
+            return _adminManager.ActiveAdmins
                 .Select(p => p.ConnectedClient);
         }
 
@@ -50,21 +55,27 @@ namespace Content.Server.Nyanotrasen.Chat
 
             return filteredList;
         }
-
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
         {
             if (!HasComp<PsionicComponent>(source) || HasComp<PsionicsDisabledComponent>(source) || HasComp<PsionicInsulationComponent>(source))
                 return;
 
             var clients = GetPsionicChatClients();
+            var admins = GetAdminClients();
             string messageWrap;
+            string adminMessageWrap;
 
             messageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message",
                 ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", message));
 
+            adminMessageWrap = Loc.GetString("chat-manager-send-telepathic-chat-wrap-message-admin",
+                ("source", source), ("message", message));
+
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
 
             _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
+
+            _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
 
             if (_random.Prob(0.1f))
                 _glimmerSystem.Glimmer++;
