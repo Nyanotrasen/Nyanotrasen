@@ -11,6 +11,16 @@
     earliestStart: 15
 
 - type: gameRule
+  id: Fugitive
+  config:
+    !type:StationEventRuleConfiguration
+    id: Fugitive
+    weight: 5
+    endAfter: 1
+    maxOccurrences: 3
+    earliestStart: 15
+
+- type: gameRule
   id: MundaneDischarge
   config:
     !type:GlimmerEventRuleConfiguration

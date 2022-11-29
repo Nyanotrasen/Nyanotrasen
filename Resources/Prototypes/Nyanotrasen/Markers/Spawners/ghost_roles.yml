@@ -14,3 +14,35 @@
     layers:
       - state: green
       - texture: Mobs/Animals/bat.rsi/bat.png
+
+- type: entity
+  id: SpawnPointGhostFugitive
+  name: ghost role spawn point
+  suffix: DONTMAP, fugitive
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanFugitive
+    name: Fugitive
+    description: You're an escaped prisoner. Make it out alive.
+    rules: |
+      You are the lightest of antags.
+      Murderboning = ban and whitelist removal.
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+
+- type: entity
+  id: SpawnPointLocationFugitive
+  name: possible spawn location
+  suffix: Fugitive
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: FugitiveSpawnLocation
