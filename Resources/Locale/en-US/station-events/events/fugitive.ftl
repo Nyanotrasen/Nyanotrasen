@@ -8,7 +8,7 @@ fugitive-report-inhuman = {CAPITALIZE(THE($name))} {CONJUGATE-BE($name)} inhuman
 fugitive-report-morphotype = MORPHOTYPE: {$species}
 fugitive-report-sex-m = SEX: M
 fugitive-report-sex-f = SEX: F
-fugitive-report-sex-n - SEX: N/A
+fugitive-report-sex-n = SEX: N/A
 fugitive-report-weight = WEIGHT: {$weight} kg
 fugitive-report-age = AGE: {$age}
 fugitive-report-last-line = Detain the above individual and bring them to CentCom at the end of the shift.

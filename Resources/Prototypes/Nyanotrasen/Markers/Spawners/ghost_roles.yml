@@ -18,7 +18,7 @@
 - type: entity
   id: SpawnPointGhostFugitive
   name: ghost role spawn point
-  suffix: Fugitive
+  suffix: DONTMAP, fugitive
   parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
@@ -33,3 +33,16 @@
     layers:
       - state: green
       - state: prisoner
+
+- type: entity
+  id: SpawnPointLocationFugitive
+  name: possible spawn location
+  suffix: Fugitive
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: FugitiveSpawnLocation
