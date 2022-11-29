@@ -110,7 +110,7 @@
   name: "Medium / Ruined Emergency Shuttle"
   mapPath: /Maps/Salvage/medium-ruined-emergency-shuttle.yml
   bounds: "-8.5,-8.5,8.5,8.5"
-  
+
 - type: salvageMap
   id: mediumPetHospital
   name: "Medium / Pet and Bear Hospital"
@@ -143,3 +143,19 @@
   mapPath: /Maps/Salvage/ruin-cargo-salvage.yml
   bounds: "-15,-13,22,14"
 
+
+# Put nyano ones below here
+# The above will all be deprecated
+
+# Small
+
+
+# Medium
+
+
+# Large
+- type: salvageMap
+  id: ResearchPost
+  name: "Reasearch Post"
+  mapPath: /Maps/Salvage/researchpost.yml
+  bounds: "-26, -18, 27, 27"
