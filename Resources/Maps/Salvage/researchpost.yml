@@ -3246,8 +3246,8 @@ entities:
       -12,0: 0
       -12,1: 0
       -12,2: 0
-      -12,3: 0
-      -12,4: 0
+      -12,3: 1
+      -12,4: 1
       -12,5: 0
       -12,6: 0
       -12,7: 0
@@ -3314,7 +3314,7 @@ entities:
       -5,10: 0
       -5,11: 0
       -5,12: 0
-      -5,13: 0
+      -5,13: 1
       -5,14: 0
       -5,15: 0
       -4,0: 0
@@ -3347,10 +3347,10 @@ entities:
       -3,12: 0
       -3,13: 0
       -3,14: 0
-      -3,15: 1
+      -3,15: 2
       -2,1: 0
       -2,2: 0
-      -2,3: 0
+      -2,3: 1
       -2,4: 0
       -2,5: 0
       -2,6: 0
@@ -3421,7 +3421,7 @@ entities:
       2,10: 0
       2,11: 0
       2,12: 0
-      2,13: 0
+      2,13: 1
       2,14: 0
       2,15: 0
       3,0: 0
@@ -3907,6 +3907,21 @@ entities:
       moles:
       - 21.213781
       - 79.80423
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -6908,21 +6923,21 @@ entities:
     parent: 1
     type: Transform
 - uid: 487
-  type: PottedPlant29
-  components:
-  - pos: -13.5,-2.5
-    parent: 1
-    type: Transform
-- uid: 488
-  type: PottedPlant29
+  type: PottedPlantRandomPlastic
   components:
   - pos: -10.5,13.5
     parent: 1
     type: Transform
-- uid: 489
-  type: PottedPlant29
+- uid: 488
+  type: PottedPlantRandomPlastic
   components:
-  - pos: -8.5,-7.5
+  - pos: -13.5,-2.5
+    parent: 1
+    type: Transform
+- uid: 489
+  type: PottedPlantRandomPlastic
+  components:
+  - pos: 9.5,13.5
     parent: 1
     type: Transform
 - uid: 490
@@ -6950,7 +6965,7 @@ entities:
     parent: 1
     type: Transform
 - uid: 494
-  type: PottedPlant29
+  type: PottedPlantRandomPlastic
   components:
   - pos: 12.5,-2.5
     parent: 1
@@ -6962,9 +6977,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 496
-  type: PottedPlant29
+  type: SalvagePartsSpawnerMid
   components:
-  - pos: 7.5,-7.5
+  - pos: 1.5,4.5
     parent: 1
     type: Transform
 - uid: 497
@@ -7010,9 +7025,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 504
-  type: PottedPlant29
+  type: SalvagePartsSpawnerMid
   components:
-  - pos: 12.5,10.5
+  - pos: 1.5,5.5
     parent: 1
     type: Transform
 - uid: 505
@@ -7070,9 +7085,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 514
-  type: PottedPlant29
+  type: BedsheetSpawner
   components:
-  - pos: 9.5,13.5
+  - pos: 2.5,-1.5
     parent: 1
     type: Transform
 - uid: 515
@@ -7630,15 +7645,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 607
-  type: MaintenanceWeaponSpawner
+  type: BedsheetSpawner
   components:
   - pos: -3.5,-1.5
     parent: 1
     type: Transform
 - uid: 608
-  type: MaintenanceToolSpawner
+  type: RandomArtifactSpawner
   components:
-  - pos: -3.5,-0.5
+  - pos: -4.5,-12.5
     parent: 1
     type: Transform
 - uid: 609
@@ -7654,33 +7669,33 @@ entities:
     parent: 1
     type: Transform
 - uid: 611
-  type: RandomBoards
+  type: SalvageCanisterSpawner
   components:
-  - pos: 2.5,-0.5
+  - pos: 3.5,-13.5
     parent: 1
     type: Transform
 - uid: 612
-  type: CableApcStack
+  type: SalvageCanisterSpawner
   components:
-  - pos: 2.5120463,-1.4920022
+  - pos: 2.5,-13.5
     parent: 1
     type: Transform
 - uid: 613
-  type: CableApcStack
+  type: SalvageCanisterSpawner
   components:
-  - pos: 2.6162133,-1.6378357
+  - pos: 4.5,-13.5
     parent: 1
     type: Transform
 - uid: 614
-  type: SheetSteel
+  type: SalvageCanisterSpawner
   components:
-  - pos: 2.5745463,-2.3670022
+  - pos: 2.5,-14.5
     parent: 1
     type: Transform
 - uid: 615
-  type: SheetGlass
+  type: SalvageCanisterSpawner
   components:
-  - pos: 2.4495463,-2.4711688
+  - pos: 3.5,-14.5
     parent: 1
     type: Transform
 - uid: 616
@@ -7900,9 +7915,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 652
-  type: PsionicArtifact
+  type: Rack
   components:
-  - pos: -4.5,-12.5
+  - pos: 4.5,-9.5
     parent: 1
     type: Transform
 - uid: 653
@@ -7987,33 +8002,33 @@ entities:
     parent: 1
     type: Transform
 - uid: 666
-  type: PlasmaCanister
+  type: SalvagePartsSpawnerLow
   components:
-  - pos: 3.5,-14.5
+  - pos: 4.5,-9.5
     parent: 1
     type: Transform
 - uid: 667
-  type: CarbonDioxideCanister
+  type: MaintenanceToolSpawner
   components:
-  - pos: 2.5,-14.5
+  - pos: 1.5,3.5
     parent: 1
     type: Transform
 - uid: 668
-  type: StorageCanister
+  type: CrateSalvageEquipment
   components:
-  - pos: 4.5,-13.5
+  - pos: -11.5,4.5
     parent: 1
     type: Transform
 - uid: 669
-  type: OxygenCanister
+  type: BedsheetSpawner
   components:
-  - pos: 2.5,-13.5
+  - pos: -2.5,6.5
     parent: 1
     type: Transform
 - uid: 670
-  type: NitrogenCanister
+  type: RandomBook
   components:
-  - pos: 3.5,-13.5
+  - pos: 2.5,-0.5
     parent: 1
     type: Transform
 - uid: 671
@@ -8041,9 +8056,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 675
-  type: PortableScrubber
+  type: FigureSpawner
   components:
-  - pos: 4.5,-9.5
+  - pos: 2.5,-2.5
     parent: 1
     type: Transform
 - uid: 676
@@ -8110,9 +8125,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 686
-  type: DonkpocketBoxSpawner
+  type: RandomBook
   components:
-  - pos: -0.5,-14.5
+  - pos: -3.5,-0.5
     parent: 1
     type: Transform
 - uid: 687
@@ -8123,10 +8138,9 @@ entities:
     parent: 1
     type: Transform
 - uid: 688
-  type: FoodBoxDonkpocketHonk
+  type: SalvagePartsSpawnerSubSpace
   components:
-  - rot: 3.141592653589793 rad
-    pos: -0.6345676,-14.480995
+  - pos: -2.5,4.5
     parent: 1
     type: Transform
 - uid: 689
@@ -8166,39 +8180,15 @@ entities:
     parent: 1
     type: Transform
 - uid: 695
-  type: IngotGold
+  type: SalvagePartsSpawnerSubSpace
   components:
-  - pos: -2.4535372,3.707345
+  - pos: -2.5,5.5
     parent: 1
     type: Transform
 - uid: 696
-  type: PowerCellHyper
+  type: MaintenanceWeaponSpawner
   components:
-  - pos: -2.3077042,5.1031785
-    parent: 1
-    type: Transform
-- uid: 697
-  type: BedsheetSpawner
-  components:
-  - pos: 1.5,6.5
-    parent: 1
-    type: Transform
-- uid: 698
-  type: IngotSilver
-  components:
-  - pos: -2.4952042,4.4781785
-    parent: 1
-    type: Transform
-- uid: 699
-  type: PowerCellAntiqueProto
-  components:
-  - pos: -2.5577042,5.3740115
-    parent: 1
-    type: Transform
-- uid: 700
-  type: CigarGoldCase
-  components:
-  - pos: -2.4118712,6.3531785
+  - pos: -12.5,5.5
     parent: 1
     type: Transform
 - uid: 701
@@ -8241,24 +8231,6 @@ entities:
   type: SalvageMobSpawner75
   components:
   - pos: -11.5,10.5
-    parent: 1
-    type: Transform
-- uid: 708
-  type: ComplexXenoArtifactItem
-  components:
-  - pos: 1.5047958,5.2281785
-    parent: 1
-    type: Transform
-- uid: 709
-  type: MaterialBluespace
-  components:
-  - pos: 1.3589628,4.394845
-    parent: 1
-    type: Transform
-- uid: 710
-  type: MaterialBluespace
-  components:
-  - pos: 1.7339628,4.1240115
     parent: 1
     type: Transform
 - uid: 711
@@ -8816,61 +8788,6 @@ entities:
     pos: -12.044347,9.298429
     parent: 1
     type: Transform
-- uid: 799
-  type: CrateEmptySpawner
-  components:
-  - pos: -11.5,4.5
-    parent: 1
-    type: Transform
-- uid: 800
-  type: CrateEmptySpawner
-  components:
-  - pos: -11.5,0.5
-    parent: 1
-    type: Transform
-- uid: 801
-  type: ClothingOuterSuitSpaceninja
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -13.421761,4.65666
-    parent: 1
-    type: Transform
-- uid: 802
-  type: ClothingHeadHelmetSpaceNinja
-  components:
-  - pos: -11.692595,5.760827
-    parent: 1
-    type: Transform
-- uid: 803
-  type: ClothingShoesSpaceNinja
-  components:
-  - pos: -13.359261,5.09416
-    parent: 1
-    type: Transform
-- uid: 804
-  type: ClothingHandsGlovesSpaceNinja
-  components:
-  - pos: -12.650928,5.885827
-    parent: 1
-    type: Transform
-- uid: 805
-  type: CombatKnife
-  components:
-  - pos: -12.088428,5.21916
-    parent: 1
-    type: Transform
-- uid: 806
-  type: PowerCellMediumPrinted
-  components:
-  - pos: -12.088428,5.84416
-    parent: 1
-    type: Transform
-- uid: 807
-  type: ClosetEmergencyFilledRandom
-  components:
-  - pos: -4.5,13.5
-    parent: 1
-    type: Transform
 - uid: 808
   type: ClosetEmergency
   components:
@@ -8902,12 +8819,6 @@ entities:
   - pos: -0.6216893,13.360994
     parent: 1
     type: Transform
-- uid: 810
-  type: ClosetFireFilled
-  components:
-  - pos: 2.5,13.5
-    parent: 1
-    type: Transform
 - uid: 811
   type: Table
   components:
@@ -8936,12 +8847,6 @@ entities:
   type: SalvageMaterialCrateSpawner
   components:
   - pos: 10.5,4.5
-    parent: 1
-    type: Transform
-- uid: 816
-  type: CrateFunPlushie
-  components:
-  - pos: -1.5,3.5
     parent: 1
     type: Transform
 - uid: 817
