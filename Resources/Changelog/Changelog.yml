@@ -4868,10 +4868,7 @@ Entries:
     time: "2022-11-3T12:34:54.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - {
-          message: "Finally merged upstream.",
-          type: Add,
-        }
+      - { message: "Finally merged upstream.", type: Add }
       - {
           message: "Removed my very short lived trait description system, upstream did it better.",
           type: Remove,
@@ -4891,12 +4888,32 @@ Entries:
     time: "2022-11-25T19:25:39.0000000+00:00"
   - author: "DEATHB4DEFEAT"
     changes:
-      - { message: "Moth work now, antennae didn't have textures for some reason.", type: Fix }
+      - {
+          message: "Moth work now, antennae didn't have textures for some reason.",
+          type: Fix,
+        }
       - { message: "Diona are now available for roundstart.", type: Tweak }
-      - { message: "Updated the marking whitelists, all species can use all markings once again. (still can't render all on every species)", type: Fix }
-      - { message: "Changed escapemenu wiki link to Nyanotrasen wiki.", type: Tweak }
+      - {
+          message: "Updated the marking whitelists, all species can use all markings once again. (still can't render all on every species)",
+          type: Fix,
+        }
+      - {
+          message: "Changed escapemenu wiki link to Nyanotrasen wiki.",
+          type: Tweak,
+        }
       - { message: "Added VV keybind (alt+v).", type: Add }
-      - { message: "Changed sandbox pick keybind (alt+middlemouse).", type: Tweak }
+      - {
+          message: "Changed sandbox pick keybind (alt+middlemouse).",
+          type: Tweak,
+        }
     id: 370000
+    time: "2022-11-26T18:59:57.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - {
+          message: "Added ~175 wigs (unused), I plan on adding some sort of color options to them.",
+          type: Add,
+        }
+    id: 380000
     time: "2022-11-26T18:59:57.0000000+00:00"
 #      - { message: 'Something.', type: Add/Remove/Tweak/Fix }
