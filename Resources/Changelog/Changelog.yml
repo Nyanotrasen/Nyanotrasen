@@ -4869,23 +4869,7 @@ Entries:
   - author: "DEATHB4DEFEAT"
     changes:
       - {
-          message: "Finally merged upstream, I hope theres not any or too many breaking bugs I didnt immediately encounter.",
-          type: Add,
-        }
-      - {
-          message: "Removed my very short lived trait description system, upstream did it better.",
-          type: Remove,
-        }
-      - {
-          message: "Fixed bluespace crystal stacking (how did it even work before??), it crashed client when near bluespace.",
-          type: Fix,
-        }
-    id: 350000
-    time: "2022-11-24T00:43:25.0000000+00:00"
-  - author: "DEATHB4DEFEAT"
-    changes:
-      - {
-          message: "Finally merged upstream, I hope theres not any or too many breaking bugs I didnt immediately encounter.",
+          message: "Finally merged upstream.",
           type: Add,
         }
       - {
