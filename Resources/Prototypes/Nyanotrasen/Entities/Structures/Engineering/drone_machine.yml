@@ -1,0 +1,38 @@
+- type: entity
+  id: DroneManagementMachine
+  parent: BaseMachinePowered
+  name: drone management machine
+  description: A machine that spawns and tracks drones on the station, and allows remote detonation.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/vaccinator.rsi
+    layers:
+    - state: icon
+      map: ["enum.DiseaseMachineVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.DiseaseMachineVisualLayers.IsOn"]
+    netsync: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: GhostRoleMobSpawner
+    prototype: Drone
+    makeSentient: true
+    deleteOnSpawn: false
+    name: Maintenance Drone
+    description: Maintain the station. Ignore other beings except drones.
+    rules: |
+      You are bound by these laws both in-game and out-of-character:
+      1. You may not involve yourself in the matters of another being, even if such matters conflict with Law Two or Law Three, unless the other being is another Drone.
+      2. You may not harm any being, regardless of intent or circumstance.
+      3. Your goals are to build, maintain, repair, improve, and power to the best of your abilities, You must never actively work against these goals.
