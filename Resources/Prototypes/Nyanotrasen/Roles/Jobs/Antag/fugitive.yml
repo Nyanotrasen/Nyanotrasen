@@ -1,3 +1,10 @@
+- type: antag
+  id: Fugitive
+  name: roles-antag-fugitive-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-fugitive-objective
+
 - type: startingGear
   id: FugitiveStartingGear
   equipment:

@@ -1,0 +1,5 @@
+- type: objective
+  id: EscapeShuttleObjectiveFugitive
+  issuer: self
+  conditions:
+    - !type:EscapeShuttleCondition {}
