@@ -8,6 +8,7 @@ using Content.Server.Paper;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Server.Ghost.Components;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
@@ -50,10 +51,13 @@ namespace Content.Server.Fugitive
             {
                 if (cd.AnnounceTime != null && _timing.CurTime > cd.AnnounceTime)
                 {
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), colorOverride: Color.Yellow);
+                    _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
 
                     foreach (var console in EntityQuery<CommunicationsConsoleComponent>())
                     {
+                        if (HasComp<GhostComponent>(console.Owner))
+                            continue;
+
                         var paperEnt = Spawn("Paper", Transform(console.Owner).Coordinates);
 
                         MetaData(paperEnt).EntityName = Loc.GetString("fugi-report-ent-name", ("name", cd.Owner));
