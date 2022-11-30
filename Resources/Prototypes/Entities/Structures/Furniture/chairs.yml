@@ -237,9 +237,12 @@
     - type: FoldableVisualizer
       key: folding
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
-        Blunt: 15
+        Blunt: 7
+  - type: StaminaDamageOnHit
+    damage: 15
   - type: Construction
     graph: Seat
     node: chairFolding

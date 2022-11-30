@@ -24,7 +24,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 14
+        Blunt: 9
+    bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
 
 - type: entity
   parent: BaseHandheldInstrument
@@ -53,9 +54,10 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 18
+        Blunt: 12
+    bluntStaminaDamageFactor: 1.50 #18 Stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 14
+        Blunt: 8

@@ -34,7 +34,9 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 10
+        Blunt: 9
+  - type: StaminaDamageOnHit
+    damage: 14
 
 - type: entity
   parent: GasTankBase

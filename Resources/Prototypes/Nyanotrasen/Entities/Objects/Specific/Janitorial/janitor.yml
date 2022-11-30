@@ -17,6 +17,17 @@
     solutions:
       absorbed:
         maxVol: 100
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnHit
+    damage: 4
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: BagOfSummoningGarbage
