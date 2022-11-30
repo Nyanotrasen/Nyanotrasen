@@ -18,10 +18,10 @@
     damage:
       types:
         Blunt: 9
-  - type: StaminaDamageOnHit
-    damage: 17.5
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
+  - type: StaminaDamageOnHit
+    damage: 17.5
   - type: Tag
     tags:
       - DroneUsable

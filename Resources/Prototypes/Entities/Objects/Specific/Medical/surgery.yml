@@ -176,8 +176,8 @@
     attackRate: 0.75
     damage:
       types:
+        Blunt: 4
         Slash: 8
-        Brute: 4
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -193,7 +193,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Brute: 3
+        Blunt: 3
         Slash: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
@@ -217,7 +217,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Brute: 4
+        Blunt: 4
         Slash: 4
         Piercing: 4
     soundHit:
@@ -243,7 +243,7 @@
     attackRate: 1.5
     damage:
       types:
-        Brute: 4
+        Blunt: 4
         Slash: 7
         Piercing: 4
     soundHit:
