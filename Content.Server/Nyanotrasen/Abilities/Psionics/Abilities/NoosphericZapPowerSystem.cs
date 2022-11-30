@@ -65,7 +65,6 @@ namespace Content.Server.Abilities.Psionics
             _psionics.LogPowerUsed(args.Performer, "noospheric zap");
             args.Handled = true;
         }
-
     }
 
     public sealed class NoosphericZapPowerActionEvent : EntityTargetActionEvent {}
