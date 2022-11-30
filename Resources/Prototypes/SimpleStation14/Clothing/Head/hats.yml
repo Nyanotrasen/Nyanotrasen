@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretSec
+  name: security beret
+  description: A soft blue beret for the secoff who thinks he's specops 
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_sec.rsi
+  - type: Clothing
+    sprite: SimpleStation14/Clothing/Head/Hats/beret_sec.rsi

@@ -1,30 +1,29 @@
 ﻿- type: job
   id: SecurityCadet
-  name: job-name-cadet
-  setPreference: false
+  name: "peace keeper"
+  setPreference: true
   playTimeTracker: JobSecurityCadet
-  requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 7200
-      inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "SecurityCadet"
   supervisors: job-supervisors-security
   canBeAntag: false
   access:
-  - Security
   - Brig
   - Maintenance
 
 - type: startingGear
   id: SecurityCadetGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorRed
+    head: ClothingHeadHatSecsoft
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+    eyes: ClothingEyesGlassesSecurity
+    pocket1: Handcuffs
+    pocket2: Handcuffs
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsJack
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
-  innerclothingskirt: ClothingUniformJumpskirtColorRed
+    belt: WeaponDisabler
+  innerclothingskirt: ClothingUniformJumpsuitSecBlue
   satchel: ClothingBackpackSatchelSecurityFilled
   duffelbag: ClothingBackpackDuffelSecurityFilled
