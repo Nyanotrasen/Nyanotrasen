@@ -1224,3 +1224,13 @@ Entries:
     type: Add
   id: 129
   time: '2022-11-30T00:03:33.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added more slots for various roles and removed max players.
+    type: Tweak
+  - message: Extended the solar array arms for better exposure.
+    type: Fix
+  - message: Moved salvage dock to prevent evac shuttle from docking at salvage.
+    type: Fix
+  id: 130
+  time: '2022-11-30T02:04:30.0000000+00:00'
