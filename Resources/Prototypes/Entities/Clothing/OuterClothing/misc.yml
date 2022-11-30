@@ -54,6 +54,8 @@
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.6
 
 - type: entity
   parent: ClothingOuterBase
@@ -65,6 +67,8 @@
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.6
 
 - type: entity
   parent: ClothingOuterBase
@@ -87,6 +91,8 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.6
 
 - type: entity
   parent: ClothingOuterBase
@@ -98,6 +104,8 @@
     sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
+  - type: TemperatureProtection
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -131,6 +139,8 @@
     sprite: Clothing/OuterClothing/Misc/poncho.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/poncho.rsi
+  - type: TemperatureProtection
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterBase
@@ -142,6 +152,8 @@
     sprite: Clothing/OuterClothing/Misc/santa.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/santa.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
 
 - type: entity
   parent: ClothingOuterBase

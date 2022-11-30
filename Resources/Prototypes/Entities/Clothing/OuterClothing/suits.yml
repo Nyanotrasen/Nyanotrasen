@@ -102,6 +102,8 @@
         Slash: 0.6
         Piercing: 0.6
         Heat: 0.6
+  - type: TemperatureProtection
+    coefficient: 0.5
 
 - type: entity
   parent: ClothingOuterBase
@@ -113,6 +115,8 @@
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
+  - type: TemperatureProtection
+    coefficient: 0.7
   - type: Tag
     tags:
       - FullBodyOuter
@@ -138,6 +142,8 @@
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
+  - type: TemperatureProtection
+    coefficient: 0.7
   - type: Tag
     tags:
       - FullBodyOuter

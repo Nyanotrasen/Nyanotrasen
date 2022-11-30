@@ -248,6 +248,8 @@
     sprite: Clothing/Head/Hats/santahat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.35
 
 - type: entity
   parent: ClothingHeadBase
@@ -316,6 +318,8 @@
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: AddAccentClothing
     accent: RussianAccent
+  - type: TemperatureProtection
+    coefficient: 0.25
 
 - type: entity
   parent: ClothingHeadBase

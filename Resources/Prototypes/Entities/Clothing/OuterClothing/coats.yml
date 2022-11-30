@@ -8,6 +8,8 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
+  - type: TemperatureProtection
+    coefficient: 0.65
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -29,6 +31,8 @@
         Slash: 0.8
         Piercing: 0.6
         Heat: 0.9
+  - type: TemperatureProtection
+    coefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -40,6 +44,8 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.8
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -58,6 +64,8 @@
         Slash: 0.7
         Piercing: 0.4
         Heat: 0.7
+  - type: TemperatureProtection
+    coefficient: 0.8
 
 - type: entity
   parent: ClothingOuterStorageBase

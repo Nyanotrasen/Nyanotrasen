@@ -11,6 +11,8 @@
     sprite: Clothing/Under/Socks/bee.rsi
   - type: Clothing
     sprite: Clothing/Under/Socks/bee.rsi
+  - type: TemperatureProtection
+    coefficient: 0.85
 
 - type: entity
   parent: ClothingShoesBase
@@ -22,3 +24,5 @@
     sprite: Clothing/Under/Socks/coder.rsi
   - type: Clothing
     sprite: Clothing/Under/Socks/coder.rsi
+  - type: TemperatureProtection
+    coefficient: 0.85
