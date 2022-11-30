@@ -1234,3 +1234,25 @@ Entries:
     type: Fix
   id: 130
   time: '2022-11-30T02:04:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You need hands to toggle power.
+    type: Fix
+  - message: Changed lots of fugitive text to make it clearer which entities are hunting
+      them and that they are preferably captured alive.
+    type: Tweak
+  - message: Tweaked fugitive event parameters a bit more.
+    type: Tweak
+  - message: Fugitive reports no longer spawn on admin ghosts.
+    type: Fix
+  - message: Fugitives are a proper role (not selectable, but they show up correctly
+      in UI as fugitives.)
+    type: Add
+  - message: Fugitives show up in the round screen.
+    type: Add
+  - message: Added visual effect for noospheric zap power.
+    type: Add
+  - message: Noospheric zap power ranged halved.
+    type: Tweak
+  id: 131
+  time: '2022-11-30T21:56:14.0000000+00:00'
