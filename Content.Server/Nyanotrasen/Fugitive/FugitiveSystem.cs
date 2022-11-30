@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Mind.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Traitor;
@@ -10,17 +11,18 @@ using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Server.Ghost.Components;
 using Content.Server.Roles;
+using Content.Server.GameTicking;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
-using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Fugitive
 {
@@ -43,6 +45,7 @@ namespace Content.Server.Fugitive
             base.Initialize();
             SubscribeLocalEvent<FugitiveComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
             SubscribeLocalEvent<FugitiveComponent, MindAddedMessage>(OnMindAdded);
+            SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         }
 
         public override void Update(float frameTime)
@@ -101,15 +104,89 @@ namespace Content.Server.Fugitive
 
             mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
 
-            Logger.Error("Attempting to index...");
             if (_prototypeManager.TryIndex<JobPrototype>("Fugitive", out var fugitive))
-            {
-                Logger.Error("Indexed...");
                 mind.AddRole(new Job(mind, fugitive));
-            }
 
             // workaround seperate shitcode moment
             _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        }
+
+        private void OnRoundEnd(RoundEndTextAppendEvent ev)
+        {
+            List<(FugitiveComponent fugi, MindComponent mind)> fugis = EntityQuery<FugitiveComponent, MindComponent>().ToList();
+
+            if (fugis.Count < 1)
+                return;
+
+            var result = Loc.GetString("fugitive-round-end-result", ("fugitiveCount", fugis.Count));
+
+            // yeah this is duplicated from traitor rules lol, there needs to be a generic rewrite where it just goes through all minds with objectives
+            foreach (var fugi in fugis)
+            {
+                if (fugi.mind.Mind == null)
+                    continue;
+
+                var name = fugi.mind.Mind.CharacterName;
+                fugi.mind.Mind.TryGetSession(out var session);
+                var username = session?.Name;
+
+                var objectives = fugi.mind.Mind.AllObjectives.ToArray();
+                if (objectives.Length == 0)
+                {
+                    if (username != null)
+                    {
+                        if (name == null)
+                            result += "\n" + Loc.GetString("traitor-user-was-a-traitor", ("user", username));
+                        else
+                            result += "\n" + Loc.GetString("traitor-user-was-a-traitor-named", ("user", username), ("name", name));
+                    }
+                    else if (name != null)
+                        result += "\n" + Loc.GetString("traitor-was-a-traitor-named", ("name", name));
+
+                    continue;
+                }
+
+                if (username != null)
+                {
+                    if (name == null)
+                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives", ("user", username));
+                    else
+                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives-named", ("user", username), ("name", name));
+                }
+                else if (name != null)
+                    result += "\n" + Loc.GetString("traitor-was-a-traitor-with-objectives-named", ("name", name));
+
+                foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
+                {
+                    result += "\n" + Loc.GetString($"preset-traitor-objective-issuer-{objectiveGroup.Key}");
+
+                    foreach (var objective in objectiveGroup)
+                    {
+                        foreach (var condition in objective.Conditions)
+                        {
+                            var progress = condition.Progress;
+                            if (progress > 0.99f)
+                            {
+                                result += "\n- " + Loc.GetString(
+                                    "traitor-objective-condition-success",
+                                    ("condition", condition.Title),
+                                    ("markupColor", "green")
+                                );
+                            }
+                            else
+                            {
+                                result += "\n- " + Loc.GetString(
+                                    "traitor-objective-condition-fail",
+                                    ("condition", condition.Title),
+                                    ("progress", (int) (progress * 100)),
+                                    ("markupColor", "red")
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            ev.AddLine(result);
         }
 
         private FormattedMessage GenerateFugiReport(EntityUid uid)

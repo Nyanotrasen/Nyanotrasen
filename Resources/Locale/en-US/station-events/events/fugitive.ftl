@@ -15,3 +15,10 @@ fugitive-report-sex-n = SEX: N/A
 fugitive-report-weight = WEIGHT: {$weight} kg
 fugitive-report-age = AGE: {$age}
 fugitive-report-last-line = The above individual is wanted across the sector; preferably alive.
+
+preset-traitor-objective-issuer-self = Self
+
+fugitive-round-end-result = {$fugitiveCount ->
+    [one] There was one fugitive.
+    *[other] There were {$fugiCount} fugitives.
+}
