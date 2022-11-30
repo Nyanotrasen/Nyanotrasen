@@ -65,6 +65,7 @@ public sealed class PrototypeSaveTest
         "GeneratorWallmountAPU",
         "MobGolemCult",
         "Lightning",
+        "LightingNoospheric", // mhm...
         "LightningRevenant",
         "ChargedLightning",
         "SuperchargedLightning",
