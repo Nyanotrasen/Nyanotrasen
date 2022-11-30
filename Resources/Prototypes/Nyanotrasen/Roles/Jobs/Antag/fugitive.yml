@@ -1,3 +1,11 @@
+- type: job
+  id: Fugitive
+  name: job-name-fugitive
+  playTimeTracker: JobPassenger # ¯\_(ツ)_/¯
+  startingGear: FugitiveStartingGear
+  setPreference: false
+  icon: "Prisoner"
+
 - type: antag
   id: Fugitive
   name: roles-antag-fugitive-name

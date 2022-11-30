@@ -9,6 +9,7 @@ using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Server.Ghost.Components;
+using Content.Server.Roles;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
@@ -99,6 +100,13 @@ namespace Content.Server.Fugitive
             mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(FugitiveRole)));
 
             mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
+
+            Logger.Error("Attempting to index...");
+            if (_prototypeManager.TryIndex<JobPrototype>("Fugitive", out var fugitive))
+            {
+                Logger.Error("Indexed...");
+                mind.AddRole(new Job(mind, fugitive));
+            }
 
             // workaround seperate shitcode moment
             _movementSpeed.RefreshMovementSpeedModifiers(uid);
