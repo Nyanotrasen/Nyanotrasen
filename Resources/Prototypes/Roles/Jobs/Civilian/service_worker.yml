@@ -5,7 +5,7 @@
   startingGear: ServiceWorkerGear
   icon: "ServiceWorker"
   supervisors: job-supervisors-everyone
-  setPreference: false
+  setPreference: true
   access:
   - Service
   - Bar
