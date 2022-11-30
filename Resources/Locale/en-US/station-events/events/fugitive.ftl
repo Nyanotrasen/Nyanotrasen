@@ -16,9 +16,15 @@ fugitive-report-weight = WEIGHT: {$weight} kg
 fugitive-report-age = AGE: {$age}
 fugitive-report-last-line = The above individual is wanted across the sector; preferably alive.
 
-preset-traitor-objective-issuer-self = Self
-
 fugitive-round-end-result = {$fugitiveCount ->
     [one] There was one fugitive.
     *[other] There were {$fugiCount} fugitives.
 }
+
+fugitive-user-was-a-fugitive = [color=gray]{$user}[/color] was a fugitive.
+fugitive-user-was-a-fugitive-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a fugitive.
+fugitive-was-a-fugitive-named = [color=White]{$name}[/color] was a fugitive.
+
+fugitive-user-was-a-fugitive-with-objectives = [color=gray]{$user}[/color] was a fugitive who had the following objectives:
+fugitive-user-was-a-fugitive-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a fugitive who had the following objectives:
+fugitive-was-a-fugitive-with-objectives-named = [color=White]{$name}[/color] was a fugitive who had the following objectives:

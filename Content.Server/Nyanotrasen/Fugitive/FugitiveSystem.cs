@@ -136,12 +136,12 @@ namespace Content.Server.Fugitive
                     if (username != null)
                     {
                         if (name == null)
-                            result += "\n" + Loc.GetString("traitor-user-was-a-traitor", ("user", username));
+                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive", ("user", username));
                         else
-                            result += "\n" + Loc.GetString("traitor-user-was-a-traitor-named", ("user", username), ("name", name));
+                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-named", ("user", username), ("name", name));
                     }
                     else if (name != null)
-                        result += "\n" + Loc.GetString("traitor-was-a-traitor-named", ("name", name));
+                        result += "\n" + Loc.GetString("fugitive-was-a-fugitive-named", ("name", name));
 
                     continue;
                 }
@@ -149,17 +149,15 @@ namespace Content.Server.Fugitive
                 if (username != null)
                 {
                     if (name == null)
-                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives", ("user", username));
+                        result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-with-objectives", ("user", username));
                     else
-                        result += "\n" + Loc.GetString("traitor-user-was-a-traitor-with-objectives-named", ("user", username), ("name", name));
+                        result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-with-objectives-named", ("user", username), ("name", name));
                 }
                 else if (name != null)
-                    result += "\n" + Loc.GetString("traitor-was-a-traitor-with-objectives-named", ("name", name));
+                    result += "\n" + Loc.GetString("fugitive-was-a-fugitive-with-objectives-named", ("name", name));
 
                 foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
                 {
-                    result += "\n" + Loc.GetString($"preset-traitor-objective-issuer-{objectiveGroup.Key}");
-
                     foreach (var objective in objectiveGroup)
                     {
                         foreach (var condition in objective.Conditions)
