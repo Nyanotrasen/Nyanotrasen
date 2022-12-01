@@ -1271,3 +1271,12 @@ Entries:
     type: Add
   id: 133
   time: '2022-12-01T00:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Moved moth wings sprite layer down. This leads to more correct rendering,
+      but introduces a smaller amount of other rendering errors, particularly when
+      facing north. A special solution will need to be coded to fully resolve this
+      issue.
+    type: Tweak
+  id: 134
+  time: '2022-12-01T02:21:08.0000000+00:00'
