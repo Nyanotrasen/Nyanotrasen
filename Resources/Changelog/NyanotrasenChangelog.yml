@@ -1280,3 +1280,10 @@ Entries:
     type: Tweak
   id: 134
   time: '2022-12-01T02:21:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed the issue where people would spawn at arrivals shuttle
+      at the beginning of the round. Report if it happens again.
+    type: Fix
+  id: 135
+  time: '2022-12-01T05:12:47.0000000+00:00'
