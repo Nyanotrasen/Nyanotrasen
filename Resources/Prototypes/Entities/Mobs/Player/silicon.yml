@@ -179,15 +179,6 @@
       - CannotSuicide
   - type: Hands
     showInHands: false
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SurveillanceCameraSilicon
-    transmitFrequencyId: SurveillanceCamera
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: SurveillanceCamera
-    setupAvailableNetworks:
-      - SurveillanceCameraSilicon
   - type: IntrinsicUI
     uis:
       - key: enum.LawsUiKey.Key

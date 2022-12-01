@@ -10,6 +10,10 @@
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
     layers:
     - state: robot
+    - state: robot-flashlight
+      shader: unshaded
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4
@@ -118,16 +122,6 @@
     autoRot: true
   - type: Appearance
   - type: Eye
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SurveillanceCameraSilicon
-    transmitFrequencyId: SurveillanceCamera
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: SurveillanceCamera
-    id: borg
-    setupAvailableNetworks:
-      - SurveillanceCameraSilicon
   - type: RandomMetadata
     nameSegments: [names_autoborg]
   - type: Strap
@@ -148,7 +142,12 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
-
+  - type: GenericVisualizer
+    visuals:
+      enum.UnpoweredFlashlightVisuals.LightOn:
+        enum.ToggleVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -213,6 +212,10 @@
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
     layers:
     - state: robot
+    - state: robot-flashlight
+      shader: unshaded
+      visible: false
+      map: [ "enum.ToggleVisuals.Layer" ]
   - type: InnateTool
     tools:
       - id: HyposprayBorgMedical

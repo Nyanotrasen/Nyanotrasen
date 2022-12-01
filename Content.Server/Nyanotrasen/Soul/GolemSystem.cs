@@ -8,6 +8,7 @@ using Content.Shared.Dataset;
 using Content.Shared.MobState;
 using Content.Shared.Administration.Logs;
 using Content.Server.Borgs;
+using Content.Server.Speech;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Players;
 using Content.Server.Humanoid;
@@ -40,6 +41,7 @@ namespace Content.Server.Soul
             SubscribeLocalEvent<GolemComponent, GolemInstallRequestMessage>(OnInstallRequest);
             SubscribeLocalEvent<GolemComponent, GolemNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<GolemComponent, GolemMasterNameChangedMessage>(OnMasterNameChanged);
+            SubscribeLocalEvent<GolemComponent, AccentGetEvent>(OnGetAccent); // TODO: Deduplicate
         }
 
         private void OnAfterInteract(EntityUid uid, SoulCrystalComponent component, AfterInteractEvent args)
@@ -191,6 +193,12 @@ namespace Content.Server.Soul
         private void OnMasterNameChanged(EntityUid uid, GolemComponent golemComponent, GolemMasterNameChangedMessage args)
         {
             golemComponent.Master = args.MasterName;
+        }
+
+        // todo deduplicate
+        private void OnGetAccent(EntityUid uid, GolemComponent component, AccentGetEvent args)
+        {
+            args.Message = args.Message.ToUpper();
         }
     }
 }

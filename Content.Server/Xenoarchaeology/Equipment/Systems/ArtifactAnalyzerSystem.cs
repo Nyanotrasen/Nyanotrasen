@@ -333,7 +333,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var points = _artifact.GetResearchPointValue(entToDestroy.Value);
 
         client.Server.Points += points;
-        _glimmerSystem.Glimmer += (int) points / 800;
+
+        if (analyzer != null)
+            _glimmerSystem.Glimmer += (int) points / analyzer.SacrificeRatio;
+
         EntityManager.DeleteEntity(entToDestroy.Value);
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
@@ -424,11 +427,16 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var analysisRating = args.PartRatings[component.MachinePartAnalysisDuration];
 
         component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
+
+        var sacrificeRating = args.PartRatings[component.MachinePartSacrificeRatio];
+
+        component.SacrificeRatio = (400 + (int) (sacrificeRating * component.PartRatingSacrificeRatioMultiplier));
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
     {
         args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
+        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.SacrificeRatio - 550);
     }
 
     private void OnCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref StartCollideEvent args)

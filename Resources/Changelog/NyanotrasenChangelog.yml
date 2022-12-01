@@ -1184,3 +1184,112 @@ Entries:
     type: Add
   id: 125
   time: '2022-11-29T04:19:42.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added Fugitive spawn points.
+    type: Add
+  - message: Added trash.
+    type: Add
+  - message: Made slight changes to medical outpost.
+    type: Tweak
+  id: 126
+  time: '2022-11-29T17:30:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a new psionic power.
+    type: Add
+  - message: Added a new special item for HOS and an objective to steal it.
+    type: Add
+  - message: Added a new effect to lotophagoi oil.
+    type: Add
+  - message: Added golem accent.
+    type: Add
+  - message: Borg flashlight visuals work now.
+    type: Fix
+  - message: Fixed a borg UI crash.
+    type: Fix
+  - message: Fixed some more admin stuff for telepathic chat.
+    type: Fix
+  id: 127
+  time: '2022-11-29T19:28:57.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added a new salvage map!
+    type: Add
+  id: 128
+  time: '2022-11-29T23:23:32.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a large salvage map to rotation.
+    type: Add
+  id: 129
+  time: '2022-11-30T00:03:33.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added more slots for various roles and removed max players.
+    type: Tweak
+  - message: Extended the solar array arms for better exposure.
+    type: Fix
+  - message: Moved salvage dock to prevent evac shuttle from docking at salvage.
+    type: Fix
+  id: 130
+  time: '2022-11-30T02:04:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You need hands to toggle power.
+    type: Fix
+  - message: Changed lots of fugitive text to make it clearer which entities are hunting
+      them and that they are preferably captured alive.
+    type: Tweak
+  - message: Tweaked fugitive event parameters a bit more.
+    type: Tweak
+  - message: Fugitive reports no longer spawn on admin ghosts.
+    type: Fix
+  - message: Fugitives are a proper role (not selectable, but they show up correctly
+      in UI as fugitives.)
+    type: Add
+  - message: Fugitives show up in the round screen.
+    type: Add
+  - message: Added visual effect for noospheric zap power.
+    type: Add
+  - message: Noospheric zap power ranged halved.
+    type: Tweak
+  id: 131
+  time: '2022-11-30T21:56:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The artifact analyzer's amount of glimmer generated can be upgraded with
+      better manipulators.
+    type: Add
+  - message: Artifact analyzer base glimmer generation increased.
+    type: Tweak
+  id: 132
+  time: '2022-12-01T00:02:19.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The AME now sends low fuel warnings over engineering radio.
+    type: Add
+  id: 133
+  time: '2022-12-01T00:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Moved moth wings sprite layer down. This leads to more correct rendering,
+      but introduces a smaller amount of other rendering errors, particularly when
+      facing north. A special solution will need to be coded to fully resolve this
+      issue.
+    type: Tweak
+  id: 134
+  time: '2022-12-01T02:21:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed the issue where people would spawn at arrivals shuttle
+      at the beginning of the round. Report if it happens again.
+    type: Fix
+  id: 135
+  time: '2022-12-01T05:12:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a whitelist EUI for ghost roles.
+    type: Add
+  id: 136
+  time: '2022-12-01T06:02:15.0000000+00:00'

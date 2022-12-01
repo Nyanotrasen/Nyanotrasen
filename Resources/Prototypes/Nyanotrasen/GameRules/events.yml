@@ -17,8 +17,8 @@
     id: Fugitive
     weight: 5
     endAfter: 1
-    maxOccurrences: 3
-    earliestStart: 15
+    maxOccurrences: 2
+    reoccurrenceDelay: 60
 
 - type: gameRule
   id: MundaneDischarge

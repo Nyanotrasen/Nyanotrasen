@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Mind.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Traitor;
@@ -8,17 +9,20 @@ using Content.Server.Paper;
 using Content.Server.Humanoid;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Server.Ghost.Components;
+using Content.Server.Roles;
+using Content.Server.GameTicking;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
-using Content.Shared.Random.Helpers;
 
 namespace Content.Server.Fugitive
 {
@@ -41,6 +45,7 @@ namespace Content.Server.Fugitive
             base.Initialize();
             SubscribeLocalEvent<FugitiveComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
             SubscribeLocalEvent<FugitiveComponent, MindAddedMessage>(OnMindAdded);
+            SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         }
 
         public override void Update(float frameTime)
@@ -50,10 +55,13 @@ namespace Content.Server.Fugitive
             {
                 if (cd.AnnounceTime != null && _timing.CurTime > cd.AnnounceTime)
                 {
-                    _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), colorOverride: Color.Yellow);
+                    _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
 
                     foreach (var console in EntityQuery<CommunicationsConsoleComponent>())
                     {
+                        if (HasComp<GhostComponent>(console.Owner))
+                            continue;
+
                         var paperEnt = Spawn("Paper", Transform(console.Owner).Coordinates);
 
                         MetaData(paperEnt).EntityName = Loc.GetString("fugi-report-ent-name", ("name", cd.Owner));
@@ -96,8 +104,87 @@ namespace Content.Server.Fugitive
 
             mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
 
+            if (_prototypeManager.TryIndex<JobPrototype>("Fugitive", out var fugitive))
+                mind.AddRole(new Job(mind, fugitive));
+
             // workaround seperate shitcode moment
             _movementSpeed.RefreshMovementSpeedModifiers(uid);
+        }
+
+        private void OnRoundEnd(RoundEndTextAppendEvent ev)
+        {
+            List<(FugitiveComponent fugi, MindComponent mind)> fugis = EntityQuery<FugitiveComponent, MindComponent>().ToList();
+
+            if (fugis.Count < 1)
+                return;
+
+            var result = Loc.GetString("fugitive-round-end-result", ("fugitiveCount", fugis.Count));
+
+            // yeah this is duplicated from traitor rules lol, there needs to be a generic rewrite where it just goes through all minds with objectives
+            foreach (var fugi in fugis)
+            {
+                if (fugi.mind.Mind == null)
+                    continue;
+
+                var name = fugi.mind.Mind.CharacterName;
+                fugi.mind.Mind.TryGetSession(out var session);
+                var username = session?.Name;
+
+                var objectives = fugi.mind.Mind.AllObjectives.ToArray();
+                if (objectives.Length == 0)
+                {
+                    if (username != null)
+                    {
+                        if (name == null)
+                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive", ("user", username));
+                        else
+                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-named", ("user", username), ("name", name));
+                    }
+                    else if (name != null)
+                        result += "\n" + Loc.GetString("fugitive-was-a-fugitive-named", ("name", name));
+
+                    continue;
+                }
+
+                if (username != null)
+                {
+                    if (name == null)
+                        result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-with-objectives", ("user", username));
+                    else
+                        result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-with-objectives-named", ("user", username), ("name", name));
+                }
+                else if (name != null)
+                    result += "\n" + Loc.GetString("fugitive-was-a-fugitive-with-objectives-named", ("name", name));
+
+                foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
+                {
+                    foreach (var objective in objectiveGroup)
+                    {
+                        foreach (var condition in objective.Conditions)
+                        {
+                            var progress = condition.Progress;
+                            if (progress > 0.99f)
+                            {
+                                result += "\n- " + Loc.GetString(
+                                    "traitor-objective-condition-success",
+                                    ("condition", condition.Title),
+                                    ("markupColor", "green")
+                                );
+                            }
+                            else
+                            {
+                                result += "\n- " + Loc.GetString(
+                                    "traitor-objective-condition-fail",
+                                    ("condition", condition.Title),
+                                    ("progress", (int) (progress * 100)),
+                                    ("markupColor", "red")
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            ev.AddLine(result);
         }
 
         private FormattedMessage GenerateFugiReport(EntityUid uid)

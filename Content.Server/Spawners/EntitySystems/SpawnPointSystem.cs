@@ -29,7 +29,7 @@ public sealed class SpawnPointSystem : EntitySystem
             if (args.Station != null && _stationSystem.GetOwningStation(spawnPoint.Owner, xform) != args.Station)
                 continue;
 
-            if (_gameTicker.RunLevel == GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.LateJoin)
+            if (args.LateJoin && spawnPoint.SpawnType == SpawnPointType.LateJoin)
             {
                 args.SpawnResult = _stationSpawning.SpawnPlayerMob(
                     xform.Coordinates,
@@ -39,7 +39,7 @@ public sealed class SpawnPointSystem : EntitySystem
 
                 return;
             }
-            else if (_gameTicker.RunLevel != GameRunLevel.InRound && spawnPoint.SpawnType == SpawnPointType.Job && (args.Job == null || spawnPoint.Job?.ID == args.Job.Prototype.ID))
+            else if (!args.LateJoin && spawnPoint.SpawnType == SpawnPointType.Job && (args.Job == null || spawnPoint.Job?.ID == args.Job.Prototype.ID))
             {
                 args.SpawnResult = _stationSpawning.SpawnPlayerMob(
                     xform.Coordinates,
