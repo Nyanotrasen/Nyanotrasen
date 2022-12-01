@@ -2,6 +2,7 @@ using Content.Server.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Abilities.Oni
@@ -27,12 +28,26 @@ namespace Content.Server.Abilities.Oni
 
             if (TryComp<ToolComponent>(args.Entity, out var tool) && _toolSystem.HasQuality(args.Entity, "Prying", tool))
                 tool.SpeedModifier *= 1.66f;
+
+            if (TryComp<GunComponent>(args.Entity, out var gun))
+            {
+                gun.MinAngle *= 15f;
+                gun.AngleIncrease *= 15f;
+                gun.MaxAngle *= 15f;
+            }
         }
 
         private void OnEntRemoved(EntityUid uid, OniComponent component, EntRemovedFromContainerMessage args)
         {
             if (TryComp<ToolComponent>(args.Entity, out var tool) && _toolSystem.HasQuality(args.Entity, "Prying", tool))
                 tool.SpeedModifier /= 1.66f;
+
+            if (TryComp<GunComponent>(args.Entity, out var gun))
+            {
+                gun.MinAngle /= 15f;
+                gun.AngleIncrease /= 15f;
+                gun.MaxAngle /= 15f;
+            }
 
             RemComp<HeldByOniComponent>(args.Entity);
         }

@@ -1096,3 +1096,178 @@ Entries:
     type: Fix
   id: 115
   time: '2022-11-26T03:13:05.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added maintenance shafts around Medical, connecting North Maintenance
+      to Arrivals.
+    type: Add
+  - message: Made minor wiring fixes.
+    type: Fix
+  id: 116
+  time: '2022-11-27T18:02:22.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: The new cover for the Nyanotrasen-specific Space Law has been released.
+    type: Tweak
+  id: 117
+  time: '2022-11-28T17:53:42.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Moths now have their own set of random names to choose from.
+    type: Add
+  id: 118
+  time: '2022-11-28T18:05:43.0000000+00:00'
+- author: Hyenh
+  changes:
+  - message: boxing vends
+    type: Add
+  id: 119
+  time: '2022-11-28T19:12:01.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: Skub can now be used in modular grenades and mines
+    type: Tweak
+  id: 120
+  time: '2022-11-28T20:52:59.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed altar exploit.
+    type: Fix
+  - message: Altar gibs again.
+    type: Tweak
+  - message: Added a bunch of messages that should make people understand why altar
+      sacrifice is or is not working.
+    type: Add
+  - message: Stutter accent from the noospheric zap event reduced from 30s to 10s.
+    type: Tweak
+  - message: Oni can use guns again. They are just extremely inaccurate.
+    type: Add
+  - message: Artifact glimmer from sacrifice increased slightly.
+    type: Tweak
+  - message: Removed max occurences from noospheric storm.
+    type: Tweak
+  - message: Entities with laws open the UI for you when you attach to them.
+    type: Tweak
+  - message: Renamed more stuff.
+    type: Fix
+  - message: Cognizine behavior has been unified with the other methods of gaining
+      sentience.
+    type: Tweak
+  - message: Only humanoids can install golems.
+    type: Fix
+  - message: Timer trigger moved out of chem technology and is unlocked with the other
+      triggers.
+    type: Tweak
+  id: 121
+  time: '2022-11-28T20:58:48.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new machines and books.
+    type: Add
+  id: 122
+  time: '2022-11-28T21:44:59.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Updated pebble.
+    type: Add
+  id: 123
+  time: '2022-11-28T21:50:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You are being watched.
+    type: Add
+  id: 124
+  time: '2022-11-29T00:35:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added fugitives.
+    type: Add
+  id: 125
+  time: '2022-11-29T04:19:42.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added Fugitive spawn points.
+    type: Add
+  - message: Added trash.
+    type: Add
+  - message: Made slight changes to medical outpost.
+    type: Tweak
+  id: 126
+  time: '2022-11-29T17:30:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a new psionic power.
+    type: Add
+  - message: Added a new special item for HOS and an objective to steal it.
+    type: Add
+  - message: Added a new effect to lotophagoi oil.
+    type: Add
+  - message: Added golem accent.
+    type: Add
+  - message: Borg flashlight visuals work now.
+    type: Fix
+  - message: Fixed a borg UI crash.
+    type: Fix
+  - message: Fixed some more admin stuff for telepathic chat.
+    type: Fix
+  id: 127
+  time: '2022-11-29T19:28:57.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added a new salvage map!
+    type: Add
+  id: 128
+  time: '2022-11-29T23:23:32.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a large salvage map to rotation.
+    type: Add
+  id: 129
+  time: '2022-11-30T00:03:33.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added more slots for various roles and removed max players.
+    type: Tweak
+  - message: Extended the solar array arms for better exposure.
+    type: Fix
+  - message: Moved salvage dock to prevent evac shuttle from docking at salvage.
+    type: Fix
+  id: 130
+  time: '2022-11-30T02:04:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You need hands to toggle power.
+    type: Fix
+  - message: Changed lots of fugitive text to make it clearer which entities are hunting
+      them and that they are preferably captured alive.
+    type: Tweak
+  - message: Tweaked fugitive event parameters a bit more.
+    type: Tweak
+  - message: Fugitive reports no longer spawn on admin ghosts.
+    type: Fix
+  - message: Fugitives are a proper role (not selectable, but they show up correctly
+      in UI as fugitives.)
+    type: Add
+  - message: Fugitives show up in the round screen.
+    type: Add
+  - message: Added visual effect for noospheric zap power.
+    type: Add
+  - message: Noospheric zap power ranged halved.
+    type: Tweak
+  id: 131
+  time: '2022-11-30T21:56:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The artifact analyzer's amount of glimmer generated can be upgraded with
+      better manipulators.
+    type: Add
+  - message: Artifact analyzer base glimmer generation increased.
+    type: Tweak
+  id: 132
+  time: '2022-12-01T00:02:19.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The AME now sends low fuel warnings over engineering radio.
+    type: Add
+  id: 133
+  time: '2022-12-01T00:42:44.0000000+00:00'

@@ -113,7 +113,6 @@
     - ReagentGrinderMachineCircuitboard
     - PillCanister
     - ChemistryEmptyBottle01
-    - TimerTrigger
     - ChemicalPayload
     - ChemicalMedipen
     - MagicMedipen
@@ -388,6 +387,7 @@
     - Signaller
     - SignalTrigger
     - VoiceTrigger
+    - TimerTrigger
 
 - type: technology
   name: technologies-compact-power-technology
@@ -488,6 +488,7 @@
   requiredTechnologies:
     - CompactPowerTechnology
   unlockedRecipes:
+    - ExosuitFabricatorMachineCircuitboard
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg
