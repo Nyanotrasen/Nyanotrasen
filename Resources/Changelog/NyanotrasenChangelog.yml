@@ -1256,3 +1256,12 @@ Entries:
     type: Tweak
   id: 131
   time: '2022-11-30T21:56:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The artifact analyzer's amount of glimmer generated can be upgraded with
+      better manipulators.
+    type: Add
+  - message: Artifact analyzer base glimmer generation increased.
+    type: Tweak
+  id: 132
+  time: '2022-12-01T00:02:19.0000000+00:00'
