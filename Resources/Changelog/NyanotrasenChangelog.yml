@@ -1293,3 +1293,9 @@ Entries:
     type: Add
   id: 136
   time: '2022-12-01T06:02:15.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Locked roles are now displayed properly for players who are not whitelisted.
+    type: Fix
+  id: 137
+  time: '2022-12-01T19:20:05.0000000+00:00'
