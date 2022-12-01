@@ -1,0 +1,43 @@
+- type: constructionGraph
+  id: GolemWood
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: golem
+          steps:
+            - material: WoodPlank
+              amount: 20
+            - tag: BluespaceCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a bluespace crystal
+              doAfter: 1
+            - tag: BluespaceCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a bluespace crystal
+              doAfter: 1
+            - tag: BluespaceCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a bluespace crystal
+              doAfter: 1
+            - tag: BluespaceCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a bluespace crystal
+              doAfter: 1
+            - tag: BluespaceCrystal
+              icon:
+                sprite: Nyanotrasen/Objects/Materials/materials.rsi
+                state: bluespace
+              name: a bluespace crystal
+              doAfter: 1
+
+    - node: golem
+      entity: MobGolemWood
