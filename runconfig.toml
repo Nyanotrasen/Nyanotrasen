@@ -1,3 +1,64 @@
+[game]
+hostname = "[US West][NRP] SimpleStation14 [Sandbox]"
+maxplayers = 16
+type = 1
+welcomemsg = "Welcome to the server!"
+lobbyenabled = true
+lobbyduration = 140
+role_timers = false
+
+[whitelist]
+min_players = 8
+
+[rules]
+rules.time = 30
+rules.exempt_local = false
+
+
+[suspicion]
+min_players = 3
+[traitor]
+min_players = 2
+[zombie]
+min_players = 2
+[pirates]
+min_players = 1
+
+[vote]
+map_enabled = true
+
+
+[mapping]
+autosave_interval = 60
+
+[atmos]
+space_wind = true
+
+[shuttle]
+emergency_early_launch_allowed = true
+
+
+[ic]
+restricted_names = false
+flavor_text = true
+
+[ooc]
+enable_during_round = true
+
+
+[console]
+loginlocal = true
+
+[hub]
+advertise = false
+tags = "sandbox"
+server_url = "ss14://ss14.simplemodbot.tk"
+
+[auth]
+# 0 = Optional, 1 = Required, 2 = Disabled
+mode = 1
+allowlocal = true
+
 [log]
 path = "logs"
 format = "log_%(date)s-%(time)s.txt"
@@ -12,59 +73,18 @@ bindto = "::,0.0.0.0"
 [status]
 enabled = true
 
-[game]
-hostname = "[US West][NRP] SimpleStation14 [Sandbox]"
-maxplayers = 16
-type = 1
-welcomemsg = "Welcome to the server!"
-lobbyenabled = true
-lobbyduration = 140
-role_timers = false
 
-[whitelist]
-min_players = 8
+[database]
+# Database type to use. Can be "sqlite" or "postgres" currently.
+engine = "sqlite"
 
-[suspicion]
-min_players = 3
-[traitor]
-min_players = 2
-[zombie]
-min_players = 2
-[pirates]
-min_players = 1
+# Path to store the database at when using SQLite. Note that is NOT a disk path.
+# This is relative to the server data directory, which is specified by --data-dir when starting the server from the command (or automatically set by SS14.Watchdog)
+sqlite_dbpath = "preferences.db"
 
-[rules]
-rules.time = 30
-rules.exempt_local = false
-
-[mapping]
-autosave_interval = 60
-
-[vote]
-map_enabled = true
-
-[atmos]
-space_wind = true
-
-[shuttle]
-emergency_early_launch_allowed = true
-
-[ic]
-restricted_names = false
-flavor_text = true
-
-[ooc]
-enable_during_round = true
-
-[console]
-loginlocal = true
-
-[hub]
-advertise = false
-tags = "sandbox"
-server_url = "ss14://ss14.simplemodbot.tk"
-
-[auth]
-# 0 = Optional, 1 = Required, 2 = Disabled
-mode = 1
-allowlocal = true
+# PostgreSQL database configuration, should be self explanatory.
+# pg_host = "localhost"
+# pg_port = 5432
+# pg_database = "ss14"
+# pg_username = ""
+# pg_password = ""
