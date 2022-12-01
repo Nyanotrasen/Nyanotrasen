@@ -157,7 +157,8 @@
     - type: MachineBoard
       prototype: MachineArtifactAnalyzer
       requirements:
-        ScanningModule: 3
+        ScanningModule: 2
+        Manipulator: 1
         Capacitor: 1
       materialRequirements:
         Glass: 5
@@ -176,7 +177,7 @@
         ScanningModule: 1
         Capacitor: 2
       materialRequirements:
-        Steel: 5 
+        Steel: 5
         Cable: 1
 
 - type: entity
