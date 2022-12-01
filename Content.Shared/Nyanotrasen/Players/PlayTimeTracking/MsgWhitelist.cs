@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Players.PlayTimeTracking;
 
 /// <summary>
-/// Sent server -> client to inform the client of their play times.
+/// Sent server -> client to inform the client of their whitelist status.
 /// </summary>
 public sealed class MsgWhitelist : NetMessage
 {
