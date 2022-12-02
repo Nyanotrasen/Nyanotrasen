@@ -205,6 +205,10 @@
       - DroneUsable
   - type: StaticPrice
     price: 60
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 2
 
 - type: entity
   name: power drill

@@ -58,6 +58,13 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 7
+  - type: StaminaDamageOnHit
+    damage: 9.5
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
     netsync: false
@@ -103,6 +110,12 @@
       right:
       - state: inhand-right-light
         shader: unshaded
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 12.5
   - type: Sprite
     sprite: Objects/Tools/seclite.rsi
     layers:

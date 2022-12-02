@@ -84,6 +84,10 @@
       types:
         Slash: 8
         Piercing: 4
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 8.0
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
 
@@ -107,7 +111,7 @@
         Blunt: 8
         Piercing: 4 # I guess you can stab it into them?
   - type: StaminaDamageOnHit
-    damage: 9
+    damage: 5
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
 

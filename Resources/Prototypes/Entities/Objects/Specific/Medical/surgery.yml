@@ -70,6 +70,10 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 6.0
 
 - type: entity
   name: shiv
@@ -101,6 +105,10 @@
     damage:
       types:
         Slash: 9
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 9.0
 
 - type: entity
   name: laser scalpel
@@ -117,6 +125,10 @@
       types:
         Slash: 4
         Heat: 5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 5.0
 
 # Scissors
 
@@ -178,6 +190,12 @@
       types:
         Blunt: 4
         Slash: 8
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 3.0
+  - type: MeleeStaminaCost
+    swing: 10
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -203,6 +221,13 @@
     qualities:
       - Sawing
     speed: 0.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 23.0
+    bleedingIncrease:
+      types:
+        Slash: 5.0
 
 - type: entity
   name: circular saw
@@ -222,8 +247,14 @@
         Piercing: 4
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 19.0
+  - type: MeleeStaminaCost
+    swing: 15
   - type: StaminaDamageOnHit
-    damage: 18
+    damage: 16
   - type: Tool
     qualities:
       - Sawing
@@ -248,8 +279,12 @@
         Piercing: 4
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 25.0
   - type: StaminaDamageOnHit
-    damage: 29
+    damage: 27
   - type: Tool
     qualities:
       - Sawing

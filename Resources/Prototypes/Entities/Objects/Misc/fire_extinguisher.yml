@@ -41,11 +41,11 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 8
+        Blunt: 8.5
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: StaminaDamageOnHit
-    damage: 14
+    damage: 10
   - type: Appearance
   - type: GenericVisualizer
     visuals:
