@@ -48,7 +48,7 @@ namespace Content.Shared.CCVar
         /// How large of a range to sample for ambience.
         /// </summary>
         public static readonly CVarDef<float> AmbientRange =
-            CVarDef.Create("ambience.range", 5f, CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("ambience.range", 8f, CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         /// Maximum simultaneous ambient sounds.
@@ -251,6 +251,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> PanicBunkerEnabled =
             CVarDef.Create("game.panic_bunker.enabled", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Panic bunker when no admins are on.
+        /// </summary>
+        public static readonly CVarDef<bool> AdminPanic =
+            CVarDef.Create("game.admin_panic.enabled", false, CVar.SERVERONLY);
 
         /// <summary>
         /// Minimum age of the account (from server's PoV, so from first-seen date) in minutes.
@@ -630,11 +636,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("explosion.incremental_tile", false, CVar.SERVERONLY);
 
         /// <summary>
-        ///     Client-side explosion visuals: for how many seconds should an explosion stay on-screen once it has
-        ///     finished expanding?
+        ///     This determines for how many seconds an explosion should stay visible once it has finished expanding.
         /// </summary>
         public static readonly CVarDef<float> ExplosionPersistence =
-            CVarDef.Create("explosion.persistence", 0.3f, CVar.REPLICATED);
+            CVarDef.Create("explosion.persistence", 0.3f, CVar.SERVERONLY);
 
         /// <summary>
         ///     If an explosion covers a larger area than this number, the damaging/processing will always start during
@@ -824,12 +829,6 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<bool> HolidaysEnabled = CVarDef.Create("holidays.enabled", true, CVar.SERVERONLY);
-
-        /*
-         * Branding stuff
-         */
-
-        public static readonly CVarDef<bool> BrandingSteam = CVarDef.Create("branding.steam", false, CVar.CLIENTONLY);
 
         /*
          * OOC

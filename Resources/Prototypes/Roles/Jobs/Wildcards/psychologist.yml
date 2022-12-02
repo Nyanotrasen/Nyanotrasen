@@ -8,9 +8,9 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Maintenance
   extendedAccess:
   - Chemistry
+  - Maintenance
 
 - type: startingGear
   id: PsychologistGear

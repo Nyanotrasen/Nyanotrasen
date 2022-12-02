@@ -589,15 +589,15 @@
     - id: Multitool
     - id: RemoteSignaller
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailSixPack
-  suffix: sixpack
-  components:
-  - type: Mail
-    contents:
-    - id: DrinkCanPack
+# - type: entity
+#   noSpawn: true
+#   parent: BaseMail
+#   id: MailSixPack
+#   suffix: sixpack
+#   components:
+#   - type: Mail
+#     contents:
+#     - id: DrinkCanPack
 
 - type: entity
   noSpawn: true

@@ -1,9 +1,8 @@
 - type: entity
   save: false
-  name: Uwist McHands
+  name: Player arachne
   parent: MobArachneBase
   id: MobArachne
-  description: A miserable pile of legs.
   components:
   - type: CombatMode
     disarm: null

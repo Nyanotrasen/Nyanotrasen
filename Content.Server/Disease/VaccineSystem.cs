@@ -169,7 +169,7 @@ namespace Content.Server.Disease
 
         private void OnUpgradeExamine(EntityUid uid, DiseaseVaccineCreatorComponent component, UpgradeExamineEvent args)
         {
-            args.AddNumberUpgrade("vaccine-machine-cost-upgrade", component.BiomassCost - component.BaseBiomassCost);
+            args.AddNumberUpgrade("vaccine-machine-cost-upgrade", component.BiomassCost - component.BaseBiomassCost + 1);
         }
 
         public void UpdateUserInterfaceState(EntityUid uid, DiseaseVaccineCreatorComponent? component = null, bool? overrideLocked = null)

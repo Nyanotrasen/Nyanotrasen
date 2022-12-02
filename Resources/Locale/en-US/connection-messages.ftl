@@ -22,4 +22,8 @@ ban-banned-1 = You, or another user of this computer or connection, are banned f
 ban-banned-2 = The ban reason is: "{$reason}"
 
 soft-player-cap-full = The server is full!
-panic-bunker-account-denied = Due to Russian raiders recently, we are not accepting connections from new accounts right now. If you speak good English and are really interested, join the Discord at www.nyanotrasen.moe
+panic-bunker-account-denied = Due to Russian raiders recently, we are not accepting connections from new accounts right now.
+                              If you speak good English and are really interested, join the Discord at www.nyanotrasen.moe
+panic-bunker-no-admins = No admins are on, and your account is new to us.
+                         To ensure game quality, we unfortunately have to reject this connection.
+                         If you're interested in Nyanotrasen, please check out the website and Discord at www.nyanotrasen.moe

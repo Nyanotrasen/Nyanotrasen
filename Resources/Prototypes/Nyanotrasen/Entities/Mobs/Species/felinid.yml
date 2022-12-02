@@ -1,10 +1,9 @@
 - type: entity
   save: false
-  name: Uwist McHands
+  name: Base felinid
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
-  description: A miserable pile of nyas.
   components:
   - type: Sprite
     netsync: false

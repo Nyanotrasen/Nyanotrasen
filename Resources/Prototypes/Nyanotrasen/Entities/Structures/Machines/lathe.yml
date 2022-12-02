@@ -33,9 +33,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - ProximitySensor
-      - LeftArmBorg
-      - RightArmBorg
       - NormalityCrystal
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -165,10 +162,15 @@
     dynamicRecipes:
       - Flash
       - MicroManipulatorStockPart
+      - NanoManipulatorStockPart
       - ScanningModuleStockPart
+      - AdvancedScanningModuleStockPart
       - MicroLaserStockPart
+      - HighPowerMicroLaserStockPart
       - MatterBinStockPart
+      - AdvancedMatterBinStockPart
       - CapacitorStockPart
+      - AdvancedCapacitorStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -176,6 +178,8 @@
       - FireAlarmElectronics
       - HolofanProjector
       - Drone
+      - ConveyorBeltAssembly
+      - RPED
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

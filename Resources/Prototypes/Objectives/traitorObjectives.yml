@@ -49,12 +49,32 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
+        - BecomeGolemCondition
     - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
   conditions:
     - !type:BecomePsionicCondition
+
+- type: objective
+  id: BecomeGolemObjective
+  issuer: syndicate
+  difficultyOverride: 3.5
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+        - BecomePsionicCondition
+    - !type:NotRoleRequirement
+      roleId: Chaplain
+    - !type:NotRoleRequirement
+      roleId: ForensicMantis
+    - !type:NotRoleRequirement
+      roleId: Mystagogue
+  conditions:
+    - !type:BecomeGolemCondition
 
 - type: objective
   id: CMOHyposprayStealObjective
@@ -164,21 +184,6 @@
       owner: job-name-qm
 
 - type: objective
-  id: CorgiMeatStealObjective
-  issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
-  conditions:
-    - !type:StealCondition
-      prototype: FoodMeatCorgi
-      owner: objective-condition-steal-Ian
-
-- type: objective
   id: CaptainGunStealObjective
   issuer: syndicate
   difficultyOverride: 2.75
@@ -223,6 +228,21 @@
     - !type:StealCondition
       prototype: AntiPsychicKnife
       owner: job-name-mantis
+
+- type: objective
+  id: PonderingOrbTelepathicHOSStealObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+  conditions:
+    - !type:StealCondition
+      prototype: PonderingOrbTelepathicHOS
+      owner: job-name-hos
 
 - type: objective
   id: EscapeShuttleObjective

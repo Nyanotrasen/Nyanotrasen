@@ -28,6 +28,14 @@
     Poison: 0.9
 
 - type: damageModifierSet
+  id: Moff
+  coefficients:
+    Slash: 1.15
+    Cold: 0.85
+    Heat: 1.25
+    Poison: 0.9
+
+- type: damageModifierSet
   id: Web
   coefficients:
     Blunt: 0.4

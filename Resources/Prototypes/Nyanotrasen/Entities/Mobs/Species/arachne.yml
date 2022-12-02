@@ -4,7 +4,6 @@
   parent: BaseMobHuman
   id: MobArachneBase
   abstract: true
-  description: A miserable pile of legs.
   components:
   - type: Sprite
     netsync: false
@@ -141,6 +140,11 @@
     shiveringHeatRegulation: 500
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+    alternateState: arachne_standing
+    fireStackAlternateState: 3
 
 - type: entity
   save: false

@@ -107,11 +107,12 @@ namespace Content.Server.Psionics
             chance *= multiplier;
 
             chance = Math.Clamp(chance, 0, 1);
+
             if (_random.Prob(chance))
                 _psionicAbilitiesSystem.AddPsionics(uid, warn);
         }
 
-        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null, float bonusMuliplier = 1f)
         {
             if (!Resolve(uid, ref psionic, false))
                 return;
@@ -119,7 +120,7 @@ namespace Content.Server.Psionics
             if (psionic.Rerolled)
                 return;
 
-            RollPsionics(uid, psionic);
+            RollPsionics(uid, psionic, multiplier: bonusMuliplier);
             psionic.Rerolled = true;
         }
     }

@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseLightning
+  id: LightningNoospheric
+  name: noospheric lightning
+  components:
+  - type: Electrified
+    enabled: false
+  - type: Lightning
+    canArc: false

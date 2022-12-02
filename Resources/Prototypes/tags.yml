@@ -37,6 +37,9 @@
   id: BodyBag
 
 - type: Tag
+  id: Book
+
+- type: Tag
   id: BorgArm
 
 - type: Tag
@@ -53,12 +56,6 @@
 
 - type: Tag
   id: BoxHug
-
-- type: Tag
-  id: BrassInstrument
-
-- type: Tag
-  id: Brutepack
 
 - type: Tag
   id: Bucket
@@ -107,6 +104,9 @@
 
 - type: Tag
   id: CartridgeMagnum
+
+- type: Tag
+  id: CartridgeMagnumHC
 
 - type: Tag
   id: CartridgePistol
@@ -417,6 +417,12 @@
   id: Payload # for grenade/bomb crafting
 
 - type: Tag
+  id: MacroBomb
+
+- type: Tag
+  id: MicroBomb
+
+- type: Tag
   id: PaintableAirlock
 
 - type: Tag
@@ -460,6 +466,9 @@
 
 - type: Tag
   id: PussyWagonKeys
+
+- type: Tag
+  id: Radio
 
 - type: Tag
   id: RawMaterial
@@ -527,6 +536,9 @@
 
 - type: Tag
   id: SpeedLoaderMagnum
+
+- type: Tag
+  id: SpeedLoaderMagnumHC
 
 - type: Tag
   id: SpeedLoaderPistol
@@ -600,3 +612,5 @@
 - type: Tag
   id: Write
 
+- type: Tag
+  id: SubdermalImplant

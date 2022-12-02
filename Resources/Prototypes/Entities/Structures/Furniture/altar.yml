@@ -2,7 +2,7 @@
   id: AltarBase
   parent: BaseStructure
   name: altar
-  description: Altar of the Gods.
+  description: Altar of the Gods. Those with some divine potential can sacrifice psionics on top of it.
   abstract: true
   components:
   - type: Anchorable
@@ -26,8 +26,11 @@
   - type: Sprite
     netsync: false
     snapCardinals: true
-  - type: Climbable
   - type: Clickable
+  - type: SacrificialAltar
+  - type: Strap
+    position: Down
+    rotation: -90
 
 - type: entity
   id: AltarNanotrasen

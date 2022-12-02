@@ -4,8 +4,8 @@ analysis-console-scan-button = Scan
 analysis-console-scan-tooltip-info = Scan artifacts to learn information about their structure.
 analysis-console-print-button = Print
 analysis-console-print-tooltip-info = Print out the current information about the artifact.
-analysis-console-destroy-button = Destroy
-analysis-console-destroy-button-info = Destroy artifacts to generate points based on how much has been unlocked.
+analysis-console-destroy-button = Sacrifice
+analysis-console-destroy-button-info = Meld the artifact into the noösphere, generating research points.
 
 analysis-console-info-no-scanner = No analyzer connected! Please connect one using a multitool.
 analysis-console-info-no-artifact = No artifact present! Place one on the pad then scan for information.
@@ -26,12 +26,13 @@ analysis-console-progress-text = {$seconds ->
     *[other] T-{$seconds} seconds
 }
 
-analysis-destroy-window-title = Confirm Destruction
-analysis-destroy-window-text = Destroy the artifact, converting it into research points?
+analysis-destroy-window-title = Confirm Sacrifice
+analysis-destroy-window-text = Sacrifice the artifact, converting it into research points and glimmer?
 analysis-destroy-window-yes = Yes
 analysis-destroy-window-no = No
 
 analyzer-artifact-component-upgrade-analysis = analysis duration
+analyzer-artifact-component-upgrade-sacrifice = research points per glimmer
 
 analysis-console-print-popup = The console printed out a report.
 analyzer-artifact-destroy-popup = The artifact disintegrated into energy!
