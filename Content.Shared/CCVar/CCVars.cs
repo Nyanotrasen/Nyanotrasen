@@ -257,6 +257,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> AdminPanic =
             CVarDef.Create("game.admin_panic.enabled", false, CVar.SERVERONLY);
+        /// Show reason of disconnect for user or not.
 
         /// <summary>
         /// Minimum age of the account (from server's PoV, so from first-seen date) in minutes.
@@ -1154,6 +1155,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> AfkTime =
             CVarDef.Create("afk.time", 60f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How long seconds a client can go after being detected as AFK before being kicked.
+        /// </summary>
+        public static readonly CVarDef<float> AfkKickTime =
+            CVarDef.Create("afk.kick_time", 600f, CVar.SERVERONLY);
 
         /*
          * IC
