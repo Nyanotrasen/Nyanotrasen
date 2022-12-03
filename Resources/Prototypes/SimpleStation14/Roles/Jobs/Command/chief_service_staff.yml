@@ -1,0 +1,53 @@
+- type: job
+  id: ChiefServiceStaff
+  name: "CSS"
+  playTimeTracker: JobHeadOfPersonnel
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 3600
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 3600
+    - !type:OverallPlaytimeRequirement
+      time: 54000
+  weight: 20
+  startingGear: CSSGear
+  icon: "HeadOfPersonnel"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: true
+  antagAdvantage: 6
+  access:
+  - Command
+  - HeadOfPersonnel
+  - Bar
+  - Service
+  - Mail
+  - Cargo
+  - Maintenance
+  - Janitor
+  - Theatre
+  - Kitchen
+  - Hydroponics
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: PsionicBonusChance
+      flatBonus: 0.025
+
+- type: startingGear
+  id: CSSGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCSS
+    back: ClothingBackpackFilled
+    outerClothing: ClothingOuterCoatCSS
+    shoes: ClothingShoesBootsLaceup
+    id: HoPPDA
+    ears: ClothingHeadsetAltCommand
+  innerclothingskirt: ClothingUniformJumpsuitCSS
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

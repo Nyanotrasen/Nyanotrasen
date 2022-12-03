@@ -1,0 +1,20 @@
+- type: entity
+  name: css's fountain pen
+  parent: Pen
+  id: PenCSS
+  description: 'A luxurious fountain pen for the CSS of the station.'
+  components:
+  - type: Sprite
+    sprite: SimpleStation14/Objects/Misc/bureaucracy.rsi
+    state: pen_css
+- type: entity
+  name: chief service staff's rubber stamp
+  parent: RubberStampMime
+  id: RubberStampCSS
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ce
+    stampState: "paper_stamp-ce"
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: stamp-ce
