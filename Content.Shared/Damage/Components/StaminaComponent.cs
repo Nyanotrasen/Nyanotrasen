@@ -19,7 +19,7 @@ public sealed class StaminaComponent : Component
     /// How much stamina reduces per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("decay")]
-    public float Decay = 3f;
+    public float Decay = 5f;
 
     /// <summary>
     /// How much time after receiving damage until stamina starts decreasing.
