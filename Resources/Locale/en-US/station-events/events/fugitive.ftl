@@ -18,7 +18,7 @@ fugitive-report-last-line = The above individual is wanted across the sector; pr
 
 fugitive-round-end-result = {$fugitiveCount ->
     [one] There was one fugitive.
-    *[other] There were {$fugiCount} fugitives.
+    *[other] There were {$fugitiveCount} fugitives.
 }
 
 fugitive-user-was-a-fugitive = [color=gray]{$user}[/color] was a fugitive.
