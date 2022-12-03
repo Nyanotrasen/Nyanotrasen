@@ -25,9 +25,9 @@
       layers:
         - state: animated
           shader: unshaded
-    - type: PointLight
-      radius: 4.5
-      energy: 1.25
+    # - type: PointLight
+    #   radius: 4.5
+    #   energy: 1.25
     - type: Hands
     - type: DoAfter
     - type: Actions

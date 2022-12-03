@@ -1,0 +1,18 @@
+- type: entity
+  id: SpawnPointGhostSyndicateCommsAgent
+  name: ghost role spawn point
+  suffix: Syndie Comms
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanSyndicateCommsAgent
+    name: Syndicate Communications Agent
+    description: Aid the traitors in their mission.
+    rules: |
+      Aid the traitors in any way possible, or stir up conflict with your voice mask on the radio.
+      DO NOT ABANDON THE OUTPOST UNLESS COMPLETELY NECESSARY
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner

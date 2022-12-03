@@ -10,6 +10,22 @@
       description: |
         You (probably) came from a belt, you are now a human that can be picked up, do things.
 
+# Syndicate
+- type: entity
+  parent: MobHuman
+  id: MobHumanSyndicateCommsAgent
+  name: Syndicate Comms Agent
+  components:
+    - type: Faction
+      factions:
+      - Syndicate
+    - type: Loadout
+      prototype: SyndicateOperativeGearExtremelyBasic
+      prototypes: [SyndicateOperativeGearExtremelyBasic]
+    - type: RandomMetadata
+      nameSegments: [names_death_commando]
+
+# Changeling
 - type: entity
   name: Urist McLing
   id: UristMcLing
@@ -59,6 +75,8 @@
       - Xeno
     # - type: RandomHumanoidAppearance # Removes random names :(
 
+
+# Wizard
 - type: entity
   name: Urist McWizard
   id: UristMcWizardBase

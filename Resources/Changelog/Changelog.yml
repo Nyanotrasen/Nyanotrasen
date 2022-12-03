@@ -4913,4 +4913,11 @@ Entries:
         }
     id: 380000
     time: "2022-11-26T18:59:57.0000000+00:00"
-#- { message: 'Something.', type: Add/Remove/Tweak/Fix }
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: "5 nonfunctional Sleepers. All they do is look good and store a single item or person.", type: Add }
+      - { message: "Syndicate Comms Agent spawner (ghost role).", type: Add }
+      - { message: "Remove adminghost light, fullbright was made easier to access as ghosts.", type: Remove }
+    id: 390000
+    time: "2022-12-2T20:35:53.0000000+00:00"
+#  - { message: 'Something.', type: Add/Remove/Tweak/Fix }
