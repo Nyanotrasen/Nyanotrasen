@@ -13,6 +13,10 @@
     damage:
       types:
         Slash: 17 #cmon, it has to be at least BETTER than the rest.
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 25.0
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
@@ -39,6 +43,10 @@
     damage:
       types:
         Slash: 14
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 22.0
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/katana.rsi
@@ -61,7 +69,13 @@
     attackRate: 0.8
     damage:
       types:
-        Slash: 18
+        Slash: 15.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 30.0
+  - type: MeleeStaminaCost
+    swing: 10
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/machete.rsi
@@ -82,6 +96,12 @@
     damage:
       types:
         Slash: 24
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 40.0
+  - type: MeleeStaminaCost
+    swing: 20
   - type: StaminaDamageOnHit
     damage: 33
   - type: Item

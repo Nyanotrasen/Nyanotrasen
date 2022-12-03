@@ -20,6 +20,7 @@
     - state: cutters-cutty-thingy
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
         Slash: 6.5
@@ -97,7 +98,7 @@
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 0.9
     damage:
       types:
         Blunt: 7.5
@@ -135,7 +136,7 @@
       types:
         Blunt: 8
   - type: StaminaDamageOnHit
-    damage: 8
+    damage: 4
   - type: Tool
     qualities:
       - Prying
@@ -307,9 +308,16 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 17
+        Blunt: 7
+    bluntStaminaDamageFactor: 1.30 # 9.1 stamina damage
+  - type: Wieldable
+  - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+  - type: MeleeStaminaCost
+    swing: 10
   - type: Item
     sprite: Objects/Tools/shovel.rsi
 

@@ -19,6 +19,10 @@
         Blunt: 5
         Slash: 10
         Structural: 5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 20.0
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:

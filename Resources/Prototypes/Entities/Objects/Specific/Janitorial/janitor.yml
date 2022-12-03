@@ -22,6 +22,7 @@
     damage:
       types:
         Blunt: 5
+    bluntStaminaDamageFactor: 1.60 # 8 stamina damage
   - type: Absorbent
   - type: SolutionContainerManager
     solutions:

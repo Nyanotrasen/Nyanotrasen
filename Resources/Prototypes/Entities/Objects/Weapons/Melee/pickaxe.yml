@@ -20,6 +20,10 @@
       types:
         Piercing: 8
         Blunt: 2
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 10.0
   - type: Item
     size: 24
     sprite: Objects/Weapons/Melee/pickaxe.rsi
@@ -49,5 +53,11 @@
       types:
         Piercing: 8
         Blunt: 8
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 70.0
+  - type: MeleeStaminaCost
+    swing: 15
   - type: StaminaDamageOnHit
     damage: 40
