@@ -14,6 +14,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.Ghost.Roles;
 using Content.Shared.MobState;
+using Content.Shared.CCVar;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -21,6 +22,7 @@ using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Ghost.Roles
 {
@@ -34,6 +36,7 @@ namespace Content.Server.Ghost.Roles
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
         [Dependency] private readonly BookSystem _bookSystem = default!;
         [Dependency] private readonly IServerDbManager _db = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private uint _nextRoleIdentifier;
         private bool _needsUpdateGhostRoleCount = true;
@@ -107,7 +110,7 @@ namespace Content.Server.Ghost.Roles
                 !EntityManager.HasComponent<GhostComponent>(attached))
                 return;
 
-            var eui = new GhostRoleWhitelistEui(_bookSystem, session);
+            var eui = new GhostRoleWhitelistEui(_bookSystem, session, _cfg.GetCVar(CCVars.InfoLinksDiscord));
             _euiManager.OpenEui(eui, session);
         }
 

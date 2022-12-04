@@ -10,10 +10,12 @@ namespace Content.Server.Ghost.Roles.UI
     {
         private readonly BookSystem _books = default!;
         private IPlayerSession _player = default!;
-        public GhostRoleWhitelistEui(BookSystem books, IPlayerSession player)
+        private string _link = "https://discord.gg/s7Er9mejpp";
+        public GhostRoleWhitelistEui(BookSystem books, IPlayerSession player, string link)
         {
             _books = books;
             _player = player;
+            _link = link;
         }
 
         public override void HandleMessage(EuiMessageBase msg)
@@ -28,7 +30,7 @@ namespace Content.Server.Ghost.Roles.UI
             }
 
             // TODO: this will be a cvar in a few days when PJB pushes the launcer update
-            _books.OpenURL(_player, "https://discord.gg/s7Er9mejpp");
+            _books.OpenURL(_player, _link);
             Close();
         }
     }
