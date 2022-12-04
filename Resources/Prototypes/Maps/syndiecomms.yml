@@ -1,0 +1,12 @@
+- type: gameMap
+  id: SyndieComms
+  mapName: Syndicate Comms Outpost
+  mapPath: /Maps/SimpleStation14/syndiecomms.yml
+  minPlayers: 0
+  stations:
+    SyndieComms:
+      mapNameTemplate: "Syndicate Comms Outpost"
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]

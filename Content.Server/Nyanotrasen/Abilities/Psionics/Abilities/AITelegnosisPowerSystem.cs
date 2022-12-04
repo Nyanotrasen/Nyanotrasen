@@ -73,8 +73,6 @@ namespace Content.Server.Abilities.Psionics
 
                 _mindSwap.Swap(projection.Owner, mindSwapped.OriginalEntity);
                 // QueueDel(projection.Owner);
-
-                Console.WriteLine("finished");
             }
         }
     }
