@@ -4933,4 +4933,11 @@ Entries:
       - { message: 'Added back some of the Nyano whitelist restrictions.', type: Add }
     id: 410000
     time: "2022-12-4T00:32:35.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Undo change causing ghosts to get deleted whenever the mind leaves.', type: Tweak }
+      - { message: 'Add a simple Brief system, similar to aghost.', type: Add }
+      - { message: 'Edit centcom official outfit to be more up to date.', type: Tweak }
+    id: 420000
+    time: "2022-12-4T02:15:02.0000000+00:00"
 #  - { message: 'Something.', type: Add/Remove/Tweak/Fix }

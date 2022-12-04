@@ -166,7 +166,7 @@ namespace Content.Server.Ghost
 
         private void OnPlayerDetached(EntityUid uid, GhostComponent component, PlayerDetachedEvent args)
         {
-            QueueDel(uid);
+            // QueueDel(uid);
         }
 
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
@@ -298,7 +298,7 @@ namespace Content.Server.Ghost
             return ghostBoo.Handled;
         }
     }
-    
+
     [AnyCommand]
     public sealed class ToggleGhostVisibility : IConsoleCommand
     {
@@ -311,7 +311,7 @@ namespace Content.Server.Ghost
                 shell.WriteLine("You can only open the ghost roles UI on a client.");
 
             var entityManager = IoCManager.Resolve<IEntityManager>();
-            
+
             var uid = shell.Player?.AttachedEntity;
             if (uid == null
                 || !entityManager.HasComponent<GhostComponent>(uid)
