@@ -1,0 +1,403 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingUnderPantsBase
+  components:
+    - type: Clothing
+      slots:
+        - UNDERPANTS
+    - type: Sprite
+      state: icon
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderbee_shorts
+  name: bee_shorts
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: bee_shorts
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: bee_shorts
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxer_briefs
+  name: boxer_briefs
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxer_briefs
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxer_briefs
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_assblastusa
+  name: boxers_assblastusa
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers_assblastusa
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_assblastusa
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_commie
+  name: boxers_commie
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers_commie
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_commie
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_heart
+  name: boxers_heart
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers_heart
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_heart
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_striped
+  name: boxers_striped
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers_striped
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_striped
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_uk
+  name: boxers_uk
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers_uk
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_uk
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers
+  name: boxers
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: boxers
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderbriefs
+  name: briefs
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: briefs
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: briefs
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderfishnet_lower
+  name: fishnet_lower
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: fishnet_lower
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: fishnet_lower
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderjockstrap
+  name: jockstrap
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: jockstrap
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: jockstrap
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderljonb
+  name: ljonb
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: ljonb
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: ljonb
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_alt
+  name: panties_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_alt
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_assblastusa
+  name: panties_assblastusa
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_assblastusa
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_assblastusa
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_bee-kini
+  name: panties_bee-kini
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_bee-kini
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_bee-kini
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_commie
+  name: panties_commie
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_commie
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_commie
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_kinky
+  name: panties_kinky
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_kinky
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_kinky
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_neko
+  name: panties_neko
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_neko
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_neko
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_slim
+  name: panties_slim
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_slim
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_slim
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_swimming
+  name: panties_swimming
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_swimming
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_swimming
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_thin
+  name: panties_thin
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_thin
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_thin
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_uk
+  name: panties_uk
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties_uk
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_uk
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties
+  name: panties
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: panties
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpantyhose_ripped
+  name: pantyhose_ripped
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: pantyhose_ripped
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: pantyhose_ripped
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpantyhose
+  name: pantyhose
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: pantyhose
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: pantyhose
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderstriped_panties
+  name: striped_panties
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: striped_panties
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: striped_panties
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderthong_babydoll
+  name: thong_babydoll
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: thong_babydoll
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: thong_babydoll
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderthong
+  name: thong
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      state: thong
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: thong

@@ -182,11 +182,11 @@ namespace Content.Server.Ghost.Roles
 
         public async void Takeover(IPlayerSession player, uint identifier)
         {
-            // if (!await _db.GetWhitelistStatusAsync(player.UserId))
-            // {
-            //     CloseEui(player);
-            //     return;
-            // }
+            if (!await _db.GetWhitelistStatusAsync(player.UserId))
+            {
+                CloseEui(player);
+                return;
+            }
 
             if (!_ghostRoles.TryGetValue(identifier, out var role)) return;
             if (!role.Take(player)) return;

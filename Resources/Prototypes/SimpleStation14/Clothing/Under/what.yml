@@ -1,0 +1,31 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingUnderWhatBase
+  components:
+    - type: Clothing
+      slots:
+        - SOCKS
+        - UNDERPANTS
+        - UNDERSHIRT
+    - type: Sprite
+      state: icon
+
+- type: entity
+  parent: ClothingUnderWhatBase
+  id: ClothingUnderWhatmankini
+  name: mankini
+  description: Who thought this was a good idea?
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/what.rsi
+      state: mankini
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/what.rsi
+      clothingVisuals:
+        underpants:
+          - state: mankini
+        undershirt:
+          - state: mankini
+        socks:
+          - state: mankini
