@@ -43,6 +43,7 @@ jobs:
       uses: appleboy/scp-action@master
       with:
         host: 5.161.182.128
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         username: deployment
         key: ${{ secrets.BUILDS_PUSH_KEY }}
         source: "release/${{ github.sha }}"
@@ -53,6 +54,7 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: 5.161.182.128
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         username: deployment
         key: ${{ secrets.BUILDS_PUSH_KEY }}
         script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}
