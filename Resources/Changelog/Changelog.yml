@@ -4920,4 +4920,9 @@ Entries:
       - { message: "Remove adminghost light, fullbright was made easier to access as ghosts.", type: Remove }
     id: 390000
     time: "2022-12-2T20:35:53.0000000+00:00"
+  - author: "DEATHB4DEFEAT"
+    changes:
+      - { message: 'Fix sleeper textures layering incorrectly.', type: Fix }
+    id: 400000
+    time: "2022-12-16:31:14.0000000+00:00"
 #  - { message: 'Something.', type: Add/Remove/Tweak/Fix }
