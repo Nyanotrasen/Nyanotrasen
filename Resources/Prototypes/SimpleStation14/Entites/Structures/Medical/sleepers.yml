@@ -1,0 +1,158 @@
+- type: entity
+  abstract: true
+  id: SleeperBase
+  parent: BaseStructure
+  name: Sleeper
+  description: Description.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+      - shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+    - type: EntityStorage
+      capacity: 1
+      isCollidableWhenOpen: false
+      # closeSound:
+      #   path:
+      # openSound:
+      #   path:
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: sleeper-open
+        state_closed: sleeper
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: sleeper
+      - state: sleeper-open
+        map: ["enum.StorageVisualLayers.Door"]
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 75
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/Effects/metalbreak.ogg
+        - !type:SpawnEntitiesBehavior
+          spawn:
+            SheetSteel1:
+              min: 1
+              max: 2
+
+- type: entity
+  id: SleeperPod
+  parent: SleeperBase
+  name: Sleeper Pod
+  description: An old design of sleeper pod, probably not the safest to use.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: oldpod-open
+        state_closed: oldpod
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: oldpod
+      - state: oldpod-open
+        map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  id: SleeperParty
+  parent: SleeperBase
+  name: Party Sleeper
+  description: A party sleeper! Seems pretty fun.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: partypod-open
+        state_closed: partypod
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: partypod
+      - state: partypod-open
+        map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  id: Sleeper
+  parent: SleeperBase
+  name: Sleeper
+  description: A basic model of medical sleeper, used to inject chemicals safely and quickly into a person without the need of hyposprays.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: sleeper-open
+        state_closed: sleeper
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: sleeper
+      - state: sleeper-open
+        map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  id: SleeperClockwork
+  parent: SleeperBase
+  name: Clockwork Sleeper
+  description: A sleeper, seemingly made out of.. gears? How does this work even?
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: sleeper_clockwork-open
+        state_closed: sleeper_clockwork
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: sleeper_clockwork
+      - state: sleeper_clockwork-open
+        map: ["enum.StorageVisualLayers.Door"]
+
+- type: entity
+  id: SleeperSyndicate
+  parent: SleeperBase
+  name: Syndicate Sleeper
+  description: A sleeper made for the Syndicate, seems to be just as functional as the medical one.
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Appearance
+      visuals:
+      - type: StorageVisualizer
+        state_open: sleeper_s-open
+        state_closed: sleeper_s
+    - type: Sprite
+      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      layers:
+      - state: sleeper_s
+      - state: sleeper_s-open
+        map: ["enum.StorageVisualLayers.Door"]

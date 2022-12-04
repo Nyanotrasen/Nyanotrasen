@@ -2,7 +2,7 @@
   id: Arena
   mapName: 'Arena'
   mapPath: /Maps/arena.yml
-  minPlayers: 20
+  minPlayers: 30
   stations:
     arena:
       mapNameTemplate: '{0} Arena Station {1}'
@@ -38,7 +38,7 @@
         SalvageTechnician: [ 2, 3 ]
         Musician: [ 1, 1 ]
         AtmosphericTechnician: [ 1, 2 ]
-        Gladiator: [ 0, 4 ] # here
+        Gladiator: [ 0, 4 ] 
         MailCarrier: [ 1, 2 ]
         Cyborg: [ 2, 2 ]
         ForensicMantis: [ 1, 1 ]
