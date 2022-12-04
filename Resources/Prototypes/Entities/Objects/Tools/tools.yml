@@ -318,6 +318,7 @@
         Blunt: 12
   - type: MeleeStaminaCost
     swing: 10
+    wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
   - type: Item
     sprite: Objects/Tools/shovel.rsi
 

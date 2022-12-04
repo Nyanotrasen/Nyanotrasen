@@ -19,6 +19,9 @@
         Blunt: 5
         Slash: 10
         Structural: 5
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.45 #if wielded you will only consume 4.5 stam
   - type: MeleeBloodletter
     bloodReduction:
       types:

@@ -254,6 +254,7 @@
   - type: MeleeStaminaCost
     swing: 5.5
     hit: 4.5
+    wieldCoefficient: 0.50 #if wielded you will only consume 5 stam
   - type: StaminaDamageOnHit
     damage: 15
   - type: Construction
