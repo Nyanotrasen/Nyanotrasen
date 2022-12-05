@@ -1349,3 +1349,16 @@ Entries:
     type: Tweak
   id: 144
   time: '2022-12-05T17:50:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed RF sensitivity power. Current radio has no range and goes across
+      maps so it's impossible to balance.
+    type: Remove
+  - message: Oracle will no longer ask for power cells.
+    type: Fix
+  - message: Fixed credits button.
+    type: Fix
+  - message: Moths should be carriable like other species now.
+    type: Fix
+  id: 145
+  time: '2022-12-05T18:24:25.0000000+00:00'
