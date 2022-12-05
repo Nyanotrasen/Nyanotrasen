@@ -11,6 +11,18 @@
   - type: Item
     size: 15
     sprite: Objects/Specific/Janitorial/mop.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+  - type: StaminaDamageOnHit
+    damage: 5
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+    bluntStaminaDamageFactor: 1.60 # 8 stamina damage
   - type: Absorbent
   - type: SolutionContainerManager
     solutions:

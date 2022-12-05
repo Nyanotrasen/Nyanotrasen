@@ -281,6 +281,10 @@
     sprite: Objects/Fun/ducky.rsi
     slots:
     - HEAD
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0.1
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/quack.ogg

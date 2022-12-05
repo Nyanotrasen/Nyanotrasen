@@ -15,7 +15,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
+        Slash: 7
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
 
@@ -54,7 +54,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
+        Slash: 7
   - type: Item
     size: 20
   - type: Clothing
@@ -82,8 +82,12 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 10
-        Piercing: 5
+        Slash: 8
+        Piercing: 4
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 8.0
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
 
@@ -104,8 +108,10 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
-        Piercing: 5 # I guess you can stab it into them?
+        Blunt: 8
+        Piercing: 4 # I guess you can stab it into them?
+  - type: StaminaDamageOnHit
+    damage: 5
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
 

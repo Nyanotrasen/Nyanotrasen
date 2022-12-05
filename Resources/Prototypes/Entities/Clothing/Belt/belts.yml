@@ -59,6 +59,13 @@
           - SignalLinker
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: StaminaDamageOnHit
+    damage: 9
 
 - type: entity
   parent: ClothingBeltStorageBase
