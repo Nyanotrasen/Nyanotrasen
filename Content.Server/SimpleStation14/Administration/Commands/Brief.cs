@@ -37,7 +37,9 @@ namespace Content.Server.Administration.Commands
 
             if (mind.VisitingEntity != default)
             {
+                var entity = mind.VisitingEntity;
                 player.ContentData()!.Mind?.UnVisit();
+                // EntityManager.QueueDeleteEntity(mind.VisitingEntity); // cant find a way to get visitingentity ID ??????? it thinks the type is invalid??
                 return;
             }
 
