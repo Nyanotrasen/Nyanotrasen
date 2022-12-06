@@ -1,0 +1,7 @@
+- type: htnCompound
+  id: RatServantCompound
+  branches:
+    - tasks:
+        - id: MeleeCombatCompound
+    - tasks:
+        - id: FollowCompound
