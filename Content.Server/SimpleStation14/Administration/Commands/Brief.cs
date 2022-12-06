@@ -6,7 +6,6 @@ using Content.Shared.Administration;
 using Content.Shared.Ghost;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-
 namespace Content.Server.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
@@ -39,7 +38,11 @@ namespace Content.Server.Administration.Commands
             {
                 var entity = mind.VisitingEntity;
                 player.ContentData()!.Mind?.UnVisit();
-                // EntityManager.QueueDeleteEntity(mind.VisitingEntity); // cant find a way to get visitingentity ID ??????? it thinks the type is invalid??
+
+                foreach (var officer in _entities.EntityQuery<BriefOfficerComponent>(true))
+                {
+                    if (officer.Owner == entity) _entities.QueueDeleteEntity(officer.Owner);
+                }
                 return;
             }
 
