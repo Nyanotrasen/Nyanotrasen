@@ -2,10 +2,15 @@ using Content.Server.Actions;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Server.NPC.Systems;
+using Content.Server.NPC.Components;
+using Content.Server.NPC;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
+using Content.Shared.MobState;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
+using Robust.Shared.Map;
 
 namespace Content.Server.RatKing
 {
@@ -15,12 +20,19 @@ namespace Content.Server.RatKing
         [Dependency] private readonly ActionsSystem _action = default!;
         [Dependency] private readonly AtmosphereSystem _atmos = default!;
         [Dependency] private readonly TransformSystem _xform = default!;
+        [Dependency] private readonly NPCSystem _npc = default!;
+        [Dependency] private readonly FactionSystem _factionSystem = default!;
+
+        private const string NeutralAIFaction = "SimpleNeutral";
+        private const string HostileAIFaction = "SimpleHostile";
 
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<RatKingComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<RatKingComponent, MobStateChangedEvent>(OnMobStateChanged);
+            SubscribeLocalEvent<RatServantComponent, ComponentShutdown>(OnServantShutdown);
 
             SubscribeLocalEvent<RatKingComponent, RatKingRaiseArmyActionEvent>(OnRaiseArmy);
             SubscribeLocalEvent<RatKingComponent, RatKingDomainActionEvent>(OnDomain);
@@ -31,6 +43,26 @@ namespace Content.Server.RatKing
             _action.AddAction(uid, component.ActionRaiseArmy, null);
             _action.AddAction(uid, component.ActionDomain, null);
         }
+
+        private void OnMobStateChanged(EntityUid uid, RatKingComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState == DamageState.Dead)
+            {
+                foreach (var servant in component.Servants)
+                {
+                    UpdateAIFaction(servant, true);
+                }
+            }
+        }
+
+        private void OnServantShutdown(EntityUid uid, RatServantComponent component, ComponentShutdown args)
+        {
+            if (!TryComp<RatKingComponent>(component.RatKing, out var king))
+                return;
+
+            king.Servants.Remove(uid);
+        }
+
 
         /// <summary>
         /// Summons an allied rat servant at the King, costing a small amount of hunger
@@ -51,7 +83,13 @@ namespace Content.Server.RatKing
             }
             args.Handled = true;
             hunger.CurrentHunger -= component.HungerPerArmyUse;
-            Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates); //spawn the little mouse boi
+            var servant = Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates); //spawn the little mouse boi
+            component.Servants.Add(servant);
+
+            var servComp = EnsureComp<RatServantComponent>(servant);
+            servComp.RatKing = uid;
+
+            _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
 
         /// <summary>
@@ -81,6 +119,23 @@ namespace Content.Server.RatKing
             var indices = _xform.GetGridOrMapTilePosition(uid, transform);
             var tileMix = _atmos.GetTileMixture(transform.GridUid, transform.MapUid, indices, true);
             tileMix?.AdjustMoles(Gas.Miasma, component.MolesMiasmaPerDomain);
+        }
+
+
+        private void UpdateAIFaction(EntityUid servant, bool hostile, FactionComponent? component = null)
+        {
+            if (!Resolve(servant, ref component, false))
+                return;
+
+            if (hostile)
+            {
+                _factionSystem.RemoveFaction(servant, NeutralAIFaction);
+                _factionSystem.AddFaction(servant, HostileAIFaction);
+            } else
+            {
+                _factionSystem.RemoveFaction(servant, HostileAIFaction);
+                _factionSystem.AddFaction(servant, NeutralAIFaction);
+            }
         }
     }
 

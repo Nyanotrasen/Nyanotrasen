@@ -42,5 +42,16 @@ namespace Content.Server.RatKing
         /// </summary>
         [DataField("molesMiasmaPerDomain")]
         public float MolesMiasmaPerDomain = 100f;
+
+        /// <summary>
+        ///     List of servants.
+        /// </summary>
+        public List<EntityUid> Servants = new();
+
+        /// <summary>
+        ///     Whether this king's servants are currently hostile or not.
+        /// </summary>
+        [DataField("hostileServants")]
+        public bool hostileServants = false;
     }
 };
