@@ -1362,3 +1362,27 @@ Entries:
     type: Fix
   id: 145
   time: '2022-12-05T18:24:25.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added new medium salvage map!
+    type: Add
+  id: 146
+  time: '2022-12-06T20:25:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Salvage tech has an antag penalty equal to engineer.
+    type: Tweak
+  - message: Removed unused uniforms from uniform printer.
+    type: Remove
+  id: 147
+  time: '2022-12-06T20:24:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants now follow the rat king around.
+    type: Add
+  - message: Rat servants are neutral by default.
+    type: Tweak
+  - message: The rat king can toggle his servants are neutral or hostile.
+    type: Tweak
+  id: 148
+  time: '2022-12-06T20:23:25.0000000+00:00'
