@@ -11,6 +11,7 @@ using Content.Shared.MobState;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.Server.RatKing
 {
@@ -22,9 +23,35 @@ namespace Content.Server.RatKing
         [Dependency] private readonly TransformSystem _xform = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
         [Dependency] private readonly FactionSystem _factionSystem = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         private const string NeutralAIFaction = "SimpleNeutral";
         private const string HostileAIFaction = "SimpleHostile";
+
+        private TimeSpan _nextRefresh = TimeSpan.FromSeconds(3);
+
+        private TimeSpan _refreshTime = TimeSpan.FromSeconds(3);
+
+        /// <summary>
+        /// Why is following so bad that this is neccessary...
+        /// </summary>
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            if (_timing.CurTime >= _nextRefresh)
+            {
+                _nextRefresh = _timing.CurTime + _refreshTime;
+
+                foreach (var servant in EntityQuery<RatServantComponent>())
+                {
+                    if (servant.RatKing == null)
+                        continue;
+
+                    _npc.SetBlackboard(servant.Owner, NPCBlackboard.FollowTarget, Transform(servant.RatKing.Value).Coordinates);
+                }
+            }
+        }
 
         public override void Initialize()
         {
@@ -36,12 +63,14 @@ namespace Content.Server.RatKing
 
             SubscribeLocalEvent<RatKingComponent, RatKingRaiseArmyActionEvent>(OnRaiseArmy);
             SubscribeLocalEvent<RatKingComponent, RatKingDomainActionEvent>(OnDomain);
+            SubscribeLocalEvent<RatKingComponent, RatKingToggleFactionActionEvent>(OnToggleFaction);
         }
 
         private void OnStartup(EntityUid uid, RatKingComponent component, ComponentStartup args)
         {
             _action.AddAction(uid, component.ActionRaiseArmy, null);
             _action.AddAction(uid, component.ActionDomain, null);
+            _action.AddAction(uid, component.ActionToggleFaction, null);
         }
 
         private void OnMobStateChanged(EntityUid uid, RatKingComponent component, MobStateChangedEvent args)
@@ -85,11 +114,12 @@ namespace Content.Server.RatKing
             hunger.CurrentHunger -= component.HungerPerArmyUse;
             var servant = Spawn(component.ArmyMobSpawnId, Transform(uid).Coordinates); //spawn the little mouse boi
             component.Servants.Add(servant);
+            UpdateAIFaction(servant, component.HostileServants);
 
             var servComp = EnsureComp<RatServantComponent>(servant);
             servComp.RatKing = uid;
 
-            _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
+            _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, Transform(uid).Coordinates);
         }
 
         /// <summary>
@@ -121,6 +151,19 @@ namespace Content.Server.RatKing
             tileMix?.AdjustMoles(Gas.Miasma, component.MolesMiasmaPerDomain);
         }
 
+        private void OnToggleFaction(EntityUid uid, RatKingComponent component, RatKingToggleFactionActionEvent args)
+        {
+            component.HostileServants = !component.HostileServants;
+
+            var popupMsg = component.HostileServants ? Loc.GetString("rat-king-toggle-action-popup-hostile") : Loc.GetString("rat-king-toggle-action-popup-neutral");
+            _popup.PopupEntity(popupMsg, uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
+
+            foreach (var servant in component.Servants)
+            {
+                UpdateAIFaction(servant, component.HostileServants);
+            }
+        }
+
 
         private void UpdateAIFaction(EntityUid servant, bool hostile, FactionComponent? component = null)
         {
@@ -141,4 +184,5 @@ namespace Content.Server.RatKing
 
     public sealed class RatKingRaiseArmyActionEvent : InstantActionEvent { };
     public sealed class RatKingDomainActionEvent : InstantActionEvent { };
+    public sealed class RatKingToggleFactionActionEvent : InstantActionEvent { };
 };

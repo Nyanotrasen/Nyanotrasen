@@ -44,6 +44,13 @@ namespace Content.Server.RatKing
         public float MolesMiasmaPerDomain = 100f;
 
         /// <summary>
+        ///     The action for the Domain ability
+        /// </summary>
+        [DataField("actionToggleFaction", required: true)]
+        public InstantAction ActionToggleFaction = new();
+
+
+        /// <summary>
         ///     List of servants.
         /// </summary>
         public List<EntityUid> Servants = new();
@@ -52,6 +59,6 @@ namespace Content.Server.RatKing
         ///     Whether this king's servants are currently hostile or not.
         /// </summary>
         [DataField("hostileServants")]
-        public bool hostileServants = false;
+        public bool HostileServants = false;
     }
 };
