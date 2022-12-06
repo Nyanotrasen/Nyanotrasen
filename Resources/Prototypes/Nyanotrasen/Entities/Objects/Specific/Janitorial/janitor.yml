@@ -18,11 +18,12 @@
       absorbed:
         maxVol: 100
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 1.60 # 8 stamina damage
     damage:
       types:
         Blunt: 4
   - type: StaminaDamageOnHit
-    damage: 4
+    damage: 6
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
