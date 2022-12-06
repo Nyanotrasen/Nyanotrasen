@@ -7,7 +7,7 @@ rat-king-domain-popup = A cloud of miasma is released into the air!
 
 rat-king-toggle-faction-name = Toggle Rat Hostility
 rat-king-toggle-faction-description = Turn your rats hostile or neutral.
-rat-king-toggle-action-popup-hostile = Your rats will attack!
-rat-king-toggle-action-popup-neutral = Your rats will stand down.
+rat-king-toggle-action-popup = Your rats will attack!
+rat-king-toggle-action-popup-enabled  = Your rats will stand down.
 
 rat-king-too-hungry = You are too hungry to use this ability!

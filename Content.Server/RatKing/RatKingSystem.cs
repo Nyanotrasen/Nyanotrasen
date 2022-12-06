@@ -28,9 +28,9 @@ namespace Content.Server.RatKing
         private const string NeutralAIFaction = "SimpleNeutral";
         private const string HostileAIFaction = "SimpleHostile";
 
-        private TimeSpan _nextRefresh = TimeSpan.FromSeconds(3);
+        private TimeSpan _nextRefresh = TimeSpan.FromSeconds(1.5);
 
-        private TimeSpan _refreshTime = TimeSpan.FromSeconds(3);
+        private TimeSpan _refreshTime = TimeSpan.FromSeconds(1.5);
 
         /// <summary>
         /// Why is following so bad that this is neccessary...
@@ -68,9 +68,9 @@ namespace Content.Server.RatKing
 
         private void OnStartup(EntityUid uid, RatKingComponent component, ComponentStartup args)
         {
+            _action.AddAction(uid, component.ActionToggleFaction, null);
             _action.AddAction(uid, component.ActionRaiseArmy, null);
             _action.AddAction(uid, component.ActionDomain, null);
-            _action.AddAction(uid, component.ActionToggleFaction, null);
         }
 
         private void OnMobStateChanged(EntityUid uid, RatKingComponent component, MobStateChangedEvent args)
@@ -155,13 +155,13 @@ namespace Content.Server.RatKing
         {
             component.HostileServants = !component.HostileServants;
 
-            var popupMsg = component.HostileServants ? Loc.GetString("rat-king-toggle-action-popup-hostile") : Loc.GetString("rat-king-toggle-action-popup-neutral");
-            _popup.PopupEntity(popupMsg, uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
-
             foreach (var servant in component.Servants)
             {
                 UpdateAIFaction(servant, component.HostileServants);
             }
+
+            _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
+            args.Handled = true;
         }
 
 

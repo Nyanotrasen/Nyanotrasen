@@ -91,11 +91,13 @@
       event: !type:RatKingDomainActionEvent
     hungerPerDomainUse: 50
     actionToggleFaction:
-      useDelay: 3
-      icon: Interface/Actions/ratKingDomain.png
+      checkCanInteract: false
+      icon: Interface/Actions/ratHarmOff.png
+      iconOn: Interface/Actions/ratHarm.png
+      userPopup: rat-king-toggle-action-popup
+      popupToggleSuffix: -enabled
       name: rat-king-toggle-faction-name
       description: rat-king-toggle-faction-description
-      itemIconStyle: NoItem
       event: !type:RatKingToggleFactionActionEvent
   - type: MobsterAccent
   - type: Butcherable
