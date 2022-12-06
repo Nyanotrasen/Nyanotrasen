@@ -26,6 +26,11 @@
   color: yellow
   meltingPoint: -11.0
   boilingPoint: 232.2
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
 
 - type: reagent
   id: Frostoil
