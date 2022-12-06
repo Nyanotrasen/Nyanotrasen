@@ -85799,14 +85799,6 @@ entities:
   - pos: 36.5,42.5
     parent: 0
     type: Transform
-- uid: 7787
-  type: GasMinerNitrousOxide
-  components:
-  - pos: 42.5,41.5
-    parent: 0
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7788
   type: FrezonCanister
   components:

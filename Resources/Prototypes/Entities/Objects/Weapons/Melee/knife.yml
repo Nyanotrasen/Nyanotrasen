@@ -14,9 +14,13 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 12
+        Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 12.0
   - type: Sprite
     netsync: false
   - type: Item
@@ -84,6 +88,10 @@
     damage:
       types:
         Slash: 10
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 27.0
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/combat_knife.rsi
@@ -96,6 +104,10 @@
   id: SurvivalKnife
   description: Weapon of first and last resort for combatting space carp.
   components:
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 25.0
   - type: Sprite
     sprite: Objects/Weapons/Melee/survival_knife.rsi
     size: 2

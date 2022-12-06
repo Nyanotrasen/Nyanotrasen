@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -16,7 +17,8 @@ namespace Content.Server.Weapons.Melee
 
         private void OnMeleeHit(EntityUid uid, DamageWeaponOnHitComponent component, MeleeHitEvent args)
         {
-            if (!args.IsHit)
+            if (!args.IsHit ||
+                !args.HitEntities.Any())
                 return;
 
             _damageableSystem.TryChangeDamage(uid, component.Damage);
