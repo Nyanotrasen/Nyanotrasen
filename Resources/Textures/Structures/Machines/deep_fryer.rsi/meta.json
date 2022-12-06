@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Original source: https://github.com/goonstation/goonstation/blob/731bb69de3a835c68b584f0ed36aa4a52620ef3a/icons/obj/kitchen.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "directions": 4
+    },
+    {
+      "name": "active",
+      "directions": 4,
+      "delays": [
+        [
+          0.1785,
+          0.1785,
+          0.1785
+        ],
+        [
+          0.1785,
+          0.1785,
+          0.1785
+        ],
+        [
+          0.1785,
+          0.1785,
+          0.1785
+        ],
+        [
+          0.1785,
+          0.1785,
+          0.1785
+        ]
+      ]
+    }
+  ]
+}
