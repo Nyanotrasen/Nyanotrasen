@@ -8,6 +8,12 @@
     size: 60
   - type: Storage
     capacity: 60
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 3.5
+  - type: StaminaDamageOnHit
+    damage: 12
 
 - type: entity
   name: brown briefcase

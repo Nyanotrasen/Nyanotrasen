@@ -199,6 +199,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: female_full
         visible: false
+      - map: [ "underpants" ]
+      - map: [ "undershirt" ]
+      - map: [ "socks" ]
       - map: ["jumpsuit"]
         shader: StencilDraw
       - map: ["enum.HumanoidVisualLayers.LHand"]
@@ -217,7 +220,7 @@
       - map: ["id"]
       - map: ["gloves"]
       - map: ["shoes"]
-      - map: ["ears"]
+      - map: [ "ears" ]
       - map: ["outerClothing"]
       - map: ["eyes"]
       - map: ["belt"]

@@ -52,6 +52,7 @@ namespace Content.Server.Abilities.Psionics
         private void OnPowerUsed(EntityUid uid, AITelegnosisPowerComponent component, AITelegnosisPowerActionEvent args)
         {
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
+            Transform(projection).AttachToGridOrMap();
             _mindSwap.Swap(uid, projection);
 
             _psionics.LogPowerUsed(uid, "aieye");
@@ -73,8 +74,6 @@ namespace Content.Server.Abilities.Psionics
 
                 _mindSwap.Swap(projection.Owner, mindSwapped.OriginalEntity);
                 // QueueDel(projection.Owner);
-
-                Console.WriteLine("finished");
             }
         }
     }

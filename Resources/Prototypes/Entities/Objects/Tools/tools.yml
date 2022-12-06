@@ -20,9 +20,10 @@
     - state: cutters-cutty-thingy
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
-        Blunt: 10
+        Slash: 6.5
   - type: Tool
     qualities:
       - Cutting
@@ -97,10 +98,12 @@
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 0.9
     damage:
       types:
-        Blunt: 6.5
+        Blunt: 7.5
+  - type: StaminaDamageOnHit
+    damage: 12
   - type: Tool
     qualities:
       - Anchoring
@@ -131,7 +134,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 4
   - type: Tool
     qualities:
       - Prying
@@ -201,6 +206,10 @@
       - DroneUsable
   - type: StaticPrice
     price: 60
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 2
 
 - type: entity
   name: power drill
@@ -296,9 +305,20 @@
     state: icon
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.8
     damage:
       types:
-        Blunt: 10
+        Blunt: 7
+    bluntStaminaDamageFactor: 1.30 # 9.1 stamina damage
+  - type: Wieldable
+  - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
   - type: Item
     sprite: Objects/Tools/shovel.rsi
 

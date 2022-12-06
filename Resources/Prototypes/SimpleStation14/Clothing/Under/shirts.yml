@@ -1,0 +1,1131 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingUnderShirtBase
+  components:
+    - type: Clothing
+      slots:
+        - UNDERSHIRT
+    - type: Sprite
+      state: icon
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbabydoll
+  name: babydoll
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: babydoll
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: babydoll
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderband
+  name: band
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: band
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: band
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbee_shirt
+  name: bee_shirt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bee_shirt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bee_shirt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderblueshirtsport
+  name: blueshirtsport
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: blueshirtsport
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: blueshirtsport
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowling
+  name: bowling
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bowling
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowling
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlinga
+  name: bowlinga
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bowlinga
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlinga
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlingp
+  name: bowlingp
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bowlingp
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlingp
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlingw
+  name: bowlingw
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bowlingw
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlingw
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_alt
+  name: bra_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_assblastusa
+  name: bra_assblastusa
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_assblastusa
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_assblastusa
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_bee-kini
+  name: bra_bee-kini
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_bee-kini
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_bee-kini
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_binder_strapless
+  name: bra_binder_strapless
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_binder_strapless
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_binder_strapless
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_binder
+  name: bra_binder
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_binder
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_binder
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_commie
+  name: bra_commie
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_commie
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_commie
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_kinky
+  name: bra_kinky
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_kinky
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_kinky
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_neko
+  name: bra_neko
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_neko
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_neko
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_strapless_alt
+  name: bra_strapless_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_strapless_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_strapless_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_strapless
+  name: bra_strapless
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_strapless
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_strapless
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_swimming_alt
+  name: bra_swimming_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_swimming_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_swimming_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_swimming
+  name: bra_swimming
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_swimming
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_swimming
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_thin
+  name: bra_thin
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_thin
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_thin
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_uk
+  name: bra_uk
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra_uk
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_uk
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra
+  name: bra
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: bra
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_navy
+  name: cowboyshirt_navy
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_navy
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_navy
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_navys
+  name: cowboyshirt_navys
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_navys
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_navys
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_red
+  name: cowboyshirt_red
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_red
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_red
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_reds
+  name: cowboyshirt_reds
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_reds
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_reds
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_s
+  name: cowboyshirt_s
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_s
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_s
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_white
+  name: cowboyshirt_white
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_white
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_white
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_whites
+  name: cowboyshirt_whites
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_whites
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_whites
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt
+  name: cowboyshirt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: cowboyshirt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderfishnet_body
+  name: fishnet_body
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: fishnet_body
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: fishnet_body
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderfishnet_gloves
+  name: fishnet_gloves
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: fishnet_gloves
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: fishnet_gloves
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderfishnet_sleeves
+  name: fishnet_sleeves
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: fishnet_sleeves
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: fishnet_sleeves
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndergreenshirtsport
+  name: greenshirtsport
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: greenshirtsport
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: greenshirtsport
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderhalterneck_bra
+  name: halterneck_bra
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: halterneck_bra
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: halterneck_bra
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderian
+  name: ian
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: ian
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ian
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderilovent
+  name: ilovent
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: ilovent
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ilovent
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderljont
+  name: ljont
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: ljont
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ljont
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlongstripe_blue
+  name: longstripe_blue
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: longstripe_blue
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: longstripe_blue
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlongstripe
+  name: longstripe
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: longstripe
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: longstripe
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlover
+  name: lover
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: lover
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: lover
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndermatroska
+  name: matroska
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: matroska
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: matroska
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpeace
+  name: peace
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: peace
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: peace
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpogoman
+  name: pogoman
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: pogoman
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: pogoman
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpolo
+  name: polo
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: polo
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: polo
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderredshirtsport
+  name: redshirtsport
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: redshirtsport
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: redshirtsport
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershibari_sleeves
+  name: shibari_sleeves
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shibari_sleeves
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shibari_sleeves
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershibari
+  name: shibari
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shibari
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shibari
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_alien
+  name: shirt_alien
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_alien
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_alien
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_assblastusa
+  name: shirt_assblastusa
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_assblastusa
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_assblastusa
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_bluejersey
+  name: shirt_bluejersey
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_bluejersey
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_bluejersey
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_clown
+  name: shirt_clown
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_clown
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_clown
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_commie
+  name: shirt_commie
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_commie
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_commie
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_meat
+  name: shirt_meat
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_meat
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_meat
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_nano
+  name: shirt_nano
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_nano
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_nano
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_question
+  name: shirt_question
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_question
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_question
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_redjersey
+  name: shirt_redjersey
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_redjersey
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_redjersey
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_skull
+  name: shirt_skull
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_skull
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_skull
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_ss13
+  name: shirt_ss13
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_ss13
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_ss13
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_stripes
+  name: shirt_stripes
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_stripes
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_stripes
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_tiedye
+  name: shirt_tiedye
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shirt_tiedye
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_tiedye
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershortsleeve
+  name: shortsleeve
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: shortsleeve
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shortsleeve
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndersports_bra_alt
+  name: sports_bra_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: sports_bra_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: sports_bra_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndersports_bra
+  name: sports_bra
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: sports_bra
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: sports_bra
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderstriped_bra
+  name: striped_bra
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: striped_bra
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: striped_bra
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_black
+  name: swimming_black
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: swimming_black
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_black
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_blue
+  name: swimming_blue
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: swimming_blue
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_blue
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_red
+  name: swimming_red
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: swimming_red
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_red
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_fire
+  name: tank_fire
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_fire
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_fire
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_midriff_alt
+  name: tank_midriff_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_midriff_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_midriff_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_midriff
+  name: tank_midriff
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_midriff
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_midriff
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_rainbow
+  name: tank_rainbow
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_rainbow
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_rainbow
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_stripes
+  name: tank_stripes
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_stripes
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_stripes
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_sun
+  name: tank_sun
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tank_sun
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_sun
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertanktop_alt
+  name: tanktop_alt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tanktop_alt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tanktop_alt
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertanktop
+  name: tanktop
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tanktop
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tanktop
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertubetop
+  name: tubetop
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: tubetop
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tubetop
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderuk
+  name: uk
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: uk
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: uk
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderundershirt
+  name: undershirt
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      state: undershirt
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: undershirt

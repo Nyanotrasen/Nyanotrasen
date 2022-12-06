@@ -44,6 +44,9 @@
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
       state: female_full
       visible: true
+    - map: [ "underpants" ]
+    - map: [ "undershirt" ]
+    - map: [ "socks" ]
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
@@ -140,6 +143,11 @@
     shiveringHeatRegulation: 500
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 25
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
+    alternateState: arachne_standing
+    fireStackAlternateState: 3
 
 - type: entity
   save: false

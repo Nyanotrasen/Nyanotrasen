@@ -1,0 +1,541 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: ClothingUnderSocksBase
+  components:
+    - type: Clothing
+      slots:
+        - SOCKS
+
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderassblastusa_knee
+  name: assblastusa_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: assblastusa_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: assblastusa_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderassblastusa_thigh
+  name: assblastusa_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: assblastusa_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: assblastusa_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderbee_knee
+  name: bee_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: bee_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: bee_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderbee_norm
+  name: bee_norm
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: bee_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: bee_norm
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderbee_thigh
+  name: bee_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: bee_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: bee_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaneg_knee
+  name: candycaneg_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaneg_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaneg_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaneg_norm
+  name: candycaneg_norm
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaneg_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaneg_norm
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaneg_thigh
+  name: candycaneg_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaneg_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaneg_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaner_knee
+  name: candycaner_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaner_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaner_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaner_norm
+  name: candycaner_norm
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaner_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaner_norm
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercandycaner_thigh
+  name: candycaner_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: candycaner_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: candycaner_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderchristmas_knee
+  name: christmas_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: christmas_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: christmas_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderchristmas_norm
+  name: christmas_norm
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: christmas_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: christmas_norm
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderchristmas_thigh
+  name: christmas_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: christmas_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: christmas_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercommie_knee
+  name: commie_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: commie_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: commie_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndercommie_thigh
+  name: commie_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: commie_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: commie_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderfishnet
+  name: fishnet
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: fishnet
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: fishnet
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndergarter
+  name: garter
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: garter
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: garter
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderrainbow_knee
+  name: rainbow_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: rainbow_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: rainbow_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderrainbow_thigh
+  name: rainbow_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: rainbow_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: rainbow_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndersocks_knee
+  name: socks_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndersocks_norm
+  name: socks_norm
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_norm
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_norm
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndersocks_short
+  name: socks_short
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_short
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_short
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUndersocks_thigh
+  name: socks_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: socks_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: socks_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_blue
+  name: stockings_blue
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_blue
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_blue
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_cyan
+  name: stockings_cyan
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_cyan
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_cyan
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_dpink
+  name: stockings_dpink
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_dpink
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_dpink
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_green
+  name: stockings_green
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_green
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_green
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_lpink
+  name: stockings_lpink
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_lpink
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_lpink
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_orange
+  name: stockings_orange
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_orange
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_orange
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_purple
+  name: stockings_purple
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_purple
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_purple
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstockings_yellow
+  name: stockings_yellow
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: stockings_yellow
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: stockings_yellow
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstriped_knee
+  name: striped_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: striped_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: striped_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderstriped_thigh
+  name: striped_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: striped_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: striped_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderthin_knee
+  name: thin_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: thin_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: thin_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderthin_thigh
+  name: thin_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: thin_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: thin_thigh
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderuk_knee
+  name: uk_knee
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: uk_knee
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: uk_knee
+- type: entity
+  parent: ClothingUnderSocksBase
+  id: ClothingUnderuk_thigh
+  name: uk_thigh
+  description: DESCRIPTION
+  components:
+    - type: Sprite
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      state: uk_thigh
+    - type: Clothing
+      sprite: SimpleStation14/Clothing/Under/socks.rsi
+      clothingVisuals:
+        socks:
+          - state: uk_thigh

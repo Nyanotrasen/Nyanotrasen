@@ -29,13 +29,14 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: sleeper-open
-        state_closed: sleeper
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
       layers:
-      - state: sleeper
-      - state: sleeper-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]
     - type: Damageable
       damageContainer: Inorganic
@@ -68,13 +69,14 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: oldpod-open
-        state_closed: oldpod
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/oldpod.rsi
       layers:
-      - state: oldpod
-      - state: oldpod-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
@@ -88,13 +90,14 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: partypod-open
-        state_closed: partypod
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/partypod.rsi
       layers:
-      - state: partypod
-      - state: partypod-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
@@ -108,13 +111,14 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: sleeper-open
-        state_closed: sleeper
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/standardpod.rsi
       layers:
-      - state: sleeper
-      - state: sleeper-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
@@ -128,13 +132,14 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: sleeper_clockwork-open
-        state_closed: sleeper_clockwork
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/clockworkpod.rsi
       layers:
-      - state: sleeper_clockwork
-      - state: sleeper_clockwork-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]
 
 - type: entity
@@ -148,11 +153,12 @@
     - type: Appearance
       visuals:
       - type: StorageVisualizer
-        state_open: sleeper_s-open
-        state_closed: sleeper_s
+        state: base
+        state_open: open
+        state_closed: door
     - type: Sprite
-      sprite: SimpleStation14/Structures/Medical/sleeper.rsi
+      sprite: SimpleStation14/Structures/Medical/sleepers/syndiepod.rsi
       layers:
-      - state: sleeper_s
-      - state: sleeper_s-open
+      - state: base
+      - state: open
         map: ["enum.StorageVisualLayers.Door"]

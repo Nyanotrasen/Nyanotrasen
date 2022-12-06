@@ -22,5 +22,12 @@ namespace Content.Server.Weapons.Melee
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("hit")]
         public float HitCost { get; set; }
+
+        /// <summary>
+        /// How much is the stamina cost muliplied by when the weapon is Wielded?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("wieldCoefficient")]
+        public float WieldCoefficient { get; set; } = 1.5f;
     }
 }

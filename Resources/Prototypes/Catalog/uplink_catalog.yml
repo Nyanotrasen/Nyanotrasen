@@ -50,7 +50,7 @@
   description: A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
   productEntity: WeaponSniperMosin
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkWeapons
   conditions:
@@ -110,7 +110,7 @@
   id: UplinkSyndieMiniBomb
   productEntity: SyndieMiniBomb
   cost:
-    Telecrystal: 7
+    Telecrystal: 6
   categories:
     - UplinkExplosives
 
@@ -226,7 +226,7 @@
   description: A deep shoulder holster capable of holding many types of ballistics.
   productEntity: ClothingBeltSyndieHolster
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkUtility
   conditions:
@@ -302,7 +302,7 @@
   description: A chemical hypospray disguised as a pen, capable of instantly injecting up to 15u of reagents. Starts empty.
   productEntity: Hypopen
   cost:
-    Telecrystal: 4
+    Telecrystal: 6
   categories:
   - UplinkUtility
 
@@ -312,7 +312,7 @@
   description: A gas mask that lets you adjust your voice to whoever you can think of.
   productEntity: ClothingMaskGasVoiceMasker
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkUtility
 
@@ -357,7 +357,7 @@
   description: Inject this and on death you'll create a large explosion. Huge team casualty cost, use at own risk. Replaces internal micro bomb.
   productEntity: MacroBombImplanter
   cost:
-    Telecrystal: 25
+    Telecrystal: 18
   categories:
     - UplinkUtility
   conditions:
@@ -494,7 +494,7 @@
   id: UplinkPowerSink
   productEntity: PowerSink
   cost:
-    Telecrystal: 5
+    Telecrystal: 8
   categories:
   - UplinkTools
 
@@ -513,7 +513,7 @@
   description: And who says guns don't grow on trees?
   productEntity: GatfruitSeeds
   cost:
-    Telecrystal: 4
+    Telecrystal: 6
   categories:
   - UplinkJob
   conditions:
@@ -526,7 +526,7 @@
   description: An unholy book capable of summoning a demonic familiar.
   productEntity: BibleNecronomicon
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkJob
   conditions:
@@ -547,7 +547,7 @@
   productEntity: ClothingBackpackChameleonFill
   icon: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi/icon.png
   cost:
-    Telecrystal: 4
+    Telecrystal: 6
   categories:
     - UplinkArmor
 
@@ -614,7 +614,7 @@
   description: A simple EVA suit that offers no protection other than what's needed to survive in space.
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkArmor
 
@@ -638,7 +638,7 @@
   description: Cybersun's legal department pen. Smells vaguely of hard-light and war profiteering.
   productEntity: CyberPen
   cost:
-    Telecrystal: 1
+    Telecrystal: 3
   categories:
   - UplinkMisc
 
@@ -746,7 +746,7 @@
   description: UwU
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 26
+    Telecrystal: 2
   categories:
   - UplinkPointless
 
@@ -798,6 +798,6 @@
   id: UplinkBalloon
   productEntity: BalloonSyn
   cost:
-    Telecrystal: 20
+    Telecrystal: 2
   categories:
   - UplinkPointless
