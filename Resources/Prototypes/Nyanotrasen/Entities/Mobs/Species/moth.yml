@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Base Moth
-  parent: BaseMobOrganic
+  parent: BaseMobHuman
   id: BaseMobMoth
   abstract: true
   components:
@@ -87,6 +87,7 @@
         sprite: Objects/Misc/handcuffs.rsi
         state: body-overlay-2
         visible: false
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everything doesn't break
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
@@ -94,7 +95,6 @@
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
       - map: [ "neck" ]
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]

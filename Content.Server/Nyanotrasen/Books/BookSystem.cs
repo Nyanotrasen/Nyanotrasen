@@ -6,7 +6,7 @@ using Robust.Server.Player;
 
 namespace Content.Server.Books
 {
-    public sealed class SharedBookSystem : EntitySystem
+    public sealed class BookSystem : EntitySystem
     {
         public override void Initialize()
         {
@@ -43,7 +43,7 @@ namespace Content.Server.Books
             args.Verbs.Add(verb);
         }
 
-        private void OpenURL(IPlayerSession session, string url)
+        public void OpenURL(IPlayerSession session, string url)
         {
             var ev = new OpenURLEvent(url);
             RaiseNetworkEvent(ev, session.ConnectedClient);

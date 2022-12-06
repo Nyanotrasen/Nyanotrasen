@@ -68,6 +68,9 @@ namespace Content.Server.Research.Oracle
             "TargetHuman",
             "TargetSyndicate",
             "TargetClown",
+            "PowerCellSmallPrinted",
+            "PowerCellMediumPrinted",
+            "PowerCellHighPrinted",
         };
 
 

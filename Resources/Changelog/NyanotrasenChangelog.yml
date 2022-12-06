@@ -1271,3 +1271,94 @@ Entries:
     type: Add
   id: 133
   time: '2022-12-01T00:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Moved moth wings sprite layer down. This leads to more correct rendering,
+      but introduces a smaller amount of other rendering errors, particularly when
+      facing north. A special solution will need to be coded to fully resolve this
+      issue.
+    type: Tweak
+  id: 134
+  time: '2022-12-01T02:21:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed the issue where people would spawn at arrivals shuttle
+      at the beginning of the round. Report if it happens again.
+    type: Fix
+  id: 135
+  time: '2022-12-01T05:12:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a whitelist EUI for ghost roles.
+    type: Add
+  id: 136
+  time: '2022-12-01T06:02:15.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Locked roles are now displayed properly for players who are not whitelisted.
+    type: Fix
+  id: 137
+  time: '2022-12-01T19:20:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed arachne flammable visuals
+    type: Fix
+  - message: Added wood golems.
+    type: Add
+  id: 138
+  time: '2022-12-01T21:05:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed max occurences from all our events, too. Enjoy.
+    type: Tweak
+  id: 139
+  time: '2022-12-02T18:40:54.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added mail network.
+    type: Add
+  - message: Made various changes to Engineering and Salvage. Dorms are now shared.
+    type: Tweak
+  - message: Removed tattered bedsheet.
+    type: Remove
+  id: 140
+  time: '2022-12-02T18:46:24.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Adds Ovni Station to the game!
+    type: Add
+  id: 141
+  time: '2022-12-03T16:34:46.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: References to Salvage Specialist have been adjusted to their proper name
+      of Salvage Technician.
+    type: Tweak
+  id: 142
+  time: '2022-12-03T18:39:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Various fixes for serious issues related to power, lighting, emergency
+      lighting, and missing jobspawns
+    type: Fix
+  id: 143
+  time: '2022-12-05T14:12:24.0000000+00:00'
+- author: Leander-0
+  changes:
+  - message: rebalance of most of the melee weapons
+    type: Tweak
+  id: 144
+  time: '2022-12-05T17:50:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed RF sensitivity power. Current radio has no range and goes across
+      maps so it's impossible to balance.
+    type: Remove
+  - message: Oracle will no longer ask for power cells.
+    type: Fix
+  - message: Fixed credits button.
+    type: Fix
+  - message: Moths should be carriable like other species now.
+    type: Fix
+  id: 145
+  time: '2022-12-05T18:24:25.0000000+00:00'

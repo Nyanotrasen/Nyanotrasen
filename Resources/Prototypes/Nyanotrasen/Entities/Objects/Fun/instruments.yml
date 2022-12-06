@@ -18,16 +18,20 @@
   - type: Item
     size: 24
     sprite: Nyanotrasen/Objects/Fun/Instruments/rickenbacker.rsi
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.40
   - type: Tag
     tags:
     - StringInstrument
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 14
+        Blunt: 9
+    bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
 
 - type: entity
-  parent: BaseHandheldInstrument
+  parent: BaseHandheldInstrument # Why it doesnt inherit from the normal rickenbacker?
   id: Rickenbacker4001Instrument
   name: Rickenbacker
   suffix: Antag
@@ -50,12 +54,16 @@
   - type: Tag
     tags:
     - StringInstrument
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.40
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 18
+        Blunt: 12
+    bluntStaminaDamageFactor: 1.50 #18 Stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 14
+        Blunt: 8

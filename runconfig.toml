@@ -74,6 +74,13 @@ bindto = "::,0.0.0.0"
 enabled = true
 
 
+[infolinks]
+discord = https://discord.gg/49KeKwXc8g
+github = https://github.com/DEATHB4DEFEAT/SimpleStation14
+website = https://nyanotrasen.moe
+wiki = https://wiki.nyanotrasen.moe
+
+
 [database]
 # Database type to use. Can be "sqlite" or "postgres" currently.
 engine = "sqlite"
