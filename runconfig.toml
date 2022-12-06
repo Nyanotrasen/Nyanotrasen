@@ -75,10 +75,10 @@ enabled = true
 
 
 [infolinks]
-discord = https://discord.gg/49KeKwXc8g
-github = https://github.com/DEATHB4DEFEAT/SimpleStation14
-website = https://nyanotrasen.moe
-wiki = https://wiki.nyanotrasen.moe
+discord = "https://discord.gg/49KeKwXc8g"
+github = "https://github.com/DEATHB4DEFEAT/SimpleStation14"
+website = "https://nyanotrasen.moe"
+wiki = "https://wiki.nyanotrasen.moe"
 
 
 [database]
@@ -93,5 +93,5 @@ sqlite_dbpath = "preferences.db"
 # pg_host = "localhost"
 # pg_port = 5432
 # pg_database = "ss14"
-# pg_username = ""
-# pg_password = ""
+# pg_username = "ss14"
+# pg_password = "ss14"

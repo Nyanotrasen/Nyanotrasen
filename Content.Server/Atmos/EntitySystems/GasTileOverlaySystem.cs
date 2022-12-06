@@ -244,7 +244,8 @@ namespace Content.Server.Atmos.EntitySystems
         {
             // Thjs exists JUST to be able to resolve IRobustStringSerializer for networked message sending.
             if (mainThread != Thread.CurrentThread)
-                IoCManager.InitThread(parentDeps.FromParent(parentDeps), true);
+                IoCManager.InitThread(parentDeps, true);
+                // IoCManager.InitThread(parentDeps.FromParent(parentDeps), true);
 
             var xformQuery = GetEntityQuery<TransformComponent>();
             var chunksInRange = _chunkingSys.GetChunksForSession(playerSession, ChunkSize, xformQuery, _chunkIndexPool, _chunkViewerPool);
