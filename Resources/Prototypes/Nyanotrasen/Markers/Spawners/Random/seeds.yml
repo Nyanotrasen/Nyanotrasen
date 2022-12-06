@@ -1,0 +1,44 @@
+
+- type: entity
+  name: Salvage Seed Spawner
+  id: SalvageSeedSpawnerLow
+  suffix: Low
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - texture: Objects/Specific/Hydroponics/banana.rsi/seed.png
+    - type: RandomSpawner
+      prototypes:
+        - WheatSeeds
+        - OatSeeds
+        - BananaSeeds
+        - CarrotSeeds
+        - LemonSeeds
+        - PotatoSeeds
+        - SugarcaneSeeds
+        - TowercapSeeds
+        - TomatoSeeds
+        - EggplantSeeds
+        - AppleSeeds
+        - CornSeeds
+        - ChanterelleSeeds
+        - ChiliSeeds
+        - AloeSeeds
+        - PoppySeeds
+        - LingzhiSeeds
+        - AmbrosiaVulgarisSeeds
+        - GalaxythistleSeeds
+        - FlyAmanitaSeeds
+        - OnionSeeds
+      chance: 0.95
+      offset: 0.0
+      rarePrototypes:
+        - PineappleSeeds
+        - EggySeeds
+        - TobaccoSeeds
+        - CannabisSeeds
+        - NettleSeeds
+        - KillerTomatoSeeds
+      rareChance: 0.05
