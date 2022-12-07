@@ -139,6 +139,13 @@
   - type: Body
     prototype: VampiricAnimal
   - type: Psionic
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      groups:
+        Piercing: 7
 
 - type: entity
   name: vampire spider
