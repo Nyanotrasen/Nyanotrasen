@@ -1334,6 +1334,13 @@
     interactFailureString: petting-failure-generic
   - type: Puller
   - type: Arachne
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
 
 - type: entity
   name: tarantula
