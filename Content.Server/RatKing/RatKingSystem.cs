@@ -48,7 +48,7 @@ namespace Content.Server.RatKing
                     if (servant.RatKing == null)
                         continue;
 
-                    _npc.SetBlackboard(servant.Owner, NPCBlackboard.FollowTarget, Transform(servant.RatKing.Value).Coordinates);
+                    _npc.SetBlackboard(servant.Owner, NPCBlackboard.FollowTarget, new EntityCoordinates(servant.RatKing.Value, Vector2.Zero));
                 }
             }
         }
@@ -119,7 +119,7 @@ namespace Content.Server.RatKing
             var servComp = EnsureComp<RatServantComponent>(servant);
             servComp.RatKing = uid;
 
-            _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, Transform(uid).Coordinates);
+            _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
 
         /// <summary>
