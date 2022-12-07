@@ -9,8 +9,8 @@ ghost-role-information-mouse-description = A hungry and mischievous mouse.
 ghost-role-information-giant-spider-name = Giant spider
 ghost-role-information-giant-spider-description = Wreak havoc on the station's inhabitants!
 
-ghost-role-information-giant-spider-vampire-name = Vampire spider
-ghost-role-information-giant-spider-vampire-description = You're an intelligent spider. Build a nest, suck blood, taunt people telepathically.
+ghost-role-information-giant-spider-vampire-name = Oneirophage
+ghost-role-information-giant-spider-vampire-description = Nest. Lure. Ambush. Consume.
 
 ghost-role-information-cognizine-description = Made conscious with the magic of cognizine.
 

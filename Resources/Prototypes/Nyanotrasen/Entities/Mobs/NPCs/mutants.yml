@@ -72,10 +72,10 @@
   - type: NoSlip
 
 - type: entity
-  name: vampire spider
+  name: oneirophage
   parent: SimpleMobBase
   id: MobGiantSpiderVampire
-  description: One of the most frightening animals in space.
+  description: The 'dream-eater' spider, rumored to be one of the potential genetic sources for arachne.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -136,10 +136,16 @@
     reagents:
       - Nocturine
   - type: BloodSucker
+    unitsToSucc: 35
+    injectWhenSucc: true
+    injectReagent: Cryptobiolin
+    unitsToInject: 10
   - type: Body
-    prototype: VampiricAnimal
+    prototype: VampiricAnimalLarge
   - type: PotentialPsionic
   - type: Psionic
+    removable: false
+  - type: MetapsionicPower
   - type: MeleeWeapon
     hidden: true
     angle: 0
@@ -147,9 +153,34 @@
     damage:
       types:
         Piercing: 8
+  - type: AntiPsionicWeapon
+    punish: false
+    modifiers:
+      coefficients:
+        Piercing: 2.25
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - SeeingRainbows
+      - Electrocution
+      - Drunk
+      - SlurredSpeech
+      - PressureImmunity
+      - Muted
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - PsionicsDisabled
+      - PsionicallyInsulated
+  - type: Tag
+    tags:
+      - Oneirophage
 
 - type: entity
-  name: vampire spider
+  name: oneirophage
   parent: MobGiantSpiderVampire
   id: MobGiantSpiderVampireAngry
   suffix: Angry

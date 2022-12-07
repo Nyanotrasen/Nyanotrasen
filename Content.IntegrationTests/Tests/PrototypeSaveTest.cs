@@ -77,6 +77,7 @@ public sealed class PrototypeSaveTest
         "EngineeringTechFab",
         "MobObserverTelegnostic", // call me back when ghosts are fixed
         "PoweredlightBlueInterior",
+        "SpawnPointGhostVampSpider",
     };
 
     [Test]

@@ -71,7 +71,7 @@ namespace Content.Server.Psionics
                     return;
                 }
 
-                if (HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
+                if (component.Punish && HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
                     _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
         }
@@ -84,6 +84,17 @@ namespace Content.Server.Psionics
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
+            var bonus = false;
+            foreach (var stam in args.HitList)
+            {
+                if (HasComp<PsionicComponent>(stam.Owner))
+                    bonus = true;
+            }
+
+            if (!bonus)
+                return;
+
+
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 

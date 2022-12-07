@@ -92,3 +92,7 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
+  - type: PsionicInvisibleContacts
+    whitelist:
+      tags:
+        - Oneirophage
