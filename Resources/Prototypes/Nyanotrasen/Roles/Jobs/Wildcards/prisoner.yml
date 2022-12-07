@@ -7,6 +7,9 @@
   canBeAntag: false #restriction from no PDA
   icon: "Prisoner"
   supervisors: job-supervisors-security
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600
 
 - type: startingGear
   id: PrisonerGear
