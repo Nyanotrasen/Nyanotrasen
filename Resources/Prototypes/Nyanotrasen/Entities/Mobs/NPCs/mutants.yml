@@ -144,8 +144,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Piercing: 7
+      types:
+        Piercing: 8
 
 - type: entity
   name: vampire spider

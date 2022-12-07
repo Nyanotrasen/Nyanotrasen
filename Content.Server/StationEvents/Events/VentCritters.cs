@@ -7,7 +7,7 @@ namespace Content.Server.StationEvents.Events;
 public sealed class VentCritters : StationEventSystem
 {
     public static List<string> SpawnedPrototypeChoices = new List<string>()
-        {"MobGiantSpiderVampireAngry", "MobGiantSpiderVampireAngry", "MobGiantSpiderVampireAngry", "MobGiantSpiderAngry", "MobMouse", "MobMouse1", "MobMouse2"};
+        {"MobGiantSpiderAngry", "MobMouse", "MobMouse1", "MobMouse2"};
 
     public override string Prototype => "VentCritters";
 
