@@ -8,7 +8,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Misc/stock_parts.rsi/matter_bin.png
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: matter_bin
     - type: RandomSpawner
       prototypes:
         - CapacitorStockPart
@@ -35,7 +36,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Misc/stock_parts.rsi/advanced_matter_bin.png
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: advanced_matter_bin
     - type: RandomSpawner
       prototypes:
         - SuperCapacitorStockPart
@@ -64,7 +66,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Misc/stock_parts.rsi/subspace_ansible.png
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: subspace_ansible
     - type: RandomSpawner
       prototypes:
         - AnsibleSubspaceStockPart
