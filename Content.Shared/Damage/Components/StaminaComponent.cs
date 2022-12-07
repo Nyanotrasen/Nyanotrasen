@@ -40,6 +40,14 @@ public sealed class StaminaComponent : Component
     public float CritThreshold = 100f;
 
     /// <summary>
+    /// What percentage of the CritThreshold is the maximum amount of stamina
+    /// damage that can be reached by exhausting yourself with melee weapon
+    /// attacks?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("meleeCostLimitFactor")]
+    public float MeleeCostLimitFactor = 0.90f;
+
+    /// <summary>
     /// To avoid continuously updating our data we track the last time we updated so we can extrapolate our current stamina.
     /// </summary>
     [DataField("lastUpdate", customTypeSerializer:typeof(TimeOffsetSerializer))]
