@@ -187,6 +187,8 @@ namespace Content.Server.GameTicking
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
+            if (jobPrototype.AlwaysUseSpawner)
+                lateJoin = false;
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character, lateJoin: lateJoin);
             DebugTools.AssertNotNull(mobMaybe);

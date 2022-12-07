@@ -1,9 +1,10 @@
 - type: job
   id: Gladiator
-  name: job-name-gladiator #<- here
-  playTimeTracker: JobBoxer
+  name: job-name-gladiator
+  playTimeTracker: JobPrisoner
   startingGear: GladiatorGear
-  icon: "Boxer"  #<- 
+  alwaysUseSpawner: true
+  icon: "Boxer"
   supervisors: job-supervisors-security
   setPreference: false
   #access:
