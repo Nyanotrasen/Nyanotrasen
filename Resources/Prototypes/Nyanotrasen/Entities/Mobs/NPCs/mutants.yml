@@ -136,11 +136,12 @@
     reagents:
       - Nocturine
   - type: BloodSucker
+    unitsToSucc: 35
     injectWhenSucc: true
-    injectReagent: LotophagoiOil
+    injectReagent: Cryptobiolin
     unitsToInject: 10
   - type: Body
-    prototype: VampiricAnimal
+    prototype: VampiricAnimalLarge
   - type: PotentialPsionic
   - type: Psionic
     removable: false
