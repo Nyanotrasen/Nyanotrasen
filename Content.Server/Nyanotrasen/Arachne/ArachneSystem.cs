@@ -47,8 +47,8 @@ namespace Content.Server.Arachne
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
         {
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("SpinWeb", out var spinWeb))
-                _actions.AddAction(uid, new InstantAction(spinWeb), null);
+            if (_prototypeManager.TryIndex<WorldTargetActionPrototype>("SpinWeb", out var spinWeb))
+                _actions.AddAction(uid, new WorldTargetAction(spinWeb), null);
         }
 
         private void OnWebInit(EntityUid uid, WebComponent component, ComponentInit args)
@@ -126,7 +126,7 @@ namespace Content.Server.Arachne
                 }
             }
 
-            var coords = Transform(args.Performer).Coordinates.SnapToGrid();
+            var coords = args.Target;
             if (!_mapManager.TryGetGrid(coords.GetGridUid(EntityManager), out var grid))
             {
                 _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-space"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
@@ -150,7 +150,7 @@ namespace Content.Server.Arachne
             arachne.CancelToken = new CancellationTokenSource();
             _doAfter.DoAfter(new DoAfterEventArgs(args.Performer, arachne.WebDelay, arachne.CancelToken.Token)
             {
-                BroadcastFinishedEvent = new WebSuccessfulEvent(args.Performer),
+                BroadcastFinishedEvent = new WebSuccessfulEvent(args.Performer, coords),
                 BroadcastCancelledEvent = new WebCancelledEvent(args.Performer),
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -175,7 +175,7 @@ namespace Content.Server.Arachne
                 hunger.UpdateFood(-8);
             if (TryComp<ThirstComponent>(ev.Webber, out var thirst))
                 _thirstSystem.UpdateThirst(thirst, -20);
-            Spawn("ArachneWeb", Transform(ev.Webber).Coordinates.SnapToGrid());
+            Spawn("ArachneWeb", ev.Coords.SnapToGrid());
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber, Filter.PvsExcept(ev.Webber), Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, Filter.Entities(ev.Webber), Shared.Popups.PopupType.Medium);
         }
@@ -193,11 +193,14 @@ namespace Content.Server.Arachne
         private sealed class WebSuccessfulEvent : EntityEventArgs
         {
             public EntityUid Webber;
-            public WebSuccessfulEvent(EntityUid webber)
+
+            public EntityCoordinates Coords;
+            public WebSuccessfulEvent(EntityUid webber, EntityCoordinates coords)
             {
                 Webber = webber;
+                Coords = coords;
             }
         }
     }
-    public sealed class SpinWebActionEvent : InstantActionEvent {}
+    public sealed class SpinWebActionEvent : WorldTargetActionEvent {}
 }
