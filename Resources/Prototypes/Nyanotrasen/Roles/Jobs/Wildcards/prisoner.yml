@@ -1,0 +1,16 @@
+- type: job
+  id: Prisoner
+  name: job-name-prisoner
+  playTimeTracker: JobPrisoner
+  startingGear: PrisonerGear
+  alwaysUseSpawner: true
+  icon: "Prisoner"
+  supervisors: job-supervisors-security
+
+- type: startingGear
+  id: PrisonerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    back: ClothingBackpack
+    shoes: ClothingShoesColorBlack
+  innerclothingskirt: ClothingUniformJumpsuitPrisoner
