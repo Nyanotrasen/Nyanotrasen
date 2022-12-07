@@ -45,7 +45,7 @@ public sealed class StaminaComponent : Component
     /// attacks?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("meleeCostLimitFactor")]
-    public float MeleeCostLimitFactor = 0.95f;
+    public float MeleeCostLimitFactor = 0.90f;
 
     /// <summary>
     /// To avoid continuously updating our data we track the last time we updated so we can extrapolate our current stamina.
