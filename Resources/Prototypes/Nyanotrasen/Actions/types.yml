@@ -139,3 +139,10 @@
   icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
   useDelay: 3
   serverEvent: !type:RFSensitivityPowerActionEvent
+
+- type: instantAction
+  id: HairballAction
+  name: hairball-action
+  description: hairball-action-desc
+  charges: 1
+  serverEvent: !type:HairballActionEvent
