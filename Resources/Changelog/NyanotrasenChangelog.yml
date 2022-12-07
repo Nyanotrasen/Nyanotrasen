@@ -1398,3 +1398,14 @@ Entries:
     type: Add
   id: 150
   time: '2022-12-07T04:10:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed oneirophage spawners being visible.
+    type: Fix
+  - message: Tweaked a few other things with them.
+    type: Fix
+  - message: Reduced metapsionic pulse range to 6 so it's slightly easier to tell
+      if it's nearby.
+    type: Tweak
+  id: 151
+  time: '2022-12-07T16:24:06.0000000+00:00'
