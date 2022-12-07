@@ -33,6 +33,8 @@ public sealed class NoosphericStorm : StationEventSystem
         }
         RobustRandom.Shuffle(validList);
 
+        var mod = 1 + (GetSeverityModifier() / 4);
+
         var toAwaken = RobustRandom.Next(1, 3);
 
         // Now we give it to people in the list of living disease carriers earlier
@@ -48,6 +50,8 @@ public sealed class NoosphericStorm : StationEventSystem
             stationsToNotify.Add((EntityUid) station);
         }
 
-        _glimmerSystem.Glimmer += _robustRandom.Next(80, 120);
+        var glimmerAdded = (int) Math.Round(_robustRandom.Next(65, 85) * mod);
+
+        _glimmerSystem.Glimmer += glimmerAdded;
     }
 }

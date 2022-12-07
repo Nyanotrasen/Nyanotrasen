@@ -125,11 +125,12 @@
   range: 8
   serverEvent: !type:PyrokinesisPowerActionEvent
 
-- type: instantAction
+- type: worldTargetAction
   id: SpinWeb
   name: action-name-spin-web
   description: action-desc-spin-web
   icon: { sprite: Nyanotrasen/Structures/web.rsi, state: web1 }
+  range: 1.5
   serverEvent: !type:SpinWebActionEvent
 
 - type: instantAction
