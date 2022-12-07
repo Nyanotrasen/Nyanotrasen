@@ -3,7 +3,8 @@
   name: job-name-gladiator #<- here
   playTimeTracker: JobBoxer
   startingGear: GladiatorGear
-  icon: "Boxer"  #<- 
+  alwaysUseSpawner: true
+  icon: "Boxer"  #<-
   supervisors: job-supervisors-security
   setPreference: false
   #access:
