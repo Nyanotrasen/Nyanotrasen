@@ -17,6 +17,7 @@
   id: HumanoidSpawnerCentcomOfficial
   parent: MobHuman
   components:
+    - type: BriefOfficer
     - type: Icon
       sprite: Markers/jobs.rsi
       state: centcom
