@@ -6,7 +6,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Objects/Misc/books.rsi/book6.png
+      - sprite: Objects/Misc/books.rsi
+        state: book6
   - type: RandomSpawner
     offset: 0
     prototypes:

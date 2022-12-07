@@ -24,6 +24,7 @@
         - CableCoil
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -94,6 +95,7 @@
         - JawsOfLife
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -195,6 +197,8 @@
         - Flashlight
         - CigPack
         - TrashBag
+        - WetFloorSign
+        - HolosignProjector
       components:
         - LightReplacer
   - type: ItemMapper

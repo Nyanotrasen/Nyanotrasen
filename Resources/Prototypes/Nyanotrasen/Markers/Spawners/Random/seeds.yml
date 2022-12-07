@@ -8,7 +8,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Objects/Specific/Hydroponics/banana.rsi/seed.png
+        - sprite: Objects/Specific/Hydroponics/banana.rsi
+          state: seed
     - type: RandomSpawner
       prototypes:
         - WheatSeeds

@@ -7,7 +7,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Mobs/Animals/chicken.rsi/icon-1.png
+      - sprite: Mobs/Animals/chicken.rsi
+        state: icon-1
   - type: RandomSpawner
     offset: 0
     prototypes:

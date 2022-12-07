@@ -13,7 +13,8 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      - texture: Mobs/Animals/bat.rsi/bat.png
+      - sprite: Mobs/Animals/bat.rsi
+        state: bat
 
 - type: entity
   id: SpawnPointGhostFugitive

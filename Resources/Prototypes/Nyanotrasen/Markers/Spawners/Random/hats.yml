@@ -6,37 +6,38 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Clothing/Head/Hats/tophat.rsi/icon.png
+        - sprite: Clothing/Head/Hats/tophat.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
-        - ClothingHeadHatCentcom  
-        - ClothingHeadHatOutlawHat  
-        - ClothingHeadHatWizardFake 
-        - ClothingHeadHatPirate  
-        - ClothingHeadHatPlaguedoctor  
-        - ClothingHeadHatSantahat  
-        - ClothingHeadHatXmasCrown  
-        - ClothingHeadHelmetCosmonaut  
-        - ClothingHeadHelmetHelmetOld 
-        - ClothingHeadHelmetScaf  
-        - ClothingHeadHelmetTemplar  
-        - ClothingHeadHelmetThunderdome  
-        - ClothingHeadHelmetFire  
-        - ClothingHeadHatBunny  
-        - ClothingHeadHatHoodBioGeneral  
-        - ClothingHeadHatHoodRad  
+        - ClothingHeadHatCentcom
+        - ClothingHeadHatOutlawHat
+        - ClothingHeadHatWizardFake
+        - ClothingHeadHatPirate
+        - ClothingHeadHatPlaguedoctor
+        - ClothingHeadHatSantahat
+        - ClothingHeadHatXmasCrown
+        - ClothingHeadHelmetCosmonaut
+        - ClothingHeadHelmetHelmetOld
+        - ClothingHeadHelmetScaf
+        - ClothingHeadHelmetTemplar
+        - ClothingHeadHelmetThunderdome
+        - ClothingHeadHelmetFire
+        - ClothingHeadHatBunny
+        - ClothingHeadHatHoodBioGeneral
+        - ClothingHeadHatHoodRad
         - ClothingHeadHatCake
         - ClothingHeadHatChickenhead
-        - ClothingHeadHatHairflower  
-        - ClothingHeadHatPumpkin  
-        - ClothingHeadHatRichard 
-        - ClothingHeadHatSkub  
-        - ClothingHeadHatShrineMaidenWig  
-        - ClothingHeadHatSquid  
-        - ClothingHeadHatBizarreSoft  
-        - ClothingHeadHatWeldingMaskFlame  
-        - ClothingHeadHatWeldingMaskFlameBlue  
-        - ClothingHeadHatWeldingMaskPainted  
+        - ClothingHeadHatHairflower
+        - ClothingHeadHatPumpkin
+        - ClothingHeadHatRichard
+        - ClothingHeadHatSkub
+        - ClothingHeadHatShrineMaidenWig
+        - ClothingHeadHatSquid
+        - ClothingHeadHatBizarreSoft
+        - ClothingHeadHatWeldingMaskFlame
+        - ClothingHeadHatWeldingMaskFlameBlue
+        - ClothingHeadHatWeldingMaskPainted
       rareChance: 0.03
       prototypes:
         - ClothingHeadHatAnimalCat
@@ -55,7 +56,7 @@
         - ClothingHeadHatHardhatOrange
         - ClothingHeadHatHardhatRed
         - ClothingHeadHatHardhatWhite
-        - ClothingHeadHatHardhatYellow        
+        - ClothingHeadHatHardhatYellow
         - ClothingHeadHatBeaverHat
         - ClothingHeadHatBeret
         - ClothingHeadHatBowlerHat

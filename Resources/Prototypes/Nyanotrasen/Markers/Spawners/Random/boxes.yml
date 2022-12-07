@@ -6,7 +6,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Objects/Storage/boxes.rsi/box.png
+      - sprite: Objects/Storage/boxes.rsi
+        state: box
   - type: RandomSpawner
     offset: 0
     prototypes:
@@ -51,7 +52,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Objects/Storage/boxes.rsi/shellslug.png
+      - sprite: Objects/Storage/boxes.rsi
+        state: shellslug
   - type: RandomSpawner
     offset: 0
     prototypes:

@@ -6,7 +6,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Objects/Misc/module.rsi/airalarm_electronics.png
+      - sprite: Objects/Misc/module.rsi
+        state: airalarm_electronics
   - type: RandomSpawner
     offset: 0
     prototypes:
