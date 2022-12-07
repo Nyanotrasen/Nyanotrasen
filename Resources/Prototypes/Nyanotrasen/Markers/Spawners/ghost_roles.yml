@@ -52,6 +52,7 @@
   id: SpawnPointGhostVampSpider
   name: ghost role spawn point
   suffix: Vampire spider
+  parent: MarkerBase
   components:
   - type: GhostRoleMobSpawner
     prototype: MobGiantSpiderVampireAngry
