@@ -4,6 +4,7 @@
   playTimeTracker: JobPrisoner
   startingGear: GladiatorGear
   alwaysUseSpawner: true
+  canBeAntag: false #restriction from no PDA
   icon: "Boxer"
   supervisors: job-supervisors-security
   setPreference: false
