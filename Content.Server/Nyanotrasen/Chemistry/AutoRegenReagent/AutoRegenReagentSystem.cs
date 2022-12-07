@@ -31,7 +31,7 @@ namespace Content.Server.Chemistry.AutoRegenReagent
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
-            if (component.Reagents.Count >= 1)
+            if (component.Reagents.Count <= 1)
                 return;
 
             AlternativeVerb verb = new()
