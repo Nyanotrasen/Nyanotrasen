@@ -1427,3 +1427,12 @@ Entries:
     type: Fix
   id: 153
   time: '2022-12-07T20:01:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added prisoner role.
+    type: Add
+  - message: 'Gladiators are a type of prisoner and will spawn in their cell. Announcement
+      system SOON:tm:'
+    type: Tweak
+  id: 154
+  time: '2022-12-07T20:33:25.0000000+00:00'
