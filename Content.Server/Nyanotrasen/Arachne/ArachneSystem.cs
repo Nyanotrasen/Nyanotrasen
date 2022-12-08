@@ -7,6 +7,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
+using Content.Shared.Stunnable;
 using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.Buckle.Systems;
@@ -50,6 +51,8 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
             SubscribeLocalEvent<WebSuccessfulEvent>(OnWebSuccessful);
             SubscribeLocalEvent<WebCancelledEvent>(OnWebCancelled);
+            SubscribeLocalEvent<CocoonSuccessfulEvent>(OnCocoonSuccessful);
+            SubscribeLocalEvent<CocoonCancelledEvent>(OnCocoonCancelled);
         }
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
@@ -63,6 +66,9 @@ namespace Content.Server.Arachne
             if (!args.CanAccess || !args.CanInteract)
                 return;
 
+            if (component.CancelToken != null)
+                return;
+
             if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
                 return;
 
@@ -73,7 +79,7 @@ namespace Content.Server.Arachne
             {
                 Act = () =>
                 {
-                    StartCocooning(uid, args.Target);
+                    StartCocooning(uid, component, args.Target);
                 },
                 Text = Loc.GetString("cocoon"),
                 Priority = 2
@@ -187,17 +193,45 @@ namespace Content.Server.Arachne
             });
         }
 
-        private void StartCocooning(EntityUid spider, EntityUid target)
+        private void StartCocooning(EntityUid uid, ArachneComponent component, EntityUid target)
         {
-            var spawnProto = HasComp<HumanoidComponent>(target) ? "CocoonedHumanoid" : "CocoonSmall";
+            if (component.CancelToken != null)
+                return;
 
-            var cocoon = Spawn(spawnProto, Transform(target).Coordinates);
+            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid, Filter.PvsExcept(uid), Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-second-person", ("target", Identity.Entity(target, EntityManager))), uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
+
+            var delay = component.CocoonDelay;
+
+            if (HasComp<KnockedDownComponent>(target))
+                delay *= component.CocoonKnockdownMultiplier;
+
+            component.CancelToken = new CancellationTokenSource();
+            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token)
+            {
+                BroadcastFinishedEvent = new CocoonSuccessfulEvent(uid, target),
+                BroadcastCancelledEvent = new CocoonCancelledEvent(uid),
+                BreakOnUserMove = true,
+                BreakOnStun = true,
+            });
+        }
+
+        private void OnCocoonSuccessful(CocoonSuccessfulEvent args)
+        {
+            if (!EntityManager.TryGetComponent(args.Webber, out ArachneComponent? arachne))
+                return;
+
+            arachne.CancelToken = null;
+
+            var spawnProto = HasComp<HumanoidComponent>(args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
+
+            var cocoon = Spawn(spawnProto, Transform(args.Target).Coordinates);
 
             if (!TryComp<ItemSlotsComponent>(cocoon, out var slots))
                 return;
 
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
-            _itemSlots.TryInsert(cocoon, BodySlot, target, spider);
+            _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
             _itemSlots.SetLock(cocoon, BodySlot, true, slots);
         }
 
@@ -205,6 +239,15 @@ namespace Content.Server.Arachne
         {
             if (!EntityManager.TryGetComponent(ev.Webber, out ArachneComponent? arachne))
                 return;
+
+            arachne.CancelToken = null;
+        }
+
+        private void OnCocoonCancelled(CocoonCancelledEvent ev)
+        {
+            if (!EntityManager.TryGetComponent(ev.Webber, out ArachneComponent? arachne))
+                return;
+
             arachne.CancelToken = null;
         }
 
@@ -219,6 +262,7 @@ namespace Content.Server.Arachne
                 hunger.UpdateFood(-8);
             if (TryComp<ThirstComponent>(ev.Webber, out var thirst))
                 _thirstSystem.UpdateThirst(thirst, -20);
+
             Spawn("ArachneWeb", ev.Coords.SnapToGrid());
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber, Filter.PvsExcept(ev.Webber), Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, Filter.Entities(ev.Webber), Shared.Popups.PopupType.Medium);
@@ -239,10 +283,34 @@ namespace Content.Server.Arachne
             public EntityUid Webber;
 
             public EntityCoordinates Coords;
+
             public WebSuccessfulEvent(EntityUid webber, EntityCoordinates coords)
             {
                 Webber = webber;
                 Coords = coords;
+            }
+        }
+
+        private sealed class CocoonCancelledEvent : EntityEventArgs
+        {
+            public EntityUid Webber;
+
+            public CocoonCancelledEvent(EntityUid webber)
+            {
+                Webber = webber;
+            }
+        }
+
+        private sealed class CocoonSuccessfulEvent : EntityEventArgs
+        {
+            public EntityUid Webber;
+
+            public EntityUid Target;
+
+            public CocoonSuccessfulEvent(EntityUid webber, EntityUid target)
+            {
+                Webber = webber;
+                Target = target;
             }
         }
     }
