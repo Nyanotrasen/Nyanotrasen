@@ -12,7 +12,7 @@
       - sprite: Nyanotrasen/Structures/web.rsi
         state: web1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    drawdepth: Overdoors
+    drawdepth: Items
     netsync: false
   - type: RandomSprite
     available:
@@ -80,7 +80,6 @@
       path: /Audio/Effects/plant_rustle.ogg
     unbuckleSound: !type:SoundPathSpecifier
       path: /Audio/Effects/plant_rustle.ogg
-
   - type: HealOnBuckle
     damage:
       groups:
