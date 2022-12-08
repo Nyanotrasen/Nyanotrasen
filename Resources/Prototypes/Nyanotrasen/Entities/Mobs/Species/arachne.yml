@@ -117,6 +117,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
   - type: BloodSucker
+    webRequired: true
   - type: Arachne
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]

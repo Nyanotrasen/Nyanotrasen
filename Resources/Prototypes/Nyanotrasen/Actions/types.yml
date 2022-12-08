@@ -1,15 +1,8 @@
 - type: instantAction
-  id: SuckBlood
-  name: action-name-suck-blood
-  description: action-description-suck-blood
-  icon: { sprite: Nyanotrasen/Mobs/Species/lamia.rsi, state: verbiconfangs }
-  serverEvent: !type:SuckBloodActionEvent
-
-- type: instantAction
   id: EatMouse
   name: action-name-eat-mouse
   description: action-description-eat-mouse
-  icon: { sprite: Nyanotrasen/Mobs/Species/lamia.rsi, state: verbiconfangs }
+  icon: Nyanotrasen/Icons/verbiconfangs.png
   serverEvent: !type:EatMouseActionEvent
 
 - type: instantAction

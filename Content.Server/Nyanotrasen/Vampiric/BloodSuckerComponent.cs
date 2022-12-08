@@ -14,11 +14,6 @@ namespace Content.Server.Vampiric
         public float UnitsToSucc = 20f;
 
         /// <summary>
-        /// The target that we could succ.
-        /// </summary>
-        public EntityUid? PotentialTarget = null;
-
-        /// <summary>
         /// The time (in seconds) that it takes to succ an entity.
         /// </summary>
         [DataField("succDelay")]
@@ -43,5 +38,11 @@ namespace Content.Server.Vampiric
         /// </summary>
         [DataField("injectReagent")]
         public string InjectReagent = "";
+
+        /// <summary>
+        /// Whether we need to web the thing up first...
+        /// </summary>
+        [DataField("webRequired")]
+        public bool WebRequired = false;
     }
 }

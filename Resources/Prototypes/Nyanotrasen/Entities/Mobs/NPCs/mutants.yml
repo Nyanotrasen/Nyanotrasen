@@ -141,6 +141,9 @@
     injectWhenSucc: true
     injectReagent: Cryptobiolin
     unitsToInject: 10
+    webRequired: true
+  - type: Bloodstream
+    bloodReagent: DemonsBlood
   - type: Body
     prototype: VampiricAnimalLarge
   - type: PotentialPsionic

@@ -21,6 +21,7 @@ using Content.Server.Buckle.Components;
 using Content.Server.DoAfter;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
+using Content.Server.Vampiric;
 using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
@@ -47,6 +48,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly IServerConsoleHost _host = default!;
+        [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -61,6 +63,7 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<CocoonComponent, EntInsertedIntoContainerMessage>(OnCocEntInserted);
             SubscribeLocalEvent<CocoonComponent, EntRemovedFromContainerMessage>(OnCocEntRemoved);
             SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
             SubscribeLocalEvent<WebSuccessfulEvent>(OnWebSuccessful);
             SubscribeLocalEvent<WebCancelledEvent>(OnWebCancelled);
@@ -165,6 +168,38 @@ namespace Content.Server.Arachne
 
             var damage = args.DamageDelta * component.DamagePassthrough;
             _damageableSystem.TryChangeDamage(body, damage);
+        }
+
+        private void AddSuccVerb(EntityUid uid, CocoonComponent component, GetVerbsEvent<AlternativeVerb> args)
+        {
+            if (!args.CanAccess || !args.CanInteract)
+                return;
+
+            if (!TryComp<BloodSuckerComponent>(args.User, out var sucker))
+                return;
+
+            if (!sucker.WebRequired)
+                return;
+
+            var victim = _itemSlots.GetItemOrNull(uid, BodySlot);
+
+            if (victim == null)
+                return;
+
+            if (!TryComp<BloodstreamComponent>(victim, out var stream))
+                return;
+
+            AlternativeVerb verb = new()
+            {
+                Act = () =>
+                {
+                    _bloodSuckerSystem.StartSuccDoAfter(args.User, victim.Value, sucker, stream, false); // start doafter
+                },
+                Text = Loc.GetString("action-name-suck-blood"),
+                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Priority = 2
+            };
+            args.Verbs.Add(verb);
         }
 
         private void AddRestVerb(EntityUid uid, WebComponent component, GetVerbsEvent<AlternativeVerb> args)
