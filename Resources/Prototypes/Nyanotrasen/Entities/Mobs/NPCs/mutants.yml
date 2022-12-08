@@ -126,10 +126,10 @@
       melee:
         reagents:
         - ReagentId: Nocturine
-          Quantity: 30
+          Quantity: 20
   - type: MeleeChemicalInjector
     solution: melee
-    transferAmount: 2.5
+    transferAmount: 3.5
   - type: AutoRegenReagent
     solution: melee
     unitsPerSecond: 0.15

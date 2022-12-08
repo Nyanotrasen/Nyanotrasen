@@ -24,7 +24,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: VampSpawn
-    weight: 10
+    weight: 5
     endAfter: 1
     reoccurrenceDelay: 40
 
