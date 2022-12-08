@@ -9,5 +9,12 @@ namespace Content.Shared.Arachne
 
         [DataField("webDelay")]
         public float WebDelay = 5f;
+
+        /// <summary>
+        /// Blood reagent required to web up a mob.
+        /// </summary>
+
+        [DataField("webBloodReagent")]
+        public string WebBloodReagent = "Blood";
     }
 }

@@ -8,6 +8,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Doors.Components;
+using Content.Shared.Containers.ItemSlots;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -15,6 +16,8 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Buckle.Components;
 using Content.Server.DoAfter;
+using Content.Server.Body.Components;
+using Content.Server.Humanoid;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Physics;
@@ -32,11 +35,15 @@ namespace Content.Server.Arachne
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly BuckleSystem _buckleSystem = default!;
+        [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+
+        private const string BodySlot = "body_slot";
 
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<ArachneComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<ArachneComponent, GetVerbsEvent<InnateVerb>>(AddCocoonVerb);
             SubscribeLocalEvent<WebComponent, ComponentInit>(OnWebInit);
             SubscribeLocalEvent<WebComponent, GetVerbsEvent<AlternativeVerb>>(AddRestVerb);
             SubscribeLocalEvent<WebComponent, BuckleChangeEvent>(OnBuckleChange);
@@ -49,6 +56,29 @@ namespace Content.Server.Arachne
         {
             if (_prototypeManager.TryIndex<WorldTargetActionPrototype>("SpinWeb", out var spinWeb))
                 _actions.AddAction(uid, new WorldTargetAction(spinWeb), null);
+        }
+
+        private void AddCocoonVerb(EntityUid uid, ArachneComponent component, GetVerbsEvent<InnateVerb> args)
+        {
+            if (!args.CanAccess || !args.CanInteract)
+                return;
+
+            if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
+                return;
+
+            if (bloodstream.BloodReagent != component.WebBloodReagent)
+                return;
+
+            InnateVerb verb = new()
+            {
+                Act = () =>
+                {
+                    StartCocooning(uid, args.Target);
+                },
+                Text = Loc.GetString("cocoon"),
+                Priority = 2
+            };
+            args.Verbs.Add(verb);
         }
 
         private void OnWebInit(EntityUid uid, WebComponent component, ComponentInit args)
@@ -155,6 +185,20 @@ namespace Content.Server.Arachne
                 BreakOnUserMove = true,
                 BreakOnStun = true,
             });
+        }
+
+        private void StartCocooning(EntityUid spider, EntityUid target)
+        {
+            var spawnProto = HasComp<HumanoidComponent>(target) ? "CocoonedHumanoid" : "CocoonSmall";
+
+            var cocoon = Spawn(spawnProto, Transform(target).Coordinates);
+
+            if (!TryComp<ItemSlotsComponent>(cocoon, out var slots))
+                return;
+
+            _itemSlots.SetLock(cocoon, BodySlot, false, slots);
+            _itemSlots.TryInsert(cocoon, BodySlot, target, spider);
+            _itemSlots.SetLock(cocoon, BodySlot, true, slots);
         }
 
         private void OnWebCancelled(WebCancelledEvent ev)

@@ -95,7 +95,6 @@
       tags:
         - Oneirophage
 
-
 - type: entity
   id: CocoonedHumanoid
   name: cocooned humanoid
@@ -123,6 +122,16 @@
   - type: InteractionOutline
   - type: Transform
     noRot: true
+  - type: Damageable
+    damageModifierSet: Web
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Fixtures
     fixtures:
     - shape:
@@ -130,9 +139,25 @@
         bounds: "-0.25,-0.4,0.25,0.1"
       density: 20
       mask:
-      - ItemMask
+      - SmallMobMask
+      layer:
+      - SmallMobLayer
+  - type: Physics
+    bodyType: Dynamic
   - type: Pullable
   - type: AntiRottingContainer
+  - type: ItemSlots
+    slots:
+      body_slot:
+        name: Body
+        locked: true
+        ejectOnBreak: true
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 12
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
 
 - type: entity
   id: CocoonSmall

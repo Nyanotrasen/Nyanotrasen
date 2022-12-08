@@ -9,3 +9,4 @@ spin-web-start-third-person = {CAPITALIZE(THE($spider))} starts spinning a web!
 spun-web-second-person = You spin up a web.
 spun-web-third-person = {CAPITALIZE(THE($spider))} spins up a web!
 rest-on-web = Rest on web
+cocoon = Cocoon
