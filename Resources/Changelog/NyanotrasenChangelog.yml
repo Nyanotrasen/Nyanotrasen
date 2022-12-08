@@ -1436,3 +1436,12 @@ Entries:
     type: Tweak
   id: 154
   time: '2022-12-07T20:33:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophage injects more venom, but has a lower reserve it will burn
+      through faster.
+    type: Tweak
+  - message: Webs have an uglier but better for gameplay drawdepth.
+    type: Fix
+  id: 155
+  time: '2022-12-08T01:27:22.0000000+00:00'
