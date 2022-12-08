@@ -95,3 +95,67 @@
     whitelist:
       tags:
         - Oneirophage
+
+
+- type: entity
+  id: CocoonedHumanoid
+  name: cocooned humanoid
+  description: Unlucky.
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Nyanotrasen/Structures/cocoon.rsi
+        state: cocoon_large1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+    netsync: false
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cocoon_large1: ""
+      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+          cocoon_large2: ""
+      - enum.DamageStateVisualLayers.Base:
+          cocoon_large3: ""
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.25,-0.4,0.25,0.1"
+      density: 20
+      mask:
+      - ItemMask
+  - type: Pullable
+  - type: AntiRottingContainer
+
+- type: entity
+  id: CocoonSmall
+  parent: CocoonedHumanoid
+  name: cocoon
+  description: What could be inside...?
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+  - type: Sprite
+    layers:
+      - sprite: Nyanotrasen/Structures/cocoon.rsi
+        state: cocoon1
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+    netsync: false
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          cocoon1: ""
+      - enum.DamageStateVisualLayers.Base: #your guess for why randomsprite requires an arbitrary layer is as good as mine friend
+          cocoon2: ""
+      - enum.DamageStateVisualLayers.Base:
+          cocoon3: ""
