@@ -12,6 +12,7 @@ using Content.Shared.Eye.Blinding;
 using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Inventory;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -49,6 +50,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly IServerConsoleHost _host = default!;
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
+        [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -340,6 +342,8 @@ namespace Content.Server.Arachne
                 var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.25, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
+
+            _inventorySystem.TryUnequip(args.Target, "ears", true, true);
 
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
