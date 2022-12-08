@@ -27,6 +27,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Physics;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Server.GameObjects;
+using Robust.Server.Console;
 
 namespace Content.Server.Arachne
 {
@@ -42,6 +44,8 @@ namespace Content.Server.Arachne
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
         [Dependency] private readonly SharedBlindingSystem _blindingSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+        [Dependency] private readonly IServerConsoleHost _host = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -289,6 +293,14 @@ namespace Content.Server.Arachne
 
             if (!TryComp<ItemSlotsComponent>(cocoon, out var slots))
                 return;
+
+            // todo: our species should use scale visuals probably...
+            if (spawnProto == "CocoonedHumanoid" && TryComp<SpriteComponent>(args.Target, out var sprite))
+            {
+                // why the fuck is this only available as a console command.
+                _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
+            }
+
 
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
