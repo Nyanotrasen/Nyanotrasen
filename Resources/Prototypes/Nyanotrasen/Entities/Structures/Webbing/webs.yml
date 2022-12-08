@@ -12,7 +12,6 @@
       - sprite: Nyanotrasen/Structures/web.rsi
         state: web1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    drawdepth: Items
     netsync: false
   - type: RandomSprite
     available:
