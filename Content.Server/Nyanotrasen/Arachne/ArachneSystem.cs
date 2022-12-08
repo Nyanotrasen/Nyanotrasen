@@ -8,6 +8,7 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
+using Content.Shared.Eye.Blinding;
 using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Server.Buckle.Systems;
@@ -19,6 +20,7 @@ using Content.Server.Buckle.Components;
 using Content.Server.DoAfter;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
+using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Physics;
@@ -37,6 +39,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly BuckleSystem _buckleSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+        [Dependency] private readonly SharedBlindingSystem _blindingSystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -48,6 +51,8 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<WebComponent, ComponentInit>(OnWebInit);
             SubscribeLocalEvent<WebComponent, GetVerbsEvent<AlternativeVerb>>(AddRestVerb);
             SubscribeLocalEvent<WebComponent, BuckleChangeEvent>(OnBuckleChange);
+            SubscribeLocalEvent<CocoonComponent, EntInsertedIntoContainerMessage>(OnCocEntInserted);
+            SubscribeLocalEvent<CocoonComponent, EntRemovedFromContainerMessage>(OnCocEntRemoved);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
             SubscribeLocalEvent<WebSuccessfulEvent>(OnWebSuccessful);
             SubscribeLocalEvent<WebCancelledEvent>(OnWebCancelled);
@@ -67,6 +72,9 @@ namespace Content.Server.Arachne
                 return;
 
             if (component.CancelToken != null)
+                return;
+
+            if (args.Target == uid)
                 return;
 
             if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
@@ -100,6 +108,38 @@ namespace Content.Server.Arachne
 
             if (!args.Buckling)
                 _buckleSystem.StrapSetEnabled(uid, false, strap);
+        }
+
+        private void OnCocEntInserted(EntityUid uid, CocoonComponent component, EntInsertedIntoContainerMessage args)
+        {
+            _blindingSystem.AdjustBlindSources(args.Entity, 1);
+            EnsureComp<StunnedComponent>(args.Entity);
+
+            if (TryComp<ReplacementAccentComponent>(args.Entity, out var currentAccent))
+            {
+                component.WasReplacementAccent = true;
+                component.OldAccent = currentAccent.Accent;
+                currentAccent.Accent = "mumble";
+            } else
+            {
+                component.WasReplacementAccent = false;
+                var replacement = EnsureComp<ReplacementAccentComponent>(args.Entity);
+                replacement.Accent = "mumble";
+            }
+        }
+
+        private void OnCocEntRemoved(EntityUid uid, CocoonComponent component, EntRemovedFromContainerMessage args)
+        {
+            if (component.WasReplacementAccent && TryComp<ReplacementAccentComponent>(uid, out var replacement))
+            {
+                replacement.Accent = component.OldAccent;
+            } else
+            {
+                RemComp<ReplacementAccentComponent>(uid);
+            }
+
+            RemComp<StunnedComponent>(uid);
+            _blindingSystem.AdjustBlindSources(args.Entity, -1);
         }
 
         private void AddRestVerb(EntityUid uid, WebComponent component, GetVerbsEvent<AlternativeVerb> args)

@@ -118,6 +118,7 @@
           cocoon_large2: ""
       - enum.DamageStateVisualLayers.Base:
           cocoon_large3: ""
+  - type: Cocoon
   - type: Clickable
   - type: InteractionOutline
   - type: Transform
@@ -158,6 +159,7 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
+
 
 - type: entity
   id: CocoonSmall

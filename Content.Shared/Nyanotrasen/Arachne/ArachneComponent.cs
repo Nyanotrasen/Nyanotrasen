@@ -11,7 +11,7 @@ namespace Content.Shared.Arachne
         public float WebDelay = 5f;
 
         [DataField("cocoonDelay")]
-        public float CocoonDelay = 10f;
+        public float CocoonDelay = 12f;
 
         [DataField("cocoonKnockdownMultiplier")]
         public float CocoonKnockdownMultiplier = 0.5f;
