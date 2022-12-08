@@ -25,6 +25,7 @@ using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Server.GameObjects;
@@ -299,8 +300,11 @@ namespace Content.Server.Arachne
             {
                 // why the fuck is this only available as a console command.
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
+            } else if (TryComp<PhysicsComponent>(args.Target, out var physics))
+            {
+                var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.25, 2.5);
+                _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
-
 
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
