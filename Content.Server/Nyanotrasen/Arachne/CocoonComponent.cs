@@ -6,5 +6,8 @@ namespace Content.Server.Arachne
         public bool WasReplacementAccent = false;
 
         public string OldAccent = "";
+
+        [DataField("damagePassthrough")]
+        public float DamagePassthrough = 0.5f;
     }
 }

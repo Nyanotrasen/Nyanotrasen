@@ -11,6 +11,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Eye.Blinding;
 using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -40,6 +41,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly BuckleSystem _buckleSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
         [Dependency] private readonly SharedBlindingSystem _blindingSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -53,6 +55,7 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<WebComponent, BuckleChangeEvent>(OnBuckleChange);
             SubscribeLocalEvent<CocoonComponent, EntInsertedIntoContainerMessage>(OnCocEntInserted);
             SubscribeLocalEvent<CocoonComponent, EntRemovedFromContainerMessage>(OnCocEntRemoved);
+            SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
             SubscribeLocalEvent<WebSuccessfulEvent>(OnWebSuccessful);
             SubscribeLocalEvent<WebCancelledEvent>(OnWebCancelled);
@@ -140,6 +143,23 @@ namespace Content.Server.Arachne
 
             RemComp<StunnedComponent>(uid);
             _blindingSystem.AdjustBlindSources(args.Entity, -1);
+        }
+
+        private void OnDamageChanged(EntityUid uid, CocoonComponent component, DamageChangedEvent args)
+        {
+            if (!args.DamageIncreased)
+                return;
+
+            if (args.DamageDelta == null)
+                return;
+
+            var body = _itemSlots.GetItemOrNull(uid, BodySlot);
+
+            if (body == null)
+                return;
+
+            var damage = args.DamageDelta * component.DamagePassthrough;
+            _damageableSystem.TryChangeDamage(body, damage);
         }
 
         private void AddRestVerb(EntityUid uid, WebComponent component, GetVerbsEvent<AlternativeVerb> args)
