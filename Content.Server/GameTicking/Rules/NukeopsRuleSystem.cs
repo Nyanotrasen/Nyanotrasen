@@ -18,6 +18,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Traitor;
+using Content.Server.Database;
 using Content.Shared.Dataset;
 using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
@@ -54,6 +55,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly RandomHumanoidSystem _randomHumanoid = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
 
 
     private enum WinType
@@ -449,7 +451,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
             CheckRoundShouldEnd();
     }
 
-    private void OnPlayersSpawning(RulePlayerSpawningEvent ev)
+    private async void OnPlayersSpawning(RulePlayerSpawningEvent ev)
     {
         if (!RuleAdded)
             return;
@@ -471,6 +473,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
             {
                 continue;
             }
+            if (!await _db.GetWhitelistStatusAsync(player.UserId))
+            {
+                continue;
+            }
+
             var profile = ev.Profiles[player.UserId];
             if (profile.AntagPreferences.Contains(_nukeopsRuleConfig.OperativeRoleProto))
             {
