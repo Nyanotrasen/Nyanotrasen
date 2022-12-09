@@ -121,6 +121,7 @@
   - type: Puller
     needsHands: false
   - type: Arachne
+    cocoonDelay: 8
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -140,6 +141,9 @@
     injectWhenSucc: true
     injectReagent: Cryptobiolin
     unitsToInject: 10
+    webRequired: true
+  - type: Bloodstream
+    bloodReagent: DemonsBlood
   - type: Body
     prototype: VampiricAnimalLarge
   - type: PotentialPsionic
