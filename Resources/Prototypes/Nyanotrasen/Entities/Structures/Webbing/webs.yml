@@ -160,6 +160,9 @@
     - id: MaterialCloth1
       amount: 1
   - type: Appearance
+  - type: ContainerContainer
+    containers:
+      body_slot: !type:ContainerSlot
 
 - type: entity
   id: CocoonSmall
