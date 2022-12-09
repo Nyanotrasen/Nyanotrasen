@@ -1471,3 +1471,18 @@ Entries:
     type: Add
   id: 159
   time: '2022-12-09T22:22:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with cocooning items
+    type: Fix
+  - message: Metapsionic pulse no longer spams messages.
+    type: Fix
+  - message: Minimum cocoon size turned up a little bit for visuals.
+    type: Tweak
+  - message: Metapsionic pulse range reduced to 5 (this is a buff.)
+    type: Tweak
+  - message: All antags require whitelist now. Character preferences UI has been updated
+      to reflect this.
+    type: Tweak
+  id: 160
+  time: '2022-12-09T22:47:49.0000000+00:00'
