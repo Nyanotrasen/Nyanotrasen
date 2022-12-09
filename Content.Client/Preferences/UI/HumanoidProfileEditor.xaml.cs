@@ -53,8 +53,6 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
-        private readonly IUriOpener _uri = default!;
-        private readonly IConfigurationManager _cfg = default!;
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
         private LineEdit _flavorTextEdit = null!;
@@ -502,9 +500,11 @@ namespace Content.Client.Preferences.UI
                 whitelistButton.Text = Loc.GetString("ui-escape-discord");
                 _antagList.AddChild(whitelistButton);
 
+                var uri = IoCManager.Resolve<IUriOpener>();
+
                 whitelistButton.OnPressed += _ =>
                 {
-                    _uri.OpenUri(_cfg.GetCVar(CCVars.InfoLinksDiscord));
+                    uri.OpenUri(_configurationManager.GetCVar(CCVars.InfoLinksDiscord));
                 };
             }
             #endregion Antags

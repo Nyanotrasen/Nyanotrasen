@@ -58,7 +58,6 @@ public sealed class PlayTimeTrackingManager
 
     private void RxWhitelist(MsgWhitelist message)
     {
-        Logger.Error("Setting whitelist status to " + message.Whitelisted);
         Whitelisted = message.Whitelisted;
     }
 
