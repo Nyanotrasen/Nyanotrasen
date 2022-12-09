@@ -339,7 +339,7 @@ namespace Content.Server.Arachne
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
             } else if (TryComp<PhysicsComponent>(args.Target, out var physics))
             {
-                var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.25, 2.5);
+                var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.35, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
 
