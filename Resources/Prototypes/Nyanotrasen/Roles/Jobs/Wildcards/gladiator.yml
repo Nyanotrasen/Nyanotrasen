@@ -4,11 +4,13 @@
   playTimeTracker: JobPrisoner
   startingGear: GladiatorGear
   alwaysUseSpawner: true
-  canBeAntag: false #restriction from no PDA
+  canBeAntag: false
   icon: "Boxer"
   supervisors: job-supervisors-security
   setPreference: false
-  #access:
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600
   special:
   - !type:AddComponentSpecial
     components:
@@ -24,5 +26,7 @@
   equipment:
     jumpsuit: UniformShortsRed
     outerClothing: ClothingOuterArmorGladiator
+    id: GladiatorPDA
+    ears: ClothingHeadsetGrey
   innerclothingskirt: UniformShortsRedWithTop
   #any other possessions, spawn in cell

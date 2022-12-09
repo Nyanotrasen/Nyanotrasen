@@ -43,7 +43,7 @@
   components:
   - type: PDA
     id: EpistemicsIDCard
-  
+
 - type: entity
   parent: RnDPDA
   id: MystaPDA
@@ -69,3 +69,26 @@
     state: pda-genetics
   - type: HealthAnalyzer
     scanDelay: 1.2
+
+- type: entity
+  parent: BasePDA
+  id: PrisonerPDA
+  name: prisoner PDA
+  description: Clear, so you can make sure there's nothing being smuggled inside.
+  components:
+  - type: Appearance
+    visuals:
+      - type: PDAVisualizer
+        state: pda-clear
+  - type: Icon
+    state: pda-clear
+  - type: PDA
+    id: PrisonerIDCard
+
+- type: entity
+  parent: PrisonerPDA
+  id: GladiatorPDA
+  name: gladiator PDA
+  components:
+  - type: PDA
+    id: GladiatorIDCard

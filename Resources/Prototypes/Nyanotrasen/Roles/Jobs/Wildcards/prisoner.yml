@@ -4,7 +4,7 @@
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
   alwaysUseSpawner: true
-  canBeAntag: false #restriction from no PDA
+  canBeAntag: false
   icon: "Prisoner"
   supervisors: job-supervisors-security
   requirements:
@@ -16,4 +16,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitPrisoner
     shoes: ClothingShoesColorBlack
+    id: PrisonerPDA
+    ears: ClothingHeadsetGrey
   innerclothingskirt: ClothingUniformJumpsuitPrisoner
