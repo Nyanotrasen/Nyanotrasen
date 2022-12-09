@@ -17,7 +17,7 @@
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: MeleeStaminaCost
-    swing: 5
+    swing: 3.5
   - type: CollisionWake
   - type: TileFrictionModifier
     modifier: 0.5
