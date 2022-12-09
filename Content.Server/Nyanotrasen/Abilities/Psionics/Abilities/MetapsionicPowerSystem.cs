@@ -1,12 +1,13 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Abilities.Psionics
+namespace Content.Server.Abilities.Psionics
 {
     public sealed class MetapsionicPowerSystem : EntitySystem
     {
@@ -51,7 +52,7 @@ namespace Content.Shared.Abilities.Psionics
         {
             foreach (var entity in _lookup.GetEntitiesInRange(uid, component.Range))
             {
-                if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity) && 
+                if (HasComp<PsionicComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity) &&
                     !(HasComp<ClothingGrantPsionicPowerComponent>(entity) && Transform(entity).ParentUid == uid))
                 {
                     _popups.PopupEntity(Loc.GetString("metapsionic-pulse-success"), uid, Filter.Entities(uid), PopupType.LargeCaution);

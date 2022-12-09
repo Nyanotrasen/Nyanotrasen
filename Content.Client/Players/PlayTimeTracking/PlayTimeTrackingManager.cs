@@ -100,4 +100,9 @@ public sealed class PlayTimeTrackingManager
         reason = reasonBuilder.Length == 0 ? null : reasonBuilder.ToString();
         return reason == null;
     }
+
+    public bool IsWhitelisted()
+    {
+        return _whitelisted;
+    }
 }
