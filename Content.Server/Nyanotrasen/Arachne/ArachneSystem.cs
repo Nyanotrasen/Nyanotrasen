@@ -148,10 +148,10 @@ namespace Content.Server.Arachne
                 replacement.Accent = component.OldAccent;
             } else
             {
-                RemComp<ReplacementAccentComponent>(uid);
+                RemComp<ReplacementAccentComponent>(args.Entity);
             }
 
-            RemComp<StunnedComponent>(uid);
+            RemComp<StunnedComponent>(args.Entity);
             _blindingSystem.AdjustBlindSources(args.Entity, -1);
         }
 
