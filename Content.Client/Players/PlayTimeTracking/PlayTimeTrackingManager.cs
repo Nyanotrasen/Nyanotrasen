@@ -20,7 +20,7 @@ public sealed class PlayTimeTrackingManager
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
-    private bool _whitelisted = false;
+    public bool Whitelisted = false;
 
     public void Initialize()
     {
@@ -58,7 +58,8 @@ public sealed class PlayTimeTrackingManager
 
     private void RxWhitelist(MsgWhitelist message)
     {
-        _whitelisted = message.Whitelisted;
+        Logger.Error("Setting whitelist status to " + message.Whitelisted);
+        Whitelisted = message.Whitelisted;
     }
 
     public bool IsAllowed(JobPrototype job, [NotNullWhen(false)] out string? reason)
@@ -89,7 +90,7 @@ public sealed class PlayTimeTrackingManager
             reasonBuilder.AppendLine(reason);
         }
 
-        if (!_whitelisted)
+        if (!Whitelisted)
         {
             if (reasonBuilder.Length > 0)
                 reasonBuilder.Append('\n');
@@ -99,5 +100,10 @@ public sealed class PlayTimeTrackingManager
 
         reason = reasonBuilder.Length == 0 ? null : reasonBuilder.ToString();
         return reason == null;
+    }
+
+    public bool IsWhitelisted()
+    {
+        return Whitelisted;
     }
 }
