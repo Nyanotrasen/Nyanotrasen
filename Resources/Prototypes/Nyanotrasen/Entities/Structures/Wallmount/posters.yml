@@ -5,7 +5,7 @@
   description: "This is your first time here. If this station feels familiar, immediately alert a NanoTrasen employee."
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/posters.rsi
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Vordenburg.rsi
     state: poster_dejavu
 
 - type: entity
@@ -15,7 +15,7 @@
   description: "If there was ever something so soothing enough to keep me from panicking, it was a green blob floating through space with a pair of hands, a shiny red tongue, and big round teeth."
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/posters.rsi
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Vordenburg.rsi
     state: poster_dontpanic
 
 - type: entity
@@ -25,5 +25,5 @@
   description: "Out of every station in the NyanoTrasen jurisdiction, Saucer was rated #1 out of 5! Congratulations!"
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Wallmounts/posters.rsi
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Vordenburg.rsi
     state: poster_saucer1
