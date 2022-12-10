@@ -309,11 +309,12 @@ namespace Content.Server.Arachne
                 delay *= component.CocoonKnockdownMultiplier;
 
             component.CancelToken = new CancellationTokenSource();
-            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token)
+            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token, target)
             {
                 BroadcastFinishedEvent = new CocoonSuccessfulEvent(uid, target),
                 BroadcastCancelledEvent = new CocoonCancelledEvent(uid),
                 BreakOnUserMove = true,
+                BreakOnTargetMove = true,
                 BreakOnStun = true,
             });
         }
@@ -326,7 +327,7 @@ namespace Content.Server.Arachne
             arachne.CancelToken = null;
 
             var spawnProto = HasComp<HumanoidComponent>(args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
-
+            Transform(args.Target).AttachToGridOrMap();
             var cocoon = Spawn(spawnProto, Transform(args.Target).Coordinates);
 
             if (!TryComp<ItemSlotsComponent>(cocoon, out var slots))
@@ -339,7 +340,7 @@ namespace Content.Server.Arachne
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
             } else if (TryComp<PhysicsComponent>(args.Target, out var physics))
             {
-                var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.25, 2.5);
+                var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.35, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
 

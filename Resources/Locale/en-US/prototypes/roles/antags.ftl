@@ -1,4 +1,4 @@
-﻿roles-antag-syndicate-agent-name = Syndicate agent (Requires whitelist)
+﻿roles-antag-syndicate-agent-name = Syndicate agent
 roles-antag-syndicate-agent-objective = Complete your objectives without being caught.
 
 roles-antag-initial-infected-name = Initial Infected
@@ -21,3 +21,5 @@ roles-antag-nuclear-operative-objective = Find the nuke disk and blow up the sta
 
 roles-antag-fugitive-name = Fugitive
 roles-antag-fugitive-description = Survive. Escape.
+
+roles-antag-not-whitelisted = You need to be whitelisted to play antagonists.

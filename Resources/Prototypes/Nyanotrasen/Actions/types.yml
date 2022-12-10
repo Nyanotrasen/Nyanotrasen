@@ -11,7 +11,7 @@
   description: action-description-metapsionic
   icon: Nyanotrasen/Interface/VerbIcons/metapsionic.png
   useDelay: 45
-  event: !type:MetapsionicPowerActionEvent
+  serverEvent: !type:MetapsionicPowerActionEvent
 
 - type: entityTargetAction
   id: Dispel

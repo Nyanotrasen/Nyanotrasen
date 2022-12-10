@@ -1457,3 +1457,45 @@ Entries:
     type: Fix
   id: 157
   time: '2022-12-09T19:28:42.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Blunt damage will do 1:1 stamina damage now
+    type: Tweak
+  - message: Most objects/weapons will cost less stamina to swing
+    type: Tweak
+  id: 158
+  time: '2022-12-09T21:47:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Prisoners and gladiators spawn with a PDA (without access) and headset.
+    type: Add
+  id: 159
+  time: '2022-12-09T22:22:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with cocooning items
+    type: Fix
+  - message: Metapsionic pulse no longer spams messages.
+    type: Fix
+  - message: Minimum cocoon size turned up a little bit for visuals.
+    type: Tweak
+  - message: Metapsionic pulse range reduced to 5 (this is a buff.)
+    type: Tweak
+  - message: All antags require whitelist now. Character preferences UI has been updated
+      to reflect this.
+    type: Tweak
+  id: 160
+  time: '2022-12-09T22:47:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with the cocoon doafter.
+    type: Fix
+  id: 161
+  time: '2022-12-10T00:12:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Your identity will now display if you are trying to use someone else's
+      identity and failing. Simple PDA theft is now much easier to catch.
+    type: Add
+  id: 162
+  time: '2022-12-10T02:17:27.0000000+00:00'

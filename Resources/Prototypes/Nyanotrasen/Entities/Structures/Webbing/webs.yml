@@ -159,6 +159,7 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
+      prob: 0.5 #This doesn't cost hunger so should at least make it not worth it time-wise
   - type: Appearance
   - type: ContainerContainer
     containers:
