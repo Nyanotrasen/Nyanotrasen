@@ -1492,3 +1492,10 @@ Entries:
     type: Fix
   id: 161
   time: '2022-12-10T00:12:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Your identity will now display if you are trying to use someone else's
+      identity and failing. Simple PDA theft is now much easier to catch.
+    type: Add
+  id: 162
+  time: '2022-12-10T02:17:27.0000000+00:00'
