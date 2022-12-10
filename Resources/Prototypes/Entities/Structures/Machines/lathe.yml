@@ -285,6 +285,8 @@
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
       - OreProcessorMachineCircuitboard
+      - RipleyCentralElectronics
+      - RipleyPeripheralsElectronics
       - GeneratorPlasmaMachineCircuitboard
       - GeneratorUraniumMachineCircuitboard
       - WallmountGeneratorElectronics
@@ -331,6 +333,12 @@
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg
+    - RipleyHarness
+    - RipleyLArm
+    - RipleyRArm
+    - RipleyLLeg
+    - RipleyRLeg
+    - MechEquipmentGrabber
   - type: MaterialStorage
     whitelist:
       tags:
