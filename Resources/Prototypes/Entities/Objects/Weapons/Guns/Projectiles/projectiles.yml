@@ -51,7 +51,7 @@
     - &flybyfixture
       id: fly-by
       shape: !type:PhysShapeCircle
-        radius: 1.5
+        radius: 0.5
       layer:
       - Impassable
       - MidImpassable
