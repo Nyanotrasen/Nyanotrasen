@@ -122,7 +122,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 3
+  - index: 4
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -329,10 +329,10 @@ entities:
         tiles: AAAAAAAAAABXAAAAWAAAAFcAAABXAAAAVwAAAFcAAABXAAAAWAAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAADMAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAAAAAAAAAAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAWAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAVwAAAFgAAABYAAAAWAAAAFcAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAFcAAABYAAAAWAAAAFgAAABXAAAAWAAAAEgAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABIAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAWAAAAEgAAABIAAAASAAAAEgAAABYAAAASAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABYAAAASgAAA0oAAAFKAAABSgAAAFgAAABIAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAASAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAFgAAAA1AAAANQAAADUAAAA1AAAAWAAAAEgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAANQAAADUAAAA1AAAANQAAAEgAAABYAAAAWAAAAA==
       -2,-5:
         ind: -2,-5
-        tiles: AAAAAFcAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAWAAAAAAAAABYAAAAVwAAAFcAAABXAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAMwAAAFgAAAAzAAAAVwAAADMAAABYAAAAMwAAAFcAAAAzAAAAWAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAVwAAAAAAAABXAAAAAAAAAFcAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFgAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==
+        tiles: AAAAAFcAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAAAAAAAWAAAAAAAAABYAAAAVwAAAFcAAABXAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFcAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAMwAAAFgAAAAzAAAAVwAAADMAAABYAAAAMwAAAFcAAAAzAAAAWAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAVwAAAAAAAABXAAAAAAAAAFcAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFgAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==
       -2,-6:
         ind: -2,-6
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAAAAAABXAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAAAzAAAAWAAAADMAAABXAAAAMwAAAFgAAAAzAAAAVwAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAAAAAAABYAAAAVwAAAFcAAABXAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAAAAAAFcAAABXAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAAAAAABXAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAAAzAAAAWAAAADMAAABXAAAAMwAAAFgAAAAzAAAAVwAAADMAAABYAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABXAAAAMwAAAFgAAAAzAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAAAAAAABYAAAAVwAAAFcAAABXAAAAAAAAADMAAABYAAAAMwAAAAAAAAAzAAAAWAAAADMAAAAAAAAAMwAAAFgAAAAAAAAAVwAAAAAAAABXAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAABYAAAAAAAAAFcAAABXAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAA==
       4,-2:
         ind: 4,-2
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFcAAABXAAAAAAAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAABXAAAAVwAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAANAAAADMAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAADQAAAAzAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAFgAAAA0AAAAMwAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAEgAAABIAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAWAAABFgAAAlgAAAAWAAABFgAAAVgAAABIAAAAWAAAAFgAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAhYAAANYAAAAFgAAABYAAANYAAAASgAAA1gAAABYAAAAAAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
@@ -1398,11 +1398,11 @@ entities:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale180
           coordinates: 31,-28
-        961:
+        960:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale
           coordinates: 30,-29
-        999:
+        982:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale
           coordinates: 31,-29
@@ -2315,38 +2315,38 @@ entities:
           color: '#52B4E996'
           id: ThreeQuarterTileOverlayGreyscale270
           coordinates: -14,-33
-        968:
+        965:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNe
           coordinates: -4,-64
-        970:
+        967:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerNw
           coordinates: -7,-64
-        977:
+        973:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -6,-64
-        978:
+        974:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineN
           coordinates: -5,-64
-        992:
-          color: '#DE3A3A96'
-          id: HalfTileOverlayGreyscale180
-          coordinates: -7,-62
-        993:
-          color: '#DE3A3A96'
-          id: HalfTileOverlayGreyscale180
-          coordinates: -6,-62
-        991:
-          color: '#DE3A3A96'
-          id: HalfTileOverlayGreyscale180
-          coordinates: -5,-62
-        990:
+        975:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale180
           coordinates: -4,-62
+        976:
+          color: '#DE3A3A96'
+          id: HalfTileOverlayGreyscale180
+          coordinates: -5,-62
+        977:
+          color: '#DE3A3A96'
+          id: HalfTileOverlayGreyscale180
+          coordinates: -7,-62
+        978:
+          color: '#DE3A3A96'
+          id: HalfTileOverlayGreyscale180
+          coordinates: -6,-62
       0,-2:
         268:
           color: '#52B4E996'
@@ -2849,15 +2849,15 @@ entities:
           color: '#FFFFFFFF'
           id: BrickTileWhiteCornerNe
           coordinates: 5,-64
-        994:
+        979:
           color: '#52B4E996'
           id: HalfTileOverlayGreyscale180
           coordinates: 1,-62
-        995:
+        980:
           color: '#52B4E996'
           id: HalfTileOverlayGreyscale180
           coordinates: 2,-62
-        996:
+        981:
           color: '#52B4E996'
           id: HalfTileOverlayGreyscale180
           coordinates: 3,-62
@@ -3377,19 +3377,19 @@ entities:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale180
           coordinates: 63,-8
-        964:
+        961:
           color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale90
           coordinates: 32,-29
-        965:
+        962:
           color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale180
           coordinates: 32,-28
-        966:
+        963:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale90
           coordinates: 32,-27
-        967:
+        964:
           color: '#DE3A3A96'
           id: HalfTileOverlayGreyscale90
           coordinates: 32,-30
@@ -4327,27 +4327,27 @@ entities:
           id: Bushd2
           coordinates: -3.6715496,6.6398497
       -1,-3:
-        969:
+        966:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSe
           coordinates: -4,-66
-        972:
+        968:
           color: '#FFFFFFFF'
           id: BrickTileDarkCornerSw
           coordinates: -7,-66
-        973:
+        969:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -6,-66
-        974:
+        970:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineS
           coordinates: -5,-66
-        975:
+        971:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineW
           coordinates: -7,-65
-        976:
+        972:
           color: '#FFFFFFFF'
           id: BrickTileDarkLineE
           coordinates: -4,-65
@@ -15065,6 +15065,210 @@ entities:
       101,-48: 0
       101,-47: 0
       101,-46: 0
+      41,13: 0
+      41,14: 0
+      42,13: 0
+      42,14: 0
+      43,13: 0
+      43,14: 0
+      44,13: 0
+      44,14: 0
+      45,13: 0
+      45,14: 0
+      46,13: 0
+      46,14: 0
+      47,13: 0
+      47,14: 0
+      0,-74: 0
+      0,-73: 0
+      0,-72: 0
+      0,-71: 0
+      1,-78: 0
+      1,-77: 0
+      1,-76: 0
+      1,-75: 0
+      1,-74: 0
+      1,-73: 0
+      1,-72: 0
+      1,-71: 0
+      2,-74: 0
+      2,-73: 0
+      2,-72: 0
+      2,-71: 0
+      4,-73: 0
+      4,-72: 0
+      4,-71: 0
+      35,-32: 0
+      35,-31: 0
+      35,-29: 0
+      36,-32: 0
+      36,-31: 0
+      36,-30: 0
+      36,-29: 0
+      36,-28: 0
+      36,-27: 0
+      37,-32: 0
+      37,-31: 0
+      37,-30: 0
+      37,-29: 0
+      37,-28: 0
+      37,-27: 0
+      38,-29: 0
+      35,-33: 0
+      37,-33: 0
+      48,13: 0
+      48,14: 0
+      49,13: 0
+      49,14: 0
+      51,14: 0
+      52,14: 0
+      53,14: 0
+      54,14: 0
+      76,-72: 0
+      77,-74: 0
+      77,-73: 0
+      77,-72: 0
+      77,-71: 0
+      77,-70: 0
+      78,-74: 0
+      78,-73: 0
+      78,-72: 0
+      78,-71: 0
+      78,-70: 0
+      79,-74: 0
+      79,-73: 0
+      79,-72: 0
+      79,-71: 0
+      79,-70: 0
+      36,18: 0
+      36,19: 0
+      36,20: 0
+      37,18: 0
+      37,19: 0
+      37,20: 0
+      38,18: 0
+      38,19: 0
+      38,20: 0
+      39,18: 0
+      39,19: 0
+      39,20: 0
+      40,18: 0
+      40,19: 0
+      40,20: 0
+      41,17: 0
+      42,17: 0
+      43,17: 0
+      44,17: 0
+      45,17: 0
+      46,17: 0
+      47,17: 0
+      -11,-73: 0
+      -11,-72: 0
+      -11,-71: 0
+      -11,-70: 0
+      -11,-69: 0
+      -11,-68: 0
+      -11,-67: 0
+      -11,-66: 0
+      -10,-71: 0
+      -10,-68: 0
+      -9,-71: 0
+      -9,-68: 0
+      -8,-73: 0
+      -8,-72: 0
+      -8,-71: 0
+      -8,-70: 0
+      -8,-69: 0
+      -8,-68: 0
+      -8,-67: 0
+      -8,-66: 0
+      -8,-65: 0
+      -7,-79: 0
+      -7,-78: 0
+      -7,-77: 0
+      -7,-76: 0
+      -7,-75: 0
+      -7,-74: 0
+      -7,-73: 0
+      -7,-72: 0
+      -7,-71: 0
+      -6,-73: 0
+      -6,-72: 0
+      -6,-71: 0
+      -6,-70: 0
+      -6,-69: 0
+      -6,-68: 0
+      -6,-67: 0
+      -6,-66: 0
+      -6,-65: 0
+      -5,-73: 0
+      -5,-72: 0
+      -5,-71: 0
+      -5,-70: 0
+      -5,-69: 0
+      -5,-68: 0
+      -5,-67: 0
+      -5,-66: 0
+      -5,-65: 0
+      -4,-73: 0
+      -4,-72: 0
+      -4,-71: 0
+      -4,-70: 0
+      -4,-69: 0
+      -4,-68: 0
+      -4,-67: 0
+      -4,-66: 0
+      -4,-65: 0
+      -3,-74: 0
+      -3,-73: 0
+      -3,-72: 0
+      -3,-71: 0
+      -3,-70: 0
+      -3,-69: 0
+      -3,-68: 0
+      -3,-67: 0
+      -3,-66: 0
+      -3,-65: 0
+      -2,-73: 0
+      -2,-72: 0
+      -2,-71: 0
+      -2,-70: 0
+      -2,-69: 0
+      -2,-68: 0
+      -2,-67: 0
+      -2,-66: 0
+      -2,-65: 0
+      -1,-74: 0
+      -1,-73: 0
+      -1,-72: 0
+      -1,-71: 0
+      -1,-70: 0
+      -1,-69: 0
+      -1,-68: 0
+      -1,-67: 0
+      -1,-66: 0
+      -1,-65: 0
+      -28,-67: 0
+      -28,-66: 0
+      -27,-67: 0
+      -26,-67: 0
+      -26,-66: 0
+      -26,-65: 0
+      -25,-67: 0
+      -24,-67: 0
+      -23,-67: 0
+      -22,-67: 0
+      -21,-67: 0
+      -20,-67: 0
+      -19,-67: 0
+      -19,-66: 0
+      -19,-65: 0
+      -18,-67: 0
+      48,17: 0
+      49,17: 0
+      50,17: 0
+      92,-58: 0
+      96,-58: 0
     uniqueMixes:
     - volume: 2500
       temperature: 293.15
@@ -23587,8 +23791,6 @@ entities:
     - 3001
     - 13656
     - 13657
-    - invalid
-    - invalid
     - 3000
     - 1378
     - 1379
@@ -39358,7 +39560,7 @@ entities:
   - pos: 21.280329,-33.416798
     parent: 9
     type: Transform
-  - nextAttack: 93.9829614
+  - nextAttack: 93.9829613
     type: MeleeWeapon
 - uid: 3812
   type: DrinkBottleWine
@@ -64549,12 +64751,9 @@ entities:
 - uid: 7814
   type: PoweredlightExterior
   components:
-  - rot: 3.141592653589793 rad
-    pos: 82.5,-77.5
+  - pos: 67.5,-83.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7815
   type: FloorDrain
   components:
@@ -68951,15 +69150,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 8457
-  type: AirlockAtmosphericsGlassLocked
+  type: AirlockEngineeringGlassLocked
   components:
-  - pos: 20.5,-82.5
+  - pos: 19.5,-82.5
     parent: 9
     type: Transform
 - uid: 8458
-  type: AirlockAtmosphericsGlassLocked
+  type: AirlockEngineeringGlassLocked
   components:
-  - pos: 19.5,-82.5
+  - pos: 20.5,-82.5
     parent: 9
     type: Transform
 - uid: 8459
@@ -90483,7 +90682,7 @@ entities:
 - uid: 11064
   type: CableHVStack
   components:
-  - pos: 3.3049145,-77.69802
+  - pos: 3.4832006,-77.54963
     parent: 9
     type: Transform
 - uid: 11065
@@ -105854,14 +106053,12 @@ entities:
     parent: 9
     type: Transform
 - uid: 13256
-  type: PoweredSmallLight
+  type: PoweredlightExterior
   components:
   - rot: 1.5707963267948966 rad
-    pos: -8.5,1.5
+    pos: -26.5,-77.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 13257
@@ -106952,9 +107149,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 13423
-  type: ClothingMaskGasAtmos
+  type: ClothingMaskGas
   components:
-  - pos: 17.730993,-85.57988
+  - pos: 17.77811,-85.660225
     parent: 9
     type: Transform
 - uid: 13424
@@ -126043,7 +126240,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 16332
-  type: Grille
+  type: ReinforcedGirder
   components:
   - pos: -27.5,-83.5
     parent: 9
@@ -126105,7 +126302,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 16342
-  type: Grille
+  type: ReinforcedGirder
   components:
   - pos: -27.5,-77.5
     parent: 9
@@ -129724,7 +129921,8 @@ entities:
 - uid: 16896
   type: PoweredlightExterior
   components:
-  - pos: -1.5,-73.5
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-76.5
     parent: 9
     type: Transform
   - powerLoad: 0
@@ -130455,4 +130653,189 @@ entities:
   - pos: 32.535446,-58.46634
     parent: 9
     type: Transform
+- uid: 17000
+  type: CableApcExtension
+  components:
+  - pos: 18.5,-30.5
+    parent: 9
+    type: Transform
+- uid: 17001
+  type: PoweredlightLED
+  components:
+  - pos: 30.5,-35.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17002
+  type: PoweredlightLED
+  components:
+  - pos: 32.5,-35.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17003
+  type: PoweredlightLED
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 35.5,-38.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17004
+  type: PoweredSmallLight
+  components:
+  - pos: -4.5,-67.5
+    parent: 9
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17005
+  type: PoweredlightExterior
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -3.5,-72.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17006
+  type: CableMV
+  components:
+  - pos: 11.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17007
+  type: CableMV
+  components:
+  - pos: 10.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17008
+  type: CableMV
+  components:
+  - pos: 9.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17009
+  type: CableMV
+  components:
+  - pos: 8.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17010
+  type: CableMV
+  components:
+  - pos: 7.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17011
+  type: CableMV
+  components:
+  - pos: 6.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17012
+  type: CableMV
+  components:
+  - pos: 5.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17013
+  type: CableMV
+  components:
+  - pos: 4.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17014
+  type: CableMV
+  components:
+  - pos: 3.5,-80.5
+    parent: 9
+    type: Transform
+- uid: 17015
+  type: CableMV
+  components:
+  - pos: 3.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 17016
+  type: CableMV
+  components:
+  - pos: 2.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 17017
+  type: CableApcExtension
+  components:
+  - pos: 2.5,-81.5
+    parent: 9
+    type: Transform
+- uid: 17018
+  type: CableApcExtension
+  components:
+  - pos: 4.5,-78.5
+    parent: 9
+    type: Transform
+- uid: 17019
+  type: CableApcExtension
+  components:
+  - pos: 4.5,-77.5
+    parent: 9
+    type: Transform
+- uid: 17020
+  type: CableApcExtension
+  components:
+  - pos: 3.5,-77.5
+    parent: 9
+    type: Transform
+- uid: 17021
+  type: PoweredlightExterior
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -26.5,-83.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17022
+  type: PoweredSmallLight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -7.5,-2.5
+    parent: 9
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17023
+  type: PoweredlightExterior
+  components:
+  - rot: 3.141592653589793 rad
+    pos: 83.5,-77.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17024
+  type: PoweredLightPostSmall
+  components:
+  - pos: 75.5,-72.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
+- uid: 17025
+  type: PoweredlightExterior
+  components:
+  - pos: 76.5,-83.5
+    parent: 9
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 ...
