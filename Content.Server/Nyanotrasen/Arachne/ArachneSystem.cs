@@ -309,11 +309,12 @@ namespace Content.Server.Arachne
                 delay *= component.CocoonKnockdownMultiplier;
 
             component.CancelToken = new CancellationTokenSource();
-            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token)
+            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token, target)
             {
                 BroadcastFinishedEvent = new CocoonSuccessfulEvent(uid, target),
                 BroadcastCancelledEvent = new CocoonCancelledEvent(uid),
                 BreakOnUserMove = true,
+                BreakOnTargetMove = true,
                 BreakOnStun = true,
             });
         }
