@@ -110,6 +110,15 @@ public class IdentitySystem : SharedIdentitySystem
         var ev = new SeeIdentityAttemptEvent();
 
         RaiseLocalEvent(target, ev);
+
+        // If you are failing to disguise as another person, this is visible to others.
+        if (!ev.Cancelled && representation.PresumedName != null
+            && representation.PresumedName != representation.TrueName)
+        {
+            representation.PresumedName = Loc.GetString("identity-presumed-name-outed", ("trueName", representation.TrueName), ("presumedName", representation.PresumedName));
+            return representation.PresumedName;
+        }
+
         return representation.ToStringKnown(!ev.Cancelled);
     }
 
