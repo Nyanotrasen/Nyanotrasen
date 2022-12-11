@@ -230,6 +230,15 @@ public sealed class StaminaSystem : EntitySystem
             _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
         }
 
+        // once we reach 90 stamina damage apply a bigger slowdown
+        var exhaustedTreshold = component.CritThreshold * 0.9f;
+
+        if (oldDamage <= exhaustedTreshold &&
+            component.StaminaDamage >= exhaustedTreshold)
+        {
+            _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(6), true, 0.6f, 0.6f);
+        }
+
         SetStaminaAlert(uid, component);
 
         if (!component.Critical)
