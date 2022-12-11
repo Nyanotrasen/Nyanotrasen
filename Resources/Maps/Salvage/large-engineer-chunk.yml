@@ -94,15 +94,6 @@ tilemap:
   87: Lattice
   88: Plating
 entities:
-- uid: 0
-  components:
-  - type: MetaData
-  - type: Transform
-  - index: 3
-    type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
 - uid: 1
   type: RandomSpawner
   components:
@@ -193,7 +184,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.5729167,0.57817906
-    parent: 0
+    parent: invalid
     type: Transform
   - chunks:
       -1,-1:
@@ -3476,20 +3467,6 @@ entities:
   - rot: 3.141592653589793 rad
     pos: -0.720526,-9.821675
     parent: 15
-    type: Transform
-- uid: 459
-  type: ShardGlassReinforced
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 1.2273908,-9.660452
-    parent: 0
-    type: Transform
-- uid: 460
-  type: ShardGlassReinforced
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 1.8523908,-8.58679
-    parent: 0
     type: Transform
 - uid: 461
   type: EmergencyLight
