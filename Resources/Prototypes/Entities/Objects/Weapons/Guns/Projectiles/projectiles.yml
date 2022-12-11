@@ -204,7 +204,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 1
+        Heat: 0.5
     soundHit:
       path: "/Audio/Weapons/tap.ogg"
     soundForce: true

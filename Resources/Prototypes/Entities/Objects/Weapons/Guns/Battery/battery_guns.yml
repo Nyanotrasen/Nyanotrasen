@@ -297,8 +297,8 @@
         - Belt
     - type: ProjectileBatteryAmmoProvider
       proto: BulletDisablerPractice
-      fireCost: 100
-      
+      fireCost: 50
+
 - type: entity
   name: taser
   parent: BaseWeaponBatterySmall
