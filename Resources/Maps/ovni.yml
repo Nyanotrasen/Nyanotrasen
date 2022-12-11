@@ -10636,6 +10636,8 @@ entities:
   - type: PhysicsMap
   - type: Broadphase
   - type: OccluderTree
+  - parallax: PebbleStation
+    type: Parallax
 - uid: 56
   type: WallSolid
   components:
