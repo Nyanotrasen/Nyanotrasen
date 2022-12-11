@@ -127,6 +127,8 @@ entities:
   - type: PhysicsMap
   - type: Broadphase
   - type: OccluderTree
+  - parallax: AngleStation
+    type: Parallax
 - uid: 5
   type: AirlockMaintKitchenLocked
   components:
