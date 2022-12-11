@@ -1533,3 +1533,10 @@ Entries:
     type: Fix
   id: 166
   time: '2022-12-11T01:44:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: For balance concerns and a serious bug found, nuke ops no longer require
+      whitelist.
+    type: Remove
+  id: 167
+  time: '2022-12-11T03:29:32.0000000+00:00'
