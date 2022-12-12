@@ -1579,3 +1579,11 @@ Entries:
     type: Fix
   id: 173
   time: '2022-12-12T03:42:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Broke my rule not to commit on weekends. I fetched upstream and cherry-picked
+      a bunch so I could fix a possible NPC bug we had and get a head start for tomorrow.
+      Also, there's faxes now.
+    type: Add
+  id: 174
+  time: '2022-12-12T04:32:11.0000000+00:00'
