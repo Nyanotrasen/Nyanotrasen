@@ -94,7 +94,7 @@ namespace Content.Server.Chapel
 
             altarComp.CancelToken = null;
 
-            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} sacrified {ToPrettyString(args.Target):target} on {ToPrettyString(args.Altar):altar}");
+            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} sacrificed {ToPrettyString(args.Target):target} on {ToPrettyString(args.Altar):altar}");
 
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(altarComp.RewardPool, out var pool))
                 return;

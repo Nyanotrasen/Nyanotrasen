@@ -13,6 +13,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
+using Content.Shared.Administration.Logs;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -34,6 +35,30 @@ using Robust.Server.GameObjects;
 using Robust.Server.Console;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
+using System.Threading;
+using Content.Shared.Verbs;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Body.Components;
+using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Buckle.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Server.Buckle.Components;
+using Content.Server.Bible.Components;
+using Content.Server.Stunnable;
+using Content.Server.DoAfter;
+using Content.Server.Humanoid;
+using Content.Server.Players;
+using Content.Server.Popups;
+using Content.Server.Soul;
+using Content.Server.Body.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Player;
+using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Arachne
 {
@@ -53,6 +78,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly IServerConsoleHost _host = default!;
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -357,6 +383,11 @@ namespace Content.Server.Arachne
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
             _itemSlots.SetLock(cocoon, BodySlot, true, slots);
+
+            var impact = (spawnProto == "CocoonedHumanoid") ? LogImpact.High : LogImpact.Medium;
+
+            _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(args.Webber):player} cocooned {ToPrettyString(args.Target):target}");
+
         }
 
         private void OnWebCancelled(WebCancelledEvent ev)
