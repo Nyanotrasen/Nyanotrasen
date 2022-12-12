@@ -14,6 +14,8 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -33,32 +35,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Server.GameObjects;
 using Robust.Server.Console;
-using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
-using System.Threading;
-using Content.Shared.Verbs;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Body.Components;
-using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Buckle.Components;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
-using Content.Server.Buckle.Components;
-using Content.Server.Bible.Components;
-using Content.Server.Stunnable;
-using Content.Server.DoAfter;
-using Content.Server.Humanoid;
-using Content.Server.Players;
-using Content.Server.Popups;
-using Content.Server.Soul;
-using Content.Server.Body.Systems;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Player;
-using Robust.Server.GameObjects;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Arachne
 {
@@ -171,7 +148,7 @@ namespace Content.Server.Arachne
 
         private void OnCocEntRemoved(EntityUid uid, CocoonComponent component, EntRemovedFromContainerMessage args)
         {
-            if (component.WasReplacementAccent && TryComp<ReplacementAccentComponent>(uid, out var replacement))
+            if (component.WasReplacementAccent && TryComp<ReplacementAccentComponent>(args.Entity, out var replacement))
             {
                 replacement.Accent = component.OldAccent;
             } else
