@@ -13,6 +13,9 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -32,6 +35,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Server.GameObjects;
 using Robust.Server.Console;
+using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Arachne
 {
@@ -51,6 +55,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly IServerConsoleHost _host = default!;
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -143,7 +148,7 @@ namespace Content.Server.Arachne
 
         private void OnCocEntRemoved(EntityUid uid, CocoonComponent component, EntRemovedFromContainerMessage args)
         {
-            if (component.WasReplacementAccent && TryComp<ReplacementAccentComponent>(uid, out var replacement))
+            if (component.WasReplacementAccent && TryComp<ReplacementAccentComponent>(args.Entity, out var replacement))
             {
                 replacement.Accent = component.OldAccent;
             } else
@@ -283,7 +288,9 @@ namespace Content.Server.Arachne
                 }
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer, Filter.PvsExcept(args.Performer), Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer,
+            Filter.PvsExcept(args.Performer).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(args.Performer, entity, ExamineRange, null)),
+            Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.Medium);
             arachne.CancelToken = new CancellationTokenSource();
             _doAfter.DoAfter(new DoAfterEventArgs(args.Performer, arachne.WebDelay, arachne.CancelToken.Token)
@@ -300,7 +307,11 @@ namespace Content.Server.Arachne
             if (component.CancelToken != null)
                 return;
 
-            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid, Filter.PvsExcept(uid), Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid,
+                // TODO: We need popup occlusion lmao
+                Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                Shared.Popups.PopupType.MediumCaution);
+
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-second-person", ("target", Identity.Entity(target, EntityManager))), uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
 
             var delay = component.CocoonDelay;
@@ -349,6 +360,11 @@ namespace Content.Server.Arachne
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
             _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
             _itemSlots.SetLock(cocoon, BodySlot, true, slots);
+
+            var impact = (spawnProto == "CocoonedHumanoid") ? LogImpact.High : LogImpact.Medium;
+
+            _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(args.Webber):player} cocooned {ToPrettyString(args.Target):target}");
+
         }
 
         private void OnWebCancelled(WebCancelledEvent ev)
@@ -380,7 +396,9 @@ namespace Content.Server.Arachne
                 _thirstSystem.UpdateThirst(thirst, -20);
 
             Spawn("ArachneWeb", ev.Coords.SnapToGrid());
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber, Filter.PvsExcept(ev.Webber), Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber,
+            Filter.PvsExcept(ev.Webber).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(ev.Webber, entity, ExamineRange, null)),
+            Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, Filter.Entities(ev.Webber), Shared.Popups.PopupType.Medium);
         }
 

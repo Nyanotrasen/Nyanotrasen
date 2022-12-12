@@ -88,9 +88,13 @@ namespace Content.Server.Chapel
             if (!TryComp<SacrificialAltarComponent>(args.Altar, out var altarComp))
                 return;
 
+            // note: we checked this twice in case they could have gone SSD in the doafter time.
+            if (!TryComp<ActorComponent>(args.Target, out var actor))
+                return;
+
             altarComp.CancelToken = null;
 
-            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} sacrified {ToPrettyString(args.Target):target} on {ToPrettyString(args.Altar):altar}");
+            _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(args.User):player} sacrificed {ToPrettyString(args.Target):target} on {ToPrettyString(args.Altar):altar}");
 
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(altarComp.RewardPool, out var pool))
                 return;
@@ -110,9 +114,6 @@ namespace Content.Server.Chapel
 
             int reduction = _robustRandom.Next(altarComp.GlimmerReductionMin, altarComp.GlimmerReductionMax);
             _glimmerSystem.Glimmer -= reduction;
-
-            if (!TryComp<ActorComponent>(args.Target, out var actor))
-                return;
 
             if (actor.PlayerSession.ContentData()?.Mind != null)
             {
@@ -182,6 +183,12 @@ namespace Content.Server.Chapel
             if (!HasComp<HumanoidComponent>(patient))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", patient)), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
+            if (!HasComp<ActorComponent>(patient))
+            {
+                _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-ssd", ("target", patient)), altar, Filter.Entities(agent), Shared.Popups.PopupType.SmallCaution);
                 return;
             }
 
