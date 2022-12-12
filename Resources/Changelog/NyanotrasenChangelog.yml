@@ -1602,3 +1602,15 @@ Entries:
     type: Fix
   id: 175
   time: '2022-12-12T21:31:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oracle no longer directly grants psychic powers.
+    type: Remove
+  - message: Oracle dispenses reagents as rewards.
+    type: Add
+  - message: Fixed several issues with Oracle's reagent handling.
+    type: Fix
+  - message: Oracle is now grammatically a feminine proper noun.
+    type: Tweak
+  id: 176
+  time: '2022-12-12T21:51:19.0000000+00:00'
