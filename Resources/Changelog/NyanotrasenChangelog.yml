@@ -1587,3 +1587,18 @@ Entries:
     type: Add
   id: 174
   time: '2022-12-12T04:32:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added some additional admin logs.
+    type: Add
+  - message: You can no longer see spiders spinning webs through walls.
+    type: Fix
+  - message: Mice will no longer gain the ability to speak after being freed from
+      a cocoon.
+    type: Fix
+  - message: Fixed sacrificial altar's handling of SSD people.
+    type: Fix
+  - message: Salvage technicians spawn with the proper backpack.
+    type: Fix
+  id: 175
+  time: '2022-12-12T21:31:41.0000000+00:00'
