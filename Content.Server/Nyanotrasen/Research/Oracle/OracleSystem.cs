@@ -2,11 +2,16 @@ using System.Linq;
 using Content.Shared.Interaction;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Botany;
 using Content.Server.Psionics;
 using Content.Server.Chemistry.Components.SolutionManager;
+using Content.Server.Chemistry.EntitySystems;
+using Content.Server.Fluids.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -19,6 +24,14 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+
+        public readonly IReadOnlyList<string> RewardReagents = new[]
+        {
+            "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "Wine", "Blood", "Ichor"
+        };
 
         [ViewVariables(VVAccess.ReadWrite)]
         public readonly IReadOnlyList<string> DemandMessages = new[]
@@ -151,7 +164,6 @@ namespace Content.Server.Research.Oracle
             if (meta.EntityPrototype == null)
                 return;
 
-
             var validItem = false;
 
             var nextItem = true;
@@ -178,6 +190,8 @@ namespace Content.Server.Research.Oracle
 
             EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
 
+            DispenseLiquidReward(uid);
+
             int i = _random.Next(1, 4);
 
             while (i != 0)
@@ -188,6 +202,37 @@ namespace Content.Server.Research.Oracle
 
             if (nextItem)
                 NextItem(component);
+        }
+
+        private void DispenseLiquidReward(EntityUid uid)
+        {
+            if (!_solutionSystem.TryGetSolution(uid, OracleComponent.SolutionName, out var fountainSol))
+                return;
+
+            var allReagents = _prototypeManager.EnumeratePrototypes<ReagentPrototype>()
+            .Where(x => !x.Abstract)
+            .Select(x => x.ID).ToList();
+
+            var amount = 20 + _random.Next(1, 30) + ((float) _glimmerSystem.Glimmer / 10f);
+            amount = (float) Math.Round(amount);
+
+            var sol = new Solution();
+            var reagent = "";
+
+            if (_random.Prob(0.1f))
+            {
+                reagent = _random.Pick(allReagents);
+            } else
+            {
+                reagent = _random.Pick(RewardReagents);
+            }
+
+            sol.AddReagent(reagent, amount);
+
+            _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
+
+            if (overflowing != null && overflowing.CurrentVolume > 0)
+                _spillableSystem.SpillAt(uid, overflowing, "PuddleGeneric");
         }
 
         private void NextItem(OracleComponent component)
