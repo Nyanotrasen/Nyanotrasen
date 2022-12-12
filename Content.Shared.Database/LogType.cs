@@ -80,4 +80,5 @@ public enum LogType
     StorePurchase = 73,
     LatticeCut = 74,
     Stripping = 75,
+    Stamina = 76,
 }
