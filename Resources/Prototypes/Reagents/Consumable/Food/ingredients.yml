@@ -135,6 +135,22 @@
         factor: 1
 
 - type: reagent
+  id: OilButter
+  name: reagent-name-oil-butter
+  group: Foods
+  desc: reagent-desc-oil-butter
+  physicalDesc: reagent-physical-desc-oily
+  flavor: butter
+  color: yellow
+  meltingPoint: 32.0
+  boilingPoint: 100.0
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+
+- type: reagent
   id: Oil
   name: reagent-name-oil
   group: Foods

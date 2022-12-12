@@ -428,6 +428,11 @@
   components:
   - type: Sprite
     state: butter
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: OilButter
+        Quantity: 15
 
 - type: entity
   name: cheese wheel
