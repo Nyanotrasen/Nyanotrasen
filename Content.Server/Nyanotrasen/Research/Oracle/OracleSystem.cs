@@ -6,6 +6,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Botany;
 using Content.Server.Psionics;
+using Content.Server.Chemistry.Components.SolutionManager;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -18,7 +19,6 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public readonly IReadOnlyList<string> DemandMessages = new[]
@@ -71,6 +71,15 @@ namespace Content.Server.Research.Oracle
             "PowerCellSmallPrinted",
             "PowerCellMediumPrinted",
             "PowerCellHighPrinted",
+            "Beaker",
+            "LargeBeaker",
+            "CryostasisBeaker",
+            "Dropper",
+            "Syringe",
+            "ChemistryEmptyBottle01",
+            "DrinkMug",
+            "DrinkMugMetal",
+            "DrinkGlass",
         };
 
 
@@ -142,10 +151,12 @@ namespace Content.Server.Research.Oracle
             if (meta.EntityPrototype == null)
                 return;
 
+
             var validItem = false;
 
             var nextItem = true;
 
+            /// The trim helps with stacks and singles
             if (meta.EntityPrototype.ID.TrimEnd('1') == component.DesiredPrototype.ID.TrimEnd('1'))
                 validItem = true;
 
@@ -156,19 +167,16 @@ namespace Content.Server.Research.Oracle
                 component.LastDesiredPrototype = null;
             }
 
-            /// The trim helps with stacks and singles
             if (!validItem)
             {
-                _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
+                if (!HasComp<RefillableSolutionComponent>(args.Used))
+                    _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
                 return;
             }
 
             EntityManager.QueueDeleteEntity(args.Used);
 
             EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
-
-            if (TryComp<PotentialPsionicComponent>(args.User, out var potential))
-                _psionicsSystem.RollPsionics(args.User, potential);
 
             int i = _random.Next(1, 4);
 
