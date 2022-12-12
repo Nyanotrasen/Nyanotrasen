@@ -27,8 +27,6 @@
     solution: fountain
   - type: DrawableSolution
     solution: fountain
-  - type: RefillableSolution
-    solution: fountain
   - type: DrainableSolution
     solution: fountain
   - type: ExaminableSolution
@@ -37,3 +35,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 10
     fillBaseName: oracle-
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
