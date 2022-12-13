@@ -173,8 +173,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (traitor.ContentData == null || !traitor.ContentData()!.Whitelisted)
-            return;
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled))
+        {
+            if (traitor.ContentData == null || !traitor.ContentData()!.Whitelisted)
+                return;
+        }
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already

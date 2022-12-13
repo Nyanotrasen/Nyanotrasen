@@ -165,7 +165,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
-        if (!player.ContentData()!.Whitelisted)
+        // TODO: whitelist should be part of job proto
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled) && !player.ContentData()!.Whitelisted)
         {
             return false;
         }
