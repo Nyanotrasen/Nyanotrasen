@@ -6,6 +6,7 @@
   stations:
     Lighthouse:
       mapNameTemplate: '{0} Lighthouse {1}'
+      emergencyShuttlePath: /Maps/Shuttles/BC20_emergencyShuttleG.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
