@@ -469,7 +469,7 @@ namespace Content.Client.Preferences.UI
 
             _antagPreferences = new List<AntagPreferenceSelector>();
 
-            if (playTime.IsWhitelisted())
+            if (playTime.IsWhitelisted() || !_configurationManager.GetCVar(CCVars.WhitelistEnabled))
             {
                 foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => a.Name))
                 {
