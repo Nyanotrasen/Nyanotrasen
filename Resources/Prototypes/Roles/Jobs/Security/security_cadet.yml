@@ -1,9 +1,10 @@
 ﻿- type: job
   id: SecurityCadet
   name: job-name-cadet
-  setPreference: false
   playTimeTracker: JobSecurityCadet
   requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 24000
     - !type:DepartmentTimeRequirement
       department: Security
       time: 7200

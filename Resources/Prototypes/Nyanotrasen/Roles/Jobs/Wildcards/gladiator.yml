@@ -8,6 +8,7 @@
   icon: "Boxer"
   supervisors: job-supervisors-security
   setPreference: false
+  whitelistRequired: true
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 3600
