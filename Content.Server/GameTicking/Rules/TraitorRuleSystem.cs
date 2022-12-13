@@ -164,7 +164,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         return results;
     }
 
-    public async void MakeTraitor(IPlayerSession traitor)
+    public void MakeTraitor(IPlayerSession traitor)
     {
         var mind = traitor.Data.ContentData()?.Mind;
         if (mind == null)
@@ -173,7 +173,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(traitor.UserId))
+        if (traitor.ContentData == null || !traitor.ContentData()!.Whitelisted)
             return;
 
         // creadth: we need to create uplink for the antag.
