@@ -194,9 +194,9 @@ namespace Content.Server.Ghost.Roles
             UpdateAllEui();
         }
 
-        public async void Takeover(IPlayerSession player, uint identifier)
+        public void Takeover(IPlayerSession player, uint identifier)
         {
-            if (!await _db.GetWhitelistStatusAsync(player.UserId))
+            if (!player.ContentData()!.Whitelisted)
             {
                 CloseEui(player);
                 return;
@@ -318,6 +318,7 @@ namespace Content.Server.Ghost.Roles
         {
             if(shell.Player != null)
             {
+                // TODO: remove async... this one is weird about getting the content data...
                 if (await _db.GetWhitelistStatusAsync(shell.Player.UserId))
                     EntitySystem.Get<GhostRoleSystem>().OpenEui((IPlayerSession)shell.Player);
                 else
