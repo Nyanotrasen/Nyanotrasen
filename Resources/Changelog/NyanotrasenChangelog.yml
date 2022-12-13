@@ -1711,3 +1711,10 @@ Entries:
     type: Add
   id: 190
   time: '2022-12-13T23:07:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a minor UI bug when there were no ghost roles available to you
+      but some locked behind whitelist.
+    type: Fix
+  id: 191
+  time: '2022-12-13T23:49:59.0000000+00:00'
