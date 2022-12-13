@@ -17,6 +17,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Players;
 using Content.Server.Traitor;
 using Content.Shared.Dataset;
 using Content.Shared.MobState;
@@ -472,6 +473,12 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
             {
                 continue;
             }
+
+            if (!player.ContentData()!.Whitelisted)
+            {
+                continue;
+            }
+
             var profile = ev.Profiles[player.UserId];
             if (profile.AntagPreferences.Contains(_nukeopsRuleConfig.OperativeRoleProto))
             {
