@@ -158,14 +158,15 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueSendTimers(ev.PlayerSession);
     }
 
-    public async Task<bool> IsAllowed(IPlayerSession player, string role)
+    public bool IsAllowed(IPlayerSession player, string role)
     {
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
             job.Requirements == null ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
 
-        if (!await _db.GetWhitelistStatusAsync(player.UserId))
+        // TODO: whitelist should be part of job proto
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled) && !player.ContentData()!.Whitelisted)
         {
             return false;
         }

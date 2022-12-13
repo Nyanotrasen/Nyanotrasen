@@ -217,9 +217,10 @@ public sealed class PlayTimeTrackingManager
         _net.ServerSendMessage(msg, pSession.ConnectedClient);
     }
 
+    // needs to be async because this can get called before we cache whitelist I think...
     public async void SendWhitelist(IPlayerSession playerSession)
     {
-        var whitelist = await _db.GetWhitelistStatusAsync(playerSession.UserId);
+        var whitelist = playerSession.ContentData()!.Whitelisted;
 
         var msg = new MsgWhitelist
         {
