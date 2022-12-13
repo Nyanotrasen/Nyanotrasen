@@ -15,6 +15,7 @@
       connections:
       - left arm
       - right arm
+      - thorax
       organs:
         heart: OrganHumanHeart
         lungs: OrganHumanLungs
@@ -33,3 +34,30 @@
       part: RightHandHuman
     left hand:
       part: LeftHandHuman
+    thorax:
+      part: ThoraxSpider
+      connections:
+        - left foreleg
+        - left second leg
+        - left third leg
+        - left hind leg
+        - right foreleg
+        - right second leg
+        - right third leg
+        - right hind leg
+    left foreleg:
+      part: LeftLegSpider
+    left second leg:
+      part: LeftLegSpider
+    left third leg:
+      part: LeftLegSpider
+    left hind leg:
+      part: LeftLegSpider
+    right foreleg:
+      part: RightLegSpider
+    right second leg:
+      part: RightLegSpider
+    right third leg:
+      part: RightLegSpider
+    right hind leg:
+      part: RightLegSpider
