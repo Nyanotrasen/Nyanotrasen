@@ -1,7 +1,10 @@
 using System.Linq;
 using Content.Client.Eui;
+using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
 using JetBrains.Annotations;
 
 namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
@@ -64,10 +67,18 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             if (state is not GhostRolesEuiState ghostState) return;
             _window.ClearEntries();
 
+            var cfg = IoCManager.Resolve<IConfigurationManager>();
+            var playTime =  IoCManager.Resolve<PlayTimeTrackingManager>();
+
             var groupedRoles = ghostState.GhostRoles.GroupBy(
-                role => (role.Name, role.Description));
+                role => (role.Name, role.Description, role.WhitelistRequired));
             foreach (var group in groupedRoles)
             {
+                if (group.Key.WhitelistRequired && cfg.GetCVar(CCVars.WhitelistEnabled) && !playTime.IsWhitelisted())
+                {
+                    continue;
+                }
+
                 var name = group.Key.Name;
                 var description = group.Key.Description;
 
