@@ -47,10 +47,12 @@ namespace Content.Client.Borgs
             if (!_entityManager.TryGetComponent<LawsComponent>(Owner.Machine, out var laws))
                 return;
 
+            Laws.DisposeAllChildren();
+
             foreach (var law in laws.Laws)
             {
                 var lawLabel = new RichTextLabel(){
-                StyleClasses = {StyleNano.StyleClassLabelSecondaryColor}
+                StyleClasses = {StyleNano.StyleClassLabelKeyText}
                 };
                 lawLabel.SetMessage(law);
                 Laws.AddChild(lawLabel);
