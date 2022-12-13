@@ -219,7 +219,7 @@ public sealed class PlayTimeTrackingManager
 
     public async void SendWhitelist(IPlayerSession playerSession)
     {
-        var whitelist = await _db.GetWhitelistStatusAsync(playerSession.UserId);
+        var whitelist = playerSession.ContentData()!.Whitelisted;
 
         var msg = new MsgWhitelist
         {
