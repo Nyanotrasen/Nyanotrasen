@@ -1,11 +1,7 @@
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Hands;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Inventory;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -14,9 +10,7 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.HealthExaminable;
 using Content.Server.DoAfter;
-using Content.Server.Hands.Systems;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Chemistry.Components.SolutionManager;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
@@ -25,13 +19,11 @@ namespace Content.Server.Vampiric
 {
     public sealed class BloodSuckerSystem : EntitySystem
     {
-        [Dependency] private readonly HandVirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -40,9 +32,6 @@ namespace Content.Server.Vampiric
         {
             base.Initialize();
             SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuccVerb);
-            SubscribeLocalEvent<BloodSuckerComponent, DidEquipHandEvent>(OnEquippedHand);
-            SubscribeLocalEvent<BloodSuckerComponent, DidUnequipHandEvent>(OnUnequippedHand);
-            SubscribeLocalEvent<BloodSuckerComponent, SuckBloodActionEvent>(OnSuckBlood);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<TargetSuckSuccessfulEvent>(OnSuckSuccessful);
@@ -53,6 +42,8 @@ namespace Content.Server.Vampiric
         {
             if (args.User == args.Target)
                 return;
+            if (component.WebRequired)
+                return; // handled elsewhere
             if (!TryComp<BloodstreamComponent>(args.Target, out var bloodstream))
                 return;
             if (!args.CanAccess)
@@ -65,46 +56,10 @@ namespace Content.Server.Vampiric
                     StartSuccDoAfter(uid, args.Target, component, bloodstream); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Nyanotrasen/Mobs/Species/lamia.rsi/verbiconfangs.png",
+                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
                 Priority = 2
             };
             args.Verbs.Add(verb);
-        }
-
-        private void OnEquippedHand(EntityUid uid, BloodSuckerComponent component, DidEquipHandEvent args)
-        {
-            EntityUid? succEntity = null;
-
-            if (HasComp<BloodstreamComponent>(args.Equipped))
-                succEntity = args.Equipped;
-            if (TryComp<HandVirtualItemComponent>(args.Equipped, out var virtualItem) && HasComp<BloodstreamComponent>(virtualItem.BlockingEntity))
-                succEntity = virtualItem.BlockingEntity;
-
-            if (succEntity == null)
-                return;
-
-            component.PotentialTarget = succEntity;
-            if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
-                _actionsSystem.AddAction(uid, new InstantAction(suckBlood), null);
-        }
-
-        private void OnUnequippedHand(EntityUid uid, BloodSuckerComponent component, DidUnequipHandEvent args)
-        {
-            if (args.Unequipped == component.PotentialTarget
-            || TryComp<HandVirtualItemComponent>(args.Unequipped, out var virtualItem) && virtualItem.BlockingEntity == component.PotentialTarget)
-            {
-                component.PotentialTarget = null;
-                if (_prototypeManager.TryIndex<InstantActionPrototype>("SuckBlood", out var suckBlood))
-                    _actionsSystem.RemoveAction(uid, suckBlood);
-            }
-        }
-
-        private void OnSuckBlood(EntityUid uid, BloodSuckerComponent component, SuckBloodActionEvent args)
-        {
-            if (component.PotentialTarget == null)
-                return;
-
-            StartSuccDoAfter(uid, component.PotentialTarget.Value, component);
         }
 
         private void OnHealthExamined(EntityUid uid, BloodSuckedComponent component, HealthBeingExaminedEvent args)
@@ -126,7 +81,7 @@ namespace Content.Server.Vampiric
             }
         }
 
-        private void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null)
+        public void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null, bool doChecks = true)
         {
             if (!Resolve(bloodsucker, ref bloodSuckerComponent))
                 return;
@@ -134,24 +89,26 @@ namespace Content.Server.Vampiric
             if (!Resolve(victim, ref stream))
                 return;
 
-            if (!_interactionSystem.InRangeUnobstructed(bloodsucker, victim))
+            if (doChecks)
             {
-                _virtualItemSystem.DeleteInHandsMatching(bloodsucker, victim);
-                return;
-            }
+                if (!_interactionSystem.InRangeUnobstructed(bloodsucker, victim))
+                {
+                    return;
+                }
 
-            if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
-            {
-                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
-                return;
-            }
+                if (_inventorySystem.TryGetSlotEntity(victim, "head", out var headUid) && HasComp<PressureProtectionComponent>(headUid))
+                {
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-helmet", ("helmet", headUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    return;
+                }
 
-            if (_inventorySystem.TryGetSlotEntity(bloodsucker, "mask", out var maskUid) &&
-                EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-                blocker.Enabled)
-            {
-                _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
-                return;
+                if (_inventorySystem.TryGetSlotEntity(bloodsucker, "mask", out var maskUid) &&
+                    EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
+                    blocker.Enabled)
+                {
+                    _popups.PopupEntity(Loc.GetString("bloodsucker-fail-mask", ("mask", maskUid)), victim, Filter.Entities(bloodsucker), Shared.Popups.PopupType.Medium);
+                    return;
+                }
             }
 
             if (bloodSuckerComponent.CancelToken != null)
@@ -289,6 +246,4 @@ namespace Content.Server.Vampiric
             }
         }
     }
-
-    public sealed class SuckBloodActionEvent : InstantActionEvent {}
 }

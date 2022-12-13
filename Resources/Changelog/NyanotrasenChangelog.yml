@@ -1386,3 +1386,282 @@ Entries:
     type: Tweak
   id: 148
   time: '2022-12-06T20:23:25.0000000+00:00'
+- author: Leander-0
+  changes:
+  - message: Kudzu will grow a lot more slowly.
+    type: Tweak
+  id: 149
+  time: '2022-12-06T23:56:54.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added vampire spiders.
+    type: Add
+  id: 150
+  time: '2022-12-07T04:10:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed oneirophage spawners being visible.
+    type: Fix
+  - message: Tweaked a few other things with them.
+    type: Fix
+  - message: Reduced metapsionic pulse range to 6 so it's slightly easier to tell
+      if it's nearby.
+    type: Tweak
+  id: 151
+  time: '2022-12-07T16:24:06.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: You will no longer stun yourself with melee attacks.
+    type: Tweak
+  id: 152
+  time: '2022-12-07T18:30:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Noospheric storm scales with intensity in survival mode.
+    type: Tweak
+  - message: Tortuga min players bumped up to 50.
+    type: Tweak
+  - message: Arachne webs are now world target actions.
+    type: Tweak
+  - message: Rat servant pathfinding seems slightly better.
+    type: Fix
+  id: 153
+  time: '2022-12-07T20:01:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added prisoner role.
+    type: Add
+  - message: 'Gladiators are a type of prisoner and will spawn in their cell. Announcement
+      system SOON:tm:'
+    type: Tweak
+  id: 154
+  time: '2022-12-07T20:33:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophage injects more venom, but has a lower reserve it will burn
+      through faster.
+    type: Tweak
+  - message: Webs have an uglier but better for gameplay drawdepth.
+    type: Fix
+  id: 155
+  time: '2022-12-08T01:27:22.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added cocoons.
+    type: Add
+  id: 156
+  time: '2022-12-09T00:14:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Carrying checks are much more robust now.
+    type: Fix
+  id: 157
+  time: '2022-12-09T19:28:42.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Blunt damage will do 1:1 stamina damage now
+    type: Tweak
+  - message: Most objects/weapons will cost less stamina to swing
+    type: Tweak
+  id: 158
+  time: '2022-12-09T21:47:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Prisoners and gladiators spawn with a PDA (without access) and headset.
+    type: Add
+  id: 159
+  time: '2022-12-09T22:22:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with cocooning items
+    type: Fix
+  - message: Metapsionic pulse no longer spams messages.
+    type: Fix
+  - message: Minimum cocoon size turned up a little bit for visuals.
+    type: Tweak
+  - message: Metapsionic pulse range reduced to 5 (this is a buff.)
+    type: Tweak
+  - message: All antags require whitelist now. Character preferences UI has been updated
+      to reflect this.
+    type: Tweak
+  id: 160
+  time: '2022-12-09T22:47:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with the cocoon doafter.
+    type: Fix
+  id: 161
+  time: '2022-12-10T00:12:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Your identity will now display if you are trying to use someone else's
+      identity and failing. Simple PDA theft is now much easier to catch.
+    type: Add
+  id: 162
+  time: '2022-12-10T02:17:27.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Flaregun Nerfed
+    type: Tweak
+  id: 163
+  time: '2022-12-10T04:00:04.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new security outpost.
+    type: Add
+  - message: Added new maintenance shaft and external access by the medical outpost.
+    type: Add
+  - message: Added more room to Perma.
+    type: Add
+  - message: Made northwest external access into essentially an engineer outpost.
+    type: Tweak
+  - message: Changed a few APCs around Arrivals.
+    type: Tweak
+  - message: Removed a few Banditos.
+    type: Remove
+  id: 164
+  time: '2022-12-10T21:37:45.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Various improvements to Lighthouse
+    type: Add
+  id: 165
+  time: '2022-12-10T21:37:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed maps getting yeeted to nullspace...
+    type: Fix
+  id: 166
+  time: '2022-12-11T01:44:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: For balance concerns and a serious bug found, nuke ops no longer require
+      whitelist.
+    type: Remove
+  id: 167
+  time: '2022-12-11T03:29:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added new round end sound.
+    type: Add
+  id: 168
+  time: '2022-12-11T07:28:13.0000000+00:00'
+- author: Faye
+  changes:
+  - message: Added special space backgrounds for Angle, Lighthouse, one for both Ovni
+      and Pebble, and Tortuga!
+    type: Add
+  id: 169
+  time: '2022-12-11T18:46:15.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Added a slowdown from exhaustion at 90% stamina damage.
+    type: Tweak
+  id: 170
+  time: '2022-12-11T22:25:12.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added new sprites for the Oracle.
+    type: Add
+  id: 171
+  time: '2022-12-11T22:33:37.0000000+00:00'
+- author: Huvy
+  changes:
+  - message: Added eight new posters.
+    type: Add
+  id: 172
+  time: '2022-12-11T23:21:16.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a significant amount of content to the east maints/spacewalk area.
+    type: Add
+  - message: Added fire extinguishers to the fire extinguisher cabinets.
+    type: Fix
+  id: 173
+  time: '2022-12-12T03:42:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Broke my rule not to commit on weekends. I fetched upstream and cherry-picked
+      a bunch so I could fix a possible NPC bug we had and get a head start for tomorrow.
+      Also, there's faxes now.
+    type: Add
+  id: 174
+  time: '2022-12-12T04:32:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added some additional admin logs.
+    type: Add
+  - message: You can no longer see spiders spinning webs through walls.
+    type: Fix
+  - message: Mice will no longer gain the ability to speak after being freed from
+      a cocoon.
+    type: Fix
+  - message: Fixed sacrificial altar's handling of SSD people.
+    type: Fix
+  - message: Salvage technicians spawn with the proper backpack.
+    type: Fix
+  id: 175
+  time: '2022-12-12T21:31:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oracle no longer directly grants psychic powers.
+    type: Remove
+  - message: Oracle dispenses reagents as rewards.
+    type: Add
+  - message: Fixed several issues with Oracle's reagent handling.
+    type: Fix
+  - message: Oracle is now grammatically a feminine proper noun.
+    type: Tweak
+  id: 176
+  time: '2022-12-12T21:51:19.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Moved morgue air alarm.
+    type: Fix
+  id: 177
+  time: '2022-12-13T02:48:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Emergency shuttle arrival times have been increased for most alert levels
+      to be closer to typical SS13 server values.
+    type: Tweak
+  id: 178
+  time: '2022-12-13T03:23:04.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You can no longer see gasping through walls.
+    type: Fix
+  id: 179
+  time: '2022-12-13T03:34:36.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Whitelisted nuclear operatives have been restored.
+    type: Fix
+  - message: Roundstart spawning should be a bit faster.
+    type: Fix
+  - message: Whitelist restrictions actually only apply when whitelist is enabled...
+    type: Fix
+  id: 180
+  time: '2022-12-13T04:20:29.0000000+00:00'
+- author: Rane
+  changes:
+  - message: More roles are available to unwhitelisted players.
+    type: Tweak
+  - message: Enabled security cadets to round out security slightly.
+    type: Add
+  id: 181
+  time: '2022-12-13T04:54:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Non-whitelisted players can play mice and hamsters and so on.
+    type: Add
+  - message: You should get more instant updates on your whitelist status.
+    type: Fix
+  id: 182
+  time: '2022-12-13T05:53:58.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Okay, your client has the correct whitelist status this time (real.)
+    type: Fix
+  id: 183
+  time: '2022-12-13T09:06:07.0000000+00:00'

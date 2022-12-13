@@ -25,6 +25,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Throwing;
 using Content.Shared.Physics.Pull;
 using Robust.Shared.Player;
+using Robust.Shared.Map.Components;
 
 namespace Content.Server.Carrying
 {
@@ -69,6 +70,12 @@ namespace Content.Server.Carrying
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
+            if (component.CancelToken != null)
+                return;
+
+            if (TryComp<CarriableComponent>(args.User, out var userCarry) && userCarry.CancelToken != null)
+                return;
+
             if (!CanCarry(args.User, uid, component))
                 return;
 
@@ -83,6 +90,7 @@ namespace Content.Server.Carrying
 
             if (args.User == args.Target)
                 return;
+
 
             AlternativeVerb verb = new()
             {
@@ -199,7 +207,10 @@ namespace Content.Server.Carrying
         private void OnCarrySuccess(CarrySuccessfulEvent ev)
         {
             if (!CanCarry(ev.Carrier, ev.Carried, ev.Component))
+            {
+                ev.Component.CancelToken = null;
                 return;
+            }
 
             Carry(ev.Carrier, ev.Carried);
         }
@@ -253,6 +264,8 @@ namespace Content.Server.Carrying
             if (TryComp<SharedPullableComponent>(carried, out var pullable))
                 _pullingSystem.TryStopPull(pullable);
 
+            Transform(carrier).AttachToGridOrMap();
+            Transform(carried).AttachToGridOrMap();
             Transform(carried).Coordinates = Transform(carrier).Coordinates;
             Transform(carried).AttachParent(Transform(carrier));
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
@@ -279,6 +292,12 @@ namespace Content.Server.Carrying
             Transform(carried).AttachToGridOrMap();
             _standingState.Stand(carried);
             _movementSpeed.RefreshMovementSpeedModifiers(carrier);
+
+            if (TryComp<CarriableComponent>(carrier, out var carrierA))
+                carrierA.CancelToken = null;
+
+            if (TryComp<CarriableComponent>(carried, out var carriedA))
+                carriedA.CancelToken = null;
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
@@ -298,6 +317,12 @@ namespace Content.Server.Carrying
         public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
         {
             if (!Resolve(carried, ref carriedComp))
+                return false;
+
+            if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
+                return false;
+
+            if (HasComp<BeingCarriedComponent>(carrier))
                 return false;
 
             if (!TryComp<HandsComponent>(carrier, out var hands))

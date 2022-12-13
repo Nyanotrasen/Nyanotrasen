@@ -43,6 +43,9 @@ namespace Content.Shared.Roles
         [DataField("requirements")]
         public HashSet<JobRequirement>? Requirements;
 
+        [DataField("whitelistRequired")]
+        public bool WhitelistRequired = false;
+
         [DataField("joinNotifyCrew")]
         public bool JoinNotifyCrew { get; } = false;
 
@@ -54,6 +57,12 @@ namespace Content.Shared.Roles
 
         [DataField("canBeAntag")]
         public bool CanBeAntag { get; } = true;
+
+        /// <summary>
+        /// For e.g. prisoners, they'll never use their latejoin spawner.
+        /// </summary>
+        [DataField("alwaysUseSpawner")]
+        public bool AlwaysUseSpawner { get; } = false;
 
         /// <summary>
         ///     Whether this job is a head.

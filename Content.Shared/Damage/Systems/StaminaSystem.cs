@@ -6,6 +6,7 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Rounding;
 using Content.Shared.Stunnable;
@@ -120,7 +121,7 @@ public sealed class StaminaSystem : EntitySystem
             return;
 
         var damage = args.PushProbability * component.CritThreshold;
-        TakeStaminaDamage(uid, damage, component);
+        TakeStaminaDamage(uid, damage, component, source:args.Source);
 
         // We need a better method of getting if the entity is going to resist stam damage, both this and the lines in the foreach at the end of OnHit() are awful
         if (!component.Critical)
@@ -177,7 +178,7 @@ public sealed class StaminaSystem : EntitySystem
         foreach (var comp in toHit)
         {
             var oldDamage = comp.StaminaDamage;
-            TakeStaminaDamage(comp.Owner, damage / toHit.Count, comp);
+            TakeStaminaDamage(comp.Owner, damage / toHit.Count, comp, source:args.User, with:component.Owner);
             if (comp.StaminaDamage.Equals(oldDamage))
             {
                 _popup.PopupEntity(Loc.GetString("stamina-resist"), comp.Owner, Filter.Entities(args.User));
@@ -189,7 +190,7 @@ public sealed class StaminaSystem : EntitySystem
     {
         if (!args.OurFixture.ID.Equals(CollideFixture)) return;
 
-        TakeStaminaDamage(args.OtherFixture.Body.Owner, component.Damage);
+        TakeStaminaDamage(args.OtherFixture.Body.Owner, component.Damage, source:args.OurFixture.Body.Owner);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)
@@ -204,7 +205,7 @@ public sealed class StaminaSystem : EntitySystem
         _alerts.ShowAlert(uid, AlertType.Stamina, (short) severity);
     }
 
-    public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null)
+    public void TakeStaminaDamage(EntityUid uid, float value, StaminaComponent? component = null, EntityUid? source = null, EntityUid? with = null)
     {
         if (!Resolve(uid, ref component, false) || component.Critical)
             return;
@@ -230,6 +231,14 @@ public sealed class StaminaSystem : EntitySystem
             _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(3), true, 0.8f, 0.8f);
         }
 
+        var exhaustedTreshold = component.CritThreshold * 0.9f;
+
+        if (oldDamage <= exhaustedTreshold &&
+            component.StaminaDamage >= exhaustedTreshold)
+        {
+            _stunSystem.TrySlowdown(uid, TimeSpan.FromSeconds(6), true, 0.6f, 0.6f);
+        }
+
         SetStaminaAlert(uid, component);
 
         if (!component.Critical)
@@ -249,6 +258,17 @@ public sealed class StaminaSystem : EntitySystem
 
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(component);
+
+        if (value <= 0)
+            return;
+        if (source != null)
+        {
+            _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(source.Value):user} caused {value} stamina damage to {ToPrettyString(uid):target}{(with != null ? $" using {ToPrettyString(with.Value):using}" : "")}");
+        }
+        else
+        {
+            _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(uid):target} took {value} stamina damage");
+        }
     }
 
     public override void Update(float frameTime)
@@ -308,6 +328,7 @@ public sealed class StaminaSystem : EntitySystem
         component.NextUpdate = _timing.CurTime + stunTime + StamCritBufferTime;
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(component);
+        _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 
     private void ExitStamCrit(EntityUid uid, StaminaComponent? component = null)
@@ -321,6 +342,7 @@ public sealed class StaminaSystem : EntitySystem
         SetStaminaAlert(uid, component);
         RemComp<ActiveStaminaComponent>(uid);
         Dirty(component);
+        _adminLogger.Add(LogType.Stamina, LogImpact.Low, $"{ToPrettyString(uid):user} recovered from stamina crit");
     }
 
     [Serializable, NetSerializable]

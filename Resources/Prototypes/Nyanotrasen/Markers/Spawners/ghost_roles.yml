@@ -13,7 +13,8 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      - texture: Mobs/Animals/bat.rsi/bat.png
+      - sprite: Mobs/Animals/bat.rsi
+        state: bat
 
 - type: entity
   id: SpawnPointGhostFugitive
@@ -46,3 +47,20 @@
       - state: green
       - state: prisoner
   - type: FugitiveSpawnLocation
+
+- type: entity
+  id: SpawnPointGhostVampSpider
+  name: ghost role spawn point
+  suffix: Vampire spider
+  parent: MarkerBase
+  components:
+  - type: GhostRoleMobSpawner
+    prototype: MobGiantSpiderVampireAngry
+    name: ghost-role-information-giant-spider-vampire-name
+    description: ghost-role-information-giant-spider-vampire-description
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/bat.rsi
+        state: bat

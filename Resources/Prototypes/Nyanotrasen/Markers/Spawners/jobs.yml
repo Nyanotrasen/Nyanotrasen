@@ -21,7 +21,7 @@
     layers:
       - state: green
       - state: boxer
-      
+
 - type: entity
   id: SpawnPointGladiator
   parent: SpawnPointJobBase
@@ -129,3 +129,15 @@
     layers:
       - state: green
       - state: miner
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prisoner

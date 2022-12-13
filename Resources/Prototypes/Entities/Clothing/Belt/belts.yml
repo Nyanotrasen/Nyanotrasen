@@ -19,11 +19,12 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -87,13 +88,14 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - Powerdrill
         - JawsOfLife
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -195,6 +197,8 @@
         - Flashlight
         - CigPack
         - TrashBag
+        - WetFloorSign
+        - HolosignProjector
       components:
         - LightReplacer
   - type: ItemMapper

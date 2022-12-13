@@ -1,10 +1,41 @@
 - type: entity
-  parent: StatueVenusBlue
+  parent: BaseStructure
   id: Oracle
   name: Oracle
-  description: It asks for items in exchange for knowledge. No one knows how it works. Placeholder sprite.
+  description: It asks for items in exchange for knowledge. No one knows how it works.
   components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: oracle-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: oracle-1
   - type: Oracle
   - type: Speech
     speechSounds: Tenor
   - type: Psionic
+  - type: SolutionContainerManager
+    solutions:
+      fountain:
+        maxVol: 200
+  - type: Drink
+    isOpen: true
+    solution: fountain
+  - type: DrawableSolution
+    solution: fountain
+  - type: DrainableSolution
+    solution: fountain
+  - type: ExaminableSolution
+    solution: fountain
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 10
+    fillBaseName: oracle-
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true

@@ -14,5 +14,11 @@ namespace Content.Server.Psionics
 
         [DataField("disableChance")]
         public float DisableChance = 0.3f;
+
+        /// <summary>
+        ///     Punish when used against a non-psychic.
+        /// </summary
+        [DataField("punish")]
+        public bool Punish = true;
     }
 }

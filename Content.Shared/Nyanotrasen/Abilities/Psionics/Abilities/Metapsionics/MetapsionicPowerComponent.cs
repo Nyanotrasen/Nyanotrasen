@@ -6,7 +6,7 @@ namespace Content.Shared.Abilities.Psionics
     public sealed class MetapsionicPowerComponent : Component
     {
         [DataField("range")]
-        public float Range = 10f;
+        public float Range = 5f;
 
         public InstantAction? MetapsionicPowerAction = null;
     }

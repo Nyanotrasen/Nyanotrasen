@@ -6,7 +6,8 @@
   - type: Sprite
     layers:
       - state: red
-      - texture: Objects/Fun/dice.rsi/d100100.png
+      - sprite: Objects/Fun/dice.rsi
+        state: d100100
   - type: RandomSpawner
     offset: 0
     prototypes:
@@ -132,7 +133,7 @@
       - SheetPlasma1
       - SheetPlasteel1
       - SheetPGlass1
-      - Cablecuffs  
+      - Cablecuffs
       - Zipties
       - MonkeyCubeBox
       - SpaceCash100
