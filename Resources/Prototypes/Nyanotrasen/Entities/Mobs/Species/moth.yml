@@ -14,6 +14,7 @@
     state: full
   - type: Body
     prototype: Moth
+    requiredLegs: 2
   - type: DiseaseCarrier
     diseaseResist: 0.1
   - type: Flammable
