@@ -35,6 +35,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             if (denied == 0)
                 return;
 
+            NoRolesMessage.Visible = false;
+
             var message = Loc.GetString("ghost-role-whitelist-text", ("num", denied));
 
             if (denied == 1)
