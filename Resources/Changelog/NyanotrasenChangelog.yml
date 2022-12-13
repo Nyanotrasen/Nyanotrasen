@@ -1633,3 +1633,13 @@ Entries:
     type: Fix
   id: 179
   time: '2022-12-13T03:34:36.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Whitelisted nuclear operatives have been restored.
+    type: Fix
+  - message: Roundstart spawning should be a bit faster.
+    type: Fix
+  - message: Whitelist restrictions actually only apply when whitelist is enabled...
+    type: Fix
+  id: 180
+  time: '2022-12-13T04:20:29.0000000+00:00'
