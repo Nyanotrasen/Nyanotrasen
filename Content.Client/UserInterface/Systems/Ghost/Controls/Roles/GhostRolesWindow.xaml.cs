@@ -32,7 +32,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 
         public void AddDenied(int denied)
         {
-            if (denied < 0)
+            if (denied == 0)
                 return;
 
             var message = Loc.GetString("ghost-role-whitelist-text", ("num", denied));
