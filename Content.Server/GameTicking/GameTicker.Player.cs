@@ -35,6 +35,8 @@ namespace Content.Server.GameTicking
                     if (session.Data.ContentDataUncast == null)
                         session.Data.ContentDataUncast = new PlayerData(session.UserId, args.Session.Name);
 
+                    CacheWhitelist(session);
+
                     // Make the player actually join the game.
                     // timer time must be > tick length
                     Timer.Spawn(0, args.Session.JoinGame);
@@ -99,9 +101,13 @@ namespace Content.Server.GameTicking
             async void SpawnWaitDb()
             {
                 await _userDb.WaitLoadComplete(session);
-                session.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId);
-                _playTimeTrackingManager.SendWhitelist(session);
                 SpawnPlayer(session, EntityUid.Invalid);
+            }
+
+            async void CacheWhitelist(IPlayerSession whiteSession)
+            {
+                whiteSession.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(whiteSession.UserId);
+                _playTimeTrackingManager.SendWhitelist(session);
             }
 
             async void AddPlayerToDb(Guid id)
