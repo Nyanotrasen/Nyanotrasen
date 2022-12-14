@@ -39973,22 +39973,6 @@ entities:
   - pos: 17.5,-68.5
     parent: 9
     type: Transform
-- uid: 3811
-  type: KitchenKnife
-  components:
-  - pos: 21.280329,-33.416798
-    parent: 9
-    type: Transform
-  - nextAttack: 93.9829613
-    type: MeleeWeapon
-- uid: 3812
-  type: DrinkBottleWine
-  components:
-  - pos: 22.08179,-33.145775
-    parent: 9
-    type: Transform
-  - nextAttack: 105.5162486
-    type: MeleeWeapon
 - uid: 3813
   type: DrinkWineGlass
   components:
@@ -41549,14 +41533,6 @@ entities:
   - pos: 24.5,-59.5
     parent: 9
     type: Transform
-- uid: 4061
-  type: ToolboxMechanicalFilled
-  components:
-  - pos: 18.799868,-69.68568
-    parent: 9
-    type: Transform
-  - nextAttack: 575.3496785
-    type: MeleeWeapon
 - uid: 4062
   type: Chair
   components:
@@ -70794,14 +70770,6 @@ entities:
   - pos: 9.5,-98.5
     parent: 9
     type: Transform
-- uid: 8618
-  type: ToolboxMechanicalFilled
-  components:
-  - pos: 18.566153,-93.57073
-    parent: 9
-    type: Transform
-  - nextAttack: 3507.9193056
-    type: MeleeWeapon
 - uid: 8619
   type: GasPipeStraight
   components:
@@ -71714,14 +71682,6 @@ entities:
   - pos: 2.5,-85.5
     parent: 9
     type: Transform
-- uid: 8744
-  type: Wrench
-  components:
-  - pos: 7.298221,-96.53026
-    parent: 9
-    type: Transform
-  - nextAttack: 270.4655874
-    type: MeleeWeapon
 - uid: 8745
   type: ReinforcedPlasmaWindow
   components:
@@ -81969,14 +81929,6 @@ entities:
   - pos: 32.5,-18.5
     parent: 9
     type: Transform
-- uid: 9955
-  type: ToolboxGoldFilled
-  components:
-  - pos: 22.568727,-33.260437
-    parent: 9
-    type: Transform
-  - nextAttack: 111.7662246
-    type: MeleeWeapon
 - uid: 9956
   type: Catwalk
   components:
@@ -97265,14 +97217,6 @@ entities:
   - pos: -3.2882113,-54.492157
     parent: 9
     type: Transform
-- uid: 11977
-  type: ToolboxEmergencyFilled
-  components:
-  - pos: 70.94938,-10.68847
-    parent: 9
-    type: Transform
-  - nextAttack: 6682.4066076
-    type: MeleeWeapon
 - uid: 11978
   type: Grille
   components:
@@ -107367,14 +107311,6 @@ entities:
   - pos: 12.3958435,0.6792246
     parent: 9
     type: Transform
-- uid: 13388
-  type: ToolboxEmergencyFilled
-  components:
-  - pos: 3.1785898,-68.76454
-    parent: 9
-    type: Transform
-  - nextAttack: 4254.5829856
-    type: MeleeWeapon
 - uid: 13389
   type: DrinkWhiskeyGlass
   components:
@@ -124802,14 +124738,6 @@ entities:
   - pos: -3.5,-20.5
     parent: 9
     type: Transform
-- uid: 16027
-  type: ToolboxEmergencyFilled
-  components:
-  - pos: 36.717056,-26.767292
-    parent: 9
-    type: Transform
-  - nextAttack: 4063.2448625
-    type: MeleeWeapon
 - uid: 16028
   type: ToolboxEmergencyFilled
   components:

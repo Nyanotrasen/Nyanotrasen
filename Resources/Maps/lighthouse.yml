@@ -38719,22 +38719,6 @@ entities:
     pos: 19.5,51.5
     parent: 100
     type: Transform
-- uid: 1981
-  type: NitrogenTankFilled
-  components:
-  - pos: -38.682495,-15.336158
-    parent: 100
-    type: Transform
-  - nextAttack: 652.8975186
-    type: MeleeWeapon
-- uid: 1982
-  type: NitrogenTankFilled
-  components:
-  - pos: 26.38701,28.151392
-    parent: 100
-    type: Transform
-  - nextAttack: 4395.3838236
-    type: MeleeWeapon
 - uid: 1983
   type: ClosetMaintenanceFilledRandom
   components:
@@ -39858,14 +39842,6 @@ entities:
   - pos: 30.5,36.5
     parent: 100
     type: Transform
-- uid: 2150
-  type: HydroponicsToolMiniHoe
-  components:
-  - pos: 31.252785,49.532
-    parent: 100
-    type: Transform
-  - nextAttack: 9714.6444786
-    type: MeleeWeapon
 - uid: 2151
   type: WallReinforced
   components:
@@ -40039,14 +40015,6 @@ entities:
   - pos: 20.5,-38.5
     parent: 100
     type: Transform
-- uid: 2176
-  type: HydroponicsToolSpade
-  components:
-  - pos: 32.569267,49.63041
-    parent: 100
-    type: Transform
-  - nextAttack: 2804.0887876
-    type: MeleeWeapon
 - uid: 2177
   type: CannabisSeeds
   components:
@@ -45332,14 +45300,6 @@ entities:
   - pos: -22.5,-8.5
     parent: 100
     type: Transform
-- uid: 2997
-  type: DoubleEmergencyOxygenTankFilled
-  components:
-  - pos: -38.40649,-15.49568
-    parent: 100
-    type: Transform
-  - nextAttack: 17551.0242445
-    type: MeleeWeapon
 - uid: 2998
   type: OxygenCanister
   components:
@@ -47125,14 +47085,6 @@ entities:
   - pos: -12.5,-12.5
     parent: 100
     type: Transform
-- uid: 3243
-  type: Machete
-  components:
-  - pos: -35.00142,-15.398644
-    parent: 100
-    type: Transform
-  - nextAttack: 17562.6478868
-    type: MeleeWeapon
 - uid: 3244
   type: WallReinforced
   components:
@@ -102345,17 +102297,6 @@ entities:
   - pos: -81.5,32.5
     parent: 100
     type: Transform
-- uid: 11233
-  type: Katana
-  components:
-  - desc: Lest not the crimson princess weep for your misdeeds, otherwise misfortunate will bleed upon you.
-    name: Peacekeeper's Benihime
-    type: MetaData
-  - pos: 13.677918,-66.49045
-    parent: 100
-    type: Transform
-  - nextAttack: 7298.4208102
-    type: MeleeWeapon
 - uid: 11234
   type: Catwalk
   components:
@@ -122090,22 +122031,6 @@ entities:
     pos: -56.5,51.5
     parent: 100
     type: Transform
-- uid: 14002
-  type: BriefcaseBrown
-  components:
-  - pos: -85.93279,40.431683
-    parent: 100
-    type: Transform
-  - nextAttack: 6127.6754932
-    type: MeleeWeapon
-- uid: 14003
-  type: DrinkMelonLiquorBottleFull
-  components:
-  - pos: -57.498466,34.436085
-    parent: 100
-    type: Transform
-  - nextAttack: 5422.6949797
-    type: MeleeWeapon
 - uid: 14004
   type: OrganHumanEyes
   components:
@@ -128911,14 +128836,6 @@ entities:
   - pos: -5.287515,-41.90451
     parent: 100
     type: Transform
-- uid: 15016
-  type: Multitool
-  components:
-  - pos: -5.8070445,-42.53705
-    parent: 100
-    type: Transform
-  - nextAttack: 6650.6067348
-    type: MeleeWeapon
 - uid: 15017
   type: ClothingBeltBandolier
   components:
@@ -143403,14 +143320,6 @@ entities:
   - pos: 28.357307,54.952118
     parent: 100
     type: Transform
-- uid: 17082
-  type: PlushieCarp
-  components:
-  - pos: 43.5526,42.570133
-    parent: 100
-    type: Transform
-  - nextAttack: 4664.8646778
-    type: MeleeWeapon
 - uid: 17083
   type: HeadSkeleton
   components:
@@ -149813,14 +149722,6 @@ entities:
   - pos: 67.5,24.5
     parent: 100
     type: Transform
-- uid: 17720
-  type: JetpackBlueFilled
-  components:
-  - pos: -37.793938,-15.461144
-    parent: 100
-    type: Transform
-  - nextAttack: 17559.8630986
-    type: MeleeWeapon
 - uid: 17721
   type: DrinkWaterJug
   components:

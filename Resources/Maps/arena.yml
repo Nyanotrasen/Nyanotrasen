@@ -59149,14 +59149,6 @@ entities:
       machine_parts: !type:Container
         ents: []
     type: ContainerContainer
-- uid: 3682
-  type: ToolboxMechanicalFilled
-  components:
-  - pos: 1.7919722,-1.1812768
-    parent: 0
-    type: Transform
-  - nextAttack: 450.5327219
-    type: MeleeWeapon
 - uid: 3683
   type: PlantBag
   components:
@@ -85331,14 +85323,6 @@ entities:
   - pos: 27.5,30.5
     parent: 0
     type: Transform
-- uid: 7706
-  type: ToolboxMechanicalFilled
-  components:
-  - pos: 30.45153,33.527424
-    parent: 0
-    type: Transform
-  - nextAttack: 552.4312729
-    type: MeleeWeapon
 - uid: 7707
   type: ToolboxElectricalFilled
   components:
@@ -85389,14 +85373,6 @@ entities:
   - pos: 29.706268,34.448215
     parent: 0
     type: Transform
-- uid: 7715
-  type: Screwdriver
-  components:
-  - pos: 29.842194,34.73559
-    parent: 0
-    type: Transform
-  - nextAttack: 5096.3796169
-    type: MeleeWeapon
 - uid: 7716
   type: DoorElectronics
   components:
@@ -85834,14 +85810,6 @@ entities:
   - pos: 36.5,42.5
     parent: 0
     type: Transform
-- uid: 7787
-  type: GasMinerNitrousOxide
-  components:
-  - pos: 42.5,41.5
-    parent: 0
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 7788
   type: FrezonCanister
   components:
@@ -186158,18 +186126,6 @@ entities:
   - pos: -1.4720845,-87.62819
     parent: 0
     type: Transform
-- uid: 21854
-  type: AirTankFilled
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 22413
-    type: Transform
-  - nextAttack: 1593.5436308
-    type: MeleeWeapon
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 21855
   type: Table
   components:
