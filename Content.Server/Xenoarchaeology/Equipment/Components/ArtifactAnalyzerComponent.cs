@@ -39,6 +39,24 @@ public sealed class ArtifactAnalyzerComponent : Component
     public float PartRatingAnalysisDurationMultiplier = 0.75f;
 
     /// <summary>
+    /// Ratio of research points to glimmer.
+    /// Each is 150 and added to this, so
+    /// 550 / 700 / 850 / 1000
+    /// </summary>
+    public int SacrificeRatio = 400;
+
+    /// <summary>
+    // The machine part that modifies the sacrifice ratio.
+    /// </summary>
+    [DataField("machinePartSacrificeRatio", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartSacrificeRatio = "Manipulator";
+
+    /// <summary>
+    /// How many points per glimmer are added to the sacrifice ratio per tier.
+    /// </summary>
+    public int PartRatingSacrificeRatioMultiplier = 150;
+
+    /// <summary>
     /// The corresponding console entity.
     /// Can be null if not linked.
     /// </summary>

@@ -5,6 +5,8 @@ namespace Content.Server.Research.Oracle
     [RegisterComponent]
     public sealed class OracleComponent : Component
     {
+        public const string SolutionName = "fountain";
+
         [ViewVariables]
         [DataField("accumulator")]
         public float Accumulator = 0f;

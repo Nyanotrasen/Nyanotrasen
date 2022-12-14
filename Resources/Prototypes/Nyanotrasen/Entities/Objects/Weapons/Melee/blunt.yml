@@ -8,17 +8,21 @@
     sprite: Nyanotrasen/Objects/Weapons/Melee/kanabou.rsi
     state: icon
   - type: MeleeWeapon
+    attackRate: 0.75
     damage:
       types:
-        Blunt: 22
+        Blunt: 16
     soundHit:
       path: /Audio/Weapons/club.ogg
-    bluntStaminaDamageFactor: 1.25
+    bluntStaminaDamageFactor: 1.60 # 25.6 stamina damage
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.35 #if wielded you will only consume 3.5 stam its a weapon after all
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10
+        Blunt: 17
   - type: Clothing
     sprite: Nyanotrasen/Objects/Weapons/Melee/kanabou.rsi
     quickEquip: false

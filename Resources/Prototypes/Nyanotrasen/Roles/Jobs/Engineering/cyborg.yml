@@ -7,8 +7,9 @@
     - !type:OverallPlaytimeRequirement
       time: 24000
   icon: "Unknown"
-  supervisors: "all humans"
+  supervisors: "all humanoids"
   canBeAntag: false
+  whitelistRequired: true
   jobEntity: PlayerCyborgStandard
   startingGear: CyborgGear # for char preview only
 

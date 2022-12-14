@@ -12,6 +12,8 @@ using Content.Shared.MobState.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Content.Shared.Examine;
+using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Body.Systems
 {
@@ -77,7 +79,9 @@ namespace Content.Server.Body.Systems
                     if (_gameTiming.CurTime >= respirator.LastGaspPopupTime + respirator.GaspPopupCooldown)
                     {
                         respirator.LastGaspPopupTime = _gameTiming.CurTime;
-                        _popupSystem.PopupEntity(Loc.GetString("lung-behavior-gasp"), uid, Filter.Pvs(uid));
+                        // TODO: remove proper occlusion
+                        _popupSystem.PopupEntity(Loc.GetString("lung-behavior-gasp"), uid,
+                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(respirator.Owner, entity, ExamineRange, null)));
                     }
 
                     TakeSuffocationDamage(uid, respirator);

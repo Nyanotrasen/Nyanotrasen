@@ -10,6 +10,7 @@
   icon: "Warden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  whitelistRequired: true
   access:
   - Security
   - Armory

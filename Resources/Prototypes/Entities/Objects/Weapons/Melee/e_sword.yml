@@ -27,6 +27,10 @@
     damage:
       types:
         Blunt: 4.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 23.0
   - type: Item
     size: 5
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -62,7 +66,7 @@
     secret: true
     litDamageBonus:
         types:
-            Slash: 7.5
+            Slash: 5.5
             Heat: 7.5
             Blunt: -1
     litDisarmMalus: 0.4

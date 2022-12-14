@@ -179,6 +179,7 @@
     species: Human
   - type: Body
     prototype: Human
+    requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
   - type: RadiationReceiver
@@ -206,8 +207,8 @@
           - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+      60: 0.8
+      80: 0.6
   - type: HeatResistance
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]
@@ -369,6 +370,7 @@
       species: Human
     - type: Body
       prototype: Human
+      requiredLegs: 2
     - type: Damageable
       damageContainer: Biological
     - type: MobState

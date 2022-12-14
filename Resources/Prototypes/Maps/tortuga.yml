@@ -2,10 +2,11 @@
   id: Tortuga
   mapName: 'Tortuga'
   mapPath: /Maps/tortuga.yml
-  minPlayers: 45
+  minPlayers: 50
   stations:
     tortuga:
       mapNameTemplate: '{0} Tortuga Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_SealG.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: 'TG'
@@ -33,6 +34,7 @@
         Epistemologist: [ 5, 6 ]
         HeadOfSecurity: [ 1, 1 ]
         SecurityOfficer: [ 6, 9 ]
+        SecurityCadet: [ 1, 1 ]
         Chaplain: [ 1, 1 ]
         Warden: [ 1, 1 ]
         Cataloguer: [ 1, 1 ]
@@ -45,3 +47,4 @@
         Reporter: [ 2, 2 ]
         ServiceWorker: [ 6, 6 ]
         Psychologist: [ 1, 1 ]
+        Prisoner: [ 1, 2 ]

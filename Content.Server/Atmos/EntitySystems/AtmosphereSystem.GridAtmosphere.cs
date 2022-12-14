@@ -65,7 +65,7 @@ public sealed partial class AtmosphereSystem
             if (!_mapManager.TryGetGrid(newGrid, out var mapGrid))
                 continue;
 
-            var entity = mapGrid.GridEntityId;
+            var entity = mapGrid.Owner;
 
             // If the new split grid has an atmosphere already somehow, use that. Otherwise, add a new one.
             if (!TryComp(entity, out GridAtmosphereComponent? newGridAtmos))
@@ -241,6 +241,7 @@ public sealed partial class AtmosphereSystem
             // We set the directions that are air-blocked so far,
             // as you could have a full obstruction with only 4 directional air blockers.
             directions |= obstructingComponent.AirBlockedDirection;
+            args.NoAir |= obstructingComponent.NoAirWhenFullyAirBlocked;
 
             if (directions.IsFlagSet(args.Direction))
             {
@@ -554,7 +555,7 @@ public sealed partial class AtmosphereSystem
         {
             var ev = new UpdateAdjacentMethodEvent(uid, position);
             GridUpdateAdjacent(uid, gridAtmosphere, ref ev);
-            InvalidateVisuals(mapGrid.GridEntityId, position);
+            InvalidateVisuals(mapGrid.Owner, position);
         }
     }
 }

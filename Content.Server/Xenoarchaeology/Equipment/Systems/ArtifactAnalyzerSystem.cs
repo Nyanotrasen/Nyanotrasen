@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Server.Construction;
+using Content.Server.MachineLinking.Components;
 using Content.Server.MachineLinking.Events;
 using Content.Server.Paper;
 using Content.Server.Power.Components;
@@ -55,6 +56,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<ArtifactAnalyzerComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<ArtifactAnalyzerComponent, EndCollideEvent>(OnEndCollide);
 
+        SubscribeLocalEvent<ArtifactAnalyzerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<AnalysisConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<AnalysisConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
@@ -145,6 +147,21 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         }
     }
 
+    private void OnMapInit(EntityUid uid, ArtifactAnalyzerComponent component, MapInitEvent args)
+    {
+        if (!TryComp<SignalReceiverComponent>(uid, out var receiver))
+            return;
+
+        foreach (var port in receiver.Inputs.Values.SelectMany(ports => ports))
+        {
+            if (!TryComp<AnalysisConsoleComponent>(port.Uid, out var analysis))
+                continue;
+            component.Console = port.Uid;
+            analysis.AnalyzerEntity = uid;
+            return;
+        }
+    }
+
     private void OnNewLink(EntityUid uid, AnalysisConsoleComponent component, NewLinkEvent args)
     {
         if (!TryComp<ArtifactAnalyzerComponent>(args.Receiver, out var analyzer))
@@ -170,7 +187,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
     private void UpdateUserInterface(EntityUid uid, AnalysisConsoleComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component, false))
             return;
 
         EntityUid? artifact = null;
@@ -333,7 +350,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var points = _artifact.GetResearchPointValue(entToDestroy.Value);
 
         client.Server.Points += points;
-        _glimmerSystem.Glimmer += (int) points / 1000;
+
+        if (analyzer != null)
+            _glimmerSystem.Glimmer += (int) points / analyzer.SacrificeRatio;
+
         EntityManager.DeleteEntity(entToDestroy.Value);
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
@@ -424,11 +444,16 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         var analysisRating = args.PartRatings[component.MachinePartAnalysisDuration];
 
         component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
+
+        var sacrificeRating = args.PartRatings[component.MachinePartSacrificeRatio];
+
+        component.SacrificeRatio = (400 + (int) (sacrificeRating * component.PartRatingSacrificeRatioMultiplier));
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
     {
         args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
+        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.SacrificeRatio - 550);
     }
 
     private void OnCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref StartCollideEvent args)
@@ -452,7 +477,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             return;
         component.Contacts.Remove(otherEnt);
 
-        if (component.Console != null)
+        if (component.Console != null && Exists(component.Console))
             UpdateUserInterface(component.Console.Value);
     }
 

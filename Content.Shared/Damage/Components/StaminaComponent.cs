@@ -19,7 +19,7 @@ public sealed class StaminaComponent : Component
     /// How much stamina reduces per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("decay")]
-    public float Decay = 3f;
+    public float Decay = 5f;
 
     /// <summary>
     /// How much time after receiving damage until stamina starts decreasing.
@@ -38,6 +38,14 @@ public sealed class StaminaComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("excess")]
     public float CritThreshold = 100f;
+
+    /// <summary>
+    /// What percentage of the CritThreshold is the maximum amount of stamina
+    /// damage that can be reached by exhausting yourself with melee weapon
+    /// attacks?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("meleeCostLimitFactor")]
+    public float MeleeCostLimitFactor = 0.90f;
 
     /// <summary>
     /// To avoid continuously updating our data we track the last time we updated so we can extrapolate our current stamina.

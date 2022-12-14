@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHeadsetMedicalScience
+      - id: ClothingHeadsetAltMystagogue
       - id: ClothingOuterHardsuitRd
       - id: PlushieSlime
         prob: 0.1
@@ -22,7 +22,7 @@
   id: LockerEpistemicsFilled
   suffix: Filled
   parent: LockerScientist
-  name: epistemologist's locker
+  name: acolyte's locker
   components:
   - type: StorageFill
     contents:

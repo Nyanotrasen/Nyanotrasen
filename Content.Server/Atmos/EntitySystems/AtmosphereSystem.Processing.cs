@@ -49,7 +49,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!TryComp(uid, out MapGridComponent? mapGridComp))
                 return true;
 
-            var mapUid = _mapManager.GetMapEntityIdOrThrow(Transform(mapGridComp.Owner).MapID);
+            var mapUid = _mapManager.GetMapEntityIdOrThrow(Transform(((Component) mapGridComp).Owner).MapID);
 
             var volume = GetVolumeForTiles(mapGridComp, 1);
 
@@ -58,7 +58,7 @@ namespace Content.Server.Atmos.EntitySystems
             {
                 if (!atmosphere.Tiles.TryGetValue(indices, out var tile))
                 {
-                    tile = new TileAtmosphere(mapGridComp.GridEntityId, indices,
+                    tile = new TileAtmosphere(mapGridComp.Owner, indices,
                         new GasMixture(volume) { Temperature = Atmospherics.T20C });
                     atmosphere.Tiles[indices] = tile;
                 }
@@ -83,22 +83,10 @@ namespace Content.Server.Atmos.EntitySystems
                     tile.Air = GetTileMixture(null, mapUid, indices);
                     tile.MolesArchived = tile.Air != null ? new float[Atmospherics.AdjustedNumberOfGases] : null;
                     tile.Space = IsTileSpace(null, mapUid, indices, mapGridComp);
-                } else if (isAirBlocked)
+                }
+                else if (isAirBlocked)
                 {
-                    var nullAir = false;
-
-                    var enumerator = GetObstructingComponentsEnumerator(mapGridComp, indices);
-
-                    while (enumerator.MoveNext(out var airtight))
-                    {
-                        if (!airtight.NoAirWhenFullyAirBlocked)
-                            continue;
-
-                        nullAir = true;
-                        break;
-                    }
-
-                    if (nullAir)
+                    if (airBlockedEv.NoAir)
                     {
                         tile.Air = null;
                         tile.MolesArchived = null;
@@ -138,7 +126,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 tile.ThermalConductivity = tileDef?.ThermalConductivity ?? 0.5f;
                 tile.HeatCapacity = tileDef?.HeatCapacity ?? float.PositiveInfinity;
-                InvalidateVisuals(mapGridComp.GridEntityId, indices);
+                InvalidateVisuals(mapGridComp.Owner, indices);
 
                 for (var i = 0; i < Atmospherics.Directions; i++)
                 {

@@ -51,7 +51,7 @@
     - &flybyfixture
       id: fly-by
       shape: !type:PhysShapeCircle
-        radius: 1.5
+        radius: 0.5
       layer:
       - Impassable
       - MidImpassable
@@ -204,7 +204,7 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 1
+        Heat: 0.5
     soundHit:
       path: "/Audio/Weapons/tap.ogg"
     soundForce: true

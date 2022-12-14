@@ -6,7 +6,8 @@
   - type: Sprite
     layers:
       - state: green
-      - texture:  Nyanotrasen/Mobs/Species/Golem/cult.rsi/full.png
+      - sprite:  Nyanotrasen/Mobs/Species/Golem/cult.rsi
+        state: full
   - type: ConditionalSpawner
     prototypes:
       - MobGolemCult

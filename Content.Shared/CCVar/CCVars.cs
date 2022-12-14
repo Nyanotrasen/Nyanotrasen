@@ -48,7 +48,7 @@ namespace Content.Shared.CCVar
         /// How large of a range to sample for ambience.
         /// </summary>
         public static readonly CVarDef<float> AmbientRange =
-            CVarDef.Create("ambience.range", 5f, CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("ambience.range", 8f, CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         /// Maximum simultaneous ambient sounds.
@@ -257,6 +257,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> AdminPanic =
             CVarDef.Create("game.admin_panic.enabled", false, CVar.SERVERONLY);
+        /// Show reason of disconnect for user or not.
 
         /// <summary>
         /// Minimum age of the account (from server's PoV, so from first-seen date) in minutes.
@@ -531,6 +532,11 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> NPCEnabled = CVarDef.Create("npc.enabled", true);
 
+        /// <summary>
+        /// Should NPCs pathfind when steering. For debug purposes.
+        /// </summary>
+        public static readonly CVarDef<bool> NPCPathfinding = CVarDef.Create("npc.pathfinding", true);
+
         public static readonly CVarDef<bool> NPCCollisionAvoidance = CVarDef.Create("npc.collision_avoidance", true);
 
         /*
@@ -636,11 +642,10 @@ namespace Content.Shared.CCVar
             CVarDef.Create("explosion.incremental_tile", false, CVar.SERVERONLY);
 
         /// <summary>
-        ///     Client-side explosion visuals: for how many seconds should an explosion stay on-screen once it has
-        ///     finished expanding?
+        ///     This determines for how many seconds an explosion should stay visible once it has finished expanding.
         /// </summary>
         public static readonly CVarDef<float> ExplosionPersistence =
-            CVarDef.Create("explosion.persistence", 0.3f, CVar.REPLICATED);
+            CVarDef.Create("explosion.persistence", 0.3f, CVar.SERVERONLY);
 
         /// <summary>
         ///     If an explosion covers a larger area than this number, the damaging/processing will always start during
@@ -879,7 +884,7 @@ namespace Content.Shared.CCVar
         ///     Controls whether the server will deny any players that are not whitelisted in the DB.
         /// </summary>
         public static readonly CVarDef<bool> WhitelistEnabled =
-            CVarDef.Create("whitelist.enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("whitelist.enabled", false, CVar.REPLICATED);
 
         /// <summary>
         ///     The loc string to display as a disconnect reason when someone is not whitelisted.
@@ -1337,5 +1342,51 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float>
             PlayTimeSaveInterval = CVarDef.Create("playtime.save_interval", 900f, CVar.SERVERONLY);
+
+        /*
+         * INFOLINKS
+         */
+
+        /// <summary>
+        /// Link to Discord server to show in the launcher.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksDiscord =
+            CVarDef.Create("infolinks.discord", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to website to show in the launcher.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksForum =
+            CVarDef.Create("infolinks.forum", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to GitHub page to show in the launcher.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksGithub =
+            CVarDef.Create("infolinks.github", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to website to show in the launcher.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksWebsite =
+            CVarDef.Create("infolinks.website", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to wiki to show in the launcher.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksWiki =
+            CVarDef.Create("infolinks.wiki", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to Patreon. Not shown in the launcher currently.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksPatreon =
+            CVarDef.Create("infolinks.patreon", "", CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Link to the bug report form.
+        /// </summary>
+        public static readonly CVarDef<string> InfoLinksBugReport =
+            CVarDef.Create("infolinks.bug_report", "", CVar.SERVER | CVar.REPLICATED);
     }
 }

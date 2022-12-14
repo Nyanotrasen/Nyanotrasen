@@ -7,7 +7,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Mobs/Aliens/Carps/space.rsi/icon.png
+        - sprite: Mobs/Aliens/Carps/space.rsi
+          state: icon
     - type: RandomSpawner
       prototypes:
         - MobCarp
@@ -26,7 +27,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Mobs/Aliens/Xenos/spacetick.rsi/icon.png
+        - sprite: Mobs/Aliens/Xenos/spacetick.rsi
+          state: icon
     - type: ConditionalSpawner
       prototypes:
         - MobTick
@@ -39,7 +41,8 @@
     - type: Sprite
       layers:
         - state: red
-        - texture: Mobs/Aliens/Xenos/burrower.rsi/crit.png
+        - sprite: Mobs/Aliens/Xenos/burrower.rsi
+          state: crit
         - state: ai
     - type: RandomSpawner
       prototypes:

@@ -9,7 +9,24 @@
     weight: 5
     endAfter: 1
     earliestStart: 15
-    maxOccurrences: 3
+
+- type: gameRule
+  id: Fugitive
+  config:
+    !type:StationEventRuleConfiguration
+    id: Fugitive
+    weight: 5
+    endAfter: 1
+    reoccurrenceDelay: 40
+
+- type: gameRule
+  id: VampSpawn
+  config:
+    !type:StationEventRuleConfiguration
+    id: VampSpawn
+    weight: 5
+    endAfter: 1
+    reoccurrenceDelay: 40
 
 - type: gameRule
   id: MundaneDischarge

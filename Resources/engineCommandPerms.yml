@@ -9,7 +9,6 @@
   - vvwrite
   - vvinvoke
   - scale
-  - spin
 
 - Flags: DEBUG
   Commands:
@@ -78,6 +77,7 @@
   - mapinit
   - savegrid
   - savemap
+  - setambientlight
   - tpgrid
   - gridtc
   - togglespritenetsync
@@ -119,6 +119,7 @@
   - gcf
   - getcomponentregistration
   - fuck
+  - spin
 
 - Flags: QUERY
   Commands:

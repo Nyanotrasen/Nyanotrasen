@@ -160,12 +160,13 @@
     dynamicRecipes:
       - LightTube
       - LightBulb
-      - SheetSteel #these sheet recipe costs don't scale with upgrades
+      - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -200,6 +201,7 @@
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
+      - IntercomElectronics
       - MailingUnitElectronics
       - Bucket
       - MopItem
@@ -213,9 +215,6 @@
       - PowerCellSmall
       - PowerCellMedium
       - PowerCellHigh
-      - ProximitySensor
-      - LeftArmBorg
-      - RightArmBorg
 
 - type: entity
   parent: Protolathe
@@ -247,6 +246,7 @@
       - AirAlarmElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
+      - IntercomElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -290,6 +290,7 @@
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
+      - ExosuitFabricatorMachineCircuitboard
       - ArtifactAnalyzerMachineCircuitboard
       - TraversalDistorterMachineCircuitboard
   - type: MaterialStorage
@@ -298,6 +299,38 @@
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  parent: Protolathe
+  id: ExosuitFabricator
+  name: exosuit fabricator
+  description: Creates parts for robotics and other mechanical needs
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Structures/Machines/exosuit_fabricator.rsi
+    layers:
+    - state: fab-idle
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: fab-load
+      map: ["enum.LatheVisualLayers.IsInserting"]
+    - state: fab-o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ExosuitFabricatorMachineCircuitboard
+  - type: Lathe
+    idleState: fab-idle
+    runningState: fab-active
+    dynamicRecipes:
+    - ProximitySensor
+    - LeftArmBorg
+    - RightArmBorg
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
 
 - type: entity
   parent: Protolathe
@@ -360,11 +393,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -430,11 +464,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -478,13 +513,9 @@
       - ClothingUniformJumpskirtChaplain
       - ClothingUniformJumpsuitChef
       - ClothingUniformJumpskirtChef
-      - ClothingUniformJumpsuitChemistry
-      - ClothingUniformJumpskirtChemistry
       - ClothingUniformJumpsuitClown
       - ClothingUniformJumpsuitCMO
       - ClothingUniformJumpskirtCMO
-      - ClothingUniformJumpsuitDetective
-      - ClothingUniformJumpskirtDetective
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitHoP
@@ -496,8 +527,6 @@
       - ClothingUniformJumpsuitJanitor
       - ClothingUniformJumpskirtJanitor
       - ClothingUniformJumpsuitLawyerBlack
-      - ClothingUniformJumpsuitLibrarian
-      - ClothingUniformJumpskirtColorLightBrown
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime
@@ -509,10 +538,6 @@
       - ClothingUniformJumpskirtPrisoner
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
-      - ClothingUniformJumpsuitResearchDirector
-      - ClothingUniformJumpskirtResearchDirector
-      - ClothingUniformJumpsuitScientist
-      - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
       - ClothingUniformJumpsuitWarden
@@ -523,13 +548,11 @@
       - ClothingOuterWinterHoP
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
-      - ClothingOuterWinterRD
       - ClothingNeckMantleCap
       - ClothingNeckMantleCE
       - ClothingNeckMantleCMO
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime

@@ -17,7 +17,13 @@
   - type: EmitSoundOnActivate
     sound:
       collection: ToySqueak
+  - type: EmitSoundOnTrigger
+    sound:
+      collection: ToySqueak
   - type: ItemCooldown
+  - type: Tag
+    tags:
+    - Payload # yes, you can even make re-usable plushie grenades
   - type: UseDelay
     delay: 1.0
   - type: MeleeWeapon
@@ -104,6 +110,9 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Items/Toys/weh.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/weh.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/weh.ogg
@@ -123,6 +132,9 @@
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/muffled_weh.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
   - type: MeleeWeapon
@@ -203,6 +215,9 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Effects/bite.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/bite.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -227,6 +242,9 @@
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/Toys/rattle.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/rattle.ogg
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/rattle.ogg
@@ -240,6 +258,9 @@
   - type: Sprite
     state: toy_mouse
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger # Piep!
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
   - type: MeleeWeapon
@@ -260,7 +281,14 @@
     sprite: Objects/Fun/ducky.rsi
     slots:
     - HEAD
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0.1
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/quack.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/quack.ogg
 
@@ -277,6 +305,9 @@
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Vox/shriek1.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
   - type: MeleeWeapon
@@ -346,6 +377,9 @@
   - type: Sprite
     state: ian
   - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/ian.ogg
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/ian.ogg
   - type: MeleeWeapon

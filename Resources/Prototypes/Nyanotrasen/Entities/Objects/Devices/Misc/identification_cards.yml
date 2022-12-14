@@ -17,7 +17,7 @@
   components:
   - type: PresetIdCard
     job: Epistemologist
-  
+
 - type: entity
   parent: RDIDCard
   id: MystaIDCard
@@ -56,3 +56,25 @@
     - state: idmailcarrier
   - type: PresetIdCard
     job: MailCarrier
+
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerIDCard
+  name: prisoner ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: orange
+  - type: PresetIdCard
+    job: Prisoner
+
+- type: entity
+  parent: IDCardStandard
+  id: GladiatorIDCard
+  name: gladiator ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: orange #Placeholder?
+  - type: PresetIdCard
+    job: Gladiator

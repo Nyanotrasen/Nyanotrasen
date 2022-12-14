@@ -10,6 +10,7 @@
     state: venus_red
     drawdepth: Mobs
     offset: "0.0,0.5"
+    noRot: true
 
 - type: entity
   id: StatueVenusBlue
@@ -23,3 +24,4 @@
     state: venus_blue
     drawdepth: Mobs
     offset: "0.0,0.5"
+    noRot: true

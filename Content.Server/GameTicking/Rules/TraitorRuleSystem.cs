@@ -164,7 +164,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         return results;
     }
 
-    public async void MakeTraitor(IPlayerSession traitor)
+    public void MakeTraitor(IPlayerSession traitor)
     {
         var mind = traitor.Data.ContentData()?.Mind;
         if (mind == null)
@@ -173,8 +173,11 @@ public sealed class TraitorRuleSystem : GameRuleSystem
             return;
         }
 
-        if (!await _db.GetWhitelistStatusAsync(traitor.UserId))
-            return;
+        if (_cfg.GetCVar(CCVars.WhitelistEnabled))
+        {
+            if (traitor.ContentData == null || !traitor.ContentData()!.Whitelisted)
+                return;
+        }
 
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already

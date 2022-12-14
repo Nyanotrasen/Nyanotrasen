@@ -84,3 +84,6 @@
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
+      - !type:GenericStatusEffect
+        key: SlurredSpeech
+        component: TelepathicRepeater

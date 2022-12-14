@@ -68,6 +68,8 @@
         - DieCondition
         - BecomePsionicCondition
     - !type:NotRoleRequirement
+      roleId: Chaplain
+    - !type:NotRoleRequirement
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
@@ -226,6 +228,21 @@
     - !type:StealCondition
       prototype: AntiPsychicKnife
       owner: job-name-mantis
+
+- type: objective
+  id: PonderingOrbTelepathicHOSStealObjective
+  issuer: syndicate
+  requirements:
+    - !type:TraitorRequirement {}
+    - !type:IncompatibleConditionsRequirement
+      conditions:
+        - DieCondition
+    - !type:NotRoleRequirement
+      roleId: HeadOfSecurity
+  conditions:
+    - !type:StealCondition
+      prototype: PonderingOrbTelepathicHOS
+      owner: job-name-hos
 
 - type: objective
   id: EscapeShuttleObjective

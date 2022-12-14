@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseMobHuman
-  name: Urist-ni-Kanabou
+  name: Base oni
   id: MobOniBase
   abstract: true
   components:
@@ -9,7 +9,6 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - GunsDisabled
   - type: Speech
     speechSounds: Baritone
   - type: Humanoid
