@@ -3,6 +3,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
+using Content.Shared.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -27,6 +28,7 @@ namespace Content.Server.Vampiric
         [Dependency] private readonly StomachSystem _stomachSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
+        [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         public override void Initialize()
         {
@@ -198,6 +200,9 @@ namespace Content.Server.Vampiric
                 _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, Filter.Entities(bloodsucker), Shared.Popups.PopupType.MediumCaution);
                 return;
             }
+
+            _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
+
             // All good, succ time.
             SoundSystem.Play("/Audio/Items/drink.ogg", Filter.Pvs(bloodsucker), bloodsucker);
             _popups.PopupEntity(Loc.GetString("bloodsucker-blood-sucked-victim", ("sucker", bloodsucker)), victim, Filter.Entities(victim), Shared.Popups.PopupType.LargeCaution);
