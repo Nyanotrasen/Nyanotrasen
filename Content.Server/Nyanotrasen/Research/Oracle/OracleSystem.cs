@@ -93,6 +93,10 @@ namespace Content.Server.Research.Oracle
             "DrinkMug",
             "DrinkMugMetal",
             "DrinkGlass",
+            "Bucket",
+            "SprayBottle",
+            "ShellTranquilizer",
+            "ShellSoulbreaker",
         };
 
 
@@ -248,12 +252,19 @@ namespace Content.Server.Research.Oracle
 
         private string GetDesiredItem()
         {
+            return _random.Pick(GetAllProtos());
+        }
+
+
+        public List<string> GetAllProtos()
+        {
             var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
             var allProtos = allRecipes.Concat(allPlants).ToList();
             foreach (var proto in BlacklistedProtos)
                 allProtos.Remove(proto);
-            return _random.Pick((allProtos));
+
+            return allProtos;
         }
     }
 }
