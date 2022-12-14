@@ -186126,6 +186126,18 @@ entities:
   - pos: -1.4720845,-87.62819
     parent: 0
     type: Transform
+- uid: 21854
+  type: AirTankFilled
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 22413
+    type: Transform
+  - nextAttack: 15.5436308
+    type: MeleeWeapon
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
 - uid: 21855
   type: Table
   components:
