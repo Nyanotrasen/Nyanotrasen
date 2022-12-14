@@ -2,6 +2,7 @@ using Content.Shared.Borgs;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
+using JetBrains.Annotations;
 
 namespace Content.Server.Borgs
 {
@@ -50,6 +51,7 @@ namespace Content.Server.Borgs
             }
         }
 
+        [PublicAPI]
         public void ClearLaws(EntityUid uid, LawsComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
@@ -59,12 +61,38 @@ namespace Content.Server.Borgs
             Dirty(component);
         }
 
-        public void AddLaw(EntityUid uid, string law, LawsComponent? component = null)
+        public void AddLaw(EntityUid uid, string law, int? index = null, LawsComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
                 return;
 
-            component.Laws.Add(law);
+            if (index == null)
+                index = component.Laws.Count;
+
+            index = Math.Clamp((int) index, 0, component.Laws.Count);
+
+            component.Laws.Insert((int) index, law);
+            Dirty(component);
+        }
+
+        public void RemoveLaw(EntityUid uid, int? index = null, LawsComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, false))
+                return;
+
+            if (index == null)
+                index = component.Laws.Count;
+
+            if (component.Laws.Count == 0)
+                return;
+
+            index = Math.Clamp((int) index, 0, component.Laws.Count - 1);
+
+            if (index < 0)
+                return;
+
+            Logger.Error("Attempting to remove law at index " + index);
+            component.Laws.RemoveAt((int) index);
             Dirty(component);
         }
     }
