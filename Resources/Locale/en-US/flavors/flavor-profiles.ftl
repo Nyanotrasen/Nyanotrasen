@@ -8,6 +8,7 @@ flavor-profile-unknown = Tastes indescribable.
 # will go in front so you don't get this like "Tastes like tomatoes, sweet and spicy",
 # instead, you get "Tastes sweet, spicy and like tomatoes".
 
+flavor-base-acidic = acidic
 flavor-base-savory = savory
 flavor-base-sweet = sweet
 flavor-base-salty = salty
