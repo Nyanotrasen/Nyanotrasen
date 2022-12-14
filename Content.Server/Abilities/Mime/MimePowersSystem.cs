@@ -7,6 +7,7 @@ using Content.Shared.Physics;
 using Content.Shared.Doors.Components;
 using Content.Shared.Maps;
 using Content.Shared.MobState.Components;
+using Content.Shared.Abilities.Psionics;
 using Robust.Shared.Player;
 using Robust.Shared.Physics;
 using Robust.Shared.Timing;
@@ -48,8 +49,13 @@ namespace Content.Server.Abilities.Mime
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
             _actionsSystem.AddAction(uid, component.InvisibleWallAction, uid);
+
+            if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
+                psionic.PsionicAbility = component.InvisibleWallAction;
+
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
         }
+
         private void OnSpeakAttempt(EntityUid uid, MimePowersComponent component, SpeakAttemptEvent args)
         {
             if (!component.Enabled)
