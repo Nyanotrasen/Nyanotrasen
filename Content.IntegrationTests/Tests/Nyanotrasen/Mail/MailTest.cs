@@ -1009,7 +1009,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.GridEntityId}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1113,7 +1113,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.GridEntityId}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1391,7 +1391,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                var station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.GridEntityId}, $"Clown Town");
+                var station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
