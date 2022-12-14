@@ -168,7 +168,7 @@ namespace Content.Server.Soul
                 }
 
                 _laws.ClearLaws(uid, laws);
-                _laws.AddLaw(uid, Loc.GetString("golem-law", ("master", master)), laws);
+                _laws.AddLaw(uid, Loc.GetString("golem-law", ("master", master)), component: laws);
             }
 
             actor.PlayerSession.ContentData()?.Mind?.TransferTo(uid);
