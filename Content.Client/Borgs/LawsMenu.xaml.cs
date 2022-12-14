@@ -29,7 +29,6 @@ namespace Content.Client.Borgs
             };
         }
 
-        /// why don't the style classes work?? i've tried a bunch of ways to get a BG working
         public void UpdateLaws()
         {
             if (!_entityManager.TryGetComponent<LawsComponent>(Owner.Machine, out var laws))
@@ -39,9 +38,8 @@ namespace Content.Client.Borgs
 
             foreach (var law in laws.Laws)
             {
-                var lawLabel = new RichTextLabel(){
-                StyleClasses = {StyleNano.StyleClassLabelKeyText}
-                };
+                // I cannot for the life of me get a background to display on these
+                var lawLabel = new RichTextLabel();
                 lawLabel.SetMessage(law);
                 Laws.AddChild(lawLabel);
             }
