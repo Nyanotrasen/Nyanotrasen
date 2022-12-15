@@ -13,6 +13,7 @@ using Content.Shared.MobState.Components;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
+using Robust.Server.Console;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -28,12 +29,14 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
         [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
         [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
+        [Dependency] private readonly IServerConsoleHost _host = default!;
 
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
         public float BeamCooldown = 3;
         public GlimmerTier LastGlimmerTier = GlimmerTier.Minimal;
+        public bool GhostsVisible = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -301,6 +304,7 @@ namespace Content.Server.Psionics.Glimmer
             if (Accumulator > UpdateFrequency)
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+
                 var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
                     var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
@@ -316,10 +320,16 @@ namespace Content.Server.Psionics.Glimmer
                 }
                 if (currentGlimmerTier == GlimmerTier.Critical)
                 {
+                    _host.ExecuteCommand(null, "showghosts true");
+                    GhostsVisible = true;
                     foreach (var reactive in reactives)
                     {
                         BeamRandomNearProber(reactive.Owner, 1, 12);
                     }
+                } else if (GhostsVisible == true)
+                {
+                    _host.ExecuteCommand(null, "showghosts false");
+                    GhostsVisible = false;
                 }
                 Accumulator = 0;
             }
