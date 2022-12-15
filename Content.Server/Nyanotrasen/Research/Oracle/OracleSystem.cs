@@ -99,7 +99,6 @@ namespace Content.Server.Research.Oracle
             "ShellSoulbreaker",
         };
 
-
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -223,7 +222,7 @@ namespace Content.Server.Research.Oracle
             var sol = new Solution();
             var reagent = "";
 
-            if (_random.Prob(0.1f))
+            if (_random.Prob(0.2f))
             {
                 reagent = _random.Pick(allReagents);
             } else

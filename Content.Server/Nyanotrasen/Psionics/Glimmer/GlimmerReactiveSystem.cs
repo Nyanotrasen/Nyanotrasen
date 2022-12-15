@@ -4,6 +4,8 @@ using Content.Server.Beam;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Construction;
 using Content.Server.Coordinates.Helpers;
+using Content.Server.Ghost;
+using Content.Server.Revenant.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
@@ -13,8 +15,6 @@ using Content.Shared.MobState.Components;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
-using Robust.Server.Console;
-
 namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerReactiveSystem : EntitySystem
@@ -29,8 +29,8 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
         [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
         [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
-        [Dependency] private readonly IServerConsoleHost _host = default!;
-
+        [Dependency] private readonly GhostSystem _ghostSystem = default!;
+        [Dependency] private readonly RevenantSystem _revenantSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -320,7 +320,8 @@ namespace Content.Server.Psionics.Glimmer
                 }
                 if (currentGlimmerTier == GlimmerTier.Critical)
                 {
-                    _host.ExecuteCommand(null, "showghosts true");
+                    _ghostSystem.MakeVisible(true);
+                    _revenantSystem.MakeVisible(true);
                     GhostsVisible = true;
                     foreach (var reactive in reactives)
                     {
@@ -328,7 +329,8 @@ namespace Content.Server.Psionics.Glimmer
                     }
                 } else if (GhostsVisible == true)
                 {
-                    _host.ExecuteCommand(null, "showghosts false");
+                    _ghostSystem.MakeVisible(false);
+                    _revenantSystem.MakeVisible(false);
                     GhostsVisible = false;
                 }
                 Accumulator = 0;
