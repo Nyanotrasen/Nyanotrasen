@@ -6,6 +6,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Electrocution;
+using Content.Server.Chat.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -20,6 +21,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly ChatSystem _chat = default!;
 
         /// <summary>
         /// Unfortunately, since spawning as a normal role and anything else is so different,
@@ -42,6 +44,7 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
+            SubscribeLocalEvent<PotentialPsionicComponent, MobStateChangedEvent>(OnDeathGasp);
             SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
@@ -76,6 +79,29 @@ namespace Content.Server.Psionics
             }
         }
 
+        private void OnDeathGasp(EntityUid uid, PotentialPsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState != DamageState.Dead)
+                return;
+
+
+            string message;
+
+            switch (_glimmerSystem.GetGlimmerTier())
+            {
+                case GlimmerTier.Critical:
+                    message = Loc.GetString("death-gasp-high", ("ent", uid));
+                    break;
+                case GlimmerTier.Dangerous:
+                    message = Loc.GetString("death-gasp-medium", ("ent", uid));
+                    break;
+                default:
+                    message = Loc.GetString("death-gasp-normal", ("ent", uid));
+                    break;
+            }
+
+            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+        }
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
             if (args.CurrentMobState == DamageState.Dead)
