@@ -67251,14 +67251,6 @@ entities:
   - pos: 23.902102,41.45766
     parent: 7
     type: Transform
-- uid: 7808
-  type: CowToolboxFilled
-  components:
-  - pos: 34.45013,25.396915
-    parent: 7
-    type: Transform
-  - nextAttack: 1664.1771709
-    type: MeleeWeapon
 - uid: 7809
   type: ToolboxMechanicalFilled
   components:
@@ -72485,30 +72477,6 @@ entities:
   - pos: -31.50839,35.403908
     parent: 7
     type: Transform
-- uid: 8520
-  type: ChairFoldingSpawnFolded
-  components:
-  - pos: -35.547485,29.57757
-    parent: 7
-    type: Transform
-  - nextAttack: 2592.3563012
-    type: MeleeWeapon
-- uid: 8521
-  type: ChairFoldingSpawnFolded
-  components:
-  - pos: -35.505817,29.410786
-    parent: 7
-    type: Transform
-  - nextAttack: 2588.6063162
-    type: MeleeWeapon
-- uid: 8522
-  type: ChairFoldingSpawnFolded
-  components:
-  - pos: -35.537067,29.47333
-    parent: 7
-    type: Transform
-  - nextAttack: 2590.322976
-    type: MeleeWeapon
 - uid: 8523
   type: ChairFolding
   components:
