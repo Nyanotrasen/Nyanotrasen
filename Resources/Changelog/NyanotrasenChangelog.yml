@@ -1801,3 +1801,21 @@ Entries:
     type: Add
   id: 203
   time: '2022-12-15T04:23:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed inconsistencies between mime wall and other psionics.
+    type: Fix
+  - message: Removed the deprecated 'science headset' that appears in a few places.
+    type: Remove
+  - message: Might have fixed some ghost visibility issues...
+    type: Fix
+  - message: Borgs have the Nanotrasen faction.
+    type: Fix
+  - message: Doubled metabolism rate of lotophagoi oil.
+    type: Tweak
+  - message: Increased the chance Oracle picks a random chem from the entire pool.
+    type: Tweak
+  - message: Fixed organic non-humanoid mobs being immune to vision effects.
+    type: Fix
+  id: 204
+  time: '2022-12-15T21:46:47.0000000+00:00'
