@@ -1762,3 +1762,13 @@ Entries:
     type: Fix
   id: 198
   time: '2022-12-14T21:58:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Reduced dispel and pyrokinesis to 6 tile range. Neither check blockers.
+    type: Tweak
+  - message: The stutter from getting zapped by unsulated gloves has been reduced.
+    type: Tweak
+  - message: Force walls can be dispelled.
+    type: Fix
+  id: 199
+  time: '2022-12-15T00:06:58.0000000+00:00'
