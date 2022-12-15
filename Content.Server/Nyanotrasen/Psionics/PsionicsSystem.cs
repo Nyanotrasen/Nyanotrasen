@@ -84,7 +84,6 @@ namespace Content.Server.Psionics
             if (args.CurrentMobState != DamageState.Dead)
                 return;
 
-
             string message;
 
             switch (_glimmerSystem.GetGlimmerTier())
@@ -102,6 +101,7 @@ namespace Content.Server.Psionics
 
             _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
         }
+
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
             if (args.CurrentMobState == DamageState.Dead)
