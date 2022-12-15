@@ -75,8 +75,8 @@
 - type: entity
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockChefvend
-  name: Chefvend restock box
-  description: Refill the Chefvend. Just don't break any more of the eggs.
+  name: ChefVend restock box
+  description: Refill the ChefVend. Just don't break any more of the eggs.
   components:
   - type: VendingMachineRestock
     canRestock:
