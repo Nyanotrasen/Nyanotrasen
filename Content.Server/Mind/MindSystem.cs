@@ -137,7 +137,7 @@ public sealed class MindSystem : EntitySystem
         {
             if (mind.Mind?.Session == null) {
                 // Player has no session attached and dead
-                args.PushMarkup($"[color=yellow]{Loc.GetString("mind-component-no-mind-and-dead-text", ("ent", uid))}[/color]");
+                args.PushMarkup($"[color=mediumpurple]{Loc.GetString("mind-component-no-mind-and-dead-text", ("ent", uid))}[/color]");
             } else {
                 // Player is dead with session
                 args.PushMarkup($"[color=red]{Loc.GetString("comp-mind-examined-dead", ("ent", uid))}[/color]");
