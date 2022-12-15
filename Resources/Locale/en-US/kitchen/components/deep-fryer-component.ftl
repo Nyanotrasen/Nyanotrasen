@@ -4,9 +4,14 @@ deep-fryer-blacklist-item-failed = {CAPITALIZE(THE($item))} is unaffected by {TH
 deep-fryer-oil-purity-low = {CAPITALIZE(THE($deepFryer))} sputters and burns.
 
 deep-fryer-storage-full = All of the baskets are full.
+deep-fryer-storage-no-fit = {CAPITALIZE(THE($item))} won't fit inside one of the baskets.
 deep-fryer-interact-using-not-item = That doesn't seem to be an item.
 
 deep-fryer-need-liquid-container-in-hand = You need to first hold a liquid container like a beaker or bowl in your active hand.
+
+deep-fryer-thrown-missed = Missed!
+deep-fryer-thrown-hit-oil = Plop!
+deep-fryer-thrown-hit-oil-low = Plonk!
 
 ## DeepFryer UI
 
