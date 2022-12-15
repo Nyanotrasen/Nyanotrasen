@@ -44,12 +44,12 @@
                 HorizontalExpand="True"
                 Text="{Loc 'deep-fryer-button-insert-item'}"
                 ToolTip="{Loc 'deep-fryer-button-insert-item-tooltip'}"/>
-            <Button Name="ScoopSolution"
+            <Button Name="ScoopVat"
                 Access="Public"
                 TextAlign="Center"
                 HorizontalExpand="True"
-                Text="{Loc 'deep-fryer-button-scoop-solution'}"
-                ToolTip="{Loc 'deep-fryer-button-scoop-solution-tooltip'}"/>
+                Text="{Loc 'deep-fryer-button-scoop-vat'}"
+                ToolTip="{Loc 'deep-fryer-button-scoop-vat-tooltip'}"/>
             <Button Name="ClearSlag"
                 Access="Public"
                 TextAlign="Center"
