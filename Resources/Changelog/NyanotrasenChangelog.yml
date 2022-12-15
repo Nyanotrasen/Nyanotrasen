@@ -1819,3 +1819,12 @@ Entries:
     type: Fix
   id: 204
   time: '2022-12-15T21:46:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Separated UI is now the default.
+    type: Tweak
+  - message: The chatbox cedes as much space as it can to the viewport for separated
+      UI.
+    type: Tweak
+  id: 205
+  time: '2022-12-15T22:28:40.0000000+00:00'
