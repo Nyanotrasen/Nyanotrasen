@@ -250,9 +250,6 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
-  - type: Faction
-    factions:
-    - NanoTrasen
 
 - type: entity
   parent: MobGolemBase
