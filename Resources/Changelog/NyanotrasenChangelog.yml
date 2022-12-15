@@ -1778,3 +1778,12 @@ Entries:
     type: Tweak
   id: 200
   time: '2022-12-15T00:08:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'Deleted all weapons with the melee bug from maps. Report anything that
+      should get readded in the #mapping channel in discord.'
+    type: Remove
+  - message: Removes the banned nitrous oxide miner from Arena.
+    type: Remove
+  id: 201
+  time: '2022-12-15T00:20:41.0000000+00:00'
