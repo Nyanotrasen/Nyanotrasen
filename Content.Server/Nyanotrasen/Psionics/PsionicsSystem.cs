@@ -4,6 +4,7 @@ using Content.Shared.MobState;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
+using Content.Shared.IdentityManagement;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Electrocution;
 using Content.Server.Chat.Systems;
@@ -89,13 +90,13 @@ namespace Content.Server.Psionics
             switch (_glimmerSystem.GetGlimmerTier())
             {
                 case GlimmerTier.Critical:
-                    message = Loc.GetString("death-gasp-high", ("ent", uid));
+                    message = Loc.GetString("death-gasp-high", ("ent", Identity.Entity(uid, EntityManager)));
                     break;
                 case GlimmerTier.Dangerous:
-                    message = Loc.GetString("death-gasp-medium", ("ent", uid));
+                    message = Loc.GetString("death-gasp-medium", ("ent",Identity.Entity(uid, EntityManager)));
                     break;
                 default:
-                    message = Loc.GetString("death-gasp-normal", ("ent", uid));
+                    message = Loc.GetString("death-gasp-normal", ("ent", Identity.Entity(uid, EntityManager)));
                     break;
             }
 
