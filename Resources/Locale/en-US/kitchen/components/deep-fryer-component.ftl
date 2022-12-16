@@ -1,6 +1,6 @@
 ## DeepFryer Entity
 
-deep-fryer-blacklist-item-failed = {CAPITALIZE(THE($item))} is unaffected by {THE($deepFryer)}.
+deep-fryer-blacklist-item-failed = {CAPITALIZE(THE($item))} fails to be covered in oil.
 deep-fryer-oil-purity-low = {CAPITALIZE(THE($deepFryer))} sputters and burns.
 
 deep-fryer-storage-full = All of the baskets are full.
