@@ -17,12 +17,15 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Examine;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
+using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Fugitive
 {
@@ -84,10 +87,11 @@ namespace Content.Server.Fugitive
             if (TryComp<FugitiveCountdownComponent>(uid, out var cd))
                 cd.AnnounceTime = _timing.CurTime + cd.AnnounceCD;
 
-            _popupSystem.PopupEntity(Loc.GetString("fugitive-spawn", ("name", uid)), uid, Filter.Pvs(uid), Shared.Popups.PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("fugitive-spawn", ("name", uid)), uid,
+            Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)), Shared.Popups.PopupType.LargeCaution);
 
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
-            _audioSystem.PlayPvs(component.SpawnSoundPath, uid);
+            _audioSystem.PlayPvs(component.SpawnSoundPath, uid, AudioParams.Default.WithVolume(-6f));
 
             var tile = Spawn("FloorTileItemSteel", Transform(uid).Coordinates);
             tile.RandomOffset(0.3f);
