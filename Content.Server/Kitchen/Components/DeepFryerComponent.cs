@@ -87,6 +87,13 @@ namespace Content.Server.Kitchen.Components
         public List<Solution.ReagentQuantity> GoodReagents { get; set; } = new();
 
         /// <summary>
+        /// What reagents are added to terrible deep-fried food?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("badReagents")]
+        public List<Solution.ReagentQuantity> BadReagents { get; set; } = new();
+
+        /// <summary>
         /// What reagents replace every 1 unit of oil spent on frying?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
