@@ -18,6 +18,18 @@ namespace Content.Client.Kitchen.UI
             {
                 SendMessage(new DeepFryerRemoveItemMessage(_entities[args.ItemIndex]));
             };
+            _window.InsertItem.OnPressed += _ =>
+            {
+                SendMessage(new DeepFryerInsertItemMessage());
+            };
+            _window.ScoopVat.OnPressed += _ =>
+            {
+                SendMessage(new DeepFryerScoopVatMessage());
+            };
+            _window.ClearSlag.OnPressed += args =>
+            {
+                SendMessage(new DeepFryerClearSlagMessage());
+            };
             _window.RemoveAllItems.OnPressed += _ =>
             {
                 SendMessage(new DeepFryerRemoveAllItemsMessage());

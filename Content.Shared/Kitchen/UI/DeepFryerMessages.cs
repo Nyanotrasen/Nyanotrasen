@@ -36,6 +36,24 @@ namespace Content.Shared.Kitchen.UI
     }
 
     [Serializable, NetSerializable]
+    public sealed class DeepFryerInsertItemMessage : BoundUserInterfaceMessage
+    {
+        public DeepFryerInsertItemMessage() { }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class DeepFryerScoopVatMessage : BoundUserInterfaceMessage
+    {
+        public DeepFryerScoopVatMessage() { }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class DeepFryerClearSlagMessage : BoundUserInterfaceMessage
+    {
+        public DeepFryerClearSlagMessage() { }
+    }
+
+    [Serializable, NetSerializable]
     public sealed class DeepFryerRemoveAllItemsMessage : BoundUserInterfaceMessage
     {
         public DeepFryerRemoveAllItemsMessage() { }
