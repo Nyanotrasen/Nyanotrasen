@@ -80,7 +80,7 @@ namespace Content.Server.Kitchen.Components
         public HashSet<string> FryingOils { get; set; } = new();
 
         /// <summary>
-        /// What bonus reagents can be added to tasty deep-fried food?
+        /// What reagents are added to tasty deep-fried food?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("goodReagents")]
@@ -94,7 +94,7 @@ namespace Content.Server.Kitchen.Components
         public List<Solution.ReagentQuantity> WasteReagents { get; set; } = new();
 
         /// <summary>
-        /// What flavors go well with being deep-fried?
+        /// What flavors go well with deep frying?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("goodFlavors", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<FlavorPrototype>))]
@@ -108,7 +108,7 @@ namespace Content.Server.Kitchen.Components
         public HashSet<string> BadFlavors { get; set; } = new();
 
         /// <summary>
-        /// How much is the price coefficiency of a food improved for each good flavor?
+        /// How much is the price coefficiency of a food changed for each good flavor?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("goodFlavorPriceBonus")]
