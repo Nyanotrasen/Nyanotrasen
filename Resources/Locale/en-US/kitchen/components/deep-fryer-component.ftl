@@ -1,7 +1,8 @@
 ## DeepFryer Entity
 
 deep-fryer-blacklist-item-failed = {CAPITALIZE(THE($item))} fails to be covered in oil.
-deep-fryer-oil-purity-low = {CAPITALIZE(THE($deepFryer))} sputters and burns.
+deep-fryer-oil-purity-low = {CAPITALIZE(THE($deepFryer))} sputters to no effect.
+deep-fryer-oil-volume-low = {CAPITALIZE(THE($deepFryer))} burns and spews smoke!
 
 deep-fryer-storage-full = All of the baskets are full.
 deep-fryer-storage-no-fit = {CAPITALIZE(THE($item))} won't fit inside one of the baskets.
@@ -34,7 +35,7 @@ deep-fried-crispy-item = crispy {$entity}
 deep-fried-crispy-item-examine = It's covered in a crispy, oily texture.
 
 deep-fried-fried-item = deep-fried {$entity}
-deep-fried-fried-item-examine = It's covered in a crispy, oily texture.
+deep-fried-fried-item-examine = It's covered in a thick, crispy layer.
 
 deep-fried-burned-item = burned {$entity}
 deep-fried-burned-item-examine = It's blackened with char.
