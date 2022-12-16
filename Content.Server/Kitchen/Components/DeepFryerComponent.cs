@@ -18,9 +18,9 @@ namespace Content.Server.Kitchen.Components
     public sealed class DeepFryerComponent : Component
     {
         // There are three levels to how the deep fryer treats entities.
-        // 
-        // 1. An entity can be rejected by the blacklist and be completely fine
-        //    after being deep-fried.
+        //
+        // 1. An entity can be rejected by the blacklist and be untouched by
+        //    anything other than heat damage.
         //
         // 2. An entity can be deep-fried but not turned into an edible. The
         //    change will be mostly cosmetic. Any entity that does not match
