@@ -9,6 +9,8 @@ namespace Content.Client.Kitchen.Visualizers
 {
     public sealed class DeepFriedVisualizerSystem : VisualizerSystem<DeepFriedComponent>
     {
+        private readonly static string ShaderName = "Crispy";
+
         public override void Initialize()
         {
             base.Initialize();
@@ -25,7 +27,7 @@ namespace Content.Client.Kitchen.Visualizers
             if (!args.Component.TryGetData(DeepFriedVisuals.Fried, out bool isFried))
                 return;
 
-            args.Sprite.LayerSetShader(0, "Crispy");
+            args.Sprite.LayerSetShader(0, ShaderName);
         }
 
         private void OnHeldVisualsUpdated(EntityUid uid, DeepFriedComponent component, HeldVisualsUpdatedEvent args)
@@ -43,7 +45,7 @@ namespace Content.Client.Kitchen.Visualizers
                 if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
                     continue;
 
-                sprite.LayerSetShader(index, "Crispy");
+                sprite.LayerSetShader(index, ShaderName);
 
             }
         }
@@ -63,7 +65,7 @@ namespace Content.Client.Kitchen.Visualizers
                 if (!sprite.LayerMapTryGet(key, out var index) || sprite[index] is not Layer layer)
                     continue;
 
-                sprite.LayerSetShader(index, "Crispy");
+                sprite.LayerSetShader(index, ShaderName);
             }
         }
     }
