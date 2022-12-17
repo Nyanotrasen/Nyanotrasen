@@ -133,17 +133,24 @@
         factor: 1
 
 - type: reagent
-  id: Oil
-  name: reagent-name-oil
-  group: Foods
-  desc: reagent-desc-oil
+  id: MotorOil
+  name: reagent-name-motor-oil
+  parent: BasePyrotechnic
+  desc: reagent-desc-motor-oil
   physicalDesc: reagent-physical-desc-oily
-  flavor: oily
+  flavor: bitter
   color: "#b67823"
-  boilingPoint: 300.0
-  meltingPoint: -16.0
   tileReactions:
   - !type:FlammableTileReaction {}
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+      - !type:FlammableReaction
+        multiplier: 0.4
 
 - type: reagent
   id: CapsaicinOil
