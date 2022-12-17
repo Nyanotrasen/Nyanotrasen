@@ -11299,6 +11299,8 @@ entities:
   - type: Transform
   - index: 4
     type: Map
+  - type: Parallax
+    parallax: PebbleStation
   - type: PhysicsMap
   - type: Broadphase
   - type: OccluderTree
