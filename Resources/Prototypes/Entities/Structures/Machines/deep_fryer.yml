@@ -8,8 +8,12 @@
     netsync: false
     sprite: Structures/Machines/deep_fryer.rsi
     layers:
-    - map: ["icon"]
-      state: icon
+      - state: off-0
+      - map: ["enum.SolutionContainerLayers.Fill"]
+        state: off-1
+  - type: SolutionContainerVisuals
+    maxFillLevels: 8
+    fillBaseName: off-
   - type: Anchorable
   - type: Pullable
   - type: Physics
@@ -119,12 +123,6 @@
     isOpen: true
     solution: vat_oil
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PowerDeviceVisuals.Powered:
-        icon:
-          True: { state: active }
-          False: { state: icon }
   - type: ActivatableUI
     key: enum.DeepFryerUiKey.Key
   - type: UserInterface

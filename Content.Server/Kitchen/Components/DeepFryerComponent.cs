@@ -4,10 +4,10 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Server.Kitchen.EntitySystems;
 using Content.Server.Nutrition;
-using Content.Shared.Atmos;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.Kitchen.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 
@@ -15,7 +15,8 @@ namespace Content.Server.Kitchen.Components
 {
     [RegisterComponent]
     [Access(typeof(DeepFryerSystem))]
-    public sealed class DeepFryerComponent : Component
+    [ComponentReference(typeof(SharedDeepFryerComponent))]
+    public sealed class DeepFryerComponent : SharedDeepFryerComponent
     {
         // There are three levels to how the deep fryer treats entities.
         //
