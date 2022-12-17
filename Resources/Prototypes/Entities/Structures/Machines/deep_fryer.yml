@@ -85,8 +85,8 @@
       - terrible
     solution: vat_oil
     fryingOils:
-      - OilButter
       - OilCorn
+      - OilGhee
       - OilOlive
     unsafeOilVolumeEffects:
     - !type:SmokeAreaReactionEffect

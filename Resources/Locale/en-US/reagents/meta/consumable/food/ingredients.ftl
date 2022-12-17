@@ -25,8 +25,11 @@ reagent-desc-rice = Hard, small white grains.
 reagent-name-oil-olive = olive oil
 reagent-desc-oil-olive = Viscous and fragrant.
 
-reagent-name-oil-butter = butter
-reagent-desc-oil-butter = Thick and creamy.
+reagent-name-oil-ghee = ghee
+reagent-desc-oil-ghee = Thick and translucent.
+
+reagent-name-butter = butter
+reagent-desc-butter = Thick and creamy.
 
 reagent-name-motor-oil = motor oil
 reagent-desc-motor-oil = Keeps machines from squeaking.

@@ -33,6 +33,19 @@
         factor: 1
 
 - type: reagent
+  id: OilGhee
+  name: reagent-name-oil-ghee
+  group: Foods
+  desc: reagent-desc-oil-ghee
+  physicalDesc: reagent-physical-desc-oily
+  flavor: butter
+  color: gold
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+
+- type: reagent
   id: Frostoil
   name: reagent-name-frostoil
   group: Foods

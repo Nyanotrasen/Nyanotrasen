@@ -76,7 +76,6 @@
   - !type:PlantAdjustPests
     amount: 2
 
-
 - type: reagent
   id: Blackpepper
   name: reagent-name-blackpepper
@@ -135,11 +134,11 @@
         factor: 1
 
 - type: reagent
-  id: OilButter
-  name: reagent-name-oil-butter
+  id: Butter
+  name: reagent-name-butter
   group: Foods
-  desc: reagent-desc-oil-butter
-  physicalDesc: reagent-physical-desc-oily
+  desc: reagent-desc-butter
+  physicalDesc: reagent-physical-desc-creamy
   flavor: butter
   color: yellow
   meltingPoint: 32.0
