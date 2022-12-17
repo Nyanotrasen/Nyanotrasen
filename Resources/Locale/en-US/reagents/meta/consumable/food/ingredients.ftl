@@ -28,8 +28,8 @@ reagent-desc-oil-olive = Viscous and fragrant.
 reagent-name-oil-butter = butter
 reagent-desc-oil-butter = Thick and creamy.
 
-reagent-name-oil = oil
-reagent-desc-oil = Used by chefs to cook.
+reagent-name-motor-oil = motor oil
+reagent-desc-motor-oil = Keeps machines from squeaking.
 
 reagent-name-capsaicin-oil = Capsaicin Oil
 reagent-desc-capsaicin-oil = Capsaicin Oil is the ingredient found in different types of hot peppers.

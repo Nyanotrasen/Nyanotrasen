@@ -151,19 +151,6 @@
         factor: 1
 
 - type: reagent
-  id: Oil
-  name: reagent-name-oil
-  group: Foods
-  desc: reagent-desc-oil
-  physicalDesc: reagent-physical-desc-oily
-  flavor: oily
-  color: "#b67823"
-  boilingPoint: 300.0
-  meltingPoint: -16.0
-  tileReactions:
-  - !type:FlammableTileReaction {}
-
-- type: reagent
   id: CapsaicinOil
   name: reagent-name-capsaicin-oil
   desc: reagent-desc-capsaicin-oil
