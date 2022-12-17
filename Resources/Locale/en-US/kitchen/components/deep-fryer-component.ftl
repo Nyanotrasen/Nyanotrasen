@@ -3,6 +3,7 @@
 deep-fryer-blacklist-item-failed = {CAPITALIZE(THE($item))} fails to be covered in oil.
 deep-fryer-oil-purity-low = {CAPITALIZE(THE($deepFryer))} sputters to no effect.
 deep-fryer-oil-volume-low = {CAPITALIZE(THE($deepFryer))} burns and spews smoke!
+deep-fryer-oil-no-slag = There's no slag to drain.
 
 deep-fryer-storage-full = All of the baskets are full.
 deep-fryer-storage-no-fit = {CAPITALIZE(THE($item))} won't fit inside one of the baskets.
