@@ -4,6 +4,8 @@
   name: deep fryer
   description: An industrial deep fryer. A big hit at state fairs!
   components:
+  - type: Transform
+    noRot: false
   - type: Sprite
     netsync: false
     sprite: Structures/Machines/deep_fryer.rsi
