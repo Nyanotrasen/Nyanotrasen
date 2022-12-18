@@ -15,6 +15,8 @@ deep-fryer-thrown-missed = Missed!
 deep-fryer-thrown-hit-oil = Plop!
 deep-fryer-thrown-hit-oil-low = Plonk!
 
+deep-fryer-entity-escape = {CAPITALIZE($victim)} leaps out of {THE($deepFryer)}!
+
 ## DeepFryer UI
 
 deep-fryer-window-title = Deep Fryer
