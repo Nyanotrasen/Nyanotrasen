@@ -44,6 +44,10 @@ namespace Content.Server.Psionics
                 if (contact.Key.Body.Owner == uid)
                     continue;
 
+                if (!contact.Value.IsTouching)
+                    continue;
+
+                // TODO: I am unsure this is still neccesary with the introduction of IsTouching above.
                 // yes the tick checks are kind of shitty and tickrate dependent
                 // what's even shittier is that you can apparently still be colliding with an entity for multiple ticks
                 // after EndCollideEvent is raised
