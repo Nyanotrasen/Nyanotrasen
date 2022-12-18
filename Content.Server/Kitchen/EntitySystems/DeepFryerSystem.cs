@@ -18,7 +18,7 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Construction;
-using Content.Server.Construction.Completions;
+using Content.Server.Construction.Components;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
@@ -37,6 +37,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
@@ -102,7 +103,8 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnInitDeepFryer);
             SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChange);
             SubscribeLocalEvent<DeepFryerComponent, RefreshPartsEvent>(OnRefreshParts);
-            SubscribeLocalEvent<DeepFryerComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct);
+            SubscribeLocalEvent<DeepFryerComponent, MachineDeconstructedEvent>(OnDeconstruct);
+            SubscribeLocalEvent<DeepFryerComponent, DestructionEventArgs>(OnDestruction);
             SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
             SubscribeLocalEvent<DeepFryerComponent, SolutionChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<DeepFryerComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
@@ -567,9 +569,15 @@ namespace Content.Server.Kitchen.EntitySystems
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
         }
 
-        private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, ConstructionBeforeDeleteEvent args)
+        private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, MachineDeconstructedEvent args)
         {
+            // The EmptyOnMachineDeconstruct component handles the entity container for us.
             _spillableSystem.SpillAt(uid, component.Solution, "PuddleSmear");
+        }
+
+        private void OnDestruction(EntityUid uid, DeepFryerComponent component, DestructionEventArgs args)
+        {
+            _containerSystem.EmptyContainer(component.Storage, true, Transform(uid).Coordinates, true, _entityManager);
         }
 
         private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args)

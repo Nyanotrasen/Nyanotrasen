@@ -137,18 +137,18 @@
         !type:DamageTrigger
         damage: 200
       behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
       - !type:SpillBehavior
         solution: vat_oil
       - !type:SpawnEntitiesBehavior
         spawn:
-          ShardGlass:
+          MachineFrameDestroyed:
             min: 1
             max: 1
-          SheetSteel:
-            min: 1
-            max: 2
-      - !type:DoActsBehavior
-        acts: ["Breakage"]
   - type: ApcPowerReceiver
     powerLoad: 300
   - type: Machine
