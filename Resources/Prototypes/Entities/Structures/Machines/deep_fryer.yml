@@ -156,6 +156,9 @@
     powerLoad: 300
   - type: Machine
     board: DeepFryerMachineCircuitboard
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - vat_entities
   - type: ContainerContainer
     containers:
       vat_entities: !type:Container

@@ -17,7 +17,9 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Construction;
+using Content.Server.Construction.Components;
 using Content.Server.DoAfter;
+using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.NPC.Components;
@@ -73,6 +75,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedMobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
         [Dependency] private readonly TemperatureSystem _temperature = default!;
@@ -96,6 +99,7 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<DeepFryerComponent, ComponentInit>(OnInitDeepFryer);
             SubscribeLocalEvent<DeepFryerComponent, PowerChangedEvent>(OnPowerChange);
             SubscribeLocalEvent<DeepFryerComponent, RefreshPartsEvent>(OnRefreshParts);
+            SubscribeLocalEvent<DeepFryerComponent, ConstructionBeforeDeleteEvent>(OnDeconstruct);
             SubscribeLocalEvent<DeepFryerComponent, ThrowHitByEvent>(OnThrowHitBy);
             SubscribeLocalEvent<DeepFryerComponent, SolutionChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<DeepFryerComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
@@ -542,6 +546,11 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnPowerChange(EntityUid uid, DeepFryerComponent component, ref PowerChangedEvent args)
         {
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
+        }
+
+        private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, MachineDeconstructedEvent args)
+        {
+            _spillableSystem.SpillAt(uid, component.Solution, "PuddleSmear");
         }
 
         private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args)
