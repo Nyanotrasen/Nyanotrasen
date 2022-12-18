@@ -11,6 +11,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Miasma;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Buckle.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chemistry.Components;
@@ -59,6 +60,7 @@ namespace Content.Server.Kitchen.EntitySystems
 {
     public sealed class DeepFryerSystem : EntitySystem
     {
+        [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
@@ -75,9 +77,9 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedMobStateSystem _mobStateSystem = default!;
-        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
+        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly TemperatureSystem _temperature = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
@@ -87,6 +89,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private static readonly float ThrowMissChance = 0.25f;
         private static readonly int MaximumCrispiness = 3;
         private static readonly float BloodToProteinRatio = 0.1f;
+        private static readonly string MobFlavorMeat = "meaty";
 
         private ISawmill _sawmill = default!;
 
@@ -268,14 +271,30 @@ namespace Content.Server.Kitchen.EntitySystems
 
                 // Ensure it's Food here, so it passes the whitelist.
                 var mobFoodComponent = EnsureComp<FoodComponent>(mob);
+                var mobFoodSolution = _solutionContainerSystem.EnsureSolution(mob, mobFoodComponent.SolutionName, out bool alreadyHadFood);
 
-                // Fry off any blood into protein.
-                // TODO: Use bloodstream instead of food.
-                // TODO: Mix chemical stream into the food.
-                if (_solutionContainerSystem.TryGetSolution(mob, mobFoodComponent.SolutionName, out var mobFoodSolution))
+                // This line here is mainly for mice, because they have a food
+                // component that mirrors how much blood they have, which is
+                // used for the reagent grinder.
+                if (alreadyHadFood)
+                    _solutionContainerSystem.RemoveAllSolution(mob, mobFoodSolution);
+
+                if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent))
                 {
-                    var removedBloodQuantity = mobFoodSolution.RemoveReagent("Blood", FixedPoint2.MaxValue);
-                    mobFoodSolution.AddReagent("Protein", removedBloodQuantity * BloodToProteinRatio);
+                    // Fry off any blood into protein.
+                    var bloodSolution = bloodstreamComponent.BloodSolution;
+                    var removedBloodQuantity = bloodSolution.RemoveReagent("Blood", FixedPoint2.MaxValue);
+                    var proteinQuantity = removedBloodQuantity * BloodToProteinRatio;
+                    mobFoodSolution.MaxVolume += proteinQuantity;
+                    mobFoodSolution.AddReagent("Protein", proteinQuantity);
+
+                    // This is a heuristic. If you had blood, you might just taste meaty.
+                    if (removedBloodQuantity > FixedPoint2.Zero)
+                        EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(MobFlavorMeat);
+
+                    // Bring in whatever chemicals they had in them too.
+                    mobFoodSolution.MaxVolume += bloodstreamComponent.ChemicalSolution.TotalVolume;
+                    mobFoodSolution.AddSolution(bloodstreamComponent.ChemicalSolution);
                 }
 
                 return true;
