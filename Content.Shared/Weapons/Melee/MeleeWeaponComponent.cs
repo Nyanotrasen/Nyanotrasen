@@ -81,7 +81,7 @@ public sealed class MeleeWeaponComponent : Component
 
     [DataField("bluntStaminaDamageFactor")]
     [ViewVariables(VVAccess.ReadWrite)]
-    public FixedPoint2 BluntStaminaDamageFactor { get; set; } = 0.5f;
+    public FixedPoint2 BluntStaminaDamageFactor { get; set; } = 1.0f;
 
     // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>

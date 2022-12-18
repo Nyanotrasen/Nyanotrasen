@@ -21,7 +21,7 @@ namespace Content.Server.Chemistry.ReagentEffects
             if (args.Scale != 1f)
                 return;
 
-            EntitySystem.Get<SharedBlindingSystem>().AdjustEyeDamage(args.SolutionEntity, 1);
+            args.EntityManager.EntitySysManager.GetEntitySystem<SharedBlindingSystem>().AdjustEyeDamage(args.SolutionEntity, Amount);
         }
     }
 }

@@ -2,10 +2,16 @@ using System.Linq;
 using Content.Shared.Interaction;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Psionics.Glimmer;
 using Content.Server.Chat.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Botany;
 using Content.Server.Psionics;
+using Content.Server.Chemistry.Components.SolutionManager;
+using Content.Server.Chemistry.EntitySystems;
+using Content.Server.Fluids.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -18,7 +24,14 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
-        [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
+        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+
+        public readonly IReadOnlyList<string> RewardReagents = new[]
+        {
+            "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "LotophagoiOil", "Wine", "Blood", "Ichor"
+        };
 
         [ViewVariables(VVAccess.ReadWrite)]
         public readonly IReadOnlyList<string> DemandMessages = new[]
@@ -68,8 +81,23 @@ namespace Content.Server.Research.Oracle
             "TargetHuman",
             "TargetSyndicate",
             "TargetClown",
+            "PowerCellSmallPrinted",
+            "PowerCellMediumPrinted",
+            "PowerCellHighPrinted",
+            "Beaker",
+            "LargeBeaker",
+            "CryostasisBeaker",
+            "Dropper",
+            "Syringe",
+            "ChemistryEmptyBottle01",
+            "DrinkMug",
+            "DrinkMugMetal",
+            "DrinkGlass",
+            "Bucket",
+            "SprayBottle",
+            "ShellTranquilizer",
+            "ShellSoulbreaker",
         };
-
 
         public override void Update(float frameTime)
         {
@@ -143,6 +171,7 @@ namespace Content.Server.Research.Oracle
 
             var nextItem = true;
 
+            /// The trim helps with stacks and singles
             if (meta.EntityPrototype.ID.TrimEnd('1') == component.DesiredPrototype.ID.TrimEnd('1'))
                 validItem = true;
 
@@ -153,10 +182,10 @@ namespace Content.Server.Research.Oracle
                 component.LastDesiredPrototype = null;
             }
 
-            /// The trim helps with stacks and singles
             if (!validItem)
             {
-                _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
+                if (!HasComp<RefillableSolutionComponent>(args.Used))
+                    _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
                 return;
             }
 
@@ -164,8 +193,7 @@ namespace Content.Server.Research.Oracle
 
             EntityManager.SpawnEntity("ResearchDisk5000", Transform(args.User).Coordinates);
 
-            if (TryComp<PotentialPsionicComponent>(args.User, out var potential))
-                _psionicsSystem.RollPsionics(args.User, potential);
+            DispenseLiquidReward(uid);
 
             int i = _random.Next(1, 4);
 
@@ -177,6 +205,37 @@ namespace Content.Server.Research.Oracle
 
             if (nextItem)
                 NextItem(component);
+        }
+
+        private void DispenseLiquidReward(EntityUid uid)
+        {
+            if (!_solutionSystem.TryGetSolution(uid, OracleComponent.SolutionName, out var fountainSol))
+                return;
+
+            var allReagents = _prototypeManager.EnumeratePrototypes<ReagentPrototype>()
+            .Where(x => !x.Abstract)
+            .Select(x => x.ID).ToList();
+
+            var amount = 20 + _random.Next(1, 30) + ((float) _glimmerSystem.Glimmer / 10f);
+            amount = (float) Math.Round(amount);
+
+            var sol = new Solution();
+            var reagent = "";
+
+            if (_random.Prob(0.2f))
+            {
+                reagent = _random.Pick(allReagents);
+            } else
+            {
+                reagent = _random.Pick(RewardReagents);
+            }
+
+            sol.AddReagent(reagent, amount);
+
+            _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
+
+            if (overflowing != null && overflowing.CurrentVolume > 0)
+                _spillableSystem.SpillAt(uid, overflowing, "PuddleGeneric");
         }
 
         private void NextItem(OracleComponent component)
@@ -192,12 +251,19 @@ namespace Content.Server.Research.Oracle
 
         private string GetDesiredItem()
         {
+            return _random.Pick(GetAllProtos());
+        }
+
+
+        public List<string> GetAllProtos()
+        {
             var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
             var allProtos = allRecipes.Concat(allPlants).ToList();
             foreach (var proto in BlacklistedProtos)
                 allProtos.Remove(proto);
-            return _random.Pick((allProtos));
+
+            return allProtos;
         }
     }
 }

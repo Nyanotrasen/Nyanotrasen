@@ -12,6 +12,10 @@
         maxVol: 100
   - type: Sprite
     state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
   - type: DamageOnLand
     damage:
       types:
@@ -20,6 +24,10 @@
     damage:
       types:
         Blunt: 4
+  - type: DamageWeaponOnHit
+    damage:
+      types:
+        Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -228,7 +236,7 @@
 - type: entity
   parent: DrinkBottleBaseFull
   id: DrinkRumBottleFull
-  name: captain pete's cuban spiced rum
+  name: captain pete's Cuban spiced rum
   description: This isn't just rum, oh no. It's practically GRIFF in a bottle.
   components:
   - type: SolutionContainerManager

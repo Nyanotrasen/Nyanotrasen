@@ -7,8 +7,10 @@
   - type: Sprite
     layers:
       - state: green
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/base.png
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/refill_discount.png
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: base
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: refill_discount
   - type: ConditionalSpawner
     prototypes:
       - VendingMachineRestockDiscountDans
@@ -17,6 +19,7 @@
       - VendingMachineRestockGetmoreChocolateCorp
       - VendingMachineRestockRobustSoftdrinks
       - VendingMachineRestockHotDrinks
+      - VendingMachineRestockCondimentStation
 
 - type: entity
   id: SpawnVendingMachineRestockFood
@@ -27,14 +30,17 @@
   - type: Sprite
     layers:
       - state: green
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/base.png
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/refill_donuts.png
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: base
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: refill_donuts
   - type: ConditionalSpawner
     prototypes:
       - VendingMachineRestockDiscountDans
       - VendingMachineRestockChang
       - VendingMachineRestockDonut
       - VendingMachineRestockGetmoreChocolateCorp
+      - VendingMachineRestockCondimentStation
 
 - type: entity
   id: SpawnVendingMachineRestockDrink
@@ -45,8 +51,10 @@
   - type: Sprite
     layers:
       - state: green
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/base.png
-      - texture: Objects/Specific/Service/vending_machine_restock.rsi/refill_cola.png
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: base
+      - sprite: Objects/Specific/Service/vending_machine_restock.rsi
+        state: refill_cola
   - type: ConditionalSpawner
     prototypes:
       - VendingMachineRestockRobustSoftdrinks

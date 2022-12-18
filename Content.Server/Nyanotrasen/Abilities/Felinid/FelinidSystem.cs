@@ -68,6 +68,10 @@ namespace Content.Server.Abilities.Felinid
 
         private void OnInit(EntityUid uid, FelinidComponent component, ComponentInit args)
         {
+            if (!_prototypeManager.TryIndex<InstantActionPrototype>("HairballAction", out var hairball))
+                return;
+
+            component.HairballAction = new InstantAction(hairball);
             _actionsSystem.AddAction(uid, component.HairballAction, uid);
         }
 
@@ -122,8 +126,11 @@ namespace Content.Server.Abilities.Felinid
                 return;
             }
 
-            _actionsSystem.SetCharges(component.HairballAction, component.HairballAction.Charges + 1);
-            _actionsSystem.SetEnabled(component.HairballAction, true);
+            if (component.HairballAction != null)
+            {
+                _actionsSystem.SetCharges(component.HairballAction, component.HairballAction.Charges + 1);
+                _actionsSystem.SetEnabled(component.HairballAction, true);
+            }
             Del(component.PotentialTarget.Value);
             component.PotentialTarget = null;
 

@@ -1,5 +1,5 @@
 - type: entity
-  name: Moustagogue
+  name: Rat King
   id: MobRatKing
   parent: SimpleMobBase
   description: He's da rat. He make da roolz.
@@ -50,6 +50,23 @@
         Piercing: 8
   - type: Body
     prototype: Rat
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Hunger # probably should be prototyped
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.01666666666
+  - type: Thirst
+    thresholds:
+      OverHydrated: 600
+      Okay: 450
+      Thirsty: 300
+      Parched: 150
+      Dead: 0
+    baseDecayRate: 0.1
   - type: Appearance
   - type: DamageStateVisuals
     rotate: true
@@ -90,6 +107,15 @@
       itemIconStyle: NoItem
       event: !type:RatKingDomainActionEvent
     hungerPerDomainUse: 50
+    actionToggleFaction:
+      checkCanInteract: false
+      icon: Interface/Actions/ratHarmOff.png
+      iconOn: Interface/Actions/ratHarm.png
+      userPopup: rat-king-toggle-action-popup
+      popupToggleSuffix: -enabled
+      name: rat-king-toggle-faction-name
+      description: rat-king-toggle-faction-description
+      event: !type:RatKingToggleFactionActionEvent
   - type: MobsterAccent
   - type: Butcherable
     spawned:
@@ -167,14 +193,12 @@
   - type: InputMover
   - type: MobMover
   - type: HTN
-    rootTask: SimpleHostileCompound
+    rootTask: RatServantCompound
   - type: Reactive
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
   - type: Faction
-    factions:
-    - SimpleHostile
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Animals/mouse.rsi
@@ -210,6 +234,23 @@
         Piercing: 3
   - type: Body
     prototype: Rat
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Hunger # probably should be prototyped
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.01666666666
+  - type: Thirst
+    thresholds:
+      OverHydrated: 600
+      Okay: 450
+      Thirsty: 300
+      Parched: 150
+      Dead: 0
+    baseDecayRate: 0.1
   - type: Appearance
   - type: DamageStateVisuals
     rotate: true

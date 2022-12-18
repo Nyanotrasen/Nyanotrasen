@@ -31,6 +31,10 @@
     interfaces:
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
   - type: DamageOnLand
     damage:
       types:
@@ -39,6 +43,10 @@
     damage:
       types:
         Blunt: 4
+  - type: DamageWeaponOnHit
+    damage:
+      types:
+        Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

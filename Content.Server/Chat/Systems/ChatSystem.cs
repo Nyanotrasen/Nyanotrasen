@@ -119,7 +119,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     /// <param name="player">The player doing the speaking</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     public void TrySendInGameICMessage(EntityUid source, string message, InGameICChatType desiredType, bool hideChat, bool hideGlobalGhostChat = false,
-        IConsoleShell? shell = null, IPlayerSession? player = null, string? nameOverride = null, bool checkRadioPrefix = true)
+        IConsoleShell? shell = null, IPlayerSession? player = null, string? nameOverride = null, bool checkRadioPrefix = true, bool force = false)
     {
         if (HasComp<GhostComponent>(source))
         {
@@ -133,8 +133,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         {
             return;
         }
-
-        if (!CanSendInGame(message, shell, player))
+        if (!force && !CanSendInGame(message, shell, player))
             return;
 
         hideGlobalGhostChat |= hideChat;
@@ -144,26 +143,37 @@ public sealed partial class ChatSystem : SharedChatSystem
         message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate);
 
         // Was there an emote in the message? If so, send it.
-        if (player != null && emoteStr != message && emoteStr != null)
+        if (emoteStr != message && emoteStr != null)
         {
-            SendEntityEmote(source, emoteStr, hideChat, hideGlobalGhostChat, nameOverride);
+            SendEntityEmote(source, emoteStr, hideChat, hideGlobalGhostChat, nameOverride, force);
         }
 
         // This can happen if the entire string is sanitized out.
         if (string.IsNullOrEmpty(message))
             return;
 
+        // This message may have a radio prefix, and should then be whispered to the resolved radio channel
+        if (checkRadioPrefix)
+        {
+            var (radioMessage, channel) = GetRadioPrefix(source, message);
+            if (channel != null)
+            {
+                SendEntityWhisper(source, radioMessage, hideChat, hideGlobalGhostChat, channel, nameOverride);
+                return;
+            }
+        }
+
         // Otherwise, send whatever type.
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, hideChat, hideGlobalGhostChat, nameOverride, checkRadioPrefix);
+                SendEntitySpeak(source, message, hideChat, hideGlobalGhostChat, nameOverride);
                 break;
             case InGameICChatType.Whisper:
                 SendEntityWhisper(source, message, hideChat, hideGlobalGhostChat, null, nameOverride);
                 break;
             case InGameICChatType.Emote:
-                SendEntityEmote(source, message, hideChat, hideGlobalGhostChat, nameOverride);
+                SendEntityEmote(source, message, hideChat, hideGlobalGhostChat, nameOverride, force);
                 break;
             case InGameICChatType.Telepathic:
                 _nyanoChatSystem.SendTelepathicChat(source, message, hideChat);
@@ -260,26 +270,12 @@ public sealed partial class ChatSystem : SharedChatSystem
 
     #region Private API
 
-    private void SendEntitySpeak(EntityUid source, string originalMessage, bool hideChat, bool hideGlobalGhostChat, string? nameOverride, bool checkRadioPrefix)
+    private void SendEntitySpeak(EntityUid source, string originalMessage, bool hideChat, bool hideGlobalGhostChat, string? nameOverride)
     {
         if (!_actionBlocker.CanSpeak(source))
             return;
 
-        RadioChannelPrototype? channel = null;
-        string message;
-
-        if (checkRadioPrefix)
-            (message, channel) = GetRadioPrefix(source, originalMessage);
-        else
-            message = originalMessage;
-
-        if (channel != null)
-        {
-            SendEntityWhisper(source, message, hideChat, hideGlobalGhostChat, channel, nameOverride);
-            return;
-        }
-
-        message = TransformSpeech(source, message);
+        var message = TransformSpeech(source, originalMessage);
         if (message.Length == 0)
             return;
 
@@ -302,7 +298,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         SendInVoiceRange(ChatChannel.Local, message, wrappedMessage, source, hideChat, hideGlobalGhostChat);
 
-        var ev = new EntitySpokeEvent(source, message, channel, null);
+        var ev = new EntitySpokeEvent(source, message, null, null);
         RaiseLocalEvent(source, ev, true);
 
         // To avoid logging any messages sent by entities that are not players, like vendors, cloning, etc.
@@ -374,9 +370,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Whisper from {ToPrettyString(source):user}, original: {originalMessage}, transformed: {message}.");
     }
 
-    private void SendEntityEmote(EntityUid source, string action, bool hideChat, bool hideGlobalGhostChat, string? nameOverride)
+    private void SendEntityEmote(EntityUid source, string action, bool hideChat, bool hideGlobalGhostChat, string? nameOverride, bool force = false)
     {
-        if (!_actionBlocker.CanEmote(source)) return;
+        if (!force && !_actionBlocker.CanEmote(source)) return;
 
         // get the entity's apparent name (if no override provided).
         string name = FormattedMessage.EscapeText(nameOverride ?? Identity.Name(source, EntityManager));

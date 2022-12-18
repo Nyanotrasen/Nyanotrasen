@@ -1,7 +1,5 @@
 using Robust.Shared.GameStates;
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.Borgs
 {
@@ -9,7 +7,7 @@ namespace Content.Shared.Borgs
     public sealed class LawsComponent : Component
     {
         [DataField("laws")]
-        public HashSet<string> Laws = new HashSet<string>();
+        public List<string> Laws = new List<string>();
 
         [DataField("canState")]
         public bool CanState = true;
@@ -26,9 +24,9 @@ namespace Content.Shared.Borgs
     [Serializable, NetSerializable]
     public sealed class LawsComponentState : ComponentState
     {
-        public readonly HashSet<string> Laws;
+        public readonly List<string> Laws;
 
-        public LawsComponentState(HashSet<string> laws)
+        public LawsComponentState(List<string> laws)
         {
             Laws = laws;
         }

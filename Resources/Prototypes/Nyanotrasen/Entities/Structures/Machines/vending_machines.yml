@@ -72,3 +72,24 @@
   - type: WiresVisuals
   - type: AccessReader
     access: [["Service"]]
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineBoxingDrobe
+  name: Boxing Drobe
+  description: Always short on stock.
+  components:
+  - type: VendingMachine
+    pack: BoxingDrobeInventory
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/VendingMachines/boxingdrobe.rsi
+    layers:
+    - state: off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: normal-unshaded
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Service"]]

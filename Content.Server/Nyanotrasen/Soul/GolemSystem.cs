@@ -8,8 +8,10 @@ using Content.Shared.Dataset;
 using Content.Shared.MobState;
 using Content.Shared.Administration.Logs;
 using Content.Server.Borgs;
+using Content.Server.Speech;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Players;
+using Content.Server.Humanoid;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -39,6 +41,7 @@ namespace Content.Server.Soul
             SubscribeLocalEvent<GolemComponent, GolemInstallRequestMessage>(OnInstallRequest);
             SubscribeLocalEvent<GolemComponent, GolemNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<GolemComponent, GolemMasterNameChangedMessage>(OnMasterNameChanged);
+            SubscribeLocalEvent<GolemComponent, AccentGetEvent>(OnGetAccent); // TODO: Deduplicate
         }
 
         private void OnAfterInteract(EntityUid uid, SoulCrystalComponent component, AfterInteractEvent args)
@@ -53,6 +56,9 @@ namespace Content.Server.Soul
                 return;
 
             if (!TryComp<ActorComponent>(args.User, out var userActor))
+                return;
+
+            if (!HasComp<HumanoidComponent>(args.User))
                 return;
 
             if (!_uiSystem.TryGetUi(args.Target.Value, GolemUiKey.Key, out var ui))
@@ -162,7 +168,7 @@ namespace Content.Server.Soul
                 }
 
                 _laws.ClearLaws(uid, laws);
-                _laws.AddLaw(uid, Loc.GetString("golem-law", ("master", master)), laws);
+                _laws.AddLaw(uid, Loc.GetString("golem-law", ("master", master)), component: laws);
             }
 
             actor.PlayerSession.ContentData()?.Mind?.TransferTo(uid);
@@ -187,6 +193,12 @@ namespace Content.Server.Soul
         private void OnMasterNameChanged(EntityUid uid, GolemComponent golemComponent, GolemMasterNameChangedMessage args)
         {
             golemComponent.Master = args.MasterName;
+        }
+
+        // todo deduplicate
+        private void OnGetAccent(EntityUid uid, GolemComponent component, AccentGetEvent args)
+        {
+            args.Message = args.Message.ToUpper();
         }
     }
 }

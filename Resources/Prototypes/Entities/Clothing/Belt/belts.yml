@@ -19,11 +19,12 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -59,6 +60,13 @@
           - SignalLinker
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: StaminaDamageOnHit
+    damage: 9
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -80,13 +88,14 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - Powerdrill
         - JawsOfLife
         - CigPack
         - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -188,6 +197,8 @@
         - Flashlight
         - CigPack
         - TrashBag
+        - WetFloorSign
+        - HolosignProjector
       components:
         - LightReplacer
   - type: ItemMapper

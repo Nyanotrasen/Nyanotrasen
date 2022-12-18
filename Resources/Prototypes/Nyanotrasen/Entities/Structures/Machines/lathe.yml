@@ -33,9 +33,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - ProximitySensor
-      - LeftArmBorg
-      - RightArmBorg
       - NormalityCrystal
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -46,11 +43,11 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
       - BluespaceCrystal
       - CableStack
       - CableMVStack
@@ -179,8 +176,11 @@
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
+      - MailingUnitElectronics
+      - IntercomElectronics
       - HolofanProjector
       - Drone
+      - ConveyorBeltAssembly
       - RPED
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern

@@ -32,6 +32,7 @@ analysis-destroy-window-yes = Yes
 analysis-destroy-window-no = No
 
 analyzer-artifact-component-upgrade-analysis = analysis duration
+analyzer-artifact-component-upgrade-sacrifice = research points per glimmer
 
 analysis-console-print-popup = The console printed out a report.
 analyzer-artifact-destroy-popup = The artifact disintegrated into energy!

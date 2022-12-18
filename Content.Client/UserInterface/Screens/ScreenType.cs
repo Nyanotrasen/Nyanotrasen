@@ -3,11 +3,11 @@ namespace Content.Client.UserInterface.Screens;
 public enum ScreenType
 {
     /// <summary>
-    ///     The modern SS14 user interface.
+    ///     An interface for this text roleplaying game where text is put first.
     /// </summary>
-    Default,
+    Separated,
     /// <summary>
-    ///     The classic SS13 user interface.
+    ///     A super compact interface for people who hate reading.
     /// </summary>
-    Separated
+    Minimal
 }

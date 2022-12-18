@@ -29,10 +29,10 @@ public sealed class GrowingKudzuSystem : EntitySystem
     {
         _accumulatedFrameTime += frameTime;
 
-        if (!(_accumulatedFrameTime >= 0.5f))
+        if (!(_accumulatedFrameTime >= 1.0f))
             return;
 
-        _accumulatedFrameTime -= 0.5f;
+        _accumulatedFrameTime -= 1.0f;
 
         foreach (var (kudzu, appearance) in EntityManager.EntityQuery<GrowingKudzuComponent, AppearanceComponent>())
         {

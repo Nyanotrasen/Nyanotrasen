@@ -17,15 +17,22 @@
       types:
         # axes are kinda like sharp hammers, you know?
         Blunt: 5
-        Slash: 13
-        Structural: 7
+        Slash: 10
+        Structural: 5
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.45 #if wielded you will only consume 4.5 stam
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 20.0
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 2.5
-        Slash: 10.5
-        Structural: 60
+        Slash: 3.5
+        Structural: 15
   - type: Item
     size: 150
   - type: Clothing

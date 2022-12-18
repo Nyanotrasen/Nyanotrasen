@@ -48,3 +48,20 @@
   canBuildInImpassable: False
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: GolemWood
+  name: wood golem
+  description: Your very own personal servant! This one can hold plants. Requires a soul crystal to activate.
+  graph: GolemWood
+  startNode: start
+  targetNode: golem
+  category: construction-category-machines
+  icon:
+      sprite: Mobs/Species/Diona/parts.rsi
+      state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: False
+  conditions:
+    - !type:TileNotBlocked

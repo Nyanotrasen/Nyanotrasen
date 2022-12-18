@@ -2,11 +2,11 @@
   id: Lighthouse
   mapName: 'lighthouse'
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 20
-  maxPlayers: 60
+  minPlayers: 30
   stations:
     Lighthouse:
-      mapNameTemplate: '{0} Pharos {1}'
+      mapNameTemplate: '{0} Lighthouse {1}'
+      emergencyShuttlePath: /Maps/Shuttles/BC20_emergencyShuttleG.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
@@ -34,7 +34,8 @@
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 3, 3 ]
         HeadOfSecurity: [ 1, 1 ]
-        SecurityOfficer: [ 4, 5 ]
+        SecurityOfficer: [ 4, 6 ]
+        SecurityCadet: [ 0, 1 ]
         Chaplain: [ 1, 1 ]
         Warden: [ 1, 1 ]
         Cataloguer: [ 1, 1 ]
@@ -45,3 +46,4 @@
         AtmosphericTechnician: [ 1, 2 ]
         ServiceWorker: [ 2, 2 ]
         Reporter: [ 1, 2 ]
+        Prisoner: [ 2, 2 ]

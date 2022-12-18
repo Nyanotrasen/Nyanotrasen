@@ -1096,3 +1096,753 @@ Entries:
     type: Fix
   id: 115
   time: '2022-11-26T03:13:05.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added maintenance shafts around Medical, connecting North Maintenance
+      to Arrivals.
+    type: Add
+  - message: Made minor wiring fixes.
+    type: Fix
+  id: 116
+  time: '2022-11-27T18:02:22.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: The new cover for the Nyanotrasen-specific Space Law has been released.
+    type: Tweak
+  id: 117
+  time: '2022-11-28T17:53:42.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Moths now have their own set of random names to choose from.
+    type: Add
+  id: 118
+  time: '2022-11-28T18:05:43.0000000+00:00'
+- author: Hyenh
+  changes:
+  - message: boxing vends
+    type: Add
+  id: 119
+  time: '2022-11-28T19:12:01.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: Skub can now be used in modular grenades and mines
+    type: Tweak
+  id: 120
+  time: '2022-11-28T20:52:59.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed altar exploit.
+    type: Fix
+  - message: Altar gibs again.
+    type: Tweak
+  - message: Added a bunch of messages that should make people understand why altar
+      sacrifice is or is not working.
+    type: Add
+  - message: Stutter accent from the noospheric zap event reduced from 30s to 10s.
+    type: Tweak
+  - message: Oni can use guns again. They are just extremely inaccurate.
+    type: Add
+  - message: Artifact glimmer from sacrifice increased slightly.
+    type: Tweak
+  - message: Removed max occurences from noospheric storm.
+    type: Tweak
+  - message: Entities with laws open the UI for you when you attach to them.
+    type: Tweak
+  - message: Renamed more stuff.
+    type: Fix
+  - message: Cognizine behavior has been unified with the other methods of gaining
+      sentience.
+    type: Tweak
+  - message: Only humanoids can install golems.
+    type: Fix
+  - message: Timer trigger moved out of chem technology and is unlocked with the other
+      triggers.
+    type: Tweak
+  id: 121
+  time: '2022-11-28T20:58:48.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new machines and books.
+    type: Add
+  id: 122
+  time: '2022-11-28T21:44:59.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Updated pebble.
+    type: Add
+  id: 123
+  time: '2022-11-28T21:50:12.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You are being watched.
+    type: Add
+  id: 124
+  time: '2022-11-29T00:35:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added fugitives.
+    type: Add
+  id: 125
+  time: '2022-11-29T04:19:42.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added Fugitive spawn points.
+    type: Add
+  - message: Added trash.
+    type: Add
+  - message: Made slight changes to medical outpost.
+    type: Tweak
+  id: 126
+  time: '2022-11-29T17:30:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a new psionic power.
+    type: Add
+  - message: Added a new special item for HOS and an objective to steal it.
+    type: Add
+  - message: Added a new effect to lotophagoi oil.
+    type: Add
+  - message: Added golem accent.
+    type: Add
+  - message: Borg flashlight visuals work now.
+    type: Fix
+  - message: Fixed a borg UI crash.
+    type: Fix
+  - message: Fixed some more admin stuff for telepathic chat.
+    type: Fix
+  id: 127
+  time: '2022-11-29T19:28:57.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added a new salvage map!
+    type: Add
+  id: 128
+  time: '2022-11-29T23:23:32.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a large salvage map to rotation.
+    type: Add
+  id: 129
+  time: '2022-11-30T00:03:33.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added more slots for various roles and removed max players.
+    type: Tweak
+  - message: Extended the solar array arms for better exposure.
+    type: Fix
+  - message: Moved salvage dock to prevent evac shuttle from docking at salvage.
+    type: Fix
+  id: 130
+  time: '2022-11-30T02:04:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You need hands to toggle power.
+    type: Fix
+  - message: Changed lots of fugitive text to make it clearer which entities are hunting
+      them and that they are preferably captured alive.
+    type: Tweak
+  - message: Tweaked fugitive event parameters a bit more.
+    type: Tweak
+  - message: Fugitive reports no longer spawn on admin ghosts.
+    type: Fix
+  - message: Fugitives are a proper role (not selectable, but they show up correctly
+      in UI as fugitives.)
+    type: Add
+  - message: Fugitives show up in the round screen.
+    type: Add
+  - message: Added visual effect for noospheric zap power.
+    type: Add
+  - message: Noospheric zap power ranged halved.
+    type: Tweak
+  id: 131
+  time: '2022-11-30T21:56:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The artifact analyzer's amount of glimmer generated can be upgraded with
+      better manipulators.
+    type: Add
+  - message: Artifact analyzer base glimmer generation increased.
+    type: Tweak
+  id: 132
+  time: '2022-12-01T00:02:19.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The AME now sends low fuel warnings over engineering radio.
+    type: Add
+  id: 133
+  time: '2022-12-01T00:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Moved moth wings sprite layer down. This leads to more correct rendering,
+      but introduces a smaller amount of other rendering errors, particularly when
+      facing north. A special solution will need to be coded to fully resolve this
+      issue.
+    type: Tweak
+  id: 134
+  time: '2022-12-01T02:21:08.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed the issue where people would spawn at arrivals shuttle
+      at the beginning of the round. Report if it happens again.
+    type: Fix
+  id: 135
+  time: '2022-12-01T05:12:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a whitelist EUI for ghost roles.
+    type: Add
+  id: 136
+  time: '2022-12-01T06:02:15.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Locked roles are now displayed properly for players who are not whitelisted.
+    type: Fix
+  id: 137
+  time: '2022-12-01T19:20:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed arachne flammable visuals
+    type: Fix
+  - message: Added wood golems.
+    type: Add
+  id: 138
+  time: '2022-12-01T21:05:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed max occurences from all our events, too. Enjoy.
+    type: Tweak
+  id: 139
+  time: '2022-12-02T18:40:54.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added mail network.
+    type: Add
+  - message: Made various changes to Engineering and Salvage. Dorms are now shared.
+    type: Tweak
+  - message: Removed tattered bedsheet.
+    type: Remove
+  id: 140
+  time: '2022-12-02T18:46:24.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Adds Ovni Station to the game!
+    type: Add
+  id: 141
+  time: '2022-12-03T16:34:46.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: References to Salvage Specialist have been adjusted to their proper name
+      of Salvage Technician.
+    type: Tweak
+  id: 142
+  time: '2022-12-03T18:39:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Various fixes for serious issues related to power, lighting, emergency
+      lighting, and missing jobspawns
+    type: Fix
+  id: 143
+  time: '2022-12-05T14:12:24.0000000+00:00'
+- author: Leander-0
+  changes:
+  - message: rebalance of most of the melee weapons
+    type: Tweak
+  id: 144
+  time: '2022-12-05T17:50:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed RF sensitivity power. Current radio has no range and goes across
+      maps so it's impossible to balance.
+    type: Remove
+  - message: Oracle will no longer ask for power cells.
+    type: Fix
+  - message: Fixed credits button.
+    type: Fix
+  - message: Moths should be carriable like other species now.
+    type: Fix
+  id: 145
+  time: '2022-12-05T18:24:25.0000000+00:00'
+- author: fallingmonkey
+  changes:
+  - message: Added new medium salvage map!
+    type: Add
+  id: 146
+  time: '2022-12-06T20:25:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Salvage tech has an antag penalty equal to engineer.
+    type: Tweak
+  - message: Removed unused uniforms from uniform printer.
+    type: Remove
+  id: 147
+  time: '2022-12-06T20:24:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants now follow the rat king around.
+    type: Add
+  - message: Rat servants are neutral by default.
+    type: Tweak
+  - message: The rat king can toggle his servants are neutral or hostile.
+    type: Tweak
+  id: 148
+  time: '2022-12-06T20:23:25.0000000+00:00'
+- author: Leander-0
+  changes:
+  - message: Kudzu will grow a lot more slowly.
+    type: Tweak
+  id: 149
+  time: '2022-12-06T23:56:54.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added vampire spiders.
+    type: Add
+  id: 150
+  time: '2022-12-07T04:10:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed oneirophage spawners being visible.
+    type: Fix
+  - message: Tweaked a few other things with them.
+    type: Fix
+  - message: Reduced metapsionic pulse range to 6 so it's slightly easier to tell
+      if it's nearby.
+    type: Tweak
+  id: 151
+  time: '2022-12-07T16:24:06.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: You will no longer stun yourself with melee attacks.
+    type: Tweak
+  id: 152
+  time: '2022-12-07T18:30:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Noospheric storm scales with intensity in survival mode.
+    type: Tweak
+  - message: Tortuga min players bumped up to 50.
+    type: Tweak
+  - message: Arachne webs are now world target actions.
+    type: Tweak
+  - message: Rat servant pathfinding seems slightly better.
+    type: Fix
+  id: 153
+  time: '2022-12-07T20:01:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added prisoner role.
+    type: Add
+  - message: 'Gladiators are a type of prisoner and will spawn in their cell. Announcement
+      system SOON:tm:'
+    type: Tweak
+  id: 154
+  time: '2022-12-07T20:33:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophage injects more venom, but has a lower reserve it will burn
+      through faster.
+    type: Tweak
+  - message: Webs have an uglier but better for gameplay drawdepth.
+    type: Fix
+  id: 155
+  time: '2022-12-08T01:27:22.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added cocoons.
+    type: Add
+  id: 156
+  time: '2022-12-09T00:14:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Carrying checks are much more robust now.
+    type: Fix
+  id: 157
+  time: '2022-12-09T19:28:42.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Blunt damage will do 1:1 stamina damage now
+    type: Tweak
+  - message: Most objects/weapons will cost less stamina to swing
+    type: Tweak
+  id: 158
+  time: '2022-12-09T21:47:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Prisoners and gladiators spawn with a PDA (without access) and headset.
+    type: Add
+  id: 159
+  time: '2022-12-09T22:22:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with cocooning items
+    type: Fix
+  - message: Metapsionic pulse no longer spams messages.
+    type: Fix
+  - message: Minimum cocoon size turned up a little bit for visuals.
+    type: Tweak
+  - message: Metapsionic pulse range reduced to 5 (this is a buff.)
+    type: Tweak
+  - message: All antags require whitelist now. Character preferences UI has been updated
+      to reflect this.
+    type: Tweak
+  id: 160
+  time: '2022-12-09T22:47:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a bug with the cocoon doafter.
+    type: Fix
+  id: 161
+  time: '2022-12-10T00:12:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Your identity will now display if you are trying to use someone else's
+      identity and failing. Simple PDA theft is now much easier to catch.
+    type: Add
+  id: 162
+  time: '2022-12-10T02:17:27.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Flaregun Nerfed
+    type: Tweak
+  id: 163
+  time: '2022-12-10T04:00:04.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new security outpost.
+    type: Add
+  - message: Added new maintenance shaft and external access by the medical outpost.
+    type: Add
+  - message: Added more room to Perma.
+    type: Add
+  - message: Made northwest external access into essentially an engineer outpost.
+    type: Tweak
+  - message: Changed a few APCs around Arrivals.
+    type: Tweak
+  - message: Removed a few Banditos.
+    type: Remove
+  id: 164
+  time: '2022-12-10T21:37:45.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Various improvements to Lighthouse
+    type: Add
+  id: 165
+  time: '2022-12-10T21:37:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Possibly fixed maps getting yeeted to nullspace...
+    type: Fix
+  id: 166
+  time: '2022-12-11T01:44:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: For balance concerns and a serious bug found, nuke ops no longer require
+      whitelist.
+    type: Remove
+  id: 167
+  time: '2022-12-11T03:29:32.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added new round end sound.
+    type: Add
+  id: 168
+  time: '2022-12-11T07:28:13.0000000+00:00'
+- author: Faye
+  changes:
+  - message: Added special space backgrounds for Angle, Lighthouse, one for both Ovni
+      and Pebble, and Tortuga!
+    type: Add
+  id: 169
+  time: '2022-12-11T18:46:15.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Added a slowdown from exhaustion at 90% stamina damage.
+    type: Tweak
+  id: 170
+  time: '2022-12-11T22:25:12.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added new sprites for the Oracle.
+    type: Add
+  id: 171
+  time: '2022-12-11T22:33:37.0000000+00:00'
+- author: Huvy
+  changes:
+  - message: Added eight new posters.
+    type: Add
+  id: 172
+  time: '2022-12-11T23:21:16.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a significant amount of content to the east maints/spacewalk area.
+    type: Add
+  - message: Added fire extinguishers to the fire extinguisher cabinets.
+    type: Fix
+  id: 173
+  time: '2022-12-12T03:42:05.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Broke my rule not to commit on weekends. I fetched upstream and cherry-picked
+      a bunch so I could fix a possible NPC bug we had and get a head start for tomorrow.
+      Also, there's faxes now.
+    type: Add
+  id: 174
+  time: '2022-12-12T04:32:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added some additional admin logs.
+    type: Add
+  - message: You can no longer see spiders spinning webs through walls.
+    type: Fix
+  - message: Mice will no longer gain the ability to speak after being freed from
+      a cocoon.
+    type: Fix
+  - message: Fixed sacrificial altar's handling of SSD people.
+    type: Fix
+  - message: Salvage technicians spawn with the proper backpack.
+    type: Fix
+  id: 175
+  time: '2022-12-12T21:31:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oracle no longer directly grants psychic powers.
+    type: Remove
+  - message: Oracle dispenses reagents as rewards.
+    type: Add
+  - message: Fixed several issues with Oracle's reagent handling.
+    type: Fix
+  - message: Oracle is now grammatically a feminine proper noun.
+    type: Tweak
+  id: 176
+  time: '2022-12-12T21:51:19.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Moved morgue air alarm.
+    type: Fix
+  id: 177
+  time: '2022-12-13T02:48:51.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Emergency shuttle arrival times have been increased for most alert levels
+      to be closer to typical SS13 server values.
+    type: Tweak
+  id: 178
+  time: '2022-12-13T03:23:04.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You can no longer see gasping through walls.
+    type: Fix
+  id: 179
+  time: '2022-12-13T03:34:36.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Whitelisted nuclear operatives have been restored.
+    type: Fix
+  - message: Roundstart spawning should be a bit faster.
+    type: Fix
+  - message: Whitelist restrictions actually only apply when whitelist is enabled...
+    type: Fix
+  id: 180
+  time: '2022-12-13T04:20:29.0000000+00:00'
+- author: Rane
+  changes:
+  - message: More roles are available to unwhitelisted players.
+    type: Tweak
+  - message: Enabled security cadets to round out security slightly.
+    type: Add
+  id: 181
+  time: '2022-12-13T04:54:00.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Non-whitelisted players can play mice and hamsters and so on.
+    type: Add
+  - message: You should get more instant updates on your whitelist status.
+    type: Fix
+  id: 182
+  time: '2022-12-13T05:53:58.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Okay, your client has the correct whitelist status this time (real.)
+    type: Fix
+  id: 183
+  time: '2022-12-13T09:06:07.0000000+00:00'
+- author: Androofroo
+  changes:
+  - message: Added new content to Ovni.
+    type: Add
+  - message: Fixed several issues with Ovni.
+    type: Fix
+  id: 184
+  time: '2022-12-13T19:40:31.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Fax machines to pebble
+    type: Add
+  id: 185
+  time: '2022-12-13T19:39:41.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added new content to Angle.
+    type: Add
+  id: 186
+  time: '2022-12-13T19:41:03.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed links to the wiki in books.
+    type: Fix
+  - message: Fixed the physical description of ichor.
+    type: Fix
+  id: 187
+  time: '2022-12-13T19:43:59.0000000+00:00'
+- author: Emisse
+  changes:
+  - message: Added a fax machine to CentComm for admin use.
+    type: Add
+  id: 188
+  time: '2022-12-13T20:42:34.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Arachne bodies are accurately modeled now.
+    type: Add
+  id: 189
+  time: '2022-12-13T21:40:30.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - message: Tortuga Outpost Update
+    type: Add
+  id: 190
+  time: '2022-12-13T23:07:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a minor UI bug when there were no ghost roles available to you
+      but some locked behind whitelist.
+    type: Fix
+  id: 191
+  time: '2022-12-13T23:49:59.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added some small improvements to laws menu. I still can't get a background
+      on them working...
+    type: Tweak
+  id: 192
+  time: '2022-12-14T00:03:56.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Admins can add or remove laws at specific indicies.
+    type: Add
+  id: 193
+  time: '2022-12-14T01:39:25.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Non-whitelisted users can now play as PAIs.
+    type: Add
+  id: 194
+  time: '2022-12-14T01:53:31.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Engineering lathe is up to date on what electronics it can print.
+    type: Fix
+  id: 195
+  time: '2022-12-14T02:38:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed some bad checks for oneirophages exiting webs.
+    type: Fix
+  id: 196
+  time: '2022-12-14T21:03:17.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Mime powers count as psionics now.
+    type: Tweak
+  id: 197
+  time: '2022-12-14T21:19:50.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oracle will no longer ask for any items that could take solutions from
+      her fountain.
+    type: Fix
+  id: 198
+  time: '2022-12-14T21:58:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Reduced dispel and pyrokinesis to 6 tile range. Neither check blockers.
+    type: Tweak
+  - message: The stutter from getting zapped by unsulated gloves has been reduced.
+    type: Tweak
+  - message: Force walls can be dispelled.
+    type: Fix
+  id: 199
+  time: '2022-12-15T00:06:58.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophages have the same damage modifier sets as arachne.
+    type: Tweak
+  id: 200
+  time: '2022-12-15T00:08:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'Deleted all weapons with the melee bug from maps. Report anything that
+      should get readded in the #mapping channel in discord.'
+    type: Remove
+  - message: Removes the banned nitrous oxide miner from Arena.
+    type: Remove
+  id: 201
+  time: '2022-12-15T00:20:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added new death text.
+    type: Add
+  id: 202
+  time: '2022-12-15T03:48:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added death gasps.
+    type: Add
+  - message: Added new effects to critical glimmer level.
+    type: Add
+  id: 203
+  time: '2022-12-15T04:23:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed inconsistencies between mime wall and other psionics.
+    type: Fix
+  - message: Removed the deprecated 'science headset' that appears in a few places.
+    type: Remove
+  - message: Might have fixed some ghost visibility issues...
+    type: Fix
+  - message: Borgs have the Nanotrasen faction.
+    type: Fix
+  - message: Doubled metabolism rate of lotophagoi oil.
+    type: Tweak
+  - message: Increased the chance Oracle picks a random chem from the entire pool.
+    type: Tweak
+  - message: Fixed organic non-humanoid mobs being immune to vision effects.
+    type: Fix
+  id: 204
+  time: '2022-12-15T21:46:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Separated UI is now the default.
+    type: Tweak
+  - message: The chatbox cedes as much space as it can to the viewport for separated
+      UI.
+    type: Tweak
+  id: 205
+  time: '2022-12-15T22:28:40.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Death gasps conceal identity.
+    type: Fix
+  - message: Severed telegnostic projections can be dispelled.
+    type: Fix
+  - message: The popup for fugitive spawn no longer appears through walls.
+    type: Fix
+  - message: Reduced volume of fugitives spawning.
+    type: Tweak
+  id: 206
+  time: '2022-12-16T23:00:35.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made several minor QoL changes to Angle.
+    type: Tweak
+  id: 207
+  time: '2022-12-17T18:01:33.0000000+00:00'

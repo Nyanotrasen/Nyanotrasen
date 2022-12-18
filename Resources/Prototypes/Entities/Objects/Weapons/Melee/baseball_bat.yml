@@ -10,7 +10,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 14
+        Blunt: 9
+  - type: StaminaDamageOnHit
+    damage: 15.5
   - type: Item
     size: 15
   - type: Clothing

@@ -44,8 +44,8 @@ action-name-psionic-regeneration = Psionic Regeneration
 action-description-psionic-regeneration = Push your natural metabolism to the limit to power your body's regenerative capability.
 
 glimmer-report = Current Glimmer Level: {$level}Ψ.
-glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}μΨ.
-glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}μΨ.
+glimmer-event-report-generic = Noöspheric discharge detected. Glimmer level has decreased by {$decrease} to {$level}Ψ.
+glimmer-event-report-signatures = New psionic signatures manifested. Glimmer level has decreased by {$decrease} to {$level}Ψ.
 glimmer-event-awakened-prefix = awakened {$entity}
 
 noospheric-zap-seize = You seize up!
@@ -65,3 +65,6 @@ action-description-noospheric-zap = Shocks the conciousness of the target and le
 action-name-pyrokinesis = Pyrokinesis
 action-description-pyrokinesis = Light a flammable target on fire.
 pyrokinesis-power-used = A wisp of flame engulfs {THE($target)}, igniting {OBJECT($target)}!
+
+action-name-rf-sensitivity = Toggle RF Sensitivity
+action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and off.

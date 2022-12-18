@@ -14,11 +14,17 @@
     size: 9999
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.9
     damage:
       types:
-        Blunt: 10
+        Blunt: 9
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
+  - type: StaminaDamageOnHit
+    damage: 13.5
+  - type: MeleeStaminaCost
+    swing: 10
+    hit: 10
   - type: Tag
     tags:
       - DroneUsable
@@ -87,7 +93,10 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
+        Blunt: 12
+  - type: StaminaDamageOnHit
+    damage: 22.5
+
 
 - type: entity
   name: golden toolbox
@@ -100,3 +109,12 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+  - type: StaminaDamageOnHit
+    damage: 20

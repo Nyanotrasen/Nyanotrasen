@@ -53,7 +53,6 @@ namespace Content.Client.Preferences.UI
         private readonly IEntityManager _entMan;
         private readonly IConfigurationManager _configurationManager;
         private readonly MarkingManager _markingManager;
-
         private LineEdit _ageEdit => CAgeEdit;
         private LineEdit _nameEdit => CNameEdit;
         private LineEdit _flavorTextEdit = null!;
@@ -470,24 +469,44 @@ namespace Content.Client.Preferences.UI
 
             _antagPreferences = new List<AntagPreferenceSelector>();
 
-            foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => a.Name))
+            if (playTime.IsWhitelisted() || !_configurationManager.GetCVar(CCVars.WhitelistEnabled))
             {
-                if (!antag.SetPreference)
+                foreach (var antag in prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => a.Name))
                 {
-                    continue;
+                    if (!antag.SetPreference)
+                    {
+                        continue;
+                    }
+
+                    var selector = new AntagPreferenceSelector(antag);
+                    _antagList.AddChild(selector);
+                    _antagPreferences.Add(selector);
+
+                    selector.PreferenceChanged += preference =>
+                    {
+                        Profile = Profile?.WithAntagPreference(antag.ID, preference);
+                        IsDirty = true;
+                    };
                 }
+            }
+            else
+            {
+                _antagList.Margin = new Thickness (0, 0, 0, 10);
+                var whitelistLabel = new Label();
+                whitelistLabel.Text = Loc.GetString("roles-antag-not-whitelisted");
+                _antagList.AddChild(whitelistLabel);
 
-                var selector = new AntagPreferenceSelector(antag);
-                _antagList.AddChild(selector);
-                _antagPreferences.Add(selector);
+                var whitelistButton = new Button();
+                whitelistButton.Text = Loc.GetString("ui-escape-discord");
+                _antagList.AddChild(whitelistButton);
 
-                selector.PreferenceChanged += preference =>
+                var uri = IoCManager.Resolve<IUriOpener>();
+
+                whitelistButton.OnPressed += _ =>
                 {
-                    Profile = Profile?.WithAntagPreference(antag.ID, preference);
-                    IsDirty = true;
+                    uri.OpenUri(_configurationManager.GetCVar(CCVars.InfoLinksDiscord));
                 };
             }
-
             #endregion Antags
 
             #region Traits

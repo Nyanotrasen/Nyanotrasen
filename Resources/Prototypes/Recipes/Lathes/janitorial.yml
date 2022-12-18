@@ -47,7 +47,7 @@
 
 - type: latheRecipe
   id: TrashBag
-  icon: Objects/Specific/Janitorial/trashbag.rsi
+  icon: { sprite: Objects/Specific/Janitorial/trashbag.rsi, state: icon-3 }
   result: TrashBag
   completetime: 1.2
   materials:
@@ -55,7 +55,7 @@
 
 - type: latheRecipe
   id: LightReplacer
-  icon: Objects/Specific/Janitorial/light_replacer.rsi
+  icon: { sprite: Objects/Specific/Janitorial/light_replacer.rsi, state: icon }
   result: LightReplacer
   completetime: 2.4
   materials:
