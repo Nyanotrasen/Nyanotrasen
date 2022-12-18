@@ -76,7 +76,6 @@
   - !type:PlantAdjustPests
     amount: 2
 
-
 - type: reagent
   id: Blackpepper
   name: reagent-name-blackpepper
@@ -119,31 +118,19 @@
       - !type:SatiateHunger
 
 - type: reagent
-  id: OilOlive
-  name: reagent-name-oil-olive
+  id: Butter
+  name: reagent-name-butter
   group: Foods
-  desc: reagent-desc-oil-olive
-  physicalDesc: reagent-physical-desc-oily
-  flavor: oily
-  color: olive
+  desc: reagent-desc-butter
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: butter
+  color: yellow
+  meltingPoint: 32.0
+  boilingPoint: 100.0
   metabolisms:
     Food:
       effects:
       - !type:SatiateHunger
-        factor: 1
-
-- type: reagent
-  id: Oil
-  name: reagent-name-oil
-  group: Foods
-  desc: reagent-desc-oil
-  physicalDesc: reagent-physical-desc-oily
-  flavor: oily
-  color: "#b67823"
-  boilingPoint: 300.0
-  meltingPoint: -16.0
-  tileReactions:
-  - !type:FlammableTileReaction {}
 
 - type: reagent
   id: CapsaicinOil

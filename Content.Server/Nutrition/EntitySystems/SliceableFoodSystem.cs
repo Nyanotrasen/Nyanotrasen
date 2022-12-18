@@ -1,6 +1,5 @@
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Server.Hands.Components;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Examine;
@@ -9,7 +8,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 
 namespace Content.Server.Nutrition.EntitySystems
 {
@@ -18,6 +16,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
         public override void Initialize()
         {
@@ -56,6 +55,11 @@ namespace Content.Server.Nutrition.EntitySystems
                 return false;
             }
 
+            var attemptEvent = new SliceFoodAttemptEvent(user, usedItem, uid);
+            RaiseLocalEvent(uid, attemptEvent);
+            if (attemptEvent.Cancelled)
+                return false;
+
             var sliceUid = EntityManager.SpawnEntity(component.Slice, transform.Coordinates);
 
             var lostSolution = _solutionContainerSystem.SplitSolution(uid, solution,
@@ -76,10 +80,13 @@ namespace Content.Server.Nutrition.EntitySystems
                 xform.LocalRotation = 0;
             }
 
-            SoundSystem.Play(component.Sound.GetSound(), Filter.Pvs(uid),
-                transform.Coordinates, AudioParams.Default.WithVolume(-2));
+            _audioSystem.PlayPvs(component.Sound, uid, AudioParams.Default.WithVolume(-2f));
 
             component.Count--;
+
+            var sliceEvent = new SliceFoodEvent(user, usedItem, uid, sliceUid);
+            RaiseLocalEvent(uid, sliceEvent);
+
             // If someone makes food proto with 1 slice...
             if (component.Count < 1)
             {
@@ -106,6 +113,9 @@ namespace Content.Server.Nutrition.EntitySystems
                 _containerSystem.AttachParentToContainerOrGrid(xform);
                 xform.LocalRotation = 0;
             }
+
+            var sliceSplitEvent = new SliceFoodEvent(user, usedItem, uid, sliceUid);
+            RaiseLocalEvent(uid, sliceSplitEvent);
 
             EntityManager.DeleteEntity(uid);
             return true;
@@ -136,6 +146,66 @@ namespace Content.Server.Nutrition.EntitySystems
         private void OnExamined(EntityUid uid, SliceableFoodComponent component, ExaminedEvent args)
         {
             args.PushMarkup(Loc.GetString("sliceable-food-component-on-examine-remaining-slices-text", ("remainingCount", component.Count)));
+        }
+    }
+
+    public sealed class SliceFoodAttemptEvent : CancellableEntityEventArgs
+    {
+        /// <summary>
+        /// Who's doing the slicing?
+        /// <summary>
+        public EntityUid User;
+
+        /// <summary>
+        /// What's doing the slicing?
+        /// <summary>
+        public EntityUid Tool;
+
+        /// <summary>
+        /// What's being sliced?
+        /// <summary>
+        public EntityUid Food;
+
+        public SliceFoodAttemptEvent(EntityUid user, EntityUid tool, EntityUid food)
+        {
+            User = user;
+            Tool = tool;
+            Food = food;
+        }
+    }
+
+    public sealed class SliceFoodEvent : EntityEventArgs
+    {
+        /// <summary>
+        /// Who did the slicing?
+        /// <summary>
+        public EntityUid User;
+
+        /// <summary>
+        /// What did the slicing?
+        /// <summary>
+        public EntityUid Tool;
+
+        /// <summary>
+        /// What has been sliced?
+        /// <summary>
+        /// <remarks>
+        /// This could soon be deleted if there was not enough food left to
+        /// continue slicing.
+        /// </remarks>
+        public EntityUid Food;
+
+        /// <summary>
+        /// What is the slice?
+        /// <summary>
+        public EntityUid Slice;
+
+        public SliceFoodEvent(EntityUid user, EntityUid tool, EntityUid food, EntityUid slice)
+        {
+            User = user;
+            Tool = tool;
+            Food = food;
+            Slice = slice;
         }
     }
 }

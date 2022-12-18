@@ -12,6 +12,10 @@
   - Hydroponics
   - Bar
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ProfessionalChef
 
 - type: startingGear
   id: ChefGear
