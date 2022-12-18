@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -32,6 +33,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
+using Content.Shared.Audio;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
@@ -222,7 +224,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
         }
 
-        public void UpdateUserInterface(EntityUid uid, DeepFryerComponent component)
+        private void UpdateUserInterface(EntityUid uid, DeepFryerComponent component)
         {
             var state = new DeepFryerBoundUserInterfaceState(
                 GetOilLevel(uid, component),
@@ -232,6 +234,30 @@ namespace Content.Server.Kitchen.EntitySystems
 
             if (!_uiSystem.TrySetUiState(uid, DeepFryerUiKey.Key, state))
                 _sawmill.Warning($"{ToPrettyString(uid)} was unable to set UI state.");
+        }
+
+        /// <summary>
+        /// Does the deep fryer have hot oil?
+        /// </summary>
+        /// <remarks>
+        /// This is mainly for audio.
+        /// </remarks>
+        private bool HasBubblingOil(EntityUid uid, DeepFryerComponent component)
+        {
+            return _powerReceiverSystem.IsPowered(uid) && GetOilVolume(uid, component) > FixedPoint2.Zero;
+        }
+
+        private void UpdateAmbientSound(EntityUid uid, DeepFryerComponent component)
+        {
+            if (TryComp<AmbientSoundComponent>(uid, out var ambientSoundComponent))
+            {
+                bool enabled = HasBubblingOil(uid, component);
+                if (enabled != ambientSoundComponent.Enabled)
+                {
+                    ambientSoundComponent.Enabled = enabled;
+                    Dirty(ambientSoundComponent);
+                }
+            }
         }
 
         private void UpdateNextFryTime(EntityUid uid, DeepFryerComponent component)
@@ -481,6 +507,8 @@ namespace Content.Server.Kitchen.EntitySystems
                 if (deepFriedComponent.Crispiness > MaximumCrispiness)
                     BurnItem(uid, component, item);
 
+                // TODO: Smoke, waste, sound, or some indication.
+
                 return;
             }
 
@@ -562,11 +590,16 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             UpdateNextFryTime(uid, component);
             UpdateUserInterface(uid, component);
+
+            if (HasBubblingOil(uid, component))
+                _audioSystem.PlayPvs(component.SoundInsertItem, uid,
+                    AudioParams.Default.WithVariation(0.2f));
         }
 
         private void OnPowerChange(EntityUid uid, DeepFryerComponent component, ref PowerChangedEvent args)
         {
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
+            UpdateAmbientSound(uid, component);
         }
 
         private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, MachineDeconstructedEvent args)
@@ -637,6 +670,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnSolutionChange(EntityUid uid, DeepFryerComponent component, SolutionChangedEvent args)
         {
             UpdateUserInterface(uid, component);
+            UpdateAmbientSound(uid, component);
         }
 
         private void OnRelayMovement(EntityUid uid, DeepFryerComponent component, ref ContainerRelayMovementEntityEvent args)
@@ -740,6 +774,9 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             UpdateUserInterface(component.Owner, component);
+
+            _audioSystem.PlayPvs(component.SoundRemoveItem, uid,
+                AudioParams.Default.WithVariation(0.2f));
         }
 
         private void OnInsertItem(EntityUid uid, DeepFryerComponent component, DeepFryerInsertItemMessage args)

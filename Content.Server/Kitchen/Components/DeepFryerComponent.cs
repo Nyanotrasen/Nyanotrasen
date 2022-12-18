@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -215,5 +216,19 @@ namespace Content.Server.Kitchen.Components
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("storagePerPartRating")]
         public int StoragePerPartRating = 4;
+
+        /// <summary>
+        /// What sound is played when an item is inserted into hot oil?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("soundInsertItem")]
+        public SoundSpecifier SoundInsertItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_add_item.ogg");
+
+        /// <summary>
+        /// What sound is played when an item is removed?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("soundRemoveItem")]
+        public SoundSpecifier SoundRemoveItem = new SoundPathSpecifier("/Audio/Machines/deepfryer_basket_remove_item.ogg");
     }
 }
