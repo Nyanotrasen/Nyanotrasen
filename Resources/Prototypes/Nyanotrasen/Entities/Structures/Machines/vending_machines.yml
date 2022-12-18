@@ -60,7 +60,7 @@
   - type: Advertise
     pack: DetDrobeAds
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/detdrobe.rsi
+    sprite: Structures/Machines/VendingMachines/mailvend.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -71,13 +71,12 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: WiresVisuals
   - type: AccessReader
-    access: [["Service"]]
-
+    access: [["Mail"]]
 - type: entity
   parent: VendingMachine
   id: VendingMachineBoxingDrobe
   name: Boxing Drobe
-  description: Always short on stock.
+  description: All you need to be a boxing station star.
   components:
   - type: VendingMachine
     pack: BoxingDrobeInventory
@@ -86,10 +85,34 @@
     layers:
     - state: off
       map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: normal-unshaded
+    - state: off
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Service"]]
+    - type: entity
+  parent: VendingMachine
+  id: VendingMachineLawDrobe
+  name: LawDrobe
+  description: Objection! This wardrobe dispenses the rule of law... and lawyer clothing..
+  components:
+  
+- type: VendingMachine
+    pack: MailDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/maildrobe.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Mail"]]
