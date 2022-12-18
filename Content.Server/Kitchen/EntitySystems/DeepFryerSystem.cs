@@ -205,6 +205,8 @@ namespace Content.Server.Kitchen.EntitySystems
                         component.Solution.AddReagent(reagent.ReagentId, reagent.Quantity * component.WasteToAdd);
 
                     component.WasteToAdd = FixedPoint2.Zero;
+
+                    _solutionContainerSystem.UpdateChemicals(uid, component.Solution, true);
                 }
 
                 UpdateUserInterface(uid, component);
@@ -293,6 +295,7 @@ namespace Content.Server.Kitchen.EntitySystems
             RemComp<SharedButcherableComponent>(item);
 
             var foodComponent = EnsureComp<FoodComponent>(item);
+            var extraSolution = new Solution();
             if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
             {
                 HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
@@ -305,6 +308,19 @@ namespace Content.Server.Kitchen.EntitySystems
                     1.0f
                     + goodFlavors.Count * component.GoodFlavorPriceBonus
                     - badFlavors.Count * component.BadFlavorPriceMalus);
+
+                if (goodFlavors.Count > 0)
+                    foreach (var reagent in component.GoodReagents)
+                    {
+                        extraSolution.AddReagent(reagent.ReagentId, reagent.Quantity * goodFlavors.Count);
+
+                        // Mask the taste of "medicine."
+                        flavorProfileComponent.IgnoreReagents.Add(reagent.ReagentId);
+                    }
+
+                if (badFlavors.Count > 0)
+                    foreach (var reagent in component.BadReagents)
+                        extraSolution.AddReagent(reagent.ReagentId, reagent.Quantity * badFlavors.Count);
             }
             else
             {
@@ -314,8 +330,13 @@ namespace Content.Server.Kitchen.EntitySystems
 
             // Make sure there's enough room for the fryer solution.
             var foodContainer = _solutionContainerSystem.EnsureSolution(item, foodComponent.SolutionName);
-            foodContainer.MaxVolume = foodContainer.MaxVolume + solutionQuantity - foodContainer.AvailableVolume;
+
+            // The solution quantity is used to give the fried food an extra
+            // buffer too, to support injectables or condiments.
+            foodContainer.MaxVolume = 2 * solutionQuantity + foodContainer.CurrentVolume + extraSolution.CurrentVolume;
             foodContainer.AddSolution(component.Solution.SplitSolution(solutionQuantity));
+            foodContainer.AddSolution(extraSolution);
+            _solutionContainerSystem.UpdateChemicals(item, foodContainer, true);
         }
 
         /// <summary>
@@ -847,11 +868,23 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             MakeCrispy(args.Slice);
 
-            // Copy the Crispiness value.
+            // Copy relevant values to the slice.
             var sourceDeepFriedComponent = Comp<DeepFriedComponent>(args.Food);
             var sliceDeepFriedComponent = Comp<DeepFriedComponent>(args.Slice);
 
             sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
+            sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
+
+            // TODO: Flavor profiles aren't copied to the slices. This should
+            // probably be handled on upstream, but for now let's assume the
+            // oil of the deep fryer is overpowering enough for this small
+            // hack. This is likely the only place where it would be useful.
+            if (TryComp<FlavorProfileComponent>(args.Food, out var sourceFlavorProfileComponent) &&
+                TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
+            {
+                sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
+                sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
+            }
         }
 
         private sealed class ClearSlagCompleteEvent : EntityEventArgs
