@@ -17,7 +17,7 @@ using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Construction;
-using Content.Server.Construction.Components;
+using Content.Server.Construction.Completions;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Ghost.Roles.Components;
@@ -548,7 +548,7 @@ namespace Content.Server.Kitchen.EntitySystems
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
         }
 
-        private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, MachineDeconstructedEvent args)
+        private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, ConstructionBeforeDeleteEvent args)
         {
             _spillableSystem.SpillAt(uid, component.Solution, "PuddleSmear");
         }
