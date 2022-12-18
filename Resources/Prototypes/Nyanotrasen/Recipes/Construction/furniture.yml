@@ -1,0 +1,16 @@
+- type: construction
+  name: reinforced wooden table
+  id: TableWoodReinforced
+  graph: Table
+  startNode: start
+  targetNode: TableWoodReinforced
+  category: construction-category-furniture
+  description: A square piece of wood standing on four wood legs. More robust than your average table.
+  icon:
+    sprite: Structures/Furniture/Tables/reinforcedwood.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
