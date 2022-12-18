@@ -18,14 +18,17 @@
     fillBaseName: off-
   - type: Anchorable
   - type: Pullable
+  - type: Rotatable
+    rotateWhilePulling: false
   - type: Physics
     bodyType: Static
+  - type: Climbable
   - type: Fixtures
     fixtures:
     - shape:
         !type:PhysShapeAabb
-        bounds: "-0.4,-0.2,0.4,0.2"
-      density: 400
+        bounds: "-0.30,-0.25,0.30,0.45"
+      density: 600
       mask:
       - MachineMask
       layer:
