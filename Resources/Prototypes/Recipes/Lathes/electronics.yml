@@ -390,6 +390,15 @@
      Glass: 900
 
 - type: latheRecipe
+  id: DeepFryerMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: DeepFryerMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
   id: SurveillanceCameraRouterCircuitboard
   icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: SurveillanceCameraRouterCircuitboard
