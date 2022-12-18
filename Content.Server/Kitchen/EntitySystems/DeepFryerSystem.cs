@@ -293,7 +293,7 @@ namespace Content.Server.Kitchen.EntitySystems
             RemComp<SharedButcherableComponent>(item);
 
             var foodComponent = EnsureComp<FoodComponent>(item);
-            if (TryComp(uid, out FlavorProfileComponent? flavorProfileComponent))
+            if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
             {
                 HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
                 goodFlavors.IntersectWith(component.GoodFlavors);
