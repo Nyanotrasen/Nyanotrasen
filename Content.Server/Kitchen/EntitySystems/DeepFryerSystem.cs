@@ -66,7 +66,6 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly FlammableSystem _flammableSystem = default!;
         [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
         [Dependency] private readonly IGameTiming _gameTimingSystem = default!;
@@ -130,7 +129,7 @@ namespace Content.Server.Kitchen.EntitySystems
         {
             base.Update(frameTime);
 
-            foreach (var component in _entityManager.EntityQuery<DeepFryerComponent>())
+            foreach (var component in EntityManager.EntityQuery<DeepFryerComponent>())
             {
                 var uid = component.Owner;
 
@@ -169,7 +168,7 @@ namespace Content.Server.Kitchen.EntitySystems
                                         component.Solution,
                                         proto!,
                                         reagent.Quantity,
-                                        _entityManager,
+                                        EntityManager,
                                         null,
                                         1f));
                             }
@@ -523,7 +522,7 @@ namespace Content.Server.Kitchen.EntitySystems
             // just in case the attempt is relevant to any system in the future.
             //
             // The blacklist overrides all.
-            if (component.Blacklist != null && component.Blacklist.IsValid(item, _entityManager))
+            if (component.Blacklist != null && component.Blacklist.IsValid(item, EntityManager))
             {
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-blacklist-item-failed",
@@ -553,7 +552,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 component.Solution.CurrentVolume,
                 itemComponent.Size * component.SolutionSizeCoefficient);
 
-            if (component.Whitelist != null && component.Whitelist.IsValid(item, _entityManager) ||
+            if (component.Whitelist != null && component.Whitelist.IsValid(item, EntityManager) ||
                 beingEvent.TurnIntoFood)
             {
                 MakeEdible(uid, component, item, solutionQuantity);
@@ -610,7 +609,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnDestruction(EntityUid uid, DeepFryerComponent component, DestructionEventArgs args)
         {
-            _containerSystem.EmptyContainer(component.Storage, true, Transform(uid).Coordinates, true, _entityManager);
+            _containerSystem.EmptyContainer(component.Storage, true, Transform(uid).Coordinates, true, EntityManager);
         }
 
         private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args)
@@ -675,12 +674,12 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnRelayMovement(EntityUid uid, DeepFryerComponent component, ref ContainerRelayMovementEntityEvent args)
         {
-            if (!component.Storage.Remove(args.Entity, _entityManager, destination: Transform(uid).Coordinates))
+            if (!component.Storage.Remove(args.Entity, EntityManager, destination: Transform(uid).Coordinates))
                 return;
 
             _popupSystem.PopupEntity(
                 Loc.GetString("deep-fryer-entity-escape",
-                    ("victim", Identity.Entity(args.Entity, _entityManager)),
+                    ("victim", Identity.Entity(args.Entity, EntityManager)),
                     ("deepFryer", uid)),
                 uid,
                 Filter.Pvs(uid),
