@@ -155,10 +155,9 @@
       80: 0.5
   - type: Appearance
     visuals:
-      - type: RotationVisualizer
-      - type: BuckleVisualizer
       - type: CreamPiedVisualizer
         state: creampie_human
+  - type: RotationVisuals
   - type: CombatMode
     canDisarm: true
   - type: Climbing
