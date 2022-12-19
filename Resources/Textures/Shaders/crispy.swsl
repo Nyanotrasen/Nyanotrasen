@@ -336,16 +336,16 @@ void fragment()
     highp vec3 browning3 = vec3(0.85, 0.57, 0.26);
     highp vec3 oily = vec3(0.05, 0.03, 0.0);
 
-    highp vec3 output = base.rgb;
+    highp vec3 product = base.rgb;
 
-    output = rgb2hsv(output);
-    output.x = 0.095;
-    output = hsv2rgb(output);
-    output = blendOverlay(output, browning3, 1.0);
+    product = rgb2hsv(product);
+    product.x = 0.095;
+    product = hsv2rgb(product);
+    product = blendOverlay(product, browning3, 1.0);
 
-    output = blendLinearBurn(output, browning * snoise((UV * 30.0)), 0.2);
-    output = blendLinearBurn(output, edges, 0.6);
-    output = blendOverlay(output, browning3 * snoise(round(UV * 50.0)), 0.2);
+    product = blendLinearBurn(product, browning * snoise((UV * 30.0)), 0.2);
+    product = blendLinearBurn(product, edges, 0.6);
+    product = blendOverlay(product, browning3 * snoise(round(UV * 50.0)), 0.2);
 
-    COLOR = vec4(output, base.a);
+    COLOR = vec4(product, base.a);
 }
