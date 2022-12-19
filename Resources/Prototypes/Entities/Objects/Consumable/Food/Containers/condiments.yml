@@ -106,7 +106,7 @@
 
 - type: entity
   parent: BaseFoodCondimentPacket
-  id: FoodCondimentPacketCornoil
+  id: FoodCondimentPacketOilCorn
   name: corn oil
   description: Corn oil. A delicious oil used in cooking. Made from corn.
   components:
@@ -115,7 +115,7 @@
       food:
         maxVol: 10
         reagents:
-        - ReagentId: Cornoil
+        - ReagentId: OilCorn
           Quantity: 10
   - type: Sprite
     layers:

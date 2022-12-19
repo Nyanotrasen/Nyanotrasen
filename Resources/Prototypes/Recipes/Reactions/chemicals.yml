@@ -25,7 +25,7 @@
       amount: 1
     Chlorine:
       amount: 1
-    Oil:
+    MotorOil:
       amount: 1
   products:
     Phenol: 3
@@ -33,7 +33,7 @@
 - type: reaction
   id: Acetone
   reactants:
-    Oil:
+    MotorOil:
       amount: 1
     WeldingFuel:
       amount: 1
@@ -246,7 +246,7 @@
     UnstableMutagen: 3
 
 - type: reaction
-  id: Oil
+  id: MotorOil
   reactants:
     WeldingFuel:
       amount: 1
@@ -255,7 +255,7 @@
     Hydrogen:
       amount: 1
   products:
-    Oil: 3
+    MotorOil: 3
 
 - type: reaction
   id: Fluorosurfactant
@@ -290,7 +290,7 @@
   id: Ephedrine
   impact: Medium
   reactants:
-    Oil:
+    MotorOil:
       amount: 1
     Hydrogen:
       amount: 1
