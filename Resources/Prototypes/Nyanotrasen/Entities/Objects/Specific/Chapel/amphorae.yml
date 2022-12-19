@@ -44,8 +44,9 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10
+        damage: 5
       behaviors:
+      # TODO: Spawn potsherds.
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
