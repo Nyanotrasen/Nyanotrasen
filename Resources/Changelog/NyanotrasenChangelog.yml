@@ -1878,3 +1878,14 @@ Entries:
     type: Add
   id: 212
   time: '2022-12-19T02:41:21.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added deep fryers.
+    type: Add
+  - message: Cooking oils are available in the kitchen supplies crate.
+    type: Add
+  - message: Butter can be put in the reagent grinder then processed with heat into
+      ghee.
+    type: Tweak
+  id: 213
+  time: '2022-12-19T02:46:19.0000000+00:00'
