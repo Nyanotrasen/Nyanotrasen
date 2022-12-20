@@ -645,6 +645,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnPowerChange(EntityUid uid, DeepFryerComponent component, ref PowerChangedEvent args)
         {
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
+            UpdateNextFryTime(uid, component);
             UpdateAmbientSound(uid, component);
         }
 
