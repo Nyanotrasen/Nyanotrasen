@@ -1,3 +1,4 @@
+using System.Linq;
 using Robust.Client.GameObjects;
 using static Robust.Client.GameObjects.SpriteComponent;
 using Content.Client.Kitchen.Components;
@@ -27,7 +28,8 @@ namespace Content.Client.Kitchen.Visualizers
             if (!args.Component.TryGetData(DeepFriedVisuals.Fried, out bool isFried))
                 return;
 
-            args.Sprite.LayerSetShader(0, ShaderName);
+            for (var i = 0; i < args.Sprite.AllLayers.Count(); ++i)
+                args.Sprite.LayerSetShader(i, ShaderName);
         }
 
         private void OnHeldVisualsUpdated(EntityUid uid, DeepFriedComponent component, HeldVisualsUpdatedEvent args)
@@ -46,7 +48,6 @@ namespace Content.Client.Kitchen.Visualizers
                     continue;
 
                 sprite.LayerSetShader(index, ShaderName);
-
             }
         }
 
