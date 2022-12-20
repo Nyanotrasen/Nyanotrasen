@@ -611,8 +611,6 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnInitDeepFryer(EntityUid uid, DeepFryerComponent component, ComponentInit args)
         {
-            UpdateNextFryTime(uid, component);
-
             component.Storage = _containerSystem.EnsureContainer<Container>(uid, component.StorageName, out bool containerExisted);
 
             if (!containerExisted)
