@@ -916,7 +916,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (component.Storage.ContainedEntities.Count == 0)
                 return;
 
-            _containerSystem.EmptyContainer(component.Storage);
+            _containerSystem.EmptyContainer(component.Storage, false, Transform(uid).Coordinates, true, EntityManager);
 
             var user = args.Session.AttachedEntity;
 
