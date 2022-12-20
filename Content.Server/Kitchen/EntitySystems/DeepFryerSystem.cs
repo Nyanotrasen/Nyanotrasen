@@ -91,7 +91,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private static readonly float CookingDamageAmount = 10.0f;
         private static readonly float PvsWarningRange = 0.5f;
         private static readonly float ThrowMissChance = 0.25f;
-        private static readonly int MaximumCrispiness = 3;
+        private static readonly int MaximumCrispiness = 2;
         private static readonly float BloodToProteinRatio = 0.1f;
         private static readonly string MobFlavorMeat = "meaty";
         private static readonly AudioParams AudioParamsInsertRemove = new(0.5f, 1f, "Master", 5f, 1.5f, 1f, false, 0f, 0.2f);
@@ -519,9 +519,30 @@ namespace Content.Server.Kitchen.EntitySystems
             if (MetaData(item).EntityPrototype?.ID == component.CharredPrototype)
                 return;
 
+            // This item has already been deep-fried, and now it's progressing
+            // into another stage.
             if (TryComp<DeepFriedComponent>(item, out var deepFriedComponent))
             {
                 deepFriedComponent.Crispiness += 1;
+
+                if (deepFriedComponent.OriginalName != null)
+                {
+                    var meta = MetaData(item);
+                    switch (deepFriedComponent.Crispiness)
+                    {
+                        case 0:
+                            // Already handled at OnInitDeepFried.
+                            break;
+                        case 1:
+                            meta.EntityName = Loc.GetString("deep-fried-fried-item",
+                                ("entity", deepFriedComponent.OriginalName));
+                            break;
+                        default:
+                            meta.EntityName = Loc.GetString("deep-fried-burned-item",
+                                ("entity", deepFriedComponent.OriginalName));
+                            break;
+                    }
+                }
 
                 if (deepFriedComponent.Crispiness > MaximumCrispiness)
                     BurnItem(uid, component, item);
@@ -949,12 +970,24 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnInitDeepFried(EntityUid uid, DeepFriedComponent component, ComponentInit args)
         {
             var meta = MetaData(uid);
+            component.OriginalName = meta.EntityName;
             meta.EntityName = Loc.GetString("deep-fried-crispy-item", ("entity", meta.EntityName));
         }
 
         private void OnExamineFried(EntityUid uid, DeepFriedComponent component, ExaminedEvent args)
         {
-            args.PushMarkup(Loc.GetString("deep-fried-crispy-item-examine"));
+            switch (component.Crispiness)
+            {
+                case 0:
+                    args.PushMarkup(Loc.GetString("deep-fried-crispy-item-examine"));
+                    break;
+                case 1:
+                    args.PushMarkup(Loc.GetString("deep-fried-fried-item-examine"));
+                    break;
+                default:
+                    args.PushMarkup(Loc.GetString("deep-fried-burned-item-examine"));
+                    break;
+            }
         }
 
         private void OnPriceCalculation(EntityUid uid, DeepFriedComponent component, ref PriceCalculationEvent args)
