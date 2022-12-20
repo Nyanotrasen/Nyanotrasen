@@ -197,7 +197,8 @@ namespace Content.Server.Disease
         private FormattedMessage AssembleDiseaseReport(DiseasePrototype disease)
         {
             FormattedMessage report = new();
-            report.AddMarkup(Loc.GetString("diagnoser-disease-report-name", ("disease", disease.Name)));
+            var diseaseName = Loc.GetString(disease.Name);
+            report.AddMarkup(Loc.GetString("diagnoser-disease-report-name", ("disease", diseaseName)));
             report.PushNewline();
 
             if (disease.Infectious)
@@ -322,7 +323,8 @@ namespace Content.Server.Disease
             FormattedMessage contents = new();
             if (args.Machine.Disease != null)
             {
-                reportTitle = Loc.GetString("diagnoser-disease-report", ("disease", args.Machine.Disease.Name));
+                var diseaseName = Loc.GetString(args.Machine.Disease.Name);
+                reportTitle = Loc.GetString("diagnoser-disease-report", ("disease", diseaseName));
                 contents = AssembleDiseaseReport(args.Machine.Disease);
 
                 var known = false;
