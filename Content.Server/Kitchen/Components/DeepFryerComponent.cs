@@ -1,6 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Server.Kitchen.EntitySystems;
@@ -35,6 +36,7 @@ namespace Content.Server.Kitchen.Components
         /// <summary>
         /// When will the deep fryer layer on the next stage of crispiness?
         /// </summary>
+        [DataField("nextFryTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
         public TimeSpan NextFryTime { get; set; }
 
         /// <summary>
