@@ -507,6 +507,27 @@ namespace Content.Server.Kitchen.EntitySystems
             }
         }
 
+        private void UpdateDeepFriedName(EntityUid uid, DeepFriedComponent component)
+        {
+            if (component.OriginalName == null)
+                return;
+
+            switch (component.Crispiness)
+            {
+                case 0:
+                    // Already handled at OnInitDeepFried.
+                    break;
+                case 1:
+                    MetaData(uid).EntityName = Loc.GetString("deep-fried-fried-item",
+                        ("entity", component.OriginalName));
+                    break;
+                default:
+                    MetaData(uid).EntityName = Loc.GetString("deep-fried-burned-item",
+                        ("entity", component.OriginalName));
+                    break;
+            }
+        }
+
         /// <summary>
         /// Try to deep fry a single item, which can
         ///  - be cancelled by other systems, or
@@ -533,25 +554,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     return;
                 }
 
-                if (deepFriedComponent.OriginalName != null)
-                {
-                    var meta = MetaData(item);
-                    switch (deepFriedComponent.Crispiness)
-                    {
-                        case 0:
-                            // Already handled at OnInitDeepFried.
-                            break;
-                        case 1:
-                            meta.EntityName = Loc.GetString("deep-fried-fried-item",
-                                ("entity", deepFriedComponent.OriginalName));
-                            break;
-                        default:
-                            meta.EntityName = Loc.GetString("deep-fried-burned-item",
-                                ("entity", deepFriedComponent.OriginalName));
-                            break;
-                    }
-                }
-
+                UpdateDeepFriedName(item, deepFriedComponent);
                 return;
             }
 
@@ -1007,6 +1010,8 @@ namespace Content.Server.Kitchen.EntitySystems
 
             sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
             sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
+
+            UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
 
             // TODO: Flavor profiles aren't copied to the slices. This should
             // probably be handled on upstream, but for now let's assume the
