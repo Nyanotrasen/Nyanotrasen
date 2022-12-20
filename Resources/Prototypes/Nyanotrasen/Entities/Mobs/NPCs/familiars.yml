@@ -83,6 +83,8 @@
     attributes:
       proper: true
   - type: MovementIgnoreGravity
+  - type: Blindable
+    blindResistance: 10
 
 - type: entity
   parent: WelderExperimental
