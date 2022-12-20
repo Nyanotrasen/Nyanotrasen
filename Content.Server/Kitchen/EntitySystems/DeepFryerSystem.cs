@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -27,6 +28,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.NPC.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -343,6 +345,23 @@ namespace Content.Server.Kitchen.EntitySystems
 
             // Remove any components that wouldn't make sense anymore.
             RemComp<SharedButcherableComponent>(item);
+
+            if (TryComp<PaperComponent>(item, out var paperComponent))
+            {
+                var stringBuilder = new StringBuilder();
+
+                for (var i = 0; i < paperComponent.Content.Length; ++i)
+                {
+                    var uchar = paperComponent.Content.Substring(i, 1);
+
+                    if (uchar == "\n" || _random.Prob(0.4f))
+                        stringBuilder.Append(uchar);
+                    else
+                        stringBuilder.Append("x");
+                }
+
+                paperComponent.Content = stringBuilder.ToString();
+            }
 
             var foodComponent = EnsureComp<FoodComponent>(item);
             var extraSolution = new Solution();
