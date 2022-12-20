@@ -557,6 +557,10 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 MakeEdible(uid, component, item, solutionQuantity);
             }
+            else
+            {
+                component.Solution.RemoveSolution(solutionQuantity);
+            }
 
             component.WasteToAdd += solutionQuantity;
         }
