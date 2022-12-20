@@ -70,4 +70,7 @@
         amount: 10
   - type: Sprite
     layers:
-      - state: box_security
+      - sprite: Objects/Storage/boxes.rsi
+        state: box_security
+      - sprite: Nyanotrasen/Objects/Storage/forensic_box.rsi
+        state: overlay
