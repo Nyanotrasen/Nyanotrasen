@@ -94,6 +94,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private static readonly int MaximumCrispiness = 3;
         private static readonly float BloodToProteinRatio = 0.1f;
         private static readonly string MobFlavorMeat = "meaty";
+        private static readonly AudioParams AudioParamsInsertRemove = new(0.5f, 1f, "Master", 5f, 1.5f, 1f, false, 0f, 0.2f);
 
         private ISawmill _sawmill = default!;
 
@@ -610,12 +611,11 @@ namespace Content.Server.Kitchen.EntitySystems
         /// </remarks>
         private void AfterInsert(EntityUid uid, DeepFryerComponent component, EntityUid item)
         {
+            if (HasBubblingOil(uid, component))
+                _audioSystem.PlayPvs(component.SoundInsertItem, uid, AudioParamsInsertRemove);
+
             UpdateNextFryTime(uid, component);
             UpdateUserInterface(uid, component);
-
-            if (HasBubblingOil(uid, component))
-                _audioSystem.PlayPvs(component.SoundInsertItem, uid,
-                    AudioParams.Default.WithVariation(0.2f));
         }
 
         private void OnPowerChange(EntityUid uid, DeepFryerComponent component, ref PowerChangedEvent args)
@@ -796,10 +796,9 @@ namespace Content.Server.Kitchen.EntitySystems
                     $"{ToPrettyString(user.Value)} took {ToPrettyString(args.Item)} out of {ToPrettyString(uid)}.");
             }
 
-            UpdateUserInterface(component.Owner, component);
+            _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
 
-            _audioSystem.PlayPvs(component.SoundRemoveItem, uid,
-                AudioParams.Default.WithVariation(0.2f));
+            UpdateUserInterface(component.Owner, component);
         }
 
         private void OnInsertItem(EntityUid uid, DeepFryerComponent component, DeepFryerInsertItemMessage args)
@@ -918,13 +917,16 @@ namespace Content.Server.Kitchen.EntitySystems
                 return;
 
             _containerSystem.EmptyContainer(component.Storage);
-            UpdateUserInterface(component.Owner, component);
 
             var user = args.Session.AttachedEntity;
 
             if (user != null)
                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
                     $"{ToPrettyString(user.Value)} removed all items from {ToPrettyString(uid)}.");
+
+            _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
+
+            UpdateUserInterface(component.Owner, component);
         }
 
         private void OnClearSlagComplete(EntityUid uid, DeepFryerComponent component, ClearSlagCompleteEvent args)
