@@ -523,7 +523,15 @@ namespace Content.Server.Kitchen.EntitySystems
             // into another stage.
             if (TryComp<DeepFriedComponent>(item, out var deepFriedComponent))
             {
+                // TODO: Smoke, waste, sound, or some indication.
+
                 deepFriedComponent.Crispiness += 1;
+
+                if (deepFriedComponent.Crispiness > MaximumCrispiness)
+                {
+                    BurnItem(uid, component, item);
+                    return;
+                }
 
                 if (deepFriedComponent.OriginalName != null)
                 {
@@ -543,11 +551,6 @@ namespace Content.Server.Kitchen.EntitySystems
                             break;
                     }
                 }
-
-                if (deepFriedComponent.Crispiness > MaximumCrispiness)
-                    BurnItem(uid, component, item);
-
-                // TODO: Smoke, waste, sound, or some indication.
 
                 return;
             }
