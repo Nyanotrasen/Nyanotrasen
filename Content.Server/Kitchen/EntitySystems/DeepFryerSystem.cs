@@ -783,9 +783,10 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnRemoveItem(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveItemMessage args)
         {
-            var user = args.Session.AttachedEntity;
+            if (!component.Storage.Remove(args.Item))
+                return;
 
-            component.Storage.Remove(args.Item);
+            var user = args.Session.AttachedEntity;
 
             if (user != null)
             {
