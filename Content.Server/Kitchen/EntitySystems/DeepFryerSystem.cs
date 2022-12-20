@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -27,6 +28,7 @@ using Content.Server.Kitchen.Components;
 using Content.Server.NPC.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.EntitySystems;
+using Content.Server.Paper;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -89,9 +91,10 @@ namespace Content.Server.Kitchen.EntitySystems
         private static readonly float CookingDamageAmount = 10.0f;
         private static readonly float PvsWarningRange = 0.5f;
         private static readonly float ThrowMissChance = 0.25f;
-        private static readonly int MaximumCrispiness = 3;
+        private static readonly int MaximumCrispiness = 2;
         private static readonly float BloodToProteinRatio = 0.1f;
         private static readonly string MobFlavorMeat = "meaty";
+        private static readonly AudioParams AudioParamsInsertRemove = new(0.5f, 1f, "Master", 5f, 1.5f, 1f, false, 0f, 0.2f);
 
         private ISawmill _sawmill = default!;
 
@@ -344,6 +347,23 @@ namespace Content.Server.Kitchen.EntitySystems
             // Remove any components that wouldn't make sense anymore.
             RemComp<SharedButcherableComponent>(item);
 
+            if (TryComp<PaperComponent>(item, out var paperComponent))
+            {
+                var stringBuilder = new StringBuilder();
+
+                for (var i = 0; i < paperComponent.Content.Length; ++i)
+                {
+                    var uchar = paperComponent.Content.Substring(i, 1);
+
+                    if (uchar == "\n" || _random.Prob(0.4f))
+                        stringBuilder.Append(uchar);
+                    else
+                        stringBuilder.Append("x");
+                }
+
+                paperComponent.Content = stringBuilder.ToString();
+            }
+
             var foodComponent = EnsureComp<FoodComponent>(item);
             var extraSolution = new Solution();
             if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
@@ -487,6 +507,27 @@ namespace Content.Server.Kitchen.EntitySystems
             }
         }
 
+        private void UpdateDeepFriedName(EntityUid uid, DeepFriedComponent component)
+        {
+            if (component.OriginalName == null)
+                return;
+
+            switch (component.Crispiness)
+            {
+                case 0:
+                    // Already handled at OnInitDeepFried.
+                    break;
+                case 1:
+                    MetaData(uid).EntityName = Loc.GetString("deep-fried-fried-item",
+                        ("entity", component.OriginalName));
+                    break;
+                default:
+                    MetaData(uid).EntityName = Loc.GetString("deep-fried-burned-item",
+                        ("entity", component.OriginalName));
+                    break;
+            }
+        }
+
         /// <summary>
         /// Try to deep fry a single item, which can
         ///  - be cancelled by other systems, or
@@ -499,15 +540,21 @@ namespace Content.Server.Kitchen.EntitySystems
             if (MetaData(item).EntityPrototype?.ID == component.CharredPrototype)
                 return;
 
+            // This item has already been deep-fried, and now it's progressing
+            // into another stage.
             if (TryComp<DeepFriedComponent>(item, out var deepFriedComponent))
             {
+                // TODO: Smoke, waste, sound, or some indication.
+
                 deepFriedComponent.Crispiness += 1;
 
                 if (deepFriedComponent.Crispiness > MaximumCrispiness)
+                {
                     BurnItem(uid, component, item);
+                    return;
+                }
 
-                // TODO: Smoke, waste, sound, or some indication.
-
+                UpdateDeepFriedName(item, deepFriedComponent);
                 return;
             }
 
@@ -557,14 +604,16 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 MakeEdible(uid, component, item, solutionQuantity);
             }
+            else
+            {
+                component.Solution.RemoveSolution(solutionQuantity);
+            }
 
             component.WasteToAdd += solutionQuantity;
         }
 
         private void OnInitDeepFryer(EntityUid uid, DeepFryerComponent component, ComponentInit args)
         {
-            UpdateNextFryTime(uid, component);
-
             component.Storage = _containerSystem.EnsureContainer<Container>(uid, component.StorageName, out bool containerExisted);
 
             if (!containerExisted)
@@ -587,17 +636,17 @@ namespace Content.Server.Kitchen.EntitySystems
         /// </remarks>
         private void AfterInsert(EntityUid uid, DeepFryerComponent component, EntityUid item)
         {
+            if (HasBubblingOil(uid, component))
+                _audioSystem.PlayPvs(component.SoundInsertItem, uid, AudioParamsInsertRemove);
+
             UpdateNextFryTime(uid, component);
             UpdateUserInterface(uid, component);
-
-            if (HasBubblingOil(uid, component))
-                _audioSystem.PlayPvs(component.SoundInsertItem, uid,
-                    AudioParams.Default.WithVariation(0.2f));
         }
 
         private void OnPowerChange(EntityUid uid, DeepFryerComponent component, ref PowerChangedEvent args)
         {
             _appearanceSystem.SetData(uid, DeepFryerVisuals.Bubbling, args.Powered);
+            UpdateNextFryTime(uid, component);
             UpdateAmbientSound(uid, component);
         }
 
@@ -760,9 +809,10 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnRemoveItem(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveItemMessage args)
         {
-            var user = args.Session.AttachedEntity;
+            if (!component.Storage.Remove(args.Item))
+                return;
 
-            component.Storage.Remove(args.Item);
+            var user = args.Session.AttachedEntity;
 
             if (user != null)
             {
@@ -772,10 +822,9 @@ namespace Content.Server.Kitchen.EntitySystems
                     $"{ToPrettyString(user.Value)} took {ToPrettyString(args.Item)} out of {ToPrettyString(uid)}.");
             }
 
-            UpdateUserInterface(component.Owner, component);
+            _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
 
-            _audioSystem.PlayPvs(component.SoundRemoveItem, uid,
-                AudioParams.Default.WithVariation(0.2f));
+            UpdateUserInterface(component.Owner, component);
         }
 
         private void OnInsertItem(EntityUid uid, DeepFryerComponent component, DeepFryerInsertItemMessage args)
@@ -893,14 +942,17 @@ namespace Content.Server.Kitchen.EntitySystems
             if (component.Storage.ContainedEntities.Count == 0)
                 return;
 
-            _containerSystem.EmptyContainer(component.Storage);
-            UpdateUserInterface(component.Owner, component);
+            _containerSystem.EmptyContainer(component.Storage, false, Transform(uid).Coordinates, true, EntityManager);
 
             var user = args.Session.AttachedEntity;
 
             if (user != null)
                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
                     $"{ToPrettyString(user.Value)} removed all items from {ToPrettyString(uid)}.");
+
+            _audioSystem.PlayPvs(component.SoundRemoveItem, uid, AudioParamsInsertRemove);
+
+            UpdateUserInterface(component.Owner, component);
         }
 
         private void OnClearSlagComplete(EntityUid uid, DeepFryerComponent component, ClearSlagCompleteEvent args)
@@ -923,12 +975,24 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnInitDeepFried(EntityUid uid, DeepFriedComponent component, ComponentInit args)
         {
             var meta = MetaData(uid);
+            component.OriginalName = meta.EntityName;
             meta.EntityName = Loc.GetString("deep-fried-crispy-item", ("entity", meta.EntityName));
         }
 
         private void OnExamineFried(EntityUid uid, DeepFriedComponent component, ExaminedEvent args)
         {
-            args.PushMarkup(Loc.GetString("deep-fried-crispy-item-examine"));
+            switch (component.Crispiness)
+            {
+                case 0:
+                    args.PushMarkup(Loc.GetString("deep-fried-crispy-item-examine"));
+                    break;
+                case 1:
+                    args.PushMarkup(Loc.GetString("deep-fried-fried-item-examine"));
+                    break;
+                default:
+                    args.PushMarkup(Loc.GetString("deep-fried-burned-item-examine"));
+                    break;
+            }
         }
 
         private void OnPriceCalculation(EntityUid uid, DeepFriedComponent component, ref PriceCalculationEvent args)
@@ -946,6 +1010,8 @@ namespace Content.Server.Kitchen.EntitySystems
 
             sliceDeepFriedComponent.Crispiness = sourceDeepFriedComponent.Crispiness;
             sliceDeepFriedComponent.PriceCoefficient = sourceDeepFriedComponent.PriceCoefficient;
+
+            UpdateDeepFriedName(args.Slice, sliceDeepFriedComponent);
 
             // TODO: Flavor profiles aren't copied to the slices. This should
             // probably be handled on upstream, but for now let's assume the

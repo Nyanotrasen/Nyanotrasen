@@ -15,7 +15,7 @@
         state: off-1
   - type: AmbientSound
     volume: -4
-    range: 4
+    range: 5
     enabled: false
     sound:
       path: /Audio/Ambience/Objects/deepfryer_sizzling.ogg
@@ -64,6 +64,7 @@
       - SpaceGarbage
       tags:
       - Trash
+      - Document
     charredPrototype: FoodBadRecipe
     goodReagents:
       - ReagentId: Omnizine
@@ -167,3 +168,4 @@
       vat_entities: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: PowerSwitch
