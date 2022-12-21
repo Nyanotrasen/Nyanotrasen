@@ -85,6 +85,14 @@
     state: icon
   product: CrateHolyWaterKit
   cost: 1000
+
+- type: cargoProduct
+  id: ServiceBooks
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book0
+  product: CrateServiceBooks
+  cost: 1000
   category: Service
   group: market
 

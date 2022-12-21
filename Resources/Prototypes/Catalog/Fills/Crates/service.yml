@@ -124,6 +124,15 @@
     - id: BoxID
 
 - type: entity
+  id: CrateServiceBooks
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: BookRandom
+          amount: 10
+
+- type: entity
   id: CrateServiceBox
   parent: CratePlastic
   components:

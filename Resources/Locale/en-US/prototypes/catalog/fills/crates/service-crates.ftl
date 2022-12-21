@@ -22,6 +22,9 @@ ent-CrateServiceBureaucracy = Bureaucracy crate
 ent-CrateServicePersonnel = Personnel crate
     .desc = Contains a box of blank ID cards and PDAs.
 
+ent-CrateServiceBooks = Books crate
+    .desc = Contains 10 empty books of random appearance
+
 ent-CrateServiceBox = Boxes crate
     .desc = Contains 6 empty multipurpose boxes.
 
