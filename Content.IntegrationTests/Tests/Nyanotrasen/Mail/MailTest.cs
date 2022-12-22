@@ -10,11 +10,11 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.FixedPoint;
 using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mail;
-using Content.Shared.MobState;
 using Content.Shared.MobState.Components;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
@@ -22,6 +22,7 @@ using Content.Server.Emag;
 using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.MobState;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 
@@ -1462,6 +1463,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var mailSystem = entitySystemManager.GetEntitySystem<MailSystem>();
             var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
             var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
+            var mobStateSystem = entitySystemManager.GetEntitySystem<MobStateSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
@@ -1514,7 +1516,7 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(entityManager.TryGetComponent(realCandidate1, out mobStateComponent!),
                     "Human dummy candidate did not have a MobStateComponent.");
 
-                mobStateComponent.CurrentState = DamageState.Dead;
+                mobStateSystem.UpdateState(mobStateComponent, FixedPoint2.New(300f));
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after setting MobState to Dead.");
