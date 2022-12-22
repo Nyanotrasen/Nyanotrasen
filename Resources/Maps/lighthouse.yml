@@ -1005,7 +1005,6 @@ entities:
     type: Fixtures
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
-    enabled: True
     type: Gravity
   - chunkCollection:
       -1,2:
@@ -26371,8 +26370,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -26401,8 +26400,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 20.04244
-      - 75.39776
+      - 19.481253
+      - 73.28662
       - 0
       - 0
       - 0
@@ -26480,6 +26479,10 @@ entities:
   - type: OccluderTree
   - type: Shuttle
   - type: GridPathfinding
+  - nextShake: 0
+    shakeTimes: 10
+    type: GravityShake
+  - type: GasTileOverlay
 - uid: 101
   type: ReinforcedWindow
   components:
@@ -33632,6 +33635,8 @@ entities:
     pos: -27.5,24.5
     parent: 100
     type: Transform
+  - nextFryTime: 5
+    type: DeepFryer
 - uid: 1211
   type: KitchenMicrowave
   components:
@@ -48841,7 +48846,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 3502
-  type: AsteroidRock
+  type: WallReinforced
   components:
   - pos: -44.5,-50.5
     parent: 100
@@ -111602,7 +111607,7 @@ entities:
     parent: 100
     type: Transform
 - uid: 12490
-  type: AsteroidRock
+  type: WallReinforced
   components:
   - pos: -43.5,-50.5
     parent: 100
@@ -135905,6 +135910,12 @@ entities:
   - pos: -32.5,26.5
     parent: 100
     type: Transform
+- uid: 15953
+  type: WallReinforced
+  components:
+  - pos: -42.5,-50.5
+    parent: 100
+    type: Transform
 - uid: 15954
   type: CableHV
   components:
@@ -138556,6 +138567,24 @@ entities:
   type: SpawnPointChaplain
   components:
   - pos: -1.5,-19.5
+    parent: 100
+    type: Transform
+- uid: 16362
+  type: CableApcExtension
+  components:
+  - pos: -48.5,-50.5
+    parent: 100
+    type: Transform
+- uid: 16363
+  type: CableApcExtension
+  components:
+  - pos: -48.5,-51.5
+    parent: 100
+    type: Transform
+- uid: 16364
+  type: CableApcExtension
+  components:
+  - pos: -46.5,-50.5
     parent: 100
     type: Transform
 - uid: 16365
@@ -142340,7 +142369,7 @@ entities:
     pos: -17.5,-19.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -44996.758
+  - SecondsUntilStateChange: -45650.01
     state: Opening
     type: Door
 - uid: 16935
@@ -143331,6 +143360,12 @@ entities:
   - flags: SessionSpecific
     type: MetaData
   - pos: 28.357307,54.952118
+    parent: 100
+    type: Transform
+- uid: 17082
+  type: CableApcExtension
+  components:
+  - pos: -46.5,-51.5
     parent: 100
     type: Transform
 - uid: 17083
@@ -146883,7 +146918,7 @@ entities:
     pos: -17.5,-18.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -44994.676
+  - SecondsUntilStateChange: -45647.93
     state: Opening
     type: Door
 - uid: 17348
@@ -148773,9 +148808,9 @@ entities:
     parent: 100
     type: Transform
 - uid: 17574
-  type: AsteroidRock
+  type: CableApcExtension
   components:
-  - pos: -42.5,-50.5
+  - pos: -54.5,-48.5
     parent: 100
     type: Transform
 - uid: 17575
@@ -149733,6 +149768,12 @@ entities:
   type: CableHV
   components:
   - pos: 67.5,24.5
+    parent: 100
+    type: Transform
+- uid: 17720
+  type: CableApcExtension
+  components:
+  - pos: -54.5,-49.5
     parent: 100
     type: Transform
 - uid: 17721
@@ -159333,4 +159374,129 @@ entities:
   - pos: 42.5,48.5
     parent: 100
     type: Transform
+- uid: 19128
+  type: CableApcExtension
+  components:
+  - pos: -54.5,-50.5
+    parent: 100
+    type: Transform
+- uid: 19129
+  type: CableApcExtension
+  components:
+  - pos: -54.5,-51.5
+    parent: 100
+    type: Transform
+- uid: 19130
+  type: CableApcExtension
+  components:
+  - pos: -56.5,-49.5
+    parent: 100
+    type: Transform
+- uid: 19131
+  type: CableApcExtension
+  components:
+  - pos: -56.5,-50.5
+    parent: 100
+    type: Transform
+- uid: 19132
+  type: CableApcExtension
+  components:
+  - pos: -56.5,-51.5
+    parent: 100
+    type: Transform
+- uid: 19133
+  type: CableApcExtension
+  components:
+  - pos: -56.5,-36.5
+    parent: 100
+    type: Transform
+- uid: 19134
+  type: CableApcExtension
+  components:
+  - pos: -57.5,-36.5
+    parent: 100
+    type: Transform
+- uid: 19135
+  type: CableApcExtension
+  components:
+  - pos: -57.5,-37.5
+    parent: 100
+    type: Transform
+- uid: 19136
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: -56.5,-53.5
+    parent: 100
+    type: Transform
+- uid: 19137
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: -54.5,-53.5
+    parent: 100
+    type: Transform
+- uid: 19138
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: -48.5,-53.5
+    parent: 100
+    type: Transform
+- uid: 19139
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: -46.5,-53.5
+    parent: 100
+    type: Transform
+- uid: 19140
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: 38.5,-43.5
+    parent: 100
+    type: Transform
+- uid: 19141
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: 38.5,-41.5
+    parent: 100
+    type: Transform
+- uid: 19142
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: 38.5,-37.5
+    parent: 100
+    type: Transform
+- uid: 19143
+  type: AtmosDeviceFanTiny
+  components:
+  - pos: 38.5,-35.5
+    parent: 100
+    type: Transform
+- uid: 19144
+  type: PlushieSlime
+  components:
+  - desc: How industrious he is!
+    name: frank from HVAC
+    type: MetaData
+  - pos: -11.547831,-55.057087
+    parent: 100
+    type: Transform
+- uid: 19145
+  type: ClothingHeadHatHardhatYellow
+  components:
+  - pos: -11.506164,-54.56716
+    parent: 100
+    type: Transform
+- uid: 19146
+  type: ToolboxMechanical
+  components:
+  - pos: -10.922831,-55.109203
+    parent: 100
+    type: Transform
+- uid: 19147
+  type: Wrench
+  components:
+  - pos: -11.820428,-54.970566
+    parent: 100
+    type: Transform
+  - nextAttack: 477.7912672
+    type: MeleeWeapon
 ...
