@@ -110,7 +110,7 @@ namespace Content.Server.Mail
                 return;
             if (component.IsLocked)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, args.User);
                 return;
             }
             OpenMail(uid, component, args.User);
@@ -170,13 +170,13 @@ namespace Content.Server.Mail
             {
                 if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
                     return;
                 }
 
                 if (!_accessSystem.IsAllowed(uid, args.User))
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
                 }
             }
@@ -185,11 +185,11 @@ namespace Content.Server.Mail
 
             if (!component.IsProfitable)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, args.User);
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
 
             component.IsProfitable = false;
 
@@ -302,7 +302,7 @@ namespace Content.Server.Mail
 
             UnlockMail(uid, component);
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, Filter.Entities(args.UserUid));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, args.UserUid);
 
             _audioSystem.PlayPvs(component.EmagSound, uid, AudioParams.Default.WithVolume(4));
             component.IsProfitable = false;

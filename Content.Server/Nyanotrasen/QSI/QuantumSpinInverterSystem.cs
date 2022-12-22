@@ -26,7 +26,7 @@ namespace Content.Server.QSI
 
             if (component.Partner != null)
             {
-                _popups.PopupEntity(Loc.GetString("qsi-already-bonded"), uid, Filter.Entities(args.User));
+                _popups.PopupEntity(Loc.GetString("qsi-already-bonded"), uid, args.User);
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace Content.Server.QSI
 
             component.Partner = otherQSI.Owner;
             otherQSI.Partner = component.Owner;
-            _popups.PopupEntity(Loc.GetString("qsi-bonded"), uid, Filter.Entities(args.User));
+            _popups.PopupEntity(Loc.GetString("qsi-bonded"), uid, args.User);
         }
 
         private void OnUseInHand(EntityUid uid, QuantumSpinInverterComponent component, UseInHandEvent args)
