@@ -1197,28 +1197,4 @@
   time: 15
   solids:
     FoodMeatLizard: 1
-    FoodKebabSkewer: 1    
-
-#Ganja Butt
-
-- type: microwaveMealRecipe
-  id: RecipeGanjaButter
-  name: ganja butter recipe
-  result: FoodGanjaButter
-  time: 15
-  solids:
-    FoodButter: 1
-    LeavesCannabis: 8
-
-- type: microwaveMealRecipe
-  id: RecipeGanjaBrownies
-  name: ganja brownie recipe
-  result: FoodBakedGanjaBrownieBatch
-  time: 25
-  reagents:
-    Flour: 15
-    Sugar: 30
-  solids:
-    FoodGanjaButter: 1
-    FoodSnackChocolateBar: 2
-    FoodEgg: 3
+    FoodKebabSkewer: 1   
