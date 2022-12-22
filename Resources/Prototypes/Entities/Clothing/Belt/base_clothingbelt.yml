@@ -26,6 +26,10 @@
   - type: MeleeWeapon
     attackRate: 1.1
     range: 1.65
+    damage:
+      types:
+        Blunt: 5
+        Slash: 2
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
