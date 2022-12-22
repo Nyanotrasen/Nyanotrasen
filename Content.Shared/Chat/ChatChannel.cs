@@ -77,7 +77,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     Telepathic channel for all psionic entities.
         /// </summary>
-        Telepathic = 1 << 12,
+        Telepathic = 1 << 13,
 
         /// <summary>
         ///     Channels considered to be IC.
