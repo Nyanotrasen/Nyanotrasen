@@ -74,6 +74,38 @@
 
 - type: entity
   parent: BaseVendingMachineRestock
+  id: VendingMachineRestockChefvend
+  name: ChefVend restock box
+  description: Refill the ChefVend. Just don't break any more of the eggs.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - ChefvendInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_chef
+
+- type: entity
+  parent: BaseVendingMachineRestock
+  id: VendingMachineRestockCondimentStation
+  name: Condiment Station restock box
+  description: Refill the Condiment Station. Mmmm, cold sauce.
+  components:
+  - type: VendingMachineRestock
+    canRestock:
+    - CondimentInventory
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green_bit
+      shader: unshaded
+    - state: refill_condiment
+
+- type: entity
+  parent: BaseVendingMachineRestock
   id: VendingMachineRestockClothes
   name: ClothesMate restock box
   description: It's time to step up your fashion! Place inside the ClothesMate restock slot to begin.

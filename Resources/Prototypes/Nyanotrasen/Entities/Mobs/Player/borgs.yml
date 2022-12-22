@@ -200,6 +200,9 @@
         name: TrashBag
         startingItem: TrashBag
         locked: true
+  - type: Faction
+    factions:
+    - NanoTrasen
 
 - type: entity
   parent: PlayerCyborgBase

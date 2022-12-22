@@ -1743,3 +1743,199 @@ Entries:
     type: Fix
   id: 195
   time: '2022-12-14T02:38:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed some bad checks for oneirophages exiting webs.
+    type: Fix
+  id: 196
+  time: '2022-12-14T21:03:17.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Mime powers count as psionics now.
+    type: Tweak
+  id: 197
+  time: '2022-12-14T21:19:50.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oracle will no longer ask for any items that could take solutions from
+      her fountain.
+    type: Fix
+  id: 198
+  time: '2022-12-14T21:58:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Reduced dispel and pyrokinesis to 6 tile range. Neither check blockers.
+    type: Tweak
+  - message: The stutter from getting zapped by unsulated gloves has been reduced.
+    type: Tweak
+  - message: Force walls can be dispelled.
+    type: Fix
+  id: 199
+  time: '2022-12-15T00:06:58.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Oneirophages have the same damage modifier sets as arachne.
+    type: Tweak
+  id: 200
+  time: '2022-12-15T00:08:14.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'Deleted all weapons with the melee bug from maps. Report anything that
+      should get readded in the #mapping channel in discord.'
+    type: Remove
+  - message: Removes the banned nitrous oxide miner from Arena.
+    type: Remove
+  id: 201
+  time: '2022-12-15T00:20:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added new death text.
+    type: Add
+  id: 202
+  time: '2022-12-15T03:48:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added death gasps.
+    type: Add
+  - message: Added new effects to critical glimmer level.
+    type: Add
+  id: 203
+  time: '2022-12-15T04:23:11.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed inconsistencies between mime wall and other psionics.
+    type: Fix
+  - message: Removed the deprecated 'science headset' that appears in a few places.
+    type: Remove
+  - message: Might have fixed some ghost visibility issues...
+    type: Fix
+  - message: Borgs have the Nanotrasen faction.
+    type: Fix
+  - message: Doubled metabolism rate of lotophagoi oil.
+    type: Tweak
+  - message: Increased the chance Oracle picks a random chem from the entire pool.
+    type: Tweak
+  - message: Fixed organic non-humanoid mobs being immune to vision effects.
+    type: Fix
+  id: 204
+  time: '2022-12-15T21:46:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Separated UI is now the default.
+    type: Tweak
+  - message: The chatbox cedes as much space as it can to the viewport for separated
+      UI.
+    type: Tweak
+  id: 205
+  time: '2022-12-15T22:28:40.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Death gasps conceal identity.
+    type: Fix
+  - message: Severed telegnostic projections can be dispelled.
+    type: Fix
+  - message: The popup for fugitive spawn no longer appears through walls.
+    type: Fix
+  - message: Reduced volume of fugitives spawning.
+    type: Tweak
+  id: 206
+  time: '2022-12-16T23:00:35.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made several minor QoL changes to Angle.
+    type: Tweak
+  id: 207
+  time: '2022-12-17T18:01:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: As my last PR before break (real) I got some help debugging the oneirophage
+      lingering invis. This should remove the bugs from simply moving through webs
+      in a strange way.
+    type: Fix
+  id: 208
+  time: '2022-12-18T04:30:59.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added CO2 miner to Angle.
+    type: Add
+  id: 209
+  time: '2022-12-18T16:07:34.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: New Kitchen stuff to Pebble
+    type: Add
+  id: 210
+  time: '2022-12-19T00:12:34.0000000+00:00'
+- author: notafet
+  changes:
+  - message: Votes can once again be cast in-game.
+    type: Fix
+  id: 211
+  time: '2022-12-19T02:35:50.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a custom evac shuttle to Angle station.
+    type: Add
+  id: 212
+  time: '2022-12-19T02:41:21.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added deep fryers.
+    type: Add
+  - message: Cooking oils are available in the kitchen supplies crate.
+    type: Add
+  - message: Butter can be put in the reagent grinder then processed with heat into
+      ghee.
+    type: Tweak
+  id: 213
+  time: '2022-12-19T02:46:19.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Deep fryer to pebble kitchen, happy frying
+    type: Add
+  id: 214
+  time: '2022-12-19T04:19:07.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The deep fryer shader now works on mesa graphics drivers.
+    type: Fix
+  id: 215
+  time: '2022-12-19T04:18:18.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a deep fryer and oil to angle's kitchen.
+    type: Add
+  id: 216
+  time: '2022-12-19T04:18:28.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: The Ifrit will no longer go blind from welding walls.
+    type: Fix
+  id: 217
+  time: '2022-12-20T02:28:43.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a classic American outfit to the server.
+    type: Add
+  id: 218
+  time: '2022-12-20T02:36:22.0000000+00:00'
+- author: Huvy
+  changes:
+  - message: Added new sprites for the forensic pads.
+    type: Add
+  id: 219
+  time: '2022-12-20T03:20:24.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Made minor changes to Angle and its evac.
+    type: Tweak
+  id: 220
+  time: '2022-12-20T13:32:13.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Deep fryers will now consume oil when you fry non-food items.
+    type: Fix
+  - message: The writing on paper can be made illegible through deep frying.
+    type: Fix
+  id: 221
+  time: '2022-12-20T19:47:09.0000000+00:00'

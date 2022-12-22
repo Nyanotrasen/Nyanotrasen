@@ -4,6 +4,8 @@ using Content.Server.Beam;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Construction;
 using Content.Server.Coordinates.Helpers;
+using Content.Server.Ghost;
+using Content.Server.Revenant.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
@@ -13,7 +15,6 @@ using Content.Shared.MobState.Components;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
-
 namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerReactiveSystem : EntitySystem
@@ -28,12 +29,14 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
         [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
         [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
-
+        [Dependency] private readonly GhostSystem _ghostSystem = default!;
+        [Dependency] private readonly RevenantSystem _revenantSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
         public float BeamCooldown = 3;
         public GlimmerTier LastGlimmerTier = GlimmerTier.Minimal;
+        public bool GhostsVisible = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -301,6 +304,7 @@ namespace Content.Server.Psionics.Glimmer
             if (Accumulator > UpdateFrequency)
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+
                 var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
                     var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
@@ -316,10 +320,18 @@ namespace Content.Server.Psionics.Glimmer
                 }
                 if (currentGlimmerTier == GlimmerTier.Critical)
                 {
+                    _ghostSystem.MakeVisible(true);
+                    _revenantSystem.MakeVisible(true);
+                    GhostsVisible = true;
                     foreach (var reactive in reactives)
                     {
                         BeamRandomNearProber(reactive.Owner, 1, 12);
                     }
+                } else if (GhostsVisible == true)
+                {
+                    _ghostSystem.MakeVisible(false);
+                    _revenantSystem.MakeVisible(false);
+                    GhostsVisible = false;
                 }
                 Accumulator = 0;
             }

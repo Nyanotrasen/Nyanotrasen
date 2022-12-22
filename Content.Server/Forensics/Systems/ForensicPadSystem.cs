@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Player;
 
@@ -14,6 +15,7 @@ namespace Content.Server.Forensics
     /// </summary>
     public sealed class ForensicPadSystem : EntitySystem
     {
+        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
 
@@ -109,7 +111,10 @@ namespace Content.Server.Forensics
             component.CancelToken = null;
             component.Sample = ev.Sample;
             component.Used = true;
+
+            _appearanceSystem.SetData(ev.Pad, ForensicPadVisuals.IsUsed, true);
         }
+
         private void OnPadCancelled(PadCancelledEvent ev)
         {
             if (!EntityManager.TryGetComponent(ev.Pad, out ForensicPadComponent? component))

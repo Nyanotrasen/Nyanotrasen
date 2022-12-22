@@ -162,6 +162,9 @@
     modifiers:
       coefficients:
         Piercing: 2.25
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Arachne
   - type: StatusEffects
     allowed:
       - Stun

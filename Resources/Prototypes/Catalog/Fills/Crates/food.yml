@@ -25,6 +25,12 @@
   components:
   - type: StorageFill
     contents:
+    - id: OilJarCorn
+      amount: 1
+    - id: OilJarGhee
+      amount: 1
+    - id: OilJarOlive
+      amount: 1
     - id: ReagentContainerFlour
       amount: 3
     - id: ReagentContainerRice

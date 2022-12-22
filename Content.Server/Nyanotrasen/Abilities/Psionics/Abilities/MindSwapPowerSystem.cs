@@ -169,6 +169,7 @@ namespace Content.Server.Abilities.Psionics
                 RemComp<PsionicallyInvisibleComponent>(uid);
                 RemComp<StealthComponent>(uid);
                 EnsureComp<SharedSpeechComponent>(uid);
+                EnsureComp<DispellableComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
             }

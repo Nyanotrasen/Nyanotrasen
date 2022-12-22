@@ -155,10 +155,9 @@
       80: 0.5
   - type: Appearance
     visuals:
-      - type: RotationVisualizer
-      - type: BuckleVisualizer
       - type: CreamPiedVisualizer
         state: creampie_human
+  - type: RotationVisuals
   - type: CombatMode
     canDisarm: true
   - type: Climbing
@@ -250,7 +249,6 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
-
 
 - type: entity
   parent: MobGolemBase

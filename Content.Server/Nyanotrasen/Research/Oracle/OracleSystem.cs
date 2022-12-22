@@ -93,8 +93,11 @@ namespace Content.Server.Research.Oracle
             "DrinkMug",
             "DrinkMugMetal",
             "DrinkGlass",
+            "Bucket",
+            "SprayBottle",
+            "ShellTranquilizer",
+            "ShellSoulbreaker",
         };
-
 
         public override void Update(float frameTime)
         {
@@ -219,7 +222,7 @@ namespace Content.Server.Research.Oracle
             var sol = new Solution();
             var reagent = "";
 
-            if (_random.Prob(0.1f))
+            if (_random.Prob(0.2f))
             {
                 reagent = _random.Pick(allReagents);
             } else
@@ -248,12 +251,19 @@ namespace Content.Server.Research.Oracle
 
         private string GetDesiredItem()
         {
+            return _random.Pick(GetAllProtos());
+        }
+
+
+        public List<string> GetAllProtos()
+        {
             var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
             var allProtos = allRecipes.Concat(allPlants).ToList();
             foreach (var proto in BlacklistedProtos)
                 allProtos.Remove(proto);
-            return _random.Pick((allProtos));
+
+            return allProtos;
         }
     }
 }

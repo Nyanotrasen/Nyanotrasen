@@ -6,6 +6,7 @@
   stations:
     Angle:
       mapNameTemplate: '{0} Angle Rig {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
@@ -36,7 +37,7 @@
         SecurityOfficer: [ 2, 6 ]
         Chaplain: [ 1, 1 ]
         Warden: [ 1, 1 ]
-        SecurityCadet: [ 0, 1 ]
+        SecurityCadet: [ 0, 2 ]
         Cataloguer: [ 0, 1 ]
         Lawyer: [ 1, 2 ]
         Quartermaster: [ 2, 4 ]

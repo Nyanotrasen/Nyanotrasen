@@ -58,6 +58,7 @@
   - ButchCleaver
   - KitchenKnife
   - MicrowaveMachineCircuitboard
+  - DeepFryerMachineCircuitboard
 
 - type: technology
   name: technologies-advanced-botany
@@ -296,7 +297,7 @@
   - BasicResearch
   unlockedRecipes:
   - AppraisalTool
-#TODO- MiningDrill
+  - MiningDrill
   - OreProcessorMachineCircuitboard
 
 - type: technology
@@ -313,8 +314,8 @@
   unlockedRecipes:
   - ShuttleConsoleCircuitboard
   - RadarConsoleCircuitboard
-#TODO- Gyroscope
-#TODO- Thruster
+  - ThrusterMachineCircuitboard
+  - GyroscopeMachineCircuitboard
 
 # Industrial Engineering Technology Tree
 
@@ -398,6 +399,7 @@
   - IndustrialEngineering
   unlockedRecipes:
   - RCDAmmo
+  - PowerDrill
   - SMESMachineCircuitboard
   - PowerComputerCircuitboard
   - GeneratorPlasmaMachineCircuitboard

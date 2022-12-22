@@ -11299,6 +11299,8 @@ entities:
   - type: Transform
   - index: 4
     type: Map
+  - type: Parallax
+    parallax: PebbleStation
   - type: PhysicsMap
   - type: Broadphase
   - type: OccluderTree
@@ -20090,22 +20092,6 @@ entities:
   - pos: 3.5,-21.5
     parent: 8
     type: Transform
-- uid: 1447
-  type: JetpackMiniFilled
-  components:
-  - pos: -14.672737,-33.48644
-    parent: 8
-    type: Transform
-  - nextAttack: 1600.7120757
-    type: MeleeWeapon
-- uid: 1448
-  type: JetpackMiniFilled
-  components:
-  - pos: -14.381517,-33.250473
-    parent: 8
-    type: Transform
-  - nextAttack: 1607.1935762
-    type: MeleeWeapon
 - uid: 1449
   type: WallReinforced
   components:
@@ -59914,14 +59900,6 @@ entities:
   - pos: -15.5,17.5
     parent: 8
     type: Transform
-- uid: 7271
-  type: ToolboxGoldFilled
-  components:
-  - pos: 5.5459514,36.58297
-    parent: 8
-    type: Transform
-  - nextAttack: 1149.912071
-    type: MeleeWeapon
 - uid: 7272
   type: AirlockCommandGlassLocked
   components:
@@ -60013,14 +59991,6 @@ entities:
   - pos: 14.653086,41.66523
     parent: 8
     type: Transform
-- uid: 7286
-  type: ToyAmongPequeno
-  components:
-  - pos: 4.7332296,40.626953
-    parent: 8
-    type: Transform
-  - nextAttack: 1038.9791814
-    type: MeleeWeapon
 - uid: 7287
   type: ToyAmongPequeno
   components:
@@ -60549,14 +60519,6 @@ entities:
   - pos: 13.5,-25.5
     parent: 8
     type: Transform
-- uid: 7360
-  type: CowToolbox
-  components:
-  - pos: 2.383906,40.71557
-    parent: 8
-    type: Transform
-  - nextAttack: 5267.6122668
-    type: MeleeWeapon
 - uid: 7361
   type: FoamCrossbow
   components:
@@ -62070,14 +62032,6 @@ entities:
   - pos: 43.972794,16.63461
     parent: 8
     type: Transform
-- uid: 7591
-  type: ScalpelShiv
-  components:
-  - pos: 47.67405,16.932938
-    parent: 8
-    type: Transform
-  - nextAttack: 1207.863407
-    type: MeleeWeapon
 - uid: 7592
   type: ComputerTelevision
   components:
@@ -62995,14 +62949,6 @@ entities:
     pos: -25.5,-0.5
     parent: 8
     type: Transform
-- uid: 7741
-  type: HydroponicsToolScythe
-  components:
-  - pos: -15.54979,5.681791
-    parent: 8
-    type: Transform
-  - nextAttack: 3718.3351306
-    type: MeleeWeapon
 - uid: 7742
   type: ClothingHeadHoodBrown
   components:

@@ -399,6 +399,15 @@
      Glass: 900
 
 - type: latheRecipe
+  id: DeepFryerMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: DeepFryerMachineCircuitboard
+  completetime: 4
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
   id: SurveillanceCameraRouterCircuitboard
   icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: SurveillanceCameraRouterCircuitboard
@@ -465,6 +474,24 @@
   id: EmitterCircuitboard
   icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: EmitterCircuitboard
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+
+- type: latheRecipe
+  id: ThrusterMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: ThrusterMachineCircuitboard
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 900
+
+- type: latheRecipe
+  id: GyroscopeMachineCircuitboard
+  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
+  result: GyroscopeMachineCircuitboard
   completetime: 4
   materials:
     Steel: 100
