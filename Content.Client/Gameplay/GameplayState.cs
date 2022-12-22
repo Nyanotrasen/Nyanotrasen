@@ -127,11 +127,11 @@ namespace Content.Client.Gameplay
 
             switch (screenType)
             {
+                case ScreenType.Default:
+                    _uiManager.LoadScreen<DefaultGameScreen>();
+                    break;
                 case ScreenType.Separated:
                     _uiManager.LoadScreen<SeparatedChatGameScreen>();
-                    break;
-                case ScreenType.Minimal:
-                    _uiManager.LoadScreen<DefaultGameScreen>();
                     break;
             }
 
