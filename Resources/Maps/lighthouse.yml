@@ -60634,12 +60634,9 @@ entities:
     parent: 100
     type: Transform
 - uid: 5308
-  type: PlaqueAtmos
+  type: WallReinforced
   components:
-  - desc: A plaque in honor of Emisse for the construction of this part of the station, and saluting those brave enough to venture into Atmospherics.
-    name: Atmos Plaque
-    type: MetaData
-  - pos: -17.5,-50.5
+  - pos: -43.5,-50.5
     parent: 100
     type: Transform
 - uid: 5309
@@ -111609,7 +111606,7 @@ entities:
 - uid: 12490
   type: WallReinforced
   components:
-  - pos: -43.5,-50.5
+  - pos: -42.5,-50.5
     parent: 100
     type: Transform
 - uid: 12491
@@ -135911,9 +135908,9 @@ entities:
     parent: 100
     type: Transform
 - uid: 15953
-  type: WallReinforced
+  type: CableApcExtension
   components:
-  - pos: -42.5,-50.5
+  - pos: -48.5,-50.5
     parent: 100
     type: Transform
 - uid: 15954
@@ -138572,19 +138569,19 @@ entities:
 - uid: 16362
   type: CableApcExtension
   components:
-  - pos: -48.5,-50.5
+  - pos: -48.5,-51.5
     parent: 100
     type: Transform
 - uid: 16363
   type: CableApcExtension
   components:
-  - pos: -48.5,-51.5
+  - pos: -46.5,-50.5
     parent: 100
     type: Transform
 - uid: 16364
   type: CableApcExtension
   components:
-  - pos: -46.5,-50.5
+  - pos: -46.5,-51.5
     parent: 100
     type: Transform
 - uid: 16365
@@ -142369,7 +142366,7 @@ entities:
     pos: -17.5,-19.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -45650.01
+  - SecondsUntilStateChange: -46033.45
     state: Opening
     type: Door
 - uid: 16935
@@ -143365,7 +143362,7 @@ entities:
 - uid: 17082
   type: CableApcExtension
   components:
-  - pos: -46.5,-51.5
+  - pos: -54.5,-48.5
     parent: 100
     type: Transform
 - uid: 17083
@@ -146918,7 +146915,7 @@ entities:
     pos: -17.5,-18.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -45647.93
+  - SecondsUntilStateChange: -46031.367
     state: Opening
     type: Door
 - uid: 17348
@@ -148810,7 +148807,7 @@ entities:
 - uid: 17574
   type: CableApcExtension
   components:
-  - pos: -54.5,-48.5
+  - pos: -54.5,-49.5
     parent: 100
     type: Transform
 - uid: 17575
@@ -149773,7 +149770,7 @@ entities:
 - uid: 17720
   type: CableApcExtension
   components:
-  - pos: -54.5,-49.5
+  - pos: -54.5,-50.5
     parent: 100
     type: Transform
 - uid: 17721
@@ -159377,100 +159374,94 @@ entities:
 - uid: 19128
   type: CableApcExtension
   components:
-  - pos: -54.5,-50.5
+  - pos: -54.5,-51.5
     parent: 100
     type: Transform
 - uid: 19129
   type: CableApcExtension
   components:
-  - pos: -54.5,-51.5
+  - pos: -56.5,-49.5
     parent: 100
     type: Transform
 - uid: 19130
   type: CableApcExtension
   components:
-  - pos: -56.5,-49.5
+  - pos: -56.5,-50.5
     parent: 100
     type: Transform
 - uid: 19131
   type: CableApcExtension
   components:
-  - pos: -56.5,-50.5
+  - pos: -56.5,-51.5
     parent: 100
     type: Transform
 - uid: 19132
   type: CableApcExtension
   components:
-  - pos: -56.5,-51.5
+  - pos: -56.5,-36.5
     parent: 100
     type: Transform
 - uid: 19133
   type: CableApcExtension
   components:
-  - pos: -56.5,-36.5
+  - pos: -57.5,-36.5
     parent: 100
     type: Transform
 - uid: 19134
   type: CableApcExtension
   components:
-  - pos: -57.5,-36.5
-    parent: 100
-    type: Transform
-- uid: 19135
-  type: CableApcExtension
-  components:
   - pos: -57.5,-37.5
     parent: 100
     type: Transform
-- uid: 19136
+- uid: 19135
   type: AtmosDeviceFanTiny
   components:
   - pos: -56.5,-53.5
     parent: 100
     type: Transform
-- uid: 19137
+- uid: 19136
   type: AtmosDeviceFanTiny
   components:
   - pos: -54.5,-53.5
     parent: 100
     type: Transform
-- uid: 19138
+- uid: 19137
   type: AtmosDeviceFanTiny
   components:
   - pos: -48.5,-53.5
     parent: 100
     type: Transform
-- uid: 19139
+- uid: 19138
   type: AtmosDeviceFanTiny
   components:
   - pos: -46.5,-53.5
     parent: 100
     type: Transform
-- uid: 19140
+- uid: 19139
   type: AtmosDeviceFanTiny
   components:
   - pos: 38.5,-43.5
     parent: 100
     type: Transform
-- uid: 19141
+- uid: 19140
   type: AtmosDeviceFanTiny
   components:
   - pos: 38.5,-41.5
     parent: 100
     type: Transform
-- uid: 19142
+- uid: 19141
   type: AtmosDeviceFanTiny
   components:
   - pos: 38.5,-37.5
     parent: 100
     type: Transform
-- uid: 19143
+- uid: 19142
   type: AtmosDeviceFanTiny
   components:
   - pos: 38.5,-35.5
     parent: 100
     type: Transform
-- uid: 19144
+- uid: 19143
   type: PlushieSlime
   components:
   - desc: How industrious he is!
@@ -159479,19 +159470,19 @@ entities:
   - pos: -11.547831,-55.057087
     parent: 100
     type: Transform
-- uid: 19145
+- uid: 19144
   type: ClothingHeadHatHardhatYellow
   components:
   - pos: -11.506164,-54.56716
     parent: 100
     type: Transform
-- uid: 19146
+- uid: 19145
   type: ToolboxMechanical
   components:
   - pos: -10.922831,-55.109203
     parent: 100
     type: Transform
-- uid: 19147
+- uid: 19146
   type: Wrench
   components:
   - pos: -11.820428,-54.970566
@@ -159499,4 +159490,13 @@ entities:
     type: Transform
   - nextAttack: 477.7912672
     type: MeleeWeapon
+- uid: 19147
+  type: SignPlaque
+  components:
+  - desc: A plaque in honor of Emisse for the construction of this part of the station, and saluting those brave enough to venture into Atmospherics.
+    name: Atmos Plaque
+    type: MetaData
+  - pos: -17.5,-50.5
+    parent: 100
+    type: Transform
 ...
