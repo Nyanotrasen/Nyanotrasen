@@ -9,7 +9,8 @@
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.25
+    range: 1.75
     damage:
       types:
         Slash: 17 #cmon, it has to be at least BETTER than the rest.
@@ -42,7 +43,7 @@
     attackRate: 1.75
     damage:
       types:
-        Slash: 14
+        Slash: 12
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -69,11 +70,13 @@
     attackRate: 0.8
     damage:
       types:
-        Slash: 15.5
+        Slash: 15
   - type: MeleeBloodletter
     bloodReduction:
       types:
         Slash: 30.0
+  - type: StaminaDamageOnHit
+    damage: 15
   - type: MeleeStaminaCost
     swing: 10
   - type: Item
@@ -92,18 +95,20 @@
     sprite: Objects/Weapons/Melee/claymore.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.65
+    range: 1.85
     damage:
       types:
-        Slash: 24
+        Slash: 19
   - type: MeleeBloodletter
     bloodReduction:
       types:
         Slash: 40.0
   - type: MeleeStaminaCost
-    swing: 20
+    swing: 10
+    hit: 10
   - type: StaminaDamageOnHit
-    damage: 33
+    damage: 30
   - type: Item
     size: 20
   - type: Clothing

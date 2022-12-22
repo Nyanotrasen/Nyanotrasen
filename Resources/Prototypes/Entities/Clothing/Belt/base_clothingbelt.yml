@@ -23,6 +23,9 @@
     capacity: 40
     equipSound:
       path: /Audio/Items/belt_equip.ogg
+  - type: MeleeWeapon
+    attackRate: 1.1
+    range: 1.65
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

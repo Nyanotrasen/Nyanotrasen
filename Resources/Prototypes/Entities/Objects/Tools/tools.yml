@@ -21,6 +21,7 @@
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 0.9
+    range: 1.6
     damage:
       types:
         Slash: 6.5
@@ -99,11 +100,13 @@
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 0.9
+    range: 1.6
+    bluntStaminaDamageFactor: 1.5
     damage:
       types:
         Blunt: 7.5
   - type: StaminaDamageOnHit
-    damage: 12
+    damage: 2.25
   - type: Tool
     qualities:
       - Anchoring
@@ -132,11 +135,10 @@
     sprite: Objects/Tools/crowbar.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 1.25
     damage:
       types:
         Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 4
   - type: Tool
     qualities:
       - Prying
@@ -209,7 +211,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Heat: 2
+        Shock: 2
 
 - type: entity
   name: power drill
@@ -306,10 +308,11 @@
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 0.8
+    range: 2.0
     damage:
       types:
-        Blunt: 7
-    bluntStaminaDamageFactor: 1.30 # 9.1 stamina damage
+        Blunt: 5
+    bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
     attackRate: 1

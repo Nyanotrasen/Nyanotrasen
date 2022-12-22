@@ -32,9 +32,10 @@
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 2.0
     damage:
       types:
-        Blunt: 8
+        Blunt: 7.5
   - type: DamageOnLand
     damage:
       types:
