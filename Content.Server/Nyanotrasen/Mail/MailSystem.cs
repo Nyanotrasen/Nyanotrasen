@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Access.Systems;
