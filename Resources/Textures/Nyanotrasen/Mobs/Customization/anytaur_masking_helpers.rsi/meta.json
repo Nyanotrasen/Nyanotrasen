@@ -1,1 +1,68 @@
-{"version": 1, "license": "CC-BY-SA-3.0", "copyright": "Rane", "size": {"x": 32, "y": 32}, "states": [{"name": "female_full", "directions": 4, "delays": [[1.0], [1.0], [1.0], [1.0]]}, {"name": "female_top", "directions": 4, "delays": [[1.0], [1.0], [1.0], [1.0]]}, {"name": "none"}]}
+{
+    "copyright": "Rane",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "delays": [
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ]
+            ],
+            "directions": 4,
+            "name": "female_none"
+        },
+        {
+            "delays": [
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ]
+            ],
+            "directions": 4,
+            "name": "female_full"
+        },
+        {
+            "delays": [
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ],
+                [
+                    1.0
+                ]
+            ],
+            "directions": 4,
+            "name": "female_top"
+        },
+        {
+            "name": "none"
+        }
+    ],
+    "version": 1
+}
