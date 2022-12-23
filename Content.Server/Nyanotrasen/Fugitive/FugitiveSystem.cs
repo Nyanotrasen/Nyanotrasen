@@ -88,7 +88,7 @@ namespace Content.Server.Fugitive
                 cd.AnnounceTime = _timing.CurTime + cd.AnnounceCD;
 
             _popupSystem.PopupEntity(Loc.GetString("fugitive-spawn", ("name", uid)), uid,
-            Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)), Shared.Popups.PopupType.LargeCaution);
+            Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)), true, Shared.Popups.PopupType.LargeCaution);
 
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
             _audioSystem.PlayPvs(component.SpawnSoundPath, uid, AudioParams.Default.WithVolume(-6f));

@@ -259,12 +259,12 @@ namespace Content.Server.Arachne
             {
                 if (hunger.CurrentHungerThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-hungry"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-hungry"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                     return;
                 }
                 if (thirst.CurrentThirstThreshold <= ThirstThreshold.Thirsty)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-thirsty"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                    _popupSystem.PopupEntity(Loc.GetString("spin-web-action-thirsty"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                     return;
                 }
             }
@@ -272,7 +272,7 @@ namespace Content.Server.Arachne
             var coords = args.Target;
             if (!_mapManager.TryGetGrid(coords.GetGridUid(EntityManager), out var grid))
             {
-                _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-space"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-space"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                 return;
             }
 
@@ -283,15 +283,16 @@ namespace Content.Server.Arachne
                     ((Resolve(entity, ref physics, false) && (physics.CollisionLayer & (int) CollisionGroup.Impassable) != 0) // Is it impassable?
                     &&  !(TryComp<DoorComponent>(entity, out var door) && door.State != DoorState.Closed))) // Is it a door that's open and so not actually impassable?
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-blocked"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.MediumCaution);
+                    _popupSystem.PopupEntity(Loc.GetString("action-name-spin-web-blocked"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                     return;
                 }
             }
 
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-third-person", ("spider", Identity.Entity(args.Performer, EntityManager))), args.Performer,
             Filter.PvsExcept(args.Performer).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(args.Performer, entity, ExamineRange, null)),
+            true,
             Shared.Popups.PopupType.MediumCaution);
-            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, Filter.Entities(args.Performer), Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, args.Performer, Shared.Popups.PopupType.Medium);
             arachne.CancelToken = new CancellationTokenSource();
             _doAfter.DoAfter(new DoAfterEventArgs(args.Performer, arachne.WebDelay, arachne.CancelToken.Token)
             {
@@ -310,9 +311,10 @@ namespace Content.Server.Arachne
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid,
                 // TODO: We need popup occlusion lmao
                 Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                true,
                 Shared.Popups.PopupType.MediumCaution);
 
-            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-second-person", ("target", Identity.Entity(target, EntityManager))), uid, Filter.Entities(uid), Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("cocoon-start-second-person", ("target", Identity.Entity(target, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
 
             var delay = component.CocoonDelay;
 
@@ -398,8 +400,9 @@ namespace Content.Server.Arachne
             Spawn("ArachneWeb", ev.Coords.SnapToGrid());
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber,
             Filter.PvsExcept(ev.Webber).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(ev.Webber, entity, ExamineRange, null)),
+            true,
             Shared.Popups.PopupType.MediumCaution);
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, Filter.Entities(ev.Webber), Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, ev.Webber, Shared.Popups.PopupType.Medium);
         }
 
         private sealed class WebCancelledEvent : EntityEventArgs

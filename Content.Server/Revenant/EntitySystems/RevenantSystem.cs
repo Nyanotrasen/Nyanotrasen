@@ -153,7 +153,7 @@ public sealed partial class RevenantSystem : EntitySystem
     {
         if (component.Essence <= abilityCost)
         {
-            _popup.PopupEntity(Loc.GetString("revenant-not-enough-essence"), uid, Filter.Entities(uid));
+            _popup.PopupEntity(Loc.GetString("revenant-not-enough-essence"), uid, uid);
             return false;
         }
 
@@ -162,7 +162,7 @@ public sealed partial class RevenantSystem : EntitySystem
         {
             if(_physics.GetEntitiesIntersectingBody(uid, (int) CollisionGroup.Impassable).Count > 0)
             {
-                _popup.PopupEntity(Loc.GetString("revenant-in-solid"), uid, Filter.Entities(uid));
+                _popup.PopupEntity(Loc.GetString("revenant-in-solid"), uid, uid);
                 return false;
             }
         }

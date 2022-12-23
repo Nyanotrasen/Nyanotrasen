@@ -81,7 +81,8 @@ namespace Content.Server.Body.Systems
                         respirator.LastGaspPopupTime = _gameTiming.CurTime;
                         // TODO: remove proper occlusion
                         _popupSystem.PopupEntity(Loc.GetString("lung-behavior-gasp"), uid,
-                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(respirator.Owner, entity, ExamineRange, null)));
+                        Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(respirator.Owner, entity, ExamineRange, null)),
+                        true);
                     }
 
                     TakeSuffocationDamage(uid, respirator);
