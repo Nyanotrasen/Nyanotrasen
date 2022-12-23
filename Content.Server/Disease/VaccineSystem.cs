@@ -224,12 +224,12 @@ namespace Content.Server.Disease
 
             if (vaxx.Used)
             {
-                _popupSystem.PopupEntity(Loc.GetString("vaxx-already-used"), args.User, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("vaxx-already-used"), args.User, args.User);
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-agent", ("target", args.Target), ("vaccine", args.Used)), args.Target.Value, Filter.Entities(args.User));
-            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-patient", ("user", args.User), ("vaccine", args.Used)), args.Target.Value, Filter.Entities(args.Target.Value), Shared.Popups.PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-agent", ("target", args.Target), ("vaccine", args.Used)), args.Target.Value, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-patient", ("user", args.User), ("vaccine", args.Used)), args.Target.Value, args.Target.Value, Shared.Popups.PopupType.SmallCaution);
 
             vaxx.CancelToken = new CancellationTokenSource();
             _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, vaxx.InjectDelay, vaxx.CancelToken.Token, target: args.Target)

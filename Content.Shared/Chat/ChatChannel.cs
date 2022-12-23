@@ -60,19 +60,24 @@ namespace Content.Shared.Chat
         Dead = 1 << 9,
 
         /// <summary>
-        ///     Admin chat
+        ///     Misc admin messages
         /// </summary>
         Admin = 1 << 10,
 
         /// <summary>
+        ///     Admin chat
+        /// </summary>
+        AdminChat = 1 << 11,
+
+        /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 11,
+        Unspecified = 1 << 12,
 
         /// <summary>
         ///     Telepathic channel for all psionic entities.
         /// </summary>
-        Telepathic = 1 << 12,
+        Telepathic = 1 << 13,
 
         /// <summary>
         ///     Channels considered to be IC.

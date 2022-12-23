@@ -26,7 +26,7 @@ namespace Content.Server.OfHolding
                 if (component.LastWarnedEntity != args.User)
                 {
                     component.LastWarnedEntity = args.User;
-                    _popupSystem.PopupEntity(Loc.GetString("of-holding-warn"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("of-holding-warn"), uid, args.User);
                     return;
                 }
                 EntityManager.SpawnEntity("Singularity", Transform(args.User).Coordinates);

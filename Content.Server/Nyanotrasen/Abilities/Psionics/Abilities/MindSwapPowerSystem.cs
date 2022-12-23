@@ -161,7 +161,7 @@ namespace Content.Server.Abilities.Psionics
             if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
                 return;
 
-            _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, Filter.Entities(uid), Shared.Popups.PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, uid, Shared.Popups.PopupType.LargeCaution);
             _actions.RemoveAction(uid, action);
 
             if (HasComp<TelegnosticProjectionComponent>(uid))

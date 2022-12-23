@@ -240,7 +240,7 @@ namespace Content.Server.Carrying
 
             if (length >= 9)
             {
-                _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, Filter.Entities(carrier), Shared.Popups.PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, carrier, Shared.Popups.PopupType.SmallCaution);
                 return;
             }
 

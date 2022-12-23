@@ -102,11 +102,11 @@ namespace Content.Server.Abilities.Felinid
             EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
             blocker.Enabled)
             {
-                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, Filter.Entities(uid));
+                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid);
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid, Filter.Pvs(uid));
+            _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid);
             SoundSystem.Play("/Audio/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
             AddComp<CoughingUpHairballComponent>(uid);
@@ -122,7 +122,7 @@ namespace Content.Server.Abilities.Felinid
             EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
             blocker.Enabled)
             {
-                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, Filter.Entities(uid));
+                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid);
                 return;
             }
 

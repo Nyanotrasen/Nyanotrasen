@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Access.Systems;
@@ -61,10 +60,14 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
+        private ISawmill _sawmill = default!;
 
         public override void Initialize()
         {
             base.Initialize();
+
+            _sawmill = Logger.GetSawmill("mail");
+
             SubscribeLocalEvent<MailComponent, ComponentRemove>(OnRemove);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
@@ -110,7 +113,7 @@ namespace Content.Server.Mail
                 return;
             if (component.IsLocked)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, args.User);
                 return;
             }
             OpenMail(uid, component, args.User);
@@ -170,13 +173,13 @@ namespace Content.Server.Mail
             {
                 if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
                     return;
                 }
 
                 if (!_accessSystem.IsAllowed(uid, args.User))
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
                 }
             }
@@ -185,11 +188,11 @@ namespace Content.Server.Mail
 
             if (!component.IsProfitable)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, args.User);
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
 
             component.IsProfitable = false;
 
@@ -302,7 +305,7 @@ namespace Content.Server.Mail
 
             UnlockMail(uid, component);
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, Filter.Entities(args.UserUid));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, args.UserUid);
 
             _audioSystem.PlayPvs(component.EmagSound, uid, AudioParams.Default.WithVolume(4));
             component.IsProfitable = false;
@@ -422,7 +425,7 @@ namespace Content.Server.Mail
                 var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
                 if (!container.Insert(entity))
                 {
-                    Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
+                    _sawmill.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
                     QueueDel(entity);
                 }
                 else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
@@ -578,7 +581,7 @@ namespace Content.Server.Mail
         {
             if (!Resolve(uid, ref component))
             {
-                Logger.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
+                _sawmill.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
                 return;
             }
 
@@ -589,13 +592,13 @@ namespace Content.Server.Mail
 
             if (candidateList.Count <= 0)
             {
-                Logger.Error("List of mail candidates was empty!");
+                _sawmill.Error("List of mail candidates was empty!");
                 return;
             }
 
             if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
             {
-                Logger.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
+                _sawmill.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
                 return;
             }
 
@@ -637,7 +640,7 @@ namespace Content.Server.Mail
 
                 if (chosenParcel == null)
                 {
-                    Logger.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
+                    _sawmill.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
                     return;
                 }
 
@@ -663,7 +666,7 @@ namespace Content.Server.Mail
 
             if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
             {
-                Logger.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
+                _sawmill.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
                 return;
             }
 

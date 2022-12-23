@@ -54,7 +54,7 @@ namespace Content.Server.Abilities.Psionics
 
             flammableComponent.FireStacks += 5;
             _flammableSystem.Ignite(args.Target, flammableComponent);
-            _popupSystem.PopupEntity(Loc.GetString("pyrokinesis-power-used", ("target", args.Target)), args.Target, Filter.Pvs(args.Target), Shared.Popups.PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("pyrokinesis-power-used", ("target", args.Target)), args.Target, Shared.Popups.PopupType.LargeCaution);
 
             _psionics.LogPowerUsed(args.Performer, "pyrokinesis");
             args.Handled = true;

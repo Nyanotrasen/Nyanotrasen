@@ -169,8 +169,8 @@ namespace Content.Server.Psionics
             if (uncager == caged)
             {
                 doAfterLength *= 2f;
-                _popupSystem.PopupEntity(Loc.GetString("cage-resist-second-person", ("cage", headItem)), caged, Filter.Entities(caged), Shared.Popups.PopupType.Medium);
-                _popupSystem.PopupEntity(Loc.GetString("cage-resist-third-person", ("user", Identity.Entity(caged, EntityManager)), ("cage", headItem)), caged, Filter.PvsExcept(caged), Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("cage-resist-second-person", ("cage", headItem)), caged, caged, Shared.Popups.PopupType.Medium);
+                _popupSystem.PopupEntity(Loc.GetString("cage-resist-third-person", ("user", Identity.Entity(caged, EntityManager)), ("cage", headItem)), caged, Filter.PvsExcept(caged), true, Shared.Popups.PopupType.MediumCaution);
             }
 
             cageComp.CancelToken = new CancellationTokenSource();

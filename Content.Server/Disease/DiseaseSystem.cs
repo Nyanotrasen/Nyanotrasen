@@ -235,7 +235,7 @@ namespace Content.Server.Disease
         {
             var CureTuple = (carrier, disease);
             CureQueue.Enqueue(CureTuple);
-            _popupSystem.PopupEntity(Loc.GetString("disease-cured"), carrier.Owner, Filter.Entities(carrier.Owner));
+            _popupSystem.PopupEntity(Loc.GetString("disease-cured"), carrier.Owner, carrier.Owner);
         }
 
         public void CureAllDiseases(EntityUid uid, DiseaseCarrierComponent? carrier = null)
@@ -383,7 +383,7 @@ namespace Content.Server.Disease
             if (attemptSneezeCoughEvent.Cancelled) return false;
 
             if (!string.IsNullOrEmpty(snoughMessage))
-                _popupSystem.PopupEntity(Loc.GetString(snoughMessage, ("person", Identity.Entity(uid, EntityManager))), uid, Filter.Pvs(uid));
+                _popupSystem.PopupEntity(Loc.GetString(snoughMessage, ("person", Identity.Entity(uid, EntityManager))), uid);
 
             if (snoughSound != null)
                 _audioSystem.PlayPvs(snoughSound, uid);

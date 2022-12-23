@@ -107,6 +107,7 @@ namespace Content.Server.Abilities.Psionics
                 uid,
                 // TODO: Use LoS-based Filter when one is available.
                 Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+                true,
                 PopupType.Medium);
 
             _audioSystem.PlayPvs(component.SoundUse, component.Owner, AudioParams.Default.WithVolume(8f).WithMaxDistance(1.5f).WithRolloffFactor(3.5f));

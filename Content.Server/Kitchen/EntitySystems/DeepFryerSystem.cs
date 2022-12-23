@@ -183,7 +183,6 @@ namespace Content.Server.Kitchen.EntitySystems
                             Loc.GetString("deep-fryer-oil-volume-low",
                                 ("deepFryer", uid)),
                             uid,
-                            Filter.Pvs(uid),
                             PopupType.SmallCaution);
 
                         continue;
@@ -203,7 +202,8 @@ namespace Content.Server.Kitchen.EntitySystems
                         Loc.GetString("deep-fryer-oil-purity-low",
                             ("deepFryer", uid)),
                         uid,
-                        Filter.Pvs(uid, PvsWarningRange));
+                        Filter.Pvs(uid, PvsWarningRange),
+                        true);
                     continue;
                 }
 
@@ -575,7 +575,8 @@ namespace Content.Server.Kitchen.EntitySystems
                     Loc.GetString("deep-fryer-blacklist-item-failed",
                         ("item", item), ("deepFryer", uid)),
                     uid,
-                    Filter.Pvs(uid, PvsWarningRange));
+                    Filter.Pvs(uid, PvsWarningRange),
+                    true);
                 return;
             }
 
@@ -685,8 +686,7 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-thrown-missed"),
-                    uid,
-                    Filter.Pvs(uid));
+                    uid);
 
                 if (args.User != null)
                     _adminLogManager.Add(LogType.Action, LogImpact.Low,
@@ -698,13 +698,11 @@ namespace Content.Server.Kitchen.EntitySystems
             if (GetOilVolume(uid, component) < component.SafeOilVolume)
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-thrown-hit-oil-low"),
-                    uid,
-                    Filter.Pvs(uid));
+                    uid);
             else
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-thrown-hit-oil"),
-                    uid,
-                    Filter.Pvs(uid));
+                    uid);
 
             if (args.User != null)
                 _adminLogManager.Add(LogType.Action, LogImpact.Low,
@@ -731,7 +729,6 @@ namespace Content.Server.Kitchen.EntitySystems
                     ("victim", Identity.Entity(args.Entity, EntityManager)),
                     ("deepFryer", uid)),
                 uid,
-                Filter.Pvs(uid),
                 PopupType.SmallCaution);
         }
 
@@ -750,7 +747,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-interact-using-not-item"),
                     uid,
-                    Filter.Entities(user));
+                    user);
                 return false;
             }
 
@@ -760,7 +757,7 @@ namespace Content.Server.Kitchen.EntitySystems
                     Loc.GetString("deep-fryer-storage-no-fit",
                         ("item", item)),
                     uid,
-                    Filter.Entities(user));
+                    user);
                 return false;
             }
 
@@ -769,7 +766,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-storage-full"),
                     uid,
-                    Filter.Entities(user));
+                    user);
                 return false;
             }
 
@@ -869,7 +866,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-need-liquid-container-in-hand"),
                     fryer,
-                    Filter.Entities(user));
+                    user);
 
                 return false;
             }
@@ -916,7 +913,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(
                     Loc.GetString("deep-fryer-oil-no-slag"),
                     uid,
-                    Filter.Entities(user.Value));
+                    user.Value);
 
                 return;
             }

@@ -80,7 +80,8 @@ public sealed partial class BotanySystem : EntitySystem
         if (!TryGetSeed(component, out var seed))
             return;
 
-        args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", seed.DisplayName)));
+        var name = Loc.GetString(seed.DisplayName);
+        args.PushMarkup(Loc.GetString($"seed-component-description", ("seedName", name)));
         args.PushMarkup(Loc.GetString($"seed-component-plant-yield-text", ("seedYield", seed.Yield)));
         args.PushMarkup(Loc.GetString($"seed-component-plant-potency-text", ("seedPotency", seed.Potency)));
     }
@@ -100,7 +101,9 @@ public sealed partial class BotanySystem : EntitySystem
             sprite.LayerSetSprite(0, new SpriteSpecifier.Rsi(proto.PlantRsi, "seed"));
         }
 
-        var val = Loc.GetString("botany-seed-packet-name", ("seedName", proto.Name), ("seedNoun", proto.Noun));
+        var name = Loc.GetString(proto.Name);
+        var noun = Loc.GetString(proto.Noun);
+        var val = Loc.GetString("botany-seed-packet-name", ("seedName", name), ("seedNoun", noun));
         MetaData(seed).EntityName = val;
 
         return seed;
@@ -119,13 +122,12 @@ public sealed partial class BotanySystem : EntitySystem
     {
         if (proto.ProductPrototypes.Count == 0 || proto.Yield <= 0)
         {
-            _popupSystem.PopupCursor(Loc.GetString("botany-harvest-fail-message"),
-                Filter.Entities(user), PopupType.Medium);
+            _popupSystem.PopupCursor(Loc.GetString("botany-harvest-fail-message"), user, PopupType.Medium);
             return Enumerable.Empty<EntityUid>();
         }
 
-        _popupSystem.PopupCursor(Loc.GetString("botany-harvest-success-message", ("name", proto.DisplayName)),
-            Filter.Entities(user), PopupType.Medium);
+        var name = Loc.GetString(proto.DisplayName);
+        _popupSystem.PopupCursor(Loc.GetString("botany-harvest-success-message", ("name", name)), user, PopupType.Medium);
         return GenerateProduct(proto, Transform(user).Coordinates, yieldMod);
     }
 

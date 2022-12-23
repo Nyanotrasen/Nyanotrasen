@@ -79,7 +79,7 @@ namespace Content.Server.Abilities.Psionics
         {
             QueueDel(uid);
             Spawn("Ash", Transform(uid).Coordinates);
-            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
             _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
             args.Handled = true;
         }
@@ -114,7 +114,7 @@ namespace Content.Server.Abilities.Psionics
             damage.DamageDict.Add("Blunt", 100);
 
             _damageableSystem.TryChangeDamage(uid, damage, true, true);
-            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), Shared.Popups.PopupType.SmallCaution);
+            _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.SmallCaution);
             _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
         }
     }
