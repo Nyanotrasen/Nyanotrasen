@@ -1,7 +1,7 @@
 - type: entity
   name: special brownies
   parent: FoodBakedBase
-  id: FoodBakedGanjaBrownieBatch
+  id: FoodBakedCannabisBrownieBatch
   description: A pan of "special" brownies.
   components:
   - type: FlavorProfile
@@ -15,7 +15,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 150
+        maxVol: 148
         reagents:
         - ReagentId: Nutriment
           Quantity: 30
@@ -25,12 +25,12 @@
           Quantity: 90
   - type: SliceableFood
     count: 6
-    slice: FoodBakedGanjaBrownie
+    slice: FoodBakedCannabisBrownie
 
 - type: entity
   name: special brownie
   parent: FoodBakedBase
-  id: FoodBakedGanjaBrownie
+  id: FoodBakedCannabisBrownie
   description: A "special" brownie.
   components:
   - type: FlavorProfile

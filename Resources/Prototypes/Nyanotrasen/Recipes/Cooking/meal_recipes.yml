@@ -1,23 +1,23 @@
-#Ganja Butt
+#Ganja Butter
 
 - type: microwaveMealRecipe
-  id: RecipeGanjaButter
-  name: ganja butter recipe
-  result: FoodGanjaButter
+  id: RecipeCannabisButter
+  name: cannabis butter recipe
+  result: FoodCannabisButter
   time: 15
   solids:
     FoodButter: 1
-    LeavesCannabis: 8
+    LeavesCannabis: 9
 
 - type: microwaveMealRecipe
-  id: RecipeGanjaBrownies
-  name: ganja brownie recipe
-  result: FoodBakedGanjaBrownieBatch
+  id: RecipeCannabisBrownies
+  name: cannabis brownie recipe
+  result: FoodBakedCannabisBrownieBatch
   time: 25
   reagents:
     Flour: 15
     Sugar: 30
   solids:
-    FoodGanjaButter: 1
+    FoodCannabisButter: 2
     FoodSnackChocolateBar: 2
     FoodEgg: 3

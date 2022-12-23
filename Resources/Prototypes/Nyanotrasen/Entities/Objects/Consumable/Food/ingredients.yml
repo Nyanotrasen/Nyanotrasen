@@ -1,7 +1,7 @@
 - type: entity
-  name: stick of ganja butter
+  name: stick of cannabis butter
   parent: FoodBakingBase
-  id: FoodGanjaButter
+  id: FoodCannabisButter
   description: Add this to your favorite baked goods for an irie time.
   components:
   - type: Sprite
@@ -10,11 +10,11 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 90
+        maxVol: 60
         reagents:
         - ReagentId: Butter
           Quantity: 10
         - ReagentId: THCOil
-          Quantity: 80
+          Quantity: 45
   - type: Extractable
     grindableSolutionName: food
