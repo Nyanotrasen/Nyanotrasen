@@ -35,6 +35,14 @@ namespace Content.IntegrationTests.Tests.Mail
     public sealed class MailTest
     {
         private const string Prototypes = @"
+- type: damageType
+  id: TestBlunt
+
+- type: damageContainer
+  id: testDamageContainer
+  supportedTypes:
+    - TestBlunt
+
 - type: mailDeliveryPool
   id: MailPoolHonk
   jobs:
@@ -65,10 +73,26 @@ namespace Content.IntegrationTests.Tests.Mail
   name: GhostDummy
 
 - type: entity
+  id: TestBikeHorn
+  name: TestBikeHorn
+
+- type: entity
+  id: TestBottleOfNothing
+  name: TestBottleOfNothing
+
+- type: entity
   id: TestMailTeleporter
-  parent: BaseStructureDynamic
   name: TestMailTeleporter
   components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+          bounds: ""-0.45,-0.45,0.45,0.00""
+      mask:
+      - Impassable
   - type: MailTeleporter
     priorityChance: 0
     fragileBonus: 1
@@ -76,7 +100,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
 - type: entity
   id: TestMailTeleporterAlwaysPriority
-  parent: BaseStructureDynamic
+  parent: TestMailTeleporter
   name: TestMailTeleporterAlwaysPriority
   components:
   - type: MailTeleporter
@@ -84,7 +108,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
 - type: entity
   id: TestMailTeleporterAlwaysPriorityAlwaysBrutal
-  parent: BaseStructureDynamic
+  parent: TestMailTeleporter
   name: TestMailTeleporterAlwaysPriorityAlwaysBrutal
   components:
   - type: MailTeleporter
@@ -93,7 +117,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
 - type: entity
   id: TestMailTeleporterAlwaysOneAtATime
-  parent: BaseStructureDynamic
+  parent: TestMailTeleporter
   name: TestMailTeleporterAlwaysOneAtATime
   components:
   - type: MailTeleporter
@@ -101,7 +125,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
 - type: entity
   id: TestMailTeleporterAlwaysHonks
-  parent: BaseStructureDynamic
+  parent: TestMailTeleporter
   name: TestMailTeleporterAlwaysHonks
   components:
   - type: MailTeleporter
@@ -109,46 +133,61 @@ namespace Content.IntegrationTests.Tests.Mail
 
 - type: entity
   id: TestMailTeleporterHonkAndNothing
-  parent: BaseStructureDynamic
+  parent: TestMailTeleporter
   name: TestMailTeleporterHonkAndNothing
   components:
   - type: MailTeleporter
     mailPool: MailPoolHonkAndNothing
 
 - type: entity
-  parent: BaseMail
   id: TestMail
   name: TestMail
+  components:
+  - type: Item
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: ""-0.25,-0.25,0.25,0.25""
+      layer:
+      - Impassable
+  - type: Mail
+  - type: AccessReader
+  - type: Appearance
+  - type: Damageable
+    damageContainer: testDamageContainer
 
 - type: entity
-  parent: BaseMail
+  parent: TestMail
   id: TestMailHonk
   name: TestMailHonk
   components:
   - type: Mail
     contents:
-    - id: BikeHorn
+    - id: TestBikeHorn
 
 - type: entity
-  parent: BaseMail
+  parent: TestMail
   id: TestMailBottleOfNothing
   name: TestMailBottleOfNothing
   components:
   - type: Mail
     contents:
-    - id: DrinkBottleOfNothingFull
+    - id: TestBottleOfNothing
 
 - type: entity
-  parent: BaseMail
+  parent: TestMail
   id: TestMailFragileDetection
   name: TestMailFragileDetection
   components:
   - type: Mail
     contents:
-    - id: DrinkGlass
+    - id: TestDrinkGlass
 
 - type: entity
-  parent: BaseMail
+  parent: TestMail
   id: TestMailPriorityOnSpawn
   name: TestMailPriorityOnSpawn
   components:
@@ -156,12 +195,27 @@ namespace Content.IntegrationTests.Tests.Mail
     isPriority: true
 
 - type: entity
-  parent: BaseMail
+  parent: TestMail
   id: TestMailFragileOnSpawn
   name: TestMailFragileOnSpawn
   components:
   - type: Mail
     isFragile: true
+
+- type: entity
+  id: TestDrinkGlass
+  name: TestDrinkGlass
+  components:
+  - type: Damageable
+    damageContainer: testDamageContainer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [""Destruction""]
 ";
 
         [Test]
@@ -584,7 +638,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 drinkGlass = contents.ContainedEntities[0];
 
-                var damageSpec = new DamageSpecifier(prototypeManager.Index<DamageTypePrototype>("Blunt"), 10);
+                var damageSpec = new DamageSpecifier(prototypeManager.Index<DamageTypePrototype>("TestBlunt"), 10);
                 var damageResult = damageableSystem.TryChangeDamage(mail, damageSpec);
 
                 Assert.IsNotNull(damageResult,
@@ -1042,6 +1096,9 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsTrue(handsSystem.TryPickup(realCandidate1, realCandidate1ID),
                     "Human dummy candidate was unable to pickup his ID.");
 
+                Assert.That(stationSystem.GetOwningStation(teleporter), Is.EqualTo(stationSystem.GetOwningStation(realCandidate1)),
+                    "Teleporter and candidate do not share the same owning station.");
+
                 eventArgs = new AfterInteractUsingEvent(
                     realCandidate1,
                     realCandidate1ID,
@@ -1298,7 +1355,7 @@ namespace Content.IntegrationTests.Tests.Mail
                     MetaDataComponent metaDataComponent;
                     Assert.IsTrue(entityManager.TryGetComponent(entity, out metaDataComponent!),
                         "Mail did not have MetaDataComponent.");
-                    Assert.That(metaDataComponent.EntityName, Is.EqualTo("bottle of nothing"),
+                    Assert.That(metaDataComponent.EntityName, Is.EqualTo("TestBottleOfNothing"),
                         "Mail did not contain bottle of nothing.");
                 }
 
