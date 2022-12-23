@@ -245,7 +245,7 @@
   - type: DamageWeaponOnHit
     damage:
       types:
-        Blunt: 3
+        Blunt: 30
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -256,7 +256,7 @@
     hit: 4.5
     wieldCoefficient: 0.50 #if wielded you will only consume 5 stam
   - type: StaminaDamageOnHit
-    damage: 15
+    damage: 3
   - type: Construction
     graph: Seat
     node: chairFolding

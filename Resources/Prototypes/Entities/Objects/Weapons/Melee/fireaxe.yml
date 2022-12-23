@@ -21,7 +21,7 @@
         Structural: 5
   - type: MeleeStaminaCost
     swing: 20
-    wieldCoefficient: 0.5 #if wielded you will only consume 4.5 stam
+    wieldCoefficient: 0.5 #if wielded you will only consume 10 stam
   - type: MeleeBloodletter
     bloodReduction:
       types:
