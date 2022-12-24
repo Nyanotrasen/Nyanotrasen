@@ -1,0 +1,74 @@
+- type: entity
+  name: polterghiest
+  id: Mobayadoll
+  parent: SimpleMobBase
+  description: AWW its so cute, OH S**T IT HAS A KNIFE.
+  components:
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.00
+    baseSprintSpeed : 7.00
+  - type: InputMover
+  - type: MobMover
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+  - type: Faction
+    factions:
+    - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/ayadoll.rsi/dollspritesfull.png
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: polterghiest
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.7
+      density: 230
+      mask:
+      - SmallMobMask
+      layer:
+      - SmallMobLayer
+  - type: MobState
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcclaw
+    damage:
+      types:
+        Slash: 30
+        Piercing: 15
+    baseDecayRate: 0.1
+  - type: Appearance
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: polterghiest
+      Critical:
+        Base: polterghiest_dead
+      Dead:
+        Base: polterghiest_dead
+  - type: puller
+    needsHands: true
+  - type: GhostTakeoverAvailable
+    makeSentient: true
+    name: polterghiest
+    description: A funny little doll.
+    rules: You are an *light antagonist*, try to be reasonable and try to have a wish that *CAN BE GRANTED*, if they fulfill they this, you can not be hostile anymore.[The wish can not be a death of a player or items/machines that upkeeps life on the station]
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+      - PotentialPsionic
