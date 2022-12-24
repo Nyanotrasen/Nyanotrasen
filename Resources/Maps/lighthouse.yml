@@ -31746,6 +31746,9 @@ entities:
 - uid: 914
   type: WoodDoor
   components:
+  - desc: Check under the tree to receive your gift from Santa Claus!
+    name: Door of Christmas Cheer
+    type: MetaData
   - pos: -6.5,21.5
     parent: 100
     type: Transform
@@ -31882,6 +31885,9 @@ entities:
 - uid: 936
   type: WoodDoor
   components:
+  - desc: Check under the tree to receive your gift from Santa Claus!
+    name: Door of Christmas Cheer
+    type: MetaData
   - pos: -7.5,21.5
     parent: 100
     type: Transform
@@ -142364,7 +142370,7 @@ entities:
     pos: -17.5,-19.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -48325.66
+  - SecondsUntilStateChange: -50003.99
     state: Opening
     type: Door
 - uid: 16935
@@ -146913,7 +146919,7 @@ entities:
     pos: -17.5,-18.5
     parent: 100
     type: Transform
-  - SecondsUntilStateChange: -48323.58
+  - SecondsUntilStateChange: -50001.906
     state: Opening
     type: Door
 - uid: 17348
