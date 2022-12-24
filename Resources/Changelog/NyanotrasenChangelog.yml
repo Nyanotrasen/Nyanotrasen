@@ -1975,3 +1975,10 @@ Entries:
     type: Tweak
   id: 227
   time: '2022-12-24T10:31:04.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added a delay at the start of Traitor mode before players are selected
+      to be an antagonist.
+    type: Add
+  id: 228
+  time: '2022-12-24T17:23:11.0000000+00:00'
