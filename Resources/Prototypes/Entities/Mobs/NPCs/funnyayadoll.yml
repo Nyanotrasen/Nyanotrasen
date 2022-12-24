@@ -1,5 +1,5 @@
 - type: entity
-  name: polterghiest
+  name: poltergeist
   id: Mobayadoll
   parent: SimpleMobBase
   description: AWW its so cute, OH S**T IT HAS A KNIFE.
@@ -22,7 +22,7 @@
     sprite: Mobs/ayadoll.rsi/dollspritesfull.png
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: polterghiest
+      state: poltergeisst
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -54,16 +54,16 @@
     rotate: true
     states:
       Alive:
-        Base: polterghiest
+        Base: poltergeist
       Critical:
-        Base: polterghiest_dead
+        Base: poltergeist_dead
       Dead:
-        Base: polterghiest_dead
+        Base: poltergeist_dead
   - type: puller
     needsHands: true
   - type: GhostTakeoverAvailable
     makeSentient: true
-    name: polterghiest
+    name: poltergeist
     description: A funny little doll.
     rules: You are an *light antagonist*, try to be reasonable and try to have a wish that *CAN BE GRANTED*, if they fulfill they this, you can not be hostile anymore.[The wish can not be a death of a player or items/machines that upkeeps life on the station]
   - type: Tag
@@ -72,3 +72,4 @@
       - DoorBumpOpener
       - FootstepSound
       - PotentialPsionic
+#thanks rane ,for telling me about the spelling error
