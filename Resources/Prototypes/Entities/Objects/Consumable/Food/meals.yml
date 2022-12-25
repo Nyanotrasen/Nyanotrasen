@@ -230,9 +230,32 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
-        - ReagentId: CarpoToxin
+        - ReagentId: Protein
           Quantity: 3
 # Tastes like fish, batter, hot peppers.
+
+- type: entity
+  name: fish and chips
+  parent: FoodMealBase
+  id: FoodMealFishChips
+  description: A dish that consists of fried fish and potatoes.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fishy
+      - batter
+  - type: Sprite
+    state: fishandchips
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 3
+# Tastes like fish and batter.
 
 - type: entity
   name: corned beef and cabbage
@@ -472,7 +495,7 @@
   name: Sashimi
   parent: FoodMealBase
   id: FoodMealSashimi
-  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
+  description: Its taste can only be described as "Exotic".
   components:
   - type: FlavorProfile
     flavors:
@@ -485,9 +508,9 @@
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
           Quantity: 6
-        - ReagentId: CarpoToxin
-          Quantity: 15
 # tastes exotic
 
 - type: entity
