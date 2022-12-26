@@ -282,6 +282,8 @@
     slots:
     - HEAD
   - type: MeleeWeapon
+    attackRate: 1.5
+    range: 1.3
     damage:
       types:
         Blunt: 0.1

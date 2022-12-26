@@ -7,8 +7,11 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Melee/kanabou.rsi
     state: icon
+  - type: Item
+    size: 20
   - type: MeleeWeapon
     attackRate: 0.75
+    range: 1.75
     damage:
       types:
         Blunt: 16
@@ -22,7 +25,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 17
+        Blunt: 14
   - type: Clothing
     sprite: Nyanotrasen/Objects/Weapons/Melee/kanabou.rsi
     quickEquip: false

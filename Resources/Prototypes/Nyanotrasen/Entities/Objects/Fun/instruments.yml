@@ -27,7 +27,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 9
+        Blunt: 7
     bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
 
 - type: entity
@@ -58,12 +58,15 @@
     swing: 10
     wieldCoefficient: 0.40
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 4.5
+    attackRate: 1.25
+    range: 1.85
     damage:
       types:
-        Blunt: 12
-    bluntStaminaDamageFactor: 1.50 #18 Stamina damage
+        Blunt: 7
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 8
+        Blunt: 7
+        Shock: 2

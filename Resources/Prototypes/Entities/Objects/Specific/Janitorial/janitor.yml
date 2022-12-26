@@ -13,6 +13,7 @@
     sprite: Objects/Specific/Janitorial/mop.rsi
   - type: MeleeWeapon
     bluntStaminaDamageFactor: 1.60 # 8 stamina damage
+    range: 1.85
     damage:
       types:
         Blunt: 2

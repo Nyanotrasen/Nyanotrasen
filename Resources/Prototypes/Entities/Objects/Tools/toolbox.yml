@@ -15,16 +15,17 @@
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 0.9
+    range: 1.75
     damage:
       types:
         Blunt: 9
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: StaminaDamageOnHit
-    damage: 13.5
+    damage: 14
   - type: MeleeStaminaCost
-    swing: 10
-    hit: 10
+    swing: 5
+    hit: 5
   - type: Tag
     tags:
       - DroneUsable
@@ -93,9 +94,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 12
+        Blunt: 11.5
   - type: StaminaDamageOnHit
-    damage: 22.5
+    damage: 23.5
 
 
 - type: entity
@@ -113,8 +114,8 @@
     attackRate: 0.8
     damage:
       types:
-        Blunt: 10
+        Blunt: 9
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 21

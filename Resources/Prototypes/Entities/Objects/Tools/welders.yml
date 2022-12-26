@@ -31,6 +31,7 @@
         shader: unshaded
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 1.1
     damage:
       types:
         Blunt: 5.5
