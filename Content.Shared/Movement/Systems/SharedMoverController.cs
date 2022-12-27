@@ -68,7 +68,6 @@ namespace Content.Shared.Movement.Systems
             InitializeFootsteps();
             InitializeInput();
             InitializeMob();
-            InitializePushing();
             InitializeRelay();
             _configManager.OnValueChanged(CCVars.RelativeMovement, SetRelativeMovement, true);
             _configManager.OnValueChanged(CCVars.StopSpeed, SetStopSpeed, true);
@@ -82,7 +81,6 @@ namespace Content.Shared.Movement.Systems
         {
             base.Shutdown();
             ShutdownInput();
-            ShutdownPushing();
             _configManager.UnsubValueChanged(CCVars.RelativeMovement, SetRelativeMovement);
             _configManager.UnsubValueChanged(CCVars.StopSpeed, SetStopSpeed);
         }
