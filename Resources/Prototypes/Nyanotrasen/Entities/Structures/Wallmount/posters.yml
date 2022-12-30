@@ -107,3 +107,23 @@
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/Huvy.rsi
     state: PIZZA
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitMedicate
+  name: "Take Your Meds"
+  description: "Possible side effects may include: nausea, upset stomach, joint inflammation, swelling of the face/throat, rash, fever, headache, dizziness, vomiting and/or diarrhea, expeditious mastery of foreign languages, easy bruising, seizures, insuppressible yawning, general feeling of discomfort or illness, uncanny capacity to smell numbers, ear congestion, hives, crippling fear of sporks, loss of voice, bleeding gums and/or eyeballs, loss of appetite, increased appetite, irresistible ability to organize bookshelves either by color or alphabetically, x-ray vision, slurred speech, impromptu levitation, inability to communicate in any other way besides pig Latin, incontinence, sudden uncontrollable urge to scream “FUCK FUCK FUCK” at the top of your lungs, unanticipated grasp of juggling, insomnia, narcolepsy, leprosy, spontaneous detachment of fingers or toes, unstoppable back hair growth, weight loss, weight gain, shrinkage, colorblindness, tingling in earlobes, rectal numbness, acute ability to taste colors, unquenchable bloodlust, restless fingernails, unappeasable hunger for fruitcake, fierce devotion to K-pop, capability to dream in Chinese, inability to forgive others, unceremonious LARPing, puffy elbows, sudden onset of ability to yodel, light-sensitivity, compulsion to wear kilts, talent for witchcraft, scurvy, eagerness to pursue mercenary life, unrestrained yearning to breakdance, violent craving to skateboard naked, insurgent desire to develop a gambling addiction, uncompromising aspiration to join a flash mob, itchy butt. Call your doctor for medical advice about these or any other side effects you may experience." #credit Chris Zappa
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Velcroboy.rsi
+    state: poster_medicate
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitNoTouching
+  name: "No Touching"
+  description: "No touching!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Velcroboy.rsi
+    state: poster_notouching
