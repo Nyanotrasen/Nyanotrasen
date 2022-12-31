@@ -1,6 +1,7 @@
 - type: job
   id: Prisoner
   name: job-name-prisoner
+  description: job-description-prisoner
   playTimeTracker: JobPrisoner
   startingGear: PrisonerGear
   alwaysUseSpawner: true

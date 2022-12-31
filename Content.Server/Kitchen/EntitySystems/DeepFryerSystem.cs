@@ -12,9 +12,9 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Miasma;
+using Content.Server.Audio;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Buckle.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
@@ -36,6 +36,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
 using Content.Shared.Audio;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
@@ -86,6 +87,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly TemperatureSystem _temperature = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
 
         private static readonly string CookingDamageType = "Heat";
         private static readonly float CookingDamageAmount = 10.0f;
@@ -251,15 +253,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void UpdateAmbientSound(EntityUid uid, DeepFryerComponent component)
         {
-            if (TryComp<AmbientSoundComponent>(uid, out var ambientSoundComponent))
-            {
-                bool enabled = HasBubblingOil(uid, component);
-                if (enabled != ambientSoundComponent.Enabled)
-                {
-                    ambientSoundComponent.Enabled = enabled;
-                    Dirty(ambientSoundComponent);
-                }
-            }
+            _ambientSoundSystem.SetAmbience(uid, HasBubblingOil(uid, component));
         }
 
         private void UpdateNextFryTime(EntityUid uid, DeepFryerComponent component)

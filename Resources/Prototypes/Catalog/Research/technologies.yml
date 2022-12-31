@@ -113,6 +113,7 @@
   - Dropper
   - Syringe
   - ReagentGrinderMachineCircuitboard
+  - HotplateMachineCircuitboard
   - PillCanister
   - ChemistryEmptyBottle01
   - ChemicalPayload
@@ -169,6 +170,7 @@
   - MedicalScannerMachineCircuitboard
   - StasisBedMachineCircuitboard
   - CloningConsoleComputerCircuitboard
+  - CryoPodMachineCircuitboard
 
 # Security Technology Tree
 
@@ -316,6 +318,26 @@
   - RadarConsoleCircuitboard
   - ThrusterMachineCircuitboard
   - GyroscopeMachineCircuitboard
+
+- type: technology
+  name: technologies-ripley-technology
+  id: RipleyTechnology
+  description: technologies-ripley-technology-description
+  icon:
+    sprite: Objects/Specific/Mech/mecha.rsi
+    state: ripley
+  requiredPoints: 30000
+  requiredTechnologies:
+  - SalvageEquipment
+  unlockedRecipes:
+  - RipleyCentralElectronics
+  - RipleyPeripheralsElectronics
+  - MechEquipmentGrabber
+  - RipleyHarness
+  - RipleyLArm
+  - RipleyRArm
+  - RipleyLLeg
+  - RipleyRLeg
 
 # Industrial Engineering Technology Tree
 
