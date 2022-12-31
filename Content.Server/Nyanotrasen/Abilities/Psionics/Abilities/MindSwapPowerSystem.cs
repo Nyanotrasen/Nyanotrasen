@@ -11,7 +11,6 @@ using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -168,7 +167,7 @@ namespace Content.Server.Abilities.Psionics
             {
                 RemComp<PsionicallyInvisibleComponent>(uid);
                 RemComp<StealthComponent>(uid);
-                EnsureComp<SharedSpeechComponent>(uid);
+                EnsureComp<SpeechComponent>(uid);
                 EnsureComp<DispellableComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
