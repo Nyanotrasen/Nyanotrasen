@@ -1,6 +1,7 @@
 - type: job
   id: Paramedic
-  name: "paramedic"
+  name: job-name-paramedic
+  description: job-description-paramedic
   startingGear: ParamedicGear
   setPreference: false
   playTimeTracker: JobParamedic

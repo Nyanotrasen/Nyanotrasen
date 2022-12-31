@@ -1,6 +1,7 @@
 - type: job
   id: Gladiator
   name: job-name-gladiator
+  description: job-description-gladiator
   playTimeTracker: JobPrisoner
   startingGear: GladiatorGear
   alwaysUseSpawner: true
