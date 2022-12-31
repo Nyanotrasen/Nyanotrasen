@@ -56,7 +56,6 @@ job-name-gladiator = gladiator
 job-name-fugitive = fugitive
 job-name-prisoner = prisoner
 job-name-valet = valet
-job-name-assistant = assistant
 job-name-paramedic = paramedic
 
 # Role timers - Make these alphabetical or I cut you
