@@ -8,3 +8,4 @@ department-Science-description = Research new technologies and dangerous artifac
 
 #Nyano
 department-Epistemics-description = Discover what lies beyond the fabric of reality.
+department-Silicon-description = Follow your laws in service to the humans.
