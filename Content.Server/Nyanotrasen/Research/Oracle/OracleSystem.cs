@@ -97,6 +97,14 @@ namespace Content.Server.Research.Oracle
             "SprayBottle",
             "ShellTranquilizer",
             "ShellSoulbreaker",
+
+            // Mech non-items
+            "RipleyHarness",
+            "RipleyLArm",
+            "RipleyLLeg",
+            "RipleyRLeg",
+            "RipleyRArm",
+            "RipleyChassis",
         };
 
         public override void Update(float frameTime)
