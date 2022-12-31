@@ -201,7 +201,7 @@ public sealed class HumanoidVisualizerSystem : VisualizerSystem<HumanoidComponen
 
         if (HasComp<ArachneComponent>(uid))
         {
-            foreach (var marking in humanoid.CurrentMarkings)
+            foreach (var marking in humanoid.CurrentClientMarkings)
             {
                 if (marking.MarkingId != "ArachneBodyColor")
                     continue;
