@@ -31,7 +31,7 @@ air-alarm-ui-gases-indicator = {$gas}: [color={$color}]{$amount} mol ({$percenta
 air-alarm-ui-mode-filtering = Filtering
 air-alarm-ui-mode-wide-filtering = Filtering (wide)
 air-alarm-ui-mode-fill = Fill
-air-alarm-ui-mode-panic = Panic
+air-alarm-ui-mode-panic = Panic Siphon
 air-alarm-ui-mode-none = None
 
 ## Widgets
