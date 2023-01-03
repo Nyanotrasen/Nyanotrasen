@@ -2,7 +2,7 @@
   name: poltergeist
   id: Mobayadoll
   parent: SimpleMobBase
-  description: AWW its so cute, OH S**T IT HAS A KNIFE.
+  description: AWW its so cute.
   components:
   - type: CombatMode
   - type: MovementSpeedModifier
@@ -38,7 +38,7 @@
   - type: MobState
     thresholds:
       0: Alive
-      100: Critical
+      125: Critical
       150: Dead
   - type: MeleeWeapon
     hidden: true
@@ -46,7 +46,7 @@
     animation: WeaponArcclaw
     damage:
       types:
-        Slash: 30
+        Slash: 5
         Piercing: 15
     baseDecayRate: 0.1
   - type: Appearance
@@ -65,11 +65,13 @@
     makeSentient: true
     name: poltergeist
     description: A funny little doll.
-    rules: You are an *light antagonist*, try to be reasonable and try to have a wish that *CAN BE GRANTED*, if they fulfill they this, you can not be hostile anymore.[The wish can not be a death of a player or items/machines that upkeeps life on the station]
+    rules: You are an *light antagonist*, try to be reasonable and try to have a wish that *CAN BE GRANTED*, if they fulfill they this, you can not be hostile anymore.[The wish can not be a death of a player or items/machines that upkeeps life on the station].
+    A mime can use you as a means to speak so do what you will with that.
   - type: Tag
     tags:
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound
       - PotentialPsionic
-#thanks rane ,for telling me about the spelling error
+#jacket, im gonna eat your balls like a f##king gobblegum
+
