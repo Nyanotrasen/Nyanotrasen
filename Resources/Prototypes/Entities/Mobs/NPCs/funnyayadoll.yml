@@ -4,7 +4,19 @@
   parent: SimpleMobBase
   description: AWW its so cute.
   components:
+   - type: Vocal
+    maleScream:
+      collection: doll
+    femaleScream:
+      collection: doll
+  - type: PsionicBonusChance
+      multiplier: 10
+      warn: false
+ - type: Carriable
+ - type: Loadout
+    prototypes: [PassengerGear]
   - type: CombatMode
+   canDisarm: true
   - type: MovementSpeedModifier
     baseWalkSpeed : 4.00
     baseSprintSpeed : 7.00
