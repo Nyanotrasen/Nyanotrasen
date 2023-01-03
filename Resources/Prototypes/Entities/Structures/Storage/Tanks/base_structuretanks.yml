@@ -33,13 +33,6 @@
       - !type:SolutionExplosionBehavior
         solution: tank
     - trigger:
-        !type:DamageTypeTrigger
-        damageType: Piercing
-        damage: 5
-      behaviors:
-      - !type:SolutionExplosionBehavior
-        solution: tank
-    - trigger:
         !type:DamageTrigger
         damage: 10
       behaviors:
