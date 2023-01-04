@@ -3,7 +3,7 @@
   mapName: 'Shōkō'
   mapPath: /Maps/shoukou.yml
   minPlayers: 0
-  maxPlayers: 40
+  maxPlayers: 50
   stations:
     Shoukou:
       mapNameTemplate: '{0} Shōkō "Little Port" {1}'
@@ -30,7 +30,7 @@
         StationEngineer: [ 2, 4 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MailCarrier: [ 1, 2 ]
-        MedicalDoctor: [ 3, 5 ]
+        MedicalDoctor: [ 3, 6 ]
         MedicalCyborg: [ 1, 2 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 2, 4 ]
