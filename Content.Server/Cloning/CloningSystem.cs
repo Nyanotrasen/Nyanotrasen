@@ -7,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Cloning;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
+using Content.Shared.Humanoid.Markings;
 using Content.Server.Cloning.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Power.EntitySystems;
@@ -34,6 +35,9 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
+using Content.Server.CharacterAppearance.Components;
+using Content.Shared.Humanoid;
+using Content.Shared.Preferences;
 
 namespace Content.Server.Cloning
 {
@@ -58,6 +62,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
+        [Dependency] private readonly MarkingManager _markings = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -229,16 +234,27 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            EntityUid mob;
+            List<Sex> sexes = new();
 
-            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem) && _prototype.TryIndex<WeightedRandomPrototype>(metem.HumanoidWeightedList, out var list))
+            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem) && _prototype.TryIndex<WeightedRandomPrototype>(metem.HumanoidWeightedList, out var list)
+                && _prototype.TryIndex<SpeciesPrototype>(list.Pick(), out var newSpecies))
             {
-                mob = Spawn(list.Pick(), Transform(clonePod.Owner).Coordinates);
-            } else
-            {
-                mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
+                sexes = newSpecies.Sexes;
+                speciesPrototype = newSpecies;
             }
-            _humanoidSystem.CloneAppearance(bodyToClone, mob);
+
+            var mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
+            if (TryComp<HumanoidComponent>(mob, out var newHumanoid))
+            {
+                var profile = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+                if (sexes.Contains(humanoid.Sex))
+                    profile = profile.WithSex(humanoid.Sex);
+
+                profile = profile.WithGender(humanoid.Gender);
+                profile = profile.WithAge(humanoid.Age);
+
+                _humanoidSystem.LoadProfile(mob, profile);
+            }
 
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
 
