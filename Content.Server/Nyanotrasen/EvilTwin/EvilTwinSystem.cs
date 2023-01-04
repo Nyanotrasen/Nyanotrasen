@@ -4,6 +4,8 @@ using Content.Shared.Roles;
 using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
 using Content.Server.Mind.Components;
+using Content.Server.Players;
+using Content.Server.Spawners.Components;
 using Content.Server.Jobs;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
@@ -17,6 +19,24 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
 
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            SubscribeLocalEvent<EvilTwinSpawnerComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        }
+
+        private void OnPlayerAttached(EntityUid uid, EvilTwinSpawnerComponent component, PlayerAttachedEvent args)
+        {
+            var twin = SpawnEvilTwin();
+
+            if (twin != null)
+            {
+                args.Player.ContentData()?.Mind?.TransferTo(twin, true);
+            }
+
+            QueueDel(uid);
+        }
         public EntityUid? SpawnEvilTwin()
         {
             var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidComponent>();
@@ -31,7 +51,20 @@ namespace Content.Server.EvilTwin
                 if (!_prototypeManager.TryIndex<SpeciesPrototype>(candidate.Item3.Species, out var species))
                     continue;
 
-                var uid = Spawn(species.Prototype, Transform(candUid).Coordinates);
+                var spawns = EntityQuery<SpawnPointComponent>();
+
+                var coords = Transform(candidate.Item1.Owner).Coordinates;
+
+                foreach (var spawn in spawns)
+                {
+                    if (spawn.SpawnType != SpawnPointType.LateJoin)
+                        continue;
+
+                    coords = Transform(spawn.Owner).Coordinates;
+                    break;
+                }
+
+                var uid = Spawn(species.Prototype, coords);
 
                 _humanoidSystem.CloneAppearance(candUid, uid);
                 MetaData(uid).EntityName = MetaData(candUid).EntityName;
