@@ -83,7 +83,7 @@ namespace Content.Client.ParticleAccelerator.UI
             var back = new StyleBoxTexture
             {
                 Texture = panelTex,
-                Modulate = Color.FromHex("#25252A"),
+                Modulate = Color.FromHex("#252525"),
             };
             back.SetPatchMargin(StyleBox.Margin.All, 10);
 
