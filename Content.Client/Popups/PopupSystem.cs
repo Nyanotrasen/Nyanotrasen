@@ -59,10 +59,10 @@ namespace Content.Client.Popups
                 Type = type,
             };
 
+            _aliveWorldLabels.Add(label);
+
             if (type == PopupType.Small)
                 return;
-
-            _aliveWorldLabels.Add(label);
 
             Color color = Color.AntiqueWhite;
 
