@@ -1,8 +1,5 @@
 - type: latheRecipe
   id: ButchCleaver
-  icon:
-     sprite: Objects/Weapons/Melee/cleaver.rsi
-     state: butch
   result: ButchCleaver
   completetime: 2
   materials:
@@ -11,9 +8,6 @@
 
 - type: latheRecipe
   id: KitchenKnife
-  icon:
-    sprite: Objects/Weapons/Melee/kitchen_knife.rsi
-    state: icon
   result: KitchenKnife
   completetime: 2
   materials:
@@ -22,9 +16,6 @@
 
 - type: latheRecipe
   id: DrinkMug
-  icon:
-    sprite: Objects/Consumable/Drinks/mug.rsi
-    state: icon-0
   result: DrinkMug
   completetime: 0.8
   materials:
@@ -32,9 +23,6 @@
 
 - type: latheRecipe
   id: DrinkMugMetal
-  icon:
-    sprite: Objects/Consumable/Drinks/mug_metal.rsi
-    state: icon-0
   result: DrinkMugMetal
   completetime: 0.8
   materials:
@@ -42,9 +30,6 @@
 
 - type: latheRecipe
   id: DrinkGlass
-  icon:
-    sprite: Objects/Consumable/Drinks/glass_clear.rsi
-    state: icon
   result: DrinkGlass
   completetime: 0.8
   materials:
