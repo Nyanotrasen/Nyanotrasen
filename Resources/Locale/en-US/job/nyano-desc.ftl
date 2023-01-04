@@ -1,10 +1,10 @@
-job-description-mystagogue = (Requires Whitelist) Lead the station's research and manage psionics.
-job-description-mantis = (Requires Whitelist) Solve mysteries from petty thefts to the nature of the universe.
+job-description-mystagogue = Lead the station's research and manage psionics.
+job-description-mantis = Solve mysteries from petty thefts to the nature of the universe.
 job-description-epistemologist = Research the nature of truth. Also laser guns. Smoke ambrosia to achieve transcendance.
 job-description-cataloguer = Sit in the library. Attempt to run an RPG session for the crew. Get bored and help the epistemologists kill themselves when no one shows up.
 job-description-mail-carrier = Deliver mail. Avoid dogs.
-job-description-cyborg = (Requires Whitelist) Read your laws. Read your laws. Read your laws.
-job-description-salvage-technician = (Requires Whitelist) Take apart space wrecks for engineering materials. Die in space and never be found.
+job-description-cyborg = Read your laws. Read your laws. Read your laws.
+job-description-salvage-technician = Take apart space wrecks for engineering materials. Die in space and never be found.
 job-description-valet = Be a stylish liaison between the station's departments.
 job-description-assistant = Help the crew while learning your way around.
 job-description-fugitive = Escape the station alive.
