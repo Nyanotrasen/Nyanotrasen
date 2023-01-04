@@ -135,6 +135,10 @@ namespace Content.Shared.Damage
             }
 
             newDamage.TrimZeros();
+
+            if (newDamage.Total < modifierSet.MinimumDamageToDamage)
+                newDamage.ClampMax(0);
+
             return newDamage;
         }
 
