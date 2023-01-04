@@ -32,6 +32,7 @@
     Piercing: 15
     Shock: 10
     Heat: 10
+  minimumDamageToDamage: 10 # (500 / 50)
 
 - type: damageModifierSet
   id: Inflatable
@@ -68,6 +69,7 @@
     Slash: 7
     Piercing: 5
     Heat: 5
+  minimumDamageToDamage: 3 # 150 (rwindow) / 50
 
 - type: damageModifierSet
   id: Wood
