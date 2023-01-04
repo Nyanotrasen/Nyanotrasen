@@ -223,13 +223,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
                     _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):player} hit flush button on {ToPrettyString(uid)}, it's now {(component.Engaged ? "on" : "off")}");
                     break;
                 case SharedDisposalUnitComponent.UiButton.Power:
-                    TogglePower(component);
-                    _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg"), component.Owner,
-                        AudioParams.Default.WithVolume(-2f));
-                    if (EntityManager.TryGetComponent(component.Owner, out ApcPowerReceiverComponent? receiver))
-                    {
-                        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):player} hit power button on {ToPrettyString(uid)}, it's now {(!receiver.PowerDisabled ? "on" : "off")}");
-                    }
+                    _power.TogglePower(uid, user: args.Session.AttachedEntity);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
