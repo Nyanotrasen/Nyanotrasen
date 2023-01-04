@@ -8,16 +8,6 @@ namespace Content.Shared.Borgs
         Key,
     }
 
-    /// <summary>
-    ///     Just manual UI update.
-    /// </summary>
-    [Serializable, NetSerializable]
-    public sealed class LawsSyncRequestMessage : BoundUserInterfaceMessage
-    {
-        public LawsSyncRequestMessage()
-        {}
-    }
-
     [Serializable, NetSerializable]
     public sealed class LawsUpdateState : BoundUserInterfaceState
     {
