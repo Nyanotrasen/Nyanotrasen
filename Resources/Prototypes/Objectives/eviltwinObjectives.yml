@@ -1,0 +1,11 @@
+- type: objective
+  id: EscapeShuttleObjectiveEvilTwin
+  issuer: self
+  conditions:
+    - !type:EscapeShuttleCondition {}
+
+- type: objective
+  id: KillObjectiveEvilTwin
+  issuer: self
+  conditions:
+    - !type:EvilTwinKillCondition {}
