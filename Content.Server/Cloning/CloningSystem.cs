@@ -1,6 +1,8 @@
 using Content.Shared.GameTicking;
 using Content.Shared.Damage;
 using Content.Shared.Stacks;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Examine;
 using Content.Shared.Cloning;
 using Content.Shared.Atmos;
@@ -227,7 +229,15 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
+            EntityUid mob;
+
+            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem) && _prototype.TryIndex<WeightedRandomPrototype>(metem.HumanoidWeightedList, out var list))
+            {
+                mob = Spawn(list.Pick(), Transform(clonePod.Owner).Coordinates);
+            } else
+            {
+                mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
+            }
             _humanoidSystem.CloneAppearance(bodyToClone, mob);
 
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;

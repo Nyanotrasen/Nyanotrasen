@@ -1,0 +1,13 @@
+- type: weightedRandom
+  id: MetempsychoticHumanoidPool
+  weights:
+    MobHuman: 1
+    MobFelinid: 1
+    MobOni: 1
+    MobArachne: 1
+    MobMoth: 1
+    MobReptilian: 0.5
+    MobDwarf: 0.5
+    MobSlimePerson: 0.5
+    MobVox: 0.1
+    MobSkeletonPerson: 0.05
