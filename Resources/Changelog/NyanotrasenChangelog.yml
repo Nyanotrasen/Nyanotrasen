@@ -2043,3 +2043,11 @@ Entries:
     type: Remove
   id: 238
   time: '2023-01-02T15:48:37.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Liquid storage tanks are more resilient now.
+    type: Tweak
+  - message: Liquid storage tanks will no longer explode from piercing damage alone.
+    type: Remove
+  id: 239
+  time: '2023-01-04T15:35:42.0000000+00:00'
