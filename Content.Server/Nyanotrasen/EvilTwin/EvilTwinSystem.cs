@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Roles;
@@ -9,6 +10,7 @@ using Content.Server.Spawners.Components;
 using Content.Server.Psionics;
 using Content.Server.Jobs;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.EvilTwin
@@ -20,7 +22,7 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
-
+        [Dependency] private readonly IRobustRandom _random = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -40,7 +42,8 @@ namespace Content.Server.EvilTwin
         }
         public EntityUid? SpawnEvilTwin()
         {
-            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidComponent>();
+            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidComponent>().ToList();
+            _random.Shuffle(candidates);
 
             foreach (var candidate in candidates)
             {
