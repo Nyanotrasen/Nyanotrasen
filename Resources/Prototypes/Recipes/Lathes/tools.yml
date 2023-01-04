@@ -89,14 +89,6 @@
     Plastic: 200
 
 - type: latheRecipe
-  id: RCD
-  result: RCDEmpty
-  completetime: 4
-  materials:
-    Steel: 1000
-    Plastic: 300
-
-- type: latheRecipe
   id: RCDAmmo
   result: RCDAmmo
   completetime: 2.4
