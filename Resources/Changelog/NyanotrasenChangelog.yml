@@ -2065,3 +2065,12 @@ Entries:
     type: Tweak
   id: 241
   time: '2023-01-04T17:42:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You can no longer cheese your way through reinforced walls and windows
+      by punching them 1000 times.
+    type: Fix
+  - message: Reinforced walls no longer use the same modifier set as regular walls.
+    type: Fix
+  id: 242
+  time: '2023-01-04T17:58:48.0000000+00:00'
