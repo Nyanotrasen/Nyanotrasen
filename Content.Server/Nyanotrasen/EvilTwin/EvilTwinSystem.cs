@@ -6,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Mind.Components;
 using Content.Server.Players;
 using Content.Server.Spawners.Components;
+using Content.Server.Psionics;
 using Content.Server.Jobs;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
@@ -18,7 +19,7 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
-
+        [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
 
         public override void Initialize()
         {
@@ -77,6 +78,10 @@ namespace Content.Server.EvilTwin
                     if (special is AddComponentSpecial)
                         special.AfterEquip(uid);
                 }
+
+                AddComp<EvilTwinComponent>(uid);
+                var psi = EnsureComp<PotentialPsionicComponent>(uid);
+                _psionicsSystem.RollPsionics(uid, psi, false, 100);
 
                 return uid;
             }
