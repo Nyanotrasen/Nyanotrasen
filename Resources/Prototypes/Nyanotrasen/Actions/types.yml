@@ -18,7 +18,7 @@
   name: action-name-dispel
   description: action-description-dispel
   icon: Nyanotrasen/Interface/VerbIcons/dispel.png
-  # useDelay: 45
+  useDelay: 45
   checkCanAccess: false
   range: 6
   canTargetSelf: false

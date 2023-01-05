@@ -1,6 +1,7 @@
 - type: job
   id: ChiefEngineer
   name: job-name-ce
+  description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
     - !type:RoleTimeRequirement
@@ -41,7 +42,7 @@
     shoes: ClothingShoesColorBrown
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
-    ears: ClothingHeadsetCE
+    ears: ClothingHeadsetAltEngineering
     belt: ClothingBeltChiefEngineerFilled
   innerclothingskirt: ClothingUniformJumpskirtChiefEngineer
   satchel: ClothingBackpackSatchelEngineeringFilled

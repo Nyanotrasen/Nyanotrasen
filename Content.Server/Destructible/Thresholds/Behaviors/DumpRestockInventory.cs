@@ -1,5 +1,5 @@
 using Robust.Shared.Random;
-using Content.Server.Stack;
+using Content.Shared.Stacks;
 using Content.Server.VendingMachines.Restock;
 using Content.Shared.Prototypes;
 using Content.Shared.VendingMachines;
@@ -59,4 +59,3 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
         }
     }
 }
-

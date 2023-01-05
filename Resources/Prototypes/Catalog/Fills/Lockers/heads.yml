@@ -18,7 +18,6 @@
       - id: CigPackGreen
         prob: 0.50
       - id: RubberStampQm
-      - id: ClothingHeadsetAltCargo
 
 - type: entity
   id: LockerCaptainFilled
@@ -65,7 +64,7 @@
       - id: ClothingHeadHatHopcap
       - id: HoPIDCard
         prob: 0.9
-      - id: ClothingHeadsetCommand
+      - id: ClothingHeadsetAltCommand
       - id: BoxPDA
       - id: BoxID
       - id: BoxHeadset
@@ -138,6 +137,7 @@
       - id: ClothingNeckCloakRd
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
+      - id: HandTeleporter
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch

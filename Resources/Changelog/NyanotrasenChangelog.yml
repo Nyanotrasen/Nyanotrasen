@@ -1969,3 +1969,139 @@ Entries:
     type: Add
   id: 226
   time: '2022-12-23T21:47:36.0000000+00:00'
+- author: Leander
+  changes:
+  - message: All shields have been buffed.
+    type: Tweak
+  id: 227
+  time: '2022-12-24T10:31:04.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Added a delay at the start of Traitor mode before players are selected
+      to be an antagonist.
+    type: Add
+  id: 228
+  time: '2022-12-24T17:23:11.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a new medium salvage map.
+    type: Add
+  id: 229
+  time: '2022-12-24T17:27:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Gift-giving christmas trees are now available in every map.
+    type: Add
+  id: 230
+  time: '2022-12-24T21:47:13.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a new recipe for fish and chips, and made dishes with fish not
+      kill you.
+    type: Add
+  id: 231
+  time: '2022-12-25T17:27:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a new medium salvage to rotation.
+    type: Add
+  id: 232
+  time: '2022-12-26T23:32:17.0000000+00:00'
+- author: Leander
+  changes:
+  - message: Melee weapons re-balanced again.
+    type: Tweak
+  id: 233
+  time: '2022-12-26T23:33:40.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Changed some windows and renovated botany on Angle.
+    type: Tweak
+  id: 234
+  time: '2022-12-27T08:08:52.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Emergency shuttles will properly open their airlocks when they dock.
+    type: Fix
+  id: 235
+  time: '2022-12-30T18:48:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Removed the prisoner role from Angle.
+    type: Remove
+  id: 236
+  time: '2023-01-01T15:54:36.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Removed tiny fans from many airlocks in Angle.
+    type: Remove
+  id: 237
+  time: '2023-01-01T20:50:59.0000000+00:00'
+- author: Kromabae
+  changes:
+  - message: Pebble Christmas stuff
+    type: Remove
+  id: 238
+  time: '2023-01-02T15:48:37.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Liquid storage tanks are more resilient now.
+    type: Tweak
+  - message: Liquid storage tanks will no longer explode from piercing damage alone.
+    type: Remove
+  id: 239
+  time: '2023-01-04T15:35:42.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged a lot of bug fixes from upstream, and mirrorcult's new teleporters.
+    type: Add
+  - message: Mystagogue's locker contents have been shuffled around.
+    type: Tweak
+  id: 240
+  time: '2023-01-04T16:51:06.0000000+00:00'
+- author: eoineoineoin
+  changes:
+  - message: The laws UI looks much nicer now.
+    type: Tweak
+  id: 241
+  time: '2023-01-04T17:42:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You can no longer cheese your way through reinforced walls and windows
+      by punching them 1000 times.
+    type: Fix
+  - message: Reinforced walls no longer use the same modifier set as regular walls.
+    type: Fix
+  id: 242
+  time: '2023-01-04T17:58:48.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a borrowed UI restyling from Mirrorcult.
+    type: Add
+  id: 243
+  time: '2023-01-04T18:13:20.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Popups now appear in chat.
+    type: Add
+  id: 244
+  time: '2023-01-04T18:12:40.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added a new small-ish original map to rotation.
+    type: Add
+  id: 245
+  time: '2023-01-04T21:51:59.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Small, regular popups no longer appear in chat. If you feel a popup should
+      be upgraded to medium, please note it in discord.
+    type: Tweak
+  id: 246
+  time: '2023-01-04T21:58:10.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a new funny event.
+    type: Add
+  id: 247
+  time: '2023-01-04T23:56:33.0000000+00:00'

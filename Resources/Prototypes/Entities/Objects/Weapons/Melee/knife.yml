@@ -12,6 +12,8 @@
       - Knife
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 1.25
+    range: 1.4
     damage:
       types:
         Slash: 8
@@ -20,7 +22,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 12.0
+        Slash: 15.0
   - type: Sprite
     netsync: false
   - type: Item
@@ -61,10 +63,15 @@
     size: 4
     state: butch
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1
     damage:
       types:
-        Slash: 10
+        Slash: 8
+        Blunt: 1
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 19.0
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/cleaver.rsi
@@ -91,7 +98,7 @@
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 27.0
+        Slash: 23.0
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/combat_knife.rsi
@@ -104,10 +111,13 @@
   id: SurvivalKnife
   description: Weapon of first and last resort for combatting space carp.
   components:
+  - type: MeleeWeapon
+    attackRate: 1.25
+    range: 1.65
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 25.0
+        Slash: 27.0
   - type: Sprite
     sprite: Objects/Weapons/Melee/survival_knife.rsi
     size: 2

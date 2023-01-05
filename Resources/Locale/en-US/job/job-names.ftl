@@ -10,7 +10,7 @@ job-name-intern = medical intern
 job-name-doctor = medical doctor
 job-name-cmo = chief medical officer
 job-name-chemist = chemist
-job-name-assistant = technical assistant
+job-name-technical-assistant = technical assistant
 job-name-engineer = station engineer
 job-name-atmostech = atmospheric technician
 job-name-hop = head of personnel
@@ -55,6 +55,8 @@ job-name-salvage-technician = salvage technician
 job-name-gladiator = gladiator
 job-name-fugitive = fugitive
 job-name-prisoner = prisoner
+job-name-valet = valet
+job-name-paramedic = paramedic
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician

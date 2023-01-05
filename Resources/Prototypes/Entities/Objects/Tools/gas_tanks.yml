@@ -26,17 +26,19 @@
         sprite: Interface/Alerts/internals.rsi
         state: internal1
       event: !type:ToggleActionEvent
-      useDelay: 1.0
+      useDelay: 1
   - type: Explosive
     explosionType: Default
     maxIntensity: 20
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 2.0
     attackRate: 0.8
+    range: 1.7
     damage:
       types:
-        Blunt: 8.5
+        Blunt: 8
   - type: StaminaDamageOnHit
-    damage: 10
+    damage: 4
 
 - type: entity
   parent: GasTankBase

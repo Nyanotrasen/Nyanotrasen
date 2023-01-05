@@ -54,6 +54,8 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
+  - type: Sharp
+    butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Utensil
     types:
       - Knife
@@ -64,10 +66,11 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
-    attackRate: 1
+    attackRate: 1.25
+    range: 1.3
     damage:
       types:
-        Slash: 8
+        Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeBloodletter
@@ -87,9 +90,14 @@
     heldPrefix: shiv
   - type: MeleeWeapon
     attackRate: 2
+    range: 1.25
     damage:
       types:
-        Slash: 3
+        Slash: 2.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 2.0
 
 - type: entity
   name: advanced scalpel
@@ -104,7 +112,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 9
+        Slash: 8
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -186,10 +194,11 @@
     speed: 1.0
   - type: MeleeWeapon
     attackRate: 0.75
+    range: 1.35
     damage:
       types:
-        Blunt: 4
-        Slash: 8
+        Blunt: 2.5
+        Slash: 6.5
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -209,6 +218,7 @@
   - type: Item
     heldPrefix: improv
   - type: MeleeWeapon
+    attackRate: 0.85
     damage:
       types:
         Blunt: 3
@@ -240,11 +250,13 @@
   - type: Item
     heldPrefix: electric
   - type: MeleeWeapon
+    attackRate: 1.15
+    bluntStaminaDamageFactor: 3.0
     damage:
       types:
-        Blunt: 4
-        Slash: 4
-        Piercing: 4
+        Blunt: 3.5
+        Slash: 4.5
+        Piercing: 2
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: MeleeBloodletter
@@ -254,7 +266,7 @@
   - type: MeleeStaminaCost
     swing: 15
   - type: StaminaDamageOnHit
-    damage: 16
+    damage: 2.5
   - type: Tool
     qualities:
       - Sawing
@@ -271,20 +283,23 @@
   - type: Item
     heldPrefix: advanced
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.25
+    bluntStaminaDamageFactor: 5.0
     damage:
       types:
-        Blunt: 4
-        Slash: 7
-        Piercing: 4
+        Blunt: 3.5
+        Slash: 6.5
+        Piercing: 2
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 25.0
+        Slash: 18.0
   - type: StaminaDamageOnHit
-    damage: 27
+    damage: 2.5
+  - type: MeleeStaminaCost
+    swing: 15
   - type: Tool
     qualities:
       - Sawing

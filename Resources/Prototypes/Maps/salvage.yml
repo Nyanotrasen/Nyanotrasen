@@ -144,6 +144,18 @@
   mapPath: /Maps/Salvage/animalfarm.yml
   bounds: "-2, -6, 14, 10"
 
+- type: salvageMap
+  id: MediumChunk01
+  name: "Medium Station Chunk"
+  mapPath: /Maps/Salvage/medium_chunk01.yml
+  bounds: "-8, -7.5, 7.5, 9"  
+
+- type: salvageMap
+  id: MediumMiningOutpost01
+  name: "Medium Mining Outpost"
+  mapPath: /Maps/Salvage/mining_outpost01.yml
+  bounds: "-7, -7, 8, 8"
+
 # Large
 - type: salvageMap
   id: ResearchPost

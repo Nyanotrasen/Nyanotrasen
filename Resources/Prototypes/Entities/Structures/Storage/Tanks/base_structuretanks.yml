@@ -28,20 +28,13 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Heat
-        damage: 5
-      behaviors:
-      - !type:SolutionExplosionBehavior
-        solution: tank
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Piercing
-        damage: 5
+        damage: 20
       behaviors:
       - !type:SolutionExplosionBehavior
         solution: tank
     - trigger:
         !type:DamageTrigger
-        damage: 10
+        damage: 40
       behaviors:
       - !type:SpillBehavior
         solution: tank

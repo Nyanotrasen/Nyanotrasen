@@ -1,6 +1,7 @@
 - type: job
   id: Chaplain
   name: job-name-chaplain
+  description: job-description-chaplain
   startingGear: ChaplainGear
   requirements:
     - !type:DepartmentTimeRequirement

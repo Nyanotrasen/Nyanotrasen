@@ -13,9 +13,10 @@
     netsync: false
     state: spear
   - type: MeleeWeapon
+    range: 2.0
     damage:
       types:
-        Piercing: 10
+        Piercing: 7
     angle: 0
     animation: WeaponArcThrust
   - type: DamageOtherOnHit
@@ -48,7 +49,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 5
+        Piercing: 7
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

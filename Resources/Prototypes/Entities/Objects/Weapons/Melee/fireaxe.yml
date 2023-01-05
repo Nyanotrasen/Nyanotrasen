@@ -12,7 +12,7 @@
     sprite: Objects/Weapons/Melee/fireaxe.rsi
     state: icon
   - type: MeleeWeapon
-    attackRate: 0.75
+    attackRate: 0.9
     damage:
       types:
         # axes are kinda like sharp hammers, you know?
@@ -20,8 +20,8 @@
         Slash: 10
         Structural: 5
   - type: MeleeStaminaCost
-    swing: 10
-    wieldCoefficient: 0.45 #if wielded you will only consume 4.5 stam
+    swing: 20
+    wieldCoefficient: 0.5 #if wielded you will only consume 10 stam
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -30,8 +30,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 2.5
-        Slash: 3.5
+        Blunt: 2
+        Slash: 3
         Structural: 15
   - type: Item
     size: 150

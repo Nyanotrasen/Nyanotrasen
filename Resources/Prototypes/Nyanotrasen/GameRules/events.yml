@@ -29,6 +29,15 @@
     reoccurrenceDelay: 40
 
 - type: gameRule
+  id: EvilTwin
+  config:
+    !type:StationEventRuleConfiguration
+    id: EvilTwin
+    weight: 5
+    endAfter: 1
+    reoccurrenceDelay: 40
+
+- type: gameRule
   id: MundaneDischarge
   config:
     !type:GlimmerEventRuleConfiguration

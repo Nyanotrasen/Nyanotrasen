@@ -28,6 +28,7 @@
       - Science
       - Security
       - Service
+      defaultChannel: CentCom
     - type: Sprite
       sprite: Clothing/Ears/Headsets/centcom.rsi
     - type: Clothing
@@ -47,6 +48,7 @@
     - Science
     - Security
     - Service
+    defaultChannel: Command
   - type: Sprite
     sprite: Clothing/Ears/Headsets/command.rsi
   - type: Clothing
@@ -62,6 +64,7 @@
     - Command
     - Common
     - Medical
+    defaultChannel: Medical
   - type: Sprite
     sprite: Clothing/Ears/Headsets/medical.rsi
   - type: Clothing
@@ -77,6 +80,7 @@
     - Command
     - Common
     - Security
+    defaultChannel: Security
   - type: Sprite
     sprite: Clothing/Ears/Headsets/security.rsi
   - type: Clothing
@@ -92,6 +96,8 @@
     - Command
     - Common
     - Engineering
+    - Binary
+    defaultChannel: Engineering
   - type: Sprite
     sprite: Clothing/Ears/Headsets/engineering.rsi
   - type: Clothing
@@ -107,6 +113,7 @@
     - Command
     - Common
     - Science
+    defaultChannel: Science
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
@@ -121,6 +128,7 @@
     channels:
     - Common
     - Service
+    defaultChannel: Service
   - type: Sprite
     sprite: Clothing/Ears/Headsets/cargo.rsi
   - type: Clothing
@@ -135,6 +143,7 @@
   - type: Headset
     channels:
     - Syndicate
+    defaultChannel: Syndicate
   - type: Sprite
     sprite: Clothing/Ears/Headsets/syndicate.rsi
   - type: Clothing

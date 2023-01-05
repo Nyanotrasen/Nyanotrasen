@@ -111,11 +111,13 @@
       - state: inhand-right-light
         shader: unshaded
   - type: MeleeWeapon
+    attackRate: 0.9
+    bluntStaminaDamageFactor: 3.0
     damage:
       types:
-        Blunt: 8
+        Blunt: 6.5
   - type: StaminaDamageOnHit
-    damage: 12.5
+    damage: 2
   - type: Sprite
     sprite: Objects/Tools/seclite.rsi
     layers:
@@ -129,3 +131,13 @@
   - type: PointLight
     enabled: false
     radius: 6
+
+- type: entity
+  parent: FlashlightLantern
+  id: EmptyFlashlightLantern
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

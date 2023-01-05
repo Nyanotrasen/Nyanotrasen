@@ -1,6 +1,7 @@
 ﻿- type: job
   id: ServiceWorker
-  name: "valet"
+  name: job-name-valet
+  description: job-description-valet
   playTimeTracker: JobServiceWorker
   startingGear: ServiceWorkerGear
   icon: "ServiceWorker"

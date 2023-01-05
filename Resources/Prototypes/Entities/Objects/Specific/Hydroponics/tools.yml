@@ -15,7 +15,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Slash: 7
+        Slash: 3.5
+        Blunt: 3
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
 
@@ -80,10 +81,12 @@
     netsync: false
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 1.1
+    range: 1.4
     damage:
       types:
         Slash: 8
-        Piercing: 4
+        Piercing: 3.5
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -109,7 +112,7 @@
     damage:
       types:
         Blunt: 8
-        Piercing: 4 # I guess you can stab it into them?
+        Piercing: 3.5 # I guess you can stab it into them?
   - type: StaminaDamageOnHit
     damage: 5
   - type: Item

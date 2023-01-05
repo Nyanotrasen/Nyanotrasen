@@ -93,3 +93,6 @@ technologies-non-lethal-technology-description = Less lethal options for securit
 
 technologies-space-time-technology = Spacetime technology
 technologies-space-time-technology-description = Pushing the limits of the universe.
+
+technologies-ripley-technology = Exosuit: Ripley
+technologies-ripley-technology-description = The latest and greatest in mechanized cargo construction.

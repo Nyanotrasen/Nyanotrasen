@@ -580,7 +580,7 @@ namespace Content.IntegrationTests.Tests.Mail
                 object jobIcon;
 
                 Assert.IsTrue(appearanceSystem.TryGetData(mail, MailVisuals.JobIcon, out jobIcon!),
-                    "Mail parcel was without MailVisuals.JobIcon appearance data for the job of Passenger.");
+                    "Mail parcel was without MailVisuals.JobIcon appearance data for the job of Assistant.");
 
                 Assert.IsInstanceOf<string>(jobIcon,
                     "MailVisuals.JobIcon was not a string.");
