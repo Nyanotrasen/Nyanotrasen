@@ -567,7 +567,7 @@
 
 - type: entity
   name: gorilla
-  parent: SimpleMobBase
+  parent: MobMonkey
   id: MobGorilla
   description: Smashes, roars, looks cool. Don't stand near one.
   components:
@@ -604,6 +604,12 @@
   - type: Bloodstream
     bloodMaxVolume: 300
   - type: Puller
+  - type: Stripping
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
 
 - type: entity
   name: kangaroo

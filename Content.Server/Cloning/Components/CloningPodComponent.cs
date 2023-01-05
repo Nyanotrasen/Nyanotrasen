@@ -77,6 +77,19 @@ namespace Content.Server.Cloning.Components
         public float BiomassRequirementMultiplier = 1;
 
         /// <summary>
+        ///     If not null, uses this instead of weight to determine biomass cost.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("constantBiomassCost")]
+        public int? ConstantBiomassCost = null;
+
+        /// <summary>
+        ///    Whether we should check for genetic damage
+        /// </summary>
+        [DataField("checkGeneticDamage")]
+        public bool CheckGeneticDamage = true;
+
+        /// <summary>
         /// The machine part that decreases the amount of material needed for cloning
         /// </summary>
         [DataField("machinePartMaterialUse", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
