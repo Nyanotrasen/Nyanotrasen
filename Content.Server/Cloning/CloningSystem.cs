@@ -195,7 +195,7 @@ namespace Content.Server.Cloning
             if (!TryComp<PhysicsComponent>(bodyToClone, out var physics))
                 return false;
 
-            var cloningCost = (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier);
+            var cloningCost = clonePod.ConstantBiomassCost == null ? (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier) : (int) clonePod.ConstantBiomassCost;
 
             if (_configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
@@ -215,21 +215,24 @@ namespace Content.Server.Cloning
             // end of biomass checks
 
             // genetic damage checks
-            if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
-                damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
+            if (clonePod.CheckGeneticDamage)
             {
-                var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
-                chance *= failChanceModifier;
-
-                if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
-                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning", ("percent", Math.Round(100 - (chance * 100)))), InGameICChatType.Speak, false);
-
-                if (_robustRandom.Prob(chance))
+                if (TryComp<DamageableComponent>(bodyToClone, out var damageable) &&
+                    damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg))
                 {
-                    UpdateStatus(CloningPodStatus.Gore, clonePod);
-                    clonePod.FailedClone = true;
-                    AddComp<ActiveCloningPodComponent>(uid);
-                    return true;
+                    var chance = Math.Clamp((float) (cellularDmg / 100), 0, 1);
+                    chance *= failChanceModifier;
+
+                    if (cellularDmg > 0 && clonePod.ConnectedConsole != null)
+                        _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-cellular-warning", ("percent", Math.Round(100 - (chance * 100)))), InGameICChatType.Speak, false);
+
+                    if (_robustRandom.Prob(chance))
+                    {
+                        UpdateStatus(CloningPodStatus.Gore, clonePod);
+                        clonePod.FailedClone = true;
+                        AddComp<ActiveCloningPodComponent>(uid);
+                        return true;
+                    }
                 }
             }
             // end of genetic damage checks

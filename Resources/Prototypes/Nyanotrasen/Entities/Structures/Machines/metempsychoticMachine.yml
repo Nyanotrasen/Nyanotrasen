@@ -5,3 +5,6 @@
   description: Speeds along the transmigration of a soul to its next vessel.
   components:
   - type: MetempsychoticMachine
+  - type: CloningPod
+    constantBiomassCost: 50
+    checkGeneticDamage: false
