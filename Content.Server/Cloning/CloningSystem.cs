@@ -340,7 +340,7 @@ namespace Content.Server.Cloning
         private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, SpeciesPrototype speciesPrototype, HumanoidComponent humanoid, EntityUid bodyToClone)
         {
             List<Sex> sexes = new();
-            bool switchingSpecies = true;
+            bool switchingSpecies = false;
             var toSpawn = speciesPrototype.Prototype;
 
             if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
@@ -351,9 +351,9 @@ namespace Content.Server.Cloning
                 {
                     sexes = newSpecies.Sexes;
 
-                    if (speciesPrototype.ID == newSpecies.ID)
+                    if (speciesPrototype.ID != newSpecies.ID)
                     {
-                        switchingSpecies = false;
+                        switchingSpecies = true;
                     }
 
                     speciesPrototype = newSpecies;
