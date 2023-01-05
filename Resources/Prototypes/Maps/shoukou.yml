@@ -2,8 +2,7 @@
   id: Shoukou
   mapName: 'Shōkō'
   mapPath: /Maps/shoukou.yml
-  minPlayers: 0
-  maxPlayers: 50
+  minPlayers: 20
   stations:
     Shoukou:
       mapNameTemplate: '{0} Shōkō "Little Port" {1}'
@@ -27,7 +26,7 @@
         Captain: [ 1, 1 ]
         HeadOfPersonnel: [ 1, 1 ]
         ChiefEngineer: [ 1, 1 ]
-        StationEngineer: [ 2, 4 ]
+        StationEngineer: [ 2, 5 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MailCarrier: [ 1, 2 ]
         MedicalDoctor: [ 3, 6 ]
@@ -46,3 +45,4 @@
         AtmosphericTechnician: [ 1, 2 ]
         ServiceWorker: [ 0, 2 ]
         Reporter: [ 1, 1 ]
+        Prisoner: [ 2, 3 ]
