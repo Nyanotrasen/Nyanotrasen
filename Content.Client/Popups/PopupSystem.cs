@@ -1,5 +1,7 @@
+using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
+using Content.Shared.Chat;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -58,6 +60,20 @@ namespace Content.Client.Popups
             };
 
             _aliveWorldLabels.Add(label);
+
+            if (type == PopupType.Small)
+                return;
+
+            Color color = Color.AntiqueWhite;
+
+            if (type == PopupType.SmallCaution || type == PopupType.MediumCaution || type == PopupType.LargeCaution)
+                color = Color.Red;
+
+            var msg = new ChatMessage(ChatChannel.Emotes, message, message, default, false, color);
+            // I don't think there's a way to have a UI controller as a dependency...?
+            var chatCon = _uiManager.GetUIController<ChatUIController>();
+            chatCon.ProcessChatMessage(msg);
+
         }
 
         #region Abstract Method Implementations
