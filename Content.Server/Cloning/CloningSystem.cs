@@ -234,29 +234,7 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            List<Sex> sexes = new();
-
-            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem) && _prototype.TryIndex<WeightedRandomPrototype>(metem.HumanoidWeightedList, out var list)
-                && _prototype.TryIndex<SpeciesPrototype>(list.Pick(), out var newSpecies))
-            {
-                sexes = newSpecies.Sexes;
-                speciesPrototype = newSpecies;
-            }
-
-            var mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
-            if (TryComp<HumanoidComponent>(mob, out var newHumanoid))
-            {
-                var profile = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
-                if (sexes.Contains(humanoid.Sex))
-                    profile = profile.WithSex(humanoid.Sex);
-
-                profile = profile.WithGender(humanoid.Gender);
-                profile = profile.WithAge(humanoid.Age);
-
-                _humanoidSystem.LoadProfile(mob, profile);
-            }
-
-            MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
+            var mob = FetchAndSpawnMob(clonePod, speciesPrototype, humanoid, bodyToClone);
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
@@ -353,6 +331,51 @@ namespace Content.Server.Cloning
 
             clonePod.UsedBiomass = 0;
             RemCompDeferred<ActiveCloningPodComponent>(uid);
+        }
+
+        /// <summary>
+        /// Handles fetching the mob and any appearance stuff...
+        /// </summary>
+        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, SpeciesPrototype speciesPrototype, HumanoidComponent humanoid, EntityUid bodyToClone)
+        {
+            List<Sex> sexes = new();
+            bool switchingSpecies = true;
+
+            if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem) && _prototype.TryIndex<WeightedRandomPrototype>(metem.HumanoidWeightedList, out var list)
+                && _prototype.TryIndex<SpeciesPrototype>(list.Pick(), out var newSpecies))
+            {
+                sexes = newSpecies.Sexes;
+
+                if (speciesPrototype.ID == newSpecies.ID)
+                {
+                    switchingSpecies = false;
+                }
+
+                speciesPrototype = newSpecies;
+            }
+
+            var mob = Spawn(speciesPrototype.Prototype, Transform(clonePod.Owner).MapPosition);
+            if (TryComp<HumanoidComponent>(mob, out var newHumanoid))
+            {
+                if (switchingSpecies)
+                {
+                    var profile = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+                    if (sexes.Contains(humanoid.Sex))
+                        profile = profile.WithSex(humanoid.Sex);
+
+                    profile = profile.WithGender(humanoid.Gender);
+                    profile = profile.WithAge(humanoid.Age);
+
+                    _humanoidSystem.LoadProfile(mob, profile);
+                } else
+                {
+                    _humanoidSystem.CloneAppearance(bodyToClone, mob);
+                }
+            }
+
+            MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
+
+            return mob;
         }
 
         public void Reset(RoundRestartCleanupEvent ev)
