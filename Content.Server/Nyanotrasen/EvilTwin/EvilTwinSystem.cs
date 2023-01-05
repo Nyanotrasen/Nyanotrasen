@@ -7,6 +7,7 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
 using Content.Server.Mind.Components;
+using Content.Server.DetailExaminable;
 using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Psionics;
@@ -164,12 +165,16 @@ namespace Content.Server.EvilTwin
 
                 var spawns = EntityQuery<SpawnPointComponent>();
 
-                var coords = Transform(candidate.Item1.Owner).Coordinates;
+                var coords = Transform(candUid).Coordinates;
+
+                List<EntityUid> latejoins = new();
 
                 foreach (var spawn in spawns)
                 {
                     if (spawn.SpawnType != SpawnPointType.LateJoin)
                         continue;
+
+                    latejoins.Add(spawn.Owner);
 
                     if (_stationSystem.GetOwningStation(spawn.Owner) !=_stationSystem.GetOwningStation(candUid))
                         continue;
@@ -178,10 +183,19 @@ namespace Content.Server.EvilTwin
                     break;
                 }
 
+                if (coords == Transform(candUid).Coordinates && latejoins.Count > 0)
+                    coords = Transform(_random.Pick(latejoins)).Coordinates;
+
                 var uid = Spawn(species.Prototype, coords);
 
-                _humanoidSystem.CloneAppearance(candUid, uid);
+                _humanoidSystem.LoadProfile(uid, pref);
                 MetaData(uid).EntityName = MetaData(candUid).EntityName;
+
+                if (TryComp<DetailExaminableComponent>(candUid, out var detail))
+                {
+                    var detailCopy = EnsureComp<DetailExaminableComponent>(uid);
+                    detailCopy.Content = detail.Content;
+                }
 
                 if (candidate.Item2.Mind.CurrentJob.StartingGear != null && _prototypeManager.TryIndex<StartingGearPrototype>(candidate.Item2.Mind.CurrentJob.StartingGear, out var gear))
                 {
