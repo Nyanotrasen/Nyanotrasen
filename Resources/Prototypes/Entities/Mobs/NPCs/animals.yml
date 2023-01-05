@@ -604,6 +604,12 @@
   - type: Bloodstream
     bloodMaxVolume: 300
   - type: Puller
+  - type: Stripping
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      - key: enum.StrippingUiKey.Key
+        type: StrippableBoundUserInterface
 
 - type: entity
   name: kangaroo
