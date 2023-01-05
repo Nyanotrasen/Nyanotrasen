@@ -2105,3 +2105,11 @@ Entries:
     type: Add
   id: 247
   time: '2023-01-04T23:56:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Evil twins are a bit closer to their targets.
+    type: Fix
+  - message: Evil twin spawn fallback is more robust.
+    type: Fix
+  id: 248
+  time: '2023-01-05T17:59:21.0000000+00:00'
