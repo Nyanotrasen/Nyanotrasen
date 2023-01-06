@@ -5,17 +5,21 @@ using Content.Shared.Examine;
 using Content.Shared.Cloning;
 using Content.Shared.Speech;
 using Content.Shared.Atmos;
+using Content.Shared.Tag;
 using Content.Shared.CCVar;
+using Content.Shared.Preferences;
 using Content.Server.Psionics;
 using Content.Server.Cloning.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.StationEvents.Components;
 using Content.Server.EUI;
 using Content.Server.Humanoid;
 using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.MobState;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
@@ -25,6 +29,7 @@ using Content.Server.Construction.Components;
 using Content.Server.Materials;
 using Content.Server.Stack;
 using Content.Server.Jobs;
+using Content.Server.Mind;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Server.GameObjects;
@@ -35,7 +40,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Content.Shared.Preferences;
+using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Server.Cloning
 {
@@ -61,6 +66,8 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
+        [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -195,7 +202,7 @@ namespace Content.Server.Cloning
 
             var cloningCost = clonePod.ConstantBiomassCost == null ? (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier) : (int) clonePod.ConstantBiomassCost;
 
-            if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+            if (clonePod.ConstantBiomassCost == null && _configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
 
             // biomass checks
@@ -341,11 +348,14 @@ namespace Content.Server.Cloning
         {
             List<Sex> sexes = new();
             bool switchingSpecies = false;
+            bool applyKarma = false;
             var toSpawn = speciesPrototype.Prototype;
+            TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
 
             if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
             {
-                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, out var newSpecies, metem);
+                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, out var newSpecies, oldKarma?.Score, metem);
+                applyKarma = true;
 
                 if (newSpecies != null)
                 {
@@ -379,12 +389,31 @@ namespace Content.Server.Cloning
                 }
             }
 
+            if (applyKarma)
+            {
+                var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
+                karma.Score++;
+                if (oldKarma != null)
+                    karma.Score += oldKarma.Score;
+            }
+
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
-            EnsureComp<MindComponent>(mob);
+            var mind = EnsureComp<MindComponent>(mob);
+            _mind.SetExamineInfo(mob, true, mind);
+
+            var grammar = EnsureComp<GrammarComponent>(mob);
+            grammar.ProperNoun = true;
+            grammar.Gender = humanoid.Gender;
+            Dirty(grammar);
+
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
             RemComp<MonkeyAccentComponent>(mob);
+            RemComp<SentienceTargetComponent>(mob);
+            RemComp<GhostTakeoverAvailableComponent>(mob);
+
+            _tag.AddTag(mob, "DoorBumpOpener");
 
             return mob;
         }

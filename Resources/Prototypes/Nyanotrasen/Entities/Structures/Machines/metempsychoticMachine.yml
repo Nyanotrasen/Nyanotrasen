@@ -6,7 +6,7 @@
   components:
   - type: MetempsychoticMachine
   - type: CloningPod
-    constantBiomassCost: 50
+    constantBiomassCost: 40
     checkGeneticDamage: false
   - type: Machine
     board: MetempsychoticMachineCircuitboard
@@ -26,3 +26,4 @@
           enum.CloningPodStatus.NoMind: pod_1
           enum.CloningPodStatus.Gore: pod_1
           enum.CloningPodStatus.Idle: pod_0
+  - type: Psionic
