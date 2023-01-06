@@ -50,7 +50,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        public string GetSpawnEntity(EntityUid uid, out SpeciesPrototype? species, MetempsychoticMachineComponent? component = null)
+        public string GetSpawnEntity(EntityUid uid, out SpeciesPrototype? species, int? karma = null, MetempsychoticMachineComponent? component = null)
         {
             if (!Resolve(uid, ref component))
             {
@@ -59,7 +59,14 @@ namespace Content.Server.Cloning
                 return "MobHuman";
             }
 
-            if (_random.Prob(component.HumanoidBaseChance))
+            var chance = component.HumanoidBaseChance;
+
+            if (karma != null)
+            {
+                chance -= ((1 - component.HumanoidBaseChance) * (float) karma);
+            }
+
+            if (_random.Prob(chance))
             {
                 if (_prototypeManager.TryIndex<WeightedRandomPrototype>(MetempsychoticHumanoidPool, out var humanoidPool))
                 {

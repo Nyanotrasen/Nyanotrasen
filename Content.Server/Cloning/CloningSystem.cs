@@ -6,6 +6,7 @@ using Content.Shared.Cloning;
 using Content.Shared.Speech;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
+using Content.Shared.Preferences;
 using Content.Server.Psionics;
 using Content.Server.Cloning.Components;
 using Content.Server.Speech.Components;
@@ -27,6 +28,7 @@ using Content.Server.Construction.Components;
 using Content.Server.Materials;
 using Content.Server.Stack;
 using Content.Server.Jobs;
+using Content.Server.Mind;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Server.GameObjects;
@@ -37,7 +39,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
-using Content.Shared.Preferences;
 
 namespace Content.Server.Cloning
 {
@@ -63,6 +64,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
+        [Dependency] private readonly MindSystem _mind = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -343,11 +345,13 @@ namespace Content.Server.Cloning
         {
             List<Sex> sexes = new();
             bool switchingSpecies = false;
+            bool applyKarma = false;
             var toSpawn = speciesPrototype.Prototype;
+            TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
 
             if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
             {
-                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, out var newSpecies, metem);
+                toSpawn = _metem.GetSpawnEntity(clonePod.Owner, out var newSpecies, oldKarma?.Score, metem);
 
                 if (newSpecies != null)
                 {
@@ -360,6 +364,7 @@ namespace Content.Server.Cloning
 
                     speciesPrototype = newSpecies;
                 }
+                applyKarma = true;
             }
 
             var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
@@ -379,11 +384,19 @@ namespace Content.Server.Cloning
                 {
                     _humanoidSystem.CloneAppearance(bodyToClone, mob);
                 }
+
+                if (applyKarma)
+                {
+                    var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
+                    karma.Score++;
+                    if (oldKarma != null)
+                        karma.Score += oldKarma.Score;
+                }
             }
 
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
             var mind = EnsureComp<MindComponent>(mob);
-            mind.ShowExamineInfo = true;
+            _mind.SetExamineInfo(mob, true, mind);
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
