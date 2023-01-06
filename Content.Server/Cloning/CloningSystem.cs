@@ -5,6 +5,7 @@ using Content.Shared.Examine;
 using Content.Shared.Cloning;
 using Content.Shared.Speech;
 using Content.Shared.Atmos;
+using Content.Shared.Tag;
 using Content.Shared.CCVar;
 using Content.Shared.Preferences;
 using Content.Server.Psionics;
@@ -39,6 +40,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Server.Cloning
 {
@@ -65,6 +67,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
         [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -352,6 +355,7 @@ namespace Content.Server.Cloning
             if (TryComp<MetempsychoticMachineComponent>(clonePod.Owner, out var metem))
             {
                 toSpawn = _metem.GetSpawnEntity(clonePod.Owner, out var newSpecies, oldKarma?.Score, metem);
+                applyKarma = true;
 
                 if (newSpecies != null)
                 {
@@ -364,7 +368,6 @@ namespace Content.Server.Cloning
 
                     speciesPrototype = newSpecies;
                 }
-                applyKarma = true;
             }
 
             var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
@@ -384,25 +387,33 @@ namespace Content.Server.Cloning
                 {
                     _humanoidSystem.CloneAppearance(bodyToClone, mob);
                 }
+            }
 
-                if (applyKarma)
-                {
-                    var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
-                    karma.Score++;
-                    if (oldKarma != null)
-                        karma.Score += oldKarma.Score;
-                }
+            if (applyKarma)
+            {
+                var karma = EnsureComp<MetempsychosisKarmaComponent>(mob);
+                karma.Score++;
+                if (oldKarma != null)
+                    karma.Score += oldKarma.Score;
             }
 
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
             var mind = EnsureComp<MindComponent>(mob);
             _mind.SetExamineInfo(mob, true, mind);
+
+            var grammar = EnsureComp<GrammarComponent>(mob);
+            grammar.ProperNoun = true;
+            grammar.Gender = humanoid.Gender;
+            Dirty(grammar);
+
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
             RemComp<MonkeyAccentComponent>(mob);
             RemComp<SentienceTargetComponent>(mob);
             RemComp<GhostTakeoverAvailableComponent>(mob);
+
+            _tag.AddTag(mob, "DoorBumpOpener");
 
             return mob;
         }

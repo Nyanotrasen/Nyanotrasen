@@ -16,6 +16,7 @@ using Content.Server.Players;
 using Content.Server.Popups;
 using Content.Server.Soul;
 using Content.Server.Body.Systems;
+using Content.Server.Cloning;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
@@ -178,7 +179,7 @@ namespace Content.Server.Chapel
                 return;
             }
 
-            if (!HasComp<HumanoidComponent>(patient))
+            if (!HasComp<HumanoidComponent>(patient) && !HasComp<MetempsychosisKarmaComponent>(patient))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", patient)), altar, agent, Shared.Popups.PopupType.SmallCaution);
                 return;
