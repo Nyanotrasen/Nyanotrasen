@@ -36449,8 +36449,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.04244
-      - 75.39776
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -36509,36 +36509,6 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 14.254297
-      - 53.62331
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 11.039318
-      - 41.52886
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-    - volume: 2500
-      temperature: 293.15
-      moles:
       - 13.090149
       - 49.243896
       - 0
@@ -36554,8 +36524,38 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.389294
-      - 65.41687
+      - 10.137737
+      - 38.1372
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 12.021078
+      - 45.22215
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 15.969111
+      - 60.07428
       - 0
       - 0
       - 0
@@ -38536,7 +38536,7 @@ entities:
   - pos: 12.5,-24.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -272939.75
+  - SecondsUntilStateChange: -275368.12
     state: Opening
     type: Door
 - uid: 310
@@ -39423,6 +39423,8 @@ entities:
 - uid: 453
   type: SubstationBasic
   components:
+  - name: Bridge substation
+    type: MetaData
   - pos: -35.5,-42.5
     parent: 0
     type: Transform
@@ -42412,7 +42414,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151353.8
+  - SecondsUntilStateChange: -153782.2
     state: Closing
     type: Door
   - airBlocked: False
@@ -43521,7 +43523,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151353.8
+  - SecondsUntilStateChange: -153782.2
     state: Closing
     type: Door
   - airBlocked: False
@@ -43561,7 +43563,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151351.3
+  - SecondsUntilStateChange: -153779.7
     state: Closing
     type: Door
   - airBlocked: False
@@ -43583,7 +43585,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151351.3
+  - SecondsUntilStateChange: -153779.7
     state: Closing
     type: Door
   - airBlocked: False
@@ -50144,6 +50146,11 @@ entities:
   - pos: 20.5,-34.5
     parent: 0
     type: Transform
+  - inputs:
+      CloningPodReceiver:
+      - port: CloningPodSender
+        uid: 2149
+    type: SignalReceiver
 - uid: 2149
   type: ComputerCloningConsole
   components:
@@ -50151,12 +50158,25 @@ entities:
     pos: 21.5,-34.5
     parent: 0
     type: Transform
+  - outputs:
+      MedicalScannerSender:
+      - port: MedicalScannerReceiver
+        uid: 2150
+      CloningPodSender:
+      - port: CloningPodReceiver
+        uid: 2148
+    type: SignalTransmitter
 - uid: 2150
   type: MedicalScanner
   components:
   - pos: 22.5,-34.5
     parent: 0
     type: Transform
+  - inputs:
+      MedicalScannerReceiver:
+      - port: MedicalScannerSender
+        uid: 2149
+    type: SignalReceiver
 - uid: 2151
   type: ClosetBase
   components:
@@ -50901,12 +50921,16 @@ entities:
 - uid: 2269
   type: SMESBasic
   components:
+  - name: AME 1 SMES
+    type: MetaData
   - pos: 19.5,21.5
     parent: 0
     type: Transform
 - uid: 2270
   type: SMESBasic
   components:
+  - name: AME 2 SMES
+    type: MetaData
   - pos: 20.5,21.5
     parent: 0
     type: Transform
@@ -51171,6 +51195,8 @@ entities:
 - uid: 2307
   type: SMESBasic
   components:
+  - name: AME 3 SMES
+    type: MetaData
   - pos: 27.5,21.5
     parent: 0
     type: Transform
@@ -52072,7 +52098,7 @@ entities:
   - pos: 27.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -273075.7
+  - SecondsUntilStateChange: -275504.06
     state: Opening
     type: Door
   - inputs:
@@ -52090,7 +52116,7 @@ entities:
   - pos: 27.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -273075.7
+  - SecondsUntilStateChange: -275504.06
     state: Opening
     type: Door
   - inputs:
@@ -52108,7 +52134,7 @@ entities:
   - pos: 27.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -273075.7
+  - SecondsUntilStateChange: -275504.06
     state: Opening
     type: Door
   - inputs:
@@ -52126,7 +52152,7 @@ entities:
   - pos: 27.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -273075.7
+  - SecondsUntilStateChange: -275504.06
     state: Opening
     type: Door
   - inputs:
@@ -52144,7 +52170,7 @@ entities:
   - pos: 27.5,-38.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -273075.7
+  - SecondsUntilStateChange: -275504.06
     state: Opening
     type: Door
   - inputs:
@@ -57889,6 +57915,8 @@ entities:
 - uid: 3385
   type: SubstationBasicEmpty
   components:
+  - name: Arena substation
+    type: MetaData
   - pos: 2.5,-18.5
     parent: 0
     type: Transform
@@ -61940,12 +61968,16 @@ entities:
 - uid: 4017
   type: SMESBasic
   components:
+  - name: Vault SMES
+    type: MetaData
   - pos: -34.5,-48.5
     parent: 0
     type: Transform
 - uid: 4018
   type: SubstationBasic
   components:
+  - name: Vault substation
+    type: MetaData
   - pos: -33.5,-48.5
     parent: 0
     type: Transform
@@ -65706,7 +65738,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -170283.14
+  - SecondsUntilStateChange: -172711.55
     state: Closing
     type: Door
   - airBlocked: False
@@ -69666,6 +69698,8 @@ entities:
 - uid: 5249
   type: SubstationBasic
   components:
+  - name: Epistemics/South Solars substation
+    type: MetaData
   - pos: 19.5,-76.5
     parent: 0
     type: Transform
@@ -69692,6 +69726,8 @@ entities:
 - uid: 5252
   type: SMESBasicEmpty
   components:
+  - name: South Solars 2 SMES
+    type: MetaData
   - pos: 16.5,-76.5
     parent: 0
     type: Transform
@@ -70169,6 +70205,8 @@ entities:
 - uid: 5329
   type: SubstationBasic
   components:
+  - name: Arrivals substation
+    type: MetaData
   - pos: 55.5,-33.5
     parent: 0
     type: Transform
@@ -72926,7 +72964,7 @@ entities:
 - uid: 5780
   type: SubstationBasic
   components:
-  - name: salvage substation
+  - name: Salvage substation
     type: MetaData
   - pos: 30.5,22.5
     parent: 0
@@ -72982,6 +73020,8 @@ entities:
 - uid: 5789
   type: SMESBasic
   components:
+  - name: Arena SMES
+    type: MetaData
   - pos: 0.5,-16.5
     parent: 0
     type: Transform
@@ -80638,7 +80678,7 @@ entities:
   - pos: 48.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -88709,7 +88749,7 @@ entities:
   - pos: 53.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -289460.44
+  - SecondsUntilStateChange: -291888.8
     state: Closing
     type: Door
   - enabled: False
@@ -88733,7 +88773,7 @@ entities:
   - pos: 54.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -289460.44
+  - SecondsUntilStateChange: -291888.8
     state: Closing
     type: Door
   - enabled: False
@@ -88841,7 +88881,7 @@ entities:
   - pos: 53.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -289464.06
+  - SecondsUntilStateChange: -291892.44
     state: Closing
     type: Door
   - enabled: False
@@ -88865,7 +88905,7 @@ entities:
   - pos: 54.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -289464.06
+  - SecondsUntilStateChange: -291892.44
     state: Closing
     type: Door
   - enabled: False
@@ -91406,6 +91446,8 @@ entities:
 - uid: 8469
   type: SMESBasic
   components:
+  - name: AME 4 SMES
+    type: MetaData
   - pos: 28.5,21.5
     parent: 0
     type: Transform
@@ -103779,7 +103821,7 @@ entities:
 - uid: 10377
   type: SubstationBasic
   components:
-  - name: atmospherics substation
+  - name: Atmospherics substation
     type: MetaData
   - pos: 32.5,20.5
     parent: 0
@@ -103787,7 +103829,7 @@ entities:
 - uid: 10378
   type: SubstationBasic
   components:
-  - name: engine room substation
+  - name: Engine Room substation
     type: MetaData
   - pos: 32.5,22.5
     parent: 0
@@ -103836,18 +103878,24 @@ entities:
 - uid: 10385
   type: SubstationBasic
   components:
+  - name: Janitor substation
+    type: MetaData
   - pos: 58.5,-15.5
     parent: 0
     type: Transform
 - uid: 10386
   type: SubstationBasic
   components:
+  - name: Dorms substation
+    type: MetaData
   - pos: 58.5,-17.5
     parent: 0
     type: Transform
 - uid: 10387
   type: SMESBasicEmpty
   components:
+  - name: South Solars 1 SMES
+    type: MetaData
   - pos: 15.5,-76.5
     parent: 0
     type: Transform
@@ -103897,6 +103945,8 @@ entities:
 - uid: 10394
   type: SubstationBasic
   components:
+  - name: Security substation
+    type: MetaData
   - pos: -35.5,-40.5
     parent: 0
     type: Transform
@@ -110197,6 +110247,8 @@ entities:
 - uid: 11376
   type: SubstationBasic
   components:
+  - name: South Maintenace/EVAC substation
+    type: MetaData
   - pos: 53.5,-39.5
     parent: 0
     type: Transform
@@ -111271,18 +111323,24 @@ entities:
 - uid: 11543
   type: SMESBasic
   components:
+  - name: Backup Medical SMES
+    type: MetaData
   - pos: 5.5,-15.5
     parent: 0
     type: Transform
 - uid: 11544
   type: SubstationBasic
   components:
+  - name: North Hall substation
+    type: MetaData
   - pos: 5.5,-12.5
     parent: 0
     type: Transform
 - uid: 11545
   type: SubstationBasic
   components:
+  - name: Medical substation
+    type: MetaData
   - pos: 7.5,-12.5
     parent: 0
     type: Transform
@@ -113057,7 +113115,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151358.58
+  - SecondsUntilStateChange: -153786.98
     state: Closing
     type: Door
   - airBlocked: False
@@ -113081,7 +113139,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -151358.58
+  - SecondsUntilStateChange: -153786.98
     state: Closing
     type: Door
   - airBlocked: False
@@ -150038,23 +150096,18 @@ entities:
   - color: '#0335FCFF'
     type: AtmosPipeColor
 - uid: 16302
-  type: GasPipeStraight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -34.5,-16.5
-    parent: 0
-    type: Transform
-  - color: '#0335FCFF'
-    type: AtmosPipeColor
-- uid: 16303
   type: GasVentPump
   components:
   - rot: 1.5707963267948966 rad
-    pos: -35.5,-16.5
+    pos: -34.5,-16.5
     parent: 0
     type: Transform
-  - color: '#0335FCFF'
-    type: AtmosPipeColor
+- uid: 16303
+  type: Rack
+  components:
+  - pos: -35.5,-16.5
+    parent: 0
+    type: Transform
 - uid: 16304
   type: GasPipeStraight
   components:
@@ -157733,6 +157786,8 @@ entities:
 - uid: 17174
   type: SubstationBasic
   components:
+  - name: Bar/Kitchen/Botany substation
+    type: MetaData
   - pos: 12.5,4.5
     parent: 0
     type: Transform
@@ -161256,7 +161311,7 @@ entities:
 - uid: 17610
   type: SubstationBasic
   components:
-  - name: lower engi/cargo substation
+  - name: Engineering/Cargo substation
     type: MetaData
   - pos: 30.5,20.5
     parent: 0
@@ -165041,6 +165096,8 @@ entities:
 - uid: 18239
   type: SubstationBasic
   components:
+  - name: HoP substation
+    type: MetaData
   - pos: 55.5,-35.5
     parent: 0
     type: Transform
@@ -167937,6 +167994,8 @@ entities:
 - uid: 18710
   type: SubstationBasic
   components:
+  - name: West Maintenance/South Hall substation
+    type: MetaData
   - pos: -43.5,-16.5
     parent: 0
     type: Transform
@@ -196022,6 +196081,8 @@ entities:
 - uid: 23047
   type: SMESBasic
   components:
+  - name: West Solars SMES
+    type: MetaData
   - pos: -54.5,-23.5
     parent: 0
     type: Transform
@@ -199114,7 +199175,7 @@ entities:
   - pos: 47.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199132,7 +199193,7 @@ entities:
   - pos: 46.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199150,7 +199211,7 @@ entities:
   - pos: 38.5,-31.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199168,7 +199229,7 @@ entities:
   - pos: 38.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199186,7 +199247,7 @@ entities:
   - pos: 38.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199204,7 +199265,7 @@ entities:
   - pos: 38.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199222,7 +199283,7 @@ entities:
   - pos: 38.5,-35.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199240,7 +199301,7 @@ entities:
   - pos: 38.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -4079.2664
+  - SecondsUntilStateChange: -6507.6675
     state: Opening
     type: Door
   - inputs:
@@ -199573,10 +199634,65 @@ entities:
   - pos: 18.5,-58.5
     parent: 0
     type: Transform
+- uid: 23584
+  type: HandheldGPSBasic
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 9.394457,25.059368
+    parent: 0
+    type: Transform
 - uid: 23585
   type: SpawnMobAlexander
   components:
   - pos: 5.5,-2.5
+    parent: 0
+    type: Transform
+- uid: 23586
+  type: HandheldGPSBasic
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 9.592374,25.069792
+    parent: 0
+    type: Transform
+- uid: 23587
+  type: Mirror
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 23.5,-32.5
+    parent: 0
+    type: Transform
+- uid: 23588
+  type: CableTerminal
+  components:
+  - pos: -34.5,-47.5
+    parent: 0
+    type: Transform
+- uid: 23589
+  type: PlasmaReinforcedWindowDirectional
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -35.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 23590
+  type: PlasmaReinforcedWindowDirectional
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -35.5,-16.5
+    parent: 0
+    type: Transform
+- uid: 23591
+  type: WeaponLauncherRocket
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -35.50125,-16.398907
+    parent: 0
+    type: Transform
+- uid: 23592
+  type: WindoorArmoryLocked
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -35.5,-16.5
     parent: 0
     type: Transform
 ...
