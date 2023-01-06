@@ -12,10 +12,12 @@ using Content.Server.Speech.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.StationEvents.Components;
 using Content.Server.EUI;
 using Content.Server.Humanoid;
 using Content.Server.MachineLinking.System;
 using Content.Server.MachineLinking.Events;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.MobState;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
@@ -195,7 +197,7 @@ namespace Content.Server.Cloning
 
             var cloningCost = clonePod.ConstantBiomassCost == null ? (int) Math.Round(physics.FixturesMass * clonePod.BiomassRequirementMultiplier) : (int) clonePod.ConstantBiomassCost;
 
-            if (_configManager.GetCVar(CCVars.BiomassEasyMode))
+            if (clonePod.ConstantBiomassCost == null && _configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
 
             // biomass checks
@@ -380,11 +382,14 @@ namespace Content.Server.Cloning
             }
 
             MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
-            EnsureComp<MindComponent>(mob);
+            var mind = EnsureComp<MindComponent>(mob);
+            mind.ShowExamineInfo = true;
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
             RemComp<MonkeyAccentComponent>(mob);
+            RemComp<SentienceTargetComponent>(mob);
+            RemComp<GhostTakeoverAvailableComponent>(mob);
 
             return mob;
         }
