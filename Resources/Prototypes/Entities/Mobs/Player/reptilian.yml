@@ -28,6 +28,8 @@
     - type: Faction
       factions:
         - NanoTrasen
+    - type: MailReceiver
+    - type: PotentialPsionic
     - type: Respirator
       damage:
        types:
@@ -35,4 +37,3 @@
       damageRecovery:
         types:
           Asphyxiation: -1.0
-#Weh
