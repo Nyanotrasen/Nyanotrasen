@@ -55,6 +55,7 @@
     fuel: 10
     time: 10
   - type: Airlock
+    autoCloseDelay: 1
   - type: Appearance
     visuals:
     - type: AirlockVisualizer
