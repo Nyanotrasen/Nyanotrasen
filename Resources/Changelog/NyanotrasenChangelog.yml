@@ -2135,3 +2135,19 @@ Entries:
     type: Fix
   id: 251
   time: '2023-01-06T17:14:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a number of bugs with the metempsychotic machine.
+    type: Fix
+  - message: There's some new visuals for the metempsychotic machine while it is running.
+    type: Add
+  - message: 'The # of times you have been through the metempsychotic machine is now
+      tracked.'
+    type: Add
+  - message: Non-humanoid results of the metempsychotic machine can be sacrificed
+      if they are psionic.
+    type: Tweak
+  - message: Brushed up monkeys and gorillas.
+    type: Tweak
+  id: 252
+  time: '2023-01-06T17:17:19.0000000+00:00'
