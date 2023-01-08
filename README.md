@@ -1,7 +1,7 @@
 <p align="center"> <img alt="Space Station 14 Nyanotrasen Logo" width="128" height="128" src="https://raw.githubusercontent.com/Nyanotrasen/Nyanotrasen/master/Resources/Textures/Logo/icon.svg" /></p>
 <p align="center"> <img alt="Space Station 14 Nyanotrasen Logo" width="512" height="126" src="https://raw.githubusercontent.com/Nyanotrasen/Nyanotrasen/master/Resources/Textures/Logo/logo.png" /></p>
 
-Nyanotrasen is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14).
+Nyanotrasen is a fork of [Space Station 14](https://github.com/space-wizards/space-station-14), embracing a mixture of classic SS13 chaos and experimentation only possibly with the new engine.
 
 Space Station 14 is a remake of SS13 that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), a homegrown engine written in C#.
 
