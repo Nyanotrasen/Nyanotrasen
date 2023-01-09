@@ -14,7 +14,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        public string GetSpawnEntity(EntityUid uid, out SpeciesPrototype? species, int? karma = null, MetempsychoticMachineComponent? component = null)
+        public string GetSpawnEntity(EntityUid uid, float karmaBonus, SpeciesPrototype oldSpecies, out SpeciesPrototype? species, int? karma = null, MetempsychoticMachineComponent? component = null)
         {
             if (!Resolve(uid, ref component))
             {
@@ -23,12 +23,27 @@ namespace Content.Server.Cloning
                 return "MobHuman";
             }
 
-            var chance = component.HumanoidBaseChance;
+            var chance = component.HumanoidBaseChance + karmaBonus;
 
             if (karma != null)
             {
                 chance -= ((1 - component.HumanoidBaseChance) * (float) karma);
             }
+
+            if (chance > 1)
+            {
+                if (_random.Prob(chance - 1))
+                {
+                    species = oldSpecies;
+                    return oldSpecies.Prototype;
+                }
+                else
+                {
+                    chance = 1;
+                }
+            }
+
+            chance = Math.Clamp(chance, 0, 1);
 
             if (_random.Prob(chance))
             {
