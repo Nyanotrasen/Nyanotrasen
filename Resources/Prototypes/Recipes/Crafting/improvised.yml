@@ -86,3 +86,16 @@
     sprite: Clothing/Head/Misc/flower-crown.rsi
     state: icon
   objectType: Item
+
+- type: construction
+  name: fish labeler
+  id: fishlabeler
+  graph: fishlabeler
+  startNode: start
+  targetNode: fishlabeler
+  category: construction-category-misc
+  objectType: Item
+  description: For labeling your pet fish.
+  icon:
+    sprite: Objects/Tools/hand_labeler.rsi
+    state: hand_labeler
