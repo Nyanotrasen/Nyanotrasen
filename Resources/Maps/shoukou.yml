@@ -9756,8 +9756,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -11595,7 +11595,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 301
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -2.5,-11.5
     parent: 34
@@ -11833,9 +11833,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 340
-  type: ReinforcedWindow
+  type: Window
   components:
-  - pos: -2.5,-4.5
+  - pos: -2.5,-7.5
     parent: 34
     type: Transform
 - uid: 341
@@ -14613,13 +14613,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 774
-  type: ReinforcedWindow
+  type: Window
   components:
-  - pos: -2.5,-5.5
+  - pos: -2.5,-6.5
     parent: 34
     type: Transform
 - uid: 775
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -2.5,-12.5
     parent: 34
@@ -14631,15 +14631,15 @@ entities:
     parent: 34
     type: Transform
 - uid: 777
-  type: ReinforcedWindow
+  type: Window
   components:
-  - pos: -2.5,-6.5
+  - pos: -2.5,-5.5
     parent: 34
     type: Transform
 - uid: 778
-  type: ReinforcedWindow
+  type: Window
   components:
-  - pos: -2.5,-7.5
+  - pos: -2.5,-4.5
     parent: 34
     type: Transform
 - uid: 779
@@ -16299,7 +16299,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1020
-  type: AirlockSalvageGlassLocked
+  type: AirlockExternalGlassLocked
   components:
   - pos: -40.5,-23.5
     parent: 34
@@ -20881,7 +20881,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1739
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -36.5,-31.5
     parent: 34
@@ -21040,7 +21040,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1765
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -36.5,-32.5
     parent: 34
@@ -21052,7 +21052,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1767
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -36.5,-25.5
     parent: 34
@@ -21427,7 +21427,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1828
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -36.5,-27.5
     parent: 34
@@ -30078,13 +30078,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 3200
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -34.5,-41.5
     parent: 34
     type: Transform
 - uid: 3201
-  type: ReinforcedWindow
+  type: Window
   components:
   - pos: -32.5,-41.5
     parent: 34
@@ -36476,9 +36476,9 @@ entities:
   - name: Engie, South Solar
     type: FaxMachine
 - uid: 4204
-  type: Paper
+  type: SprayBottleSpaceCleaner
   components:
-  - pos: 28.311258,-45.38599
+  - pos: 6.355405,-18.541101
     parent: 34
     type: Transform
 - uid: 4205
@@ -38271,7 +38271,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 4491
-  type: BannerSecurity
+  type: WaterCooler
   components:
   - pos: 25.5,-12.5
     parent: 34
@@ -56868,9 +56868,9 @@ entities:
   - count: 15
     type: Stack
 - uid: 7426
-  type: HyperlinkBookSpaceLaw
+  type: PowerCellRecharger
   components:
-  - pos: 23.50438,-15.388735
+  - pos: -22.5,1.5
     parent: 34
     type: Transform
 - uid: 7427
@@ -60704,9 +60704,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 8031
-  type: Paper
+  type: SprayBottleSpaceCleaner
   components:
-  - pos: 28.420633,-45.511078
+  - pos: 6.178322,-18.416014
     parent: 34
     type: Transform
 - uid: 8032
@@ -86534,6 +86534,93 @@ entities:
   type: MagazineBoxRifleBig
   components:
   - pos: 27.333197,4.0074997
+    parent: 34
+    type: Transform
+- uid: 11331
+  type: PowerCellRecharger
+  components:
+  - pos: 23.5,-15.5
+    parent: 34
+    type: Transform
+- uid: 11332
+  type: HyperlinkBookSpaceLaw
+  components:
+  - pos: 22.669678,-12.33404
+    parent: 34
+    type: Transform
+- uid: 11333
+  type: PowerCellRecharger
+  components:
+  - pos: -0.5,-41.5
+    parent: 34
+    type: Transform
+- uid: 11334
+  type: RandomFoodSingle
+  components:
+  - pos: 12.5,-40.5
+    parent: 34
+    type: Transform
+- uid: 11335
+  type: DrinkRootBeerCan
+  components:
+  - pos: 12.791894,-40.15166
+    parent: 34
+    type: Transform
+- uid: 11336
+  type: RandomBoards
+  components:
+  - pos: 8.5,-20.5
+    parent: 34
+    type: Transform
+- uid: 11337
+  type: PowerCellRecharger
+  components:
+  - pos: 28.5,-45.5
+    parent: 34
+    type: Transform
+- uid: 11338
+  type: Paper
+  components:
+  - pos: 30.01355,-44.74732
+    parent: 34
+    type: Transform
+- uid: 11339
+  type: Paper
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 30.2323,-44.872406
+    parent: 34
+    type: Transform
+- uid: 11340
+  type: VendingMachineSecDrobe
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 20.5,-20.5
+    parent: 34
+    type: Transform
+- uid: 11341
+  type: DrinkWaterBottleFull
+  components:
+  - pos: 20.285599,-16.020523
+    parent: 34
+    type: Transform
+- uid: 11342
+  type: BannerSecurity
+  components:
+  - pos: 22.5,-16.5
+    parent: 34
+    type: Transform
+- uid: 11343
+  type: DrinkWaterBottleFull
+  components:
+  - pos: 20.358517,-15.947556
+    parent: 34
+    type: Transform
+- uid: 11344
+  type: DrinkWaterBottleFull
+  components:
+  - pos: 20.181433,-15.947556
     parent: 34
     type: Transform
 ...
