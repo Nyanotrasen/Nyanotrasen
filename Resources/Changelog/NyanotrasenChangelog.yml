@@ -2228,3 +2228,13 @@ Entries:
     type: Fix
   id: 260
   time: '2023-01-09T19:41:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants can escape inventory and attack people holding them.
+    type: Fix
+  - message: Felinids can't eat rats when the felinid is overfed.
+    type: Fix
+  - message: Rats are grindable.
+    type: Fix
+  id: 261
+  time: '2023-01-09T22:46:09.0000000+00:00'
