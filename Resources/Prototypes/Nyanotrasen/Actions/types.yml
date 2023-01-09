@@ -140,4 +140,5 @@
   name: hairball-action
   description: hairball-action-desc
   charges: 1
+  useDelay: 30
   serverEvent: !type:HairballActionEvent
