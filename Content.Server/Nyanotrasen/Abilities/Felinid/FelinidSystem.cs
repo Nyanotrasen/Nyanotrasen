@@ -109,7 +109,7 @@ namespace Content.Server.Abilities.Felinid
             _popupSystem.PopupEntity(Loc.GetString("hairball-cough", ("name", Identity.Entity(uid, EntityManager))), uid);
             SoundSystem.Play("/Audio/Effects/Species/hairball.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
-            AddComp<CoughingUpHairballComponent>(uid);
+            EnsureComp<CoughingUpHairballComponent>(uid);
             args.Handled = true;
         }
 
@@ -118,11 +118,20 @@ namespace Content.Server.Abilities.Felinid
             if (component.PotentialTarget == null)
                 return;
 
+            if (!TryComp<HungerComponent>(uid, out var hunger))
+                return;
+
+            if (hunger.CurrentHungerThreshold == Shared.Nutrition.Components.HungerThreshold.Overfed)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("food-system-you-cannot-eat-any-more"), uid, uid, Shared.Popups.PopupType.SmallCaution);
+                return;
+            }
+
             if (_inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
             EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
             blocker.Enabled)
             {
-                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid);
+                _popupSystem.PopupEntity(Loc.GetString("hairball-mask", ("mask", maskUid)), uid, uid, Shared.Popups.PopupType.SmallCaution);
                 return;
             }
 
@@ -136,8 +145,7 @@ namespace Content.Server.Abilities.Felinid
 
             SoundSystem.Play("/Audio/Items/eatfood.ogg", Filter.Pvs(uid), uid, AudioHelpers.WithVariation(0.15f));
 
-            if (TryComp<HungerComponent>(uid, out var hunger))
-                hunger.UpdateFood(50f);
+            hunger.UpdateFood(70f);
 
             if (_prototypeManager.TryIndex<InstantActionPrototype>("EatMouse", out var eatMouse))
                     _actionsSystem.RemoveAction(uid, eatMouse);
