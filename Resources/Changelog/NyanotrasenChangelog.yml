@@ -2185,3 +2185,11 @@ Entries:
     type: Add
   id: 257
   time: '2023-01-09T18:22:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Updated to latest upstream. Notably, deconstructing stuff with material
+      storage will now spawn the materials inside. Lathes should be much harder to
+      accidentally grief now.
+    type: Add
+  id: 258
+  time: '2023-01-09T18:28:44.0000000+00:00'
