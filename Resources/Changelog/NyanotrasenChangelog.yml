@@ -2217,3 +2217,14 @@ Entries:
     type: Fix
   id: 259
   time: '2023-01-09T19:09:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'Metempsychotic machine changes to karma: Your chance for humanoid is
+      now 75% + 25% for each tier of medical scanner part upgrades. This means at
+      tier 1 your chance on first metempsychosis for a humanoid is 100%. However,
+      the penalty for consecutive metempsychoses has been increased to 25%.'
+    type: Tweak
+  - message: The biomass cost reduction upgrade now works on the metempsychotic machine.
+    type: Fix
+  id: 260
+  time: '2023-01-09T19:41:49.0000000+00:00'
