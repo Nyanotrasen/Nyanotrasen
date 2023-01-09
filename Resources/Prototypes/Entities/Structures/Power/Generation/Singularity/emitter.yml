@@ -30,9 +30,11 @@
     - state: beam
       shader: unshaded
       visible: false
+      map: ["enum.EmitterVisualLayers.Lights"]
     - state: lock
       shader: unshaded
       visible: false
+      map: ["enum.StorageVisualLayers.Lock"]
   - type: Emitter
   - type: PowerConsumer
     voltage: Medium
@@ -65,8 +67,6 @@
   - type: Pullable
   - type: Rotatable
   - type: Appearance
-    visuals:
-    - type: EmitterVisualizer
   - type: Lock
     locked: false
   - type: AccessReader
