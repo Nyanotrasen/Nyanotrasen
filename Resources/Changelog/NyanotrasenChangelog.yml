@@ -2193,3 +2193,27 @@ Entries:
     type: Add
   id: 258
   time: '2023-01-09T18:28:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants are much weaker but much cheaper and more spammable. They
+      are also items now and can be eaten by felinids like mice.
+    type: Tweak
+  - message: Chance for survival rounds has been reduced.
+    type: Tweak
+  - message: Survival max chaos and ramping time adjusted.
+    type: Tweak
+  - message: Oracle and the sophic grammateus will not fade their sprite when you
+      stand behind them.
+    type: Add
+  - message: Added some more busted items to oracle blacklist.
+    type: Fix
+  - message: Drills are now properly in the engineering lathe.
+    type: Fix
+  - message: Circuit imprinter now correctly uses the engineering board sprite.
+    type: Fix
+  - message: Removed a lobby song that was too good for you philistines.
+    type: Remove
+  - message: Primates can disarm now. Monkeys and gorillas' natural weapons make sense.
+    type: Fix
+  id: 259
+  time: '2023-01-09T19:09:47.0000000+00:00'
