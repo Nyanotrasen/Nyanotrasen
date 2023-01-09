@@ -94,13 +94,13 @@
   - type: NoSlip
   - type: RatKing
     actionRaiseArmy:
-      useDelay: 4
+      useDelay: 1.5
       icon: Interface/Actions/ratKingArmy.png
       name: rat-king-raise-army-name
       description: rat-king-raise-army-description
       itemIconStyle: NoItem
       event: !type:RatKingRaiseArmyActionEvent
-    hungerPerArmyUse: 25
+    hungerPerArmyUse: 8
     actionDomain:
       useDelay: 10
       icon: Interface/Actions/ratKingDomain.png
@@ -224,10 +224,12 @@
   - type: MobState
     thresholds:
       0: Alive
-      40: Critical
-      60: Dead
+      12: Critical
+      25: Dead
+  - type: Item
+    size: 12
   - type: Stamina
-    excess: 60
+    excess: 25
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -300,3 +302,4 @@
     price: 500 # rat wealth
   - type: MobsterAccent
     isBoss: false
+  - type: FelinidFood
