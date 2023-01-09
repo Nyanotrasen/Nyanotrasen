@@ -299,7 +299,25 @@
       - FootstepSound
   - type: NoSlip
   - type: MobPrice
-    price: 500 # rat wealth
+    price: 100 # rat wealth
   - type: MobsterAccent
     isBoss: false
   - type: FelinidFood
+  - type: Bloodstream
+    bloodMaxVolume: 70
+  - type: Recyclable
+  - type: CanEscapeInventory
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Blood
+          Quantity: 70
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1
