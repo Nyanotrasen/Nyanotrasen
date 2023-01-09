@@ -233,11 +233,14 @@ namespace Content.Server.Medical
             var ratingFail = args.PartRatings[component.MachinePartCloningFailChance];
 
             component.CloningFailChanceMultiplier = MathF.Pow(component.PartRatingFailMultiplier, ratingFail - 1);
+            component.MetemKarmaBonus = 0.25f * ratingFail;
         }
 
         private void OnUpgradeExamine(EntityUid uid, MedicalScannerComponent component, UpgradeExamineEvent args)
         {
+            Logger.Error("metem karma bonus: " + component.MetemKarmaBonus);
             args.AddPercentageUpgrade("medical-scanner-upgrade-cloning", component.CloningFailChanceMultiplier);
+            args.AddPercentageUpgrade("medical-scanner-upgrade-metem", component.MetemKarmaBonus + 0.75f);
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Content.Server.Cloning
         /// Chance you will spawn as a humanoid instead of a non humanoid.
         /// </summary>
         [DataField("humanoidBaseChance")]
-        public float HumanoidBaseChance = 0.85f;
+        public float HumanoidBaseChance = 0.75f;
     }
 }
