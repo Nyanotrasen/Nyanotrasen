@@ -1,17 +1,22 @@
+using System.Threading;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
+using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.ActionBlocker;
 using Content.Shared.MobState.EntitySystems;
+using Content.Shared.IdentityManagement;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
 
@@ -29,6 +34,9 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly LungSystem _lungSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedMobStateSystem _mobState = default!;
+        [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -37,6 +45,8 @@ namespace Content.Server.Body.Systems
             // We want to process lung reagents before we inhale new reagents.
             UpdatesAfter.Add(typeof(MetabolizerSystem));
             SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+            SubscribeLocalEvent<CPRSuccessfulEvent>(OnCPRSuccess);
+            SubscribeLocalEvent<CPRCancelledEvent>(OnCPRCancelled);
         }
 
         public override void Update(float frameTime)
@@ -59,7 +69,7 @@ namespace Content.Server.Body.Systems
                 respirator.AccumulatedFrametime -= respirator.CycleDelay;
                 UpdateSaturation(respirator.Owner, -respirator.CycleDelay, respirator);
 
-                if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
+                if (!_mobState.IsIncapacitated(uid) || respirator.BreatheInCritCounter > 0) // cannot breathe in crit.
                 {
                     switch (respirator.Status)
                     {
@@ -72,6 +82,8 @@ namespace Content.Server.Body.Systems
                             respirator.Status = RespiratorStatus.Inhaling;
                             break;
                     }
+
+                    respirator.BreatheInCritCounter = Math.Clamp(respirator.BreatheInCritCounter - 1, 0, 6);
                 }
 
                 if (respirator.Saturation < respirator.SuffocationThreshold)
@@ -211,6 +223,79 @@ namespace Content.Server.Body.Systems
             // Reset the accumulator properly
             if (component.AccumulatedFrametime >= component.CycleDelay)
                 component.AccumulatedFrametime = component.CycleDelay;
+        }
+
+        private void OnCPRCancelled(CPRCancelledEvent ev)
+        {
+            if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
+                return;
+
+            respirator.CPRPlayingStream?.Stop();
+            respirator.CancelToken = null;
+        }
+
+        private void OnCPRSuccess(CPRSuccessfulEvent ev)
+        {
+            if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
+                return;
+
+            respirator.CPRPlayingStream?.Stop();
+            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.Medium);
+
+            respirator.CancelToken = null;
+            respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
+        }
+
+        /// <summary>
+        /// Attempt CPR, which will keep the user breathing even in crit.
+        /// As cardiac arrest is currently unsimulated, the damage taken in crit is a function of
+        /// respiration alone. This may change in the future.
+        /// </summary>
+        public void AttemptCPR(EntityUid uid, RespiratorComponent component, EntityUid user)
+        {
+            if (component.CancelToken != null)
+                return;
+
+            if (!_blocker.CanInteract(user, uid))
+                return;
+
+            _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", Identity.Entity(uid, EntityManager))), uid, user, Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", Identity.Entity(user, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
+
+            component.CancelToken = new CancellationTokenSource();
+            component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
+            _doAfter.DoAfter(new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), component.CancelToken.Token, uid)
+            {
+                BroadcastFinishedEvent = new CPRSuccessfulEvent(user, uid),
+                BroadcastCancelledEvent = new CPRCancelledEvent(uid),
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                BreakOnDamage = true,
+                BreakOnStun = true,
+                NeedHand = true
+            });
+        }
+
+
+        private sealed class CPRCancelledEvent : EntityEventArgs
+        {
+            public EntityUid Patient;
+
+            public CPRCancelledEvent(EntityUid patient)
+            {
+                Patient = patient;
+            }
+        }
+
+        private sealed class CPRSuccessfulEvent : EntityEventArgs
+        {
+            public EntityUid Performer;
+            public EntityUid Patient;
+            public CPRSuccessfulEvent(EntityUid performer, EntityUid patient)
+            {
+                Performer = performer;
+                Patient = patient;
+            }
         }
     }
 }
