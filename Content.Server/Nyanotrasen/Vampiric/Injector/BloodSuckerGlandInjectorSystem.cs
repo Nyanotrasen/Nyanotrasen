@@ -34,7 +34,7 @@ namespace Content.Server.Vampiric
             component.Used = true;
             QueueDel(uid);
 
-            _popupSystem.PopupEntity(Loc.GetString("bloodsucker-glands-throb"), args.Target.Value, Filter.Entities(args.Target.Value));
+            _popupSystem.PopupEntity(Loc.GetString("bloodsucker-glands-throb"), args.Target.Value, args.Target.Value);
         }
     }
 }

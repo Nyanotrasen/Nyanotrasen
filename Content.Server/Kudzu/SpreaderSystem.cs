@@ -63,10 +63,10 @@ public sealed class SpreaderSystem : EntitySystem
     {
         _accumulatedFrameTime += frameTime;
 
-        if (!(_accumulatedFrameTime >= 1.0f))
+        if (!(_accumulatedFrameTime >= 4.0f))
             return;
 
-        _accumulatedFrameTime -= 1.0f;
+        _accumulatedFrameTime -= 4.0f;
 
         var growthList = _edgeGrowths.ToList();
         _robustRandom.Shuffle(growthList);

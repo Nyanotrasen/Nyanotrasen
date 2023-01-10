@@ -1,13 +1,15 @@
 - type: job
   id: Cyborg
-  name: "cyborg"
+  name: job-name-cyborg
+  description: job-description-cyborg
   playTimeTracker: JobCyborg
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 24000
   icon: "Unknown"
-  supervisors: "all humans"
+  supervisors: "all humanoids"
   canBeAntag: false
+  whitelistRequired: true
   jobEntity: PlayerCyborgStandard
   startingGear: CyborgGear # for char preview only
 

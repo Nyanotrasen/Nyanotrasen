@@ -3,6 +3,7 @@ using Content.Server.Drone.Components;
 using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Components;
+using Content.Server.MobState;
 using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Server.UserInterface;
@@ -32,12 +33,13 @@ namespace Content.Server.Drone
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly InnateToolSystem _innateToolSystem = default!;
+        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
-            SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
+            // SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
+            // SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<DroneComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<DroneComponent, MindAddedMessage>(OnMindAdded);
@@ -46,25 +48,25 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
         }
 
-        private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
-        {
-            if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
-                args.Cancel();
+        // private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
+        // {
+        //     if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
+        //         args.Cancel();
 
-            if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
-            {
-                if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
-                    args.Cancel();
-            }
-        }
+        //     if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
+        //     {
+        //         if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
+        //             args.Cancel();
+        //     }
+        // }
 
-        private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
-        {
-            if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
-            {
-                args.Cancel();
-            }
-        }
+        // private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
+        // {
+        //     if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
+        //     {
+        //         args.Cancel();
+        //     }
+        // }
 
         private void OnExamined(EntityUid uid, DroneComponent component, ExaminedEvent args)
         {
@@ -87,15 +89,14 @@ namespace Content.Server.Drone
 
                 if (TryComp<BodyComponent>(uid, out var body))
                     _bodySystem.GibBody(uid, body: body);
-                Del(uid);
+                QueueDel(uid);
             }
         }
 
         private void OnMindAdded(EntityUid uid, DroneComponent drone, MindAddedMessage args)
         {
             UpdateDroneAppearance(uid, DroneStatus.On);
-            _popupSystem.PopupEntity(Loc.GetString("drone-activated"), uid,
-                Filter.Pvs(uid), PopupType.Large);
+            _popupSystem.PopupEntity(Loc.GetString("drone-activated"), uid, PopupType.Large);
         }
 
         private void OnMindRemoved(EntityUid uid, DroneComponent drone, MindRemovedMessage args)
@@ -132,10 +133,10 @@ namespace Content.Server.Drone
                 if (HasComp<MindComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))
                 {
                     // Filter out dead ghost roles. Dead normal players are intended to block.
-                    if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && entityMobState.IsDead()))
+                    if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && _mobStateSystem.IsDead(entity, entityMobState)))
                         continue;
                     if (_gameTiming.IsFirstTimePredicted)
-                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, Filter.Entities(uid));
+                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, uid);
                     return true;
                 }
             }

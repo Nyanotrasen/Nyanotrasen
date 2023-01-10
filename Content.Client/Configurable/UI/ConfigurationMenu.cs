@@ -4,7 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Localization;
 using Robust.Shared.Maths;
-using static Content.Shared.Configurable.SharedConfigurationComponent;
+using static Content.Shared.Configurable.ConfigurationComponent;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
@@ -62,7 +62,7 @@ namespace Content.Client.Configurable.UI
             {
                 VerticalExpand = true,
                 HorizontalExpand = true,
-                ModulateSelfOverride = Color.FromHex("#202025")
+                ModulateSelfOverride = Color.FromHex("#202020")
             };
 
             outerColumn.AddChild(_column);

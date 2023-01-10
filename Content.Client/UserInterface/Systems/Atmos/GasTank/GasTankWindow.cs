@@ -40,7 +40,7 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
             var back = new StyleBoxTexture
             {
                 Texture = panelTex,
-                Modulate = Color.FromHex("#25252A"),
+                Modulate = Color.FromHex("#252525"),
             };
 
             back.SetPatchMargin(StyleBox.Margin.All, 10);
@@ -111,7 +111,7 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
 
             var middle = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#202025")},
+                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#202020")},
                 Children =
                 {
                     (_contentContainer = new BoxContainer
@@ -189,8 +189,7 @@ namespace Content.Client.UserInterface.Systems.Atmos.GasTank
             _lblPressure.SetMarkup(Loc.GetString("gas-tank-window-tank-pressure-text", ("tankPressure", $"{state.TankPressure:0.##}")));
             _btnInternals.Disabled = !state.CanConnectInternals;
             _lblInternals.SetMarkup(Loc.GetString("gas-tank-window-internal-text",
-                ("colorName" ,state.InternalsConnected ? "green" : "red"),
-                ("status", state.InternalsConnected ? "Connected" : "Disconnected")));
+                ("status", Loc.GetString(state.InternalsConnected ? "gas-tank-window-internal-connected" : "gas-tank-window-internal-disconnected"))));
             if (state.OutputPressure.HasValue)
             {
                 _spbPressure.Value = state.OutputPressure.Value;

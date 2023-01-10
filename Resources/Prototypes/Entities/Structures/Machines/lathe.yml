@@ -15,7 +15,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Appearance
@@ -102,7 +102,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Appearance
@@ -161,11 +161,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -186,6 +187,7 @@
       - LargeBeaker
       - Dropper
       - Syringe
+      - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
       - Flash
@@ -194,16 +196,12 @@
       - MicroLaserStockPart
       - MatterBinStockPart
       - CapacitorStockPart
-      - AdvancedCapacitorStockPart
-      - AdvancedMatterBinStockPart
-      - HighPowerMicroLaserStockPart
-      - NanoManipulatorStockPart
-      - AdvancedScanningModuleStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
+      - IntercomElectronics
       - MailingUnitElectronics
       - Bucket
       - MopItem
@@ -217,10 +215,6 @@
       - PowerCellSmall
       - PowerCellMedium
       - PowerCellHigh
-      - ProximitySensor
-      - LeftArmBorg
-      - RightArmBorg
-      - HolofanProjector
 
 - type: entity
   parent: Protolathe
@@ -252,12 +246,14 @@
       - AirAlarmElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
+      - IntercomElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
       - PortableScrubberMachineCircuitBoard
-      - CloningPodMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
       - MedicalScannerMachineCircuitboard
+      - CryoPodMachineCircuitboard
       - CrewMonitoringComputerCircuitboard
       - VaccinatorMachineCircuitboard
       - DiagnoserMachineCircuitboard
@@ -273,31 +269,81 @@
       - SurveillanceWirelessCameraAnchoredCircuitboard
       - HydroponicsTrayMachineCircuitboard
       - SolarControlComputerCircuitboard
+      - PowerComputerCircuitboard
       - AutolatheMachineCircuitboard
       - ProtolatheMachineCircuitboard
       - ReagentGrinderMachineCircuitboard
+      - HotplateMachineCircuitboard
       - MicrowaveMachineCircuitboard
+      - DeepFryerMachineCircuitboard
       - UniformPrinterMachineCircuitboard
       - ShuttleConsoleCircuitboard
+      - RadarConsoleCircuitboard
       - CircuitImprinterMachineCircuitboard
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
       - OreProcessorMachineCircuitboard
+      - RipleyCentralElectronics
+      - RipleyPeripheralsElectronics
       - GeneratorPlasmaMachineCircuitboard
       - GeneratorUraniumMachineCircuitboard
       - WallmountGeneratorElectronics
       - WallmountGeneratorAPUElectronics
       - WallmountSubstationElectronics
       - EmitterCircuitboard
+      - ThrusterMachineCircuitboard
+      - GyroscopeMachineCircuitboard
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
+      - AnalysisComputerCircuitboard
+      - ExosuitFabricatorMachineCircuitboard
+      - ArtifactAnalyzerMachineCircuitboard
+      - TraversalDistorterMachineCircuitboard
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+
+- type: entity
+  parent: Protolathe
+  id: ExosuitFabricator
+  name: exosuit fabricator
+  description: Creates parts for robotics and other mechanical needs
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Structures/Machines/exosuit_fabricator.rsi
+    layers:
+    - state: fab-idle
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: fab-load
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: fab-o
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ExosuitFabricatorMachineCircuitboard
+  - type: Lathe
+    idleState: fab-idle
+    runningState: fab-active
+    dynamicRecipes:
+    - ProximitySensor
+    - LeftArmBorg
+    - RightArmBorg
+    - RipleyHarness
+    - RipleyLArm
+    - RipleyRArm
+    - RipleyLLeg
+    - RipleyRLeg
+    - MechEquipmentGrabber
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
 
 - type: entity
   parent: Protolathe
@@ -315,7 +361,7 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Machine
@@ -327,9 +373,13 @@
       - Flash
       - FlashPayload
       - Handcuffs
+      - Zipties
       - Stunbaton
       - InsulativeHeadcage
       - ShockCollar
+      - ForensicPad
+      - ClothingEyesGlassesSecurity
+      - RiotShield
       - CartridgePistol
       - ShellShotgun
       - CartridgeLightRifle
@@ -341,6 +391,9 @@
       - ShellShotgunFlare
       - ShellTranquilizer
       - ShellSoulbreaker
+      - TargetHuman
+      - TargetSyndicate
+      - TargetClown
       - CartridgeLightRifle
       - CartridgeCaselessRifleRubber
       - CartridgeLightRifleRubber
@@ -353,11 +406,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -385,12 +439,13 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: Lathe
     idleState: icon
     runningState: icon
+    machinePartPrintSpeed: Laser
     dynamicRecipes:
       - HandheldHealthAnalyzer
       - ClothingHandsGlovesLatex
@@ -410,6 +465,8 @@
       - CryostasisBeaker
       - Dropper
       - Syringe
+      - Implanter
+      - PillCanister
       - BodyBag
       - PillCanister #Everything below this is shared with other lathes
       - FlashlightLantern
@@ -420,11 +477,12 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
+      - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
@@ -468,13 +526,9 @@
       - ClothingUniformJumpskirtChaplain
       - ClothingUniformJumpsuitChef
       - ClothingUniformJumpskirtChef
-      - ClothingUniformJumpsuitChemistry
-      - ClothingUniformJumpskirtChemistry
       - ClothingUniformJumpsuitClown
       - ClothingUniformJumpsuitCMO
       - ClothingUniformJumpskirtCMO
-      - ClothingUniformJumpsuitDetective
-      - ClothingUniformJumpskirtDetective
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitHoP
@@ -486,8 +540,6 @@
       - ClothingUniformJumpsuitJanitor
       - ClothingUniformJumpskirtJanitor
       - ClothingUniformJumpsuitLawyerBlack
-      - ClothingUniformJumpsuitLibrarian
-      - ClothingUniformJumpskirtColorLightBrown
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
       - ClothingUniformJumpsuitMime
@@ -499,10 +551,6 @@
       - ClothingUniformJumpskirtPrisoner
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
-      - ClothingUniformJumpsuitResearchDirector
-      - ClothingUniformJumpskirtResearchDirector
-      - ClothingUniformJumpsuitScientist
-      - ClothingUniformJumpskirtScientist
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
       - ClothingUniformJumpsuitWarden
@@ -513,13 +561,11 @@
       - ClothingOuterWinterHoP
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
-      - ClothingOuterWinterRD
       - ClothingNeckMantleCap
       - ClothingNeckMantleCE
       - ClothingNeckMantleCMO
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
-      - ClothingNeckMantleRD
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -546,17 +592,18 @@
           shader: unshaded
           map: ["enum.PowerDeviceVisualLayers.Powered"]
         - state: inserting
-          map: ["enum.LatheVisualLayers.IsInserting"]
+          map: ["enum.MaterialStorageVisualLayers.Inserting"]
         - state: panel
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
+      dropOnDeconstruct: false #should drop ores instead of ingots/sheets
+      ignoreColor: true
       whitelist:
         tags:
           - Ore
     - type: Lathe
-      ignoreColor: true
       staticRecipes:
         - SheetSteel30
         - SheetGlass30

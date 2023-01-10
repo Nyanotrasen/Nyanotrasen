@@ -1,0 +1,81 @@
+
+- type: entity
+  name: Salvage Parts Spawner
+  id: SalvagePartsSpawnerLow
+  suffix: Low
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: matter_bin
+    - type: RandomSpawner
+      prototypes:
+        - CapacitorStockPart
+        - ScanningModuleStockPart
+        - MicroManipulatorStockPart
+        - MicroLaserStockPart
+        - MatterBinStockPart
+      chance: 0.9
+      offset: 0.0
+      rarePrototypes:
+        - AdvancedCapacitorStockPart
+        - AdvancedScanningModuleStockPart
+        - NanoManipulatorStockPart
+        - HighPowerMicroLaserStockPart
+        - AdvancedMatterBinStockPart
+      rareChance: 0.15
+
+- type: entity
+  name: Salvage Parts Spawner
+  id: SalvagePartsSpawnerMid
+  suffix: High
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: advanced_matter_bin
+    - type: RandomSpawner
+      prototypes:
+        - SuperCapacitorStockPart
+        - PhasicScanningModuleStockPart
+        - PicoManipulatorStockPart
+        - UltraHighPowerMicroLaserStockPart
+        - SuperMatterBinStockPart
+        - CrateMaterialSteel
+        - CrateMaterialGlass
+      chance: 0.45
+      offset: 0.0
+      rarePrototypes:
+        - QuadraticCapacitorStockPart
+        - TriphasicScanningModuleStockPart
+        - FemtoManipulatorStockPart
+        - QuadUltraMicroLaserStockPart
+        - BluespaceMatterBinStockPart
+      rareChance: 0.15
+
+- type: entity
+  name: Salvage Parts Spawner
+  id: SalvagePartsSpawnerSubSpace
+  suffix: Subspace
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/stock_parts.rsi
+          state: subspace_ansible
+    - type: RandomSpawner
+      prototypes:
+        - AnsibleSubspaceStockPart
+        - FilterSubspaceStockPart
+        - AmplifierSubspaceStockPart
+        - TreatmentSubspaceStockPart
+        - AnalyzerSubspaceStockPart
+        - CrystalSubspaceStockPart
+        - TransmitterSubspaceStockPart
+      chance: 0.05
+      offset: 0.0

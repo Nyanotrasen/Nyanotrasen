@@ -15,9 +15,11 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ScienceTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -31,9 +33,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - ProximitySensor
-      - LeftArmBorg
-      - RightArmBorg
       - NormalityCrystal
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -44,15 +43,16 @@
       - LightTube
       - LightBulb
       - SheetSteel
+      - SheetPlastic
       - SheetPlasteel
       - SheetPlasma
-      - SheetGlass1
       - SheetRGlass
-      - SheetPlastic
+      - SheetGlass1
       - BluespaceCrystal
       - CableStack
       - CableMVStack
       - CableHVStack
+      - NodeScanner
   - type: MaterialStorage
     whitelist:
       tags:
@@ -83,9 +83,11 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ServiceTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
@@ -150,26 +152,39 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     - state: inserting
-      map: ["enum.LatheVisualLayers.IsInserting"]
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: EngineeringTechFabCircuitboard
   - type: Lathe
     idleState: icon
     runningState: icon
     dynamicRecipes:
       - Flash
       - MicroManipulatorStockPart
+      - NanoManipulatorStockPart
       - ScanningModuleStockPart
+      - AdvancedScanningModuleStockPart
       - MicroLaserStockPart
+      - HighPowerMicroLaserStockPart
       - MatterBinStockPart
+      - AdvancedMatterBinStockPart
       - CapacitorStockPart
+      - AdvancedCapacitorStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
       - FireAlarmElectronics
+      - MailingUnitElectronics
+      - IntercomElectronics
       - HolofanProjector
       - Drone
+      - ConveyorBeltAssembly
+      - RPED
+      - PowerDrill
+      - MiningDrill
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

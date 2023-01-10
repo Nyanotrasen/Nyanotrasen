@@ -7,11 +7,33 @@
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 1.5
+    range: 1.3
     damage:
       types:
-        Slash: 5
+        Slash: 4
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 3
+  - type: DamageWeaponOnHit
+    damage:
+      types:
+        Blunt: 1
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Sprite
     sprite: Objects/Consumable/TrashDrinks/broken_bottle.rsi
     state: icon

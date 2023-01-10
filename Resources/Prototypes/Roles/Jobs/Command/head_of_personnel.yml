@@ -1,6 +1,7 @@
 - type: job
   id: HeadOfPersonnel
   name: job-name-hop
+  description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   requirements:
     - !type:DepartmentTimeRequirement
@@ -20,10 +21,11 @@
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
+  whitelistRequired: true
   access:
   - Command
   - HeadOfPersonnel
-  - Brig
+  - Bar
   - Service
   - Mail
   - Salvage

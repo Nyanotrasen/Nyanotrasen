@@ -99,6 +99,8 @@
       prob: 0.10
     - id: BookGnominomicon
       prob: 0.2
+    - id: BookSalvageEpistemics1
+      prob: 0.025
 
 - type: entity
   noSpawn: true
@@ -587,15 +589,15 @@
     - id: Multitool
     - id: RemoteSignaller
 
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailSixPack
-  suffix: sixpack
-  components:
-  - type: Mail
-    contents:
-    - id: DrinkCanPack
+# - type: entity
+#   noSpawn: true
+#   parent: BaseMail
+#   id: MailSixPack
+#   suffix: sixpack
+#   components:
+#   - type: Mail
+#     contents:
+#     - id: DrinkCanPack
 
 - type: entity
   noSpawn: true

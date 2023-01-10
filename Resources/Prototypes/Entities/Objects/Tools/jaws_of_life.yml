@@ -13,6 +13,16 @@
     netsync: false
   - type: Item
     size: 50
+  - type: MeleeWeapon
+    attackRate: 0.75
+    range: 1.75
+    bluntStaminaDamageFactor: 4.0
+    damage:
+      types:
+        Blunt: 6
+        Piercing: 10
+  - type: MeleeStaminaCost
+    swing: 10
   - type: Clothing
     sprite: Objects/Tools/jaws_of_life.rsi
     quickEquip: false
@@ -24,6 +34,7 @@
     qualities:
       - Prying
     speed: 1.5
+    useSound: /Audio/Items/jaws_pry.ogg
   - type: ToolForcePowered
   - type: MultipleTool
     statusShowBehavior: true
@@ -50,6 +61,12 @@
   - type: Sprite
     sprite: Objects/Tools/jaws_of_life.rsi
     state: syn_jaws_pry
+  - type: MeleeWeapon
+    attackRate: 0.85
+    damage:
+      types:
+        Blunt: 8.5
+        Piercing: 10
   - type: MultipleTool
     entries:
       - behavior: Prying

@@ -36,7 +36,7 @@
     toggleAction:
       name: action-name-toggle-light
       description: action-description-toggle-light
-      icon: Objects/Tools/flashlight.rsi/flashlight.png
+      icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
       iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
       event: !type:ToggleActionEvent
   - type: ToggleableLightVisuals
@@ -58,6 +58,13 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 7
+  - type: StaminaDamageOnHit
+    damage: 9.5
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
     netsync: false
@@ -103,6 +110,14 @@
       right:
       - state: inhand-right-light
         shader: unshaded
+  - type: MeleeWeapon
+    attackRate: 0.9
+    bluntStaminaDamageFactor: 3.0
+    damage:
+      types:
+        Blunt: 6.5
+  - type: StaminaDamageOnHit
+    damage: 2
   - type: Sprite
     sprite: Objects/Tools/seclite.rsi
     layers:
@@ -116,3 +131,13 @@
   - type: PointLight
     enabled: false
     radius: 6
+
+- type: entity
+  parent: FlashlightLantern
+  id: EmptyFlashlightLantern
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

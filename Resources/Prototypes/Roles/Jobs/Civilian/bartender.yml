@@ -1,6 +1,7 @@
 - type: job
   id: Bartender
   name: job-name-bartender
+  description: job-description-bartender
   playTimeTracker: JobBartender
   startingGear: BartenderGear
   icon: "Bartender"
@@ -11,6 +12,7 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  - Maintenance
 
 - type: startingGear
   id: BartenderGear

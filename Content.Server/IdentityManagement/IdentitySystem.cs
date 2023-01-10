@@ -1,13 +1,12 @@
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
-using Content.Server.Humanoid;
 using Content.Shared.Database;
 using Content.Shared.Hands;
+using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Preferences;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 
@@ -110,6 +109,15 @@ public class IdentitySystem : SharedIdentitySystem
         var ev = new SeeIdentityAttemptEvent();
 
         RaiseLocalEvent(target, ev);
+
+        // If you are failing to disguise as another person, this is visible to others.
+        if (!ev.Cancelled && representation.PresumedName != null
+            && representation.PresumedName != representation.TrueName)
+        {
+            representation.PresumedName = Loc.GetString("identity-presumed-name-outed", ("trueName", representation.TrueName), ("presumedName", representation.PresumedName));
+            return representation.PresumedName;
+        }
+
         return representation.ToStringKnown(!ev.Cancelled);
     }
 

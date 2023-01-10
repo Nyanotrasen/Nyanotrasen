@@ -1,6 +1,7 @@
 - type: job
   id: Mime
   name: job-name-mime
+  description: job-description-mime
   playTimeTracker: JobMime
   startingGear: MimeGear
   icon: "Mime"
@@ -8,9 +9,12 @@
   access:
   - Theatre
   - Service
+  extendedAccess:
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:
+    - type: Psionic
     - type: MimePowers
 
 - type: startingGear

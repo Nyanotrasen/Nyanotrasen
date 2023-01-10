@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterArmorGladiator
+  name: gladiator armor
+  description: A good old set of boiled leather armor fit with buckles, belts, and a decorated pauldron. Are you not entertained?
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/gladiator.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/gladiator.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.8

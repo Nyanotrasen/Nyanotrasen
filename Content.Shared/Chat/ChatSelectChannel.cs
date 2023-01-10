@@ -54,7 +54,7 @@
         /// <summary>
         ///     Admin chat
         /// </summary>
-        Admin = ChatChannel.Admin,
+        Admin = ChatChannel.AdminChat,
 
         Console = ChatChannel.Unspecified
     }

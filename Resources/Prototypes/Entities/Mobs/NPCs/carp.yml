@@ -40,6 +40,8 @@
         0: Alive
         50: Critical
         100: Dead
+    - type: Stamina
+      excess: 100
     - type: MovementAlwaysTouching
     - type: Appearance
     - type: DamageStateVisuals
@@ -149,6 +151,7 @@
       allowMovement: true
       allowSpeech: true
       makeSentient: true
+      whitelistRequired: false
       name: Sentient Carp
       description: Help the dragon flood the station with carps!
     - type: HTN

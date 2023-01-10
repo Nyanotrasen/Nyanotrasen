@@ -1,5 +1,5 @@
 - type: entity
-  name: Moustagogue
+  name: Rat King
   id: MobRatKing
   parent: SimpleMobBase
   description: He's da rat. He make da roolz.
@@ -42,6 +42,8 @@
       200: Dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
@@ -50,6 +52,23 @@
         Piercing: 8
   - type: Body
     prototype: Rat
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Hunger # probably should be prototyped
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.01666666666
+  - type: Thirst
+    thresholds:
+      OverHydrated: 600
+      Okay: 450
+      Thirsty: 300
+      Parched: 150
+      Dead: 0
+    baseDecayRate: 0.1
   - type: Appearance
   - type: DamageStateVisuals
     rotate: true
@@ -75,13 +94,13 @@
   - type: NoSlip
   - type: RatKing
     actionRaiseArmy:
-      useDelay: 4
+      useDelay: 1.5
       icon: Interface/Actions/ratKingArmy.png
       name: rat-king-raise-army-name
       description: rat-king-raise-army-description
       itemIconStyle: NoItem
       event: !type:RatKingRaiseArmyActionEvent
-    hungerPerArmyUse: 25
+    hungerPerArmyUse: 8
     actionDomain:
       useDelay: 10
       icon: Interface/Actions/ratKingDomain.png
@@ -90,6 +109,15 @@
       itemIconStyle: NoItem
       event: !type:RatKingDomainActionEvent
     hungerPerDomainUse: 50
+    actionToggleFaction:
+      checkCanInteract: false
+      icon: Interface/Actions/ratHarmOff.png
+      iconOn: Interface/Actions/ratHarm.png
+      userPopup: rat-king-toggle-action-popup
+      popupToggleSuffix: -enabled
+      name: rat-king-toggle-faction-name
+      description: rat-king-toggle-faction-description
+      event: !type:RatKingToggleFactionActionEvent
   - type: MobsterAccent
   - type: Butcherable
     spawned:
@@ -133,6 +161,8 @@
       350: Dead
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh2.ogg
     angle: 0
     attackRate: 0.75
     animation: WeaponArcFist
@@ -167,14 +197,12 @@
   - type: InputMover
   - type: MobMover
   - type: HTN
-    rootTask: SimpleHostileCompound
+    rootTask: RatServantCompound
   - type: Reactive
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
   - type: Faction
-    factions:
-    - SimpleHostile
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Animals/mouse.rsi
@@ -196,10 +224,16 @@
   - type: MobState
     thresholds:
       0: Alive
-      40: Critical
-      60: Dead
+      12: Critical
+      25: Dead
+  - type: Item
+    size: 12
+  - type: Stamina
+    excess: 25
   - type: MeleeWeapon
     hidden: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
     angle: 0
     animation: WeaponArcClaw
     damage:
@@ -208,6 +242,23 @@
         Piercing: 3
   - type: Body
     prototype: Rat
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Hunger # probably should be prototyped
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.01666666666
+  - type: Thirst
+    thresholds:
+      OverHydrated: 600
+      Okay: 450
+      Thirsty: 300
+      Parched: 150
+      Dead: 0
+    baseDecayRate: 0.1
   - type: Appearance
   - type: DamageStateVisuals
     rotate: true
@@ -248,6 +299,25 @@
       - FootstepSound
   - type: NoSlip
   - type: MobPrice
-    price: 500 # rat wealth
+    price: 100 # rat wealth
   - type: MobsterAccent
     isBoss: false
+  - type: FelinidFood
+  - type: Bloodstream
+    bloodMaxVolume: 70
+  - type: Recyclable
+  - type: CanEscapeInventory
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Blood
+          Quantity: 70
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1

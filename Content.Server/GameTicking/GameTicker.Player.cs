@@ -1,4 +1,5 @@
 using Content.Server.Players;
+using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.GameTicking;
 using Content.Shared.GameWindow;
 using Content.Shared.Preferences;
@@ -14,7 +15,7 @@ namespace Content.Server.GameTicking
     public sealed partial class GameTicker
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-
+        [Dependency] private readonly PlayTimeTrackingManager _playTimeTrackingManager = default!;
         private void InitializePlayer()
         {
             _playerManager.PlayerStatusChanged += PlayerStatusChanged;
@@ -33,6 +34,8 @@ namespace Content.Server.GameTicking
                     // Always make sure the client has player data. Mind gets assigned on spawn.
                     if (session.Data.ContentDataUncast == null)
                         session.Data.ContentDataUncast = new PlayerData(session.UserId, args.Session.Name);
+
+                    CacheWhitelist(session);
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
@@ -99,6 +102,12 @@ namespace Content.Server.GameTicking
             {
                 await _userDb.WaitLoadComplete(session);
                 SpawnPlayer(session, EntityUid.Invalid);
+            }
+
+            async void CacheWhitelist(IPlayerSession whiteSession)
+            {
+                whiteSession.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(whiteSession.UserId);
+                _playTimeTrackingManager.SendWhitelist(session);
             }
 
             async void AddPlayerToDb(Guid id)

@@ -25,3 +25,36 @@
   id: ClothingUniformJumpsuitMystagogue
   name: mystagogue's turtleneck
   description: It's a turtleneck worn by those with the holy aura to achieve the role of Mystagogue. You can practically feel the psychic energies radiating from this thing, not to mention the actual radiation.
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeans
+  name: white t-shirt and jeans
+  description: Even in space, this combo is still in style.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeans.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeans.rsi
+    
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeansGray
+  name: gray t-shirt and jeans
+  description: Even though there are no forests in space, this combo is still practical.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeansgray.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeansgray.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeansPeach
+  name: peach t-shirt and jeans
+  description: Even though your favorite emo clothing store is back at home, this combo is still edgy.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi

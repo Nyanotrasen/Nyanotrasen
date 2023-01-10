@@ -31,6 +31,11 @@
     interfaces:
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
+  - type: MeleeWeapon
+    bluntStaminaDamageFactor: 2.0
+    damage:
+      types:
+        Blunt: 7.5
   - type: DamageOnLand
     damage:
       types:
@@ -39,6 +44,10 @@
     damage:
       types:
         Blunt: 4
+  - type: DamageWeaponOnHit
+    damage:
+      types:
+        Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -129,12 +138,12 @@
 
 
 - type: entity
-  name: kahlua bottle
+  name: coffee liqueur bottle
   parent: DrinkBottleBaseEmpty
-  id: DrinkBottleKahlua
+  id: DrinkBottleCoffeeLiqueur
   components:
   - type: Sprite
-    sprite: Objects/Consumable/TrashDrinks/kahluabottle_empty.rsi
+    sprite: Objects/Consumable/TrashDrinks/coffeeliqueurbottle_empty.rsi
 
 
 - type: entity

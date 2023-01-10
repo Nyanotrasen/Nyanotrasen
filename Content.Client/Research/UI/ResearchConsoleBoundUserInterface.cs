@@ -10,6 +10,7 @@ namespace Content.Client.Research.UI
     {
         public int Points { get; private set; }
         public int PointsPerSecond { get; private set; }
+        public int PointLimit { get; private set; }
         private ResearchConsoleMenu? _consoleMenu;
         private TechnologyDatabaseComponent? _technologyDatabase;
 
@@ -53,7 +54,7 @@ namespace Content.Client.Research.UI
 
         public bool IsTechnologyUnlocked(TechnologyPrototype technology)
         {
-            return _technologyDatabase?.IsTechnologyUnlocked(technology) ?? false;
+            return _technologyDatabase?.IsTechnologyUnlocked(technology.ID) ?? false;
         }
 
         public bool CanUnlockTechnology(TechnologyPrototype technology)
@@ -68,6 +69,7 @@ namespace Content.Client.Research.UI
             var castState = (ResearchConsoleBoundInterfaceState)state;
             Points = castState.Points;
             PointsPerSecond = castState.PointsPerSecond;
+            PointLimit = castState.PointsLimit;
             // We update the user interface here.
             _consoleMenu?.PopulatePoints();
         }

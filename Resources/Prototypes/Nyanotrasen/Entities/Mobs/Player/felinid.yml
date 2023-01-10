@@ -1,9 +1,8 @@
 - type: entity
   save: false
-  name: Uwist McHands
+  name: Player felinid
   parent: MobFelinidBase
   id: MobFelinid
-  description: A miserable pile of secrets.
   components:
   - type: CombatMode
     canDisarm: true

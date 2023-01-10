@@ -77,10 +77,14 @@
     nameSegments: [names_golem]
   - type: PotentialPsionic
   - type: Psionic
+    removable: false
   - type: PyrokinesisPower
   - type: Grammar
     attributes:
       proper: true
+  - type: MovementIgnoreGravity
+  - type: Blindable
+    blindResistance: 10
 
 - type: entity
   parent: WelderExperimental
@@ -92,7 +96,6 @@
     sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
   - type: Item
     sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
-# TODO make inhand welder flame unshaded somehow
   - type: SolutionContainerManager
     solutions:
       Welder:

@@ -1,0 +1,48 @@
+# Unfortunate, isn't it, that these don't work for ghost roles?
+
+# - type: entity
+#   id: RandomHumanoidSpawnerFugitive
+#   name: fugitive
+#   components:
+#     - type: Icon
+#       sprite: Mobs/Species/Human/parts.rsi
+#       state: full
+#     - type: RandomHumanoidSpawner
+#       settings: Fugitive
+
+# - type: randomHumanoidSettings
+#   id: Fugitive
+#   components:
+#     - type: Loadout
+#       prototypes: [FugitiveStartingGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanFugitive
+  name: Fugitive
+  noSpawn: true
+  components:
+    - type: Loadout
+      prototypes: [FugitiveStartingGear]
+    - type: Fugitive
+    - type: FugitiveCountdown
+    - type: RandomHumanoidAppearance
+
+- type: entity
+  parent: MarkerBase
+  id: MobEvilTwinSpawn
+  name: evil twin
+  components:
+  - type: EvilTwinSpawner
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Ghosts/ghost_human.rsi
+        state: icon
+  - type: GhostTakeoverAvailable
+    name: evil twin
+    description: Replace your other twin.
+    rules: |
+      Try and replace your twin with this funny roleplay antag rather than
+      plasma flooding the station or something.

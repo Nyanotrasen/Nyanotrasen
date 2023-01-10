@@ -237,9 +237,36 @@
     - type: FoldableVisualizer
       key: folding
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 4.0
+    attackRate: 0.9
     damage:
       types:
-        Blunt: 15
+        Blunt: 5.5
+  - type: DamageWeaponOnHit
+    damage:
+      types:
+        Blunt: 30
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4.5 #TODO dynamic stamina and attackrate for wielded weapons
+  - type: MeleeStaminaCost
+    swing: 5.5
+    hit: 4.5
+    wieldCoefficient: 0.50 #if wielded you will only consume 5 stam
+  - type: StaminaDamageOnHit
+    damage: 3
   - type: Construction
     graph: Seat
     node: chairFolding
+
+- type: entity
+  parent: ChairFolding
+  id: ChairFoldingSpawnFolded
+  suffix: folded
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Foldable
+    folded: true

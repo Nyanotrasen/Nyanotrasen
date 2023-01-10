@@ -376,7 +376,7 @@ namespace Content.Client.Arcade
             };
             var backgroundPanel = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat{BackgroundColor = Color.FromHex("#86868d")}
+                PanelOverride = new StyleBoxFlat{BackgroundColor = Color.FromHex("#868686")}
             };
             backgroundPanel.AddChild(_gameGrid);
             gamePanel.AddChild(backgroundPanel);

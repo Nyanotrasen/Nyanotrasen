@@ -11,7 +11,6 @@ using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -42,6 +41,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.MindSwapPowerAction = new EntityTargetAction(mindSwap);
+            if (mindSwap.UseDelay != null)
+                component.MindSwapPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) mindSwap.UseDelay);
             _actions.AddAction(uid, component.MindSwapPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
@@ -159,14 +160,15 @@ namespace Content.Server.Abilities.Psionics
             if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
                 return;
 
-            _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, Filter.Entities(uid), Shared.Popups.PopupType.LargeCaution);
+            _popupSystem.PopupEntity(Loc.GetString("mindswap-trapped"), uid, uid, Shared.Popups.PopupType.LargeCaution);
             _actions.RemoveAction(uid, action);
 
             if (HasComp<TelegnosticProjectionComponent>(uid))
             {
                 RemComp<PsionicallyInvisibleComponent>(uid);
                 RemComp<StealthComponent>(uid);
-                EnsureComp<SharedSpeechComponent>(uid);
+                EnsureComp<SpeechComponent>(uid);
+                EnsureComp<DispellableComponent>(uid);
                 MetaData(uid).EntityName = Loc.GetString("telegnostic-trapped-entity-name");
                 MetaData(uid).EntityDescription = Loc.GetString("telegnostic-trapped-entity-desc");
             }

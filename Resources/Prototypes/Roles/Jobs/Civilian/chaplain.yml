@@ -1,17 +1,21 @@
 - type: job
   id: Chaplain
-  name: "cleric"
+  name: job-name-chaplain
+  description: job-description-chaplain
   startingGear: ChaplainGear
   requirements:
     - !type:DepartmentTimeRequirement
       department: Epistemics
       time: 3600
   playTimeTracker: JobChaplain
+  whitelistRequired: true
   icon: "Chaplain"
   supervisors: "the mystagogue"
   access:
   - Chapel
   - Research
+  extendedAccess:
+  - Maintenance
   special:
   - !type:AddComponentSpecial
     components:
@@ -28,7 +32,7 @@
     back: ClothingBackpackChaplainFilled
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
-    ears: ClothingHeadsetScience
+    ears: ClothingHeadsetEpistemics
   innerclothingskirt: ClothingUniformJumpskirtChaplain
   satchel: ClothingBackpackSatchelChaplainFilled
   duffelbag: ClothingBackpackDuffelChaplainFilled

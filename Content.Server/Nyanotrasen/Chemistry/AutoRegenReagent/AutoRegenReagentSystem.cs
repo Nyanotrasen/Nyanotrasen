@@ -30,6 +30,10 @@ namespace Content.Server.Chemistry.AutoRegenReagent
         {
             if (!args.CanInteract || !args.CanAccess)
                 return;
+
+            if (component.Reagents.Count <= 1)
+                return;
+
             AlternativeVerb verb = new()
             {
                 Act = () =>
@@ -55,11 +59,11 @@ namespace Content.Server.Chemistry.AutoRegenReagent
 
             component.CurrentReagent = component.Reagents[component.CurrentIndex];
 
-            _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user, Filter.Entities(user));
+            _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user, user);
 
             return component.CurrentReagent;
         }
-            
+
         public override void Update(float frameTime)
         {
             base.Update(frameTime);

@@ -31,7 +31,7 @@ namespace Content.Shared.Abilities.Psionics
             {
                 if (HasComp<MetapsionicPowerComponent>(entity) && entity != uid && !(TryComp<PsionicInsulationComponent>(entity, out var insul) && !insul.Passthrough))
                 {
-                    _popups.PopupEntity(Loc.GetString("metapsionic-pulse-power", ("power", args.Power)), entity, Filter.Entities(entity), PopupType.LargeCaution);
+                    _popups.PopupEntity(Loc.GetString("metapsionic-pulse-power", ("power", args.Power)), entity, entity, PopupType.LargeCaution);
                     args.Handled = true;
                     return;
                 }

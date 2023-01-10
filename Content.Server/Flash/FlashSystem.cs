@@ -1,7 +1,7 @@
+using System.Linq;
 using Content.Server.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
-using Content.Server.Weapons.Melee.Events;
 using Content.Shared.Examine;
 using Content.Shared.Flash;
 using Content.Shared.IdentityManagement;
@@ -11,6 +11,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -43,8 +44,12 @@ namespace Content.Server.Flash
 
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
         {
-            if (!UseFlash(comp, args.User))
+            if (!args.IsHit ||
+                !args.HitEntities.Any() ||
+                !UseFlash(comp, args.User))
+            {
                 return;
+            }
 
             args.Handled = true;
             foreach (var e in args.HitEntities)

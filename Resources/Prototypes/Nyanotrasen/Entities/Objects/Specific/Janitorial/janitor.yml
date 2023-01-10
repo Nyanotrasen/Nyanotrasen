@@ -17,6 +17,19 @@
     solutions:
       absorbed:
         maxVol: 100
+  - type: MeleeWeapon
+    bluntStaminaDamageFactor: 1.60 # 8 stamina damage
+    range: 1.85
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnHit
+    damage: 6
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: BagOfSummoningGarbage

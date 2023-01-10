@@ -10,12 +10,14 @@ namespace Content.Server.Entry
             "AnimationsTest",
             "ItemStatus",
             "Marker",
-            "CollapsibleVisuals",
             "Clickable",
             "Icon",
             "ClientEntitySpawner",
             "HandheldGPS",
             "CableVisualizer",
+            "PuddleVisualizer",
+            "UIFragment",
+            "PDABorderColor",
         };
     }
 }

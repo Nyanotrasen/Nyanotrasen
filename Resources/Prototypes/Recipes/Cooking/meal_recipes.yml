@@ -617,6 +617,16 @@
     FoodMeatFish: 2
 
 - type: microwaveMealRecipe
+  id: RecipeFishChips
+  name: fish and chips recipe
+  result: FoodMealFishChips
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodPotato: 1
+    FoodMeatFish: 1
+
+- type: microwaveMealRecipe
   id: RecipeSashimi
   name: sashimi recipe
   result: FoodMealSashimi
@@ -1197,4 +1207,4 @@
   time: 15
   solids:
     FoodMeatLizard: 1
-    FoodKebabSkewer: 1
+    FoodKebabSkewer: 1   

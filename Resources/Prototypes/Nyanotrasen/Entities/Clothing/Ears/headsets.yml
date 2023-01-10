@@ -8,6 +8,7 @@
     channels:
     - Common
     - Science
+    defaultChannel: Science
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
 
@@ -22,7 +23,24 @@
     - Command
     - Common
     - Science
+    defaultChannel: Science
   - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltMystagogue
+  name: epistemics over-ear headset
+  components:
+  - type: Headset
+    channels:
+    - Command
+    - Common
+    - Science
+    defaultChannel: Science
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
 
 - type: entity
@@ -36,5 +54,6 @@
     - Common
     - Science
     - Security
+    defaultChannel: Science
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi

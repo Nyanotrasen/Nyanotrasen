@@ -1,0 +1,67 @@
+#nullable enable
+using NUnit.Framework;
+using System.Threading.Tasks;
+using Content.Shared.Item;
+using Content.Server.Research.Oracle;
+using Content.Server.Chemistry.Components;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
+
+
+/// <summary>
+/// The oracle's request pool is huge.
+/// We need to test everything that the oracle could request can be turned in.
+/// </summary>
+namespace Content.IntegrationTests.Tests.Oracle
+{
+    [TestFixture]
+    [TestOf(typeof(OracleSystem))]
+    public sealed class OracleTest
+    {
+        [Test]
+        public async Task AllOracleItemsCanBeTurnedIn()
+        {
+            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            var server = pairTracker.Pair.Server;
+            // Per RobustIntegrationTest.cs, wait until state is settled to access it.
+            await server.WaitIdleAsync();
+
+            var mapManager = server.ResolveDependency<IMapManager>();
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
+            var entityManager = server.ResolveDependency<IEntityManager>();
+            var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+
+            var oracleSystem = entitySystemManager.GetEntitySystem<OracleSystem>();
+
+            var testMap = await PoolManager.CreateTestMap(pairTracker);
+
+            await server.WaitAssertion(() =>
+            {
+                var allProtos = oracleSystem.GetAllProtos();
+                var coordinates = testMap.GridCoords;
+
+                Assert.That((allProtos.Count > 0), "Oracle has no valid prototypes!");
+
+                foreach (var proto in allProtos)
+                {
+                    var spawned = entityManager.SpawnEntity(proto, coordinates);
+
+                    Assert.That(entityManager.HasComponent<ItemComponent>(spawned),
+                        $"Oracle can request non-item  {proto}");
+
+                    Assert.That(!entityManager.HasComponent<SolutionTransferComponent>(spawned),
+                        $"Oracle can request reagent container {proto} that will conflict with the fountain");
+                }
+
+                // Because Server/Client pairs can be re-used between Tests, we
+                // need to clean up anything that might affect other tests,
+                // otherwise this pair cannot be considered clean, and the
+                // CleanReturnAsync call would need to be removed.
+                mapManager.DeleteMap(testMap.MapId);
+            });
+
+            await pairTracker.CleanReturnAsync();
+        }
+    }
+}

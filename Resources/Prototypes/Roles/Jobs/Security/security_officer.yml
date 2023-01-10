@@ -1,6 +1,7 @@
 - type: job
   id: SecurityOfficer
   name: job-name-security
+  description: job-description-security
   playTimeTracker: JobSecurityOfficer
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -9,6 +10,7 @@
   icon: "SecurityOfficer"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  whitelistRequired: true
   access:
   - Security
   - Brig

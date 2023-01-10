@@ -1,7 +1,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Robust.Shared.Containers;
+using Content.Shared.Stacks;
 
 namespace Content.Server.Stack
 {

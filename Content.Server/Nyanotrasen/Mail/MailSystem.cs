@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Access.Systems;
@@ -18,6 +17,7 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Fluids.Components;
 using Content.Server.Mail.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -60,10 +60,14 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
+        private ISawmill _sawmill = default!;
 
         public override void Initialize()
         {
             base.Initialize();
+
+            _sawmill = Logger.GetSawmill("mail");
+
             SubscribeLocalEvent<MailComponent, ComponentRemove>(OnRemove);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
@@ -109,7 +113,7 @@ namespace Content.Server.Mail
                 return;
             if (component.IsLocked)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-locked"), uid, args.User);
                 return;
             }
             OpenMail(uid, component, args.User);
@@ -169,13 +173,13 @@ namespace Content.Server.Mail
             {
                 if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
                     return;
                 }
 
                 if (!_accessSystem.IsAllowed(uid, args.User))
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, Filter.Entities(args.User));
+                    _popupSystem.PopupEntity(Loc.GetString("mail-invalid-access"), uid, args.User);
                     return;
                 }
             }
@@ -184,11 +188,11 @@ namespace Content.Server.Mail
 
             if (!component.IsProfitable)
             {
-                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, Filter.Entities(args.User));
+                _popupSystem.PopupEntity(Loc.GetString("mail-unlocked"), uid, args.User);
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, Filter.Entities(args.User));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-reward", ("bounty", component.Bounty)), uid, args.User);
 
             component.IsProfitable = false;
 
@@ -301,7 +305,7 @@ namespace Content.Server.Mail
 
             UnlockMail(uid, component);
 
-            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, Filter.Entities(args.UserUid));
+            _popupSystem.PopupEntity(Loc.GetString("mail-unlocked-by-emag"), uid, args.UserUid);
 
             _audioSystem.PlayPvs(component.EmagSound, uid, AudioParams.Default.WithVolume(4));
             component.IsProfitable = false;
@@ -411,7 +415,7 @@ namespace Content.Server.Mail
         /// <remarks>
         /// This is separate mostly so the unit tests can get to it.
         /// </remarks>
-        public void SetupMail(EntityUid uid, MailTeleporterComponent component, string recipientName, string recipientJob, HashSet<String> accessTags)
+        public void SetupMail(EntityUid uid, MailTeleporterComponent component, MailRecipient recipient)
         {
             var mailComp = EnsureComp<MailComponent>(uid);
 
@@ -421,7 +425,7 @@ namespace Content.Server.Mail
                 var entity = EntityManager.SpawnEntity(item, Transform(uid).Coordinates);
                 if (!container.Insert(entity))
                 {
-                    Logger.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
+                    _sawmill.Error($"Can't insert {ToPrettyString(entity)} into new mail delivery {ToPrettyString(uid)}! Deleting it.");
                     QueueDel(entity);
                 }
                 else if (!mailComp.IsFragile && IsEntityFragile(entity, component.FragileDamageThreshold))
@@ -433,8 +437,13 @@ namespace Content.Server.Mail
             if (_random.Prob(component.PriorityChance))
                 mailComp.IsPriority = true;
 
-            mailComp.RecipientJob = recipientJob;
-            mailComp.Recipient = recipientName;
+            // This needs to override both the random probability and the
+            // entity prototype, so this is fine.
+            if (!recipient.MayReceivePriorityMail)
+                mailComp.IsPriority = false;
+
+            mailComp.RecipientJob = recipient.Job;
+            mailComp.Recipient = recipient.Name;
 
             if (mailComp.IsFragile)
             {
@@ -456,11 +465,11 @@ namespace Content.Server.Mail
                     mailComp.priorityCancelToken.Token);
             }
 
-            if (TryMatchJobTitleToIcon(recipientJob, out string? icon))
+            if (TryMatchJobTitleToIcon(recipient.Job, out string? icon))
                 _appearanceSystem.SetData(uid, MailVisuals.JobIcon, icon);
 
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
-            accessReader.AccessLists.Add(accessTags);
+            accessReader.AccessLists.Add(recipient.AccessTags);
         }
 
         /// <summary>
@@ -473,7 +482,7 @@ namespace Content.Server.Mail
             // parcels spawned by the teleporter and see if they're not carried
             // by someone, but this is simple, and simple is good.
             List<EntityUid> undeliveredParcels = new();
-            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates))
+            foreach (var entityInTile in TurfHelpers.GetEntitiesInTile(Transform(uid).Coordinates, LookupFlags.Dynamic | LookupFlags.Sundries))
             {
                 if (HasComp<MailComponent>(entityInTile))
                     undeliveredParcels.Add(entityInTile);
@@ -525,7 +534,20 @@ namespace Content.Server.Mail
                 && idCard.JobTitle != null)
             {
                 HashSet<String> accessTags = access.Tags;
-                recipient = new MailRecipient(idCard.FullName, idCard.JobTitle, accessTags);
+
+                var mayReceivePriorityMail = true;
+
+                if (TryComp<MindComponent>(receiver.Owner, out MindComponent? mind)
+                    && mind.Mind?.Session == null)
+                {
+                    mayReceivePriorityMail = false;
+                }
+
+                recipient = new MailRecipient(idCard.FullName,
+                    idCard.JobTitle,
+                    accessTags,
+                    mayReceivePriorityMail);
+
                 return true;
             }
 
@@ -559,7 +581,7 @@ namespace Content.Server.Mail
         {
             if (!Resolve(uid, ref component))
             {
-                Logger.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
+                _sawmill.Error($"Tried to SpawnMail on {ToPrettyString(uid)} without a valid MailTeleporterComponent!");
                 return;
             }
 
@@ -570,13 +592,13 @@ namespace Content.Server.Mail
 
             if (candidateList.Count <= 0)
             {
-                Logger.Error("List of mail candidates was empty!");
+                _sawmill.Error("List of mail candidates was empty!");
                 return;
             }
 
             if (!_prototypeManager.TryIndex<MailDeliveryPoolPrototype>(component.MailPool, out var pool))
             {
-                Logger.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
+                _sawmill.Error($"Can't index {ToPrettyString(uid)}'s MailPool {component.MailPool}!");
                 return;
             }
 
@@ -618,12 +640,12 @@ namespace Content.Server.Mail
 
                 if (chosenParcel == null)
                 {
-                    Logger.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
+                    _sawmill.Error($"MailSystem wasn't able to find a deliverable parcel for {candidate.Name}, {candidate.Job}!");
                     return;
                 }
 
                 var mail = EntityManager.SpawnEntity(chosenParcel, Transform(uid).Coordinates);
-                SetupMail(mail, component, candidate.Name, candidate.Job, candidate.AccessTags);
+                SetupMail(mail, component, candidate);
             }
 
             if (_containerSystem.TryGetContainer(uid, "queued", out var queued))
@@ -644,7 +666,7 @@ namespace Content.Server.Mail
 
             if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
             {
-                Logger.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
+                _sawmill.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
                 return;
             }
 
@@ -675,12 +697,14 @@ namespace Content.Server.Mail
         public string Name;
         public string Job;
         public HashSet<String> AccessTags;
+        public bool MayReceivePriorityMail;
 
-        public MailRecipient(string name, string job, HashSet<String> accessTags)
+        public MailRecipient(string name, string job, HashSet<String> accessTags, bool mayReceivePriorityMail)
         {
             Name = name;
             Job = job;
             AccessTags = accessTags;
+            MayReceivePriorityMail = mayReceivePriorityMail;
         }
     }
 }

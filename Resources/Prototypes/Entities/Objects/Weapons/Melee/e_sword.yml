@@ -7,8 +7,7 @@
   - type: EnergySword
     litDamageBonus:
         types:
-            Slash: 8.5
-            Heat: 8.5
+            Heat: 17
             Blunt: -4.5
     litDisarmMalus: 0.6
   - type: Sprite
@@ -21,6 +20,7 @@
         shader: unshaded
         map: [ "blade" ]
   - type: MeleeWeapon
+    range: 1.75
     attackRate: 1.5
     soundHit:
       path: /Audio/Weapons/genhit1.ogg
@@ -62,8 +62,7 @@
     secret: true
     litDamageBonus:
         types:
-            Slash: 7.5
-            Heat: 7.5
+            Heat: 13
             Blunt: -1
     litDisarmMalus: 0.4
   - type: Sprite
@@ -77,6 +76,7 @@
         map: [ "blade" ]
   - type: MeleeWeapon
     hidden: true
+    range: 1.4
     damage:
       types:
         Blunt: 1

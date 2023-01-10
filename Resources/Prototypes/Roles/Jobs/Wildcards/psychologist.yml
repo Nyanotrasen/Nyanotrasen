@@ -1,6 +1,7 @@
 - type: job
   id: Psychologist
   name: job-name-psychologist
+  description: job-description-psychologist
   playTimeTracker: JobPsychologist
   startingGear: PsychologistGear
   setPreference: false
@@ -8,9 +9,9 @@
   supervisors: job-supervisors-cmo
   access:
   - Medical
-  - Maintenance
   extendedAccess:
   - Chemistry
+  - Maintenance
 
 - type: startingGear
   id: PsychologistGear

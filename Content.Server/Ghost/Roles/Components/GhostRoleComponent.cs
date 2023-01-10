@@ -63,6 +63,11 @@ namespace Content.Server.Ghost.Roles.Components
             }
         }
 
+        [ViewVariables(VVAccess.ReadWrite)]
+        [Access(typeof(GhostRoleSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
+        [DataField("whitelistRequired")]
+        public bool WhitelistRequired = true;
+
         [DataField("allowSpeech")]
         [ViewVariables(VVAccess.ReadWrite)]
         public bool AllowSpeech { get; set; } = true;

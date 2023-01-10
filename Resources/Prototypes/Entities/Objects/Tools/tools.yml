@@ -20,9 +20,11 @@
     - state: cutters-cutty-thingy
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.9
+    range: 1.6
     damage:
       types:
-        Blunt: 10
+        Slash: 6.5
   - type: Tool
     qualities:
       - Cutting
@@ -97,10 +99,14 @@
     sprite: Objects/Tools/wrench.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 0.9
+    range: 1.6
+    bluntStaminaDamageFactor: 1.5
     damage:
       types:
-        Blunt: 6.5
+        Blunt: 7.5
+  - type: StaminaDamageOnHit
+    damage: 2.25
   - type: Tool
     qualities:
       - Anchoring
@@ -129,9 +135,10 @@
     sprite: Objects/Tools/crowbar.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
+    bluntStaminaDamageFactor: 1.25
     damage:
       types:
-        Blunt: 10
+        Blunt: 8
   - type: Tool
     qualities:
       - Prying
@@ -201,6 +208,10 @@
       - DroneUsable
   - type: StaticPrice
     price: 60
+  - type: MeleeWeapon
+    damage:
+      types:
+        Shock: 2
 
 - type: entity
   name: power drill
@@ -221,6 +232,7 @@
     qualities:
       - Screwing
     speed: 1.5
+    useSound: /Audio/Items/drill_use.ogg
   - type: MultipleTool
     statusShowBehavior: true
     entries:
@@ -295,9 +307,21 @@
     state: icon
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 0.8
+    range: 2.0
     damage:
       types:
-        Blunt: 10
+        Blunt: 5
+    bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
+  - type: Wieldable
+  - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+  - type: MeleeStaminaCost
+    swing: 10
+    wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
   - type: Item
     sprite: Objects/Tools/shovel.rsi
 
@@ -315,10 +339,17 @@
     size: 20
   - type: TilePrying
   - type: SignalLinker
+    requiredQuality: Pulsing
+  - type: UserInterface
+    interfaces:
+      - key: enum.SignalLinkerUiKey.Key
+        type: SignalPortSelectorBoundUserInterface
   - type: Tool
     qualities:
       - Screwing
     speed: 1.2 # Kept for future adjustments. Currently 1.2x for balance
+    useSound: /Audio/Items/drill_use.ogg
+  - type: LatticeCutting
   - type: MultipleTool
     statusShowBehavior: true
     entries:

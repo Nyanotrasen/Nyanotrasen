@@ -2,14 +2,19 @@ using Content.Server.Power.Components;
 using Content.Server.Electrocution;
 using Content.Server.Beam;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Construction;
+using Content.Server.Coordinates.Helpers;
+using Content.Server.Ghost;
+using Content.Server.Revenant.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.MobState.Components;
+using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
-
+using Robust.Shared.Physics.Components;
 namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerReactiveSystem : EntitySystem
@@ -21,13 +26,17 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly BeamSystem _beam = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
+        [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
+        [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
+        [Dependency] private readonly GhostSystem _ghostSystem = default!;
+        [Dependency] private readonly RevenantSystem _revenantSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
         public float BeamCooldown = 3;
         public GlimmerTier LastGlimmerTier = GlimmerTier.Minimal;
+        public bool GhostsVisible = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -40,6 +49,7 @@ namespace Content.Server.Psionics.Glimmer
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GetVerbsEvent<AlternativeVerb>>(AddShockVerb);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, DestructionEventArgs>(OnDestroyed);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
         }
 
         /// <summary>
@@ -121,6 +131,9 @@ namespace Content.Server.Psionics.Glimmer
 
             if (args.CurrentTier >= GlimmerTier.Dangerous)
             {
+                if (!Transform(uid).Anchored)
+                    AnchorOrExplode(uid);
+
                 receiver.PowerDisabled = false;
                 receiver.NeedsPower = false;
             } else
@@ -176,17 +189,27 @@ namespace Content.Server.Psionics.Glimmer
             if (tier < GlimmerTier.High)
                 return;
 
-            var totalIntensity = _sharedGlimmerSystem.Glimmer;
+            var totalIntensity = (float) (_sharedGlimmerSystem.Glimmer * 2);
             var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
             var maxIntensity = 20;
 
-            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.05f, 0.15f);
+            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.1f, 0.15f);
             _sharedGlimmerSystem.Glimmer -= (int) removed;
-            BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 100);
+            BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 50);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }
 
-        private void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
+        private void OnUnanchorAttempt(EntityUid uid, SharedGlimmerReactiveComponent component, UnanchorAttemptEvent args)
+        {
+            if (_sharedGlimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            {
+                _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
+                _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                args.Cancel();
+            }
+        }
+
+        public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
             foreach (var target in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
@@ -246,6 +269,20 @@ namespace Content.Server.Psionics.Glimmer
             BeamCooldown += 3f;
         }
 
+        private void AnchorOrExplode(EntityUid uid)
+        {
+            if (!TryComp<PhysicsComponent>(uid, out var physics))
+                return;
+
+            if (!_anchorableSystem.TileFree(Transform(uid).Coordinates, physics))
+            {
+                _destructibleSystem.DestroyEntity(uid);
+                return;
+            }
+            Transform(uid).Coordinates.SnapToGrid();
+            Transform(uid).Anchored = true;
+        }
+
         private void Reset(RoundRestartCleanupEvent args)
         {
             Accumulator = 0;
@@ -267,6 +304,7 @@ namespace Content.Server.Psionics.Glimmer
             if (Accumulator > UpdateFrequency)
             {
                 var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+
                 var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
                     var glimmerTierDelta = (int) currentGlimmerTier - (int) LastGlimmerTier;
@@ -282,10 +320,18 @@ namespace Content.Server.Psionics.Glimmer
                 }
                 if (currentGlimmerTier == GlimmerTier.Critical)
                 {
+                    _ghostSystem.MakeVisible(true);
+                    _revenantSystem.MakeVisible(true);
+                    GhostsVisible = true;
                     foreach (var reactive in reactives)
                     {
-                        BeamRandomNearProber(reactive.Owner, 1, 6);
+                        BeamRandomNearProber(reactive.Owner, 1, 12);
                     }
+                } else if (GhostsVisible == true)
+                {
+                    _ghostSystem.MakeVisible(false);
+                    _revenantSystem.MakeVisible(false);
+                    GhostsVisible = false;
                 }
                 Accumulator = 0;
             }

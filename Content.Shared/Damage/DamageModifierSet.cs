@@ -20,5 +20,11 @@ namespace Content.Shared.Damage
 
         [DataField("flatReductions", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, DamageTypePrototype>))]
         public Dictionary<string, float> FlatReduction = new();
+
+        /// <summary>
+        /// If, after all reductions, we are below this value, then instead deal 0 damage.
+        /// </summary>
+        [DataField("minimumDamageToDamage")]
+        public float MinimumDamageToDamage = 0f;
     }
 }

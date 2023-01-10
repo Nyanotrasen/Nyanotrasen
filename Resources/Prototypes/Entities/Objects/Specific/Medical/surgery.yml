@@ -54,6 +54,8 @@
   parent: BaseToolSurgery
   description: A surgical tool used to make incisions into flesh.
   components:
+  - type: Sharp
+    butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Utensil
     types:
       - Knife
@@ -64,12 +66,17 @@
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
   - type: ItemCooldown
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.25
+    range: 1.3
     damage:
       types:
-        Slash: 8
+        Slash: 7.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 6.0
 
 - type: entity
   name: shiv
@@ -81,6 +88,16 @@
     state: shiv
   - type: Item
     heldPrefix: shiv
+  - type: MeleeWeapon
+    attackRate: 2
+    range: 1.25
+    damage:
+      types:
+        Slash: 2.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 2.0
 
 - type: entity
   name: advanced scalpel
@@ -92,6 +109,14 @@
     state: advanced
   - type: Item
     heldPrefix: advanced
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 9.0
 
 - type: entity
   name: laser scalpel
@@ -103,6 +128,15 @@
     state: laser
   - type: Item
     heldPrefix: laser
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 4
+        Heat: 5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 5.0
 
 # Scissors
 
@@ -158,6 +192,19 @@
     qualities:
       - Sawing
     speed: 1.0
+  - type: MeleeWeapon
+    attackRate: 0.75
+    range: 1.35
+    damage:
+      types:
+        Blunt: 2.5
+        Slash: 6.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 3.0
+  - type: MeleeStaminaCost
+    swing: 10
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -171,15 +218,26 @@
   - type: Item
     heldPrefix: improv
   - type: MeleeWeapon
+    attackRate: 0.85
     damage:
-      groups:
-        Brute: 10
+      types:
+        Blunt: 3
+        Slash: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: StaminaDamageOnHit
+    damage: 15
   - type: Tool
     qualities:
       - Sawing
     speed: 0.5
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 23.0
+    bleedingIncrease:
+      types:
+        Slash: 5.0
 
 - type: entity
   name: circular saw
@@ -192,11 +250,23 @@
   - type: Item
     heldPrefix: electric
   - type: MeleeWeapon
+    attackRate: 1.15
+    bluntStaminaDamageFactor: 3.0
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 3.5
+        Slash: 4.5
+        Piercing: 2
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 19.0
+  - type: MeleeStaminaCost
+    swing: 15
+  - type: StaminaDamageOnHit
+    damage: 2.5
   - type: Tool
     qualities:
       - Sawing
@@ -213,12 +283,23 @@
   - type: Item
     heldPrefix: advanced
   - type: MeleeWeapon
-    attackRate: 1.5
+    attackRate: 1.25
+    bluntStaminaDamageFactor: 5.0
     damage:
-      groups:
-        Brute: 10
+      types:
+        Blunt: 3.5
+        Slash: 6.5
+        Piercing: 2
     soundHit:
       path: /Audio/Items/drill_hit.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 18.0
+  - type: StaminaDamageOnHit
+    damage: 2.5
+  - type: MeleeStaminaCost
+    swing: 15
   - type: Tool
     qualities:
       - Sawing

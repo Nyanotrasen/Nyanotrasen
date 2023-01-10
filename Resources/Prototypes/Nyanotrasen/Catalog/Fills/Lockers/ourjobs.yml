@@ -6,26 +6,19 @@
   components:
   - type: StorageFill
     contents:
-      - id: ResearchComputerCircuitboard
-      - id: ProtolatheMachineCircuitboard
-      - id: CircuitImprinterMachineCircuitboard
-      - id: ClothingHeadsetMedicalScience
+      - id: ClothingHeadsetAltMystagogue
       - id: ClothingOuterHardsuitRd
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch
+      - id: HandTeleporter
       - id: RubberStampRd
-      - id: Telebaton
-      - id: SheetPlasteel1
-        amount: 5
-      - id: MaterialBluespace
-        amount: 6
 
 - type: entity
   id: LockerEpistemicsFilled
   suffix: Filled
   parent: LockerScientist
-  name: epistemologist's locker
+  name: acolyte's locker
   components:
   - type: StorageFill
     contents:

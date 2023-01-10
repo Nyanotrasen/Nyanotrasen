@@ -16,7 +16,7 @@ namespace Content.Shared.Roles
         [IdDataFieldAttribute]
         public string ID { get; } = default!;
 
-        [ViewVariables, DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
+        [DataField("playTimeTracker", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
         public string PlayTimeTracker { get; } = string.Empty;
 
         [DataField("supervisors")]
@@ -31,8 +31,20 @@ namespace Content.Shared.Roles
         [ViewVariables(VVAccess.ReadOnly)]
         public string LocalizedName => Loc.GetString(Name);
 
+        /// <summary>
+        ///     The name of this job as displayed to players.
+        /// </summary>
+        [DataField("description")]
+        public string? Description { get; }
+
+        [ViewVariables(VVAccess.ReadOnly)]
+        public string? LocalizedDescription => Description is null ? null : Loc.GetString(Description);
+
         [DataField("requirements")]
         public HashSet<JobRequirement>? Requirements;
+
+        [DataField("whitelistRequired")]
+        public bool WhitelistRequired = false;
 
         [DataField("joinNotifyCrew")]
         public bool JoinNotifyCrew { get; } = false;
@@ -45,6 +57,12 @@ namespace Content.Shared.Roles
 
         [DataField("canBeAntag")]
         public bool CanBeAntag { get; } = true;
+
+        /// <summary>
+        /// For e.g. prisoners, they'll never use their latejoin spawner.
+        /// </summary>
+        [DataField("alwaysUseSpawner")]
+        public bool AlwaysUseSpawner { get; } = false;
 
         /// <summary>
         ///     Whether this job is a head.

@@ -110,7 +110,7 @@
   name: "Medium / Ruined Emergency Shuttle"
   mapPath: /Maps/Salvage/medium-ruined-emergency-shuttle.yml
   bounds: "-8.5,-8.5,8.5,8.5"
-  
+
 - type: salvageMap
   id: mediumPetHospital
   name: "Medium / Pet and Bear Hospital"
@@ -126,20 +126,45 @@
 # """Large""" maps
 
 - type: salvageMap
-  id: StationStation
-  name: "StationStation"
-  mapPath: /Maps/Salvage/stationstation.yml
-  bounds: "-17,-15,35,29"
-
-- type: salvageMap
   id: AsteroidBase
   name: "Asteroid Base"
   mapPath: /Maps/Salvage/asteroid-base.yml
   bounds: "-12,-13,15,11"
 
-- type: salvageMap
-  id: RuinCargoBase
-  name: "Ruined Cargo Storage"
-  mapPath: /Maps/Salvage/ruin-cargo-salvage.yml
-  bounds: "-15,-13,22,14"
+# Put nyano ones below here
+# The above will all be deprecated
 
+# Small
+
+
+# Medium
+- type: salvageMap
+  id: AnimalFarm
+  name: "Animal Farm"
+  mapPath: /Maps/Salvage/animalfarm.yml
+  bounds: "-2, -6, 14, 10"
+
+- type: salvageMap
+  id: MediumChunk01
+  name: "Medium Station Chunk"
+  mapPath: /Maps/Salvage/medium_chunk01.yml
+  bounds: "-8, -7.5, 7.5, 9"  
+
+- type: salvageMap
+  id: MediumMiningOutpost01
+  name: "Medium Mining Outpost"
+  mapPath: /Maps/Salvage/mining_outpost01.yml
+  bounds: "-7, -7, 8, 8"
+
+# Large
+- type: salvageMap
+  id: ResearchPost
+  name: "Reasearch Post"
+  mapPath: /Maps/Salvage/researchpost.yml
+  bounds: "-26, -18, 27, 27"
+
+- type: salvageMap
+  id: LargeEngineerChunk
+  name: "Engineer Outpost Chunk"
+  mapPath: /Maps/Salvage/large-engineer-chunk.yml
+  bounds: "-12,-11,13,7"

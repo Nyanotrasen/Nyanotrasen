@@ -3,8 +3,7 @@
   mapName: 'Pebble Station'
   mapPath: /Maps/pebble.yml
   minPlayers: 0
-  maxPlayers: 30
-  votable: true
+  maxPlayers: 25
   stations:
     PebbleStation:
       mapNameTemplate: '{0} Pebble Station {1}'

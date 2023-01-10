@@ -1,6 +1,7 @@
 - type: job
   id: Warden
   name: job-name-warden
+  description: job-description-warden
   playTimeTracker: JobWarden
   requirements:
     - !type:DepartmentTimeRequirement
@@ -10,6 +11,7 @@
   icon: "Warden"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  whitelistRequired: true
   access:
   - Security
   - Armory

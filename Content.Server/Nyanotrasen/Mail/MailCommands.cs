@@ -105,7 +105,7 @@ public sealed class MailToCommand : IConsoleCommand
         mailComponent.IsFragile = isFragile;
         mailComponent.IsPriority = isPriority;
 
-        _mailSystem.SetupMail(mailUid, teleporterComponent, recipient.Value.Name, recipient.Value.Job, recipient.Value.AccessTags);
+        _mailSystem.SetupMail(mailUid, teleporterComponent, recipient.Value);
 
         var teleporterQueue = _containerSystem.EnsureContainer<Container>(teleporterComponent.Owner, "queued");
         teleporterQueue.Insert(mailUid);

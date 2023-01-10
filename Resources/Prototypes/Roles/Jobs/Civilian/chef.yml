@@ -1,6 +1,7 @@
 - type: job
   id: Chef
   name: job-name-chef
+  description: job-description-chef
   playTimeTracker: JobChef
   startingGear: ChefGear
   icon: "Chef"
@@ -11,6 +12,11 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: ProfessionalChef
 
 - type: startingGear
   id: ChefGear

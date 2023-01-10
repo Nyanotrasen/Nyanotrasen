@@ -1,10 +1,9 @@
 - type: entity
   save: false
-  name: Uwist McHands
+  name: Base felinid
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true
-  description: A miserable pile of nyas.
   components:
   - type: Sprite
     netsync: false
@@ -130,7 +129,7 @@
     - OwOnavirus
   - type: Thieving
     stealthy: true
-    stealTime: 1.5
+    stripTimeReduction: 1
   - type: Speech
     speechSounds: Alto
   - type: DamageOnHighSpeedImpact

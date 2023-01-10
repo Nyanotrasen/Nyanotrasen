@@ -1,6 +1,7 @@
 - type: job
   id: Lawyer
   name: job-name-lawyer
+  description: job-description-lawyer
   playTimeTracker: JobLawyer
   startingGear: LawyerGear
   icon: "Lawyer"
@@ -9,6 +10,8 @@
   access:
   - Service
   - Brig
+  extendedAccess:
+  - Maintenance
 
 - type: startingGear
   id: LawyerGear
@@ -22,3 +25,5 @@
   inhand:
     right hand: BriefcaseBrownFilled
   innerclothingskirt: ClothingUniformJumpskirtLawyerBlack
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

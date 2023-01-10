@@ -1,9 +1,8 @@
 using System.Linq;
-using Content.Client.Actions.UI;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Examine;
+using Content.Client.PDA;
 using Content.Client.Resources;
-using Content.Client.Targeting;
 using Content.Client.Targeting.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Verbs.UI;
@@ -13,7 +12,6 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
-using Robust.Shared.Maths;
 using static Robust.Client.UserInterface.StylesheetHelpers;
 
 namespace Content.Client.Stylesheets
@@ -88,12 +86,12 @@ namespace Content.Client.Stylesheets
         public static readonly Color DangerousRedFore = Color.FromHex("#BB3232");
         public static readonly Color DisabledFore = Color.FromHex("#5A5A5A");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#464950");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#575b61");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#30313c");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#303133");
 
         public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
         public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
@@ -105,15 +103,18 @@ namespace Content.Client.Stylesheets
 
         // Context menu button colors
         public static readonly Color ButtonColorContext = Color.FromHex("#1119");
-        public static readonly Color ButtonColorContextHover = Color.DarkSlateGray;
-        public static readonly Color ButtonColorContextPressed = Color.LightSlateGray;
+        public static readonly Color ButtonColorContextHover = Color.FromHex("#575b61");
+        public static readonly Color ButtonColorContextPressed = Color.FromHex("#3e6c45");
         public static readonly Color ButtonColorContextDisabled = Color.Black;
 
         // Examine button colors
         public static readonly Color ExamineButtonColorContext = Color.Transparent;
-        public static readonly Color ExamineButtonColorContextHover = Color.DarkSlateGray;
-        public static readonly Color ExamineButtonColorContextPressed = Color.LightSlateGray;
+        public static readonly Color ExamineButtonColorContextHover = Color.FromHex("#575b61");
+        public static readonly Color ExamineButtonColorContextPressed = Color.FromHex("#3e6c45");
         public static readonly Color ExamineButtonColorContextDisabled = Color.FromHex("#5A5A5A");
+
+        // UI Panel colors
+        public static readonly Color PanelColorDark = Color.FromHex("#1F1F1F");
 
         //Used by the APC and SMES menus
         public const string StyleClassPowerStateNone = "PowerStateNone";
@@ -392,13 +393,13 @@ namespace Content.Client.Stylesheets
             placeholder.SetExpandMargin(StyleBox.Margin.All, -5);
             placeholder.Mode = StyleBoxTexture.StretchMode.Tile;
 
-            var itemListBackgroundSelected = new StyleBoxFlat {BackgroundColor = new Color(75, 75, 86)};
+            var itemListBackgroundSelected = new StyleBoxFlat {BackgroundColor = new Color(75, 75, 75)};
             itemListBackgroundSelected.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
             itemListBackgroundSelected.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
-            var itemListItemBackgroundDisabled = new StyleBoxFlat {BackgroundColor = new Color(10, 10, 12)};
+            var itemListItemBackgroundDisabled = new StyleBoxFlat {BackgroundColor = new Color(10, 10, 10)};
             itemListItemBackgroundDisabled.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
             itemListItemBackgroundDisabled.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
-            var itemListItemBackground = new StyleBoxFlat {BackgroundColor = new Color(55, 55, 68)};
+            var itemListItemBackground = new StyleBoxFlat {BackgroundColor = new Color(55, 55, 55)};
             itemListItemBackground.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
             itemListItemBackground.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
             var itemListItemBackgroundTransparent = new StyleBoxFlat {BackgroundColor = Color.Transparent};
@@ -797,6 +798,10 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty("font-color", Color.Gray),
                     }),
+
+                Element<TextEdit>().Pseudo(TextEdit.StylePseudoClassPlaceholder)
+                    .Prop("font-color", Color.Gray),
+
                 // Chat lineedit - we don't actually draw a stylebox around the lineedit itself, we put it around the
                 // input + other buttons, so we must clear the default stylebox
                 new StyleRule(new SelectorElement(typeof(LineEdit), new[] {StyleClassChatLineEdit}, null, null),
@@ -938,7 +943,7 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(ItemList), null, null, null), new[]
                 {
                     new StyleProperty(ItemList.StylePropertyBackground,
-                        new StyleBoxFlat {BackgroundColor = new Color(32, 32, 40)}),
+                        new StyleBoxFlat {BackgroundColor = new Color(32, 32, 32)}),
                     new StyleProperty(ItemList.StylePropertyItemBackground,
                         itemListItemBackground),
                     new StyleProperty(ItemList.StylePropertyDisabledItemBackground,
@@ -963,7 +968,7 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(Tree), null, null, null), new[]
                 {
                     new StyleProperty(Tree.StylePropertyBackground,
-                        new StyleBoxFlat {BackgroundColor = new Color(32, 32, 40)}),
+                        new StyleBoxFlat {BackgroundColor = new Color(32, 32, 32)}),
                     new StyleProperty(Tree.StylePropertyItemBoxSelected, new StyleBoxFlat
                     {
                         BackgroundColor = new Color(55, 55, 68),
@@ -1027,49 +1032,6 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty("font", notoSans16)
-                    }),
-
-                // Popup messages
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageSmall}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansItalic10),
-                        new StyleProperty("font-color", Color.White),
-                    }),
-
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageSmallCaution}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansItalic10),
-                        new StyleProperty("font-color", Color.Red),
-                    }),
-
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageMedium}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansItalic12),
-                        new StyleProperty("font-color", Color.LightGray),
-                    }),
-
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageMediumCaution}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansItalic12),
-                        new StyleProperty("font-color", Color.Red),
-                    }),
-
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageLarge}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansBoldItalic14),
-                        new StyleProperty("font-color", Color.LightGray),
-                    }),
-
-                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassPopupMessageLargeCaution}, null, null),
-                    new[]
-                    {
-                        new StyleProperty("font", notoSansBoldItalic14),
-                        new StyleProperty("font-color", Color.Red),
                     }),
 
                 //APC and SMES power state label colors
@@ -1320,7 +1282,7 @@ namespace Content.Client.Stylesheets
 
                 Element<PanelContainer>().Class(ClassAngleRect)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252A")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#252525")),
 
                 Element<PanelContainer>().Class(ClassLowDivider)
                     .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat
@@ -1336,7 +1298,7 @@ namespace Content.Client.Stylesheets
 
                 Element<PanelContainer>().Class("WindowHeadingBackground")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenLeft) { Padding = default })
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F23")),
+                    .Prop(Control.StylePropertyModulateSelf, PanelColorDark),
 
                 Element<PanelContainer>().Class("WindowHeadingBackgroundLight")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenLeft) { Padding = default }),
@@ -1344,7 +1306,12 @@ namespace Content.Client.Stylesheets
                 //The lengths you have to go through to change a background color smh
                 Element<PanelContainer>().Class("PanelBackgroundBaseDark")
                     .Prop("panel", new StyleBoxTexture(BaseButtonOpenBoth) { Padding = default })
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#1F1F23")),
+                    .Prop(Control.StylePropertyModulateSelf, PanelColorDark),
+
+                Element<PanelContainer>().Class("PanelBackgroundAngledDark")
+                    .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
+                    .Prop(Control.StylePropertyModulateSelf, PanelColorDark),
+
 
                 // X Texture button ---
                 Element<TextureButton>().Class("CrossButtonRed")
@@ -1394,6 +1361,60 @@ namespace Content.Client.Stylesheets
 
                 Element<Label>().Class("Disabled")
                     .Prop("font-color", DisabledFore),
+
+                //PDA - Backgrounds
+                Element<PanelContainer>().Class("PDAContentBackground")
+                    .Prop(PanelContainer.StylePropertyPanel, BaseButtonOpenBoth)
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#25252a")),
+
+                Element<PanelContainer>().Class("PDABackground")
+                    .Prop(PanelContainer.StylePropertyPanel, BaseButtonOpenBoth)
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#000000")),
+
+                Element<PanelContainer>().Class("PDABackgroundRect")
+                    .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#717059")),
+
+                Element<PanelContainer>().Class("PDABorderRect")
+                    .Prop(PanelContainer.StylePropertyPanel, AngleBorderRect),
+
+                Element<PanelContainer>().Class("BackgroundDark")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat(Color.FromHex("#252525"))),
+
+                //PDA - Buttons
+                Element<PDASettingsButton>().Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(PDASettingsButton.StylePropertyBgColor, Color.FromHex(PDASettingsButton.NormalBgColor))
+                    .Prop(PDASettingsButton.StylePropertyFgColor, Color.FromHex(PDASettingsButton.EnabledFgColor)),
+
+                Element<PDASettingsButton>().Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(PDASettingsButton.StylePropertyBgColor, Color.FromHex(PDASettingsButton.HoverColor))
+                    .Prop(PDASettingsButton.StylePropertyFgColor, Color.FromHex(PDASettingsButton.EnabledFgColor)),
+
+                Element<PDASettingsButton>().Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(PDASettingsButton.StylePropertyBgColor, Color.FromHex(PDASettingsButton.PressedColor))
+                    .Prop(PDASettingsButton.StylePropertyFgColor, Color.FromHex(PDASettingsButton.EnabledFgColor)),
+
+                Element<PDASettingsButton>().Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(PDASettingsButton.StylePropertyBgColor, Color.FromHex(PDASettingsButton.NormalBgColor))
+                    .Prop(PDASettingsButton.StylePropertyFgColor, Color.FromHex(PDASettingsButton.DisabledFgColor)),
+
+                Element<PDAProgramItem>().Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(PDAProgramItem.StylePropertyBgColor, Color.FromHex(PDAProgramItem.NormalBgColor)),
+
+                Element<PDAProgramItem>().Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(PDAProgramItem.StylePropertyBgColor, Color.FromHex(PDAProgramItem.HoverColor)),
+
+                Element<PDAProgramItem>().Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(PDAProgramItem.StylePropertyBgColor, Color.FromHex(PDAProgramItem.HoverColor)),
+
+                //PDA - Text
+                Element<Label>().Class("PDAContentFooterText")
+                    .Prop(Label.StylePropertyFont, notoSans10)
+                    .Prop(Label.StylePropertyFontColor, Color.FromHex("#757575")),
+
+                Element<Label>().Class("PDAWindowFooterText")
+                    .Prop(Label.StylePropertyFont, notoSans10)
+                    .Prop(Label.StylePropertyFontColor, Color.FromHex("#333d3b")),
 
             }).ToList());
         }

@@ -19,18 +19,20 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - CigPack
+        - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
         - RCD
         - RCDAmmo
         - Welder
-        - Radio
         - PowerCell
+        - Geiger
   - type: ItemMapper
     mapLayers:
       cutters_red:
@@ -59,6 +61,13 @@
           - SignalLinker
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: StaminaDamageOnHit
+    damage: 9
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -80,12 +89,14 @@
         - Screwdriver
         - Flashlight
         - Wrench
-#        - GeigerCounter
+        - GeigerCounter
         - Flare
         - CableCoil
         - Powerdrill
         - JawsOfLife
         - CigPack
+        - Radio
+        - HolofanProjector
       components:
         - AirlockPainter
         - SignalLinker
@@ -93,9 +104,9 @@
         - RCDAmmo
         - Welder
         - Flash
-        - Radio
         - Handcuff
         - PowerCell
+        - Geiger
   - type: ItemMapper
     mapLayers:
       drill:
@@ -188,6 +199,8 @@
         - Flashlight
         - CigPack
         - TrashBag
+        - WetFloorSign
+        - HolosignProjector
       components:
         - LightReplacer
   - type: ItemMapper
@@ -229,9 +242,9 @@
         - CigPack
         - Pill
         - PillCanister
+        - Radio
       components:
         - Hypospray
-        - Radio
         - Injector
   - type: ItemMapper
     mapLayers:
@@ -280,7 +293,6 @@
   - type: Storage
     whitelist:
       tags:
-        - BotanyHoe
         # - PlantAnalyzer
         - PlantSampleTaker
         - BotanyShovel
@@ -338,6 +350,7 @@
         - CigPack
         - Taser
         - SecBeltEquip
+        - Radio
       components:
         - Stunbaton
         - FlashOnTrigger

@@ -2,11 +2,12 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
 using Content.Shared.MobState;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Damage.Events;
+using Content.Shared.IdentityManagement;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Weapons.Melee.Events;
-using Content.Server.Damage.Events;
-using Content.Server.GameTicking;
 using Content.Server.Electrocution;
+using Content.Server.Chat.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -21,6 +22,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly ChatSystem _chat = default!;
 
         /// <summary>
         /// Unfortunately, since spawning as a normal role and anything else is so different,
@@ -43,6 +45,7 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<AntiPsionicWeaponComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
+            SubscribeLocalEvent<PotentialPsionicComponent, MobStateChangedEvent>(OnDeathGasp);
             SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
@@ -72,9 +75,32 @@ namespace Content.Server.Psionics
                     return;
                 }
 
-                if (HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
+                if (component.Punish && HasComp<PotentialPsionicComponent>(entity) && !HasComp<PsionicComponent>(entity) && _random.Prob(0.5f))
                     _electrocutionSystem.TryDoElectrocution(args.User, null, 20, TimeSpan.FromSeconds(5), false);
             }
+        }
+
+        private void OnDeathGasp(EntityUid uid, PotentialPsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.CurrentMobState != DamageState.Dead)
+                return;
+
+            string message;
+
+            switch (_glimmerSystem.GetGlimmerTier())
+            {
+                case GlimmerTier.Critical:
+                    message = Loc.GetString("death-gasp-high", ("ent", Identity.Entity(uid, EntityManager)));
+                    break;
+                case GlimmerTier.Dangerous:
+                    message = Loc.GetString("death-gasp-medium", ("ent",Identity.Entity(uid, EntityManager)));
+                    break;
+                default:
+                    message = Loc.GetString("death-gasp-normal", ("ent", Identity.Entity(uid, EntityManager)));
+                    break;
+            }
+
+            _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
         }
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
@@ -85,10 +111,21 @@ namespace Content.Server.Psionics
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
         {
+            var bonus = false;
+            foreach (var stam in args.HitList)
+            {
+                if (HasComp<PsionicComponent>(stam.Owner))
+                    bonus = true;
+            }
+
+            if (!bonus)
+                return;
+
+
             args.FlatModifier += component.PsychicStaminaDamage;
         }
 
-        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true)
+        public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
         {
             if (HasComp<PsionicComponent>(uid))
                 return;
@@ -105,12 +142,15 @@ namespace Content.Server.Psionics
             if (applyGlimmer)
                 chance += ((float) _glimmerSystem.Glimmer / 1000);
 
+            chance *= multiplier;
+
             chance = Math.Clamp(chance, 0, 1);
+
             if (_random.Prob(chance))
                 _psionicAbilitiesSystem.AddPsionics(uid, warn);
         }
 
-        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null)
+        public void RerollPsionics(EntityUid uid, PotentialPsionicComponent? psionic = null, float bonusMuliplier = 1f)
         {
             if (!Resolve(uid, ref psionic, false))
                 return;
@@ -118,7 +158,7 @@ namespace Content.Server.Psionics
             if (psionic.Rerolled)
                 return;
 
-            RollPsionics(uid, psionic);
+            RollPsionics(uid, psionic, multiplier: bonusMuliplier);
             psionic.Rerolled = true;
         }
     }

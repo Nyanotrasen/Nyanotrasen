@@ -1,0 +1,56 @@
+- type: entity
+  name: Carp Spawner
+  id: CarpSpawnerMundane
+  parent: MarkerBase
+  suffix: 100
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/Carps/space.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+        - MobCarp
+        - MobCarpMagic
+        - MobCarpHolo
+        - MobCarpMagic
+        - MobPurpleSnake
+        - MobSmallPurpleSnake
+
+- type: entity
+  name: NPC Space Tick Spawner
+  id: SpaceTickSpawnerNPC
+  parent: MarkerBase
+  suffix: 100
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/Xenos/spacetick.rsi
+          state: icon
+    - type: ConditionalSpawner
+      prototypes:
+        - MobTick
+
+- type: entity
+  name: NPC Xeno Spawner
+  id: XenoAISpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/Xenos/burrower.rsi
+          state: crit
+        - state: ai
+    - type: RandomSpawner
+      prototypes:
+        - MobXeno
+        - MobXenoPraetorianNPC
+        - MobXenoDroneNPC
+        - MobXenoQueenNPC
+        - MobXenoRavagerNPC
+        - MobXenoRunnerNPC
+        - MobXenoRounyNPC
+        - MobXenoSpitterNPC

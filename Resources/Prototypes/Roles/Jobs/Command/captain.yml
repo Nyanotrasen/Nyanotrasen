@@ -1,6 +1,7 @@
 - type: job
   id: Captain
   name: job-name-captain
+  description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
     - !type:DepartmentTimeRequirement
@@ -19,6 +20,7 @@
   icon: "Captain"
   requireAdminNotify: true
   joinNotifyCrew: true
+  whitelistRequired: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:

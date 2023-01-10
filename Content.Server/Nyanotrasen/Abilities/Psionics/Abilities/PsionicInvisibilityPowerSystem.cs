@@ -10,6 +10,7 @@ using Content.Server.Psionics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -20,6 +21,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         public override void Initialize()
         {
@@ -39,6 +41,8 @@ namespace Content.Server.Abilities.Psionics
                 return;
 
             component.PsionicInvisibilityPowerAction = new InstantAction(invis);
+            if (invis.UseDelay != null)
+                component.PsionicInvisibilityPowerAction.Cooldown = (_gameTiming.CurTime, _gameTiming.CurTime + (TimeSpan) invis.UseDelay);
             _actions.AddAction(uid, component.PsionicInvisibilityPowerAction, null);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)

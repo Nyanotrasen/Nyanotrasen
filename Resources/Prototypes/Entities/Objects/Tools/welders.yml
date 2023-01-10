@@ -20,12 +20,21 @@
   - type: Item
     size: 10
     sprite: Objects/Tools/welder.rsi
-    heldPrefix: off
+  - type: ToggleableLightVisuals
+    spriteLayer: flame
+    inhandVisuals:
+      left:
+      - state: inhand-left-flame
+        shader: unshaded
+      right:
+      - state: inhand-right-flame
+        shader: unshaded
   - type: ItemCooldown
   - type: MeleeWeapon
+    attackRate: 1.1
     damage:
       types:
-        Blunt: 10
+        Blunt: 5.5
   - type: ItemStatus
   - type: RefillableSolution
     solution: Welder
@@ -43,9 +52,10 @@
   - type: Welder
     litMeleeDamageBonus:
       types: # When lit, negate standard melee damage and replace with heat
-        Heat: 10
-        Blunt: -10
+        Heat: 7
+        Blunt: -5.5
   - type: PointLight
+    netsync: false
     enabled: false
     radius: 1.5
     color: orange

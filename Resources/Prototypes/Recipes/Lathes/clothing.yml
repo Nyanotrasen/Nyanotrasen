@@ -155,26 +155,6 @@
     Cloth: 300
 
 - type: latheRecipe
-  id: ClothingUniformJumpsuitChemistry
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/chemistry.rsi
-    state: icon
-  result: ClothingUniformJumpsuitChemistry
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtChemistry
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
-    state: icon
-  result: ClothingUniformJumpskirtChemistry
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
   id: ClothingUniformJumpsuitClown
   icon:
     sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
@@ -205,26 +185,6 @@
   materials:
     Cloth: 300
     Durathread: 100
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitDetective
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/detective.rsi
-    state: icon
-  result: ClothingUniformJumpsuitDetective
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtDetective
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/detective.rsi
-    state: icon
-  result: ClothingUniformJumpskirtDetective
-  completetime: 4
-  materials:
-    Cloth: 300
 
 - type: latheRecipe
   id: ClothingUniformJumpsuitEngineering
@@ -341,26 +301,6 @@
     Cloth: 300
 
 - type: latheRecipe
-  id: ClothingUniformJumpsuitLibrarian
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/librarian.rsi
-    state: icon
-  result: ClothingUniformJumpsuitLibrarian
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtColorLightBrown #Librarian
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/Color/lightbrown.rsi
-    state: icon
-  result: ClothingUniformJumpskirtColorLightBrown
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
   id: ClothingUniformJumpsuitMedicalDoctor
   icon:
     sprite: Clothing/Uniforms/Jumpsuit/medical.rsi
@@ -466,48 +406,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
     state: icon
   result: ClothingUniformJumpskirtQM
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitResearchDirector
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
-    state: icon
-  result: ClothingUniformJumpsuitResearchDirector
-  completetime: 4
-  materials:
-    Cloth: 300
-    Durathread: 100
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtResearchDirector
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/rnd.rsi
-    state: icon
-  result: ClothingUniformJumpskirtResearchDirector
-  completetime: 4
-  materials:
-    Cloth: 300
-    Durathread: 100
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitScientist
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
-    state: icon
-  result: ClothingUniformJumpsuitScientist
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtScientist
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
-    state: icon
-  result: ClothingUniformJumpskirtScientist
   completetime: 4
   materials:
     Cloth: 300
@@ -619,17 +517,6 @@
     Durathread: 300
 
 - type: latheRecipe
-  id: ClothingOuterWinterRD
-  icon:
-    sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
-    state: icon
-  result: ClothingOuterWinterRD
-  completetime: 3.2
-  materials:
-    Cloth: 300
-    Durathread: 300
-
-- type: latheRecipe
   id: ClothingNeckMantleCap
   icon:
     sprite: Clothing/Neck/mantles/capmantle.rsi
@@ -684,16 +571,6 @@
     Cloth: 150
     Durathread: 150
 
-- type: latheRecipe
-  id: ClothingNeckMantleRD
-  icon:
-    sprite: Clothing/Neck/mantles/rdmantle.rsi
-    state: icon
-  result: ClothingNeckMantleRD
-  completetime: 2.8
-  materials:
-    Cloth: 150
-    Durathread: 150
 
 - type: latheRecipe
   id: ClothingOuterWinterMusician

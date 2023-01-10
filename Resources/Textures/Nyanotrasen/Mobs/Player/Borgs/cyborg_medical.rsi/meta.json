@@ -1,37 +1,41 @@
 {
-    "version": 1,
-    "size": {
-      "x": 32,
-      "y": 32
-    },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a",
-    "states": [
-      {
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b",
+  "states": [
+    {
         "name": "robot",
         "directions": 4,
         "delays": [
-          [
+        [
             0.1,
             0.1,
             0.1
-          ],
-          [
-            0.1,
-            0.1,
-            0.1
-          ],
-          [
-            0.1,
-            0.1,
-            0.1
-          ],
-          [
-            0.1,
-            0.1,
-            0.1
-          ]
+        ],
+        [
+        0.1,
+        0.1,
+        0.1
+        ],
+        [
+        0.1,
+        0.1,
+        0.1
+        ],
+        [
+        0.1,
+        0.1,
+        0.1
         ]
-      }
     ]
-  }
+    },
+    {
+      "name": "robot-flashlight",
+      "directions": 4
+    }
+  ]
+}

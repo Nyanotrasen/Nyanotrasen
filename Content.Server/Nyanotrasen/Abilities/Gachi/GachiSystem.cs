@@ -1,8 +1,9 @@
+using System.Linq;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory.Events;
 using Content.Server.Abilities.Gachi.Components;
-using Content.Server.Weapons.Melee.Events;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Clothing.Components;
 using Content.Shared.MobState;
 using Robust.Shared.Audio;
@@ -59,6 +60,12 @@ namespace Content.Server.Abilities.Gachi
 
         private void OnMeleeHit(EntityUid uid, GachiComponent component, MeleeHitEvent args)
         {
+            if (!args.IsHit ||
+                !args.HitEntities.Any())
+            {
+                return;
+            }
+
             if (_random.Prob(0.2f * component.Multiplier))
             {
                 FixedPoint2 newMultiplier = component.Multiplier - 0.25;

@@ -28,7 +28,7 @@
     state: full
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: MetallicStructure
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -42,8 +42,6 @@
       - WallLayer
       density: 1000
   - type: Occluder
-    sizeX: 32
-    sizeY: 32
   - type: Airtight
   - type: StaticPrice
     price: 75
@@ -388,17 +386,31 @@
 
 - type: entity
   parent: BaseWall
+  id: WallPlastitaniumIndestructible
+  name: plastitanium wall
+  suffix: indestructible
+  components:
+    - type: Tag
+      tags:
+        - Wall
+    - type: Sprite
+      sprite: Structures/Walls/plastitanium.rsi
+    - type: Icon
+      sprite: Structures/Walls/plastitanium.rsi
+    - type: IconSmooth
+      key: walls
+      base: plastitanium
+
+- type: entity
+  parent: WallPlastitaniumIndestructible
   id: WallPlastitanium
   name: plastitanium wall
+  suffix: ""
   components:
     - type: Tag
       tags:
         - Wall
         - RCDDeconstructWhitelist
-    - type: Sprite
-      sprite: Structures/Walls/plastitanium.rsi
-    - type: Icon
-      sprite: Structures/Walls/plastitanium.rsi
     - type: Destructible
       thresholds:
         - trigger:
@@ -412,9 +424,6 @@
                   max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
-    - type: IconSmooth
-      key: walls
-      base: plastitanium
 
 - type: entity
   parent: BaseWall
@@ -429,17 +438,20 @@
   - type: Construction
     graph: Girder
     node: reinforcedWall
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1200 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 1000 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 500
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
@@ -881,7 +893,7 @@
 
 - type: entity
   id: WallForce
-  name: Force Wall
+  name: force wall
   components:
     - type: TimedDespawn
       lifetime: 20
@@ -907,3 +919,4 @@
       sprite: Structures/Magic/forcewall.rsi
       state: forcewall
     - type: Dispellable
+    - type: Clickable

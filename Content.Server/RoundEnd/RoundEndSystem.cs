@@ -1,6 +1,7 @@
 using System.Threading;
 using Content.Server.Administration.Logs;
 using Content.Server.AlertLevel;
+using Content.Shared.CCVar;
 using Content.Server.Chat;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -10,7 +11,9 @@ using Content.Server.Station.Systems;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Timer = Robust.Shared.Timing.Timer;
@@ -24,8 +27,10 @@ namespace Content.Server.RoundEnd
     public sealed class RoundEndSystem : EntitySystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
@@ -47,10 +52,19 @@ namespace Content.Server.RoundEnd
         public TimeSpan? ExpectedShuttleLength => ExpectedCountdownEnd - LastCountdownStart;
         public TimeSpan? ShuttleTimeLeft => ExpectedCountdownEnd - _gameTiming.CurTime;
 
+        public TimeSpan AutoCallStartTime;
+        private bool AutoCalledBefore = false;
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<RoundRestartCleanupEvent>(_ => Reset());
+            SetAutoCallTime();
+        }
+
+        private void SetAutoCallTime()
+        {
+            AutoCallStartTime = _gameTiming.CurTime;
         }
 
         private void Reset()
@@ -69,6 +83,8 @@ namespace Content.Server.RoundEnd
 
             LastCountdownStart = null;
             ExpectedCountdownEnd = null;
+            SetAutoCallTime();
+            AutoCalledBefore = false;
             RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
         }
 
@@ -77,7 +93,7 @@ namespace Content.Server.RoundEnd
             return _cooldownTokenSource == null;
         }
 
-        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true)
+        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, bool autoCall = false)
         {
             var duration = DefaultCountdownDuration;
 
@@ -92,10 +108,10 @@ namespace Content.Server.RoundEnd
                 }
             }
 
-            RequestRoundEnd(duration, requester, checkCooldown);
+            RequestRoundEnd(duration, requester, checkCooldown, autoCall);
         }
 
-        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true)
+        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, bool autoCall = false)
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound) return;
 
@@ -128,18 +144,43 @@ namespace Content.Server.RoundEnd
                units = "eta-units-minutes";
             }
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-called-announcement",
-                ("time", time),
-                ("units", Loc.GetString(units))),
-                Loc.GetString("Station"),
-                false,
-                null,
-                Color.Gold);
+            if (autoCall)
+            {
+                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-auto-called-announcement",
+                    ("time", time),
+                    ("units", Loc.GetString(units))),
+                    Loc.GetString("Station"),
+                    false,
+                    null,
+                    Color.Gold);
+            }
+            else
+            {
+                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("round-end-system-shuttle-called-announcement",
+                    ("time", time),
+                    ("units", Loc.GetString(units))),
+                    Loc.GetString("Station"),
+                    false,
+                    null,
+                    Color.Gold);
+            }
 
             SoundSystem.Play("/Audio/Announcements/shuttlecalled.ogg", Filter.Broadcast());
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
+
+            // CentComMap needs a few seconds for the power to turn on, so the
+            // emergency shuttle airlocks can have power. Without power, the
+            // docks won't automatically open when the shuttle arrives, leaving
+            // it closed to anyone who doesn't have access.
+            //
+            // We'll spawn a second timer to run shortly before the shuttle
+            // actually arrives, so nobody is the wiser.
+            Timer.Spawn(countdownTime - TimeSpan.FromSeconds(5), () => {
+                if (_shuttle.CentComMap != null && _mapManager.IsMapPaused(_shuttle.CentComMap.Value))
+                    _mapManager.SetMapPaused(_shuttle.CentComMap.Value, false);
+            }, _countdownTokenSource.Token);
             Timer.Spawn(countdownTime, _shuttle.CallEmergencyShuttle, _countdownTokenSource.Token);
 
             ActivateCooldown();
@@ -205,6 +246,24 @@ namespace Content.Server.RoundEnd
                 _cooldownTokenSource = null;
                 RaiseLocalEvent(RoundEndSystemChangedEvent.Default);
             }, _cooldownTokenSource.Token);
+        }
+
+        public override void Update(float frameTime)
+        {
+            // Check if we should auto-call.
+            int mins = AutoCalledBefore ? _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallExtensionTime)
+                                        : _cfg.GetCVar(CCVars.EmergencyShuttleAutoCallTime);
+            if (mins != 0 && _gameTiming.CurTime - AutoCallStartTime > TimeSpan.FromMinutes(mins))
+            {
+                if (!_shuttle.EmergencyShuttleArrived && ExpectedCountdownEnd is null)
+                {
+                    RequestRoundEnd(null, false, true);
+                    AutoCalledBefore = true;
+                }
+
+                // Always reset auto-call in case of a recall.
+                SetAutoCallTime();
+            }
         }
     }
 

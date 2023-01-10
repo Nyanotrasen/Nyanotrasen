@@ -38,6 +38,7 @@ namespace Content.Client.Stylesheets
         protected StyleBoxTexture BaseButtonSquare { get; }
 
         protected StyleBoxTexture BaseAngleRect { get; }
+        protected StyleBoxTexture AngleBorderRect { get; }
 
         protected StyleBase(IResourceCache resCache)
         {
@@ -114,6 +115,12 @@ namespace Content.Client.Stylesheets
             };
             BaseAngleRect.SetPatchMargin(StyleBox.Margin.All, 10);
 
+            AngleBorderRect = new StyleBoxTexture
+            {
+                Texture = resCache.GetTexture("/Textures/Interface/Nano/geometric_panel_border.svg.96dpi.png"),
+            };
+            AngleBorderRect.SetPatchMargin(StyleBox.Margin.All, 10);
+
             var vScrollBarGrabberNormal = new StyleBoxFlat
             {
                 BackgroundColor = Color.Gray.WithAlpha(0.35f), ContentMarginLeftOverride = DefaultGrabberSize,
@@ -169,7 +176,7 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(TextureButton.StylePropertyTexture, textureCloseButton),
-                        new StyleProperty(Control.StylePropertyModulateSelf, Color.FromHex("#4B596A")),
+                        new StyleProperty(Control.StylePropertyModulateSelf, StyleNano.NanoGold),
                     }),
                 // Window close button hover.
                 new StyleRule(

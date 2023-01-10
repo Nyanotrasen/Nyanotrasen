@@ -1,6 +1,7 @@
 - type: job
   id: Reporter
   name: job-name-reporter
+  description: job-description-reporter
   playTimeTracker: JobReporter
   setPreference: false
   startingGear: ReporterGear
@@ -8,6 +9,7 @@
   supervisors: job-supervisors-hop
   access:
   - Service
+  extendedAccess:
   - Maintenance
 
 - type: startingGear

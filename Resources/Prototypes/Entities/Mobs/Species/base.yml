@@ -108,6 +108,8 @@
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       - shader: StencilClear
         sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+        # sprite refactor when
         state: l_leg
       - shader: StencilMask
         map: [ "enum.HumanoidVisualLayers.StencilMask" ]
@@ -177,6 +179,7 @@
     species: Human
   - type: Body
     prototype: Human
+    requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
   - type: RadiationReceiver
@@ -204,8 +207,8 @@
           - !type:GibBehavior { }
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.7
-      80: 0.5
+      60: 0.8
+      80: 0.6
   - type: HeatResistance
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]
@@ -224,10 +227,9 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Appearance
     visuals:
-      - type: RotationVisualizer
-      - type: BuckleVisualizer
       - type: CreamPiedVisualizer
         state: creampie_human
+  - type: RotationVisuals
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -367,6 +369,8 @@
       species: Human
     - type: Body
       prototype: Human
+      requiredLegs: 2
+    - type: Appearance
     - type: Damageable
       damageContainer: Biological
     - type: MobState
@@ -374,9 +378,6 @@
         0: Alive
         100: Critical
         200: Dead
-    - type: Appearance
-      visuals:
-      - type: RotationVisualizer
     - type: UserInterface
       interfaces:
         - key: enum.HumanoidMarkingModifierKey.Key # sure, this can go here too

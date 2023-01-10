@@ -1,5 +1,4 @@
 using Content.Shared.Books;
-using Content.Client.Links;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Books

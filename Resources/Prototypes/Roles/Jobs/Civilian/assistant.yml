@@ -1,11 +1,12 @@
 - type: job
   id: Passenger
   name: job-name-passenger
+  description: job-description-assistant
   playTimeTracker: JobPassenger
   startingGear: PassengerGear
   icon: "Passenger"
   supervisors: job-supervisors-everyone
-  access:
+  extendedAccess:
   - Maintenance
 
 - type: startingGear

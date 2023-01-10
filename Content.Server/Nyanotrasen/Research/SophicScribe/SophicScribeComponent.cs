@@ -8,5 +8,13 @@ namespace Content.Server.Research.SophicScribe
 
         [DataField("announceInterval")]
         public TimeSpan AnnounceInterval = TimeSpan.FromMinutes(2);
+
+        /// <summary>
+        ///     Antispam.
+        /// </summary>
+        public TimeSpan? StateTime = null;
+
+        [DataField("stateCD")]
+        public TimeSpan StateCD = TimeSpan.FromSeconds(5);
     }
 }
