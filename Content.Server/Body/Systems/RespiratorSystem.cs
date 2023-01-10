@@ -5,6 +5,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Server.Abilities;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Inventory;
@@ -14,12 +15,14 @@ using Content.Shared.Database;
 using Content.Shared.ActionBlocker;
 using Content.Shared.MobState.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Examine;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio;
-using Content.Shared.Examine;
+using Robust.Shared.Random;
+using Robust.Shared.Physics.Components;
 using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Body.Systems
@@ -41,6 +44,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly TagSystem _tag = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public override void Initialize()
         {
@@ -243,11 +247,26 @@ namespace Content.Server.Body.Systems
             if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
                 return;
 
-            respirator.CPRPlayingStream?.Stop();
-            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.Medium);
-
             respirator.CancelToken = null;
             respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
+            respirator.CPRPlayingStream?.Stop();
+
+            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
+            {
+                if (perfPhysics.FixturesMass >= patientPhysics.FixturesMass && _random.Prob(0.15f * perfPhysics.FixturesMass / patientPhysics.FixturesMass))
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs-crack", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.MediumCaution);
+
+                    var damage = 3f * (perfPhysics.FixturesMass / patientPhysics.FixturesMass);
+                    DamageSpecifier dict = new();
+                    dict.DamageDict.Add("Blunt", damage);
+
+                    _damageableSys.TryChangeDamage(ev.Patient, dict);
+                    return;
+                }
+            }
+            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.Medium);
+
         }
 
         /// <summary>
