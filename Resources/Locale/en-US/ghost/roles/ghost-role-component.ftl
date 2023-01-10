@@ -17,5 +17,8 @@ ghost-role-information-cognizine-description = Made conscious with the magic of 
 ghost-role-information-hamster-name = Hamster
 ghost-role-information-hamster-description = A grumpy little ball of fluff.
 
-ghost-role-information-hamlet-name = Hamlet the hamster.
+ghost-role-information-hamlet-name = Hamlet the hamster
 ghost-role-information-hamlet-description = Lives in the station bridge, has a bit of a temper and is always hungry.
+
+ghost-role-information-cancer-mouse-name = Cancer Mouse
+ghost-role-information-cancer-mouse-description = Make off color comments, but not so edgy that they break the rules of the server.
