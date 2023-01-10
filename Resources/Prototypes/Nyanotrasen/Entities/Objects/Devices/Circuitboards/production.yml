@@ -55,3 +55,19 @@
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
 
+- type: entity
+  id: MetempsychoticMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: metempsychotic machine machine board
+  description: A machine printed circuit board for a cloning pod
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: MetempsychoticMachine
+      requirements:
+        ScanningModule: 2
+        Manipulator: 2
+      materialRequirements:
+        Glass: 1
+        Cable: 1

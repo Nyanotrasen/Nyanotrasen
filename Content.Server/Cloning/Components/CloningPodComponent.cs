@@ -34,12 +34,6 @@ namespace Content.Server.Cloning.Components
         public string RequiredMaterial = "Biomass";
 
         /// <summary>
-        /// The entity that is spawned on machine deconstruct as well as failed cloning.
-        /// </summary>
-        [DataField("materialCloningOutput", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
-        public string MaterialCloningOutput = "MaterialBiomass";
-
-        /// <summary>
         /// The base amount of time it takes to clone a body
         /// </summary>
         [DataField("baseCloningTime")]
@@ -75,6 +69,19 @@ namespace Content.Server.Cloning.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
         public float BiomassRequirementMultiplier = 1;
+
+        /// <summary>
+        ///     If not null, uses this instead of weight to determine biomass cost.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("constantBiomassCost")]
+        public int? ConstantBiomassCost = null;
+
+        /// <summary>
+        ///    Whether we should check for genetic damage
+        /// </summary>
+        [DataField("checkGeneticDamage")]
+        public bool CheckGeneticDamage = true;
 
         /// <summary>
         /// The machine part that decreases the amount of material needed for cloning

@@ -12995,8 +12995,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -13025,8 +13025,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -13040,8 +13040,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -13070,8 +13070,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -15395,7 +15395,7 @@ entities:
     parent: 7
     type: Transform
 - uid: 349
-  type: SignMorgue
+  type: Mirror
   components:
   - pos: -21.5,15.5
     parent: 7
@@ -15580,7 +15580,7 @@ entities:
     parent: 7
     type: Transform
 - uid: 379
-  type: CloningPod
+  type: MetempsychoticMachine
   components:
   - pos: -23.5,14.5
     parent: 7
@@ -42720,13 +42720,11 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 4287
-  type: Poweredlight
+  type: SignMorgue
   components:
-  - pos: -21.5,14.5
+  - pos: -23.5,15.5
     parent: 7
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4288
   type: Poweredlight
   components:
@@ -73559,6 +73557,14 @@ entities:
   - pos: -23.5,9.5
     parent: 7
     type: Transform
+- uid: 8654
+  type: Poweredlight
+  components:
+  - pos: -23.5,14.5
+    parent: 7
+    type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 8658
   type: ClothingHeadHatSantahat
   components:

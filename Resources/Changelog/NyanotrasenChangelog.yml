@@ -2105,3 +2105,143 @@ Entries:
     type: Add
   id: 247
   time: '2023-01-04T23:56:33.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Evil twins are a bit closer to their targets.
+    type: Fix
+  - message: Evil twin spawn fallback is more robust.
+    type: Fix
+  id: 248
+  time: '2023-01-05T17:59:21.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Replaced the cloning pod with the metempsychotic machine.
+    type: Add
+  - message: Cloning pods might still be out there somewhere...
+    type: Add
+  - message: Primates have a PDA slot (don't ask.)
+    type: Tweak
+  id: 249
+  time: '2023-01-05T20:19:30.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Lighthouse Improvements
+    type: Add
+  id: 250
+  time: '2023-01-05T21:48:03.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Fixed cargo's plastic flaps not being airtight on Shoukou.
+    type: Fix
+  id: 251
+  time: '2023-01-06T17:14:26.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed a number of bugs with the metempsychotic machine.
+    type: Fix
+  - message: There's some new visuals for the metempsychotic machine while it is running.
+    type: Add
+  - message: 'The # of times you have been through the metempsychotic machine is now
+      tracked.'
+    type: Add
+  - message: Non-humanoid results of the metempsychotic machine can be sacrificed
+      if they are psionic.
+    type: Tweak
+  - message: Brushed up monkeys and gorillas.
+    type: Tweak
+  id: 252
+  time: '2023-01-06T17:17:19.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Sensitive airlocks like security now close much, much faster.
+    type: Tweak
+  - message: You can pray at Oracle.
+    type: Tweak
+  id: 253
+  time: '2023-01-06T17:28:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added RPG-7s to the Shoukou armory.
+    type: Add
+  id: 254
+  time: '2023-01-06T18:14:38.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - message: added Arena/Tortuga Engi QoL!
+    type: Add
+  - message: added drastically better lighting in Tortuga Arrivals
+    type: Add
+  id: 255
+  time: '2023-01-06T18:49:15.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added max player count of 65 for Shoukou to be selected in lobby.
+    type: Add
+  id: 256
+  time: '2023-01-09T14:44:47.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: Added a craftable fish labeler for your fish labeling needs
+    type: Add
+  id: 257
+  time: '2023-01-09T18:22:18.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Updated to latest upstream. Notably, deconstructing stuff with material
+      storage will now spawn the materials inside. Lathes should be much harder to
+      accidentally grief now.
+    type: Add
+  id: 258
+  time: '2023-01-09T18:28:44.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants are much weaker but much cheaper and more spammable. They
+      are also items now and can be eaten by felinids like mice.
+    type: Tweak
+  - message: Chance for survival rounds has been reduced.
+    type: Tweak
+  - message: Survival max chaos and ramping time adjusted.
+    type: Tweak
+  - message: Oracle and the sophic grammateus will not fade their sprite when you
+      stand behind them.
+    type: Add
+  - message: Added some more busted items to oracle blacklist.
+    type: Fix
+  - message: Drills are now properly in the engineering lathe.
+    type: Fix
+  - message: Circuit imprinter now correctly uses the engineering board sprite.
+    type: Fix
+  - message: Removed a lobby song that was too good for you philistines.
+    type: Remove
+  - message: Primates can disarm now. Monkeys and gorillas' natural weapons make sense.
+    type: Fix
+  id: 259
+  time: '2023-01-09T19:09:47.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'Metempsychotic machine changes to karma: Your chance for humanoid is
+      now 75% + 25% for each tier of medical scanner part upgrades. This means at
+      tier 1 your chance on first metempsychosis for a humanoid is 100%. However,
+      the penalty for consecutive metempsychoses has been increased to 25%.'
+    type: Tweak
+  - message: The biomass cost reduction upgrade now works on the metempsychotic machine.
+    type: Fix
+  id: 260
+  time: '2023-01-09T19:41:49.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servants can escape inventory and attack people holding them.
+    type: Fix
+  - message: Felinids can't eat rats when the felinid is overfed.
+    type: Fix
+  - message: Rats are grindable.
+    type: Fix
+  id: 261
+  time: '2023-01-09T22:46:09.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Doors and a few other high health metallic entities now have the minimum
+      damage requirement like rwindows and walls do.
+    type: Tweak
+  id: 262
+  time: '2023-01-10T02:29:29.0000000+00:00'

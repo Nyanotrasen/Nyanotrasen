@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Content.Server.GameTicking;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
@@ -23,6 +24,15 @@ public sealed class MindSystem : EntitySystem
 
         SubscribeLocalEvent<MindComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MindComponent, ExaminedEvent>(OnExamined);
+    }
+
+    [PublicAPI]
+    public void SetExamineInfo(EntityUid uid, bool canExamine, MindComponent? mind = null)
+    {
+        if (!Resolve(uid, ref mind, false))
+            return;
+
+        mind.ShowExamineInfo = canExamine;
     }
 
     public void SetGhostOnShutdown(EntityUid uid, bool value, MindComponent? mind = null)

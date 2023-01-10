@@ -97,6 +97,7 @@ namespace Content.Server.Research.Oracle
             "SprayBottle",
             "ShellTranquilizer",
             "ShellSoulbreaker",
+            "EmptyFlashlightLantern",
 
             // Mech non-items
             "RipleyHarness",

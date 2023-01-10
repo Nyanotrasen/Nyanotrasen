@@ -23,6 +23,8 @@
   - type: WiresVisuals
   - type: PaintableAirlock
     group: External
+  - type: Airlock
+    autoCloseDelay: 1.5
 
 - type: entity
   parent: AirlockExternal

@@ -168,7 +168,7 @@ namespace Content.Server.Cloning
             if (mind == null || mind.UserId.HasValue == false || mind.Session == null)
                 return;
 
-            _cloningSystem.TryCloning(cloningPodUid, body.Value, mind, cloningPod, scannerComp.CloningFailChanceMultiplier);
+            _cloningSystem.TryCloning(cloningPodUid, body.Value, mind, cloningPod, scannerComp.CloningFailChanceMultiplier, scannerComp.MetemKarmaBonus);
         }
 
         public void RecheckConnections(EntityUid console, EntityUid? cloningPod, EntityUid? scanner, CloningConsoleComponent? consoleComp = null)

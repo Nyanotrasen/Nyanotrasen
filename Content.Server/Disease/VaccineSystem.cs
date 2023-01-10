@@ -125,7 +125,7 @@ namespace Content.Server.Disease
             }
         }
 
-        private void OnVaccinatorAmountChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, MaterialAmountChangedEvent args)
+        private void OnVaccinatorAmountChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref MaterialAmountChangedEvent args)
         {
             UpdateUserInterfaceState(uid, component);
         }

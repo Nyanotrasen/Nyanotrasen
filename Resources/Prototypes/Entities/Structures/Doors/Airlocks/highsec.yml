@@ -55,6 +55,7 @@
     fuel: 10
     time: 10
   - type: Airlock
+    autoCloseDelay: 1
   - type: Appearance
     visuals:
     - type: AirlockVisualizer
@@ -78,12 +79,12 @@
   - type: Occluder
   - type: Damageable
     damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageModifierSet: StrongMetallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1500
+        damage: 1000
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]

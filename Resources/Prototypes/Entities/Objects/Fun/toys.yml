@@ -221,6 +221,10 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
+  # for fish labeler crafting
+  - type: Tag
+    tags:
+    - PlushieCarp
 
 - type: entity
   parent: BasePlushie
