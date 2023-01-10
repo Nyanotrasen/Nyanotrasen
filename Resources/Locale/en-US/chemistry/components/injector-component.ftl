@@ -22,3 +22,6 @@ injector-component-target-is-empty-message = {$target} is empty!
 
 injector-component-injecting-user = You start inserting the needle.
 injector-component-injecting-target = {CAPITALIZE(THE($user))} is trying to stick a needle into you!
+
+## failure
+injector-component-failure-hardsuit = You can't get the needle to go through the thick plating!

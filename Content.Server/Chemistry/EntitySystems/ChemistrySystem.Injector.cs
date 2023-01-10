@@ -92,7 +92,7 @@ public sealed partial class ChemistrySystem
         {
             if (tag.Tags.Contains("HardsuitOn"))
             {
-                _popup.PopupEntity("You cant get the needle to go through the thick plating!", target, user, PopupType.MediumCaution);
+                _popup.PopupEntity(Loc.GetString("injector-component-failure-hardsuit"), target, user, PopupType.MediumCaution);
                 return;
             }
         }
