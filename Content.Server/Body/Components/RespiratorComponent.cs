@@ -1,3 +1,4 @@
+using System.Threading;
 using Content.Server.Body.Systems;
 using Content.Shared.Damage;
 
@@ -65,6 +66,8 @@ namespace Content.Server.Body.Components
         public float CycleDelay = 2.0f;
 
         public float AccumulatedFrametime;
+
+        public CancellationTokenSource? CancelToken;
     }
 }
 
