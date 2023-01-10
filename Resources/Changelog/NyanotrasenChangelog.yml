@@ -2267,3 +2267,18 @@ Entries:
     type: Fix
   id: 265
   time: '2023-01-10T19:47:42.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servant attack range from 1.5m to 1m.
+    type: Tweak
+  - message: Rat servant attack damage from 5 slash 3 piercing to 4 slash 2 piercing.
+    type: Tweak
+  - message: Added new AI factions for rats and cats.
+    type: Add
+  - message: Cats are now always hostile to rats.
+    type: Add
+  - message: A bunch of other factions that weren't hostile before are now hostile
+      to either passive rats or all rats.
+    type: Add
+  id: 266
+  time: '2023-01-10T21:54:41.0000000+00:00'
