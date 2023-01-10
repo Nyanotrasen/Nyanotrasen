@@ -7,12 +7,14 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
+using Content.Shared.Inventory;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.ActionBlocker;
 using Content.Shared.MobState.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -37,6 +39,8 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         public override void Initialize()
         {
@@ -258,6 +262,18 @@ namespace Content.Server.Body.Systems
 
             if (!_blocker.CanInteract(user, uid))
                 return;
+
+            if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outer))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), uid, user, Shared.Popups.PopupType.MediumCaution);
+                return;
+            }
+
+            if (_inventory.TryGetSlotEntity(uid, "belt", out var belt) && _tag.HasTag(belt.Value, "BeltSlotNotBelt"))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", belt)), uid, user, Shared.Popups.PopupType.MediumCaution);
+                return;
+            }
 
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", Identity.Entity(uid, EntityManager))), uid, user, Shared.Popups.PopupType.Medium);
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", Identity.Entity(user, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
