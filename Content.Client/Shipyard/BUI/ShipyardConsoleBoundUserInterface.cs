@@ -53,11 +53,13 @@ namespace Content.Client.Shipyard.BUI
 
         private void Populate()
         {
-            if (_menu == null) return;
+            if (_menu == null)
+                return;
 
             _menu.PopulateProducts();
             _menu.PopulateCategories();
         }
+
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
@@ -66,7 +68,6 @@ namespace Content.Client.Shipyard.BUI
                 return;
 
             Balance = cState.Balance;
-
             var castState = (ShipyardConsoleInterfaceState) state;
             Populate();
             _menu?.UpdateState(castState);
@@ -92,6 +93,7 @@ namespace Content.Client.Shipyard.BUI
             var price = row.Vessel.Price;
             SendMessage(new ShipyardConsolePurchaseMessage(vesselId, price));
         }
+
         //private void SellShip(ButtonEventArgs args)
         //{
         //    //reserved for a sanity check, but im not sure what since we checked all the important stuffs on client already

@@ -4,6 +4,7 @@ using Content.Server.Station.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Shipyard;
+using Content.Server.Shipyard.Components;
 using Content.Shared.MobState.Components;
 using Content.Shared.GameTicking;
 using Robust.Server.GameObjects;
@@ -32,13 +33,12 @@ namespace Content.Server.Shipyard.Systems
         public override void Initialize()
         {
             _sawmill = Logger.GetSawmill("shipyard");
-
             _shipyardConsole.InitializeConsole();
-            SubscribeLocalEvent<BecomesStationComponent, ComponentStartup>(OnShipyardStartup);
+            SubscribeLocalEvent<ShipyardConsoleComponent, ComponentInit>(OnShipyardStartup);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
         }
 
-        private void OnShipyardStartup(EntityUid uid, BecomesStationComponent component, ComponentStartup args)
+        private void OnShipyardStartup(EntityUid uid, ShipyardConsoleComponent component, ComponentInit args)
         {
             SetupShipyard();
         }

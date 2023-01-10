@@ -1,5 +1,5 @@
-using Content.Server.Access.Systems;
 using Content.Server.Popups;
+using Content.Server.Cargo.Systems;
 using Content.Server.Shipyard.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
@@ -14,24 +14,22 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
+using Content.Shared.Access.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Shipyard;
-using System.Linq;
-using Content.Server.Cargo.Systems;
 
 namespace Content.Server.Shipyard.Systems
 {
     public sealed class ShipyardConsoleSystem : SharedShipyardSystem
     {
-
-        [Dependency] private readonly AccessSystem _accessSystem = default!;
+        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ShipyardSystem _shipyard = default!;
         [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly IComponentFactory _component = default!;
         [Dependency] private readonly CargoSystem _cargo = default!;
+
         public void InitializeConsole()
         {
             SubscribeLocalEvent<ShipyardConsoleComponent, ShipyardConsolePurchaseMessage>(OnPurchaseMessage);
@@ -63,8 +61,16 @@ namespace Content.Server.Shipyard.Systems
                 return;
             }
 
+            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_accessSystem.IsAllowed(player, accessReaderComponent))
+            {
+                ConsolePopup(args.Session, Loc.GetString("comms-console-permission-denied"));
+                PlayDenySound(uid, component);
+                return;
+            }
+
             if (args.Price <= 0)
                 return;
+
             var station = _station.GetOwningStation(uid);
             var bank = GetBankAccount(station);
 
@@ -73,7 +79,7 @@ namespace Content.Server.Shipyard.Systems
 
             if (bank.Balance <= args.Price)
             {
-                ConsolePopup(args.Session, Loc.GetString("shipyard-console-insufficient-funds", ("cost", args.Price)));
+                ConsolePopup(args.Session, Loc.GetString("cargo-console-insufficient-funds", ("cost", args.Price)));
                 PlayDenySound(uid, component);
                 return;
             }
@@ -100,8 +106,6 @@ namespace Content.Server.Shipyard.Systems
                 true);
 
             _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
-        
-
             RegisterDeed(newDeed, shuttle);           
         }
 
@@ -145,11 +149,12 @@ namespace Content.Server.Shipyard.Systems
         {
             if (args.Session.AttachedEntity is not { Valid: true } player)
                 return;
-            var station = _station.GetOwningStation(uid);
+            var station = _station.GetOwningStation(component.Owner);
             var bank = GetBankAccount(station);
 
             if (bank == null)
                 return;
+
             var newState = new ShipyardConsoleInterfaceState(
                 bank.Balance,
                 true);
@@ -216,7 +221,8 @@ namespace Content.Server.Shipyard.Systems
             //Since this is station based for now, client UIs dont need to know
         }
 
-        //public void DeductFunds(StationBankAccountComponent component, int amount)
+        // In the case that this uses a separate income pool than generic cargo
+        //public void DeductFunds(OtherBankAccountComponent component, int amount)
         //{
         //    component.Balance = Math.Max(0, component.Balance - amount);
         //    //Dirty(component);
@@ -224,10 +230,10 @@ namespace Content.Server.Shipyard.Systems
 
         public StationBankAccountComponent? GetBankAccount(EntityUid? uid)
         {
-            if (uid != null && !TryComp<StationBankAccountComponent>(uid, out var bankAccount))
+            if (uid != null && TryComp<StationBankAccountComponent>(uid, out var bankAccount))
             { 
-                return EnsureComp<StationBankAccountComponent>((EntityUid) uid);
-            }
+                return bankAccount;
+            }    
             return null;
         }
     }

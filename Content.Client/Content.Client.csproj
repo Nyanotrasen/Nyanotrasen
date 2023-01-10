@@ -24,12 +24,6 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Shipyard\UI\ShipyardConsoleMenu.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
-    <Compile Update="Shipyard\UI\VesselRow.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
     <Compile Update="UserInterface\Systems\MenuBar\Widgets\GameTopMenuBar.xaml.cs">
       <DependentUpon>GameTopMenuBar.xaml</DependentUpon>
     </Compile>
@@ -42,10 +36,6 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Analyzers.targets" />
-  <ItemGroup>
-    <EmbeddedResource Remove="Shipyard\UI\ShipyardConsoleMenu.xaml" />
-    <EmbeddedResource Remove="Shipyard\UI\VesselRow.xaml" />
-  </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Update="Shipyard\UI\ShipyardConsoleMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
