@@ -12,9 +12,11 @@ using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.ActionBlocker;
 using Content.Shared.MobState.EntitySystems;
+using Content.Shared.IdentityManagement;
 using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Audio;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
 
@@ -34,6 +36,7 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly SharedMobStateSystem _mobState = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -227,6 +230,7 @@ namespace Content.Server.Body.Systems
             if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
                 return;
 
+            respirator.CPRPlayingStream?.Stop();
             respirator.CancelToken = null;
         }
 
@@ -234,6 +238,9 @@ namespace Content.Server.Body.Systems
         {
             if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
                 return;
+
+            respirator.CPRPlayingStream?.Stop();
+            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.Medium);
 
             respirator.CancelToken = null;
             respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
@@ -252,7 +259,11 @@ namespace Content.Server.Body.Systems
             if (!_blocker.CanInteract(user, uid))
                 return;
 
+            _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", Identity.Entity(uid, EntityManager))), uid, user, Shared.Popups.PopupType.Medium);
+            _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", Identity.Entity(user, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
+
             component.CancelToken = new CancellationTokenSource();
+            component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
             _doAfter.DoAfter(new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), component.CancelToken.Token, uid)
             {
                 BroadcastFinishedEvent = new CPRSuccessfulEvent(user, uid),
