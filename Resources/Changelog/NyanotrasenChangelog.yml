@@ -2282,3 +2282,24 @@ Entries:
     type: Add
   id: 266
   time: '2023-01-10T21:54:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Borgs have lost a few particular accesses before we get a Butlerian jihad.
+    type: Remove
+  - message: Cancer Mouse has a built in radio so he can soapbox more effectively.
+    type: Add
+  - message: CPR requires removing any outer clothing, like coats.
+    type: Tweak
+  - message: Non-medically trained people can crack the sternum during CPR. The chance
+      scales off of relative mass.
+    type: Tweak
+  - message: Medipens will no longer go through hardsuits.
+    type: Tweak
+  - message: Fixed knocking.
+    type: Fix
+  - message: Ghosts can see binary chat.
+    type: Fix
+  - message: Spiders can no longer spin webs from inside containers.
+    type: Fix
+  id: 267
+  time: '2023-01-10T22:07:12.0000000+00:00'
