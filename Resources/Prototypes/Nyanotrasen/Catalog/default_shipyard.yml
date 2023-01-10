@@ -1,0 +1,10 @@
+- type: vessel
+  id: PTS
+  name: Private Transport Shuttle
+  description: A private transport vessel for up to 6 passengers.
+  prototype: PTS
+  price: 24700
+  category: Small
+  group: Civilian
+  shuttlePath: /Maps/_Citadel/Shipyard/pts.yml
+
