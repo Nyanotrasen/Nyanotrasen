@@ -2,10 +2,7 @@ using Content.Client.Shipyard.UI;
 using Content.Client.Shipyard.Components;
 using Content.Shared.Shipyard.BUI;
 using Content.Shared.Shipyard.Events;
-using Content.Shared.Shipyard.Components;
-using Content.Shared.IdentityManagement;
 using Robust.Client.GameObjects;
-using Content.Shared.Containers.ItemSlots;
 using Robust.Client.Player;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
@@ -41,16 +38,9 @@ namespace Content.Client.Shipyard.BUI
             {
                 accessLevels = new List<string>();
             }
-            //check for access
-            if (component != null && _entityManager.TryGetComponent<StationBankAccountComponent>(component, out var bank))
-            {
-                Balance = bank.Balance;
-            }
-            else
-            {
-                Balance = 0;
-            }
+            //TODO check for access either here or do it serverside and do a popup
             
+            //Also we are bringing the sprite manager along for the future so we can flair up the menu with some icons later too, im just bad at UI design
             var sysManager = _entityManager.EntitySysManager;
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             _menu = new ShipyardConsoleMenu(this, IoCManager.Resolve<IPrototypeManager>(), spriteSystem, accessLevels);
@@ -58,8 +48,7 @@ namespace Content.Client.Shipyard.BUI
             _menu.OpenCentered();
             _menu.OnClose += Close;
             _menu.OnOrderApproved += ApproveOrder;
-            _menu.OnSellShip += SellShip;
-            _menu.TargetIdButton.OnPressed += _ => SendMessage(new ItemSlotButtonPressedEvent(TargetIdCardSlotId));
+            //_menu.OnSellShip += SellShip;
         }
 
         private void Populate()
