@@ -30,6 +30,11 @@
     spawned:
     - id: FoodMeatCorgi
       amount: 2
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Old Ian
@@ -56,6 +61,11 @@
     attributes:
       proper: true
       gender: male
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Lisa
@@ -82,6 +92,11 @@
     attributes:
       proper: true
       gender: female
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Runtime
@@ -132,6 +147,11 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: bingus
@@ -186,9 +206,14 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
-  name: mcgriff
+  name: McGriff
   parent: SimpleMobBase
   id: MobMcGriff
   description: This dog can tell something smells around here, and that something is CRIME!
@@ -244,6 +269,11 @@
       proper: true
       gender: male
   - type: DogVision
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Paperwork
@@ -278,6 +308,11 @@
     attributes:
       proper: true
       gender: male
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Walter
@@ -336,6 +371,11 @@
       proper: true
       gender: male
   - type: DogVision
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Morty
@@ -349,6 +389,11 @@
     attributes:
       proper: true
       gender: male
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Morticia
@@ -362,6 +407,11 @@
     attributes:
       proper: true
       gender: female
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Alexander
@@ -372,7 +422,12 @@
   - type: Grammar
     attributes:
       gender: male
-      
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
+
 - type: entity
   name: Renault
   parent: MobFox
@@ -391,6 +446,11 @@
     attributes:
       proper: true
       gender: female
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    faction:
+    - Pet
 
 - type: entity
   name: Hamlet
@@ -417,4 +477,3 @@
     attributes:
       proper: true
       gender: male
-

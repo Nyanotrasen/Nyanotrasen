@@ -7,6 +7,7 @@
     - RatHostile
     - SimpleHostile
     - Xeno
+    - Pet
 
 - type: faction
   id: NanoTrasen
@@ -26,6 +27,7 @@
   - Cat
   - Xeno
   - Dragon
+  - Pet
 
 - type: faction
   id: SimpleNeutral
@@ -63,6 +65,15 @@
   - Dragon
   - NanoTrasen
   - Syndicate
+  - Pet
+
+- type: faction
+  id: Pet
+  hostile:
+  - SimpleHostile
+  - Xeno
+  - Dragon
+  - RatHostile
 
 - type: faction
   id: Cat
