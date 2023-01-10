@@ -55,3 +55,8 @@
   flatReductions:
     Blunt: 5
     Heat: 5
+
+- type: damageModifierSet
+  id: CancerMouse
+  coefficients:
+    Radiation: -0.25
