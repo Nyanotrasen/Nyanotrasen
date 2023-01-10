@@ -1,6 +1,7 @@
 using Content.Server.Interaction.Components;
 using Content.Server.MobState;
 using Content.Server.Popups;
+using Content.Server.Body.Systems;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -13,8 +14,8 @@ public sealed class InteractionPopupSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly RespiratorSystem _respiratorSystem = default!;
 
     public void TryHug(EntityUid uid, InteractionPopupComponent component, EntityUid user)
     {

@@ -4,6 +4,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Stunnable;
 using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Bed.Sleep;
 using Content.Server.Interaction;
 using Content.Server.Interaction.Components;
@@ -18,6 +19,7 @@ namespace Content.Server.MobState
         [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
         [Dependency] private readonly InteractionPopupSystem _hug = default!;
+        [Dependency] private readonly RespiratorSystem _respirator = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -38,7 +40,7 @@ namespace Content.Server.MobState
             // 1. Are we in crit and suffocating?
             if (component.CurrentState == DamageState.Critical && TryComp<RespiratorComponent>(uid, out var respirator))
             {
-                // _cpr.DoCPR(args.User, uid, respirator);
+                _respirator.AttemptCPR(uid, respirator, args.User);
                 args.Handled = true;
                 return;
             }
@@ -66,7 +68,6 @@ namespace Content.Server.MobState
                 args.Handled = true;
                 return;
             }
-
         }
     }
 }

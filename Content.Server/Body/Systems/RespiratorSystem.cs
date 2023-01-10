@@ -59,7 +59,7 @@ namespace Content.Server.Body.Systems
                 respirator.AccumulatedFrametime -= respirator.CycleDelay;
                 UpdateSaturation(respirator.Owner, -respirator.CycleDelay, respirator);
 
-                if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
+                if (!_mobState.IsIncapacitated(uid) || respirator.BreatheInCritCounter > 0) // cannot breathe in crit.
                 {
                     switch (respirator.Status)
                     {
@@ -72,6 +72,8 @@ namespace Content.Server.Body.Systems
                             respirator.Status = RespiratorStatus.Inhaling;
                             break;
                     }
+
+                    respirator.BreatheInCritCounter = Math.Clamp(respirator.BreatheInCritCounter - 1, 0, 6);
                 }
 
                 if (respirator.Saturation < respirator.SuffocationThreshold)
@@ -211,6 +213,16 @@ namespace Content.Server.Body.Systems
             // Reset the accumulator properly
             if (component.AccumulatedFrametime >= component.CycleDelay)
                 component.AccumulatedFrametime = component.CycleDelay;
+        }
+
+        /// <summary>
+        /// Attempt CPR, which will keep the user breathing even in crit.
+        /// As cardiac arrest is currently unsimulated, the damage taken in crit is a function of
+        /// respiration alone. This may change in the future.
+        /// </summary>
+        public void AttemptCPR(EntityUid uid, RespiratorComponent component, EntityUid user)
+        {
+            component.BreatheInCritCounter = component.BreatheInCritCounter + 3;
         }
     }
 }

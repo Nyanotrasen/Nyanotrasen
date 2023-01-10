@@ -53,6 +53,11 @@ namespace Content.Server.Body.Components
         [ViewVariables]
         public int SuffocationCycleThreshold = 3;
 
+        /// <summary>
+        ///    How many times can we ignore the crit cardiac arrest?
+        /// </summary>
+        public int BreatheInCritCounter = 0;
+
         [ViewVariables]
         public RespiratorStatus Status = RespiratorStatus.Inhaling;
 
