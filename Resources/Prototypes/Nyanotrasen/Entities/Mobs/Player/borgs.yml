@@ -58,8 +58,30 @@
     - DoorBumpOpener
     - ShoesRequiredStepTriggerImmune
   - type: Access
-    groups:
-    - AllAccess
+    tags:
+    - ChiefEngineer
+    - ChiefMedicalOfficer
+    - ResearchDirector
+    - Command
+    - Brig
+    - Detective
+    - Engineering
+    - Medical
+    - Mail
+    - Salvage
+    - Cargo
+    - Research
+    - Service
+    - Maintenance
+    - External
+    - Janitor
+    - Theatre
+    - Bar
+    - Chemistry
+    - Kitchen
+    - Chapel
+    - Hydroponics
+    - Atmospherics
   - type: Hands
     showInHands: false
   - type: Body

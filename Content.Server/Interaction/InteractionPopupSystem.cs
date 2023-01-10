@@ -1,8 +1,8 @@
 using Content.Server.Interaction.Components;
-using Content.Server.MobState;
 using Content.Server.Popups;
-using Content.Server.Body.Systems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.MobState.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -15,7 +15,20 @@ public sealed class InteractionPopupSystem : EntitySystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly RespiratorSystem _respiratorSystem = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        SubscribeLocalEvent<InteractionPopupComponent, InteractHandEvent>(OnInteractHand);
+    }
+
+    private void OnInteractHand(EntityUid uid, InteractionPopupComponent component, InteractHandEvent args)
+    {
+        if (HasComp<MobStateComponent>(uid))
+            return;
+
+        TryHug(uid, component, args.User);
+    }
 
     public void TryHug(EntityUid uid, InteractionPopupComponent component, EntityUid user)
     {
