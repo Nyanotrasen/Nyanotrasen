@@ -1492,6 +1492,11 @@
   - type: MobPrice
     price: 200
   - type: DogVision
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corrupted corgi
@@ -1614,6 +1619,16 @@
       - MobMask
       layer:
       - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
   - type: Appearance
   - type: Inventory
     speciesId: cat
@@ -1648,6 +1663,11 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Faction
+    factions:
+    - Cat
+  - type: HTN
+    rootTask: SimpleHostileCompound
 
 - type: entity
   name: calico cat

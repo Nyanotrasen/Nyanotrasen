@@ -16,7 +16,7 @@
       Extinguish: [Touch]
   - type: Faction
     factions:
-    - SimpleHostile
+    - RatPassive
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Animals/regalrat.rsi
@@ -238,8 +238,9 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 5
-        Piercing: 3
+        Slash: 4
+        Piercing: 2
+    range: 1
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
