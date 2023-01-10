@@ -308,6 +308,8 @@
     - type: Vehicle
       northOverride: -0.1
       southOverride: 0.1
+      hornSound:
+        path: /Audio/Effects/Vehicle/bone.ogg
     - type: Sprite
       sprite: Objects/Vehicles/motorbike.rsi
       layers:
