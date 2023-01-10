@@ -1492,6 +1492,11 @@
   - type: MobPrice
     price: 200
   - type: DogVision
+  - type: HTN
+    rootTask: SimpleHostileCompound
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corrupted corgi

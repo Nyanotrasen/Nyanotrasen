@@ -159,6 +159,7 @@ namespace Content.Server.RatKing
             {
                 UpdateAIFaction(servant, component.HostileServants);
             }
+            UpdateAIFaction(uid, component.HostileServants);
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;
