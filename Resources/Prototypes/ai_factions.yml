@@ -3,6 +3,9 @@
   hostile:
     - NanoTrasen
     - Syndicate
+    - RatPassive
+    - RatHostile
+    - SimpleHostile
     - Xeno
 
 - type: faction
@@ -10,6 +13,7 @@
   hostile:
   - SimpleHostile
   - Syndicate
+  - RatHostile
   - Xeno
 
 - type: faction
@@ -17,6 +21,11 @@
   hostile:
   - NanoTrasen
   - Syndicate
+  - RatPassive
+  - RatHostile
+  - Cat
+  - Xeno
+  - Dragon
 
 - type: faction
   id: SimpleNeutral
@@ -33,3 +42,31 @@
   hostile:
   - NanoTrasen
   - Syndicate
+  - SimpleHostile
+  - RatPassive
+  - RatHostile
+
+- type: faction
+  id: RatPassive
+  hostile:
+  - Cat
+  - SimpleHostile
+  - Xeno
+  - Dragon
+
+- type: faction
+  id: RatHostile
+  hostile:
+  - Cat
+  - SimpleHostile
+  - Xeno
+  - Dragon
+  - NanoTrasen
+  - Syndicate
+
+- type: faction
+  id: Cat
+  hostile:
+  - RatPassive
+  - RatHostile
+  - SimpleHostile

@@ -25,8 +25,8 @@ namespace Content.Server.RatKing
         [Dependency] private readonly FactionSystem _factionSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
 
-        private const string NeutralAIFaction = "SimpleNeutral";
-        private const string HostileAIFaction = "SimpleHostile";
+        private const string NeutralAIFaction = "RatPassive";
+        private const string HostileAIFaction = "RatHostile";
 
         private TimeSpan _nextRefresh = TimeSpan.FromSeconds(1.5);
 
