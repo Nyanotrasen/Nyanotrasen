@@ -68,3 +68,38 @@
   products:
       BahamaMama: 5
 
+- type: reaction
+  id: AlliesCocktail
+  reactants:
+    Martini:
+      amount: 3
+    Nothing:
+      amount: 1
+  products:
+    AlliesCocktail: 4
+
+- type: reaction
+  id: SuiDream
+  reactants:
+    MelonLiquor:
+      amount: 2
+    BlueCuracao:
+      amount: 2
+    LemonLime:
+      amount: 1
+  products:
+    SuiDream: 5
+
+- type: reaction
+  id: SnowWhite
+  reactants:
+    Rum:
+      amount: 2
+    Egg:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+  products:
+    SnowWhite: 5
