@@ -2,7 +2,7 @@
   id: PTS
   name: Private Transport Shuttle
   description: A private transport vessel for up to 6 passengers.
-  prototype: PTS
+  vessel: PTS
   price: 28700
   category: Small
   group: Civilian
@@ -12,7 +12,7 @@
   id: Barge
   name: The Barge
   description: A large shipping vessel repurposed into a salvage bar.
-  prototype: Barge
+  vessel: Barge
   price: 91200
   category: Medium
   group: Civilian
@@ -22,7 +22,7 @@
   id: Prospecter
   name: NT-7 Prospecter
   description: A small mining vessel designed to assist salvage operations.
-  prototype: Prospecter
+  vessel: Prospecter
   price: 43700
   category: Small
   group: Civilian
