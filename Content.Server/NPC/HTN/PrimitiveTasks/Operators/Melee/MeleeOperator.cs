@@ -33,11 +33,6 @@ public sealed class MeleeOperator : HTNOperator
         var melee = _entManager.EnsureComponent<NPCMeleeCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         melee.MissChance = blackboard.GetValueOrDefault<float>(NPCBlackboard.MeleeMissChance, _entManager);
         melee.Target = blackboard.GetValue<EntityUid>(TargetKey);
-        if (melee.Target.IsValid())
-        {
-            var targetComp = _entManager.EnsureComponent<NPCCombatTargetComponent>(melee.Target);
-            targetComp.EngagingEnemies.Add(melee.Owner);
-        }
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
@@ -62,20 +57,7 @@ public sealed class MeleeOperator : HTNOperator
     public override void Shutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
     {
         base.Shutdown(blackboard, status);
-        var mob = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        _entManager.RemoveComponent<NPCMeleeCombatComponent>(mob);
-
-        var target = blackboard.GetValue<EntityUid>(TargetKey);
-
-        if (_entManager.TryGetComponent<NPCCombatTargetComponent>(target, out var targetComp))
-        {
-            targetComp.EngagingEnemies.Remove(mob);
-            if (targetComp.EngagingEnemies.Count == 0)
-            {
-                _entManager.RemoveComponent<NPCCombatTargetComponent>(target);
-            }
-        }
-
+        _entManager.RemoveComponent<NPCMeleeCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         blackboard.Remove<EntityUid>(TargetKey);
     }
 
