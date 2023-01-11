@@ -132,8 +132,6 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -191,8 +189,6 @@
   - type: Grammar
     attributes:
       gender: epicene
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -254,8 +250,6 @@
       proper: true
       gender: male
   - type: DogVision
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -293,8 +287,6 @@
     attributes:
       proper: true
       gender: male
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -356,8 +348,6 @@
       proper: true
       gender: male
   - type: DogVision
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -374,8 +364,6 @@
     attributes:
       proper: true
       gender: male
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -392,8 +380,6 @@
     attributes:
       proper: true
       gender: female
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -407,8 +393,6 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Pet
@@ -431,11 +415,7 @@
     attributes:
       proper: true
       gender: female
-  - type: HTN
-    rootTask: SimpleHostileCompound
-  - type: Faction
-    factions:
-    - Pet
+
 
 - type: entity
   name: Hamlet

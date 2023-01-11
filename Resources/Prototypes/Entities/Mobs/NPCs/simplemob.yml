@@ -16,7 +16,7 @@
   - type: InputMover
   - type: MobMover
   - type: HTN
-    rootTask: IdleCompound
+    rootTask: SimpleHostileCompound
   - type: Input
     context: "human"
   - type: Faction
