@@ -195,6 +195,7 @@ namespace Content.Server.Shipyard.Systems
 
             return true;
         }
+        
         public bool TrySellVessel(StationBankAccountComponent component, EntityUid? gridUid, out int bill)
         {
             bill = 0;
