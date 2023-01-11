@@ -28,22 +28,10 @@ namespace Content.Client.Shipyard.BUI
         protected override void Open()
         {
             base.Open();
-            List<string> accessLevels;
-            if (_entityManager.TryGetComponent<ShipyardConsoleComponent>(Owner.Owner, out var component))
-            {
-                accessLevels = component.AccessLevels;
-                accessLevels.Sort();
-            }
-            else
-            {
-                accessLevels = new List<string>();
-            }
-            //TODO check for access either here or do it serverside and do a popup
-            
-            //Also we are bringing the sprite manager along for the future so we can flair up the menu with some icons later too, im just bad at UI design
+            //We are bringing the sprite manager along for the future so we can flair up the menu with some icons later too, im just bad at UI design
             var sysManager = _entityManager.EntitySysManager;
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
-            _menu = new ShipyardConsoleMenu(this, IoCManager.Resolve<IPrototypeManager>(), spriteSystem, accessLevels);
+            _menu = new ShipyardConsoleMenu(this, IoCManager.Resolve<IPrototypeManager>(), spriteSystem);
             var description = new FormattedMessage();
             _menu.OpenCentered();
             _menu.OnClose += Close;

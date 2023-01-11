@@ -35,7 +35,7 @@ namespace Content.Server.Shipyard.Systems
             SubscribeLocalEvent<ShipyardConsoleComponent, ShipyardConsolePurchaseMessage>(OnPurchaseMessage);
             //SubscribeLocalEvent<ShipyardConsoleComponent, ShipyardConsoleSellMessage>(OnSellMessage);
             SubscribeLocalEvent<ShipyardConsoleComponent, BoundUIOpenedEvent>(OnConsoleUIOpened);
-            SubscribeLocalEvent<ShipyardConsoleComponent, ComponentInit>(OnInit);
+            //SubscribeLocalEvent<ShipyardConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
         }
 

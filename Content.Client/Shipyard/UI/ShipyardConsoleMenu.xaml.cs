@@ -23,12 +23,11 @@ namespace Content.Client.Shipyard.UI
         private string? _category;
         private readonly List<string> _accessList = new();
 
-        public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner, IPrototypeManager protoManager, SpriteSystem spriteSystem, List<string> accessList)
+        public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner, IPrototypeManager protoManager, SpriteSystem spriteSystem)
         {
             RobustXamlLoader.Load(this);
             _protoManager = protoManager;
             _spriteSystem = spriteSystem;
-            _accessList = accessList;
             _menu = owner;
             Title = Loc.GetString("shipyard-console-menu-title");
             SearchBar.OnTextChanged += OnSearchBarTextChanged;

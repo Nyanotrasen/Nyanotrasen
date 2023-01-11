@@ -63,7 +63,7 @@ namespace Content.Shared.Shipyard.Prototypes
         public string Vessel { get; } = string.Empty;
 
         /// <summary>
-        ///     The point cost of the product.
+        ///     The price of the vessel
         /// </summary>
         [DataField("price", required: true)]
         public int Price { get; }
@@ -75,7 +75,7 @@ namespace Content.Shared.Shipyard.Prototypes
         public string Category { get; } = string.Empty;
 
         /// <summary>
-        ///     The prototype group of the product. (e.g. Contraband)
+        ///     The prototype group of the product. (e.g. Civilian, Syndicate, Contraband etc.)
         /// </summary>
         [DataField("group")]
         public string Group { get; } = string.Empty;
