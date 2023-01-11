@@ -1,5 +1,7 @@
 using Content.Shared.Damage;
+using Content.Shared.MobState.Components;
 using Content.Server.NPC.Components;
+using Content.Server.Destructible;
 using Robust.Shared.Timing;
 
 namespace Content.Server.NPC.Systems
@@ -31,7 +33,13 @@ namespace Content.Server.NPC.Systems
 
         private void OnDamageChanged(EntityUid uid, NPCComponent component, DamageChangedEvent args)
         {
-            if (args.Origin == null)
+            if (!args.DamageIncreased)
+                return;
+
+            if (args.Origin == null || args.Origin == uid)
+                return;
+
+            if (!HasComp<MobStateComponent>(args.Origin) && !HasComp<DestructibleComponent>(args.Origin))
                 return;
 
             var engaged = EnsureComp<NPCCombatTargetComponent>(uid);
