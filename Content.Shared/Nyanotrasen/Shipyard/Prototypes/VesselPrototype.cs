@@ -59,7 +59,7 @@ namespace Content.Shared.Shipyard.Prototypes
         /// <summary>
         ///     The prototype name of the vessel.
         /// </summary>
-        [DataField("vessel", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
         public string Vessel { get; } = string.Empty;
 
         /// <summary>
