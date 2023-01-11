@@ -109,7 +109,14 @@ namespace Content.Server.NPC.Systems
             if (!Resolve(entity, ref component, false))
                 return Array.Empty<EntityUid>();
 
-            return GetNearbyFactions(entity, range, component.HostileFactions);
+            var targets = GetNearbyFactions(entity, range, component.HostileFactions);
+
+            if (TryComp<NPCCombatTargetComponent>(entity, out var targetComponent))
+            {
+                targets = targets.Union((IEnumerable<EntityUid>) targetComponent.EngagingEnemies);
+            }
+
+            return targets;
         }
 
         public IEnumerable<EntityUid> GetNearbyFriendlies(EntityUid entity, float range, FactionComponent? component = null)
