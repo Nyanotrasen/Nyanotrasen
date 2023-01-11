@@ -145,6 +145,7 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
         }
+        
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
             if (args.Session.AttachedEntity is not { Valid: true } player)
