@@ -9,3 +9,97 @@
       amount: 1
   products:
     Lean: 4
+
+- type: reaction
+  id: Margarita
+  reactants:
+    Tequila:
+      amount: 2
+    JuiceLime:
+      amount: 1
+    Ice:
+      amount: 1
+  products:
+    Margarita: 4
+
+- type: reaction
+  id: VodkaTonic
+  reactants:
+    Vodka:
+      amount: 2
+    TonicWater:
+      amount: 1
+  products:
+    VodkaTonic: 3
+
+- type: reaction
+  id: Manhattan
+  reactants:
+    Whiskey:
+      amount: 2
+    Vermouth:
+      amount: 1
+  products:
+    Manhattan: 3
+
+- type: reaction
+  id: WhiskeySoda
+  reactants:
+    Whiskey:
+      amount: 2
+    SodaWater:
+      amount: 1
+  products:
+    WhiskeySoda: 3
+
+- type: reaction
+  id: BahamaMama
+  reactants:
+    Rum:
+      amount: 1
+    Grenadine:
+      amount: 1
+    JuiceOrange:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+    Ice:
+      amount: 1
+  products:
+      BahamaMama: 5
+
+- type: reaction
+  id: AlliesCocktail
+  reactants:
+    Martini:
+      amount: 3
+    Nothing:
+      amount: 1
+  products:
+    AlliesCocktail: 4
+
+- type: reaction
+  id: SuiDream
+  reactants:
+    MelonLiquor:
+      amount: 2
+    BlueCuracao:
+      amount: 2
+    LemonLime:
+      amount: 1
+  products:
+    SuiDream: 5
+
+- type: reaction
+  id: SnowWhite
+  reactants:
+    Rum:
+      amount: 2
+    Egg:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+  products:
+    SnowWhite: 5
