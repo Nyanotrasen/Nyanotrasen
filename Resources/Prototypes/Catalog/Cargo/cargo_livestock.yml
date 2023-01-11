@@ -49,6 +49,16 @@
   group: market
 
 - type: cargoProduct
+  id: LivestockPibble
+  icon:
+    sprite: Mobs/Pets/walter.rsi
+    state: walter
+  product: CrateNPCPibble
+  cost: 700
+  category: Livestock
+  group: market
+
+- type: cargoProduct
   id: LivestockCorgi
   icon:
     sprite: Mobs/Pets/corgi.rsi

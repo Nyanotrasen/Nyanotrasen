@@ -48,6 +48,15 @@
         amount: 2
 
 - type: entity
+  id: CrateNPCPibble
+  parent: CrateLivestock
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobPibble
+        amount: 1
+
+- type: entity
   id: CrateNPCCorgi
   parent: CrateLivestock
   components:
