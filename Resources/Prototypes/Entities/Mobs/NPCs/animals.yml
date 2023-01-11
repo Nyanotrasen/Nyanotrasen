@@ -780,6 +780,11 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
+  - type: HTN
+    rootTask: EvadeCompound
+  - type: Faction
+    factions:
+    - RatPassive
 
 - type: entity
   parent: MobMouse

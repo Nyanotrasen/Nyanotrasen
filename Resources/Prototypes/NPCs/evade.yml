@@ -1,0 +1,18 @@
+# Tries to evade stuff that we are in combat with...
+- type: htnCompound
+  id: EvadeCompound
+  branches:
+    - tasks:
+        - id: PickEvasionPathPrimitive
+        - id: MoveToAccessiblePrimitive
+      preconditions:
+        - !type:PassesWhitelistPrecondition
+          whitelist:
+            components:
+              - NPCCombatTarget
+
+- type: htnPrimitive
+  id: PickEvasionPathPrimitive
+  operator: !type:PickEvasionPathOperator
+    rangeKey: FollowCloseRange
+    targetKey: MovementTarget

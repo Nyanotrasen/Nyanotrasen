@@ -49,6 +49,11 @@ public sealed class RangedOperator : HTNOperator
         base.Startup(blackboard);
         var ranged = _entManager.EnsureComponent<NPCRangedCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
         ranged.Target = blackboard.GetValue<EntityUid>(TargetKey);
+        if (ranged.Target.IsValid())
+        {
+            var targetComp = _entManager.EnsureComponent<NPCCombatTargetComponent>(ranged.Target);
+            targetComp.EngagingEnemies.Add(ranged.Owner);
+        }
 
         if (blackboard.TryGetValue<float>(NPCBlackboard.RotateSpeed, out var rotSpeed, _entManager))
         {
@@ -64,7 +69,20 @@ public sealed class RangedOperator : HTNOperator
     public override void Shutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
     {
         base.Shutdown(blackboard, status);
-        _entManager.RemoveComponent<NPCRangedCombatComponent>(blackboard.GetValue<EntityUid>(NPCBlackboard.Owner));
+        var mob = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        _entManager.RemoveComponent<NPCRangedCombatComponent>(mob);
+
+        var target = blackboard.GetValue<EntityUid>(TargetKey);
+
+        if (_entManager.TryGetComponent<NPCCombatTargetComponent>(target, out var targetComp))
+        {
+            targetComp.EngagingEnemies.Remove(mob);
+            if (targetComp.EngagingEnemies.Count == 0)
+            {
+                _entManager.RemoveComponent<NPCCombatTargetComponent>(target);
+            }
+        }
+
         blackboard.Remove<EntityUid>(TargetKey);
     }
 
