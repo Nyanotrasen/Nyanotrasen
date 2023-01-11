@@ -38986,7 +38986,7 @@ entities:
   - pos: 12.5,-24.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -307897.66
+  - SecondsUntilStateChange: -308732.84
     state: Opening
     type: Door
 - uid: 310
@@ -40336,9 +40336,12 @@ entities:
     parent: 0
     type: Transform
 - uid: 528
-  type: WallReinforced
+  type: WindoorSecurityLocked
   components:
-  - pos: -7.5,-28.5
+  - name: referee booth
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: -7.5,-27.5
     parent: 0
     type: Transform
 - uid: 529
@@ -40878,9 +40881,9 @@ entities:
     id: Security Lower Hall
     type: SurveillanceCamera
 - uid: 609
-  type: AirlockArmoryLocked
+  type: AirlockSecurityLocked
   components:
-  - pos: -5.5,-34.5
+  - pos: -1.5,-32.5
     parent: 0
     type: Transform
 - uid: 610
@@ -41136,10 +41139,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 650
-  type: WindowReinforcedDirectional
+  type: RandomDrinkGlass
   components:
-  - rot: 3.141592653589793 rad
-    pos: -6.5,-29.5
+  - pos: -6.5,-31.5
     parent: 0
     type: Transform
 - uid: 651
@@ -41594,9 +41596,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 719
-  type: AirlockArmoryLocked
+  type: AirlockSecurityLocked
   components:
-  - pos: -1.5,-32.5
+  - pos: -5.5,-34.5
     parent: 0
     type: Transform
 - uid: 720
@@ -42939,7 +42941,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186311.72
+  - SecondsUntilStateChange: -187146.92
     state: Closing
     type: Door
   - airBlocked: False
@@ -44048,7 +44050,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186311.72
+  - SecondsUntilStateChange: -187146.92
     state: Closing
     type: Door
   - airBlocked: False
@@ -44088,7 +44090,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186309.22
+  - SecondsUntilStateChange: -187144.42
     state: Closing
     type: Door
   - airBlocked: False
@@ -44110,7 +44112,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186309.22
+  - SecondsUntilStateChange: -187144.42
     state: Closing
     type: Door
   - airBlocked: False
@@ -48659,9 +48661,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 1817
-  type: RandomDrinkGlass
+  type: PlasmaReinforcedWindowDirectional
   components:
-  - pos: -6.5,-29.5
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-28.5
     parent: 0
     type: Transform
 - uid: 1818
@@ -52676,7 +52679,7 @@ entities:
   - pos: 27.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -308033.6
+  - SecondsUntilStateChange: -308868.78
     state: Opening
     type: Door
   - inputs:
@@ -52694,7 +52697,7 @@ entities:
   - pos: 27.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -308033.6
+  - SecondsUntilStateChange: -308868.78
     state: Opening
     type: Door
   - inputs:
@@ -52712,7 +52715,7 @@ entities:
   - pos: 27.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -308033.6
+  - SecondsUntilStateChange: -308868.78
     state: Opening
     type: Door
   - inputs:
@@ -52730,7 +52733,7 @@ entities:
   - pos: 27.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -308033.6
+  - SecondsUntilStateChange: -308868.78
     state: Opening
     type: Door
   - inputs:
@@ -52748,7 +52751,7 @@ entities:
   - pos: 27.5,-38.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -308033.6
+  - SecondsUntilStateChange: -308868.78
     state: Opening
     type: Door
   - inputs:
@@ -60872,10 +60875,10 @@ entities:
     id: Creature Holding Cell 1
     type: SurveillanceCamera
 - uid: 3756
-  type: PlasmaReinforcedWindowDirectional
+  type: ChairFolding
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -6.5,-27.5
+  - rot: 3.141592653589793 rad
+    pos: -7.5,-28.5
     parent: 0
     type: Transform
 - uid: 3757
@@ -66311,7 +66314,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -205241.06
+  - SecondsUntilStateChange: -206076.27
     state: Closing
     type: Door
   - airBlocked: False
@@ -81256,7 +81259,7 @@ entities:
   - pos: 48.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -89327,7 +89330,7 @@ entities:
   - pos: 53.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -324418.34
+  - SecondsUntilStateChange: -325253.53
     state: Closing
     type: Door
   - enabled: False
@@ -89351,7 +89354,7 @@ entities:
   - pos: 54.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -324418.34
+  - SecondsUntilStateChange: -325253.53
     state: Closing
     type: Door
   - enabled: False
@@ -89459,7 +89462,7 @@ entities:
   - pos: 53.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -324421.97
+  - SecondsUntilStateChange: -325257.16
     state: Closing
     type: Door
   - enabled: False
@@ -89483,7 +89486,7 @@ entities:
   - pos: 54.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -324421.97
+  - SecondsUntilStateChange: -325257.16
     state: Closing
     type: Door
   - enabled: False
@@ -113725,7 +113728,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186316.5
+  - SecondsUntilStateChange: -187151.7
     state: Closing
     type: Door
   - airBlocked: False
@@ -113749,7 +113752,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -186316.5
+  - SecondsUntilStateChange: -187151.7
     state: Closing
     type: Door
   - airBlocked: False
@@ -149125,9 +149128,10 @@ entities:
   - color: '#0335FCFF'
     type: AtmosPipeColor
 - uid: 16123
-  type: Grille
+  type: PlasmaReinforcedWindowDirectional
   components:
-  - pos: -6.5,-28.5
+  - rot: 1.5707963267948966 rad
+    pos: -8.5,-27.5
     parent: 0
     type: Transform
 - uid: 16124
@@ -167853,9 +167857,12 @@ entities:
     parent: 0
     type: Transform
 - uid: 18597
-  type: PlasmaReinforcedWindowDirectional
+  type: WindoorSecurityLocked
   components:
-  - pos: -6.5,-26.5
+  - name: referee booth
+    type: MetaData
+  - rot: 3.141592653589793 rad
+    pos: -6.5,-29.5
     parent: 0
     type: Transform
 - uid: 18598
@@ -168069,9 +168076,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 18633
-  type: WindowReinforcedDirectional
+  type: PlasmaReinforcedWindowDirectional
   components:
-  - pos: -6.5,-28.5
+  - rot: 1.5707963267948966 rad
+    pos: -8.5,-28.5
     parent: 0
     type: Transform
 - uid: 18634
@@ -199693,7 +199701,7 @@ entities:
   - pos: 47.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199711,7 +199719,7 @@ entities:
   - pos: 46.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199729,7 +199737,7 @@ entities:
   - pos: 38.5,-31.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199747,7 +199755,7 @@ entities:
   - pos: 38.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199765,7 +199773,7 @@ entities:
   - pos: 38.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199783,7 +199791,7 @@ entities:
   - pos: 38.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199801,7 +199809,7 @@ entities:
   - pos: 38.5,-35.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -199819,7 +199827,7 @@ entities:
   - pos: 38.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -39037.188
+  - SecondsUntilStateChange: -39872.395
     state: Opening
     type: Door
   - inputs:
@@ -200690,9 +200698,10 @@ entities:
     parent: 0
     type: Transform
 - uid: 23670
-  type: TableWood
+  type: PlasmaReinforcedWindowDirectional
   components:
-  - pos: -6.5,-29.5
+  - rot: -1.5707963267948966 rad
+    pos: -5.5,-27.5
     parent: 0
     type: Transform
 - uid: 23671
@@ -201050,25 +201059,21 @@ entities:
     id: Creature Holding Cell 4
     type: SurveillanceCamera
 - uid: 23720
-  type: WindoorSecurityLocked
+  type: CableApcExtension
   components:
-  - name: referee booth
-    type: MetaData
-  - pos: -7.5,-26.5
+  - pos: 9.5,-50.5
     parent: 0
     type: Transform
 - uid: 23721
-  type: PlasmaReinforcedWindowDirectional
+  type: CableApcExtension
   components:
-  - rot: 3.141592653589793 rad
-    pos: -6.5,-28.5
+  - pos: 16.5,-72.5
     parent: 0
     type: Transform
 - uid: 23722
-  type: PlasmaReinforcedWindowDirectional
+  type: CableApcExtension
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -7.5,-27.5
+  - pos: 15.5,-72.5
     parent: 0
     type: Transform
 - uid: 23723
@@ -201217,55 +201222,50 @@ entities:
 - uid: 23744
   type: CableApcExtension
   components:
-  - pos: 9.5,-50.5
+  - pos: 14.5,-72.5
     parent: 0
     type: Transform
 - uid: 23745
   type: CableApcExtension
   components:
-  - pos: 16.5,-72.5
+  - pos: 13.5,-72.5
     parent: 0
     type: Transform
 - uid: 23746
   type: CableApcExtension
   components:
-  - pos: 15.5,-72.5
+  - pos: -2.5,-72.5
     parent: 0
     type: Transform
 - uid: 23747
   type: CableApcExtension
   components:
-  - pos: 14.5,-72.5
+  - pos: -3.5,-72.5
     parent: 0
     type: Transform
 - uid: 23748
   type: CableApcExtension
   components:
-  - pos: 13.5,-72.5
+  - pos: -3.5,-73.5
     parent: 0
     type: Transform
 - uid: 23749
   type: CableApcExtension
   components:
-  - pos: -2.5,-72.5
+  - pos: -4.5,-73.5
     parent: 0
     type: Transform
 - uid: 23750
-  type: CableApcExtension
+  type: PlasmaReinforcedWindowDirectional
   components:
-  - pos: -3.5,-72.5
+  - rot: 3.141592653589793 rad
+    pos: -6.5,-27.5
     parent: 0
     type: Transform
 - uid: 23751
-  type: CableApcExtension
+  type: TableWood
   components:
-  - pos: -3.5,-73.5
-    parent: 0
-    type: Transform
-- uid: 23752
-  type: CableApcExtension
-  components:
-  - pos: -4.5,-73.5
+  - pos: -6.5,-31.5
     parent: 0
     type: Transform
 ...
