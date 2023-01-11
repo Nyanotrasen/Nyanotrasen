@@ -14,5 +14,14 @@
 - type: htnPrimitive
   id: PickEvasionPathPrimitive
   operator: !type:PickEvasionPathOperator
-    rangeKey: FollowCloseRange
+    rangeKey: FollowRange
     targetKey: MovementTarget
+
+
+- type: htnCompound
+  id: IdleEvadeCompound
+  branches:
+    - tasks:
+        - id: EvadeCompound
+    - tasks:
+        - id: IdleCompound

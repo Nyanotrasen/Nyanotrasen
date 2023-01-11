@@ -76,19 +76,14 @@ public sealed class PickEvasionPathOperator : HTNOperator
         if (maxRange == 0f)
             maxRange = 7f;
 
-
         var vector = enemyXform.Coordinates.Position - ourXform.Coordinates.Position;
-        vector = vector.Normalized * 10f;
+        vector = vector.Normalized * 40f;
         vector = new Vector2(-vector.X, -vector.Y);
 
-        Logger.Error("Current coords: " + ourXform.Coordinates);
         var targetPos = ourXform.Coordinates.Offset(vector);
-
-        Logger.Error("Attempting to navigate to " + targetPos);
 
         var path = await _pathfinding.GetPath(owner, ourXform.Coordinates, targetPos, maxRange, cancelToken);
 
-        Logger.Error("Path is valid: " + (path.Result == PathResult.Path));
 
         if (path.Result != PathResult.Path)
         {
