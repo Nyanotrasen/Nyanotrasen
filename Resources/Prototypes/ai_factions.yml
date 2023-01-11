@@ -81,3 +81,13 @@
   - RatPassive
   - RatHostile
   - SimpleHostile
+
+- type: faction
+  id: Pibble #Enhances the 'pet' faction
+  hostile:
+  - Cat
+  - RatPassive
+  - Mailman
+
+- type: faction
+  id: Mailman

@@ -50,6 +50,12 @@ public sealed class InteractionPopupComponent : Component
     public float SuccessChance = 1.0f; // Always succeed, unless specified otherwise on the yaml prototype.
 
     /// <summary>
+    /// Whether a mob should turn hostile on fail.
+    /// </summary>
+    [DataField("hostileOnFail")]
+    public bool HostileOnFail = false;
+
+    /// <summary>
     /// If set, shows a message to all surrounding players but NOT the current player.
     /// </summary>
     [DataField("messagePerceivedByOthers")]
