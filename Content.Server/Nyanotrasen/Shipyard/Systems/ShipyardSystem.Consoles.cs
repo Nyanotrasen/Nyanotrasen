@@ -172,6 +172,7 @@ namespace Content.Server.Shipyard.Systems
         {
             SoundSystem.Play(component.ErrorSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
         }
+        
         private void PlayConfirmSound(EntityUid uid, SharedShipyardConsoleComponent component)
         {
             SoundSystem.Play(component.ConfirmSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
