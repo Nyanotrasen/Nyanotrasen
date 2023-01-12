@@ -36,9 +36,9 @@
       - state: prisoner
 
 - type: entity
-  id: SpawnPointLocationFugitive
+  id: SpawnPointLocationMidRoundAntag
   name: possible spawn location
-  suffix: Fugitive
+  suffix: MidRoundAntag
   parent: MarkerBase
   components:
   - type: Sprite
@@ -46,7 +46,7 @@
     layers:
       - state: green
       - state: prisoner
-  - type: FugitiveSpawnLocation
+  - type: MidRoundAntagSpawnLocation
 
 - type: entity
   id: SpawnPointGhostVampSpider
