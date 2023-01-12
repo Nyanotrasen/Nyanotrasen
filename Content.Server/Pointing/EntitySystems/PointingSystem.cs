@@ -82,6 +82,9 @@ namespace Content.Server.Pointing.EntitySystems
             }
 
             _replay.QueueReplayMessage(new PopupEntityEvent(viewerMessage, PopupType.Small, source));
+
+            var ev = new PointedEvent(source, pointed);
+            RaiseLocalEvent(source, ref ev, false);
         }
 
         public bool InRange(EntityUid pointer, EntityCoordinates coordinates)
@@ -286,4 +289,12 @@ namespace Content.Server.Pointing.EntitySystems
             Del(component.Owner);
         }
     }
+
+    /// <summary>
+    /// Event raised on a server's clients when the point value of the server is changed.
+    /// </summary>
+    /// <param name="Pointer"></param>
+    /// <param name="Target"></param>
+    [ByRefEvent]
+    public readonly record struct PointedEvent(EntityUid Pointer, EntityUid Target);
 }

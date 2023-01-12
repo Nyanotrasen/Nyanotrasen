@@ -2259,3 +2259,193 @@ Entries:
     type: Fix
   id: 264
   time: '2023-01-10T03:41:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added CPR.
+    type: Add
+  - message: Helping people up works again.
+    type: Fix
+  id: 265
+  time: '2023-01-10T19:47:42.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat servant attack range from 1.5m to 1m.
+    type: Tweak
+  - message: Rat servant attack damage from 5 slash 3 piercing to 4 slash 2 piercing.
+    type: Tweak
+  - message: Added new AI factions for rats and cats.
+    type: Add
+  - message: Cats are now always hostile to rats.
+    type: Add
+  - message: A bunch of other factions that weren't hostile before are now hostile
+      to either passive rats or all rats.
+    type: Add
+  id: 266
+  time: '2023-01-10T21:54:41.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Borgs have lost a few particular accesses before we get a Butlerian jihad.
+    type: Remove
+  - message: Cancer Mouse has a built in radio so he can soapbox more effectively.
+    type: Add
+  - message: CPR requires removing any outer clothing, like coats.
+    type: Tweak
+  - message: Non-medically trained people can crack the sternum during CPR. The chance
+      scales off of relative mass.
+    type: Tweak
+  - message: Medipens will no longer go through hardsuits.
+    type: Tweak
+  - message: Fixed knocking.
+    type: Fix
+  - message: Ghosts can see binary chat.
+    type: Fix
+  - message: Spiders can no longer spin webs from inside containers.
+    type: Fix
+  id: 267
+  time: '2023-01-10T22:07:12.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - message: Added slimmer, trimmer arena on Arena Station
+    type: Add
+  - message: Unlocks gladiator lounge and arena area. Gladiators no longer confined
+      to cell on round start.
+    type: Add
+  - message: Added better viewing areas for arena fans to watch. Can now see entire
+      fighting pit.
+    type: Add
+  - message: Added live ducks!
+    type: Add
+  id: 268
+  time: '2023-01-11T02:04:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Cats will chase mice now.
+    type: Add
+  - message: Rats won't chase too far from the rat king.
+    type: Tweak
+  id: 269
+  time: '2023-01-11T02:06:02.0000000+00:00'
+- author: ZeroDayDaemon
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  id: 270
+  time: '2023-01-11T04:16:30.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+  - message: Added a Brief command for admins, allowing transferring to and from a
+      mob of choice with a custom outfit and name.
+    type: Add
+  id: 271
+  time: '2023-01-11T16:57:25.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added recipes for some mixed drinks, as well as giving them ethanol content.
+    type: Add
+  id: 272
+  time: '2023-01-11T17:58:39.0000000+00:00'
+- author: EmoGarbage404
+  changes:
+  - message: Refactored research.
+    type: Fix
+  - message: Added technology disks.
+    type: Add
+  id: 273
+  time: '2023-01-11T18:21:35.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Pibble gaming
+    type: Add
+  id: 274
+  time: '2023-01-11T19:38:53.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Welding doors makes it so that rats and such cannot walk under them.
+    type: Add
+  id: 275
+  time: '2023-01-11T19:44:45.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Added a pitbull crate.
+    type: Add
+  id: 276
+  time: '2023-01-11T22:58:29.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Rat king can now point at a target to have their servants attack it.
+    type: Add
+  id: 277
+  time: '2023-01-12T00:00:02.0000000+00:00'
+- author: Rane
+  changes:
+  - message: You can cuff monkeys.
+    type: Fix
+  - message: Rat king will not open doors when he bumps into them.
+    type: Fix
+  - message: Fixed bugged price for bluespace.
+    type: Fix
+  id: 278
+  time: '2023-01-12T00:32:39.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Merged upstream.
+    type: Add
+  id: 279
+  time: '2023-01-12T01:45:35.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Midround antags should no longer be unusually common.
+    type: Tweak
+  - message: Midround antags will no longer spawn below 12 players.
+    type: Tweak
+  - message: Midround antags will no longer spawn within less than 5 minutes of each
+      other.
+    type: Tweak
+  id: 280
+  time: '2023-01-12T02:08:15.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Livestock crates and closets/lockers except the freezer are no longer
+      airtight.
+    type: Fix
+  id: 281
+  time: '2023-01-12T18:20:37.0000000+00:00'
+- author: Rane
+  changes:
+  - message: 'EXPERIMENTAL CHANGE: All alert levels use the same emergency shuttle
+      time.'
+    type: Tweak
+  id: 282
+  time: '2023-01-12T18:38:09.0000000+00:00'
+- author: CharcoalGungan
+  changes:
+  - message: Added Arrow Shuttle
+    type: Add
+  id: 283
+  time: '2023-01-12T18:45:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed cloning zombies.
+    type: Fix
+  id: 284
+  time: '2023-01-12T19:01:30.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Nuke operatives no longer receive station mail.
+    type: Fix
+  id: 285
+  time: '2023-01-12T19:01:46.0000000+00:00'
+- author: Rane
+  changes:
+  - message: The scream popup is now better integrated.
+    type: Fix
+  id: 286
+  time: '2023-01-12T19:18:42.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: You can now buy crewmate crates with 5 small amongs.
+    type: Add
+  id: 287
+  time: '2023-01-12T19:27:40.0000000+00:00'

@@ -63,6 +63,8 @@
       types:
         Piercing: 5
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: bee
@@ -143,8 +145,6 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -348,6 +348,8 @@
   - type: NoSlip
   - type: MobPrice
     price: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: cow
@@ -409,7 +411,6 @@
       path: /Audio/Animals/cow_moo.ogg
   - type: Perishable
     molsPerSecondPerUnitMass: 0.0015
-
 
 - type: entity
   name: crab
@@ -635,8 +636,6 @@
         Blunt: 10
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -780,6 +779,11 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - RatPassive
 
 - type: entity
   parent: MobMouse
@@ -976,6 +980,8 @@
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
     bloodMaxVolume: 50
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -1026,6 +1032,8 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: NoSlip
+  - type: HTN
+    rootTask: IdleEvadeCompound
 
 - type: entity
   name: penguin
@@ -1081,8 +1089,6 @@
     baseSprintSpeed : 5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Syndicate
@@ -1260,8 +1266,6 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: HTN
-      rootTask: SimpleHostileCompound
     - type: GhostTakeoverAvailable
       makeSentient: true
       whitelistRequired: false
@@ -1431,6 +1435,9 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corgi
@@ -1492,6 +1499,9 @@
   - type: MobPrice
     price: 200
   - type: DogVision
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: corrupted corgi
@@ -1526,8 +1536,6 @@
         Slash: 5
   - type: InputMover
   - type: MobMover
-  - type: HTN
-    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - SimpleHostile
@@ -1614,6 +1622,16 @@
       - MobMask
       layer:
       - MobLayer
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
   - type: Appearance
   - type: Inventory
     speciesId: cat
@@ -1648,6 +1666,9 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: Faction
+    factions:
+    - Cat
 
 - type: entity
   name: calico cat
@@ -1958,6 +1979,11 @@
   - type: CanEscapeInventory
   - type: MobPrice
     price: 60
+  - type: HTN
+    rootTask: IdleEvadeCompound
+  - type: Faction
+    factions:
+    - Pet
 
 - type: entity
   name: pig

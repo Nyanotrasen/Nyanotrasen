@@ -1,12 +1,9 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Audio;
 using Content.Shared.DragDrop;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Database;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -14,9 +11,8 @@ using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Stunnable
 {
@@ -29,6 +25,7 @@ namespace Content.Shared.Stunnable
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         /// <summary>
         /// Friction modifier for knocked down players.
@@ -55,7 +52,6 @@ namespace Content.Shared.Stunnable
             SubscribeLocalEvent<KnockedDownComponent, ComponentHandleState>(OnKnockHandleState);
 
             // helping people up if they're knocked down
-            SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
             SubscribeLocalEvent<SlowedDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
             SubscribeLocalEvent<KnockedDownComponent, TileFrictionEvent>(OnKnockedTileFriction);
@@ -94,7 +90,7 @@ namespace Content.Shared.Stunnable
 
         private void OnKnockGetState(EntityUid uid, KnockedDownComponent component, ref ComponentGetState args)
         {
-            args.State = new KnockedDownComponentState(component.HelpInterval, component.HelpTimer);
+            args.State = new KnockedDownComponentState(component.HelpInterval, component.NextHelp);
         }
 
         private void OnKnockHandleState(EntityUid uid, KnockedDownComponent component, ref ComponentHandleState args)
@@ -102,7 +98,7 @@ namespace Content.Shared.Stunnable
             if (args.Current is KnockedDownComponentState state)
             {
                 component.HelpInterval = state.HelpInterval;
-                component.HelpTimer = state.HelpTimer;
+                component.NextHelp = state.NextHelp;
             }
         }
 
@@ -217,23 +213,18 @@ namespace Content.Shared.Stunnable
             return false;
         }
 
-        private void OnInteractHand(EntityUid uid, KnockedDownComponent knocked, InteractHandEvent args)
+        public void TryHelpUp(EntityUid uid, KnockedDownComponent knocked, EntityUid user)
         {
-            if (args.Handled || knocked.HelpTimer > 0f)
-                return;
-
-            // TODO: This should be an event.
-            if (HasComp<SleepingComponent>(uid))
+            if (knocked.NextHelp != null && _timing.CurTime < knocked.NextHelp)
                 return;
 
             // Set it to half the help interval so helping is actually useful...
-            knocked.HelpTimer = knocked.HelpInterval/2f;
+            knocked.NextHelp = _timing.CurTime + TimeSpan.FromSeconds(knocked.HelpInterval/2f);
 
             _statusEffectSystem.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
-            _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
+            _statusEffectSystem.TryRemoveTime(uid, "Stun", TimeSpan.FromSeconds(knocked.HelpInterval));
+            _audio.PlayPvs(knocked.StunAttemptSound, uid);
             Dirty(knocked);
-
-            args.Handled = true;
         }
 
         private void OnKnockedTileFriction(EntityUid uid, KnockedDownComponent component, ref TileFrictionEvent args)

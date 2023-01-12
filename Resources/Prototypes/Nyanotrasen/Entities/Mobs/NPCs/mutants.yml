@@ -195,7 +195,7 @@
   components:
     - type: Faction
       factions:
-        - Xeno
+        - SimpleHostile
     - type: InputMover
     - type: MobMover
     - type: HTN
@@ -339,3 +339,12 @@
     attributes:
       proper: true
       gender: male
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Common

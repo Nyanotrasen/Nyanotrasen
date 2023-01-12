@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.NPC.Components;
+using Content.Shared.Inventory.Events;
+using Content.Shared.Clothing.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Systems
@@ -24,6 +26,8 @@ namespace Content.Server.NPC.Systems
             base.Initialize();
             _sawmill = Logger.GetSawmill("faction");
             SubscribeLocalEvent<FactionComponent, ComponentStartup>(OnFactionStartup);
+            SubscribeLocalEvent<ClothingAddFactionComponent, GotEquippedEvent>(OnEquipped);
+            SubscribeLocalEvent<ClothingAddFactionComponent, GotUnequippedEvent>(OnUnequipped);
             _protoManager.PrototypesReloaded += OnProtoReload;
             RefreshFactions();
         }
@@ -42,6 +46,33 @@ namespace Content.Server.NPC.Systems
         private void OnFactionStartup(EntityUid uid, FactionComponent component, ComponentStartup args)
         {
             RefreshFactions(component);
+        }
+
+        private void OnEquipped(EntityUid uid, ClothingAddFactionComponent component, GotEquippedEvent args)
+        {
+            if (!TryComp<ClothingComponent>(uid, out var clothing))
+                return;
+
+            if (!clothing.Slots.HasFlag(args.SlotFlags))
+                return;
+
+            if (!TryComp<FactionComponent>(args.Equipee, out var factionComponent))
+                return;
+
+            if (factionComponent.Factions.Contains(component.Faction))
+                return;
+
+            component.IsActive = true;
+            AddFaction(args.Equipee, component.Faction);
+        }
+
+        private void OnUnequipped(EntityUid uid, ClothingAddFactionComponent component, GotUnequippedEvent args)
+        {
+            if (!component.IsActive)
+                return;
+
+            component.IsActive = false;
+            RemoveFaction(args.Equipee, component.Faction);
         }
 
         /// <summary>
@@ -109,7 +140,14 @@ namespace Content.Server.NPC.Systems
             if (!Resolve(entity, ref component, false))
                 return Array.Empty<EntityUid>();
 
-            return GetNearbyFactions(entity, range, component.HostileFactions);
+            var targets = GetNearbyFactions(entity, range, component.HostileFactions);
+
+            if (TryComp<NPCCombatTargetComponent>(entity, out var targetComponent))
+            {
+                targets = targets.Union((IEnumerable<EntityUid>) targetComponent.EngagingEnemies);
+            }
+
+            return targets;
         }
 
         public IEnumerable<EntityUid> GetNearbyFriendlies(EntityUid entity, float range, FactionComponent? component = null)

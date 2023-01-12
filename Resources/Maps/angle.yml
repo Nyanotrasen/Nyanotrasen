@@ -9930,7 +9930,7 @@ entities:
       19,-58: 0
       19,-57: 0
       19,-56: 0
-      19,-55: 0
+      19,-55: 5
       19,-54: 0
       19,-53: 0
       20,-64: 0
@@ -11884,8 +11884,8 @@ entities:
       18,-104: 0
       18,-103: 0
       18,-102: 0
-      18,-101: 5
-      18,-100: 5
+      18,-101: 6
+      18,-100: 6
       18,-99: 0
       18,-98: 0
       18,-97: 0
@@ -12972,7 +12972,7 @@ entities:
       1,-90: 0
       1,-89: 0
       1,-88: 0
-      1,-87: 6
+      1,-87: 7
       2,-96: 0
       2,-95: 0
       2,-94: 0
@@ -12992,7 +12992,7 @@ entities:
       3,-90: 0
       3,-89: 0
       3,-88: 0
-      3,-87: 7
+      3,-87: 8
       4,-96: 0
       4,-95: 0
       4,-94: 0
@@ -13162,8 +13162,8 @@ entities:
       -1,-87: 0
       32,-97: 0
       33,-97: 0
-      3,-86: 7
-      3,-85: 7
+      3,-86: 8
+      3,-85: 8
       4,-86: 0
       4,-85: 0
       4,-84: 0
@@ -14260,11 +14260,11 @@ entities:
       79,-57: 0
       79,-51: 0
       0,-86: 0
-      1,-86: 6
+      1,-86: 7
       2,-86: 0
       -1,-86: 0
       0,-85: 0
-      1,-85: 6
+      1,-85: 7
       2,-85: 0
       -1,-85: 0
       -1,-84: 0
@@ -15613,8 +15613,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -15628,8 +15628,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -15645,6 +15645,21 @@ entities:
       moles:
       - 0
       - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 21.213781
+      - 79.80423
       - 0
       - 0
       - 0
@@ -17035,15 +17050,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 212
-  type: DrinkIceCreamGlass
+  type: FoodMealNachosCheesy
   components:
-  - pos: 13.342478,5.9111958
+  - pos: 13.512857,4.613929
     parent: 9
     type: Transform
 - uid: 213
-  type: DrinkRootBeerFloatGlass
+  type: d20Dice
   components:
-  - pos: 9.873539,4.7854137
+  - pos: 17.739035,3.4716766
     parent: 9
     type: Transform
 - uid: 214
@@ -78488,7 +78503,7 @@ entities:
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 9550
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 31.5,2.5
     parent: 9
@@ -81965,7 +81980,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 9955
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 74.5,-30.5
     parent: 9
@@ -93780,6 +93795,12 @@ entities:
   - pos: 69.5,-11.5
     parent: 9
     type: Transform
+- uid: 11444
+  type: RandomDrinkGlass
+  components:
+  - pos: 10.5,4.5
+    parent: 9
+    type: Transform
 - uid: 11445
   type: Catwalk
   components:
@@ -99726,9 +99747,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 12347
-  type: FoodCakeChristmas
+  type: RandomFoodBakedWhole
   components:
-  - pos: 6.51026,-2.481748
+  - pos: 6.5,-2.5
     parent: 9
     type: Transform
 - uid: 12348
@@ -100350,9 +100371,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 12440
-  type: FoodSoupVegetable
+  type: RandomDrinkGlass
   components:
-  - pos: 6.519236,-0.34557325
+  - pos: 7.5,4.5
     parent: 9
     type: Transform
 - uid: 12441
@@ -100452,9 +100473,9 @@ entities:
   - color: '#000000FF'
     type: AtmosPipeColor
 - uid: 12455
-  type: FoodSoupStew
+  type: CrateNPCPibble
   components:
-  - pos: 6.644236,-0.7312576
+  - pos: 19.5,-54.5
     parent: 9
     type: Transform
 - uid: 12456
@@ -104167,7 +104188,7 @@ entities:
 - uid: 12903
   type: DogBed
   components:
-  - pos: 19.5,-54.5
+  - pos: 17.5,-55.5
     parent: 9
     type: Transform
 - uid: 12904
@@ -104443,6 +104464,12 @@ entities:
   - pos: 64.5,-11.5
     parent: 9
     type: Transform
+- uid: 12949
+  type: RandomAnimalSpawner
+  components:
+  - pos: 19.5,8.5
+    parent: 9
+    type: Transform
 - uid: 12950
   type: CrateEmptySpawner
   components:
@@ -104569,9 +104596,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 12969
-  type: SpawnMobWalter
+  type: RandomDrinkGlass
   components:
-  - pos: 19.5,-54.5
+  - pos: 12.5,4.5
     parent: 9
     type: Transform
 - uid: 12970
@@ -106544,9 +106571,9 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 13266
-  type: SpawnMobCatGeneric
+  type: Paper
   components:
-  - pos: 19.5,8.5
+  - pos: 52.343777,-40.52731
     parent: 9
     type: Transform
 - uid: 13267
@@ -107154,6 +107181,13 @@ entities:
   - pos: 12.5,-53.5
     parent: 9
     type: Transform
+- uid: 13359
+  type: Mirror
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -9.5,-36.5
+    parent: 9
+    type: Transform
 - uid: 13360
   type: GasPipeStraight
   components:
@@ -107163,6 +107197,12 @@ entities:
     type: Transform
   - color: '#000000FF'
     type: AtmosPipeColor
+- uid: 13361
+  type: ToolboxMechanicalFilled
+  components:
+  - pos: 48.612694,-28.6555
+    parent: 9
+    type: Transform
 - uid: 13362
   type: Floodlight
   components:
@@ -107300,6 +107340,30 @@ entities:
   - pos: -5.590145,-35.465317
     parent: 9
     type: Transform
+- uid: 13382
+  type: Multitool
+  components:
+  - pos: 48.300194,-28.457445
+    parent: 9
+    type: Transform
+- uid: 13383
+  type: Paper
+  components:
+  - pos: 52.343777,-40.423073
+    parent: 9
+    type: Transform
+- uid: 13384
+  type: Paper
+  components:
+  - pos: 52.343777,-40.360527
+    parent: 9
+    type: Transform
+- uid: 13385
+  type: Paper
+  components:
+  - pos: 43.91779,-29.537008
+    parent: 9
+    type: Transform
 - uid: 13386
   type: FoodFrozenPopsicleJumbo
   components:
@@ -107325,9 +107389,9 @@ entities:
     id: exterior 3
     type: SurveillanceCamera
 - uid: 13389
-  type: DrinkWhiskeyGlass
+  type: Paper
   components:
-  - pos: 7.6966605,4.610201
+  - pos: 43.69904,-29.432768
     parent: 9
     type: Transform
 - uid: 13390
@@ -107337,9 +107401,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 13391
-  type: FoodCakeChristmasSlice
+  type: Paper
   components:
-  - pos: 13.51956,5.5567827
+  - pos: 43.428207,-29.56828
     parent: 9
     type: Transform
 - uid: 13392
@@ -109126,9 +109190,9 @@ entities:
     type: Transform
   - type: ActiveEmergencyLight
 - uid: 13652
-  type: HyperlinkBookAlerts
+  type: DrinkHoochGlass
   components:
-  - pos: 52.35748,-40.254547
+  - pos: 13.722408,8.800927
     parent: 9
     type: Transform
 - uid: 13653
@@ -120216,12 +120280,6 @@ entities:
   - pos: 4.259535,-22.363369
     parent: 9
     type: Transform
-- uid: 15380
-  type: HyperlinkBookShuttle
-  components:
-  - pos: 81.75233,-79.3787
-    parent: 9
-    type: Transform
 - uid: 15381
   type: RandomPosterLegit
   components:
@@ -124584,67 +124642,67 @@ entities:
     type: Transform
   - type: ActiveEmergencyLight
 - uid: 16005
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 34.5,-20.5
     parent: 9
     type: Transform
 - uid: 16006
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 35.5,-21.5
     parent: 9
     type: Transform
 - uid: 16007
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 57.5,5.5
     parent: 9
     type: Transform
 - uid: 16008
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 47.5,6.5
     parent: 9
     type: Transform
 - uid: 16009
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 55.5,3.5
     parent: 9
     type: Transform
 - uid: 16010
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 48.5,4.5
     parent: 9
     type: Transform
 - uid: 16011
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 17.5,11.5
     parent: 9
     type: Transform
 - uid: 16012
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: -6.5,-11.5
     parent: 9
     type: Transform
 - uid: 16013
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: -21.5,-62.5
     parent: 9
     type: Transform
 - uid: 16014
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 19.5,-50.5
     parent: 9
     type: Transform
 - uid: 16015
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 55.5,9.5
     parent: 9
@@ -128997,7 +129055,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 16698
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 47.5,12.5
     parent: 9
@@ -130885,13 +130943,13 @@ entities:
     parent: 9
     type: Transform
 - uid: 16983
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 1.5,-56.5
     parent: 9
     type: Transform
 - uid: 16984
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: 0.5,-71.5
     parent: 9
@@ -136456,13 +136514,13 @@ entities:
     parent: 9
     type: Transform
 - uid: 17809
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: -11.5,-1.5
     parent: 9
     type: Transform
 - uid: 17810
-  type: SpawnPointLocationFugitive
+  type: SpawnPointLocationMidRoundAntag
   components:
   - pos: -15.5,-5.5
     parent: 9

@@ -70,6 +70,6 @@ public sealed class AlertLevelDetail
     /// <summary>
     /// How long it takes for the shuttle to arrive when called.
     /// </summary>
-    [DataField("shuttleTime")] public TimeSpan ShuttleTime { get; } = TimeSpan.FromMinutes(7);
+    [DataField("shuttleTime")] public TimeSpan ShuttleTime { get; } = TimeSpan.FromMinutes(10);
 }
 

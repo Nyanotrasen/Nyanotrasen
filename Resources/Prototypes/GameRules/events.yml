@@ -109,15 +109,15 @@
         volume: -4
     startAfter: 30
 
-- type: gameRule
-  id: MouseMigration
-  config:
-    !type:StationEventRuleConfiguration
-    id: MouseMigration
-    earliestStart: 30
-    minimumPlayers: 35
-    weight: 5
-    endAfter: 50
+# - type: gameRule
+#   id: MouseMigration
+#   config:
+#     !type:StationEventRuleConfiguration
+#     id: MouseMigration
+#     earliestStart: 30
+#     minimumPlayers: 35
+#     weight: 5
+#     endAfter: 50
 
 - type: gameRule
   id: PowerGridCheck

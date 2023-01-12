@@ -280,6 +280,8 @@
     node: cratelivestock
     containers:
     - entity_storage
+  - type: EntityStorage
+    airtight: false
 
 - type: entity
   parent: CrateGeneric

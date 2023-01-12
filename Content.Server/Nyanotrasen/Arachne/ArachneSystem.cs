@@ -28,7 +28,6 @@ using Content.Server.Vampiric;
 using Content.Server.Speech.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
-using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -55,6 +54,7 @@ namespace Content.Server.Arachne
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
         private const string BodySlot = "body_slot";
 
@@ -249,6 +249,9 @@ namespace Content.Server.Arachne
         private void OnSpinWeb(SpinWebActionEvent args)
         {
             if (!TryComp<ArachneComponent>(args.Performer, out var arachne) || arachne.CancelToken != null)
+                return;
+
+            if (_containerSystem.IsEntityInContainer(args.Performer))
                 return;
 
             TryComp<HungerComponent>(args.Performer, out var hunger);

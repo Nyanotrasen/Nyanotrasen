@@ -15,6 +15,11 @@
         Blunt: 7.5
   - type: StaminaDamageOnHit
     damage: 8
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 4
   - type: Item
     size: 15
   - type: Clothing
