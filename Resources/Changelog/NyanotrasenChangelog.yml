@@ -2425,3 +2425,15 @@ Entries:
     type: Add
   id: 283
   time: '2023-01-12T18:45:30.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Fixed cloning zombies.
+    type: Fix
+  id: 284
+  time: '2023-01-12T19:01:30.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Nuke operatives no longer receive station mail.
+    type: Fix
+  id: 285
+  time: '2023-01-12T19:01:46.0000000+00:00'
