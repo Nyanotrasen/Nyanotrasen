@@ -36961,8 +36961,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -36991,8 +36991,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -38986,7 +38986,7 @@ entities:
   - pos: 12.5,-24.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320426.4
+  - SecondsUntilStateChange: -321367.9
     state: Opening
     type: Door
 - uid: 310
@@ -42942,7 +42942,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198840.48
+  - SecondsUntilStateChange: -199781.97
     state: Closing
     type: Door
   - airBlocked: False
@@ -44051,7 +44051,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198840.48
+  - SecondsUntilStateChange: -199781.97
     state: Closing
     type: Door
   - airBlocked: False
@@ -44091,7 +44091,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198837.98
+  - SecondsUntilStateChange: -199779.47
     state: Closing
     type: Door
   - airBlocked: False
@@ -44113,7 +44113,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198837.98
+  - SecondsUntilStateChange: -199779.47
     state: Closing
     type: Door
   - airBlocked: False
@@ -52684,7 +52684,7 @@ entities:
   - pos: 27.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320562.34
+  - SecondsUntilStateChange: -321503.84
     state: Opening
     type: Door
   - inputs:
@@ -52702,7 +52702,7 @@ entities:
   - pos: 27.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320562.34
+  - SecondsUntilStateChange: -321503.84
     state: Opening
     type: Door
   - inputs:
@@ -52720,7 +52720,7 @@ entities:
   - pos: 27.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320562.34
+  - SecondsUntilStateChange: -321503.84
     state: Opening
     type: Door
   - inputs:
@@ -52738,7 +52738,7 @@ entities:
   - pos: 27.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320562.34
+  - SecondsUntilStateChange: -321503.84
     state: Opening
     type: Door
   - inputs:
@@ -52756,7 +52756,7 @@ entities:
   - pos: 27.5,-38.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -320562.34
+  - SecondsUntilStateChange: -321503.84
     state: Opening
     type: Door
   - inputs:
@@ -66322,7 +66322,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -217769.83
+  - SecondsUntilStateChange: -218711.31
     state: Closing
     type: Door
   - airBlocked: False
@@ -81268,7 +81268,7 @@ entities:
   - pos: 48.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -89339,7 +89339,7 @@ entities:
   - pos: 53.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -336947.1
+  - SecondsUntilStateChange: -337888.6
     state: Closing
     type: Door
   - enabled: False
@@ -89363,7 +89363,7 @@ entities:
   - pos: 54.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -336947.1
+  - SecondsUntilStateChange: -337888.6
     state: Closing
     type: Door
   - enabled: False
@@ -89471,7 +89471,7 @@ entities:
   - pos: 53.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -336950.72
+  - SecondsUntilStateChange: -337892.22
     state: Closing
     type: Door
   - enabled: False
@@ -89495,7 +89495,7 @@ entities:
   - pos: 54.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -336950.72
+  - SecondsUntilStateChange: -337892.22
     state: Closing
     type: Door
   - enabled: False
@@ -98169,7 +98169,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 9350
-  type: RandomDrinkBottle
+  type: SpawnMobWalter
   components:
   - pos: -32.5,-29.5
     parent: 0
@@ -113737,7 +113737,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198845.27
+  - SecondsUntilStateChange: -199786.75
     state: Closing
     type: Door
   - airBlocked: False
@@ -113761,7 +113761,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -198845.27
+  - SecondsUntilStateChange: -199786.75
     state: Closing
     type: Door
   - airBlocked: False
@@ -193515,6 +193515,12 @@ entities:
   - pos: 28.506123,38.57786
     parent: 0
     type: Transform
+- uid: 22538
+  type: HyperlinkBookShuttle
+  components:
+  - pos: 10.174737,24.632778
+    parent: 0
+    type: Transform
 - uid: 22539
   type: HyperlinkBookBartending
   components:
@@ -199703,7 +199709,7 @@ entities:
   - pos: 47.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199721,7 +199727,7 @@ entities:
   - pos: 46.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199739,7 +199745,7 @@ entities:
   - pos: 38.5,-31.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199757,7 +199763,7 @@ entities:
   - pos: 38.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199775,7 +199781,7 @@ entities:
   - pos: 38.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199793,7 +199799,7 @@ entities:
   - pos: 38.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199811,7 +199817,7 @@ entities:
   - pos: 38.5,-35.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -199829,7 +199835,7 @@ entities:
   - pos: 38.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -51565.953
+  - SecondsUntilStateChange: -52507.434
     state: Opening
     type: Door
   - inputs:
@@ -201269,6 +201275,50 @@ entities:
   type: TableWood
   components:
   - pos: -6.5,-31.5
+    parent: 0
+    type: Transform
+- uid: 23752
+  type: DogBed
+  components:
+  - pos: -32.5,-29.5
+    parent: 0
+    type: Transform
+- uid: 23753
+  type: RandomDrinkBottle
+  components:
+  - pos: -38.5,-32.5
+    parent: 0
+    type: Transform
+- uid: 23754
+  type: ComputerTechnologyDiskTerminal
+  components:
+  - pos: 22.5,-56.5
+    parent: 0
+    type: Transform
+- uid: 23755
+  type: SignDirectionalSolar
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 28.5,44.5
+    parent: 0
+    type: Transform
+- uid: 23756
+  type: SignDirectionalSolar
+  components:
+  - pos: 18.5,-70.5
+    parent: 0
+    type: Transform
+- uid: 23757
+  type: SignDirectionalSolar
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -50.5,-32.5
+    parent: 0
+    type: Transform
+- uid: 23758
+  type: SignDirectionalSolar
+  components:
+  - pos: -50.5,-12.5
     parent: 0
     type: Transform
 ...
