@@ -38,6 +38,7 @@
       layer:
       - MachineLayer
   - type: EntityStorage
+    airtight: false
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container

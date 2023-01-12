@@ -170,6 +170,8 @@
   - type: ExplosionResistance
     resistance: 0.90
   - type: AntiRottingContainer
+  - type: EntityStorage
+    airtight: true
 
 # Botanist
 - type: entity
