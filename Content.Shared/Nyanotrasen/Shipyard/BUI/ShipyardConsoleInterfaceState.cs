@@ -7,6 +7,7 @@ public sealed class ShipyardConsoleInterfaceState : BoundUserInterfaceState
 {
     public int Balance;
     public readonly bool AccessGranted;
+
     public ShipyardConsoleInterfaceState(
         int balance,
         bool accessGranted)

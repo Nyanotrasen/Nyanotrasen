@@ -36,12 +36,4 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.Analyzers.targets" />
-  <ItemGroup>
-    <AdditionalFiles Update="Shipyard\UI\ShipyardConsoleMenu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AdditionalFiles>
-    <AdditionalFiles Update="Shipyard\UI\VesselRow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </AdditionalFiles>
-  </ItemGroup>
 </Project>

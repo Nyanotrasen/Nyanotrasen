@@ -46,17 +46,12 @@ namespace Content.Server.Shipyard.Systems
 
         private void Reset(RoundRestartCleanupEvent ev)
         {
-            Reset();
-        }
-
-        private void Reset()
-        {
-            //round cleanup event in case of needing OnInit;
+            //_shipyard.Shutdown(); //round cleanup event in case of needing OnInit;
         }
 
         public void OnPurchaseMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsolePurchaseMessage args)
         {
-            if (args.Session.AttachedEntity is not { Valid: true } player)
+            if (args.Session.AttachedEntity is not { Valid : true } player)
             {
                 return;
             }
@@ -145,10 +140,12 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
         }
+
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
-            if (args.Session.AttachedEntity is not { Valid: true } player)
+            if (!args.Session.AttachedEntity.HasValue)
                 return;
+
             var station = _station.GetOwningStation(component.Owner);
             var bank = GetBankAccount(station);
 
@@ -164,7 +161,8 @@ namespace Content.Server.Shipyard.Systems
 
         private void ConsolePopup(ICommonSession session, string text)
         {
-            _popup.PopupCursor(text, session);
+            if (session.AttachedEntity is { Valid : true } player)
+                _popup.PopupEntity(text, player);
         }
 
         private void PlayDenySound(EntityUid uid, SharedShipyardConsoleComponent component)
@@ -221,11 +219,12 @@ namespace Content.Server.Shipyard.Systems
             //Since this is station based for now, client UIs dont need to know
         }
 
-        // In the case that this uses a separate income pool than generic cargo
+        
         //public void DeductFunds(OtherBankAccountComponent component, int amount)
         //{
         //    component.Balance = Math.Max(0, component.Balance - amount);
-        //    //Dirty(component);
+        //    Dirty(component);
+        //    //In the case that this uses a separate income pool than generic cargo
         //}
 
         public StationBankAccountComponent? GetBankAccount(EntityUid? uid)

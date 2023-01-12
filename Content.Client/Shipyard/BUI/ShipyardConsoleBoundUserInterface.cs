@@ -1,12 +1,7 @@
 using Content.Client.Shipyard.UI;
-using Content.Client.Shipyard.Components;
 using Content.Shared.Shipyard.BUI;
 using Content.Shared.Shipyard.Events;
 using Robust.Client.GameObjects;
-using Robust.Client.Player;
-using Robust.Shared.Utility;
-using Robust.Shared.Prototypes;
-using static Content.Shared.Shipyard.Components.SharedShipyardConsoleComponent;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
 namespace Content.Client.Shipyard.BUI
@@ -31,8 +26,7 @@ namespace Content.Client.Shipyard.BUI
             //We are bringing the sprite manager along for the future so we can flair up the menu with some icons later too, im just bad at UI design
             var sysManager = _entityManager.EntitySysManager;
             var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
-            _menu = new ShipyardConsoleMenu(this, IoCManager.Resolve<IPrototypeManager>(), spriteSystem);
-            var description = new FormattedMessage();
+            _menu = new ShipyardConsoleMenu(this);
             _menu.OpenCentered();
             _menu.OnClose += Close;
             _menu.OnOrderApproved += ApproveOrder;

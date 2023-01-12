@@ -15,19 +15,19 @@ namespace Content.Client.Shipyard.UI
     [GenerateTypedNameReferences]
     public sealed partial class ShipyardConsoleMenu : FancyWindow
     {
-        private IPrototypeManager _protoManager;
-        private SpriteSystem _spriteSystem;
+        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly IPrototypeManager _protoManager = default!;
+
         public event Action<ButtonEventArgs>? OnOrderApproved;
         private readonly ShipyardConsoleBoundUserInterface _menu;
         private readonly List<string> _categoryStrings = new();
         private string? _category;
-        private readonly List<string> _accessList = new();
 
-        public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner, IPrototypeManager protoManager, SpriteSystem spriteSystem)
+        public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner)
         {
             RobustXamlLoader.Load(this);
-            _protoManager = protoManager;
-            _spriteSystem = spriteSystem;
+            var sysManager = _entityManager.EntitySysManager;
+            var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
             _menu = owner;
             Title = Loc.GetString("shipyard-console-menu-title");
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
@@ -122,7 +122,7 @@ namespace Content.Client.Shipyard.UI
 //            if (state.ShipDeedTitle != null)
 //            {
 //                DeedTitle.Text = state.ShipDeedTitle;
- //           }
+//            }
 
         }
     }
