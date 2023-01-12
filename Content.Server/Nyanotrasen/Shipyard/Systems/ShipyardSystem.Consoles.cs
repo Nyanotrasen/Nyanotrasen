@@ -95,14 +95,12 @@ namespace Content.Server.Shipyard.Systems
 
             _cargo.DeductFunds(bank, vessel.Price);
             PlayConfirmSound(uid, component);
-            var newDeed = EnsureComp<ShuttleDeedComponent>(bank.Owner);
 
             var newState = new ShipyardConsoleInterfaceState(
                 bank.Balance,
                 true);
 
-            _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
-            RegisterDeed(newDeed, shuttle);           
+            _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
         }
         
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
@@ -110,7 +108,7 @@ namespace Content.Server.Shipyard.Systems
             if (!args.Session.AttachedEntity.HasValue)
                 return;
 
-            var station = _station.GetOwningStation(component.Owner);
+            var station = _station.GetOwningStation(uid);
             var bank = GetBankAccount(station);
 
             if (bank == null)
@@ -120,7 +118,7 @@ namespace Content.Server.Shipyard.Systems
                 bank.Balance,
                 true);
 
-            _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
+            _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState);
         }
 
         private void ConsolePopup(ICommonSession session, string text)
@@ -159,13 +157,6 @@ namespace Content.Server.Shipyard.Systems
             return true;
         }
         
-        private void RegisterDeed(ShuttleDeedComponent deed, ShuttleComponent shuttle)
-        {
-            deed.ShuttleUid = shuttle.Owner;
-            //Dirty(deed); //done dirt cheap
-            //Since this is station based for now, client UIs dont need to know
-        }
-
         public StationBankAccountComponent? GetBankAccount(EntityUid? uid)
         {
             if (uid != null && TryComp<StationBankAccountComponent>(uid, out var bankAccount))
