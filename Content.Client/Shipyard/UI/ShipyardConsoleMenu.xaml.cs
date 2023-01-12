@@ -15,7 +15,6 @@ namespace Content.Client.Shipyard.UI
     [GenerateTypedNameReferences]
     public sealed partial class ShipyardConsoleMenu : FancyWindow
     {
-        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
         public event Action<ButtonEventArgs>? OnOrderApproved;
@@ -26,8 +25,7 @@ namespace Content.Client.Shipyard.UI
         public ShipyardConsoleMenu(ShipyardConsoleBoundUserInterface owner)
         {
             RobustXamlLoader.Load(this);
-            var sysManager = _entityManager.EntitySysManager;
-            var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
+            IoCManager.InjectDependencies(this);
             _menu = owner;
             Title = Loc.GetString("shipyard-console-menu-title");
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
@@ -117,13 +115,6 @@ namespace Content.Client.Shipyard.UI
         public void UpdateState(ShipyardConsoleInterfaceState state)
         {
             BankAccountLabel.Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", state.Balance.ToString()));
-
-//            SellShipButton.Disabled = state.ShipDeedTitle == null;
-//            if (state.ShipDeedTitle != null)
-//            {
-//                DeedTitle.Text = state.ShipDeedTitle;
-//            }
-
         }
     }
 }
