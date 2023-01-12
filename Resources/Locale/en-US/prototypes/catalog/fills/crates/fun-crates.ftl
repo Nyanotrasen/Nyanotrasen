@@ -1,6 +1,9 @@
 ent-CrateFunPlushie = Plushie crate
     .desc = A buncha soft plushies. Throw them around and then wonder how you're gonna explain this purchase to NT.
 
+ent-CrateFunCrewmates = Crewmate crate
+    .desc = A set of five crewmates, impostors not included. Or are they?
+
 ent-CrateFunInstruments = Big band instrument collection
     .desc = Get your sad station movin' and groovin' with this fine collection! Contains thirteen different instruments.
 

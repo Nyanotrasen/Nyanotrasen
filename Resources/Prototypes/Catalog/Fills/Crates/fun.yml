@@ -30,6 +30,15 @@
         amount: 1
 
 - type: entity
+  id: CrateFunCrewmates
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ToyAmongPequeno
+        amount: 5
+
+- type: entity
   id: CrateFunInstruments
   parent: CrateGenericSteel
   components:
