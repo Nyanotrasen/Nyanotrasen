@@ -5,7 +5,6 @@
     green:
       announcement: alert-level-green-announcement
       color: Green
-      shuttleTime: 900
     blue:
       announcement: alert-level-blue-announcement
       sound: /Audio/Misc/bluealert.ogg
@@ -15,19 +14,16 @@
       sound: /Audio/Misc/notice1.ogg
       color: Violet
       emergencyLightColor: Violet
-      shuttleTime: 900
     white:
       announcement: alert-level-white-announcement
       sound: /Audio/Misc/redalert.ogg
       emergencyLightColor: "#F6CCF6"
       color: White
-      shuttleTime: 900
     yellow:
       announcement: alert-level-yellow-announcement
       sound: /Audio/Misc/notice1.ogg
       color: Yellow
       emergencyLightColor: Goldenrod
-      shuttleTime: 600
     red:
       announcement: alert-level-red-announcement
       sound: /Audio/Misc/redalert.ogg
@@ -54,7 +50,6 @@
       color: DarkRed
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
@@ -66,4 +61,3 @@
       color: DarkViolet
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
