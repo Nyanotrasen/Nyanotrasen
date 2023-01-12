@@ -30,7 +30,6 @@ namespace Content.Client.Shipyard.UI
             Title = Loc.GetString("shipyard-console-menu-title");
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
-//            SellShipButton.OnPressed += (args) => { OnSellShip?.Invoke(args); };
         }
 
         private void OnCategoryItemSelected(OptionButton.ItemSelectedEventArgs args)

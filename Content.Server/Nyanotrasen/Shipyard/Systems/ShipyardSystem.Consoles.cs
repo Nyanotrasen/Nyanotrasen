@@ -1,5 +1,6 @@
 using Content.Server.Popups;
 using Content.Server.Cargo.Systems;
+using Content.Server.Cargo.Components;
 using Content.Server.Shipyard.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
@@ -8,15 +9,14 @@ using Content.Shared.Shipyard.Events;
 using Content.Shared.Shipyard.BUI;
 using Content.Shared.Shipyard.Prototypes;
 using Content.Shared.Shipyard.Components;
-using Content.Server.Cargo.Components;
+using Content.Shared.Access.Systems;
+using Content.Shared.Access.Components;
+using Content.Shared.Shipyard;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
-using Content.Shared.Access.Systems;
-using Content.Shared.Access.Components;
-using Content.Shared.Shipyard;
 
 namespace Content.Server.Shipyard.Systems
 {
@@ -33,7 +33,6 @@ namespace Content.Server.Shipyard.Systems
         public void InitializeConsole()
         {
             SubscribeLocalEvent<ShipyardConsoleComponent, ShipyardConsolePurchaseMessage>(OnPurchaseMessage);
-            //SubscribeLocalEvent<ShipyardConsoleComponent, ShipyardConsoleSellMessage>(OnSellMessage);
             SubscribeLocalEvent<ShipyardConsoleComponent, BoundUIOpenedEvent>(OnConsoleUIOpened);
             //SubscribeLocalEvent<ShipyardConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
@@ -63,7 +62,16 @@ namespace Content.Server.Shipyard.Systems
                 return;
             }
 
-            if (args.Price <= 0)
+            VesselPrototype? vessel = null;
+
+            if (!_prototypeManager.TryIndex<VesselPrototype>(args.Vessel, out vessel) || vessel == null)
+            {
+                ConsolePopup(args.Session, Loc.GetString("shipyard-console-invalid-vessel", ("vessel", args.Vessel)));
+                PlayDenySound(uid, component);
+                return;
+            }
+
+            if (vessel.Price <= 0)
                 return;
 
             var station = _station.GetOwningStation(uid);
@@ -72,16 +80,9 @@ namespace Content.Server.Shipyard.Systems
             if (bank == null)
                 return;
 
-            if (bank.Balance <= args.Price)
+            if (bank.Balance <= vessel.Price)
             {
-                ConsolePopup(args.Session, Loc.GetString("cargo-console-insufficient-funds", ("cost", args.Price)));
-                PlayDenySound(uid, component);
-                return;
-            }
-
-            if (!_prototypeManager.TryIndex<VesselPrototype>(args.Vessel, out var vessel) || vessel == null)
-            {
-                ConsolePopup(args.Session, Loc.GetString("shipyard-console-invalid-vessel", ("vessel", args.Vessel)));
+                ConsolePopup(args.Session, Loc.GetString("cargo-console-insufficient-funds", ("cost", vessel.Price)));
                 PlayDenySound(uid, component);
                 return;
             }
@@ -102,43 +103,6 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
             RegisterDeed(newDeed, shuttle);           
-        }
-
-        public void OnSellMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsoleSellMessage args)
-        {
-            
-            if (args.Session.AttachedEntity is not { Valid: true } player)
-            {
-                return;
-            }
-
-            var station = _station.GetOwningStation(uid);
-            var bank = GetBankAccount(station);
-
-            if (bank == null)
-                return;
-
-            if (!TryComp<ShuttleDeedComponent>(bank.Owner, out var deed) || deed == null || deed.ShuttleUid == null)
-            {
-                ConsolePopup(args.Session, Loc.GetString("shipyard-console-invalid-vessel"));
-                PlayDenySound(uid, component);
-                return;
-            }
-
-            if (!TrySellVessel(bank, deed.ShuttleUid, out var bill))
-            {
-                PlayDenySound(uid, component);
-                return;
-            };
-
-            _cargo.DeductFunds(bank, -bill);
-            PlayConfirmSound(uid, component);
-
-            ShipyardConsoleInterfaceState newState = new ShipyardConsoleInterfaceState(
-                    bank.Balance,
-                    true);
-
-            _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
         }
         
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
@@ -195,39 +159,12 @@ namespace Content.Server.Shipyard.Systems
             return true;
         }
         
-        public bool TrySellVessel(StationBankAccountComponent component, EntityUid? gridUid, out int bill)
-        {
-            bill = 0;
-            var stationUid = _station.GetOwningStation(component.Owner);
-            if (component == null || gridUid == null || stationUid == null)
-            {
-                return false;
-            };
-
-            _shipyard.SellShuttle((EntityUid) stationUid, (EntityUid) gridUid, out bill);
-
-            if (bill == 0)
-            {
-                return false;
-            };
-
-            return true;
-        }
-
         private void RegisterDeed(ShuttleDeedComponent deed, ShuttleComponent shuttle)
         {
             deed.ShuttleUid = shuttle.Owner;
             //Dirty(deed); //done dirt cheap
             //Since this is station based for now, client UIs dont need to know
         }
-
-        
-        //public void DeductFunds(OtherBankAccountComponent component, int amount)
-        //{
-        //    component.Balance = Math.Max(0, component.Balance - amount);
-        //    Dirty(component);
-        //    //In the case that this uses a separate income pool than generic cargo
-        //}
 
         public StationBankAccountComponent? GetBankAccount(EntityUid? uid)
         {

@@ -9,11 +9,9 @@ namespace Content.Shared.Shipyard.Events;
 public sealed class ShipyardConsolePurchaseMessage : BoundUserInterfaceMessage
 {
     public string Vessel; //vessel prototype ID
-    public int Price;
 
-    public ShipyardConsolePurchaseMessage(string vessel, int price)
+    public ShipyardConsolePurchaseMessage(string vessel)
     {
         Vessel = vessel;
-        Price = price;
     }
 }

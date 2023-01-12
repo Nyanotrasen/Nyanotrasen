@@ -8,8 +8,6 @@ namespace Content.Client.Shipyard.BUI
 {
     public sealed class ShipyardConsoleBoundUserInterface : BoundUserInterface
     {
-        [Dependency] private readonly IEntityManager _entityManager = default!;
-
         [ViewVariables]
         private ShipyardConsoleMenu? _menu;
 
@@ -27,7 +25,6 @@ namespace Content.Client.Shipyard.BUI
             _menu.OpenCentered();
             _menu.OnClose += Close;
             _menu.OnOrderApproved += ApproveOrder;
-            //_menu.OnSellShip += SellShip;
         }
 
         private void Populate()
@@ -69,14 +66,7 @@ namespace Content.Client.Shipyard.BUI
             }
 
             var vesselId = row.Vessel.ID;
-            var price = row.Vessel.Price;
-            SendMessage(new ShipyardConsolePurchaseMessage(vesselId, price));
+            SendMessage(new ShipyardConsolePurchaseMessage(vesselId));
         }
-
-        //private void SellShip(ButtonEventArgs args)
-        //{
-        //    //reserved for a sanity check, but im not sure what since we checked all the important stuffs on client already
-        //    SendMessage(new ShipyardConsoleSellMessage());
-        //}
     }
 }

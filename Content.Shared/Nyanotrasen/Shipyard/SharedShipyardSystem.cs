@@ -20,26 +20,6 @@ namespace Content.Shared.Shipyard
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<SharedShipyardConsoleComponent, ComponentGetState>(OnGetState);
-            SubscribeLocalEvent<SharedShipyardConsoleComponent, ComponentHandleState>(OnHandleState);
-        }
-
-        private void OnHandleState(EntityUid uid, SharedShipyardConsoleComponent component, ref ComponentHandleState args)
-        {
-            if (args.Current is not ShipyardConsoleComponentState state) return;
-        }
-
-        private void OnGetState(EntityUid uid, SharedShipyardConsoleComponent component, ref ComponentGetState args)
-        {
-            args.State = new ShipyardConsoleComponentState();
-        }
-
-        [Serializable, NetSerializable]
-        private sealed class ShipyardConsoleComponentState : ComponentState
-        {
-            public ShipyardConsoleComponentState()
-            {
-            }
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Content.Shared.Shipyard.Prototypes
         }
 
         /// <summary>
-        ///     Short description of the product.
+        ///     Short description of the vessel.
         /// </summary>
         [ViewVariables]
         public string Description
@@ -81,7 +81,7 @@ namespace Content.Shared.Shipyard.Prototypes
         public string Group { get; } = string.Empty;
 
         /// <summary>
-        ///     Relative directory path to the given shuttle, i.e. `/Maps/saltern.yml`
+        ///     Relative directory path to the given shuttle, i.e. `/Maps/Shuttles/yourshittle.yml`
         /// </summary>
         [DataField("shuttlePath", required: true)]
         public ResourcePath ShuttlePath { get; } = default!;

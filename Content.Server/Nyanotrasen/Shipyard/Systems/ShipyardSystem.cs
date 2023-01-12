@@ -21,7 +21,6 @@ namespace Content.Server.Shipyard.Systems
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
         [Dependency] private readonly StationSystem _station = default!;
-        [Dependency] private readonly CargoSystem _cargo = default!;
         [Dependency] private readonly MapLoaderSystem _map = default!;
         [Dependency] private readonly ShipyardConsoleSystem _shipyardConsole = default!;
 
@@ -114,68 +113,17 @@ namespace Content.Server.Shipyard.Systems
             if (actualGrids.Count != 1)
             {
                 _sawmill.Error($"Unable to spawn shuttle {shuttlePath}");
+                if (actualGrids.Count > 1)
+                {
+                    foreach (var grid in actualGrids)
+                    {
+                        _mapManager.DeleteGrid(grid);
+                    }
+                }
                 return null;
             };
 
             return actualGrids[0];
-        }
-
-        /// <summary>
-        /// Checks a shuttle to make sure that it is docked to the given station, and that there are no lifeforms aboard. Then it appraises the grid, outputs to the server log, and deletes the grid
-        /// </summary>
-        /// <param name="stationUid">The ID of the station that the shuttle is docked to</param>
-        /// <param name="shuttleUid">The grid ID of the shuttle to be appraised and sold</param>
-        public void SellShuttle(EntityUid stationUid, EntityUid shuttleUid, out int bill)
-        {
-            bill = 0;
-
-            if (!TryComp<StationDataComponent>(stationUid, out var stationGrid) || !HasComp<ShuttleComponent>(shuttleUid) || !TryComp<TransformComponent>(shuttleUid, out var xform) || ShipyardMap == null)
-                return;
-
-            var targetGrid = _station.GetLargestGrid(stationGrid);
-
-            if (targetGrid == null)
-                return;
-
-            var gridDocks = _shuttle.GetDocks((EntityUid) targetGrid);
-            var shuttleDocks = _shuttle.GetDocks(shuttleUid);
-            var isDocked = false;
-
-            foreach (var shuttleDock in shuttleDocks)
-            {
-                foreach (var gridDock in gridDocks)
-                {
-                    if (shuttleDock.DockedWith == gridDock.Owner)
-                    {
-                        isDocked = true;
-                        break;
-                    };
-                };
-                if (isDocked)
-                    break;
-            };
-
-            if (!isDocked)
-            {
-                _sawmill.Warning($"shuttle is not docked to that station");
-                return;
-            };
-
-            var mobQuery = GetEntityQuery<MobStateComponent>();
-            var xformQuery = GetEntityQuery<TransformComponent>();
-
-            if (_cargo.FoundOrganics(shuttleUid, mobQuery, xformQuery))
-            {
-                _sawmill.Warning($"organics on board");
-                return;
-            };
-
-            //just yeet and delete for now. Might want to split it into another function later to send back to the shipyard map first to pause for something
-            //also superman 3 moment
-            bill = (int) _pricing.AppraiseGrid(shuttleUid);
-            _mapManager.DeleteGrid(shuttleUid);
-            _sawmill.Info($"Sold shuttle {shuttleUid} for {bill}");
-            return;
         }
 
         private void CleanupShipyard()
