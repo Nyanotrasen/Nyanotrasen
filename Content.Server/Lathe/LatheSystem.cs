@@ -6,8 +6,6 @@ using Content.Server.Lathe.Components;
 using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Research;
-using Content.Server.Research.Components;
 using Content.Server.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Lathe;
@@ -16,7 +14,6 @@ using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -31,7 +28,6 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSys = default!;
-        [Dependency] private readonly ResearchSystem _researchSys = default!;
         [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
 
         public override void Initialize()
@@ -42,16 +38,15 @@ namespace Content.Server.Lathe
             SubscribeLocalEvent<LatheComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<LatheComponent, RefreshPartsEvent>(OnPartsRefresh);
             SubscribeLocalEvent<LatheComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+            SubscribeLocalEvent<LatheComponent, TechnologyDatabaseModifiedEvent>(OnDatabaseModified);
 
             SubscribeLocalEvent<LatheComponent, LatheQueueRecipeMessage>(OnLatheQueueRecipeMessage);
             SubscribeLocalEvent<LatheComponent, LatheSyncRequestMessage>(OnLatheSyncRequestMessage);
-            SubscribeLocalEvent<LatheComponent, LatheServerSelectionMessage>(OnLatheServerSelectionMessage);
 
             SubscribeLocalEvent<LatheComponent, BeforeActivatableUIOpenEvent>((u,c,_) => UpdateUserInterfaceState(u,c));
             SubscribeLocalEvent<LatheComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
 
             SubscribeLocalEvent<TechnologyDatabaseComponent, LatheGetRecipesEvent>(OnGetRecipes);
-            SubscribeLocalEvent<TechnologyDatabaseComponent, LatheServerSyncMessage>(OnLatheServerSyncMessage);
         }
 
         public override void Update(float frameTime)
@@ -193,14 +188,7 @@ namespace Content.Server.Lathe
             if (uid != args.Lathe || !TryComp<LatheComponent>(uid, out var latheComponent) || latheComponent.DynamicRecipes == null)
                 return;
 
-            //gets all of the techs that are unlocked and also in the DynamicRecipes list
-            var allTechs = (from technology in from tech in component.TechnologyIds
-                    select _proto.Index<TechnologyPrototype>(tech)
-                from recipe in technology.UnlockedRecipes
-                where latheComponent.DynamicRecipes.Contains(recipe)
-                select recipe).ToList();
-
-            args.Recipes = args.Recipes.Union(allTechs).ToList();
+            args.Recipes = args.Recipes.Union(component.RecipeIds.Where(r => latheComponent.DynamicRecipes.Contains(r))).ToList();
         }
 
         private void OnMaterialAmountChanged(EntityUid uid, LatheComponent component, ref MaterialAmountChangedEvent args)
@@ -259,6 +247,11 @@ namespace Content.Server.Lathe
             args.AddPercentageUpgrade("lathe-component-upgrade-material-use", component.MaterialUseMultiplier);
         }
 
+        private void OnDatabaseModified(EntityUid uid, LatheComponent component, ref TechnologyDatabaseModifiedEvent args)
+        {
+            UpdateUserInterfaceState(uid, component);
+        }
+
         protected override bool HasRecipe(EntityUid uid, LatheRecipePrototype recipe, LatheComponent component)
         {
             return GetAvailableRecipes(component).Contains(recipe.ID);
@@ -290,21 +283,6 @@ namespace Content.Server.Lathe
         {
             UpdateUserInterfaceState(uid, component);
         }
-
-        private void OnLatheServerSelectionMessage(EntityUid uid, LatheComponent component, LatheServerSelectionMessage args)
-        {
-            // TODO: one day, when you can open BUIs clientside, do that. Until then, picture Electro seething.
-            if (component.DynamicRecipes != null)
-                _uiSys.TryOpen(uid, ResearchClientUiKey.Key, (IPlayerSession) args.Session);
-        }
-
-        private void OnLatheServerSyncMessage(EntityUid uid, TechnologyDatabaseComponent component, LatheServerSyncMessage args)
-        {
-            Logger.Debug("OnLatheServerSyncMessage");
-            _researchSys.SyncWithServer(component);
-            UpdateUserInterfaceState(uid);
-        }
-
         #endregion
     }
 }

@@ -7,6 +7,7 @@ using Content.Server.GameTicking.Rules.Configurations;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Humanoid.Systems;
+using Content.Server.Mail.Components;
 using Content.Server.Mind.Components;
 using Content.Server.NPC.Systems;
 using Content.Server.Nuke;
@@ -178,6 +179,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
         var name = MetaData(uid).EntityName;
         if (session != null)
             _operativePlayers.Add(name, session);
+
+        RemCompDeferred<MailReceiverComponent>(uid);
     }
 
     private void OnComponentRemove(EntityUid uid, NukeOperativeComponent component, ComponentRemove args)

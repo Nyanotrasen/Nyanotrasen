@@ -270,6 +270,9 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Faction
+    factions:
+    - RatPassive
 
 - type: entity
   parent: BasePlushie

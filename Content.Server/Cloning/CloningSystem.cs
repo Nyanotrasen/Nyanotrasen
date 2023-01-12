@@ -1,6 +1,5 @@
 using Content.Shared.GameTicking;
 using Content.Shared.Damage;
-using Content.Shared.Stacks;
 using Content.Shared.Examine;
 using Content.Shared.Cloning;
 using Content.Shared.Speech;
@@ -25,11 +24,10 @@ using Content.Shared.Chemistry.Components;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Construction;
-using Content.Server.Construction.Components;
 using Content.Server.Materials;
-using Content.Server.Stack;
 using Content.Server.Jobs;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Server.GameObjects;
@@ -59,8 +57,6 @@ namespace Content.Server.Cloning
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly SharedStackSystem _stackSystem = default!;
-        [Dependency] private readonly StackSystem _serverStackSystem = default!;
         [Dependency] private readonly SpillableSystem _spillableSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IConfigurationManager _configManager = default!;
@@ -68,6 +64,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
         [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly TagSystem _tag = default!;
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -185,6 +182,11 @@ namespace Content.Server.Cloning
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
                 return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
 
+            var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
+
+            if (pref == null)
+                return false;
+
             if (!TryComp<HumanoidComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
 
@@ -236,7 +238,7 @@ namespace Content.Server.Cloning
             }
             // end of genetic damage checks
 
-            var mob = FetchAndSpawnMob(clonePod, speciesPrototype, humanoid, bodyToClone, karmaBonus);
+            var mob = FetchAndSpawnMob(clonePod, pref, speciesPrototype, humanoid, bodyToClone, karmaBonus);
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
@@ -328,7 +330,7 @@ namespace Content.Server.Cloning
             }
             _spillableSystem.SpillAt(uid, bloodSolution, "PuddleBlood");
 
-            _serverStackSystem.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
+            _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
 
             clonePod.UsedBiomass = 0;
             RemCompDeferred<ActiveCloningPodComponent>(uid);
@@ -337,11 +339,12 @@ namespace Content.Server.Cloning
         /// <summary>
         /// Handles fetching the mob and any appearance stuff...
         /// </summary>
-        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, SpeciesPrototype speciesPrototype, HumanoidComponent humanoid, EntityUid bodyToClone, float karmaBonus)
+        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidComponent humanoid, EntityUid bodyToClone, float karmaBonus)
         {
             List<Sex> sexes = new();
             bool switchingSpecies = false;
             bool applyKarma = false;
+            var name = pref.Name;
             var toSpawn = speciesPrototype.Prototype;
             TryComp<MetempsychosisKarmaComponent>(bodyToClone, out var oldKarma);
 
@@ -366,20 +369,17 @@ namespace Content.Server.Cloning
             var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
             if (TryComp<HumanoidComponent>(mob, out var newHumanoid))
             {
-                if (switchingSpecies)
+                if (switchingSpecies || HasComp<MetempsychosisKarmaComponent>(bodyToClone))
                 {
-                    var profile = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+                    pref = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
                     if (sexes.Contains(humanoid.Sex))
-                        profile = profile.WithSex(humanoid.Sex);
+                        pref = pref.WithSex(humanoid.Sex);
 
-                    profile = profile.WithGender(humanoid.Gender);
-                    profile = profile.WithAge(humanoid.Age);
+                    pref = pref.WithGender(humanoid.Gender);
+                    pref = pref.WithAge(humanoid.Age);
 
-                    _humanoidSystem.LoadProfile(mob, profile);
-                } else
-                {
-                    _humanoidSystem.CloneAppearance(bodyToClone, mob);
                 }
+                _humanoidSystem.LoadProfile(mob, pref);
             }
 
             if (applyKarma)
@@ -390,7 +390,7 @@ namespace Content.Server.Cloning
                     karma.Score += oldKarma.Score;
             }
 
-            MetaData(mob).EntityName = MetaData(bodyToClone).EntityName;
+            MetaData(mob).EntityName = name;
             var mind = EnsureComp<MindComponent>(mob);
             _mind.SetExamineInfo(mob, true, mind);
 

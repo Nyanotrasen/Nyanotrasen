@@ -2,6 +2,16 @@
   id: RatServantCompound
   branches:
     - tasks:
-        - id: MeleeCombatCompound
+        - id: MeleeDontStrayCompound
     - tasks:
         - id: FollowCompound
+
+- type: htnCompound
+  id: MeleeDontStrayCompound
+  branches:
+    - tasks:
+      - id: MeleeCombatCompound
+  preconditions:
+    - !type:CoordinatesInRangePrecondition
+      targetKey: FollowTarget
+      rangeKey: BufferRange

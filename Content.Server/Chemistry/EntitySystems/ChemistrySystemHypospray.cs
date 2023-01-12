@@ -11,7 +11,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.MobState.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Player;
+using Content.Shared.Tag;
+using Content.Shared.Popups;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -66,6 +67,18 @@ namespace Content.Server.Chemistry.EntitySystems
                 return false;
 
             string? msgFormat = null;
+
+            if (!component.PierceArmor && _entMan.TryGetComponent<TagComponent>(target, out var tag))
+            {
+                if (tag.Tags.Contains("HardsuitOn"))
+                {
+                    if (target == null) return false;
+                    var taget = (EntityUid) target;
+
+                    _popup.PopupEntity("You cant get the needle to go through the thick plating!", taget, user, PopupType.MediumCaution);
+                    return false;
+                }
+            }
 
             if (target == user)
                 msgFormat = "hypospray-component-inject-self-message";

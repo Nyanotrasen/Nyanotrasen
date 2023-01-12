@@ -5,11 +5,12 @@ using Content.Server.Popups;
 using Content.Server.NPC.Systems;
 using Content.Server.NPC.Components;
 using Content.Server.NPC;
+using Content.Server.Pointing.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.MobState;
+using Content.Shared.MobState.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -25,8 +26,8 @@ namespace Content.Server.RatKing
         [Dependency] private readonly FactionSystem _factionSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
 
-        private const string NeutralAIFaction = "SimpleNeutral";
-        private const string HostileAIFaction = "SimpleHostile";
+        private const string NeutralAIFaction = "RatPassive";
+        private const string HostileAIFaction = "RatHostile";
 
         private TimeSpan _nextRefresh = TimeSpan.FromSeconds(1.5);
 
@@ -61,6 +62,8 @@ namespace Content.Server.RatKing
             SubscribeLocalEvent<RatKingComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<RatServantComponent, ComponentShutdown>(OnServantShutdown);
 
+            SubscribeLocalEvent<RatKingComponent, PointedEvent>(OnPoint);
+
             SubscribeLocalEvent<RatKingComponent, RatKingRaiseArmyActionEvent>(OnRaiseArmy);
             SubscribeLocalEvent<RatKingComponent, RatKingDomainActionEvent>(OnDomain);
             SubscribeLocalEvent<RatKingComponent, RatKingToggleFactionActionEvent>(OnToggleFaction);
@@ -90,6 +93,21 @@ namespace Content.Server.RatKing
                 return;
 
             king.Servants.Remove(uid);
+        }
+
+        /// <summary>
+        /// This function is ON POINT.
+        /// </summary>
+        private void OnPoint(EntityUid uid, RatKingComponent component, ref PointedEvent args)
+        {
+            if (!HasComp<MobStateComponent>(args.Target))
+                return;
+
+            foreach (var servant in component.Servants)
+            {
+                var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
+                targeted.EngagingEnemies.Add(args.Target);
+            }
         }
 
 
@@ -159,6 +177,7 @@ namespace Content.Server.RatKing
             {
                 UpdateAIFaction(servant, component.HostileServants);
             }
+            UpdateAIFaction(uid, component.HostileServants);
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;

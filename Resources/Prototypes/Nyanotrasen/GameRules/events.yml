@@ -10,32 +10,16 @@
     endAfter: 1
     earliestStart: 15
 
+# Rat king, evil twin, fugitive, oneiro, etc.
 - type: gameRule
-  id: Fugitive
+  id: MidRoundAntag
   config:
     !type:StationEventRuleConfiguration
-    id: Fugitive
-    weight: 5
+    id: MidRoundAntag
+    weight: 7
     endAfter: 1
-    reoccurrenceDelay: 40
-
-- type: gameRule
-  id: VampSpawn
-  config:
-    !type:StationEventRuleConfiguration
-    id: VampSpawn
-    weight: 5
-    endAfter: 1
-    reoccurrenceDelay: 40
-
-- type: gameRule
-  id: EvilTwin
-  config:
-    !type:StationEventRuleConfiguration
-    id: EvilTwin
-    weight: 5
-    endAfter: 1
-    reoccurrenceDelay: 40
+    reoccurrenceDelay: 5
+    minimumPlayers: 12
 
 - type: gameRule
   id: MundaneDischarge

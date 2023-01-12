@@ -4,8 +4,7 @@ using Content.Server.MachineLinking.Components;
 using Content.Server.MachineLinking.Events;
 using Content.Server.Paper;
 using Content.Server.Power.Components;
-using Content.Server.Research;
-using Content.Server.Research.Components;
+using Content.Server.Research.Systems;
 using Content.Server.UserInterface;
 using Content.Server.Xenoarchaeology.Equipment.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
@@ -21,7 +20,6 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -41,6 +39,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly ArtifactSystem _artifact = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly ResearchSystem _research = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -335,7 +334,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     /// <param name="args"></param>
     private void OnDestroyButton(EntityUid uid, AnalysisConsoleComponent component, AnalysisConsoleDestroyButtonPressedMessage args)
     {
-        if (!TryComp<ResearchClientComponent>(uid, out var client) || client.Server == null || component.AnalyzerEntity == null)
+        if (component.AnalyzerEntity == null)
+            return;
+
+        if (!_research.TryGetClientServer(uid, out var server, out var serverComponent))
             return;
 
         var entToDestroy = GetArtifactForAnalysis(component.AnalyzerEntity);
@@ -350,11 +352,10 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var points = _artifact.GetResearchPointValue(entToDestroy.Value);
 
-        client.Server.Points += points;
-
         if (analyzer != null)
             _glimmerSystem.Glimmer += (int) points / analyzer.SacrificeRatio;
 
+        _research.AddPointsToServer(server.Value, points, serverComponent);
         EntityManager.DeleteEntity(entToDestroy.Value);
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
