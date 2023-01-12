@@ -2394,3 +2394,14 @@ Entries:
     type: Add
   id: 279
   time: '2023-01-12T01:45:35.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Midround antags should no longer be unusually common.
+    type: Tweak
+  - message: Midround antags will no longer spawn below 12 players.
+    type: Tweak
+  - message: Midround antags will no longer spawn within less than 5 minutes of each
+      other.
+    type: Tweak
+  id: 280
+  time: '2023-01-12T02:08:15.0000000+00:00'
