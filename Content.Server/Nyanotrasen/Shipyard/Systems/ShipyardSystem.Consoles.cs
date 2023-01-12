@@ -140,7 +140,7 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(component.Owner, ShipyardConsoleUiKey.Shipyard, newState);
         }
-
+        
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
             if (!args.Session.AttachedEntity.HasValue)
@@ -169,6 +169,7 @@ namespace Content.Server.Shipyard.Systems
         {
             SoundSystem.Play(component.ErrorSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
         }
+        
         private void PlayConfirmSound(EntityUid uid, SharedShipyardConsoleComponent component)
         {
             SoundSystem.Play(component.ConfirmSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
@@ -193,6 +194,7 @@ namespace Content.Server.Shipyard.Systems
 
             return true;
         }
+        
         public bool TrySellVessel(StationBankAccountComponent component, EntityUid? gridUid, out int bill)
         {
             bill = 0;
