@@ -94,7 +94,7 @@ public sealed class VocalSystem : EntitySystem
                 break;
         }
 
-        _popupSystem.PopupEntity(Loc.GetString("scream-action-popup"), uid, PopupType.Medium);
+        _popupSystem.PopupEntity(Loc.GetString("scream-action-popup", ("target", uid)), uid, Filter.PvsExcept(uid), true, PopupType.MediumCaution);
 
         return true;
     }
