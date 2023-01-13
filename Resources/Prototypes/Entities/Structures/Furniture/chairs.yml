@@ -40,7 +40,7 @@
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/metalbreak.ogg
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 - type: entity

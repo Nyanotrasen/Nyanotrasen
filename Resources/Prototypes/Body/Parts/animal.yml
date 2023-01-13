@@ -15,7 +15,7 @@
     containers:
       bodypart: !type:Container
         ents: []
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 # For primates mainly

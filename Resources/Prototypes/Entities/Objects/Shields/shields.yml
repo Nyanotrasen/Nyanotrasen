@@ -51,7 +51,7 @@
   id: RiotShield
   description: A large tower shield. Good for controlling crowds.
   components:
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 100
 
 - type: entity

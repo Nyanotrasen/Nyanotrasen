@@ -20,5 +20,5 @@
     receiveFrequencyId: SuitSensor
   - type: WirelessNetworkConnection
     range: 500
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500

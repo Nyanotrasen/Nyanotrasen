@@ -81,7 +81,7 @@
     containers:
       BeakerSlotA: !type:ContainerSlot
       BeakerSlotB: !type:ContainerSlot
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 60
 
 - type: entity

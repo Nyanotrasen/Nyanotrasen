@@ -27,7 +27,7 @@
           Quantity: 3
         - ReagentId: MindbreakerToxin
           Quantity: 2
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 5
 
 - type: entity

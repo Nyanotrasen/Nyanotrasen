@@ -19,7 +19,7 @@
     solution: hypospray
   - type: Hypospray
     pierceArmor: true
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750
 
 - type: entity
@@ -78,7 +78,7 @@
     - Trash
   - type: Recyclable
   - type: SpaceGarbage
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 75 # These are limited supply items.
   - type: TrashOnEmpty
     solution: pen
@@ -178,5 +178,5 @@
   - type: Tag
     tags:
     - Write
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 75

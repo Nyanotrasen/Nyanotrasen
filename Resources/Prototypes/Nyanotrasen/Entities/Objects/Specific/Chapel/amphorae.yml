@@ -11,7 +11,7 @@
   - type: Item
     size: 10
     sprite: Nyanotrasen/Objects/Specific/Chapel/amphorae.rsi
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
   - type: SolutionContainerManager
     solutions:

@@ -5,7 +5,7 @@
   components:
   - type: Item
     size: 5
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 20
   - type: Clickable
   - type: InteractionOutline

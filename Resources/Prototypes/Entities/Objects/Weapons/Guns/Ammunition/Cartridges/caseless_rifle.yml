@@ -19,7 +19,7 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 10
 
 - type: entity

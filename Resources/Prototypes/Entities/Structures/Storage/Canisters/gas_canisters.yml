@@ -84,7 +84,7 @@
           volume: 1
     - type: GasPortable
     - type: GasCanister
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 1000
     - type: AccessReader
       access: [["Atmospherics"], ["ResearchDirector"]]

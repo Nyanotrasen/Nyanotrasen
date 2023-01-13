@@ -69,7 +69,7 @@
   - type: Transform
     anchored: true
   - type: AntiRottingContainer
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 200
 
 - type: entity

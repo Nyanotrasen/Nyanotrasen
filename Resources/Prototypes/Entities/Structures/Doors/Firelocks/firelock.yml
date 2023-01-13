@@ -101,7 +101,7 @@
       enabled: false
     - type: WallMount
       arc: 360
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 150
 
 - type: entity
@@ -174,5 +174,5 @@
       occludes: false
     - type: Physics
       canCollide: false
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 100

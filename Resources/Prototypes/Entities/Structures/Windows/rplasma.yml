@@ -50,7 +50,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 20.75
 
 - type: entity
@@ -98,5 +98,5 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 20.75

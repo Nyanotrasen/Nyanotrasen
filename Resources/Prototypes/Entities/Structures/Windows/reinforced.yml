@@ -48,7 +48,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 150
 
 - type: entity
@@ -67,7 +67,7 @@
     graph: Window
     node: tintedWindow
   - type: Occluder
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.75
 
 - type: entity
@@ -108,5 +108,5 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.75

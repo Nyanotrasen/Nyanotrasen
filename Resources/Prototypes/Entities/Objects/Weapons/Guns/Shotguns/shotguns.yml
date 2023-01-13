@@ -42,7 +42,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
 
 - type: entity
@@ -98,7 +98,7 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
 
 - type: entity

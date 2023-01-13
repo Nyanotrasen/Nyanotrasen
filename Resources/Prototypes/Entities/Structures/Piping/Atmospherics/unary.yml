@@ -16,7 +16,7 @@
           nodeGroupID: Pipe
           pipeDirection: South
     - type: CollideOnAnchor
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 200
 
 - type: entity
@@ -252,7 +252,7 @@
           !type:PipeNode
           nodeGroupID: Pipe
           pipeDirection: South
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 500
 
 - type: entity
