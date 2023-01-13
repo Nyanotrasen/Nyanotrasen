@@ -335,6 +335,8 @@
   - type: Tool
     qualities:
       - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
   - type: EarthDigging
 
 - type: entity
