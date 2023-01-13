@@ -29,7 +29,19 @@
       "name": "grass"
     },
     {
+      "name": "grassdark"
+    },
+    {
+      "name": "grasslight"
+    },
+    {
       "name": "grassjungle"
+    },
+    {
+      "name": "dirt"
+    },
+    {
+      "name": "bedrock"
     },
     {
       "name": "kitchen"
@@ -235,6 +247,46 @@
     },
     {
       "name": "grass-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "grassjungle-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "grassjungle-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "grassdark-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "grassdark-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "grasslight-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "grasslight-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dirt-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dirt-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "bedrock-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "bedrock-inhand-right",
       "directions": 4
     },
     {
