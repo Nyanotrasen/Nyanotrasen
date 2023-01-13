@@ -88,6 +88,13 @@ namespace Content.Shared.Chemistry.Reagent
         public float PricePerUnit { get; }
 
         /// <summary>
+        /// How many surplus units of this reagent need to be on the market before
+        /// the price reaches half of its default price?
+        /// </summary>
+        [DataField("halfPriceSurplus")]
+        public float HalfPriceSurplus { get; } = 100f;
+
+        /// <summary>
         /// If the substance color is too dark we user a lighter version to make the text color readable when the user examines a solution.
         /// </summary>
         public Color GetSubstanceTextColor()

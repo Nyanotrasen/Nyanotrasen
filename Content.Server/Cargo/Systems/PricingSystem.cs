@@ -3,11 +3,10 @@ using Content.Server.Administration;
 using Content.Server.Body.Systems;
 using Content.Server.Cargo.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reagent;
 using Content.Server.MobState;
-using Content.Server.Stack;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Materials;
 using Content.Shared.MobState.Components;
 using Content.Shared.Stacks;
@@ -22,7 +21,7 @@ namespace Content.Server.Cargo.Systems;
 /// <summary>
 /// This handles calculating the price of items, and implements two basic methods of pricing materials.
 /// </summary>
-public sealed class PricingSystem : EntitySystem
+public sealed partial class PricingSystem : EntitySystem
 {
     [Dependency] private readonly IConsoleHost _consoleHost = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
@@ -31,9 +30,15 @@ public sealed class PricingSystem : EntitySystem
 
     [Dependency] private readonly BodySystem _bodySystem = default!;
 
+    private ISawmill _sawmill = default!;
+
     /// <inheritdoc/>
     public override void Initialize()
     {
+        _sawmill = Logger.GetSawmill("pricing");
+
+        InitializeSupplyDemand();
+
         SubscribeLocalEvent<StaticPriceComponent, PriceCalculationEvent>(CalculateStaticPrice);
         SubscribeLocalEvent<StackPriceComponent, PriceCalculationEvent>(CalculateStackPrice);
         SubscribeLocalEvent<MobPriceComponent, PriceCalculationEvent>(CalculateMobPrice);
@@ -112,12 +117,20 @@ public sealed class PricingSystem : EntitySystem
             return;
         }
 
-        args.Price += stack.Count * component.Price;
+        var supply = GetStackSupply(stack);
+        var demand = GetStackDemand(component, stack);
+
+        // Selling a stack of 30 is more profitable than selling 30 stacks of
+        // 1, but that's fine.
+        args.Price += GetSupplyDemandPrice(stack.Count * component.Price, component.HalfPriceSurplus, supply, demand);
+
+        if (args.Sale)
+            AddStackSupply(stack, stack.Count);
     }
 
     private void CalculateSolutionPrice(EntityUid uid, SolutionContainerManagerComponent component, ref PriceCalculationEvent args)
     {
-        var price = 0f;
+        double price = 0;
 
         foreach (var solution in component.Solutions.Values)
         {
@@ -125,9 +138,17 @@ public sealed class PricingSystem : EntitySystem
             {
                 if (!_prototypeManager.TryIndex<ReagentPrototype>(reagent.ReagentId, out var reagentProto))
                     continue;
-                price += (float) reagent.Quantity * reagentProto.PricePerUnit;
+
+                var supply = GetReagentSupply(reagentProto);
+                var demand = GetReagentDemand(reagentProto);
+
+                price += GetSupplyDemandPrice((float) reagent.Quantity * reagentProto.PricePerUnit, reagentProto.HalfPriceSurplus, supply, demand);
+
+                if (args.Sale)
+                    AddReagentSupply(reagentProto, reagent.Quantity);
             }
         }
+
         args.Price += price;
     }
 
@@ -152,6 +173,14 @@ public sealed class PricingSystem : EntitySystem
             price += staticComp.Price;
         }
 
+        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(DynamicPriceComponent)),
+                out var dynamicPriceProto))
+        {
+            var dynamicComp = (DynamicPriceComponent) dynamicPriceProto.Component;
+
+            price += dynamicComp.Price;
+        }
+
         if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackPriceComponent)), out var stackpriceProto) &&
             prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackComponent)), out var stackProto))
         {
@@ -174,17 +203,21 @@ public sealed class PricingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Appraises an entity, returning it's price.
+    /// Appraises an entity, returning its price.
     /// </summary>
     /// <param name="uid">The entity to appraise.</param>
+    /// <param name="sale">Should this price calculation affect the market?</param>
     /// <returns>The price of the entity.</returns>
     /// <remarks>
     /// This fires off an event to calculate the price.
     /// Calculating the price of an entity that somehow contains itself will likely hang.
+    ///
+    /// The sale flag exists to simplify informing the supply and demand system
+    /// about supply increases.
     /// </remarks>
-    public double GetPrice(EntityUid uid)
+    public double GetPrice(EntityUid uid, bool sale = false)
     {
-        var ev = new PriceCalculationEvent();
+        var ev = new PriceCalculationEvent(sale);
         RaiseLocalEvent(uid, ref ev);
 
         //TODO: Add an OpaqueToAppraisal component or similar for blocking the recursive descent into containers, or preventing material pricing.
@@ -204,7 +237,7 @@ public sealed class PricingSystem : EntitySystem
             {
                 foreach (var ent in container.Value.ContainedEntities)
                 {
-                    ev.Price += GetPrice(ent);
+                    ev.Price += GetPrice(ent, sale);
                 }
             }
         }
@@ -249,5 +282,22 @@ public struct PriceCalculationEvent
     /// </summary>
     public double Price = 0;
 
-    public PriceCalculationEvent() { }
+    /// <summary>
+    /// Is this event being raised for an item that will be sold?
+    /// </summary>
+    /// <remarks>
+    /// If true, this will signal to relevant systems that they may increase
+    /// the supply in the market as a side-effect.
+    ///
+    /// It's not the most intuitive way to do this, but it's more efficient
+    /// than firing a GetPrice event then a second, separate Sale event for
+    /// every entity sold. It's not unheard of for players to sell hundreds of
+    /// entities at a time. Refactor if needed.
+    /// </remarks>
+    public readonly bool Sale = false;
+
+    public PriceCalculationEvent(bool sale = false)
+    {
+        Sale = sale;
+    }
 }

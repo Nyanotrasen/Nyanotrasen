@@ -11,4 +11,11 @@ public sealed class StackPriceComponent : Component
     /// </summary>
     [DataField("price", required: true)]
     public double Price;
+
+    /// <summary>
+    /// How many surplus units of this stack need to be on the market before
+    /// the price reaches half of its default price?
+    /// </summary>
+    [DataField("halfPriceSurplus")]
+    public int HalfPriceSurplus = 60;
 }

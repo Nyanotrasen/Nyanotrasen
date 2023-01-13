@@ -333,7 +333,7 @@ public sealed partial class CargoSystem
                 if (blacklistQuery.HasComponent(ent))
                     continue;
 
-                var price = _pricing.GetPrice(ent);
+                var price = _pricing.GetPrice(ent, true);
                 if (price == 0)
                     continue;
                 toSell.Add(ent);
