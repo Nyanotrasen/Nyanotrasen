@@ -48,7 +48,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.5
 
 - type: entity

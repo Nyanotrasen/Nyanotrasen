@@ -22,7 +22,7 @@
     sprite: Objects/Tools/cable-coils.rsi
   - type: CablePlacer
   - type: Clickable
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
   - type: StackPrice
     price: 5

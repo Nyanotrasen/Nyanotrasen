@@ -54,5 +54,5 @@
     containers:
       board: !type:Container
         ents: []
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 400

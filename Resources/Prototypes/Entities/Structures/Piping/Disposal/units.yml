@@ -74,7 +74,7 @@
   - type: ContainerContainer
     containers:
       DisposalUnit: !type:Container
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
   - type: PowerSwitch
 

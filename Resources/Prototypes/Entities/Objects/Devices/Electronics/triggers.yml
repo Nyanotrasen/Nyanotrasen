@@ -25,7 +25,7 @@
       delayOptions: [3, 5, 10, 15, 30]
       initialBeepDelay: 0
       beepSound: /Audio/Machines/Nuke/general_beep.ogg
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 40
 
 - type: entity
@@ -41,7 +41,7 @@
     components:
     - type: TriggerOnSignal
     - type: SignalReceiver
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 40
 
 - type: entity
@@ -56,5 +56,5 @@
   - type: PayloadTrigger
     components:
     - type: TriggerOnVoice
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 40

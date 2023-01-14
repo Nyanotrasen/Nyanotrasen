@@ -18,7 +18,7 @@
       type: InstrumentBoundUserInterface
   - type: Item
     size: 24
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 200
 
 #These are for instruments that are larger, can't be picked up, or have collision
@@ -69,7 +69,7 @@
       - HighImpassable
       - MidImpassable
       - BulletImpassable
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 300
 
 - type: entity

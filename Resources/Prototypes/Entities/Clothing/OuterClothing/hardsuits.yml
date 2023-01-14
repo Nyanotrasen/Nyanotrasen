@@ -254,7 +254,7 @@
     damageCoefficient: 0.5
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRd
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750
 
 - type: entity

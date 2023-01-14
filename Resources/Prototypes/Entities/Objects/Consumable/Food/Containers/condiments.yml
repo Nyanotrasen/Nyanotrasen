@@ -10,7 +10,7 @@
   abstract: true
   description: A small plastic pack with condiments to put on your food.
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.50
   - type: Drink
     solution: food
@@ -46,7 +46,7 @@
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacket
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
   - type: Tag
     tags:

@@ -50,5 +50,5 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Climbable
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 150

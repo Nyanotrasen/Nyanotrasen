@@ -39,7 +39,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 20.5
   - type: RadiationBlocker
     resistance: 2
@@ -80,5 +80,5 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 20.5

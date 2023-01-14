@@ -43,7 +43,7 @@
     solution: drink
   - type: TrashOnEmpty
     solution: drink
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
 
 - type: entity

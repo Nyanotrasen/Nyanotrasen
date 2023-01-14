@@ -11,7 +11,7 @@
     - type: Tag
       tags:
         - DroneUsable
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 100
 
 - type: entity
@@ -66,7 +66,7 @@
       state: cpu_supply
     - type: ComputerBoard
       prototype: ComputerCargoOrders
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 750
 
 - type: entity
@@ -176,7 +176,7 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerId
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 750
 
 - type: entity

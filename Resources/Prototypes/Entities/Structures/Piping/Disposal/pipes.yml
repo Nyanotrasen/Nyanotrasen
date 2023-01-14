@@ -53,7 +53,7 @@
   - type: ContainerContainer
     containers:
       DisposalTube: !type:Container
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
 
 - type: entity

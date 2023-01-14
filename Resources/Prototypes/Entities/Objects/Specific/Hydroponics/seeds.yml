@@ -10,7 +10,7 @@
       netsync: true
     - type: Item
       size: 2
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 20
 
 - type: entity

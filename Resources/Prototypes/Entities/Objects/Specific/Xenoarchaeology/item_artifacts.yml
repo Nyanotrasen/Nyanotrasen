@@ -49,7 +49,7 @@
     - key: enum.InstrumentUiKey.Key
       type: InstrumentBoundUserInterface
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
   - type: Item
     size: 40

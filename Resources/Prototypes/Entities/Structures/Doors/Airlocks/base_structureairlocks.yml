@@ -114,7 +114,7 @@
     mode: NoSprite
   - type: PaintableAirlock
     group: Standard
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 150
   placement:
     mode: SnapgridCenter

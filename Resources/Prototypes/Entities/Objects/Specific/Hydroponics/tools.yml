@@ -62,7 +62,7 @@
     sprite: Objects/Tools/Hydroponics/scythe.rsi
     slots:
     - back
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 40
 
 - type: entity

@@ -55,7 +55,7 @@
         key: rollerbed
       - type: RollerbedVisualizer
         key: rollerbed
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 200
 
 - type: entity

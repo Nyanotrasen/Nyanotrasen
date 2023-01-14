@@ -11,7 +11,7 @@
     state: signaller
   - type: Signaller
   - type: UseDelay
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 40
   - type: SignalTransmitter
     outputs:
