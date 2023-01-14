@@ -15629,8 +15629,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -15644,8 +15644,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -65950,6 +65950,23 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: 52.5,-33.5
+    parent: 9
+    type: Transform
+- uid: 7914
+  type: Paper
+  components:
+  - desc: ""
+    name: Repossession Notice
+    type: MetaData
+  - pos: 81.86936,-79.45725
+    parent: 9
+    type: Transform
+  - content: "Attn. Salvage Crew of Angle Station\n \nWe are hereby ordered to repossess ALL MATERIALS RELATED TO SHUTTLE CONSTRUCTION on ALL NT-GOVERNED STATIONS.\nThis comes after a recent progress report on cargo outputs on a company-wide level exclusively consisting of singular products produced by lathes.\nThe salvage departments are encouraged to work with cargo to ensure a flow of funds to the station. Command has been given the responsibility of shuttle ordering (not construction) from this point forward.\n \nSigned, Craig Blant, Nanotrasen Engineering Representative.\n"
+    type: Paper
+- uid: 7915
+  type: Pen
+  components:
+  - pos: 82.25415,-79.40814
     parent: 9
     type: Transform
 - uid: 7920

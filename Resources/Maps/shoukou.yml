@@ -9788,8 +9788,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -9803,8 +9803,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -9905,7 +9905,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -86878,4 +86878,15 @@ entities:
     pos: 32.5,-37.5
     parent: 34
     type: Transform
+- uid: 11375
+  type: PoweredSmallLight
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -40.5,-21.5
+    parent: 34
+    type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 ...
