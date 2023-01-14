@@ -12,17 +12,21 @@ public sealed partial class ToolSystem
     private void InitializeEarthDigging()
     {
         SubscribeLocalEvent<EarthDiggingComponent, AfterInteractEvent>(OnEarthDiggingAfterInteract);
-        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCompleteEvent>(OnEarthDigComplete);
-        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCancelledEvent>(OnEarthDigCancelled);
+        SubscribeLocalEvent<EarthDiggingCompleteEvent>(OnEarthDigComplete);
+        SubscribeLocalEvent<EarthDiggingCancelledEvent>(OnEarthDigCancelled);
     }
 
-    private void OnEarthDigCancelled(EntityUid uid, EarthDiggingComponent component, EarthDiggingCancelledEvent args)
+    private void OnEarthDigCancelled(EarthDiggingCancelledEvent args)
     {
+        if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
+            return;
         component.CancelToken = null;
     }
 
-    private void OnEarthDigComplete(EntityUid uid, EarthDiggingComponent component, EarthDiggingCompleteEvent args)
+    private void OnEarthDigComplete(EarthDiggingCompleteEvent args)
     {
+        if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
+            return;
         component.CancelToken = null;
 
         var gridUid = args.Coordinates.GetGridUid(EntityManager);
@@ -49,11 +53,11 @@ public sealed partial class ToolSystem
         if (args.Handled || !args.CanReach || args.Target != null)
             return;
 
-        if (TryDig(args.User, component, args.ClickLocation))
+        if (TryDig(args.User, uid, component, args.ClickLocation))
             args.Handled = true;
     }
 
-    private bool TryDig(EntityUid user, EarthDiggingComponent component, EntityCoordinates clickLocation)
+    private bool TryDig(EntityUid user, EntityUid shovel, EarthDiggingComponent component, EntityCoordinates clickLocation)
     {
         if (component.CancelToken != null)
             return true;
@@ -94,10 +98,13 @@ public sealed partial class ToolSystem
             new EarthDiggingCompleteEvent
             {
                 Coordinates = clickLocation,
+                Shovel = shovel,
             },
-            new EarthDiggingCancelledEvent(),
+            new EarthDiggingCancelledEvent()
+            {
+                Shovel = shovel,
+            },
             toolComponent: tool,
-            doAfterEventTarget: component.Owner,
             cancelToken: token.Token);
 
         if (!success)
@@ -109,8 +116,11 @@ public sealed partial class ToolSystem
     private sealed class EarthDiggingCompleteEvent : EntityEventArgs
     {
         public EntityCoordinates Coordinates { get; set; }
-        public EntityUid User;
+        public EntityUid Shovel;
     }
 
-    private sealed class EarthDiggingCancelledEvent : EntityEventArgs { }
+    private sealed class EarthDiggingCancelledEvent : EntityEventArgs
+    {
+        public EntityUid Shovel;
+    }
 }
