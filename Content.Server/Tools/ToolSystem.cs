@@ -33,6 +33,7 @@ namespace Content.Server.Tools
 
             InitializeTilePrying();
             InitializeLatticeCutting();
+            InitializeEarthDigging();
             InitializeWelders();
 
             SubscribeLocalEvent<ToolDoAfterComplete>(OnDoAfterComplete);

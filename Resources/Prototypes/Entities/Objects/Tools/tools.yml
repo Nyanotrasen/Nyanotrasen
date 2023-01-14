@@ -332,6 +332,12 @@
     wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
   - type: Item
     sprite: Objects/Tools/shovel.rsi
+  - type: Tool
+    qualities:
+      - Digging
+    useSound:
+      path: /Audio/Items/shovel_dig.ogg
+  - type: EarthDigging
 
 - type: entity
   name: omnitool

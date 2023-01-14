@@ -1098,8 +1098,7 @@
   sprite: /Textures/Tiles/snow.png
   baseTurfs:
   - FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepSnow
   friction: 0.20
@@ -1113,8 +1112,7 @@
   sprite: /Textures/Tiles/grass.png
   baseTurfs:
   - FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepGrass
   friction: 0.30
@@ -1128,8 +1126,7 @@
   sprite: /Textures/Tiles/grassjungle.png
   baseTurfs:
   - FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepGrass
   friction: 0.30
@@ -1145,11 +1142,11 @@
   placementVariants: [0, 1, 2, 3]
   baseTurfs:
   - FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepGrass
   friction: 0.30
+  itemDrop: FloorTileItemGrassDark
   thermalConductivity: 0.04
   heatCapacity: 10000
 
@@ -1161,11 +1158,11 @@
   placementVariants: [0, 1, 2, 3]
   baseTurfs:
   - FloorDirt
-  isSubfloor: true
-  canCrowbar: false
+  canShovel: true
   footstepSounds:
     collection: FootstepGrass
   friction: 0.30
+  itemDrop: FloorTileItemGrassLight
   thermalConductivity: 0.04
   heatCapacity: 10000
 
@@ -1176,12 +1173,30 @@
   variants: 4
   placementVariants: [0, 1, 2, 3]
   baseTurfs:
-  - Plating
-  isSubfloor: true
-  canCrowbar: false
+  - FloorBedrock
+  canShovel: true
   footstepSounds:
     collection: FootstepAsteroid
   friction: 0.30
+  itemDrop: FloorTileItemDirt
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorBedrock
+  name: tiles-bedrock-floor
+  sprite: /Textures/Tiles/bedrock.png
+  variants: 4
+  placementVariants: [0, 1, 2, 3]
+  baseTurfs:
+  - Space
+  isSubfloor: true
+  # Maybe if there's ever some way to combine grids or prevent overly simple spacing.
+  # canShovel: true
+  footstepSounds:
+    collection: FootstepAsteroid
+  friction: 0.30
+  itemDrop: FloorTileItemBedrock
   thermalConductivity: 0.04
   heatCapacity: 10000
 
