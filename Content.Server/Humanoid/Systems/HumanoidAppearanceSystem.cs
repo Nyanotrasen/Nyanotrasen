@@ -124,6 +124,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             newAppearance = newAppearance.WithEyeColor(eyeInfo.Color);
         }
 
+        // Unless there's some major change, there should only ever be one Hair marking.
+        // LoadProfile assumes as much as well.
         if (humanoid.CurrentMarkings.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) &&
             hairMarkings.Count > 0 &&
             hairMarkings[0].MarkingColors.Count > 0)
@@ -133,6 +135,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
                 .WithHairStyleName(hairMarkings[0].MarkingId);
         }
 
+        // Same for Facial hair.
         if (humanoid.CurrentMarkings.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
             facialHairMarkings.Count > 0 &&
             facialHairMarkings[0].MarkingColors.Count > 0)
