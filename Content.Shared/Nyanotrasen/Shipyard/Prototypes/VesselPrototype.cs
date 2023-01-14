@@ -11,10 +11,6 @@ namespace Content.Shared.Shipyard.Prototypes
 
     public sealed class VesselPrototype : IPrototype
     {
-        [DataField("name")] private string _name = string.Empty;
-
-        [DataField("description")] private string _description = string.Empty;
-
         [ViewVariables]
         [IdDataField]
         public string ID { get; } = default!;
@@ -23,47 +19,13 @@ namespace Content.Shared.Shipyard.Prototypes
         ///     Vessel name.
         /// </summary>
         [ViewVariables]
-        public string Name
-        {
-            get
-            {
-                if (_name.Trim().Length != 0)
-                    return _name;
-
-                if (IoCManager.Resolve<IPrototypeManager>().TryIndex(Vessel, out EntityPrototype? prototype))
-                {
-                    _name = prototype.Name;
-                }
-
-                return _name;
-            }
-        }
+        [DataField("name")] public string Name = string.Empty;
 
         /// <summary>
         ///     Short description of the vessel.
         /// </summary>
         [ViewVariables]
-        public string Description
-        {
-            get
-            {
-                if (_description.Trim().Length != 0)
-                    return _description;
-
-                if (IoCManager.Resolve<IPrototypeManager>().TryIndex(Vessel, out EntityPrototype? prototype))
-                {
-                    _description = prototype.Description;
-                }
-
-                return _description;
-            }
-        }
-
-        /// <summary>
-        ///     The prototype name of the vessel.
-        /// </summary>
-        [DataField("vessel", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string Vessel { get; } = string.Empty;
+        [DataField("description")] public string Description = string.Empty;
 
         /// <summary>
         ///     The price of the vessel
