@@ -2455,3 +2455,13 @@ Entries:
     type: Add
   id: 288
   time: '2023-01-13T19:41:51.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Vending machines are worth zero zorkmids now.
+    type: Tweak
+  - message: The default price of items has been reduced from 20 to 2.
+    type: Tweak
+  - message: The law of supply and demand now affects what is sold on the cargo shuttle.
+    type: Add
+  id: 289
+  time: '2023-01-14T03:33:00.0000000+00:00'
