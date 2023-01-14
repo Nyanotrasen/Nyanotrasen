@@ -48,7 +48,7 @@ namespace Content.Server.Shipyard.Systems
             //_shipyard.Shutdown(); //round cleanup event in case of needing OnInit;
         }
 
-        public void OnPurchaseMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsolePurchaseMessage args)
+        private void OnPurchaseMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsolePurchaseMessage args)
         {
             if (args.Session.AttachedEntity is not { Valid : true } player)
             {
@@ -137,7 +137,7 @@ namespace Content.Server.Shipyard.Systems
             SoundSystem.Play(component.ConfirmSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
         }
 
-        public bool TryPurchaseVessel(StationBankAccountComponent component, VesselPrototype vessel, out ShuttleComponent? deed)
+        private bool TryPurchaseVessel(StationBankAccountComponent component, VesselPrototype vessel, out ShuttleComponent? deed)
         {
             var stationUid = _station.GetOwningStation(component.Owner);
 
