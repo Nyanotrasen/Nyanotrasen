@@ -5,7 +5,7 @@ using Content.Shared.Toggleable;
 using Content.Shared.Soul;
 using Content.Shared.Borgs;
 using Content.Shared.Dataset;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Humanoid;
 using Content.Server.Borgs;

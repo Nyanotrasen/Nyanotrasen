@@ -2,13 +2,12 @@ using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
-using Content.Server.MobState;
 using Content.Server.Resist;
 using Content.Server.Speech;
 using Content.Server.Popups;
 using Content.Server.Contests;
 using Content.Server.Climbing;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
@@ -24,7 +23,7 @@ using Content.Shared.Standing;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Throwing;
 using Content.Shared.Physics.Pull;
-using Robust.Shared.Player;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Carrying

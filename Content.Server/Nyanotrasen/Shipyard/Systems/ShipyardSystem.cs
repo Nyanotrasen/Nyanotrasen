@@ -5,7 +5,7 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Shipyard;
 using Content.Server.Shipyard.Components;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.GameTicking;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;

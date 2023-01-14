@@ -1,5 +1,5 @@
 using Content.Shared.Damage;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Server.NPC.Components;
 using Content.Server.Destructible;
 using Robust.Shared.Timing;

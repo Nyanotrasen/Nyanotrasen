@@ -1,4 +1,4 @@
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Server.Explosion.EntitySystems; // Why is trigger under explosions by the way? Even doors already use it.
 using Content.Server.Electrocution;
 using Robust.Shared.Containers;

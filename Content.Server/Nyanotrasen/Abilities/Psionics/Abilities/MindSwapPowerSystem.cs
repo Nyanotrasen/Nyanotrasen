@@ -5,7 +5,7 @@ using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage;
 using Content.Server.Players;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Server.Psionics;
 using Robust.Shared.Prototypes;

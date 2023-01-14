@@ -1,6 +1,6 @@
 using Content.Server.Station.Systems;
 using Content.Server.Abilities.Psionics;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Psionics;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Psionics.Glimmer;
