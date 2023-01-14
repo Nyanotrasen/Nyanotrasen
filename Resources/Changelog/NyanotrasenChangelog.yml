@@ -2465,3 +2465,18 @@ Entries:
     type: Add
   id: 289
   time: '2023-01-14T03:33:00.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Shovels can now be used to dig up earthen tiles.
+    type: Add
+  - message: Dirt, grass, snow, and other earthen tiles will hide wires and pipes
+      again.
+    type: Fix
+  id: 290
+  time: '2023-01-14T15:08:17.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Re-added Glacier! Please report any issues!
+    type: Add
+  id: 291
+  time: '2023-01-14T15:08:06.0000000+00:00'
