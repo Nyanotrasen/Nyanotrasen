@@ -46,6 +46,11 @@
         reagents:
         - ReagentId: Water
           Quantity: 500
+  - type: AutoRegenReagent
+    solution: tank
+    reagents:
+      - Water
+    unitsPerSecond: 1
 
 - type: entity
   name: wide sink
