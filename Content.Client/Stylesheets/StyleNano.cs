@@ -115,6 +115,10 @@ namespace Content.Client.Stylesheets
 
         // UI Panel colors
         public static readonly Color PanelColorDark = Color.FromHex("#1F1F1F");
+        // Fancy Tree elements
+        public static readonly Color FancyTreeEvenRowColor = Color.FromHex("#25252A");
+        public static readonly Color FancyTreeOddRowColor = FancyTreeEvenRowColor * new Color(0.8f, 0.8f, 0.8f);
+        public static readonly Color FancyTreeSelectedRowColor = new Color(55, 55, 68);
 
         //Used by the APC and SMES menus
         public const string StyleClassPowerStateNone = "PowerStateNone";
@@ -1415,6 +1419,35 @@ namespace Content.Client.Stylesheets
                 Element<Label>().Class("PDAWindowFooterText")
                     .Prop(Label.StylePropertyFont, notoSans10)
                     .Prop(Label.StylePropertyFontColor, Color.FromHex("#333d3b")),
+
+                // Fancy Tree
+                Element<ContainerButton>().Identifier(TreeItem.StyleIdentifierTreeButton)
+                    .Class(TreeItem.StyleClassEvenRow)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxFlat
+                    {
+                        BackgroundColor = FancyTreeEvenRowColor,
+                    }),
+
+                Element<ContainerButton>().Identifier(TreeItem.StyleIdentifierTreeButton)
+                    .Class(TreeItem.StyleClassOddRow)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxFlat
+                    {
+                        BackgroundColor = FancyTreeOddRowColor,
+                    }),
+
+                Element<ContainerButton>().Identifier(TreeItem.StyleIdentifierTreeButton)
+                    .Class(TreeItem.StyleClassSelected)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxFlat
+                    {
+                        BackgroundColor = FancyTreeSelectedRowColor,
+                    }),
+
+                Element<ContainerButton>().Identifier(TreeItem.StyleIdentifierTreeButton)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(ContainerButton.StylePropertyStyleBox, new StyleBoxFlat
+                    {
+                        BackgroundColor = FancyTreeSelectedRowColor,
+                    }),
 
             }).ToList());
         }
