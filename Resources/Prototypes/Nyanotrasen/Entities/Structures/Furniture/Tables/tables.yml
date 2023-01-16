@@ -28,13 +28,13 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialWoodPlank:
-            min: 3
-            max: 3
+            min: 2
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Construction
     graph: Table
-    node: TableWoodReinforced #here
+    node: TableWoodReinforced 
   - type: Tag
     tags:
     - Wooden
