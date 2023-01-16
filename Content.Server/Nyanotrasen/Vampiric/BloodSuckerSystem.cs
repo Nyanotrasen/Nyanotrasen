@@ -122,7 +122,7 @@ namespace Content.Server.Vampiric
                 return;
             }
 
-            if (stream.BloodSolution.CurrentVolume <= 1)
+            if (stream.BloodSolution.Volume <= 1)
             {
                 if (HasComp<BloodSuckedComponent>(victim))
                     _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood-bloodsucked", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
@@ -178,7 +178,7 @@ namespace Content.Server.Vampiric
                 return;
 
             // No blood left, yikes.
-            if (bloodstream.BloodSolution.TotalVolume == 0)
+            if (bloodstream.BloodSolution.Volume == 0)
                 return;
 
             // Does bloodsucker have a stomach?
