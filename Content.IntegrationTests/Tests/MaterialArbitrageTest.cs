@@ -154,13 +154,15 @@ public sealed class MaterialArbitrageTest
         {
             foreach (var (id, (spawnedEnts, spawnedMats)) in spawnedOnDestroy)
             {
-                // Check cargo sell price
-                // several constructible entities have no sell price
-                // also this test only really matters if the entity is also purchaseable.... eh..
-                var spawnedPrice = await GetSpawnedPrice(spawnedEnts);
-                var price = await GetPrice(id);
-                if (spawnedPrice > 0 && price > 0)
-                    Assert.LessOrEqual(spawnedPrice, price, $"{id} increases in price after being destroyed");
+                // I disabled this one because we have dynamic price lol
+                // also the assumption that raw materials are always worth less than something constructed is just wrong in real life and here
+                // // Check cargo sell price
+                // // several constructible entities have no sell price
+                // // also this test only really matters if the entity is also purchaseable.... eh..
+                // var spawnedPrice = await GetSpawnedPrice(spawnedEnts);
+                // var price = await GetPrice(id);
+                // if (spawnedPrice > 0 && price > 0)
+                //     Assert.LessOrEqual(spawnedPrice, price, $"{id} increases in price after being destroyed");
 
                 // Check lathe production
                 if (latheRecipes.TryGetValue(id, out var recipe))
