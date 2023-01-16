@@ -6,7 +6,8 @@
   - Atmospherics
   - Construction
   - Power
-  - ShuttleCraft
+  # - ShuttleCraft
+  - MachineUpgrading
 
 - type: guideEntry
   id: Construction
@@ -25,10 +26,10 @@
   name: guide-entry-fires
   text: "/Server Info/Guidebook/Fires.xml"
 
-- type: guideEntry
-  id: ShuttleCraft
-  name: guide-entry-shuttle-craft
-  text: "/Server Info/Guidebook/Shuttlecraft.xml"
+# - type: guideEntry
+#   id: ShuttleCraft
+#   name: guide-entry-shuttle-craft
+#   text: "/Server Info/Guidebook/Shuttlecraft.xml"
 
 - type: guideEntry
   id: Power
@@ -41,3 +42,8 @@
   id: AME
   name: guide-entry-ame
   text: "/Server Info/Guidebook/AME.xml"
+
+- type: guideEntry
+  id: MachineUpgrading
+  name: guide-entry-machine-upgrading
+  text: "/Server Info/Guidebook/MachineUpgrading.xml"
