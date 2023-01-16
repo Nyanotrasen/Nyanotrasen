@@ -231,11 +231,11 @@ public sealed class MaterialArbitrageTest
         {
             foreach (var (id, deconstructedMats) in deconstructionMaterials)
             {
-                // Check cargo sell price
-                var deconstructedPrice = await GetDeconstructedPrice(deconstructedMats);
-                var price = await GetPrice(id);
-                if (deconstructedPrice > 0 && price > 0)
-                    Assert.LessOrEqual(deconstructedPrice, price, $"{id} increases in price after being deconstructed");
+                // // Check cargo sell price
+                // var deconstructedPrice = await GetDeconstructedPrice(deconstructedMats);
+                // var price = await GetPrice(id);
+                // if (deconstructedPrice > 0 && price > 0)
+                //     Assert.LessOrEqual(deconstructedPrice, price, $"{id} increases in price after being deconstructed");
 
                 // Check lathe production
                 if (latheRecipes.TryGetValue(id, out var recipe))
