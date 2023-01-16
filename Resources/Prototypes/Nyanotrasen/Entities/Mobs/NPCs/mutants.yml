@@ -28,6 +28,7 @@
       layer:
       - MobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       60: Dead
@@ -262,6 +263,7 @@
       layer:
       - SmallMobLayer
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       40: Critical

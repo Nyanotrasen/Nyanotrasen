@@ -1,6 +1,6 @@
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Abilities.Psionics;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Research.SophicScribe;
 using Content.Server.Abilities.Psionics;
 

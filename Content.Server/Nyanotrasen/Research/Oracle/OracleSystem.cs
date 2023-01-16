@@ -243,7 +243,7 @@ namespace Content.Server.Research.Oracle
 
             _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
 
-            if (overflowing != null && overflowing.CurrentVolume > 0)
+            if (overflowing != null && overflowing.Volume > 0)
                 _spillableSystem.SpillAt(uid, overflowing, "PuddleGeneric");
         }
 

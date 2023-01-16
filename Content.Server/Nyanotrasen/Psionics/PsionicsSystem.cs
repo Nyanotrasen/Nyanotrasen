@@ -1,6 +1,6 @@
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
@@ -82,7 +82,7 @@ namespace Content.Server.Psionics
 
         private void OnDeathGasp(EntityUid uid, PotentialPsionicComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState != DamageState.Dead)
+            if (args.NewMobState != MobState.Dead)
                 return;
 
             string message;
@@ -105,7 +105,7 @@ namespace Content.Server.Psionics
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState == DamageState.Dead)
+            if (args.NewMobState == MobState.Dead)
                 RemCompDeferred(uid, component);
         }
 

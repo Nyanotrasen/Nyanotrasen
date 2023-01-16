@@ -8,8 +8,8 @@ using Content.Server.NPC;
 using Content.Server.Pointing.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
-using Content.Shared.MobState;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
@@ -78,7 +78,7 @@ namespace Content.Server.RatKing
 
         private void OnMobStateChanged(EntityUid uid, RatKingComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState == DamageState.Dead)
+            if (args.NewMobState == Shared.Mobs.MobState.Dead)
             {
                 foreach (var servant in component.Servants)
                 {

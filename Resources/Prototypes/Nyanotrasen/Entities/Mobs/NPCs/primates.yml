@@ -124,6 +124,7 @@
         Asphyxiation: 2
     stamDamageBonus: 1.7
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       100: Critical

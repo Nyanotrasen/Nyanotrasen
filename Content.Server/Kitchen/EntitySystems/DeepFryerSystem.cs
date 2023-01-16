@@ -35,7 +35,6 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.UserInterface;
-using Content.Shared.Audio;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -53,8 +52,8 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Kitchen.Components;
 using Content.Shared.Kitchen.UI;
-using Content.Shared.MobState.Components;
-using Content.Shared.MobState.EntitySystems;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
@@ -81,7 +80,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
-        [Dependency] private readonly SharedMobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
         [Dependency] private readonly SpillableSystem _spillableSystem = default!;
@@ -317,8 +316,8 @@ namespace Content.Server.Kitchen.EntitySystems
                         EnsureComp<FlavorProfileComponent>(mob).Flavors.Add(MobFlavorMeat);
 
                     // Bring in whatever chemicals they had in them too.
-                    mobFoodSolution.MaxVolume += bloodstreamComponent.ChemicalSolution.TotalVolume;
-                    mobFoodSolution.AddSolution(bloodstreamComponent.ChemicalSolution);
+                    mobFoodSolution.MaxVolume += bloodstreamComponent.ChemicalSolution.Volume;
+                    mobFoodSolution.AddSolution(bloodstreamComponent.ChemicalSolution, _prototypeManager);
                 }
 
                 return true;
@@ -397,9 +396,9 @@ namespace Content.Server.Kitchen.EntitySystems
 
             // The solution quantity is used to give the fried food an extra
             // buffer too, to support injectables or condiments.
-            foodContainer.MaxVolume = 2 * solutionQuantity + foodContainer.CurrentVolume + extraSolution.CurrentVolume;
-            foodContainer.AddSolution(component.Solution.SplitSolution(solutionQuantity));
-            foodContainer.AddSolution(extraSolution);
+            foodContainer.MaxVolume = 2 * solutionQuantity + foodContainer.Volume + extraSolution.Volume;
+            foodContainer.AddSolution(component.Solution.SplitSolution(solutionQuantity), _prototypeManager);
+            foodContainer.AddSolution(extraSolution, _prototypeManager);
             _solutionContainerSystem.UpdateChemicals(item, foodContainer, true);
         }
 
@@ -426,8 +425,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             foreach (var reagent in component.WasteReagents)
             {
-                if (component.Solution.ContainsReagent(reagent.ReagentId, out var quantity))
-                    wasteVolume += quantity;
+                wasteVolume += component.Solution.GetReagentQuantity(reagent.ReagentId);
             }
 
             return wasteVolume;
@@ -438,7 +436,7 @@ namespace Content.Server.Kitchen.EntitySystems
         /// </summary>
         public FixedPoint2 GetOilPurity(EntityUid uid, DeepFryerComponent component)
         {
-            return GetOilVolume(uid, component) / component.Solution.CurrentVolume;
+            return GetOilVolume(uid, component) / component.Solution.Volume;
         }
 
         /// <summary>
@@ -591,7 +589,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             // Determine how much solution to spend on this item.
             var solutionQuantity = FixedPoint2.Min(
-                component.Solution.CurrentVolume,
+                component.Solution.Volume,
                 itemComponent.Size * component.SolutionSizeCoefficient);
 
             if (component.Whitelist != null && component.Whitelist.IsValid(item, EntityManager) ||

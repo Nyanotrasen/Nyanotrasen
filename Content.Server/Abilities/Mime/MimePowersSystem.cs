@@ -6,10 +6,8 @@ using Content.Shared.Alert;
 using Content.Shared.Physics;
 using Content.Shared.Doors.Components;
 using Content.Shared.Maps;
-using Content.Shared.MobState.Components;
 using Content.Shared.Abilities.Psionics;
-using Robust.Shared.Player;
-using Robust.Shared.Physics;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 

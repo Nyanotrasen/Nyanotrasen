@@ -13,7 +13,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.ActionBlocker;
-using Content.Shared.MobState.EntitySystems;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Examine;
 using Content.Shared.Tag;
@@ -38,13 +38,13 @@ namespace Content.Server.Body.Systems
         [Dependency] private readonly DamageableSystem _damageableSys = default!;
         [Dependency] private readonly LungSystem _lungSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedMobStateSystem _mobState = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly MobStateSystem _mobState = default!;
 
         public override void Initialize()
         {

@@ -11,7 +11,7 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;

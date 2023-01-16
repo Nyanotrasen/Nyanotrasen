@@ -5,7 +5,7 @@ using Content.Shared.Inventory.Events;
 using Content.Server.Abilities.Gachi.Components;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Clothing.Components;
-using Content.Shared.MobState;
+using Content.Shared.Mobs;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -76,7 +76,7 @@ namespace Content.Server.Abilities.Gachi
 
         private void OnMobStateChanged(EntityUid uid, GachiComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState.IsCritical())
+            if (args.NewMobState == Shared.Mobs.MobState.Critical)
             {
                 SoundSystem.Play("/Audio/Effects/Gachi/knockedhimout.ogg", Filter.Pvs(uid), uid);
             }

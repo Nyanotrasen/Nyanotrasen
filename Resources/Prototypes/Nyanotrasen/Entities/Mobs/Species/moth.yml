@@ -22,6 +22,7 @@
       types:
         Heat: 2 # moths should burn more easily
   - type: MobState
+  - type: MobThresholds
     thresholds:
       0: Alive
       100: Critical

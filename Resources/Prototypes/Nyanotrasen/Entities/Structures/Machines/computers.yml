@@ -4,11 +4,6 @@
   name: shipyard console
   description: Used to purchase and sell shuttles
   components:
-  - type: Appearance
-    visuals:
-    - type: ComputerVisualizer
-      key: tech_key
-      screen: request
   - type: ShipyardConsole
   - type: AccessReader
     access:
@@ -29,4 +24,13 @@
   - type: ContainerContainer
     containers:
       board: !type:Container
-      
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: request
+    - map: ["computerLayerKeys"]
+      state: tech_key

@@ -2,7 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Damage;
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 

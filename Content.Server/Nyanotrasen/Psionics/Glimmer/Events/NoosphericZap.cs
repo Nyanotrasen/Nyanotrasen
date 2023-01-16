@@ -1,7 +1,7 @@
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.StatusEffect;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Stunnable;
 using Content.Server.Popups;
 using Robust.Shared.Player;

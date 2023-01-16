@@ -1,9 +1,9 @@
-using Content.Shared.MobState.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Inventory;
 using Content.Shared.Damage;
-using Content.Server.MobState;
+using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
