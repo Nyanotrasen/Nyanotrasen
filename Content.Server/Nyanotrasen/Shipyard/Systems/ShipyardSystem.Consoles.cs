@@ -1,8 +1,10 @@
 using Content.Server.Popups;
 using Content.Server.Cargo.Systems;
 using Content.Server.Cargo.Components;
+using Content.Server.Radio.EntitySystems;
 using Content.Server.Shipyard.Components;
 using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Shipyard.Events;
@@ -17,6 +19,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
+using Content.Shared.Radio;
 
 namespace Content.Server.Shipyard.Systems
 {
@@ -29,6 +32,7 @@ namespace Content.Server.Shipyard.Systems
         [Dependency] private readonly ShipyardSystem _shipyard = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly CargoSystem _cargo = default!;
+        [Dependency] private readonly RadioSystem _radioSystem = default!;
 
         public void InitializeConsole()
         {
@@ -51,9 +55,7 @@ namespace Content.Server.Shipyard.Systems
         private void OnPurchaseMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsolePurchaseMessage args)
         {
             if (args.Session.AttachedEntity is not { Valid : true } player)
-            {
                 return;
-            }
 
             if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_accessSystem.IsAllowed(player, accessReaderComponent))
             {
@@ -92,8 +94,10 @@ namespace Content.Server.Shipyard.Systems
                 PlayDenySound(uid, component);
                 return;
             }
-
+         
             _cargo.DeductFunds(bank, vessel.Price);
+            var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
+            _radioSystem.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking"), channel);
             PlayConfirmSound(uid, component);
 
             var newState = new ShipyardConsoleInterfaceState(
@@ -102,7 +106,7 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
         }
-        
+
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
             if (!args.Session.AttachedEntity.HasValue)
@@ -153,7 +157,6 @@ namespace Content.Server.Shipyard.Systems
             {
                 return false;
             };
-
             return true;
         }
         
