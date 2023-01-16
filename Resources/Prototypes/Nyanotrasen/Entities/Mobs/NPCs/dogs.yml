@@ -19,10 +19,10 @@
   - type: MobState
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Pets/walter.rsi
+    sprite: Nyanotrasen/Mobs/Pets/pitbull.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: walter
+      state: pibble
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -46,11 +46,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: walter
+        Base: pibble
       Critical:
-        Base: walter_dead
+        Base: pibble_dead
       Dead:
-        Base: walter_dead
+        Base: pibble_dead
   - type: Butcherable
     spawned:
     - id: FoodMeat
