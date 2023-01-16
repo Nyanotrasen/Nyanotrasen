@@ -494,3 +494,13 @@
   materials:
      Steel: 100
      Glass: 900
+
+- type: latheRecipe
+  id: ClothingEyesHudMedical
+  icon: { sprite: Clothing/Eyes/Hud/med.rsi, state: icon }
+  result: ClothingEyesHudMedical
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 300
+    Plasma: 200

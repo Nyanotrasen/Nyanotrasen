@@ -8,6 +8,8 @@ using Content.Shared.Mobs.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
+using Robust.Client.Player;
+using Content.Shared.SimpleStation14.Clothing;
 
 namespace Content.Client.HealthOverlay.UI
 {
@@ -15,6 +17,7 @@ namespace Content.Client.HealthOverlay.UI
     {
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public HealthOverlayGui(EntityUid entity)
         {
@@ -140,6 +143,17 @@ namespace Content.Client.HealthOverlay.UI
             if (_entities.Deleted(Entity) || _eyeManager.CurrentMap != _entities.GetComponent<TransformComponent>(Entity).MapID)
             {
                 Visible = false;
+                return;
+            }
+
+            if (!_entities.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out HealthGlassesComponent? glassComp))
+            {
+                SetVisibility(false);
+                return;
+            }
+            if (_playerManager.LocalPlayer?.ControlledEntity != glassComp.Owner)
+            {
+                SetVisibility(false);
                 return;
             }
 

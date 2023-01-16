@@ -189,8 +189,8 @@
   id: AdvancedLifeSupport
   description: technologies-advanced-life-support-description
   icon:
-    sprite: Structures/Machines/cloning.rsi
-    state: pod_0
+    sprite: Clothing/Eyes/Hud/med.rsi
+    state: icon
   requiredPoints: 20000
   requiredTechnologies:
   - MedicalMachinery
@@ -201,6 +201,7 @@
   - StasisBedMachineCircuitboard
   - CloningConsoleComputerCircuitboard
   - CryoPodMachineCircuitboard
+  - ClothingEyesHudMedical
 
 # Security Technology Tree
 
