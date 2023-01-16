@@ -76,7 +76,7 @@ namespace Content.Server.Abilities.Gachi
 
         private void OnMobStateChanged(EntityUid uid, GachiComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState.IsCritical())
+            if (args.NewMobState == Shared.Mobs.MobState.Critical)
             {
                 SoundSystem.Play("/Audio/Effects/Gachi/knockedhimout.ogg", Filter.Pvs(uid), uid);
             }

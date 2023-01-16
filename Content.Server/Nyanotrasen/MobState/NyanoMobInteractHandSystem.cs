@@ -1,4 +1,4 @@
-using Content.Shared.Mobs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Bed.Sleep;
@@ -9,12 +9,12 @@ using Content.Server.Bed.Sleep;
 using Content.Server.Interaction;
 using Content.Server.Interaction.Components;
 
-namespace Content.Server.MobState
+namespace Content.Server.Mobs
 {
     /// <summary>
     /// Handles interact hand events on mobs.
     /// </summary>
-    public sealed class NyanoMobStateSystem : EntitySystem
+    public sealed class NyanoMobInteractHandSystem : EntitySystem
     {
         [Dependency] private readonly SleepingSystem _sleepingSystem = default!;
         [Dependency] private readonly SharedStunSystem _stunSystem = default!;
@@ -38,7 +38,7 @@ namespace Content.Server.MobState
             // Highest to lowest prio:
 
             // 1. Are we in crit and suffocating?
-            if (component.CurrentState == DamageState.Critical && TryComp<RespiratorComponent>(uid, out var respirator))
+            if (component.CurrentState == Shared.Mobs.MobState.Critical && TryComp<RespiratorComponent>(uid, out var respirator))
             {
                 _respirator.AttemptCPR(uid, respirator, args.User);
                 args.Handled = true;

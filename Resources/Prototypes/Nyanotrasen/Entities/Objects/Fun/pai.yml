@@ -46,12 +46,9 @@
     proto: robot
   - type: Speech
     speechSounds: Pai
-    # This has to be installed because otherwise they're not "alive",
-    #  so they can ghost and come back.
-    # Note that the personal AI never "dies".
   - type: MobState
-    thresholds:
-      0: Alive
+    allowedStates:
+      - Alive
   - type: Appearance
     visuals:
       - type: GenericEnumVisualizer

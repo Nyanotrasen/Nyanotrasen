@@ -78,7 +78,7 @@ namespace Content.Server.RatKing
 
         private void OnMobStateChanged(EntityUid uid, RatKingComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState == DamageState.Dead)
+            if (args.NewMobState == Shared.Mobs.MobState.Dead)
             {
                 foreach (var servant in component.Servants)
                 {

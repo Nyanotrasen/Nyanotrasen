@@ -105,7 +105,7 @@ namespace Content.Server.Soul
 
         private void OnMobStateChanged(EntityUid uid, GolemComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState != DamageState.Dead)
+            if (args.NewMobState != MobState.Dead)
                 return;
 
             QueueDel(uid);

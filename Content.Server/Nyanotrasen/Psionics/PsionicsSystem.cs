@@ -82,7 +82,7 @@ namespace Content.Server.Psionics
 
         private void OnDeathGasp(EntityUid uid, PotentialPsionicComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState != DamageState.Dead)
+            if (args.NewMobState != MobState.Dead)
                 return;
 
             string message;
@@ -105,7 +105,7 @@ namespace Content.Server.Psionics
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
-            if (args.CurrentMobState == DamageState.Dead)
+            if (args.NewMobState == MobState.Dead)
                 RemCompDeferred(uid, component);
         }
 
