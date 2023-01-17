@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.NPC.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Clothing.Components;
+using Content.Server.Store.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.NPC.Systems
@@ -26,6 +27,8 @@ namespace Content.Server.NPC.Systems
             base.Initialize();
             _sawmill = Logger.GetSawmill("faction");
             SubscribeLocalEvent<FactionComponent, ComponentStartup>(OnFactionStartup);
+            SubscribeLocalEvent<FactionComponent, GetNearbyHostilesEvent>(OnGetNearbyHostiles);
+            SubscribeLocalEvent<FactionComponent, ItemPurchasedEvent>(OnPurchased);
             SubscribeLocalEvent<ClothingAddFactionComponent, GotEquippedEvent>(OnEquipped);
             SubscribeLocalEvent<ClothingAddFactionComponent, GotUnequippedEvent>(OnUnequipped);
             _protoManager.PrototypesReloaded += OnProtoReload;
@@ -46,6 +49,21 @@ namespace Content.Server.NPC.Systems
         private void OnFactionStartup(EntityUid uid, FactionComponent component, ComponentStartup args)
         {
             RefreshFactions(component);
+        }
+
+        private void OnGetNearbyHostiles(EntityUid uid, FactionComponent component, ref GetNearbyHostilesEvent args)
+        {
+            args.ExceptionalFriendlies.UnionWith(component.ExceptionalFriendlies);
+        }
+
+        /// <summary>
+        /// If we bought something we probably don't want it to start biting us after it's automatically placed in our hands.
+        /// If you do, consider finding a better solution to grenade penguin CBT.
+        /// </summary>
+        private void OnPurchased(EntityUid uid, FactionComponent component, ref ItemPurchasedEvent args)
+        {
+            Logger.Error("Received event...");
+            component.ExceptionalFriendlies.Add(args.Purchaser);
         }
 
         private void OnEquipped(EntityUid uid, ClothingAddFactionComponent component, GotEquippedEvent args)
