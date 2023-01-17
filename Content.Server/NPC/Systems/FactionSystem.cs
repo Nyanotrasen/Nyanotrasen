@@ -278,6 +278,14 @@ namespace Content.Server.NPC.Systems
             sourceFaction.Hostile.Add(target);
             RefreshFactions();
         }
+
+        public void AddFriendlyEntity(EntityUid uid, EntityUid fEntity, FactionComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, false))
+                return;
+
+            component.ExceptionalFriendlies.Add(fEntity);
+        }
     }
 
     /// <summary>
