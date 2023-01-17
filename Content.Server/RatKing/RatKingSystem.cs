@@ -137,6 +137,9 @@ namespace Content.Server.RatKing
             var servComp = EnsureComp<RatServantComponent>(servant);
             servComp.RatKing = uid;
 
+            var faction = EnsureComp<FactionComponent>(servant);
+            faction.ExceptionalFriendlies.Add(uid);
+
             _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
 
