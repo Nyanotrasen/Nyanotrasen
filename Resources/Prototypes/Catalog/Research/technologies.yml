@@ -333,23 +333,6 @@
   - OreProcessorMachineCircuitboard
 
 - type: technology
-  name: technologies-spacefaring
-  id: SpacefaringTechnology
-  description: technologies-spacefaring-description
-  icon:
-    sprite: Structures/Shuttles/gyroscope.rsi
-    state: base
-  requiredPoints: 10000
-  requiredTechnologies:
-  - SalvageEquipment
-  - IndustrialEngineering
-  unlockedRecipes:
-  - ShuttleConsoleCircuitboard
-  - RadarConsoleCircuitboard
-  - ThrusterMachineCircuitboard
-  - GyroscopeMachineCircuitboard
-
-- type: technology
   name: technologies-ripley-technology
   id: RipleyTechnology
   description: technologies-ripley-technology-description
@@ -458,6 +441,7 @@
   - SolarControlComputerCircuitboard
   - EmitterCircuitboard
   - Holoprojector
+  - RadarConsoleCircuitboard
 
 - type: technology
   name: technologies-advanced-atmospherics-technology
