@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: ReverseEngineeringMachine
+  name: reverse engineering machine
+  description: Destructively analyses pieces of technology in the hopes that we can retrieve information from them.
+  components:
+  - type: ReverseEngineeringMachine
+  - type: Sprite
+    sprite: Structures/Machines/seed_extractor.rsi
+    snapCardinals: true
+    layers:
+    - state: seedextractor-off
+    - state: seedextractor-unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    netsync: false

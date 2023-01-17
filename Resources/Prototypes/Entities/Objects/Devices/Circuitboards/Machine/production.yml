@@ -253,6 +253,9 @@
       materialRequirements:
         Glass: 1
         Cable: 1
+    - type: ReverseEngineering
+      recipes:
+        - CloningPodMachineCircuitboard
 
 - type: entity
   id: MedicalScannerMachineCircuitboard
