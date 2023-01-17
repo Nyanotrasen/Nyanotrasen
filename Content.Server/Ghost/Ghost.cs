@@ -1,6 +1,7 @@
 using Content.Server.GameTicking;
 using Content.Server.Players;
 using Content.Shared.Administration;
+using Content.Server.Abilities.Psionics;
 using Robust.Server.Player;
 using Robust.Shared.Console;
 
@@ -15,10 +16,17 @@ namespace Content.Server.Ghost
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
+            var entityManager = IoCManager.Resolve<IEntityManager>();
             var player = shell.Player as IPlayerSession;
             if (player == null)
             {
                 shell?.WriteLine("You have no session, you can't ghost.");
+                return;
+            }
+
+            if (entityManager.HasComponent<MindSwappedComponent>(player.AttachedEntity))
+            {
+                shell?.WriteLine("You cannot ghost while actively mindswapped.");
                 return;
             }
 
