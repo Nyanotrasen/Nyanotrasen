@@ -138,7 +138,6 @@ public sealed partial class StoreSystem : EntitySystem
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
-            Logger.Error("Raising event...");
             var ev = new ItemPurchasedEvent(buyer);
             RaiseLocalEvent(product, ref ev);
             _hands.PickupOrDrop(buyer, product);

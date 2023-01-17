@@ -62,7 +62,6 @@ namespace Content.Server.NPC.Systems
         /// </summary>
         private void OnPurchased(EntityUid uid, FactionComponent component, ref ItemPurchasedEvent args)
         {
-            Logger.Error("Received event...");
             component.ExceptionalFriendlies.Add(args.Purchaser);
         }
 
