@@ -140,11 +140,23 @@ namespace Content.Server.NPC.Systems
             if (!Resolve(entity, ref component, false))
                 return Array.Empty<EntityUid>();
 
-            var targets = GetNearbyFactions(entity, range, component.HostileFactions);
+            var targets = new HashSet<EntityUid>();
+            var eHostiles = new HashSet<EntityUid>();
+            var eFriendlies = new HashSet<EntityUid>();
 
-            if (TryComp<NPCCombatTargetComponent>(entity, out var targetComponent))
+            foreach (var target in GetNearbyFactions(entity, range, component.HostileFactions))
             {
-                targets = targets.Union((IEnumerable<EntityUid>) targetComponent.EngagingEnemies);
+                targets.Add(target);
+            }
+
+            var ev = new GetNearbyHostilesEvent(eHostiles, eFriendlies);
+            RaiseLocalEvent(entity, ref ev);
+
+            targets.UnionWith(ev.ExceptionalHostiles);
+
+            foreach (var friendly in ev.ExceptionalFriendlies)
+            {
+                targets.Remove(friendly);
             }
 
             return targets;
@@ -250,4 +262,12 @@ namespace Content.Server.NPC.Systems
             RefreshFactions();
         }
     }
+
+    /// <summary>
+    /// Raised on an entity when it's trying to determine which nearby entities are hostile.
+    /// </summary>
+    /// <param name="ExceptionalHostiles">Entities that will be counted as hostile regardless of faction. Overriden by friendlies.</param>
+    /// <param name="ExceptionalFriendlies">Entities that will be counted as friendly regardless of faction. Overrides hostiles. </param>
+    [ByRefEvent]
+    public readonly record struct GetNearbyHostilesEvent(HashSet<EntityUid> ExceptionalHostiles, HashSet<EntityUid> ExceptionalFriendlies);
 }

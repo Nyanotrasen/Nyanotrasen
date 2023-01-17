@@ -28,6 +28,7 @@ namespace Content.Server.NPC.Systems
         {
             base.Initialize();
             SubscribeLocalEvent<NPCComponent, DamageChangedEvent>(OnDamageChanged);
+            SubscribeLocalEvent<NPCCombatTargetComponent, GetNearbyHostilesEvent>(OnAddHostiles);
             SubscribeLocalEvent<NPCEngagerComponent, ComponentShutdown>(OnShutdown);
         }
 
@@ -51,6 +52,10 @@ namespace Content.Server.NPC.Systems
             engager.RemoveWhen = _timing.CurTime + engager.Decay;
         }
 
+        private void OnAddHostiles(EntityUid uid, NPCCombatTargetComponent component, ref GetNearbyHostilesEvent args)
+        {
+            args.ExceptionalHostiles.UnionWith(component.EngagingEnemies);
+        }
         private void OnShutdown(EntityUid uid, NPCEngagerComponent component, ComponentShutdown args)
         {
             foreach (var enemy in component.EngagedEnemies)
