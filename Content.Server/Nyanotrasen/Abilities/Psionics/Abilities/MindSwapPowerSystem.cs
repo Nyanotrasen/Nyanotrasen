@@ -8,6 +8,7 @@ using Content.Server.Players;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Server.Psionics;
+using Content.Server.GameTicking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
@@ -31,6 +32,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
+            SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
         }
@@ -108,6 +110,18 @@ namespace Content.Server.Abilities.Psionics
         private void OnDispelled(EntityUid uid, MindSwappedComponent component, DispelledEvent args)
         {
             Swap(uid, component.OriginalEntity, true);
+            args.Handled = true;
+        }
+
+        private void OnGhostAttempt(GhostAttemptHandleEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
+                return;
+
+            args.Result = false;
             args.Handled = true;
         }
 
