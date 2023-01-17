@@ -2533,3 +2533,15 @@ Entries:
     type: Tweak
   id: 299
   time: '2023-01-16T22:20:38.0000000+00:00'
+- author: Rane
+  changes:
+  - message: Removed cargo orders and lathe recipes for shuttle machine parts.
+    type: Remove
+  - message: Removed spacefaring technology. Radar console board has been moved to
+      electro engineering tech.
+    type: Remove
+  - message: The shipyard console now uses Captain access. Shuttles are a huge purchase
+      and require agreement between multiple departments.
+    type: Tweak
+  id: 300
+  time: '2023-01-17T00:08:07.0000000+00:00'
