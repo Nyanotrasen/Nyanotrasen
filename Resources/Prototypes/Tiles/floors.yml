@@ -1105,6 +1105,7 @@
   itemDrop: FloorTileItemSnow
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrass
@@ -1119,6 +1120,7 @@
   itemDrop: FloorTileItemGrass
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassJungle
@@ -1133,6 +1135,7 @@
   itemDrop: FloorTileItemGrassJungle
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassDark
@@ -1149,6 +1152,7 @@
   itemDrop: FloorTileItemGrassDark
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorGrassLight
@@ -1165,6 +1169,7 @@
   itemDrop: FloorTileItemGrassLight
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorDirt
@@ -1199,6 +1204,7 @@
   itemDrop: FloorTileItemBedrock
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 # Asteroid
 - type: tile
@@ -1214,6 +1220,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidTile
@@ -1228,6 +1235,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidCoarseSand0
@@ -1244,6 +1252,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tileAlias
   id: FloorAsteroidCoarseSand1
@@ -1266,6 +1275,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsand1
@@ -1280,6 +1290,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsand2
@@ -1294,6 +1305,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsand3
@@ -1308,6 +1320,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 - type: tile
   id: FloorAsteroidIronsand4
@@ -1322,6 +1335,7 @@
   friction: 0.30
   thermalConductivity: 0.04
   heatCapacity: 10000
+  weather: true
 
 # Caves
 - type: tile
