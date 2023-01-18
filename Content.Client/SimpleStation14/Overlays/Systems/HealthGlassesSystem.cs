@@ -25,6 +25,7 @@ namespace Content.Client.SimpleStation14.Overlays
         {
             if (_player.LocalPlayer?.ControlledEntity == uid)
             {
+                _healthOverlay.OrganicsOnly = true;
                 _healthOverlay.CheckLOS = true;
                 _healthOverlay.Enabled = true;
             }
@@ -35,6 +36,7 @@ namespace Content.Client.SimpleStation14.Overlays
         {
             if (_player.LocalPlayer?.ControlledEntity == uid)
             {
+                _healthOverlay.OrganicsOnly = false;
                 _healthOverlay.CheckLOS = false;
                 _healthOverlay.Enabled = false;
             }
@@ -42,18 +44,21 @@ namespace Content.Client.SimpleStation14.Overlays
 
         private void OnPlayerAttached(EntityUid uid, HealthGlassesComponent component, PlayerAttachedEvent args)
         {
+            _healthOverlay.OrganicsOnly = true;
             _healthOverlay.CheckLOS = true;
             _healthOverlay.Enabled = true;
         }
 
         private void OnPlayerDetached(EntityUid uid, HealthGlassesComponent component, PlayerDetachedEvent args)
         {
+            _healthOverlay.OrganicsOnly = false;
             _healthOverlay.CheckLOS = false;
             _healthOverlay.Enabled = false;
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
         {
+            _healthOverlay.OrganicsOnly = false;
             _healthOverlay.CheckLOS = false;
             _healthOverlay.Enabled = false;
         }
