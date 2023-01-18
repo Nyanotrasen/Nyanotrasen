@@ -10,17 +10,7 @@ public enum ReverseEngineeringMachineUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class ReverseEngineeringMachineServerSelectionMessage : BoundUserInterfaceMessage
-{
-}
-
-[Serializable, NetSerializable]
 public sealed class ReverseEngineeringMachineScanButtonPressedMessage : BoundUserInterfaceMessage
-{
-}
-
-[Serializable, NetSerializable]
-public sealed class ReverseEngineeringMachinePrintButtonPressedMessage : BoundUserInterfaceMessage
 {
 }
 
@@ -28,8 +18,6 @@ public sealed class ReverseEngineeringMachinePrintButtonPressedMessage : BoundUs
 public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfaceState
 {
     public EntityUid? Target;
-
-    public bool ServerConnected;
 
     public bool CanScan;
 
@@ -41,11 +29,10 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
 
     public TimeSpan TotalTime;
 
-    public ReverseEngineeringMachineScanUpdateState(EntityUid? target, bool serverConnected, bool canScan,
+    public ReverseEngineeringMachineScanUpdateState(EntityUid? target, bool canScan,
         FormattedMessage? scanReport, bool scanning, TimeSpan timeRemaining, TimeSpan totalTime)
     {
         Target = target;
-        ServerConnected = serverConnected;
         CanScan = canScan;
 
         ScanReport = scanReport;

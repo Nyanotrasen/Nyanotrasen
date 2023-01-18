@@ -8,9 +8,6 @@
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer Margin="10 10 10 10" MinWidth="150" Orientation="Vertical" VerticalExpand="True" SizeFlagsStretchRatio="1">
             <BoxContainer Orientation="Vertical" VerticalExpand="True">
-                <Button Name="ServerSelectionButton"
-                        Text="{Loc 'reverse-engineering-machine-server-list-button'}"></Button>
-                <BoxContainer MinHeight="5"></BoxContainer>
                 <Button Name="ScanButton"
                         Text="{Loc 'reverse-engineering-machine-scan-button'}"
                         ToolTip="{Loc 'reverse-engineering-machine-scan-tooltip-info'}">

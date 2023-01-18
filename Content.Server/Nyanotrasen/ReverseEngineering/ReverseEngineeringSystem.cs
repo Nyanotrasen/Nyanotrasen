@@ -1,15 +1,18 @@
 using Content.Shared.Interaction;
 using Content.Shared.ReverseEngineering;
 using Content.Server.Research.TechnologyDisk.Components;
+using Content.Server.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.ReverseEngineering;
 
 public sealed class ReverseEngineeringSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
@@ -19,8 +22,26 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
+
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, BeforeActivatableUIOpenEvent>((e,c,_) => UpdateUserInterface(e,c));
         // SubscribeLocalEvent<ReverseEngineeringMachineComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
     }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        foreach (var (active, rev) in EntityQuery<ActiveReverseEngineeringMachineComponent, ReverseEngineeringMachineComponent>())
+        {
+            UpdateUserInterface(rev.Owner, rev);
+
+            if (_timing.CurTime - active.StartTime < rev.AnalysisDuration)
+                continue;
+
+            FinishProbe(rev.Owner, rev, active);
+        }}
 
     private void OnEntInserted(EntityUid uid, ReverseEngineeringMachineComponent component, EntInsertedIntoContainerMessage args)
     {
@@ -40,6 +61,19 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         component.CurrentItem = null;
         component.CurrentItemDifficulty = 0;
         UpdateUserInterface(uid, component);
+    }
+
+    private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)
+    {
+        if (component.CurrentItem == null)
+            return;
+
+        if (HasComp<ActiveReverseEngineeringMachineComponent>(uid))
+            return;
+
+        var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
+        activeComp.StartTime = _timing.CurTime;
+        activeComp.Item = component.CurrentItem.Value;
     }
     private void OnAfterInteractUsing(EntityUid uid, ReverseEngineeringMachineComponent component, AfterInteractUsingEvent args)
     {
@@ -64,9 +98,11 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         EntityUid? item = component.CurrentItem;
         FormattedMessage? msg = GetReverseEngineeringScanMessage(component);
         var totalTime = TimeSpan.Zero;
-        var canScan = false;
+        var scanning = TryComp<ActiveReverseEngineeringMachineComponent>(uid, out var active);
+        var canScan = (item != null && !scanning);
+        var remaining = active != null ? _timing.CurTime - active.StartTime : TimeSpan.Zero;
 
-        var state = new ReverseEngineeringMachineScanUpdateState(item, true, true, msg, false, TimeSpan.Zero, TimeSpan.FromMinutes(5));
+        var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, msg, scanning, remaining, component.AnalysisDuration);
 
         var bui = _ui.GetUi(uid, ReverseEngineeringMachineUiKey.Key);
         _ui.SetUiState(bui, state);
@@ -88,6 +124,29 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             <= 17 => ReverseEngineeringTickResult.SuccessMajor,
             _ => ReverseEngineeringTickResult.InstantSuccess
         };
+    }
+
+    private void FinishProbe(EntityUid uid, ReverseEngineeringMachineComponent? component = null, ActiveReverseEngineeringMachineComponent? active = null)
+    {
+        if (!Resolve(uid, ref component, ref active))
+            return;
+
+        if (!TryComp<ReverseEngineeringComponent>(component.CurrentItem, out var rev))
+        {
+            Logger.Error("We somehow scanned a " + component.CurrentItem + " for reverse engineering...");
+            return;
+        }
+
+        var disk = Spawn(component.DiskPrototype, Transform(uid).Coordinates);
+
+        if (!TryComp<TechnologyDiskComponent>(disk, out var diskComponent))
+            return;
+
+        diskComponent.Recipes = rev.Recipes;
+        component.CurrentItem = null;
+        Del(rev.Owner); // todo: eject
+        RemComp<ActiveReverseEngineeringMachineComponent>(uid);
+        UpdateUserInterface(uid, component);
     }
 
     private FormattedMessage? GetReverseEngineeringScanMessage(ReverseEngineeringMachineComponent component)

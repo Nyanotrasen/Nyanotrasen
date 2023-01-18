@@ -32,5 +32,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
 
     public int Progress = 0;
 
+    public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
+
     public ReverseEngineeringTickResult LastResult = ReverseEngineeringTickResult.SuccessAverage;
 }

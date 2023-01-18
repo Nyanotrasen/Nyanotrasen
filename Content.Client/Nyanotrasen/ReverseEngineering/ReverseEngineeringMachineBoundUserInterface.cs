@@ -23,10 +23,6 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
         _revMenu.OnClose += Close;
         _revMenu.OpenCentered();
 
-        _revMenu.OnServerSelectionButtonPressed += _ =>
-        {
-            SendMessage(new ReverseEngineeringMachineServerSelectionMessage());
-        };
         _revMenu.OnScanButtonPressed += _ =>
         {
             SendMessage(new ReverseEngineeringMachineScanButtonPressedMessage());
@@ -42,7 +38,7 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
             case ReverseEngineeringMachineScanUpdateState msg:
                 _revMenu?.SetButtonsDisabled(msg);
                 _revMenu?.UpdateInformationDisplay(msg);
-                _revMenu?.UpdateProgressBar(msg);
+                _revMenu?.UpdateProbeTickProgressBar(msg);
                 break;
         }
     }

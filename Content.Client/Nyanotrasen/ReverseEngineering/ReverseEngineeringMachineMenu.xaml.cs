@@ -12,15 +12,12 @@ namespace Content.Client.Nyanotrasen.ReverseEngineering;
 public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 {
     [Dependency] private readonly IEntityManager _ent = default!;
-
-    public event Action<BaseButton.ButtonEventArgs>? OnServerSelectionButtonPressed;
     public event Action<BaseButton.ButtonEventArgs>? OnScanButtonPressed;
     public ReverseEngineeringMachineMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        ServerSelectionButton.OnPressed += a => OnServerSelectionButtonPressed?.Invoke(a);
         ScanButton.OnPressed += a => OnScanButtonPressed?.Invoke(a);
     }
 
@@ -29,7 +26,7 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
     {
         ScanButton.Disabled = !state.CanScan;
 
-        var disabled = !state.ServerConnected || !state.CanScan;
+        var disabled = !state.CanScan;
     }
 
     private void UpdateArtifactIcon(EntityUid? uid)
@@ -76,7 +73,8 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
         Information.SetMessage(message);
     }
 
-    public void UpdateProgressBar(ReverseEngineeringMachineScanUpdateState state)
+    // TODO: There should be a second progress bar for the actual progress....
+    public void UpdateProbeTickProgressBar(ReverseEngineeringMachineScanUpdateState state)
     {
         ProgressBar.Visible = state.Scanning;
         ProgressLabel.Visible = state.Scanning;
