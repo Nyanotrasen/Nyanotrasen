@@ -56,7 +56,7 @@ namespace Content.Client.HealthOverlay
         }
 
         public bool CheckLOS = false;
-
+        public bool OrganicsOnly = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -98,9 +98,12 @@ namespace Content.Client.HealthOverlay
             var viewBox = _eyeManager.GetWorldViewport().Enlarged(2.0f);
             var ourXform = Transform(_attachedEntity.Value);
 
-            foreach (var (mobState, _) in EntityManager.EntityQuery<MobStateComponent, DamageableComponent>())
+            foreach (var (mobState, damageable) in EntityManager.EntityQuery<MobStateComponent, DamageableComponent>())
             {
                 var entity = mobState.Owner;
+
+                if (OrganicsOnly && damageable.DamageContainerID != "Biological")
+                    continue;
 
                 if (Transform(ent).MapID != Transform(entity).MapID ||
                     !viewBox.Contains(Transform(entity).WorldPosition))
