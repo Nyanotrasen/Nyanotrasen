@@ -61,3 +61,17 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
         TotalTime = totalTime;
     }
 }
+
+/// <summary>
+// 3d6 + scanner bonus + danger bonus - item difficulty
+/// </summary>
+[Serializable, NetSerializable]
+public enum ReverseEngineeringTickResult : byte
+{
+    Destruction, // 8 (only destroys if danger bonus is active)
+    Stagnation, // 9-10
+    SuccessMinor, // 11-12
+    SuccessAverage, // 13-15
+    SuccessMajor, // 16-17
+    InstantSuccess // 18
+}
