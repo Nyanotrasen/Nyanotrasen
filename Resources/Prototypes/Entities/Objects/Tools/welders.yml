@@ -63,6 +63,8 @@
   - type: RequiresEyeProtection
   - type: DynamicPrice
     price: 40
+  - type: IgnitionSource
+    temperature: 700
 
 - type: entity
   name: industrial welding tool
