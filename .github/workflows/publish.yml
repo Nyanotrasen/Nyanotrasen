@@ -45,6 +45,7 @@ jobs:
         host: nyanotrasen.moe
         username: boywife-ralsei
         key: ${{ secrets.BUILDS_PUSH_KEY }}
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         source: "release/${{ github.sha }}"
         target: "/var/www/builds.nyanotrasen.moe/nyanotrasen/builds/"
         strip_components: 1
@@ -55,4 +56,5 @@ jobs:
         host: nyanotrasen.moe
         username: boywife-ralsei
         key: ${{ secrets.BUILDS_PUSH_KEY }}
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}
