@@ -1,4 +1,4 @@
-using Content.Shared.Interaction;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.ReverseEngineering;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
@@ -16,7 +16,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-
+    [Dependency] private readonly ItemSlotsSystem _slots = default!;
     private const string TargetSlot = "target_slot";
     public override void Initialize()
     {
@@ -63,7 +63,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         component.CurrentItem = null;
         component.CurrentItemDifficulty = 0;
-        UpdateUserInterface(uid, component);
+        CancelProbe(uid, component);
     }
 
     private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)
@@ -74,6 +74,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (HasComp<ActiveReverseEngineeringMachineComponent>(uid))
             return;
 
+        _slots.SetLock(uid, TargetSlot, true);
         var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
         activeComp.StartTime = _timing.CurTime;
         activeComp.Item = component.CurrentItem.Value;
@@ -132,16 +133,78 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
         }
 
-        var disk = Spawn(component.DiskPrototype, Transform(uid).Coordinates);
+        var result = Roll(component);
+
+        if (result == ReverseEngineeringTickResult.Destruction)
+        {
+            if (component.DangerBonus != 0)
+            {
+                Del(component.CurrentItem.Value);
+                component.CurrentItem = null;
+                CancelProbe(uid, component);
+            } else
+            {
+                result = ReverseEngineeringTickResult.Stagnation;
+            }
+        }
+
+        int bonus = 0;
+
+        switch (result)
+        {
+            case ReverseEngineeringTickResult.Stagnation:
+            {
+                bonus += 1;
+                break;
+            }
+            case ReverseEngineeringTickResult.SuccessMinor:
+            {
+                bonus += 10;
+                break;
+            }
+            case ReverseEngineeringTickResult.SuccessAverage:
+            {
+                bonus += 25;
+                break;
+            }
+            case ReverseEngineeringTickResult.SuccessMajor:
+            {
+                bonus += 40;
+                break;
+            }
+            case ReverseEngineeringTickResult.InstantSuccess:
+            {
+                bonus += 100;
+                break;
+            }
+        }
+
+        component.Progress += bonus;
+        component.Progress = Math.Clamp(component.Progress, 0, 100);
+
+        if (component.Progress < 100)
+        {
+            active.StartTime = _timing.CurTime;
+        } else
+        {
+            CreateDisk(uid, component.DiskPrototype, rev.Recipes);
+            _slots.SetLock(uid, TargetSlot, false);
+            _slots.TryEject(uid, TargetSlot, null, out var item);
+            RemComp<ActiveReverseEngineeringMachineComponent>(uid);
+        }
+
+        Logger.Error("Progress: " + component.Progress);
+        UpdateUserInterface(uid, component);
+    }
+
+    private void CreateDisk(EntityUid uid, string diskPrototype, List<string>? recipes)
+    {
+        var disk = Spawn(diskPrototype, Transform(uid).Coordinates);
 
         if (!TryComp<TechnologyDiskComponent>(disk, out var diskComponent))
             return;
 
-        diskComponent.Recipes = rev.Recipes;
-        component.CurrentItem = null;
-        Del(rev.Owner); // todo: eject
-        RemComp<ActiveReverseEngineeringMachineComponent>(uid);
-        UpdateUserInterface(uid, component);
+        diskComponent.Recipes = recipes;
     }
 
     private FormattedMessage? GetReverseEngineeringScanMessage(ReverseEngineeringMachineComponent component)
@@ -197,6 +260,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        _slots.SetLock(uid, TargetSlot, false);
         RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         UpdateUserInterface(uid, component);
     }
