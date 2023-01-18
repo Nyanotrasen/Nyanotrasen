@@ -123,7 +123,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 7
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -15660,8 +15660,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -15675,8 +15675,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -23699,7 +23699,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 1278
-  type: Table
+  type: TableCounterMetal
   components:
   - pos: 0.5,-8.5
     parent: 9
@@ -31980,7 +31980,7 @@ entities:
     parent: 9
     type: Transform
 - uid: 2593
-  type: Table
+  type: TableCounterMetal
   components:
   - pos: 1.5,-8.5
     parent: 9
@@ -66094,9 +66094,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 7919
-  type: Beaker
+  type: Dropper
   components:
-  - pos: 0.51356626,-8.4477825
+  - pos: 0.38301516,-8.27532
     parent: 9
     type: Transform
 - uid: 7920
@@ -99054,9 +99054,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 12226
-  type: RandomSpawner
+  type: SignHydro3
   components:
-  - pos: 1.5,7.5
+  - pos: 0.5,5.5
     parent: 9
     type: Transform
 - uid: 12227
@@ -137521,6 +137521,48 @@ entities:
   type: AirlockMedicalGlassLocked
   components:
   - pos: -6.5,-33.5
+    parent: 9
+    type: Transform
+- uid: 17905
+  type: UnstableMutagenChemistryBottle
+  components:
+  - pos: 0.28926516,-8.483799
+    parent: 9
+    type: Transform
+- uid: 17906
+  type: UnstableMutagenChemistryBottle
+  components:
+  - pos: 0.4975984,-8.400408
+    parent: 9
+    type: Transform
+- uid: 17907
+  type: Bucket
+  components:
+  - pos: 2.1064835,6.8642178
+    parent: 9
+    type: Transform
+- uid: 17908
+  type: WaterTankFull
+  components:
+  - pos: 1.5,7.5
+    parent: 9
+    type: Transform
+- uid: 17909
+  type: hydroponicsSoil
+  components:
+  - pos: -0.5,8.5
+    parent: 9
+    type: Transform
+- uid: 17910
+  type: ClothingOuterWinterHydro
+  components:
+  - pos: -4.1136727,-6.283806
+    parent: 9
+    type: Transform
+- uid: 17911
+  type: DiseaseSwab
+  components:
+  - pos: 0.68922377,-8.582253
     parent: 9
     type: Transform
 ...
