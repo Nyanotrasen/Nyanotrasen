@@ -5,7 +5,7 @@ reverse-engineering-machine-scan-tooltip-info = Analyze the inserted item to att
 
 reverse-engineering-status-ready = Insert item to reverse engineer.
 reverse-engineering-current-item = Current item: {$item}
-reverse-engineering-item-difficulty = Current item difficulty: {$difficulty}
+reverse-engineering-item-difficulty = Difficulty: {$difficulty}
 reverse-engineering-progress = Progress: {$progress}%
 reverse-engineering-last-attempt-result = Last probe result: {$result}
 

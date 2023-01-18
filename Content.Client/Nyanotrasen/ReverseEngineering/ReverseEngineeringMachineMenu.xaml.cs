@@ -48,14 +48,6 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
     {
         var message = new FormattedMessage();
 
-        if (state.Scanning)
-        {
-            message.AddMarkup(Loc.GetString("analysis-console-info-scanner"));
-            Information.SetMessage(message);
-            UpdateArtifactIcon(null); //set it to blank
-            return;
-        }
-
         UpdateArtifactIcon(state.Target);
 
         if (state.ScanReport == null)

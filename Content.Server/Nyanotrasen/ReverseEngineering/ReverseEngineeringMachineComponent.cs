@@ -1,4 +1,5 @@
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.ReverseEngineering;
 
@@ -34,5 +35,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
 
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
 
-    public ReverseEngineeringTickResult LastResult = ReverseEngineeringTickResult.SuccessAverage;
+    public FormattedMessage? CachedMessage;
+
+    public ReverseEngineeringTickResult? LastResult;
 }

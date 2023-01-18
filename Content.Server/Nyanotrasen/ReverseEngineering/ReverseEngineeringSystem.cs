@@ -74,6 +74,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (HasComp<ActiveReverseEngineeringMachineComponent>(uid))
             return;
 
+        component.CachedMessage = null;
         _slots.SetLock(uid, TargetSlot, true);
         var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
         activeComp.StartTime = _timing.CurTime;
@@ -92,13 +93,15 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
 
         EntityUid? item = component.CurrentItem;
-        FormattedMessage? msg = GetReverseEngineeringScanMessage(component);
+        if (component.CachedMessage == null)
+            component.CachedMessage = GetReverseEngineeringScanMessage(component);
+
         var totalTime = TimeSpan.Zero;
         var scanning = TryComp<ActiveReverseEngineeringMachineComponent>(uid, out var active);
         var canScan = (item != null && !scanning);
         var remaining = active != null ? _timing.CurTime - active.StartTime : TimeSpan.Zero;
 
-        var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, msg, scanning, remaining, component.AnalysisDuration);
+        var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, component.CachedMessage, scanning, remaining, component.AnalysisDuration);
 
         var bui = _ui.GetUi(uid, ReverseEngineeringMachineUiKey.Key);
         _ui.SetUiState(bui, state);
@@ -133,6 +136,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
         }
 
+        component.CachedMessage = null;
+
         var result = Roll(component);
 
         if (result == ReverseEngineeringTickResult.Destruction)
@@ -147,6 +152,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 result = ReverseEngineeringTickResult.Stagnation;
             }
         }
+
+        component.LastResult = result;
 
         int bonus = 0;
 
@@ -193,7 +200,6 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         }
 
-        Logger.Error("Progress: " + component.Progress);
         UpdateUserInterface(uid, component);
     }
 
@@ -226,31 +232,34 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         msg.AddMarkup(Loc.GetString("reverse-engineering-progress", ("progress", component.Progress)));
         msg.PushNewline();
 
-        string lastProbe = string.Empty;
-
-        switch (component.LastResult)
+        if (component.LastResult != null)
         {
-            case ReverseEngineeringTickResult.Destruction:
-                lastProbe = Loc.GetString("reverse-engineering-failure");
-                break;
-            case ReverseEngineeringTickResult.Stagnation:
-                lastProbe = Loc.GetString("reverse-engineering-stagnation");
-                break;
-            case ReverseEngineeringTickResult.SuccessMinor:
-                lastProbe = Loc.GetString("reverse-engineering-minor");
-                break;
-            case ReverseEngineeringTickResult.SuccessAverage:
-                lastProbe = Loc.GetString("reverse-engineering-average");
-                break;
-            case ReverseEngineeringTickResult.SuccessMajor:
-                lastProbe = Loc.GetString("reverse-engineering-major");
-                break;
-            case ReverseEngineeringTickResult.InstantSuccess:
-                lastProbe = Loc.GetString("reverse-engineering-success");
-                break;
-        }
+            string lastProbe = string.Empty;
 
-        msg.AddMarkup(Loc.GetString("reverse-engineering-last-attempt-result", ("result", lastProbe)));
+            switch (component.LastResult)
+            {
+                case ReverseEngineeringTickResult.Destruction:
+                    lastProbe = Loc.GetString("reverse-engineering-failure");
+                    break;
+                case ReverseEngineeringTickResult.Stagnation:
+                    lastProbe = Loc.GetString("reverse-engineering-stagnation");
+                    break;
+                case ReverseEngineeringTickResult.SuccessMinor:
+                    lastProbe = Loc.GetString("reverse-engineering-minor");
+                    break;
+                case ReverseEngineeringTickResult.SuccessAverage:
+                    lastProbe = Loc.GetString("reverse-engineering-average");
+                    break;
+                case ReverseEngineeringTickResult.SuccessMajor:
+                    lastProbe = Loc.GetString("reverse-engineering-major");
+                    break;
+                case ReverseEngineeringTickResult.InstantSuccess:
+                    lastProbe = Loc.GetString("reverse-engineering-success");
+                    break;
+            }
+
+            msg.AddMarkup(Loc.GetString("reverse-engineering-last-attempt-result", ("result", lastProbe)));
+        }
 
         return msg;
     }
@@ -260,6 +269,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        component.CachedMessage = null;
+        component.LastResult = null;
         _slots.SetLock(uid, TargetSlot, false);
         RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         UpdateUserInterface(uid, component);
