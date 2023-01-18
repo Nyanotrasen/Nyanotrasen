@@ -7,7 +7,7 @@ namespace Content.Client.Nyanotrasen.ReverseEngineering;
 [UsedImplicitly]
 public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInterface
 {
-    private ReverseEngineeringMachineMenu? _consoleMenu;
+    private ReverseEngineeringMachineMenu? _revMenu;
 
     public ReverseEngineeringMachineBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -18,22 +18,18 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
     {
         base.Open();
 
-        _consoleMenu = new ReverseEngineeringMachineMenu();
+        _revMenu = new ReverseEngineeringMachineMenu();
 
-        _consoleMenu.OnClose += Close;
-        _consoleMenu.OpenCentered();
+        _revMenu.OnClose += Close;
+        _revMenu.OpenCentered();
 
-        _consoleMenu.OnServerSelectionButtonPressed += _ =>
+        _revMenu.OnServerSelectionButtonPressed += _ =>
         {
             SendMessage(new ReverseEngineeringMachineServerSelectionMessage());
         };
-        _consoleMenu.OnScanButtonPressed += _ =>
+        _revMenu.OnScanButtonPressed += _ =>
         {
             SendMessage(new ReverseEngineeringMachineScanButtonPressedMessage());
-        };
-        _consoleMenu.OnPrintButtonPressed += _ =>
-        {
-            SendMessage(new ReverseEngineeringMachinePrintButtonPressedMessage());
         };
     }
 
@@ -44,9 +40,9 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
         switch (state)
         {
             case ReverseEngineeringMachineScanUpdateState msg:
-                _consoleMenu?.SetButtonsDisabled(msg);
-                _consoleMenu?.UpdateInformationDisplay(msg);
-                _consoleMenu?.UpdateProgressBar(msg);
+                _revMenu?.SetButtonsDisabled(msg);
+                _revMenu?.UpdateInformationDisplay(msg);
+                _revMenu?.UpdateProgressBar(msg);
                 break;
         }
     }
@@ -57,7 +53,7 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
 
         if (!disposing)
             return;
-        _consoleMenu?.Dispose();
+        _revMenu?.Dispose();
     }
 }
 

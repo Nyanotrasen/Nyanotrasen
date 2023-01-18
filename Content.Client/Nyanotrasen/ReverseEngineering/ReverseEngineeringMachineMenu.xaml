@@ -2,24 +2,20 @@
                       xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                      Title="{Loc 'analysis-console-menu-title'}"
+                      Title="{Loc 'reverse-engineering-machine-menu-title'}"
                       MinSize="620 280"
                       SetSize="620 280">
     <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
         <BoxContainer Margin="10 10 10 10" MinWidth="150" Orientation="Vertical" VerticalExpand="True" SizeFlagsStretchRatio="1">
             <BoxContainer Orientation="Vertical" VerticalExpand="True">
                 <Button Name="ServerSelectionButton"
-                        Text="{Loc 'analysis-console-server-list-button'}"></Button>
+                        Text="{Loc 'reverse-engineering-machine-server-list-button'}"></Button>
                 <BoxContainer MinHeight="5"></BoxContainer>
                 <Button Name="ScanButton"
-                        Text="{Loc 'analysis-console-scan-button'}"
-                        ToolTip="{Loc 'analysis-console-scan-tooltip-info'}">
+                        Text="{Loc 'reverse-engineering-machine-scan-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-scan-tooltip-info'}">
                 </Button>
                 <BoxContainer MinHeight="5"></BoxContainer>
-                <Button Name="PrintButton"
-                        Text="{Loc 'analysis-console-print-button'}"
-                        ToolTip="{Loc 'analysis-console-print-tooltip-info'}">
-                </Button>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
                 <Label Name="ProgressLabel"></Label>

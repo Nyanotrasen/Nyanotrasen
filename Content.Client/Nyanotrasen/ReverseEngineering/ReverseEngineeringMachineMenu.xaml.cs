@@ -15,7 +15,6 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 
     public event Action<BaseButton.ButtonEventArgs>? OnServerSelectionButtonPressed;
     public event Action<BaseButton.ButtonEventArgs>? OnScanButtonPressed;
-    public event Action<BaseButton.ButtonEventArgs>? OnPrintButtonPressed;
     public ReverseEngineeringMachineMenu()
     {
         RobustXamlLoader.Load(this);
@@ -23,14 +22,12 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 
         ServerSelectionButton.OnPressed += a => OnServerSelectionButtonPressed?.Invoke(a);
         ScanButton.OnPressed += a => OnScanButtonPressed?.Invoke(a);
-        PrintButton.OnPressed += a => OnPrintButtonPressed?.Invoke(a);
     }
 
 
     public void SetButtonsDisabled(ReverseEngineeringMachineScanUpdateState state)
     {
         ScanButton.Disabled = !state.CanScan;
-        PrintButton.Disabled = !state.CanPrint;
 
         var disabled = !state.ServerConnected || !state.CanScan;
     }
