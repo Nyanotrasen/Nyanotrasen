@@ -96,8 +96,8 @@ namespace Content.Server.Shipyard.Systems
             }
          
             _cargo.DeductFunds(bank, vessel.Price);
-            var channel = _prototypeManager.Index<RadioChannelPrototype>("Engineering");
-            _radioSystem.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking"), channel);
+            var channel = _prototypeManager.Index<RadioChannelPrototype>("Command");
+            _radioSystem.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
             PlayConfirmSound(uid, component);
 
             var newState = new ShipyardConsoleInterfaceState(
