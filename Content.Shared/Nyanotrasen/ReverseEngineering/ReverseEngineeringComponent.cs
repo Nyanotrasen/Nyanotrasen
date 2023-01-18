@@ -1,4 +1,4 @@
-namespace Content.Server.ReverseEngineering;
+namespace Content.Shared.ReverseEngineering;
 
 /// <summary>
 /// This item has some value in reverse engineering lathe recipes.
@@ -12,4 +12,10 @@ public sealed partial class ReverseEngineeringComponent : Component
     /// </summary>
     [DataField("recipes")]
     public List<string>? Recipes;
+
+    /// <summary>
+    /// Difficulty score 1-5 how hard this is to reverse engineer.
+    /// </summary>
+    [DataField("difficulty")]
+    public readonly int Difficulty = 1;
 }

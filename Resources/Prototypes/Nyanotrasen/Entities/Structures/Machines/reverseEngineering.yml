@@ -22,3 +22,10 @@
       type: ReverseEngineeringMachineBoundUserInterface
     - key: enum.ResearchClientUiKey.Key
       type: ResearchClientBoundUserInterface
+  - type: ItemSlots
+    slots:
+      target_slot:
+        name: ReverseEngineeringTarget
+        whitelist:
+          components:
+          - ReverseEngineering

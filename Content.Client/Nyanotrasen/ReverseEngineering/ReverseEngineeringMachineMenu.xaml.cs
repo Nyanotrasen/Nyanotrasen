@@ -36,15 +36,15 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
     {
         if (uid == null)
         {
-            ArtifactDisplay.Visible = false;
+            ItemDisplay.Visible = false;
             return;
         }
-        ArtifactDisplay.Visible = true;
+        ItemDisplay.Visible = true;
 
         if (!_ent.TryGetComponent<SpriteComponent>(uid, out var sprite))
             return;
 
-        ArtifactDisplay.Sprite = sprite;
+        ItemDisplay.Sprite = sprite;
     }
 
     public void UpdateInformationDisplay(ReverseEngineeringMachineScanUpdateState state)
@@ -59,15 +59,13 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
             return;
         }
 
-        UpdateArtifactIcon(state.Artifact);
+        UpdateArtifactIcon(state.Target);
 
         if (state.ScanReport == null)
         {
-            if (!state.AnalyzerConnected) //no analyzer connected
-                message.AddMarkup(Loc.GetString("analysis-console-info-no-scanner"));
-            else if (!state.CanScan) //no artifact
+            if (!state.CanScan) //no item
                 message.AddMarkup(Loc.GetString("analysis-console-info-no-artifact"));
-            else if (state.Artifact == null) //ready to go
+            else if (state.Target == null) //ready to go
                 message.AddMarkup(Loc.GetString("analysis-console-info-ready"));
         }
         else

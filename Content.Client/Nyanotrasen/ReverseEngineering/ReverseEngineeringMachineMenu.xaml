@@ -40,7 +40,7 @@
                 </BoxContainer>
                 <BoxContainer VerticalExpand="False" Orientation="Vertical" MaxSize="64 64">
                     <SpriteView
-                        Name="ArtifactDisplay"
+                        Name="ItemDisplay"
                         OverrideDirection="South"
                         VerticalExpand="False"
                         SetSize="64 64"

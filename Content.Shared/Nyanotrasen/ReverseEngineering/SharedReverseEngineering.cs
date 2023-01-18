@@ -27,15 +27,11 @@ public sealed class ReverseEngineeringMachinePrintButtonPressedMessage : BoundUs
 [Serializable, NetSerializable]
 public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfaceState
 {
-    public EntityUid? Artifact;
-
-    public bool AnalyzerConnected;
+    public EntityUid? Target;
 
     public bool ServerConnected;
 
     public bool CanScan;
-
-    public bool CanPrint;
 
     public FormattedMessage? ScanReport;
 
@@ -45,14 +41,12 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
 
     public TimeSpan TotalTime;
 
-    public ReverseEngineeringMachineScanUpdateState(EntityUid? artifact, bool analyzerConnected, bool serverConnected, bool canScan, bool canPrint,
+    public ReverseEngineeringMachineScanUpdateState(EntityUid? target, bool serverConnected, bool canScan,
         FormattedMessage? scanReport, bool scanning, TimeSpan timeRemaining, TimeSpan totalTime)
     {
-        Artifact = artifact;
-        AnalyzerConnected = analyzerConnected;
+        Target = target;
         ServerConnected = serverConnected;
         CanScan = canScan;
-        CanPrint = canPrint;
 
         ScanReport = scanReport;
 
