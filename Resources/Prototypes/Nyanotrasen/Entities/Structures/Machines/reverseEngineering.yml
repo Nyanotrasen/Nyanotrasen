@@ -14,3 +14,11 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
     netsync: false
+  - type: ActivatableUI
+    key: enum.ReverseEngineeringMachineUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.ReverseEngineeringMachineUiKey.Key
+      type: ReverseEngineeringMachineBoundUserInterface
+    - key: enum.ResearchClientUiKey.Key
+      type: ResearchClientBoundUserInterface
