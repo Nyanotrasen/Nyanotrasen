@@ -29,7 +29,7 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
 
 - type: entity
@@ -368,7 +368,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750
 
 - type: entity
@@ -401,5 +401,5 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 63

@@ -83,5 +83,12 @@ namespace Content.Shared.Atmos.Prototypes
 
         [DataField("pricePerMole")]
         public float PricePerMole { get; set; } = 0;
+
+        /// <summary>
+        /// How many surplus moles of this gas need to be on the market before
+        /// the price reaches half of its default price?
+        /// </summary>
+        [DataField("halfPriceSurplus")]
+        public float HalfPriceSurplus { get; set; } = 2000f;
     }
 }

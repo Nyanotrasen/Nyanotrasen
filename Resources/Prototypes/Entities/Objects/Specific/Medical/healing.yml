@@ -9,7 +9,7 @@
     sprite: Objects/Specific/Medical/medical.rsi
     heldPrefix: ointment
   # Inherited
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
 
 - type: entity

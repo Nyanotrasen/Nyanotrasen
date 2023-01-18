@@ -21,3 +21,12 @@
     FoodCannabisButter: 2
     FoodSnackChocolateBar: 2
     FoodEgg: 3
+
+- type: microwaveMealRecipe
+  id: RecipeMoldyBread
+  name: moldy bread recipe
+  result: FoodBreadMoldy
+  time: 15
+  solids:
+    FoodBreadPlain: 1
+    FoodFlyAmanita: 3

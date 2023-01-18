@@ -42,7 +42,7 @@
         enum.ToggleVisuals.Layer:
           True: {state: stunbaton_on}
           False: {state: stunbaton_off}
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
 
 - type: entity
@@ -64,7 +64,7 @@
       size: 5
       sprite: Objects/Weapons/Melee/flash.rsi
     - type: ItemCooldown
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 40
 
 - type: entity

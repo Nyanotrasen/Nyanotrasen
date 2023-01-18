@@ -84,7 +84,7 @@
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
 
 - type: entity
@@ -168,7 +168,7 @@
   - type: Construction
     graph: WindowDirectional
     node: windowDirectional
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.5
 
 - type: entity
@@ -193,7 +193,7 @@
     state: tinted_window
   - type: Occluder
     boundingBox: "-0.5,-0.5,0.5,-0.3"
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.5
 
 - type: entity
@@ -213,5 +213,5 @@
   - type: Icon
     sprite: Structures/Windows/directional.rsi
     state: frosted_window
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0.5

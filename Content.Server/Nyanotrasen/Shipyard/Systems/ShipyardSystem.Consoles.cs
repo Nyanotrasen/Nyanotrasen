@@ -55,7 +55,9 @@ namespace Content.Server.Shipyard.Systems
         private void OnPurchaseMessage(EntityUid uid, SharedShipyardConsoleComponent component, ShipyardConsolePurchaseMessage args)
         {
             if (args.Session.AttachedEntity is not { Valid : true } player)
+            {
                 return;
+            }
 
             if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_accessSystem.IsAllowed(player, accessReaderComponent))
             {
@@ -94,7 +96,7 @@ namespace Content.Server.Shipyard.Systems
                 PlayDenySound(uid, component);
                 return;
             }
-         
+
             _cargo.DeductFunds(bank, vessel.Price);
             var channel = _prototypeManager.Index<RadioChannelPrototype>("Command");
             _radioSystem.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
@@ -106,7 +108,7 @@ namespace Content.Server.Shipyard.Systems
 
             _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
         }
-
+        
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
             if (!args.Session.AttachedEntity.HasValue)
@@ -157,6 +159,7 @@ namespace Content.Server.Shipyard.Systems
             {
                 return false;
             };
+
             return true;
         }
         

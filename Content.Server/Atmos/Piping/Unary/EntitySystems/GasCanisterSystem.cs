@@ -18,7 +18,6 @@ using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 
 namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 {
@@ -313,7 +312,7 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
         private void CalculateCanisterPrice(EntityUid uid, GasCanisterComponent component, ref PriceCalculationEvent args)
         {
-            args.Price += _atmosphereSystem.GetPrice(component.Air);
+            args.Price += _atmosphereSystem.GetPrice(component.Air, args.Sale);
         }
 
                 /// <summary>

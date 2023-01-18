@@ -80,7 +80,7 @@
     damage:
       types:
         Blunt: 5
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 30
 
 - type: entity
@@ -119,7 +119,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beakerlarge
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 40
 
 - type: entity
@@ -212,7 +212,7 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: dropper
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 40
 
 - type: entity
@@ -288,7 +288,7 @@
   - type: DeleteOnTrigger
   - type: Extractable
     grindableSolutionName: food
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
 
 - type: entity

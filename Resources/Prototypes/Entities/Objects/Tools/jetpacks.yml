@@ -66,7 +66,7 @@
         useDelay: 1.0
         event: !type:ToggleJetpackEvent
     - type: Appearance
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 100
 
 #Empty blue

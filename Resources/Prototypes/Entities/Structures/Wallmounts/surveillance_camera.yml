@@ -44,7 +44,7 @@
         type: SurveillanceCameraSetupBoundUi
       - key: enum.WiresUiKey.Key
         type: WiresBoundUserInterface
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 200
   - type: Destructible
     thresholds:

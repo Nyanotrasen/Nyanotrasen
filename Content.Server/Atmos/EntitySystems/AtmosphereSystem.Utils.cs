@@ -1,29 +1,37 @@
 using System.Runtime.CompilerServices;
 using Content.Server.Atmos.Components;
-using Content.Server.Maps;
+using Content.Server.Cargo.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Maps;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Dependency = Robust.Shared.IoC.DependencyAttribute;
 
 namespace Content.Server.Atmos.EntitySystems;
 
 public partial class AtmosphereSystem
 {
+    [Dependency] private readonly PricingSystem _pricingSystem = default!;
+
     /// <summary>
     /// Gets the particular price of an air mixture.
     /// </summary>
-    public double GetPrice(GasMixture mixture)
+    public double GetPrice(GasMixture mixture, bool sale = false)
     {
-        float basePrice = 0; // moles of gas * price/mole
+        double basePrice = 0; // moles of gas * price/mole
         float totalMoles = 0; // total number of moles in can
         float maxComponent = 0; // moles of the dominant gas
         for (var i = 0; i < Atmospherics.TotalNumberOfGases; i++)
         {
-            basePrice += mixture.Moles[i] * GetGas(i).PricePerMole;
+            var gas = GetGas(i);
+            var supply = _pricingSystem.GetGasSupply(gas);
+            var demand = _pricingSystem.GetGasDemand(gas);
+
+            basePrice += _pricingSystem.GetSupplyDemandPrice(mixture.Moles[i] * gas.PricePerMole, gas.HalfPriceSurplus, supply, demand);
             totalMoles += mixture.Moles[i];
             maxComponent = Math.Max(maxComponent, mixture.Moles[i]);
+
+            if (sale)
+                _pricingSystem.AddGasSupply(gas, mixture.Moles[i]);
         }
 
         // Pay more for gas canisters that are more pure

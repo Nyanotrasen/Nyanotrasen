@@ -37,7 +37,7 @@
         behaviors:
           - !type:DoActsBehavior
             acts: ["Destruction"]
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 1000
   placement:
     mode: SnapgridCenter
@@ -125,7 +125,7 @@
   - type: UpgradePowerDraw
     powerDrawMultiplier: 0.75
     scaling: Exponential
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 2000
 
 - type: entity

@@ -24,3 +24,21 @@
   category: Small
   group: Civilian
   shuttlePath: /Maps/Shuttles/prospecter.yml
+
+- type: vessel
+  id: Nomad
+  name: NTCV Nomad
+  description: A small shuttle for transporting up to 3 passengers with relative comfort.
+  price: 19000
+  category: Small
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/ntcv-nomad.yml
+
+- type: vessel
+  id: Tote
+  name: NTSV Tote
+  description: A small shipping vessel, adapted from the Nomad line of shuttles with room for 2 passengers.
+  price: 20000
+  category: Small
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/ntsv-tote.yml

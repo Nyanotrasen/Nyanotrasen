@@ -2,8 +2,8 @@
   id: Glacier
   mapName: 'Glacier'
   mapPath: /Maps/glacier.yml
-  minPlayers: 10
-  maxPlayers: 35
+  minPlayers: 25
+  maxPlayers: 70
   stations:
     Glacierstation:
       mapNameTemplate: '{0} Glacier Station {1}'
@@ -14,35 +14,36 @@
         - Passenger
       availableJobs:
         Passenger: [ -1, -1 ]
-        Bartender: [ 1, 1 ]
-        Botanist: [ 1, 1 ]
-        Chef: [ 1, 1 ]
-        Clown: [ 1, 1 ]
-        Janitor: [ 2, 2 ]
-        Mime: [ 1, 1 ]
+        Bartender: [ 2, 2 ]
+        Botanist: [ 2, 3 ]
+        Chef: [ 2, 3 ]
+        Clown: [ 1, 2 ]
+        Janitor: [ 2, 3 ]
+        Mime: [ 1, 2 ]
         Captain: [ 1, 1 ]
         HeadOfPersonnel: [ 1, 1 ]
         ChiefEngineer: [ 1, 1 ]
-        StationEngineer: [ 2, 3 ]
+        StationEngineer: [ 3, 5 ]
         ChiefMedicalOfficer: [ 1, 1 ]
-        MedicalDoctor: [ 2, 4 ]
-        MedicalCyborg: [ 1, 2 ]
+        MedicalDoctor: [ 3, 5 ]
+        MedicalCyborg: [ 2, 2 ]
         Mystagogue: [ 1, 1 ]
-        Epistemologist: [ 1, 2 ]
+        Epistemologist: [ 3, 4 ]
         HeadOfSecurity: [ 1, 1 ]
-        SecurityOfficer: [ 2, 3 ]
+        SecurityOfficer: [ 3, 5 ]
         Chaplain: [ 1, 1 ]
         Warden: [ 1, 1 ]
         Cataloguer: [ 1, 1 ]
-        Lawyer: [ 1, 1 ]
+        Lawyer: [ 1, 2 ]
         Quartermaster: [ 3, 4 ]
-        SalvageTechnician: [ 1, 2 ]
-        Musician: [ 1, 1 ]
+        SalvageTechnician: [ 2, 3 ]
+        Musician: [ 1, 2 ]
         AtmosphericTechnician: [ 1, 2 ]
-        Boxer: [ 1, 1 ]
-        MailCarrier: [ 1, 2 ]
+        Boxer: [ 1, 2 ]
+        MailCarrier: [ 2, 3 ]
         Cyborg: [ 2, 3 ]
         ForensicMantis: [ 1, 1 ]
-        Reporter: [ 1, 1 ]
-        ServiceWorker: [ 2, 2 ]
-        Psychologist: [ 1, 1 ]
+        Reporter: [ 1, 2 ]
+        ServiceWorker: [ 0, 3 ]
+        SecurityCadet: [ 1, 2 ]
+        Prisoner: [ 2, 3 ]

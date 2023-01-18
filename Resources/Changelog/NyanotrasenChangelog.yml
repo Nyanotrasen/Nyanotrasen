@@ -2455,3 +2455,53 @@ Entries:
     type: Add
   id: 288
   time: '2023-01-13T19:41:51.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Vending machines are worth zero zorkmids now.
+    type: Tweak
+  - message: The default price of items has been reduced from 20 to 2.
+    type: Tweak
+  - message: The law of supply and demand now affects what is sold on the cargo shuttle.
+    type: Add
+  id: 289
+  time: '2023-01-14T03:33:00.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - message: Shovels can now be used to dig up earthen tiles.
+    type: Add
+  - message: Dirt, grass, snow, and other earthen tiles will hide wires and pipes
+      again.
+    type: Fix
+  id: 290
+  time: '2023-01-14T15:08:17.0000000+00:00'
+- author: ODJ
+  changes:
+  - message: Re-added Glacier! Please report any issues!
+    type: Add
+  id: 291
+  time: '2023-01-14T15:08:06.0000000+00:00'
+- author: checkraze
+  changes:
+  - message: The Shipyard Market has arrived to sell some (mostly) New Ships to successful
+      crews
+    type: Add
+  id: 292
+  time: '2023-01-14T17:55:28.0000000+00:00'
+- author: deltanedas
+  changes:
+  - message: Added moldy loaf for more efficient bread molding.
+    type: Add
+  id: 293
+  time: '2023-01-14T18:09:22.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Removed shuttle building components from Angle's Salvage.
+    type: Remove
+  id: 294
+  time: '2023-01-14T20:44:46.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - message: Added the Nomad and Tote to the shipyard roster.
+    type: Add
+  id: 295
+  time: '2023-01-14T22:13:34.0000000+00:00'

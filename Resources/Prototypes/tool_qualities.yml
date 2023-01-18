@@ -53,3 +53,10 @@
   toolName: tool-quality-sawing-tool-name
   spawn: Saw
   icon: { sprite: Objects/Specific/Medical/Surgery/saw.rsi, state: saw }
+
+- type: tool
+  id: Digging
+  name: tool-quality-digging-name
+  toolName: tool-quality-digging-tool-name
+  spawn: Shovel
+  icon: { sprite: Objects/Tools/shovel.rsi, state: icon }

@@ -328,7 +328,7 @@ namespace Content.Server.Atmos.EntitySystems
 
         private void OnGasTankPrice(EntityUid uid, GasTankComponent component, ref PriceCalculationEvent args)
         {
-            args.Price += _atmosphereSystem.GetPrice(component.Air);
+            args.Price += _atmosphereSystem.GetPrice(component.Air, args.Sale);
         }
     }
 }

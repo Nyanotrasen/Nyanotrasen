@@ -31,7 +31,7 @@
           enum.ToggleVisuals.Layer:
             True: {state: icon-on}
             False: {state: icon}
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 200
 
 - type: entity
@@ -58,7 +58,7 @@
     sprintModifier: 1
     enabled: false
   - type: NoSlip
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 750
 
 - type: entity
@@ -71,7 +71,7 @@
     walkModifier: 2.5 #PVS isn't too much of an issue when you are blind...
     sprintModifier: 2.5
     enabled: false
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 3000
   - type: Blindfold
 

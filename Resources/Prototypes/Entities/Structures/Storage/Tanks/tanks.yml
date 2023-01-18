@@ -5,7 +5,7 @@
   parent: StorageTank
   suffix: Empty
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1200
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
@@ -27,7 +27,7 @@
   parent: WeldingFuelTank
   suffix: Full
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1200
   - type: SolutionContainerManager
     solutions:
@@ -43,7 +43,7 @@
   parent: StorageTank
   suffix: Empty
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1200
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
@@ -54,7 +54,7 @@
   id: WaterTankFull
   suffix: Full
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1200
   - type: SolutionContainerManager
     solutions:

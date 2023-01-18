@@ -60,5 +60,5 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       beakerSlot: !type:ContainerSlot
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1000

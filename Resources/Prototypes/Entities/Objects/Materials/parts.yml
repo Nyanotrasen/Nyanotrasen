@@ -53,7 +53,7 @@
     outputs:
     - Lattice
     - FloorReinforced
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
   - type: StackPrice
     price: 5

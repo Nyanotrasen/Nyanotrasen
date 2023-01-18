@@ -19,7 +19,7 @@
     quickEquip: true
     slots:
     - neck
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
 
 - type: entity
