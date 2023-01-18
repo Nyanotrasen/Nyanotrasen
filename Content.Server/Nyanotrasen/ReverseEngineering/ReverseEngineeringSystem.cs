@@ -2,6 +2,7 @@ using Content.Shared.Interaction;
 using Content.Shared.ReverseEngineering;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
+using Content.Server.Power.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -25,8 +26,9 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
 
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, PowerChangedEvent>(OnPowerChanged);
+
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, BeforeActivatableUIOpenEvent>((e,c,_) => UpdateUserInterface(e,c));
-        // SubscribeLocalEvent<ReverseEngineeringMachineComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
     }
 
     public override void Update(float frameTime)
@@ -41,7 +43,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 continue;
 
             FinishProbe(rev.Owner, rev, active);
-        }}
+        }
+    }
 
     private void OnEntInserted(EntityUid uid, ReverseEngineeringMachineComponent component, EntInsertedIntoContainerMessage args)
     {
@@ -75,20 +78,12 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         activeComp.StartTime = _timing.CurTime;
         activeComp.Item = component.CurrentItem.Value;
     }
-    private void OnAfterInteractUsing(EntityUid uid, ReverseEngineeringMachineComponent component, AfterInteractUsingEvent args)
+
+    private void OnPowerChanged(EntityUid uid, ReverseEngineeringMachineComponent component, ref PowerChangedEvent args)
     {
-        // Logger.Error("Roll result: " + Roll(component));
-        // if (!TryComp<ReverseEngineeringComponent>(args.Used, out var rev))
-        //     return;
-
-        // var disk = Spawn(component.DiskPrototype, Transform(uid).Coordinates);
-
-        // if (!TryComp<TechnologyDiskComponent>(disk, out var diskComponent))
-        //     return;
-
-        // diskComponent.Recipes = rev.Recipes;
+        if (!args.Powered)
+            CancelProbe(uid, component);
     }
-
 
     private void UpdateUserInterface(EntityUid uid, ReverseEngineeringMachineComponent? component = null)
     {
@@ -197,4 +192,12 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         return msg;
     }
 
+    private void CancelProbe(EntityUid uid, ReverseEngineeringMachineComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        RemComp<ActiveReverseEngineeringMachineComponent>(uid);
+        UpdateUserInterface(uid, component);
+    }
 }
