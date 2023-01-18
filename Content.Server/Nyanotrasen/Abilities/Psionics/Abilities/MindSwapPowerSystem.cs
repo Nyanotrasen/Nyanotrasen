@@ -3,6 +3,7 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Shared.Mobs.Systems;
@@ -76,7 +77,7 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicInsulationComponent>(component.OriginalEntity) || HasComp<PsionicInsulationComponent>(uid))
                 return;
 
-            if (!_mobStateSystem.IsAlive(uid))
+            if (HasComp<MobStateComponent>(uid) && !_mobStateSystem.IsAlive(uid))
                 return;
 
             // How do we get trapped?
@@ -101,7 +102,7 @@ namespace Content.Server.Abilities.Psionics
             }
 
             // 3. Target is dead
-            if (_mobStateSystem.IsDead(component.OriginalEntity))
+            if (HasComp<MobStateComponent>(component.OriginalEntity) && _mobStateSystem.IsDead(component.OriginalEntity))
             {
                 GetTrapped(uid);
                 return;
