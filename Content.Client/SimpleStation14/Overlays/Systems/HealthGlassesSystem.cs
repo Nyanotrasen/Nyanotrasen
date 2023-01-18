@@ -24,27 +24,37 @@ namespace Content.Client.SimpleStation14.Overlays
         private void OnInit(EntityUid uid, HealthGlassesComponent component, ComponentInit args)
         {
             if (_player.LocalPlayer?.ControlledEntity == uid)
+            {
+                _healthOverlay.CheckLOS = true;
                 _healthOverlay.Enabled = true;
+            }
+
 
         }
         private void OnRemove(EntityUid uid, HealthGlassesComponent component, ComponentRemove args)
         {
             if (_player.LocalPlayer?.ControlledEntity == uid)
+            {
+                _healthOverlay.CheckLOS = false;
                 _healthOverlay.Enabled = false;
+            }
         }
 
         private void OnPlayerAttached(EntityUid uid, HealthGlassesComponent component, PlayerAttachedEvent args)
         {
+            _healthOverlay.CheckLOS = true;
             _healthOverlay.Enabled = true;
         }
 
         private void OnPlayerDetached(EntityUid uid, HealthGlassesComponent component, PlayerDetachedEvent args)
         {
+            _healthOverlay.CheckLOS = false;
             _healthOverlay.Enabled = false;
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
         {
+            _healthOverlay.CheckLOS = false;
             _healthOverlay.Enabled = false;
         }
     }
