@@ -35296,12 +35296,6 @@ entities:
       - port: MedicalScannerSender
         uid: 1345
     type: SignalReceiver
-- uid: 1382
-  type: ClothingEyesHudMedical
-  components:
-  - pos: -18.671183,50.59109
-    parent: 100
-    type: Transform
 - uid: 1383
   type: WallSolid
   components:

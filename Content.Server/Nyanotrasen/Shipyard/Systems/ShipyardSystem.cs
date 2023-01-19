@@ -70,14 +70,14 @@ namespace Content.Server.Shipyard.Systems
 
             var price = _pricing.AppraiseGrid(shuttle.Owner, null);
 
-            //can do FTLTravel later instead if we want to open that door
-            _shuttle.TryFTLDock(shuttle, targetGrid.Value);
+            //can do TryFTLDock later instead if we need to keep the shipyard map paused
+            _shuttle.FTLTravel(shuttle, targetGrid.Value, 0f, 30f, true);
             vessel = shuttle;
             _sawmill.Info($"Shuttle {shuttlePath} was purchased at {targetGrid} for {price}");
         }
 
         /// <summary>
-        /// Loads a paused shuttle into the ShipyardMap from a file path
+        /// Loads a shuttle into the ShipyardMap from a file path
         /// </summary>
         /// <param name="shuttlePath">The path to the grid file to load. Must be a grid file!</param>
         /// <returns>Returns the EntityUid of the shuttle</returns>
@@ -144,7 +144,7 @@ namespace Content.Server.Shipyard.Systems
 
             ShipyardMap = _mapManager.CreateMap();
 
-            _mapManager.SetMapPaused(ShipyardMap.Value, true);
+            _mapManager.SetMapPaused(ShipyardMap.Value, false);
         }
     }
 }

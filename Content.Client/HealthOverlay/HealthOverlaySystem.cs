@@ -6,8 +6,23 @@ using Content.Shared.Mobs.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Content.Shared.Examine;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Content.Client.Examine;
+using Content.Shared.CCVar;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Robust.Client.Graphics;
+using Robust.Client.Player;
+using Robust.Client.ResourceManagement;
+using Robust.Client.UserInterface;
+using Robust.Shared;
+using Robust.Shared.Configuration;
+using Robust.Shared.Enums;
+using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.HealthOverlay
 {
@@ -40,6 +55,8 @@ namespace Content.Client.HealthOverlay
             }
         }
 
+        public bool CheckLOS = false;
+        public bool OrganicsOnly = false;
         public override void Initialize()
         {
             base.Initialize();
@@ -79,13 +96,31 @@ namespace Content.Client.HealthOverlay
             }
 
             var viewBox = _eyeManager.GetWorldViewport().Enlarged(2.0f);
+            var ourXform = Transform(_attachedEntity.Value);
 
-            foreach (var (mobState, _) in EntityManager.EntityQuery<MobStateComponent, DamageableComponent>())
+            foreach (var (mobState, damageable) in EntityManager.EntityQuery<MobStateComponent, DamageableComponent>())
             {
                 var entity = mobState.Owner;
 
-                if (_entities.GetComponent<TransformComponent>(ent).MapID != _entities.GetComponent<TransformComponent>(entity).MapID ||
-                    !viewBox.Contains(_entities.GetComponent<TransformComponent>(entity).WorldPosition))
+                if (OrganicsOnly && damageable.DamageContainerID != "Biological")
+                    continue;
+
+                if (Transform(ent).MapID != Transform(entity).MapID ||
+                    !viewBox.Contains(Transform(entity).WorldPosition))
+                {
+                    if (_guis.TryGetValue(entity, out var oldGui))
+                    {
+                        _guis.Remove(entity);
+                        oldGui.Dispose();
+                    }
+
+                    continue;
+                }
+
+                var distance = (Transform(entity).Coordinates.Position - viewBox.Center).Length;
+
+
+                if (CheckLOS && !ExamineSystemShared.InRangeUnOccluded(ourXform.MapPosition, Transform(entity).MapPosition, distance, e => e == _attachedEntity.Value, entMan: _entities))
                 {
                     if (_guis.TryGetValue(entity, out var oldGui))
                     {

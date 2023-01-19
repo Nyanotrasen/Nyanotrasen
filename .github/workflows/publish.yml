@@ -42,9 +42,10 @@ jobs:
     - name: Upload files to cdn
       uses: appleboy/scp-action@master
       with:
-        host: 5.161.72.223
-        username: deployment-maid
+        host: nyanotrasen.moe
+        username: boywife-ralsei
         key: ${{ secrets.BUILDS_PUSH_KEY }}
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         source: "release/${{ github.sha }}"
         target: "/var/www/builds.nyanotrasen.moe/nyanotrasen/builds/"
         strip_components: 1
@@ -52,7 +53,8 @@ jobs:
     - name: Update manifest JSON
       uses: appleboy/ssh-action@master
       with:
-        host: 5.161.72.223
-        username: deployment-maid
+        host: nyanotrasen.moe
+        username: boywife-ralsei
         key: ${{ secrets.BUILDS_PUSH_KEY }}
+        port: ${{ secrets.PUBLISH_SSH_PORT }}
         script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}

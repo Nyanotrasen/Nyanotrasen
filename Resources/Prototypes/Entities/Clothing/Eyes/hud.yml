@@ -19,6 +19,8 @@
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/med.rsi
+  - type: ClothingGrantComponent
+    component: HealthGlasses
 
 - type: entity
   parent: ClothingEyesBase
