@@ -26,6 +26,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineSafetyButtonToggledMessage>(OnSafetyButtonToggled);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineAutoScanButtonToggledMessage>(OnAutoScanButtonToggled);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, PowerChangedEvent>(OnPowerChanged);
 
@@ -89,6 +90,11 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         component.SafetyOn = args.Safety;
         component.CachedMessage = null;
         UpdateUserInterface(uid, component);
+    }
+
+    private void OnAutoScanButtonToggled(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineAutoScanButtonToggledMessage args)
+    {
+        component.AutoScan = args.AutoScan;
     }
 
     private void OnPowerChanged(EntityUid uid, ReverseEngineeringMachineComponent component, ref PowerChangedEvent args)
@@ -204,7 +210,14 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         if (component.Progress < 100)
         {
-            active.StartTime = _timing.CurTime;
+            if (component.AutoScan)
+            {
+                active.StartTime = _timing.CurTime;
+            }
+            else
+            {
+                RemComp<ActiveReverseEngineeringMachineComponent>(uid);
+            }
         } else
         {
             CreateDisk(uid, component.DiskPrototype, rev.Recipes);

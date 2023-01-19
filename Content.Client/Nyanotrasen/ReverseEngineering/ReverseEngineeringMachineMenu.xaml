@@ -17,19 +17,24 @@
                         ToolTip="{Loc 'reverse-engineering-machine-safety-tooltip-info'}"
                         ToggleMode="True">
                 </Button>
+                <Button Name="AutoScanButton"
+                        Text="{Loc 'reverse-engineering-machine-autoscan-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-autoscan-tooltip-info'}"
+                        ToggleMode="True">
+                </Button>
                 <BoxContainer MinHeight="5"></BoxContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
-                <Label Name="TotalProgressLabel"></Label>
+                <Label Name="ProgressLabel"></Label>
                 <ProgressBar
-                    Name="TotalProgressBar"
+                    Name="ProgressBar"
                     MinValue="0"
                     MaxValue="1"
                     SetHeight="20">
                 </ProgressBar>
-                <Label Name="ProgressLabel"></Label>
+                <Label Name="TotalProgressLabel"></Label>
                 <ProgressBar
-                    Name="ProgressBar"
+                    Name="TotalProgressBar"
                     MinValue="0"
                     MaxValue="1"
                     SetHeight="20">

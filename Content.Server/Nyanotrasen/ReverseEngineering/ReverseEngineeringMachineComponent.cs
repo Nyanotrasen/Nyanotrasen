@@ -37,6 +37,11 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// </summary>
     public bool SafetyOn = false;
 
+    /// <summary>
+    /// Whether autoscan is on.
+    /// </summary>
+    public bool AutoScan = false;
+
     public int Progress = 0;
 
     public TimeSpan AnalysisDuration = TimeSpan.FromSeconds(30);
