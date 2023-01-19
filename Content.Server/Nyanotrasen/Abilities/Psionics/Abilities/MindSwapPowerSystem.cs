@@ -4,6 +4,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Server.Players;
 using Content.Shared.Mobs.Systems;
@@ -33,6 +34,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<MindSwapPowerActionEvent>(OnPowerUsed);
             SubscribeLocalEvent<MindSwappedComponent, MindSwapPowerReturnActionEvent>(OnPowerReturned);
             SubscribeLocalEvent<MindSwappedComponent, DispelledEvent>(OnDispelled);
+            SubscribeLocalEvent<MindSwappedComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<GhostAttemptHandleEvent>(OnGhostAttempt);
             //
             SubscribeLocalEvent<MindSwappedComponent, ComponentInit>(OnSwapInit);
@@ -115,6 +117,12 @@ namespace Content.Server.Abilities.Psionics
         {
             Swap(uid, component.OriginalEntity, true);
             args.Handled = true;
+        }
+
+        private void OnMobStateChanged(EntityUid uid, MindSwappedComponent component, MobStateChangedEvent args)
+        {
+            if (args.NewMobState == MobState.Dead)
+                RemComp<MindSwappedComponent>(uid);
         }
 
         private void OnGhostAttempt(GhostAttemptHandleEvent args)
