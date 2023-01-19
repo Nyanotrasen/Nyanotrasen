@@ -14,19 +14,29 @@
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
     <SplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True">
-        <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
-            <controls:MainViewport Name="MainViewport"/>
-            <widgets:GhostGui Name="Ghost" Access="Protected" />
-            <hotbar:HotbarGui Name="Hotbar" Access="Protected" />
-            <actions:ActionsBar Name="Actions" Access="Protected" />
-            <alerts:AlertsUI Name="Alerts" Access="Protected" />
-        </LayoutContainer>
+        <SplitContainer Name="ViewportAndHUDContainer" HorizontalExpand="True" VerticalExpand="True" Orientation="Vertical">
+            <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
+                <controls:MainViewport Name="MainViewport"/>
+                <actions:ActionsBar Name="Actions" Access="Protected" />
+            </LayoutContainer>
+            <PanelContainer HorizontalExpand="False">
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#2b2c2b" />
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" SeparationOverride="0" Margin="0">
+                    <alerts:AlertsUI Name="Alerts" Access="Protected" />
+                    <widgets:GhostGui Name="Ghost" Access="Protected" />
+                    <hotbar:HotbarGui Name="Hotbar" Access="Protected" />
+                </BoxContainer>
+            </PanelContainer>
+        </SplitContainer>
         <PanelContainer HorizontalExpand="False">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#2b2c2b" />
             </PanelContainer.PanelOverride>
 
-            <BoxContainer Orientation="Vertical" HorizontalExpand="False" MinWidth="300" SeparationOverride="10" Margin="10">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="False" MinWidth="300" SeparationOverride="0" Margin="0">
                 <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="False" Access="Protected" />
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="False" Name="Chat" Access="Protected" />
             </BoxContainer>
