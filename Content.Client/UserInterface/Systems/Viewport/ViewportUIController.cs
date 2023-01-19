@@ -17,7 +17,7 @@ public sealed class ViewportUIController : UIController
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     public static readonly Vector2i ViewportSize = (EyeManager.PixelsPerMeter * 21, EyeManager.PixelsPerMeter * 15);
-    public const int ViewportHeight = 15;
+    public const int ViewportHeight = 16;
     private MainViewport? Viewport => UIManager.ActiveScreen?.GetWidget<MainViewport>();
 
     public override void Initialize()
