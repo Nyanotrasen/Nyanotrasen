@@ -21,7 +21,7 @@ public sealed partial class SeparatedChatGameScreen : UIScreen
         Alerts.AlertContainer.Orientation = BoxContainer.LayoutOrientation.Horizontal;
         ScreenContainer.SplitEdgeSeparation = 0;
         ScreenContainer.SplitWidth = 0;
-        ViewportAndHUDContainer.SplitEdgeSeparation = 0;
-        ScreenContainer.SplitEdgeSeparation = 0;
+        ViewportAndHUDContainer.SplitEdgeSeparation = 5;
+        ViewportAndHUDContainer.SplitWidth = 5;
     }
 }
