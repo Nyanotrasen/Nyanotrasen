@@ -27,6 +27,11 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
         {
             SendMessage(new ReverseEngineeringMachineScanButtonPressedMessage());
         };
+
+        _revMenu.OnSafetyButtonToggled += safetyArgs =>
+        {
+            SendMessage(new ReverseEngineeringMachineSafetyButtonToggledMessage(safetyArgs.Pressed));
+        };
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

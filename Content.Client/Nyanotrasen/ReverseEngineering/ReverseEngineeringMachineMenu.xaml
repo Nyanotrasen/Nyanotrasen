@@ -12,6 +12,11 @@
                         Text="{Loc 'reverse-engineering-machine-scan-button'}"
                         ToolTip="{Loc 'reverse-engineering-machine-scan-tooltip-info'}">
                 </Button>
+                <Button Name="SafetyButton"
+                        Text="{Loc 'reverse-engineering-machine-safety-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-safety-tooltip-info'}"
+                        ToggleMode="True">
+                </Button>
                 <BoxContainer MinHeight="5"></BoxContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">

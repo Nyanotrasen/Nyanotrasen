@@ -25,6 +25,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineSafetyButtonToggledMessage>(OnSafetyButtonToggled);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, PowerChangedEvent>(OnPowerChanged);
 
@@ -52,8 +53,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
 
         component.CurrentItem = args.Entity;
-        component.CachedMessage = GetReverseEngineeringScanMessage(component);
         component.CurrentItemDifficulty = rev.Difficulty;
+        component.CachedMessage = GetReverseEngineeringScanMessage(component);
         UpdateUserInterface(uid, component);
     }
 
@@ -64,6 +65,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         component.CurrentItem = null;
         component.CurrentItemDifficulty = 0;
+        component.Progress = 0;
         CancelProbe(uid, component);
     }
 
@@ -80,6 +82,13 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
         activeComp.StartTime = _timing.CurTime;
         activeComp.Item = component.CurrentItem.Value;
+    }
+
+    private void OnSafetyButtonToggled(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineSafetyButtonToggledMessage args)
+    {
+        component.SafetyOn = args.Safety;
+        component.CachedMessage = null;
+        UpdateUserInterface(uid, component);
     }
 
     private void OnPowerChanged(EntityUid uid, ReverseEngineeringMachineComponent component, ref PowerChangedEvent args)
@@ -112,7 +121,10 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         int roll = (_random.Next(1, 6) + _random.Next(1, 6) + _random.Next(1, 6));
 
         roll += component.ScanBonus;
-        roll += component.DangerBonus;
+
+        if (!component.SafetyOn)
+            roll += component.DangerBonus;
+
         roll -= component.CurrentItemDifficulty;
 
         return roll switch
@@ -143,7 +155,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         if (result == ReverseEngineeringTickResult.Destruction)
         {
-            if (component.DangerBonus != 0)
+            if (!component.SafetyOn)
             {
                 Del(component.CurrentItem.Value);
                 component.CurrentItem = null;
@@ -228,6 +240,12 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         msg.PushNewline();
         msg.PushNewline();
 
+        var analysisScore = component.ScanBonus;
+        if (!component.SafetyOn)
+            analysisScore += component.DangerBonus;
+
+        msg.AddMarkup(Loc.GetString("reverse-engineering-analysis-score", ("score", analysisScore)));
+        msg.PushNewline();
         msg.AddMarkup(Loc.GetString("reverse-engineering-item-difficulty", ("difficulty", component.CurrentItemDifficulty)));
         msg.PushNewline();
         msg.AddMarkup(Loc.GetString("reverse-engineering-progress", ("progress", component.Progress)));

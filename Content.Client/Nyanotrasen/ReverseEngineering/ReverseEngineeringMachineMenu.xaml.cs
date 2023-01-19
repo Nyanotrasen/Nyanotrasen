@@ -13,12 +13,14 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 {
     [Dependency] private readonly IEntityManager _ent = default!;
     public event Action<BaseButton.ButtonEventArgs>? OnScanButtonPressed;
+    public event Action<BaseButton.ButtonToggledEventArgs>? OnSafetyButtonToggled;
     public ReverseEngineeringMachineMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
         ScanButton.OnPressed += a => OnScanButtonPressed?.Invoke(a);
+        SafetyButton.OnToggled += a => OnSafetyButtonToggled?.Invoke(a);
     }
 
 

@@ -29,7 +29,13 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// <summary>
     /// Whether the machine is going to receive the danger bonus.
     /// </summary>
-    public int DangerBonus = 0;
+    [DataField("dangerBonus")]
+    public int DangerBonus = 3;
+
+    /// <summary>
+    /// Whether the safety is on.
+    /// </summary>
+    public bool SafetyOn = false;
 
     public int Progress = 0;
 

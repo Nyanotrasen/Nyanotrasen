@@ -15,6 +15,17 @@ public sealed class ReverseEngineeringMachineScanButtonPressedMessage : BoundUse
 }
 
 [Serializable, NetSerializable]
+public sealed class ReverseEngineeringMachineSafetyButtonToggledMessage : BoundUserInterfaceMessage
+{
+    public bool Safety;
+
+    public ReverseEngineeringMachineSafetyButtonToggledMessage(bool safety)
+    {
+        Safety = safety;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfaceState
 {
     public EntityUid? Target;
