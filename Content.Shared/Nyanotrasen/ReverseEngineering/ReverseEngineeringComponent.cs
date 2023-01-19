@@ -1,3 +1,6 @@
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+
 namespace Content.Shared.ReverseEngineering;
 
 /// <summary>
@@ -18,4 +21,11 @@ public sealed partial class ReverseEngineeringComponent : Component
     /// </summary>
     [DataField("difficulty")]
     public readonly int Difficulty = 1;
+
+    /// <summary>
+    /// A new item that should be given back by the reverse engineering machine instead of this one.
+    /// E.g., NT aligned versions of syndicate items.
+    /// </summary>
+    [DataField("newItem", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? NewItem;
 }

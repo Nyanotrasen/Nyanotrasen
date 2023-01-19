@@ -233,7 +233,16 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         } else
         {
             CreateDisk(uid, component.DiskPrototype, rev.Recipes);
-            Eject(uid, component);
+            if (rev.NewItem == null)
+            {
+                Eject(uid, component);
+            } else
+            {
+                _slots.SetLock(uid, TargetSlot, false);
+                Spawn(rev.NewItem, Transform(uid).Coordinates);
+                if (component.CurrentItem != null)
+                    Del(component.CurrentItem.Value);
+            }
             RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         }
 
