@@ -23,5 +23,6 @@ public sealed partial class SeparatedChatGameScreen : UIScreen
         ScreenContainer.SplitWidth = 0;
         ViewportAndHUDContainer.SplitEdgeSeparation = 5;
         ViewportAndHUDContainer.SplitWidth = 5;
+        MainViewport.RectDrawClipMargin = 0;
     }
 }
