@@ -74,3 +74,8 @@
     blackboard:
       NavSmash: !type:Bool
         true
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: RandomMetadata
+    nameSegments: [names_pitbull]
