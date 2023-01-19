@@ -19,10 +19,9 @@ public sealed partial class SeparatedChatGameScreen : UIScreen
         SetAnchorPreset(MainViewport, LayoutPreset.Wide);
         SetAnchorAndMarginPreset(Actions, LayoutPreset.TopLeft, margin: 10);
         Alerts.AlertContainer.Orientation = BoxContainer.LayoutOrientation.Horizontal;
-        ScreenContainer.SplitEdgeSeparation = 0;
-        ScreenContainer.SplitWidth = 0;
-        ViewportAndHUDContainer.SplitEdgeSeparation = 0;
-        ViewportAndHUDContainer.SplitWidth = 0;
-        MainViewport.RectDrawClipMargin = 0;
+        ScreenContainer.SplitEdgeSeparation = 5;
+        ScreenContainer.SplitWidth = 5;
+        ViewportAndHUDContainer.SplitEdgeSeparation = 5;
+        ViewportAndHUDContainer.SplitWidth = 5;
     }
 }
