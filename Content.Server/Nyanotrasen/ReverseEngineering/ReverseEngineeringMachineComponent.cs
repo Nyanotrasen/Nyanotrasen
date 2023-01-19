@@ -1,7 +1,8 @@
+using Content.Shared.ReverseEngineering;
+using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.ReverseEngineering;
 
 namespace Content.Server.ReverseEngineering;
 
@@ -13,6 +14,12 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
 {
     [DataField("diskPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string DiskPrototype = "TechnologyDisk";
+
+    /// <summary>
+    /// The machine part that affects cloning speed
+    /// </summary>
+    [DataField("machinePartScanBonus", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartScanBonus = "ScanningModule";
 
     /// <summary>
     /// Added to the 3d6, scales off of scanner.

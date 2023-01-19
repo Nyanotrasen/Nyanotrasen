@@ -8,6 +8,48 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
+using Content.Shared.GameTicking;
+using Content.Shared.Damage;
+using Content.Shared.Examine;
+using Content.Shared.Cloning;
+using Content.Shared.Speech;
+using Content.Shared.Atmos;
+using Content.Shared.Tag;
+using Content.Shared.CCVar;
+using Content.Shared.Preferences;
+using Content.Server.Psionics;
+using Content.Server.Cloning.Components;
+using Content.Server.Speech.Components;
+using Content.Server.Mind.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.StationEvents.Components;
+using Content.Server.EUI;
+using Content.Server.Humanoid;
+using Content.Server.MachineLinking.System;
+using Content.Server.MachineLinking.Events;
+using Content.Server.Ghost.Roles.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Server.Fluids.EntitySystems;
+using Content.Server.Chat.Systems;
+using Content.Server.Construction;
+using Content.Server.Materials;
+using Content.Server.Jobs;
+using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.Mobs.Systems;
+using Robust.Server.GameObjects;
+using Robust.Server.Containers;
+using Robust.Server.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.GameObjects.Components.Localization;
+
 
 namespace Content.Server.ReverseEngineering;
 
@@ -23,6 +65,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, RefreshPartsEvent>(OnRefreshParts);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, UpgradeExamineEvent>(OnExamineParts);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineSafetyButtonToggledMessage>(OnSafetyButtonToggled);
@@ -71,6 +115,19 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         component.CurrentItemDifficulty = 0;
         component.Progress = 0;
         CancelProbe(uid, component);
+    }
+
+    private void OnRefreshParts(EntityUid uid, ReverseEngineeringMachineComponent component, RefreshPartsEvent args)
+    {
+        var bonusRating = args.PartRatings[component.MachinePartScanBonus];
+
+        Logger.Error("Bonus rating: " + (int) bonusRating);
+        component.ScanBonus = (int) bonusRating;
+    }
+
+    private void OnExamineParts(EntityUid uid, ReverseEngineeringMachineComponent component, UpgradeExamineEvent args)
+    {
+        args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus - 1);
     }
 
     private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)

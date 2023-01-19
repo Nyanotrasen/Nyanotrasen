@@ -26,3 +26,5 @@ reverse-engineering-minor = Minor progress
 reverse-engineering-average = Acceptable progress
 reverse-engineering-major = Major progress
 reverse-engineering-success = Breakthrough
+
+reverse-engineering-machine-bonus-upgrade = Analysis power
