@@ -35,6 +35,8 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
     {
         ScanButton.Disabled = !state.CanScan;
         StopButton.Disabled = !state.Scanning;
+        SafetyButton.Pressed = state.Safety;
+        AutoScanButton.Pressed = state.AutoProbe;
         EjectButton.Disabled = (state.Target == null || state.Scanning);
     }
 

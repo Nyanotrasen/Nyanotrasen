@@ -58,6 +58,10 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
 
     public bool Scanning;
 
+    public bool Safety;
+
+    public bool AutoProbe;
+
     public int TotalProgress;
 
     public TimeSpan TimeRemaining;
@@ -65,7 +69,7 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
     public TimeSpan TotalTime;
 
     public ReverseEngineeringMachineScanUpdateState(EntityUid? target, bool canScan,
-        FormattedMessage? scanReport, bool scanning, int totalProgress, TimeSpan timeRemaining, TimeSpan totalTime)
+        FormattedMessage? scanReport, bool scanning, bool safety, bool autoProbe, int totalProgress, TimeSpan timeRemaining, TimeSpan totalTime)
     {
         Target = target;
         CanScan = canScan;
@@ -73,6 +77,8 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
         ScanReport = scanReport;
 
         Scanning = scanning;
+        Safety = safety;
+        AutoProbe = autoProbe;
         TotalProgress = totalProgress;
         TimeRemaining = timeRemaining;
         TotalTime = totalTime;

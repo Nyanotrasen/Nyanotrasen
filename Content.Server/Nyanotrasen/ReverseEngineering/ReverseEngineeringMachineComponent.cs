@@ -35,12 +35,12 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// <summary>
     /// Whether the safety is on.
     /// </summary>
-    public bool SafetyOn = false;
+    public bool SafetyOn = true;
 
     /// <summary>
     /// Whether autoscan is on.
     /// </summary>
-    public bool AutoScan = false;
+    public bool AutoScan = true;
 
     public int Progress = 0;
 
