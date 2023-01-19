@@ -28,3 +28,4 @@ reverse-engineering-major = Major progress
 reverse-engineering-success = Breakthrough
 
 reverse-engineering-machine-bonus-upgrade = Analysis power
+reverse-engineering-machine-aversion-upgrade = Destruction aversion bonus

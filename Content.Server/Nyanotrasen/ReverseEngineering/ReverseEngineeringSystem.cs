@@ -3,53 +3,12 @@ using Content.Shared.ReverseEngineering;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
 using Content.Server.Power.Components;
+using Content.Server.Construction;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Content.Shared.GameTicking;
-using Content.Shared.Damage;
-using Content.Shared.Examine;
-using Content.Shared.Cloning;
-using Content.Shared.Speech;
-using Content.Shared.Atmos;
-using Content.Shared.Tag;
-using Content.Shared.CCVar;
-using Content.Shared.Preferences;
-using Content.Server.Psionics;
-using Content.Server.Cloning.Components;
-using Content.Server.Speech.Components;
-using Content.Server.Mind.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.Atmos.EntitySystems;
-using Content.Server.StationEvents.Components;
-using Content.Server.EUI;
-using Content.Server.Humanoid;
-using Content.Server.MachineLinking.System;
-using Content.Server.MachineLinking.Events;
-using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Chemistry.Components;
-using Content.Server.Fluids.EntitySystems;
-using Content.Server.Chat.Systems;
-using Content.Server.Construction;
-using Content.Server.Materials;
-using Content.Server.Jobs;
-using Content.Server.Mind;
-using Content.Server.Preferences.Managers;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Mobs.Systems;
-using Robust.Server.GameObjects;
-using Robust.Server.Containers;
-using Robust.Server.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Configuration;
-using Robust.Shared.Containers;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.GameObjects.Components.Localization;
-
 
 namespace Content.Server.ReverseEngineering;
 
@@ -120,14 +79,16 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     private void OnRefreshParts(EntityUid uid, ReverseEngineeringMachineComponent component, RefreshPartsEvent args)
     {
         var bonusRating = args.PartRatings[component.MachinePartScanBonus];
+        var aversionRating = args.PartRatings[component.MachinePartDangerAversionScore];
 
-        Logger.Error("Bonus rating: " + (int) bonusRating);
         component.ScanBonus = (int) bonusRating;
+        component.DangerAversionScore = (int) aversionRating;
     }
 
     private void OnExamineParts(EntityUid uid, ReverseEngineeringMachineComponent component, UpgradeExamineEvent args)
     {
         args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus - 1);
+        args.AddNumberUpgrade("reverse-engineering-machine-aversion-upgrade", component.DangerAversionScore - 1);
     }
 
     private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)
@@ -191,7 +152,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         var bui = _ui.GetUi(uid, ReverseEngineeringMachineUiKey.Key);
         _ui.SetUiState(bui, state);
     }
-    private ReverseEngineeringTickResult Roll(ReverseEngineeringMachineComponent component)
+    private ReverseEngineeringTickResult Roll(ReverseEngineeringMachineComponent component, out int actualRoll)
     {
         int roll = (_random.Next(1, 6) + _random.Next(1, 6) + _random.Next(1, 6));
 
@@ -202,9 +163,10 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         roll -= component.CurrentItemDifficulty;
 
+        actualRoll = roll;
         return roll switch
         {
-            <= 8 => ReverseEngineeringTickResult.Destruction,
+            <= 9 => ReverseEngineeringTickResult.Destruction,
             <= 10 => ReverseEngineeringTickResult.Stagnation,
             <= 12 => ReverseEngineeringTickResult.SuccessMinor,
             <= 15 => ReverseEngineeringTickResult.SuccessAverage,
@@ -226,14 +188,15 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         component.CachedMessage = null;
 
-        var result = Roll(component);
+        var result = Roll(component, out var actualRoll);
 
         if (result == ReverseEngineeringTickResult.Destruction)
         {
-            if (!component.SafetyOn)
+            if (!component.SafetyOn && actualRoll + component.DangerAversionScore < 9)
             {
                 Del(component.CurrentItem.Value);
                 component.CurrentItem = null;
+                _slots.SetLock(uid, TargetSlot, false);
                 CancelProbe(uid, component);
             } else
             {

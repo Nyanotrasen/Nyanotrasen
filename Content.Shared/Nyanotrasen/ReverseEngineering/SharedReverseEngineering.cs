@@ -91,8 +91,8 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
 [Serializable, NetSerializable]
 public enum ReverseEngineeringTickResult : byte
 {
-    Destruction, // 8 (only destroys if danger bonus is active)
-    Stagnation, // 9-10
+    Destruction, // 9 (only destroys if danger bonus is active, effectively 8 since aversion bonus is always 1)
+    Stagnation, // 10
     SuccessMinor, // 11-12
     SuccessAverage, // 13-15
     SuccessMajor, // 16-17
