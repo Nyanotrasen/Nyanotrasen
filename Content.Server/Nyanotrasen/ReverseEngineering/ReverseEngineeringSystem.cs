@@ -52,6 +52,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
 
         component.CurrentItem = args.Entity;
+        component.CachedMessage = GetReverseEngineeringScanMessage(component);
         component.CurrentItemDifficulty = rev.Difficulty;
         UpdateUserInterface(uid, component);
     }
@@ -101,7 +102,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         var canScan = (item != null && !scanning);
         var remaining = active != null ? _timing.CurTime - active.StartTime : TimeSpan.Zero;
 
-        var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, component.CachedMessage, scanning, remaining, component.AnalysisDuration);
+        var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, component.CachedMessage, scanning, component.Progress, remaining, component.AnalysisDuration);
 
         var bui = _ui.GetUi(uid, ReverseEngineeringMachineUiKey.Key);
         _ui.SetUiState(bui, state);

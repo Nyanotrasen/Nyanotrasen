@@ -9,8 +9,10 @@ reverse-engineering-item-difficulty = Difficulty: {$difficulty}
 reverse-engineering-progress = Progress: {$progress}%
 reverse-engineering-last-attempt-result = Last probe result: {$result}
 
+reverse-engineering-total-progress-label = Total
+
 reverse-engineering-failure = CRITICAL FAILURE
-reverse-engineering-stagnation = No progress
+reverse-engineering-stagnation = Minimal Progress
 reverse-engineering-minor = Minor progress
 reverse-engineering-average = Acceptable progress
 reverse-engineering-major = Major progress

@@ -65,7 +65,6 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
         Information.SetMessage(message);
     }
 
-    // TODO: There should be a second progress bar for the actual progress....
     public void UpdateProbeTickProgressBar(ReverseEngineeringMachineScanUpdateState state)
     {
         ProgressBar.Visible = state.Scanning;
@@ -73,6 +72,18 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
 
         if (!state.Scanning)
             return;
+
+        if (state.Target != null)
+        {
+            TotalProgressLabel.Visible = true;
+            TotalProgressLabel.Text = Loc.GetString("reverse-engineering-total-progress-label");
+            TotalProgressBar.Visible = true;
+            TotalProgressBar.Value = (float) state.TotalProgress / 100f;
+        } else
+        {
+            TotalProgressLabel.Visible = false;
+            TotalProgressBar.Visible = false;
+        }
 
         ProgressLabel.Text = Loc.GetString("analysis-console-progress-text",
             ("seconds", (int) state.TotalTime.TotalSeconds - (int) state.TimeRemaining.TotalSeconds));

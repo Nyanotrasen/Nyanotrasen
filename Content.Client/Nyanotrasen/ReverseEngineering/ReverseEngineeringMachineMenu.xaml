@@ -15,6 +15,13 @@
                 <BoxContainer MinHeight="5"></BoxContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
+                <Label Name="TotalProgressLabel"></Label>
+                <ProgressBar
+                    Name="TotalProgressBar"
+                    MinValue="0"
+                    MaxValue="1"
+                    SetHeight="20">
+                </ProgressBar>
                 <Label Name="ProgressLabel"></Label>
                 <ProgressBar
                     Name="ProgressBar"

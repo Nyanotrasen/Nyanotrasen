@@ -25,12 +25,14 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
 
     public bool Scanning;
 
+    public int TotalProgress;
+
     public TimeSpan TimeRemaining;
 
     public TimeSpan TotalTime;
 
     public ReverseEngineeringMachineScanUpdateState(EntityUid? target, bool canScan,
-        FormattedMessage? scanReport, bool scanning, TimeSpan timeRemaining, TimeSpan totalTime)
+        FormattedMessage? scanReport, bool scanning, int totalProgress, TimeSpan timeRemaining, TimeSpan totalTime)
     {
         Target = target;
         CanScan = canScan;
@@ -38,6 +40,7 @@ public sealed class ReverseEngineeringMachineScanUpdateState : BoundUserInterfac
         ScanReport = scanReport;
 
         Scanning = scanning;
+        TotalProgress = totalProgress;
         TimeRemaining = timeRemaining;
         TotalTime = totalTime;
     }
