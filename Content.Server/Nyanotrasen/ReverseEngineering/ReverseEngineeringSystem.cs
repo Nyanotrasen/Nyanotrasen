@@ -27,6 +27,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineSafetyButtonToggledMessage>(OnSafetyButtonToggled);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineAutoScanButtonToggledMessage>(OnAutoScanButtonToggled);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineStopButtonPressedMessage>(OnStopButtonPressed);
+        SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineEjectButtonPressedMessage>(OnEjectButtonPressed);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, PowerChangedEvent>(OnPowerChanged);
 
@@ -53,6 +55,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (args.Container.ID != TargetSlot || !TryComp<ReverseEngineeringComponent>(args.Entity, out var rev))
             return;
 
+        _slots.SetLock(uid, TargetSlot, true);
         component.CurrentItem = args.Entity;
         component.CurrentItemDifficulty = rev.Difficulty;
         component.CachedMessage = GetReverseEngineeringScanMessage(component);
@@ -79,7 +82,6 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             return;
 
         component.CachedMessage = null;
-        _slots.SetLock(uid, TargetSlot, true);
         var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
         activeComp.StartTime = _timing.CurTime;
         activeComp.Item = component.CurrentItem.Value;
@@ -101,6 +103,16 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     {
         if (!args.Powered)
             CancelProbe(uid, component);
+    }
+
+    private void OnStopButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineStopButtonPressedMessage args)
+    {
+        CancelProbe(uid, component);
+    }
+
+    private void OnEjectButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineEjectButtonPressedMessage args)
+    {
+        Eject(uid, component);
     }
 
     private void UpdateUserInterface(EntityUid uid, ReverseEngineeringMachineComponent? component = null)
@@ -221,8 +233,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         } else
         {
             CreateDisk(uid, component.DiskPrototype, rev.Recipes);
-            _slots.SetLock(uid, TargetSlot, false);
-            _slots.TryEject(uid, TargetSlot, null, out var item);
+            Eject(uid, component);
             RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         }
 
@@ -296,6 +307,15 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         return msg;
     }
 
+    private void Eject(EntityUid uid, ReverseEngineeringMachineComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        _slots.SetLock(uid, TargetSlot, false);
+        _slots.TryEject(uid, TargetSlot, null, out var item);
+    }
+
     private void CancelProbe(EntityUid uid, ReverseEngineeringMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -303,7 +323,6 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         component.CachedMessage = null;
         component.LastResult = null;
-        _slots.SetLock(uid, TargetSlot, false);
         RemComp<ActiveReverseEngineeringMachineComponent>(uid);
         UpdateUserInterface(uid, component);
     }

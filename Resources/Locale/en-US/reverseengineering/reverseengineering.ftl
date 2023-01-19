@@ -6,6 +6,10 @@ reverse-engineering-machine-safety-button = Safety
 reverse-engineering-machine-safety-tooltip-info = Toggle safety protocols. Safety off will use stronger but possibly destructive methods of analysis.
 reverse-engineering-machine-autoscan-button = AutoProbe
 reverse-engineering-machine-autoscan-tooltip-info = Toggle whether to automatically start a new probe when the previous one finishes.
+reverse-engineering-machine-stop-button = Stop
+reverse-engineering-machine-stop-tooltip-info = Stop the current probe.
+reverse-engineering-machine-eject-button = Eject
+reverse-engineering-machine-eject-tooltip-info = Eject the current item.
 
 reverse-engineering-status-ready = Insert item to reverse engineer.
 reverse-engineering-current-item = Current item: {$item}

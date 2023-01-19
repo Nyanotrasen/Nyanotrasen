@@ -15,6 +15,9 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
     public event Action<BaseButton.ButtonEventArgs>? OnScanButtonPressed;
     public event Action<BaseButton.ButtonToggledEventArgs>? OnSafetyButtonToggled;
     public event Action<BaseButton.ButtonToggledEventArgs>? OnAutoScanButtonToggled;
+    public event Action<BaseButton.ButtonEventArgs>? OnStopButtonPressed;
+    public event Action<BaseButton.ButtonEventArgs>? OnEjectButtonPressed;
+
     public ReverseEngineeringMachineMenu()
     {
         RobustXamlLoader.Load(this);
@@ -23,14 +26,16 @@ public sealed partial class ReverseEngineeringMachineMenu : FancyWindow
         ScanButton.OnPressed += a => OnScanButtonPressed?.Invoke(a);
         SafetyButton.OnToggled += a => OnSafetyButtonToggled?.Invoke(a);
         AutoScanButton.OnToggled += a => OnAutoScanButtonToggled?.Invoke(a);
+        StopButton.OnPressed += a => OnStopButtonPressed?.Invoke(a);
+        EjectButton.OnPressed += a => OnEjectButtonPressed?.Invoke(a);
     }
 
 
     public void SetButtonsDisabled(ReverseEngineeringMachineScanUpdateState state)
     {
         ScanButton.Disabled = !state.CanScan;
-
-        var disabled = !state.CanScan;
+        StopButton.Disabled = !state.Scanning;
+        EjectButton.Disabled = (state.Target == null || state.Scanning);
     }
 
     private void UpdateArtifactIcon(EntityUid? uid)

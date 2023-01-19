@@ -22,6 +22,14 @@
                         ToolTip="{Loc 'reverse-engineering-machine-autoscan-tooltip-info'}"
                         ToggleMode="True">
                 </Button>
+                <Button Name="StopButton"
+                        Text="{Loc 'reverse-engineering-machine-stop-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-stop-tooltip-info'}">
+                </Button>
+                <Button Name="EjectButton"
+                        Text="{Loc 'reverse-engineering-machine-eject-button'}"
+                        ToolTip="{Loc 'reverse-engineering-machine-eject-tooltip-info'}">
+                </Button>
                 <BoxContainer MinHeight="5"></BoxContainer>
             </BoxContainer>
             <BoxContainer Orientation="Vertical">
