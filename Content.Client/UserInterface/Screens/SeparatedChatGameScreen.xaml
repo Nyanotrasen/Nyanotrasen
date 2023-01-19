@@ -27,7 +27,6 @@
                 <BoxContainer Orientation="Horizontal" Access="Protected" HorizontalExpand="True" MinHeight="51">
                     <widgets:GhostGui Name="Ghost" Access="Protected" MinHeight="48"/>
                     <hotbar:HotbarGui Name="Hotbar" Access="Protected" HorizontalExpand="True" HorizontalAlignment="Center" MinHeight="48"/>
-                    <alerts:AlertsUI Name="Alerts" Access="Protected" HorizontalAlignment="Right" MinWidth="300" MinHeight="48"/>
                 </BoxContainer>
             </PanelContainer>
         </SplitContainer>
@@ -38,6 +37,7 @@
 
             <BoxContainer Orientation="Vertical" HorizontalExpand="False" MinWidth="635" >
                 <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="False" Access="Protected" />
+                    <alerts:AlertsUI Name="Alerts" HorizontalExpand="False" Access="Protected" MinWidth="600" MinHeight="140" />
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="False" Name="Chat" Access="Protected" />
             </BoxContainer>
         </PanelContainer>
