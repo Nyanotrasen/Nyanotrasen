@@ -1,5 +1,6 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.ReverseEngineering;
+using Content.Shared.Audio;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
 using Content.Server.Power.Components;
@@ -18,6 +19,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
+    [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
+
     private const string TargetSlot = "target_slot";
     public override void Initialize()
     {
@@ -26,6 +29,9 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, RefreshPartsEvent>(OnRefreshParts);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, UpgradeExamineEvent>(OnExamineParts);
+
+        SubscribeLocalEvent<ActiveReverseEngineeringMachineComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ActiveReverseEngineeringMachineComponent, ComponentShutdown>(OnShutdown);
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineScanButtonPressedMessage>(OnScanButtonPressed);
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, ReverseEngineeringMachineSafetyButtonToggledMessage>(OnSafetyButtonToggled);
@@ -89,6 +95,16 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     {
         args.AddNumberUpgrade("reverse-engineering-machine-bonus-upgrade", component.ScanBonus - 1);
         args.AddNumberUpgrade("reverse-engineering-machine-aversion-upgrade", component.DangerAversionScore - 1);
+    }
+
+    private void OnStartup(EntityUid uid, ActiveReverseEngineeringMachineComponent component, ComponentStartup args)
+    {
+        _ambientSoundSystem.SetAmbience(uid, true);
+    }
+
+    private void OnShutdown(EntityUid uid,ActiveReverseEngineeringMachineComponent component, ComponentShutdown args)
+    {
+        _ambientSoundSystem.SetAmbience(uid, false);
     }
 
     private void OnScanButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineScanButtonPressedMessage args)
