@@ -71,9 +71,6 @@
       prototype: ComputerCargoOrders
     - type: DynamicPrice
       price: 750
-    - type: ReverseEngineering
-      recipes:
-        - AlertsComputerCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard

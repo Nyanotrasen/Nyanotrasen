@@ -257,10 +257,6 @@
     graph: ThermomachineBoard
     deconstructionTarget: null
     node: heater
-  - type: ReverseEngineering
-    difficulty: 2
-    recipes:
-      - ThermomachineHeaterMachineCircuitBoard
 
 - type: entity
   id: PortableScrubberMachineCircuitBoard
@@ -573,10 +569,6 @@
       Capacitor: 1
     materialRequirements:
       Steel: 5
-  - type: ReverseEngineering
-    difficulty: 3
-    recipes:
-      - ThrusterMachineCircuitboard
 
 - type: entity
   id: GyroscopeMachineCircuitboard
@@ -590,10 +582,6 @@
       Capacitor: 1
     materialRequirements:
       Glass: 2
-  - type: ReverseEngineering
-    difficulty: 3
-    recipes:
-      - GyroscopeMachineCircuitboard
 
 - type: entity
   id: GeneratorUraniumMachineCircuitboard
