@@ -13,19 +13,8 @@
     - state: seedextractor-unlit
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
-    scale: 2, 1
     netsync: false
     noRot: true
-  - type: Fixtures
-    fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.9,-0.45,0.9,0.45"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
   - type: ActivatableUI
     key: enum.ReverseEngineeringMachineUiKey.Key
   - type: UserInterface
@@ -66,3 +55,4 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  - type: SpriteFade
