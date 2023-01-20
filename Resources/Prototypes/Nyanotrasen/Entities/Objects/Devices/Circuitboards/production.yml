@@ -71,6 +71,10 @@
       materialRequirements:
         Glass: 1
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - MetempsychoticMachineCircuitboard
 
 - type: entity
   id: ReverseEngineeringMachineCircuitboard
@@ -94,3 +98,7 @@
           Amount: 3
           DefaultPrototype: LeftArmBorg
           ExamineName: borg arm
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - ReverseEngineeringMachineCircuitboard
