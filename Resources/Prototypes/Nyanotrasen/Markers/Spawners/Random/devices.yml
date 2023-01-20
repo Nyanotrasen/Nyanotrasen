@@ -47,22 +47,6 @@
       - DeepFryerMachineCircuitboard
       - BoozeDispenserMachineCircuitboard
       - SodaDispenserMachineCircuitboard
-    chance: 0.8
-    rarePrototypes:
-      - TraversalDistorterMachineCircuitboard
-      - CloningPodMachineCircuitboard
-      - MetempsychoticMachineCircuitboard
-      - ReverseEngineeringMachineCircuitboard
-      - MedicalScannerMachineCircuitboard
-      - ChemDispenserMachineCircuitboard
-      - DawInstrumentMachineCircuitboard
-      - StasisBedMachineCircuitboard
-      - EmitterCircuitboard
-      - SurveillanceCameraWirelessRouterCircuitboard
-      - GasRecyclerMachineCircuitboard
-      - SurveillanceWirelessCameraMonitorCircuitboard
-      - BodyScannerComputerCircuitboard
-      - CloningConsoleComputerCircuitboard
       - RemoteSignaller
       - TimerTrigger
       - SignalTrigger
@@ -70,4 +54,20 @@
       - ExplosivePayload
       - ChemicalPayload
       - FlashPayload
+      - ChemDispenserMachineCircuitboard
+      - EmitterCircuitboard
+      - SurveillanceCameraWirelessRouterCircuitboard
+      - SurveillanceWirelessCameraMonitorCircuitboard
+    chance: 0.8
+    rarePrototypes:
+      - TraversalDistorterMachineCircuitboard
+      - CloningPodMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
+      - ReverseEngineeringMachineCircuitboard
+      - MedicalScannerMachineCircuitboard
+      - DawInstrumentMachineCircuitboard
+      - StasisBedMachineCircuitboard
+      - GasRecyclerMachineCircuitboard
+      - BodyScannerComputerCircuitboard
+      - CloningConsoleComputerCircuitboard
     rareChance: 0.25
