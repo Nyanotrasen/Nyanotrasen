@@ -266,6 +266,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", Codewords)));
 
         _audioSystem.PlayGlobal(_addedSound, Filter.Empty().AddPlayer(traitor), false, AudioParams.Default);
+
         return;
     }
 
