@@ -3,6 +3,17 @@ using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Server.Administration.Components;
+using Content.Server.Administration.Logs;
+using Content.Server.DoAfter;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Database;
+using Content.Shared.Popups;
+using Content.Shared.Stunnable;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.ReverseEngineering;
 
@@ -39,6 +50,17 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     [DataField("dangerBonus")]
     public int DangerBonus = 2;
 
+    [DataField("failSound1")]
+    public SoundSpecifier FailSound1 { get; set; } = new SoundPathSpecifier("/Audio/Effects/spray.ogg");
+
+    [DataField("failSound2")]
+    public SoundSpecifier FailSound2 { get; set; } = new SoundPathSpecifier("/Audio/Effects/sparks4.ogg");
+
+    [DataField("successSound")]
+    public SoundSpecifier SuccessSound { get; set; } = new SoundPathSpecifier("/Audio/Machines/microwave_done_beep.ogg");
+
+    [DataField("clickSound")]
+    public SoundSpecifier ClickSound = new SoundPathSpecifier("/Audio/Machines/machine_switch.ogg");
     public EntityUid? CurrentItem;
 
     /// <summary>

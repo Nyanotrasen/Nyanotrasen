@@ -56,3 +56,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: SpriteFade
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/revMachine_ambience.ogg
