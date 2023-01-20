@@ -5,6 +5,7 @@ using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
 using Content.Server.Power.Components;
 using Content.Server.Construction;
+using Content.Server.Popups;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -20,6 +21,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     private const string TargetSlot = "target_slot";
     public override void Initialize()
@@ -115,6 +118,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         if (HasComp<ActiveReverseEngineeringMachineComponent>(uid))
             return;
 
+        _audio.PlayPvs(component.ClickSound, uid);
+
         component.CachedMessage = null;
         var activeComp = EnsureComp<ActiveReverseEngineeringMachineComponent>(uid);
         activeComp.StartTime = _timing.CurTime;
@@ -123,6 +128,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
     private void OnSafetyButtonToggled(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineSafetyButtonToggledMessage args)
     {
+        _audio.PlayPvs(component.ClickSound, uid);
+
         component.SafetyOn = args.Safety;
         component.CachedMessage = null;
         UpdateUserInterface(uid, component);
@@ -130,6 +137,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
     private void OnAutoScanButtonToggled(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineAutoScanButtonToggledMessage args)
     {
+        _audio.PlayPvs(component.ClickSound, uid);
+
         component.AutoScan = args.AutoScan;
     }
 
@@ -141,11 +150,15 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
     private void OnStopButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineStopButtonPressedMessage args)
     {
+        _audio.PlayPvs(component.ClickSound, uid);
+
         CancelProbe(uid, component);
     }
 
     private void OnEjectButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineEjectButtonPressedMessage args)
     {
+        _audio.PlayPvs(component.ClickSound, uid);
+
         Eject(uid, component);
     }
 
@@ -213,6 +226,9 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 Del(component.CurrentItem.Value);
                 component.CurrentItem = null;
                 _slots.SetLock(uid, TargetSlot, false);
+                _audio.PlayPvs(component.FailSound1, uid);
+                _audio.PlayPvs(component.FailSound2, uid);
+                _popupSystem.PopupEntity(Loc.GetString("reverse-engineering-failure", ("machine", uid)), uid, Shared.Popups.PopupType.MediumCaution);
                 CancelProbe(uid, component);
             } else
             {
@@ -269,6 +285,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         } else
         {
             CreateDisk(uid, component.DiskPrototype, rev.Recipes);
+            _audio.PlayPvs(component.SuccessSound, uid);
             if (rev.NewItem == null)
             {
                 Eject(uid, component);
