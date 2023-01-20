@@ -66,6 +66,9 @@
     - type: ItemCooldown
     - type: DynamicPrice
       price: 40
+    - type: ReverseEngineering
+      recipes:
+        - Flash
 
 - type: entity
   name: portable flasher

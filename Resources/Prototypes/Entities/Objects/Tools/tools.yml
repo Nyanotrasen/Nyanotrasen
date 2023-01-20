@@ -254,6 +254,10 @@
           path: /Audio/Items/change_drill.ogg
   - type: DynamicPrice
     price: 60
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - PowerDrill
 
 - type: entity
   name: RCD
@@ -284,7 +288,7 @@
   components:
   - type: RCD
     ammo: 0
-  
+
 - type: entity
   name: RCD Ammo
   parent: BaseItem
@@ -300,6 +304,10 @@
     heldPrefix: ammo
   - type: DynamicPrice
     price: 60
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - RCDAmmo
 
 - type: entity
   name: shovel

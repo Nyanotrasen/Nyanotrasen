@@ -21,6 +21,10 @@
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: ClothingGrantComponent
     component: HealthGlasses
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - ClothingEyesHudMedical
 
 - type: entity
   parent: ClothingEyesBase

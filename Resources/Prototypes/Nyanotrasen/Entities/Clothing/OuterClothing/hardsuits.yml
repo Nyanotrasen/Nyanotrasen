@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieReverseEngineered
+  suffix: reverse-engineered
+  name: SA-122 combat hardsuit
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite:  Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  - type: ReverseEngineering
+    newItem: null
