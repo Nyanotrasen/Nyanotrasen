@@ -3,6 +3,7 @@ guide-entry-construction = Construction
 guide-entry-atmospherics = Atmospherics
 guide-entry-fires = Fires & Space
 guide-entry-shuttle-craft = Shuttle-craft
+guide-entry-reverse-engineering = Reverse Engineering
 guide-entry-power = Power
 guide-entry-ame = Antimatter Engine (AME)
 guide-entry-science = Science
