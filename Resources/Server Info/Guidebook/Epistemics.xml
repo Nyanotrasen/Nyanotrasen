@@ -1,7 +1,8 @@
 <Document>
-# Science
+# Epistemics
 
-Science, often called Research and Development, is a job made up of both generating research points to unlock new technologies as well as using said technologies to produce new items at lathes to help out the station.
+Epistemics, or Research and Development for people who refuse to use such a self-aggrandizing name, is one of the main departments on NanoTrasen stations.
+They are tolerated despite their strange customs and tendency to attract all sorts of weirdness to the station.
 
 ## Technologies
 <Box>
@@ -22,5 +23,10 @@ Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes
 <GuideEntityEmbed Entity="MedicalTechFab"/>
 </Box>
 At a lathe, you can sync to a server to allow it print whatever recipes you have unlocked. Recipes require various materials (steel, glass, plastic, gold, plasma) which can be acquired at Cargo or Salvage.
+
+## Oracle
+<GuideEntityEmbed Entity="Oracle" />
+
+Oracle is your benefactor, dispensing lots of strange liquids and research points. Is she a statue, a goddess, some sort of devious trap? Everyone has their own approach to her, but she doesn't seem to mind any of them.
 
 </Document>

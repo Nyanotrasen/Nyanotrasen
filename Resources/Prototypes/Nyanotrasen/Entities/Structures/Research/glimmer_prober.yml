@@ -62,6 +62,9 @@
     damageContainer: Inorganic
     damageModifierSet: ShockAbsorber
   - type: CargoSellBlacklist
+  - type: GuideHelp
+    guides:
+    - Psionics
 
 - type: entity
   parent: BaseMachinePowered
@@ -90,6 +93,9 @@
     - type: PowerDeviceVisualizer
   - type: PowerSwitch
   - type: CargoSellBlacklist
+  - type: GuideHelp
+    guides:
+    - Psionics
 
 - type: entity
   id: GlimmerDeviceFrame

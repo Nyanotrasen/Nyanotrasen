@@ -8,6 +8,7 @@
   - Power
   # - ShuttleCraft
   - MachineUpgrading
+  - ReverseEngineering
 
 - type: guideEntry
   id: Construction
@@ -30,6 +31,11 @@
 #   id: ShuttleCraft
 #   name: guide-entry-shuttle-craft
 #   text: "/Server Info/Guidebook/Shuttlecraft.xml"
+
+- type: guideEntry
+  id: ReverseEngineering
+  name: guide-entry-reverse-engineering
+  text: "/Server Info/Guidebook/ReverseEngineering.xml"
 
 - type: guideEntry
   id: Power
