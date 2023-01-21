@@ -56,6 +56,9 @@
     - type: Appearance
     - type: Actions
     - type: Psionic
+    - type: GuideHelp
+      guides:
+      - Xenoarchaeology
 
 - type: entity
   parent: BaseXenoArtifact
