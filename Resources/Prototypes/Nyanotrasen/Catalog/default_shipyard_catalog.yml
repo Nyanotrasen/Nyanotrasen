@@ -17,6 +17,15 @@
   shuttlePath: /Maps/Shuttles/barge.yml
   
 - type: vessel
+  id: Helix
+  name: NTMC Helix
+  description: A large mobile health clinic for servicing distant outposts.
+  price: 38500
+  category: Medium
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/helix.yml
+  
+- type: vessel
   id: Prospecter
   name: NT-7 Prospecter
   description: A small mining vessel designed to assist salvage operations.
