@@ -3,17 +3,7 @@ using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Server.Administration.Components;
-using Content.Server.Administration.Logs;
-using Content.Server.DoAfter;
-using Content.Shared.Cuffs.Components;
-using Content.Shared.Database;
-using Content.Shared.Popups;
-using Content.Shared.Stunnable;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.ReverseEngineering;
 
@@ -48,7 +38,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     /// Whether the machine is going to receive the danger bonus.
     /// </summary>
     [DataField("dangerBonus")]
-    public int DangerBonus = 2;
+    public int DangerBonus = 3;
 
     [DataField("failSound1")]
     public SoundSpecifier FailSound1 { get; set; } = new SoundPathSpecifier("/Audio/Effects/spray.ogg");

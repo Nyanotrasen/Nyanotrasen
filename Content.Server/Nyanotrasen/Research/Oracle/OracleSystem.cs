@@ -266,7 +266,18 @@ namespace Content.Server.Research.Oracle
 
         public List<string> GetAllProtos()
         {
-            var allRecipes = _prototypeManager.EnumeratePrototypes<LatheRecipePrototype>().Select(x => x.Result).ToList();
+            var allTechs = _prototypeManager.EnumeratePrototypes<TechnologyPrototype>();
+            var allRecipes = new List<String>();
+
+            foreach (var tech in allTechs)
+            {
+                foreach (var recipe in tech.UnlockedRecipes)
+                {
+                    var recipeProto = _prototypeManager.Index<LatheRecipePrototype>(recipe);
+                    allRecipes.Add(recipeProto.Result);
+                }
+            }
+
             var allPlants = _prototypeManager.EnumeratePrototypes<SeedPrototype>().Select(x => x.ProductPrototypes[0]).ToList();
             var allProtos = allRecipes.Concat(allPlants).ToList();
             foreach (var proto in BlacklistedProtos)
