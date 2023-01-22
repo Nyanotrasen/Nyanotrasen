@@ -44162,7 +44162,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 1111
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 15.5,25.5
@@ -44183,7 +44183,7 @@ entities:
         uid: 1108
     type: SignalTransmitter
 - uid: 1112
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 20.5,25.5
@@ -44914,7 +44914,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 1227
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: 23.5,-35.5
     parent: 0
@@ -47049,7 +47049,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 1569
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 1.5707963267948966 rad
     pos: -11.5,-32.5
@@ -47519,7 +47519,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 1635
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: -23.5,-30.5
     parent: 0
@@ -47535,7 +47535,7 @@ entities:
         uid: 1614
     type: SignalTransmitter
 - uid: 1636
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: -21.5,-30.5
     parent: 0
@@ -47551,7 +47551,7 @@ entities:
         uid: 1616
     type: SignalTransmitter
 - uid: 1637
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: -19.5,-30.5
     parent: 0
@@ -47569,7 +47569,7 @@ entities:
         uid: 553
     type: SignalTransmitter
 - uid: 1638
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: -17.5,-31.5
@@ -47590,7 +47590,7 @@ entities:
         uid: 645
     type: SignalTransmitter
 - uid: 1639
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: -17.5,-33.5
@@ -66883,7 +66883,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 4694
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 3.141592653589793 rad
     pos: -6.5,-74.5
@@ -70026,7 +70026,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 5203
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 3.141592653589793 rad
     pos: 4.5,-88.5
@@ -80689,7 +80689,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 6806
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 56.5,8.5
@@ -80734,7 +80734,7 @@ entities:
         uid: 6758
     type: SignalTransmitter
 - uid: 6807
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 56.5,14.5
@@ -89807,7 +89807,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 8129
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 56.5,46.5
@@ -89828,7 +89828,7 @@ entities:
         uid: 8093
     type: SignalTransmitter
 - uid: 8130
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 1.5707963267948966 rad
     pos: 51.5,46.5
@@ -95376,7 +95376,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 8904
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: -1.5707963267948966 rad
     pos: 18.5,-65.5
@@ -98705,7 +98705,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 9424
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: 15.5,38.5
     parent: 0
@@ -167645,7 +167645,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 18562
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - pos: -5.5,37.5
     parent: 0
@@ -199471,7 +199471,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 23497
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 3.141592653589793 rad
     pos: 14.5,16.5
@@ -199885,7 +199885,7 @@ entities:
       Toggle: []
     type: SignalReceiver
 - uid: 23539
-  type: SignalSwitch
+  type: SignalSwitchDirectional
   components:
   - rot: 3.141592653589793 rad
     pos: 42.5,-36.5
