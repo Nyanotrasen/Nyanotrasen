@@ -44922,7 +44922,7 @@ entities:
   - canCollide: False
     type: Physics
   - state: True
-    type: SignalSwitchDirectional
+    type: SignalSwitch
   - outputs:
       On:
       - port: Open
@@ -47559,7 +47559,7 @@ entities:
   - canCollide: False
     type: Physics
   - state: True
-    type: SignalSwitchDirectional
+    type: SignalSwitch
   - outputs:
       On:
       - port: Open
@@ -199894,7 +199894,7 @@ entities:
   - canCollide: False
     type: Physics
   - state: True
-    type: SignalSwitchDirectional
+    type: SignalSwitch
   - outputs:
       On:
       - port: Open
