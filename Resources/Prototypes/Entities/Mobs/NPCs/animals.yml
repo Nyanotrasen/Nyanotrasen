@@ -1089,6 +1089,11 @@
     interactFailureString: petting-failure-generic
     interactSuccessSound:
       path: /Audio/Animals/penguin_squawk.ogg
+  - type: Temperature
+    coldDamageThreshold: 235
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
 
 - type: entity
   name: grenade penguin
@@ -1737,6 +1742,13 @@
   - type: Grammar
     attributes:
       gender: epicene
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: Temperature
+    coldDamageThreshold: 0
 
 - type: entity
   name: caracal cat
