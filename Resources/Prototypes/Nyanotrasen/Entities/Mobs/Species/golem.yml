@@ -250,6 +250,9 @@
           keywords: [ "AI", "console", "interface", "laws", "borg" ]
           priority: -3
           event: !type:ToggleIntrinsicUIEvent
+  - type: GuideHelp
+    guides:
+    - AltarsGolemancy
 
 - type: entity
   parent: MobGolemBase

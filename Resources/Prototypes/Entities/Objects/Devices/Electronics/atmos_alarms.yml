@@ -11,6 +11,9 @@
     tags:
       - DroneUsable
       - AirAlarmElectronics
+  - type: ReverseEngineering
+    recipes:
+      - AirAlarmElectronics
 
 - type: entity
   id: FireAlarmElectronics
@@ -24,4 +27,7 @@
   - type: Tag
     tags:
       - DroneUsable
+      - FireAlarmElectronics
+  - type: ReverseEngineering
+    recipes:
       - FireAlarmElectronics

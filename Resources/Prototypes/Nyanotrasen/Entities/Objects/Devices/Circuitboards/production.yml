@@ -71,3 +71,34 @@
       materialRequirements:
         Glass: 1
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - MetempsychoticMachineCircuitboard
+
+- type: entity
+  id: ReverseEngineeringMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: reverse engineering machine machine board
+  description: A machine printed circuit board for a reverse engineering machine
+  components:
+    - type: Sprite
+      state: engineering
+    - type: MachineBoard
+      prototype: ReverseEngineeringMachine
+      requirements:
+        ScanningModule: 1
+        Manipulator: 1
+      materialRequirements:
+        Glass: 1
+        Cable: 1
+        Diamond: 10
+      tagRequirements:
+        BorgArm:
+          Amount: 3
+          DefaultPrototype: LeftArmBorg
+          ExamineName: borg arm
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - ReverseEngineeringMachineCircuitboard

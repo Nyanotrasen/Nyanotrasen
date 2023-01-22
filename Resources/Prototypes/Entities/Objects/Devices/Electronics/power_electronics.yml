@@ -10,6 +10,9 @@
       sprite: Objects/Misc/module.rsi
       state: charger_APC
       netsync: false
+    - type: ReverseEngineering
+      recipes:
+        - APCElectronics
 
 # Wallmount Substation
 - type: entity

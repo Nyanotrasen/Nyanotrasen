@@ -29,8 +29,9 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
-        factor: 1
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.75
 
 - type: reagent
   id: OilGhee
@@ -43,7 +44,9 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.75
 
 - type: reagent
   id: OilOlive
@@ -58,8 +61,9 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
-        factor: 2
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.75
 
 - type: reagent
   id: Frostoil
@@ -96,6 +100,24 @@
   physicalDesc: reagent-physical-desc-tangy
   flavor: tomato
   color: red
+
+- type: reagent
+  id: Ketchunaise
+  name: reagent-name-ketchunaise
+  group: Foods
+  desc: reagent-desc-ketchunaise
+  physicalDesc: reagent-physical-desc-saucey
+  flavor: piquant
+  color: "#fba399"
+
+- type: reagent
+  id: Mayo
+  name: reagent-name-mayo
+  group: Foods
+  desc: reagent-desc-mayo
+  physicalDesc: reagent-physical-desc-thick
+  flavor: sour
+  color: "#f9f5e5"
 
 - type: reagent
   id: Soysauce

@@ -4,12 +4,12 @@
   description: job-description-salvage-technician
   icon: "ShaftMiner"
   startingGear: SalvageTechnicianGear
-  playTimeTracker: JobStationEngineer
+  playTimeTracker: JobSalvageTechnician
   antagAdvantage: 3
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 1800
+      time: 14400
   supervisors: "the chief engineer"
   access:
   - Salvage

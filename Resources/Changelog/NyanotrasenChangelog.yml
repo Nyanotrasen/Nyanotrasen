@@ -2054,3 +2054,57 @@ Entries:
   - {message: Removed fun!, type: Remove}
   id: 311
   time: '2023-01-19T09:17:29.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream again., type: Add}
+  - {message: Updated several sprites., type: Add}
+  - {message: Borgs use the 'robot' typing indicator., type: Add}
+  id: 312
+  time: '2023-01-20T18:54:28.0000000+00:00'
+- author: Nyano Contributors
+  changes:
+  - {message: Added reverse engineering machines. Mapped them into most maps., type: Add}
+  - {message: Updated map with reverse engineering machines., type: Add}
+  - {message: 'Merged upstream, replaced a bunch of sprites.', type: Add}
+  - {message: Fixed a bunch of bugs., type: Fix}
+  id: 313
+  time: '2023-01-20T19:49:12.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Completely overhauled Shoukou's Salvage., type: Tweak}
+  id: 314
+  time: '2023-01-20T22:10:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'The reverse engineering machine has sounds now, and a failure popup.
+      Still waiting on new sprite and visualizer.', type: Add}
+  id: 315
+  time: '2023-01-20T22:10:12.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Salvage is more likely to find rare machine boards and parts., type: Tweak}
+  id: 316
+  time: '2023-01-20T23:14:24.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Space bears are less likely to get caught in doors., type: Tweak}
+  id: 317
+  time: '2023-01-20T23:38:22.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Role timers for several head and engineering roles have been adjusted.,
+    type: Tweak}
+  id: 318
+  time: '2023-01-21T00:29:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The reverse engineering machine bonus from safety off has been increased
+      by one., type: Tweak}
+  - {message: Oracle will only ask for researchable items., type: Tweak}
+  id: 319
+  time: '2023-01-21T00:50:18.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added guidebooks for reverse engineering and epistemics., type: Add}
+  id: 320
+  time: '2023-01-21T02:14:57.0000000+00:00'

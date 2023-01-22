@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  noSpawn: true
+  name: SA-123 combat hardsuit helmet
+  description: An advanced hardsuit helmet designed for work in special operations.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi

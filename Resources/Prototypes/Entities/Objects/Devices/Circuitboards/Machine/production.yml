@@ -11,6 +11,9 @@
         Manipulator: 1
       materialRequirements:
         Glass: 1
+    - type: ReverseEngineering
+      recipes:
+        - AutolatheMachineCircuitboard
 
 - type: entity
   id: ProtolatheMachineCircuitboard
@@ -28,6 +31,9 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      recipes:
+        - ProtolatheMachineCircuitboard
 
 - type: entity
   id: SecurityTechFabCircuitboard
@@ -84,6 +90,10 @@
         Amount: 2
         DefaultPrototype: Beaker
         ExamineName: Glass Beaker
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - CircuitImprinterMachineCircuitboard
 
 - type: entity
   id: ExosuitFabricatorMachineCircuitboard
@@ -99,6 +109,10 @@
       Manipulator: 3
     materialRequirements:
       Glass: 5
+  - type: ReverseEngineering
+    difficulty: 3
+    recipes:
+      - ExosuitFabricatorMachineCircuitboard
 
 - type: entity
   id: UniformPrinterMachineCircuitboard
@@ -110,6 +124,10 @@
     requirements:
       MatterBin: 1
       Laser: 2
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - UniformPrinterMachineCircuitboard
 
 - type: entity
   id: VaccinatorMachineCircuitboard
@@ -130,6 +148,10 @@
           Amount: 1
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - VaccinatorMachineCircuitboard
 
 - type: entity
   id: DiagnoserMachineCircuitboard
@@ -145,6 +167,10 @@
       Laser: 2
     materialRequirements:
       Cable: 5
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - DiagnoserMachineCircuitboard
 
 - type: entity
   id: ArtifactAnalyzerMachineCircuitboard
@@ -162,6 +188,10 @@
         Capacitor: 1
       materialRequirements:
         Glass: 5
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - ArtifactAnalyzerMachineCircuitboard
 
 - type: entity
   id: TraversalDistorterMachineCircuitboard
@@ -179,6 +209,10 @@
       materialRequirements:
         Steel: 5
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+      - TraversalDistorterMachineCircuitboard
 
 - type: entity
   id: ThermomachineFreezerMachineCircuitBoard
@@ -199,6 +233,10 @@
     deconstructionTarget: null
     graph: ThermomachineBoard
     node: freezer
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - ThermomachineFreezerMachineCircuitBoard
 
 - type: entity
   id: ThermomachineHeaterMachineCircuitBoard
@@ -236,6 +274,9 @@
     materialRequirements:
       Cable: 5
       Glass: 2
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
 
 - type: entity
   id: CloningPodMachineCircuitboard
@@ -253,6 +294,10 @@
       materialRequirements:
         Glass: 1
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 4
+      recipes:
+        - CloningPodMachineCircuitboard
 
 - type: entity
   id: MedicalScannerMachineCircuitboard
@@ -270,6 +315,10 @@
       materialRequirements:
         Glass: 5
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - MedicalScannerMachineCircuitboard
 
 - type: entity
   id: CryoPodMachineCircuitboard
@@ -288,6 +337,10 @@
       materialRequirements:
         Glass: 1
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - CryoPodMachineCircuitboard
 
 - type: entity
   id: ChemMasterMachineCircuitboard
@@ -308,6 +361,10 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - ChemMasterMachineCircuitboard
 
 - type: entity
   id: ChemDispenserMachineCircuitboard
@@ -325,6 +382,10 @@
         MatterBin: 2
       materialRequirements:
         Glass: 1
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - ChemDispenserMachineCircuitboard
 
 - type: entity
   id: BiomassReclaimerMachineCircuitboard
@@ -350,6 +411,10 @@
           Amount: 3
           DefaultPrototype: KitchenKnife
           ExamineName: knife
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - BiomassReclaimerMachineCircuitboard
 
 - type: entity
   id: HydroponicsTrayMachineCircuitboard
@@ -374,6 +439,10 @@
           Amount: 2
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - HydroponicsTrayMachineCircuitboard
 
 - type: entity
   id: SeedExtractorMachineCircuitboard
@@ -392,6 +461,10 @@
         # replacing the console screen
         Glass: 1
         Cable: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SeedExtractorMachineCircuitboard
 
 - type: entity
   id: SMESMachineCircuitboard
@@ -406,6 +479,9 @@
       prototype: SMESBasicEmpty
       requirements:
         Capacitor: 10
+    - type: ReverseEngineering
+      recipes:
+        - SMESMachineCircuitboard
 
 - type: entity
   id: SubstationMachineCircuitboard
@@ -420,6 +496,9 @@
       materialRequirements:
         CableMV: 5
         CableHV: 5
+    - type: ReverseEngineering
+      recipes:
+        - SubstationMachineCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -455,6 +534,10 @@
           Amount: 1
           DefaultPrototype: SaxophoneInstrument
           ExamineName: Woodwind Instrument
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - DawInstrumentMachineCircuitboard
 
 - type: entity
   id: GeneratorPlasmaMachineCircuitboard
@@ -469,6 +552,10 @@
         Capacitor: 1
       materialRequirements:
         CableHV: 5
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - GeneratorPlasmaMachineCircuitboard
 
 - type: entity
   id: ThrusterMachineCircuitboard
@@ -509,6 +596,10 @@
         Capacitor: 2
       materialRequirements:
         CableHV: 10
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - GeneratorUraniumMachineCircuitboard
 
 - type: entity
   id: ReagentGrinderMachineCircuitboard
@@ -527,6 +618,10 @@
           Amount: 1
           DefaultPrototype: Beaker
           ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - ReagentGrinderMachineCircuitboard
 
 - type: entity
   id: HotplateMachineCircuitboard
@@ -540,6 +635,10 @@
         Laser: 2
       materialRequirements:
         Steel: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - HotplateMachineCircuitboard
 
 - type: entity
   id: StasisBedMachineCircuitboard
@@ -564,6 +663,10 @@
           Amount: 2
           DefaultPrototype: CryostasisBeaker
           ExamineName: Cryostasis Beaker
+    - type: ReverseEngineering
+      difficulty: 3
+      recipes:
+        - StasisBedMachineCircuitboard
 
 - type: entity
   id: OreProcessorMachineCircuitboard
@@ -580,6 +683,9 @@
         Laser: 2
       materialRequirements:
         Glass: 1
+    - type: ReverseEngineering
+      recipes:
+        - OreProcessorMachineCircuitboard
 
 - type: entity
   id: MicrowaveMachineCircuitboard
@@ -596,6 +702,9 @@
       materialRequirements:
         Glass: 2
         Cable: 2
+    - type: ReverseEngineering
+      recipes:
+        - MicrowaveMachineCircuitboard
 
 - type: entity
   id: DeepFryerMachineCircuitboard
@@ -614,6 +723,9 @@
         Steel: 4
         Glass: 2
         Cable: 4
+    - type: ReverseEngineering
+      recipes:
+        - DeepFryerMachineCircuitboard
 
 - type: entity
   id: EmitterCircuitboard
@@ -630,6 +742,10 @@
       materialRequirements:
         CableHV: 5
         Glass: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - EmitterCircuitboard
 
 - type: entity
   id: SurveillanceCameraRouterCircuitboard
@@ -641,6 +757,10 @@
       prototype: SurveillanceCameraRouterConstructed
       requirements:
         Capacitor: 4
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SurveillanceCameraRouterCircuitboard
 
 - type: entity
   id: SurveillanceCameraWirelessRouterCircuitboard
@@ -653,6 +773,10 @@
       requirements:
         Laser: 1
         Capacitor: 4
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SurveillanceCameraWirelessRouterCircuitboard
 
 - type: entity
   id: SurveillanceWirelessCameraMovableCircuitboard
@@ -668,6 +792,10 @@
       materialRequirements:
         Glass: 2
         Cable: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SurveillanceWirelessCameraMovableCircuitboard
 
 - type: entity
   id: SurveillanceWirelessCameraAnchoredCircuitboard
@@ -683,6 +811,10 @@
       materialRequirements:
         Glass: 2
         Cable: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - SurveillanceWirelessCameraAnchoredCircuitboard
 
 - type: entity
   id: GasRecyclerMachineCircuitboard
@@ -698,6 +830,10 @@
     materialRequirements:
       Steel: 10
       Plasma: 5
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - GasRecyclerMachineCircuitboard
 
 - type: entity
   id: BoozeDispenserMachineCircuitboard
@@ -716,6 +852,9 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      recipes:
+        - BoozeDispenserMachineCircuitboard
 
 - type: entity
   id: SodaDispenserMachineCircuitboard
@@ -734,3 +873,6 @@
             Amount: 1
             DefaultPrototype: Beaker
             ExamineName: Glass Beaker
+    - type: ReverseEngineering
+      recipes:
+        - SodaDispenserMachineCircuitboard

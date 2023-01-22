@@ -207,7 +207,7 @@ namespace Content.Shared.CCVar
         /// Is map rotation enabled?
         /// </summary>
         public static readonly CVarDef<bool>
-            GameMapRotation = CVarDef.Create<bool>("game.map_rotation", true, CVar.SERVERONLY);
+            GameMapRotation = CVarDef.Create("game.map_rotation", true, CVar.SERVERONLY);
 
         /// <summary>
         /// If roles should be restricted based on time.
@@ -250,7 +250,7 @@ namespace Content.Shared.CCVar
         /// Whether or not panic bunker is currently enabled.
         /// </summary>
         public static readonly CVarDef<bool> PanicBunkerEnabled =
-            CVarDef.Create("game.panic_bunker.enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("game.panic_bunker.enabled", false, CVar.NOTIFY | CVar.REPLICATED);
 
         /// <summary>
         /// Panic bunker when no admins are on.
@@ -801,14 +801,14 @@ namespace Content.Shared.CCVar
         ///     Needs <see cref="MonstermosEqualization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosDepressurization =
-            CVarDef.Create<bool>("atmos.monstermos_depressurization", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_depressurization", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether monstermos explosive depressurization will rip tiles..
         ///     Needs <see cref="MonstermosEqualization"/> and <see cref="MonstermosDepressurization"/> to be enabled to work.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create<bool>("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.

@@ -226,6 +226,8 @@
   - type: Faction
     factions:
     - NanoTrasen
+  - type: TypingIndicator
+    proto: robot
 
 - type: entity
   parent: PlayerCyborgBase

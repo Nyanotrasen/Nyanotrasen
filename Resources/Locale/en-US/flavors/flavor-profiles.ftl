@@ -39,6 +39,7 @@ flavor-base-creamy = creamy
 flavor-base-fizzy = fizzy
 flavor-base-shocking = shocking
 flavor-base-cheap = cheap
+flavor-base-piquant = piquant
 
 # lmao
 flavor-base-terrible = terrible

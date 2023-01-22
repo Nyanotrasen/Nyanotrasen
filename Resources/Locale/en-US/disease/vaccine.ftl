@@ -14,4 +14,4 @@ vaccine-machine-menu-create-vaccine-button = Create vaccine
 vaccine-machine-menu-biomass-cost = Biomass Cost: {$value}
 vaccine-machine-menu-biomass-current = Current: {$value}
 vaccine-machine-menu-none-selected = Select a disease!
-vaccine-machine-cost-upgrade = Biomass Cost
+vaccine-machine-cost-upgrade = Biomass cost

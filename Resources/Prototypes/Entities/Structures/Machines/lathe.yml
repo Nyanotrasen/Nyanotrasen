@@ -267,6 +267,7 @@
       - HydroponicsTrayMachineCircuitboard
       - SolarControlComputerCircuitboard
       - PowerComputerCircuitboard
+      - ReverseEngineeringMachineCircuitboard
       - AutolatheMachineCircuitboard
       - ProtolatheMachineCircuitboard
       - ReagentGrinderMachineCircuitboard
@@ -276,6 +277,7 @@
       - UniformPrinterMachineCircuitboard
       - RadarConsoleCircuitboard
       - CircuitImprinterMachineCircuitboard
+      - CloningPodMachineCircuitboard
       - TechDiskComputerCircuitboard
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
@@ -335,6 +337,7 @@
     - RipleyLLeg
     - RipleyRLeg
     - MechEquipmentGrabber
+    - ClothingOuterHardsuitSyndieReverseEngineered
   - type: MaterialStorage
     whitelist:
       tags:
