@@ -10,7 +10,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
 using Content.Shared.Item;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -19,7 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
-using Content.Server.Emag;
+using Content.Shared.Emag.Systems;
 using Content.Server.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
@@ -1490,7 +1489,8 @@ namespace Content.IntegrationTests.Tests.Mail
                 Assert.IsNotNull(stationBankAccountComponent,
                     "Unable to find matching StationBankAccountComponent for mail parcel.");
 
-                emagSystem.DoEmag(mail, clown);
+                // yeah mail can just emag itself
+                emagSystem.DoEmagEffect(mail, mail);
 
                 var currentBalance = stationBankAccountComponent!.Balance;
 
