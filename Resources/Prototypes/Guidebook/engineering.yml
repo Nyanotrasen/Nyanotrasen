@@ -1,55 +1,49 @@
 ﻿- type: guideEntry
   id: Engineering
   name: guide-entry-engineering
-  text: "/Server Info/Guidebook/Engineering.xml"
+  text: "/Server Info/Guidebook/Eng/Engineering.xml"
   children:
   - Atmospherics
   - Construction
   - Power
-  # - ShuttleCraft
   - MachineUpgrading
   - ReverseEngineering
 
 - type: guideEntry
   id: Construction
   name: guide-entry-construction
-  text: "/Server Info/Guidebook/Construction.xml"
+  text: "/Server Info/Guidebook/Eng/Construction.xml"
 
 - type: guideEntry
   id: Atmospherics
   name: guide-entry-atmospherics
-  text: "/Server Info/Guidebook/Atmospherics.xml"
+  text: "/Server Info/Guidebook/Eng/Atmospherics.xml"
   children:
   - Fires
 
 - type: guideEntry
   id: Fires
   name: guide-entry-fires
-  text: "/Server Info/Guidebook/Fires.xml"
-
-# - type: guideEntry
-#   id: ShuttleCraft
-#   name: guide-entry-shuttle-craft
-#   text: "/Server Info/Guidebook/Shuttlecraft.xml"
+  text: "/Server Info/Guidebook/Eng/Fires.xml"
 
 - type: guideEntry
   id: ReverseEngineering
   name: guide-entry-reverse-engineering
-  text: "/Server Info/Guidebook/ReverseEngineering.xml"
+  text: "/Server Info/Guidebook/Eng/ReverseEngineering.xml"
 
 - type: guideEntry
   id: Power
   name: guide-entry-power
-  text: "/Server Info/Guidebook/Power.xml"
+  text: "/Server Info/Guidebook/Eng/Power.xml"
   children:
   - AME
 
 - type: guideEntry
   id: AME
   name: guide-entry-ame
-  text: "/Server Info/Guidebook/AME.xml"
+  text: "/Server Info/Guidebook/Eng/AME.xml"
 
 - type: guideEntry
   id: MachineUpgrading
   name: guide-entry-machine-upgrading
-  text: "/Server Info/Guidebook/MachineUpgrading.xml"
+  text: "/Server Info/Guidebook/Eng/MachineUpgrading.xml"
