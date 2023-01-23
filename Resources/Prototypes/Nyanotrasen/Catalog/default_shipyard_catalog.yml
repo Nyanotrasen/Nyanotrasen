@@ -11,7 +11,7 @@
   id: Barge
   name: The Barge
   description: A large shipping vessel repurposed into a salvage bar.
-  price: 78500
+  price: 50000
   category: Medium
   group: Civilian
   shuttlePath: /Maps/Shuttles/barge.yml
@@ -29,7 +29,7 @@
   id: Prospecter
   name: NT-7 Prospecter
   description: A small mining vessel designed to assist salvage operations.
-  price: 31350
+  price: 26000
   category: Small
   group: Civilian
   shuttlePath: /Maps/Shuttles/prospecter.yml
@@ -38,7 +38,7 @@
   id: Nomad
   name: NTCV Nomad
   description: A small shuttle for transporting up to 3 passengers with relative comfort.
-  price: 19000
+  price: 24500
   category: Small
   group: Civilian
   shuttlePath: /Maps/Shuttles/ntcv-nomad.yml
@@ -47,7 +47,16 @@
   id: Tote
   name: NTSV Tote
   description: A small shipping vessel, adapted from the Nomad line of shuttles with room for 2 passengers.
-  price: 22000
+  price: 23500
   category: Small
   group: Civilian
   shuttlePath: /Maps/Shuttles/ntsv-tote.yml
+
+- type: vessel
+  id: Pulse
+  name: NTV Pulse
+  description: A moderately sized shuttle intended for all-purpose use. It can comfortably accomodate a crew of up to ten people.
+  price: 53000
+  category: Medium
+  group: Civilian
+  shuttlePath: /Maps/Shuttles/ntv-pulse.yml
