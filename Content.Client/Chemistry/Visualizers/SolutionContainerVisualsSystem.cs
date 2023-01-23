@@ -18,6 +18,8 @@ public sealed class SolutionContainerVisualsSystem : VisualizerSystem<SolutionCo
         if (!args.Sprite.LayerMapTryGet(component.Layer, out var fillLayer))
             return;
 
+        fraction = Math.Clamp(fraction, 0f, 1f);
+
         var closestFillSprite = (int) Math.Round(fraction * component.MaxFillLevels);
 
         if (closestFillSprite > 0)
