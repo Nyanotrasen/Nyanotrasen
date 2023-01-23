@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System.Threading.Tasks;
 using Content.Shared.Item;
+using Content.Shared.Mobs.Components;
 using Content.Server.Research.Oracle;
 using Content.Server.Chemistry.Components;
 using Robust.Shared.GameObjects;
@@ -52,6 +53,9 @@ namespace Content.IntegrationTests.Tests.Oracle
 
                     Assert.That(!entityManager.HasComponent<SolutionTransferComponent>(spawned),
                         $"Oracle can request reagent container {proto} that will conflict with the fountain");
+
+                    Assert.That(!entityManager.HasComponent<MobStateComponent>(spawned),
+                        $"Oracle can request mob {proto} that could potentially have a player-set name.");
                 }
 
                 // Because Server/Client pairs can be re-used between Tests, we
