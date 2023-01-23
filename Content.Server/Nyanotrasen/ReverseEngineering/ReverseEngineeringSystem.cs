@@ -11,6 +11,25 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
+using System.Threading;
+using Content.Shared.Disease;
+using Content.Shared.Disease.Components;
+using Content.Shared.Materials;
+using Content.Shared.Research.Components;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
+using Content.Shared.Tag;
+using Content.Shared.Toggleable;
+using Content.Server.Disease.Components;
+using Content.Server.Power.EntitySystems;
+using Content.Server.DoAfter;
+using Content.Server.Research.Systems;
+using Content.Server.UserInterface;
+using Content.Server.Construction;
+using Content.Server.Popups;
+using Robust.Shared.Prototypes;
+using Robust.Server.GameObjects;
+using Robust.Server.Player;
 
 namespace Content.Server.ReverseEngineering;
 
@@ -23,6 +42,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSoundSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
     private const string TargetSlot = "target_slot";
     public override void Initialize()
@@ -72,6 +92,9 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         component.CurrentItemDifficulty = rev.Difficulty;
         component.CachedMessage = GetReverseEngineeringScanMessage(component);
         UpdateUserInterface(uid, component);
+
+        if (TryComp<AppearanceComponent>(uid, out var appearance))
+            _appearanceSystem.SetData(uid, ReverseEngineeringVisuals.ChamberOpen, false, appearance);
     }
 
     private void OnEntRemoved(EntityUid uid, ReverseEngineeringMachineComponent component, EntRemovedFromContainerMessage args)
@@ -83,6 +106,9 @@ public sealed class ReverseEngineeringSystem : EntitySystem
         component.CurrentItemDifficulty = 0;
         component.Progress = 0;
         CancelProbe(uid, component);
+
+        if (TryComp<AppearanceComponent>(uid, out var appearance))
+            _appearanceSystem.SetData(uid, ReverseEngineeringVisuals.ChamberOpen, true, appearance);
     }
 
     private void OnRefreshParts(EntityUid uid, ReverseEngineeringMachineComponent component, RefreshPartsEvent args)
@@ -228,6 +254,8 @@ public sealed class ReverseEngineeringSystem : EntitySystem
             {
                 Del(component.CurrentItem.Value);
                 component.CurrentItem = null;
+                if (TryComp<AppearanceComponent>(uid, out var appearance))
+                    _appearanceSystem.SetData(uid, ReverseEngineeringVisuals.ChamberOpen, true, appearance);
                 _slots.SetLock(uid, TargetSlot, false);
                 _audio.PlayPvs(component.FailSound1, uid);
                 _audio.PlayPvs(component.FailSound2, uid);

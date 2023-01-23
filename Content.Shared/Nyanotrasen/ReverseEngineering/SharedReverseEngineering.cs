@@ -98,3 +98,9 @@ public enum ReverseEngineeringTickResult : byte
     SuccessMajor, // 16-17
     InstantSuccess // 18
 }
+
+[Serializable, NetSerializable]
+public enum ReverseEngineeringVisuals : byte
+{
+    ChamberOpen,
+}
