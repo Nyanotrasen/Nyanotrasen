@@ -353,6 +353,25 @@
         - MedicalScannerMachineCircuitboard
 
 - type: entity
+  id: CrewMonitoringServerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crew monitoring server machine board
+  description: A machine printed circuit board for a crew monitoring server
+  components:
+    - type: MachineBoard
+      prototype: CrewMonitoringServer
+      requirements:
+        Capacitor: 1
+        ScanningModule: 2
+      materialRequirements:
+        Steel: 1
+        Cable: 2
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - CrewMonitoringServerMachineCircuitboard
+
+- type: entity
   id: CryoPodMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: cryo pod machine board

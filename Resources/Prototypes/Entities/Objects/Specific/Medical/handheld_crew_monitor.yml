@@ -17,8 +17,13 @@
   - type: CrewMonitoringConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
-    receiveFrequencyId: SuitSensor
+    receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
   - type: DynamicPrice
     price: 500
+  - type: StationLimitedNetwork
+  - type: ReverseEngineering
+    difficulty: 2
+    recipes:
+      - HandheldCrewMonitor
