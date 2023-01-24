@@ -12,16 +12,12 @@
   - HeadOfPersonnel
   - Janitor
   - Lawyer
-  - Librarian
   - MailCarrier
-  - MedicalIntern
   - Mime
   - Musician
   - Passenger
   - Reporter
   - Zookeeper
-  - ServiceWorker
-  - TechnicalAssistant
   - Quartermaster
   - Prisoner
 
@@ -41,7 +37,6 @@
   - ERTSecurity
   - HeadOfPersonnel
   - HeadOfSecurity
-  - ResearchDirector
   - Mystagogue
 
 - type: department
@@ -59,10 +54,8 @@
   description: department-Medical-description
   color: "#52B4E9"
   roles:
-  - Chemist
   - ChiefMedicalOfficer
   - MedicalDoctor
-  - MedicalIntern
   - Psychologist
   - MedicalCyborg
   - Paramedic
@@ -75,7 +68,6 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
-  - Detective
   - Warden
 
 - type: department
