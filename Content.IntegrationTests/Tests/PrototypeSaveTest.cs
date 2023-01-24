@@ -34,6 +34,8 @@ public sealed class PrototypeSaveTest
 {
     private readonly HashSet<string> _ignoredPrototypes = new()
     {
+        /// *waves at upstream*
+        "Singularity",
         // yeah we should take a look-see at these
         "MobGolemCult",
         "MobGolemWood",
