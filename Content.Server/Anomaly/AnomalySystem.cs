@@ -37,6 +37,7 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         SubscribeLocalEvent<AnomalyComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<AnomalyComponent, StartCollideEvent>(OnStartCollide);
 
+        InitializePsionics();
         InitializeGenerator();
         InitializeScanner();
         InitializeVessel();
