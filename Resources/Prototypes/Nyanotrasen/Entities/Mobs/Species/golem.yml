@@ -1,6 +1,7 @@
 - type: entity
   name: golem
   id: MobGolemBase
+  save: false
   abstract: true
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
