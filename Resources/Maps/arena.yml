@@ -37074,8 +37074,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 13.090149
-      - 49.243896
+      - 12.723625
+      - 47.865067
       - 0
       - 0
       - 0
@@ -37089,8 +37089,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 13.090149
-      - 49.243896
+      - 12.723625
+      - 47.865067
       - 0
       - 0
       - 0
@@ -39084,7 +39084,7 @@ entities:
   - pos: 12.5,-24.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -330969.7
+  - SecondsUntilStateChange: -331399.47
     state: Opening
     type: Door
 - uid: 310
@@ -43040,7 +43040,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209383.77
+  - SecondsUntilStateChange: -209813.56
     state: Closing
     type: Door
   - airBlocked: False
@@ -44149,7 +44149,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209383.77
+  - SecondsUntilStateChange: -209813.56
     state: Closing
     type: Door
   - airBlocked: False
@@ -44189,7 +44189,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209381.27
+  - SecondsUntilStateChange: -209811.06
     state: Closing
     type: Door
   - airBlocked: False
@@ -44211,7 +44211,7 @@ entities:
     type: Transform
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209381.27
+  - SecondsUntilStateChange: -209811.06
     state: Closing
     type: Door
   - airBlocked: False
@@ -52783,7 +52783,7 @@ entities:
   - pos: 27.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -331105.62
+  - SecondsUntilStateChange: -331535.4
     state: Opening
     type: Door
   - inputs:
@@ -52801,7 +52801,7 @@ entities:
   - pos: 27.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -331105.62
+  - SecondsUntilStateChange: -331535.4
     state: Opening
     type: Door
   - inputs:
@@ -52819,7 +52819,7 @@ entities:
   - pos: 27.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -331105.62
+  - SecondsUntilStateChange: -331535.4
     state: Opening
     type: Door
   - inputs:
@@ -52837,7 +52837,7 @@ entities:
   - pos: 27.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -331105.62
+  - SecondsUntilStateChange: -331535.4
     state: Opening
     type: Door
   - inputs:
@@ -52855,7 +52855,7 @@ entities:
   - pos: 27.5,-38.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -331105.62
+  - SecondsUntilStateChange: -331535.4
     state: Opening
     type: Door
   - inputs:
@@ -66429,7 +66429,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -228313.11
+  - SecondsUntilStateChange: -228742.9
     state: Closing
     type: Door
   - airBlocked: False
@@ -81392,7 +81392,7 @@ entities:
   - pos: 48.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -89458,7 +89458,7 @@ entities:
   - pos: 53.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -347490.38
+  - SecondsUntilStateChange: -347920.16
     state: Closing
     type: Door
   - enabled: False
@@ -89482,7 +89482,7 @@ entities:
   - pos: 54.5,47.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -347490.38
+  - SecondsUntilStateChange: -347920.16
     state: Closing
     type: Door
   - enabled: False
@@ -89590,7 +89590,7 @@ entities:
   - pos: 53.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -347494
+  - SecondsUntilStateChange: -347923.78
     state: Closing
     type: Door
   - enabled: False
@@ -89614,7 +89614,7 @@ entities:
   - pos: 54.5,51.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -347494
+  - SecondsUntilStateChange: -347923.78
     state: Closing
     type: Door
   - enabled: False
@@ -113891,7 +113891,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209388.55
+  - SecondsUntilStateChange: -209818.34
     state: Closing
     type: Door
   - airBlocked: False
@@ -113915,7 +113915,7 @@ entities:
     type: Occluder
   - canCollide: False
     type: Physics
-  - SecondsUntilStateChange: -209388.55
+  - SecondsUntilStateChange: -209818.34
     state: Closing
     type: Door
   - airBlocked: False
@@ -155097,15 +155097,15 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 16790
-  type: AnomalyScanner
+  type: SignToxins2
   components:
-  - pos: 27.815445,-69.12744
+  - pos: 3.5,-74.5
     parent: 0
     type: Transform
 - uid: 16791
-  type: ComputerCrewMonitoring
+  type: SignToxins
   components:
-  - pos: 11.5,-29.5
+  - pos: 6.5,-74.5
     parent: 0
     type: Transform
 - uid: 16792
@@ -199820,7 +199820,7 @@ entities:
   - pos: 47.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199838,7 +199838,7 @@ entities:
   - pos: 46.5,-30.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199856,7 +199856,7 @@ entities:
   - pos: 38.5,-31.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199874,7 +199874,7 @@ entities:
   - pos: 38.5,-32.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199892,7 +199892,7 @@ entities:
   - pos: 38.5,-33.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199910,7 +199910,7 @@ entities:
   - pos: 38.5,-34.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199928,7 +199928,7 @@ entities:
   - pos: 38.5,-35.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -199946,7 +199946,7 @@ entities:
   - pos: 38.5,-36.5
     parent: 0
     type: Transform
-  - SecondsUntilStateChange: -62109.23
+  - SecondsUntilStateChange: -62539.027
     state: Opening
     type: Door
   - inputs:
@@ -202386,6 +202386,13 @@ entities:
   type: SpawnMobGolemCult
   components:
   - pos: 13.5,-58.5
+    parent: 0
+    type: Transform
+- uid: 23909
+  type: ComputerCrewMonitoring
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: 15.5,-24.5
     parent: 0
     type: Transform
 ...
