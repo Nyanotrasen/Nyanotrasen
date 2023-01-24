@@ -19,7 +19,7 @@
     canCollide: true
   - type: AmbientSound
     enabled: false
-    sound: 
+    sound:
       path: /Audio/Machines/scan_loop.ogg
     range: 5
     volume: -8
@@ -66,6 +66,9 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
 
 - type: entity
   id: MachineTraversalDistorter
@@ -106,6 +109,9 @@
   - type: TraversalDistorter
   - type: Machine
     board: TraversalDistorterMachineCircuitboard
+  - type: GuideHelp
+    guides:
+    - TraversalDistorter
   - type: Appearance
   - type: GenericVisualizer
     visuals:
