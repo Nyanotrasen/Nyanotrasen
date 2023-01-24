@@ -1,6 +1,5 @@
 using Content.Server.Power.Components;
 using Content.Server.Electrocution;
-using Content.Server.Beam;
 using Content.Server.Lightning;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Construction;
