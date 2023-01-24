@@ -1,6 +1,6 @@
 using Content.Server.Power.Components;
 using Content.Server.Electrocution;
-using Content.Server.Beam;
+using Content.Server.Lightning;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Construction;
 using Content.Server.Coordinates.Helpers;
@@ -24,7 +24,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly BeamSystem _beam = default!;
+        [Dependency] private readonly LightningSystem _lightning = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
         [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
         [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
@@ -265,7 +265,7 @@ namespace Content.Server.Psionics.Glimmer
             }
 
 
-            _beam.TryCreateBeam(prober, target, beamproto);
+            _lightning.ShootLightning(prober, target, beamproto);
             BeamCooldown += 3f;
         }
 
@@ -279,6 +279,7 @@ namespace Content.Server.Psionics.Glimmer
                 _destructibleSystem.DestroyEntity(uid);
                 return;
             }
+
             Transform(uid).Coordinates.SnapToGrid();
             Transform(uid).Anchored = true;
         }
