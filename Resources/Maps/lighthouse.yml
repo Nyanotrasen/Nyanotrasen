@@ -112798,6 +112798,7 @@ entities:
   - rot: -1.5707963267948966 rad
     pos: 14.80062,45.486053
     parent: 100
+    type: Transform
 - uid: 12577
   type: AsteroidRock
   components:
@@ -139764,6 +139765,7 @@ entities:
   - pos: 16.577473,53.73217
     parent: 100
     type: Transform
+
 - uid: 16501
   type: SpawnPointStationEngineer
   components:
