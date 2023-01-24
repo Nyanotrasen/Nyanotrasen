@@ -112,6 +112,7 @@ public sealed class MindSystem : EntitySystem
                     }
 
                     // TODO refactor observer spawning.
+                    // please.
                     if (!spawnPosition.IsValid(EntityManager))
                     {
                         // This should be an error, if it didn't cause tests to start erroring when they delete a player.
