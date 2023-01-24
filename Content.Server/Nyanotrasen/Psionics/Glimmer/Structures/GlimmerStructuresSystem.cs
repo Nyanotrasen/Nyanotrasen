@@ -19,6 +19,9 @@ namespace Content.Server.Psionics.Glimmer
                 if (!_powerReceiverSystem.IsPowered(source.Owner))
                     continue;
 
+                if (!source.Active)
+                    continue;
+
                 source.Accumulator += frameTime;
 
                 if (source.Accumulator > source.SecondsPerGlimmer)

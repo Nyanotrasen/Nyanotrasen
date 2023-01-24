@@ -9,6 +9,9 @@ namespace Content.Server.Psionics.Glimmer
         [DataField("accumulator")]
         public float Accumulator = 0f;
 
+        [DataField("active")]
+        public bool Active = true;
+
         /// <summary>
         ///     Since glimmer is an int, we'll do it like this.
         /// </summary>
