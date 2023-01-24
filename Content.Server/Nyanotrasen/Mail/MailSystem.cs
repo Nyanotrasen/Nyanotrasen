@@ -298,7 +298,7 @@ namespace Content.Server.Mail
                 PenalizeStationFailedDelivery(uid, component, "mail-penalty-fragile");
         }
 
-        private void OnMailEmagged(EntityUid uid, MailComponent component, GotEmaggedEvent args)
+        private void OnMailEmagged(EntityUid uid, MailComponent component, ref GotEmaggedEvent args)
         {
             if (!component.IsLocked)
                 return;

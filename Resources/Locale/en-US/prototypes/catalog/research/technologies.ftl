@@ -70,7 +70,7 @@ technologies-advanced-powercell-printing-description = Print advanced powercells
 technologies-super-powercell-printing = Super powercell printing
 technologies-super-powercell-printing-description = Print super powercells.
 
-technologies-scientific-technology = Scientific technology
+technologies-scientific-technology = Research technology
 technologies-scientific-technology-description = The basics of a research team's supplies.
 
 technologies-anomaly-technology = Anomaly technology

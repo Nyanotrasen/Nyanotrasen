@@ -1,34 +1,34 @@
+using System.Linq;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
-using Content.Server.DoAfter;
 using Content.Shared.Revenant;
-using Robust.Shared.Random;
-using Robust.Shared.Map;
 using Content.Shared.Tag;
-using Content.Server.Storage.Components;
-using Content.Server.Light.Components;
-using Content.Server.Ghost;
-using Robust.Shared.Physics;
 using Content.Shared.Throwing;
-using Content.Server.Storage.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Abilities.Psionics;
-using Content.Server.Disease;
-using Content.Server.Disease.Components;
 using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
-using System.Linq;
-using Content.Server.Emag;
-using Content.Server.Maps;
-using Content.Server.Revenant.Components;
-using Content.Server.Store.Components;
+using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
+using Content.Server.DoAfter;
+using Content.Server.Storage.Components;
+using Content.Server.Light.Components;
+using Content.Server.Ghost;
+using Content.Server.Storage.EntitySystems;
+using Content.Server.Disease;
+using Content.Server.Disease.Components;
+using Content.Server.Maps;
+using Content.Server.Revenant.Components;
+using Content.Server.Store.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using Robust.Shared.Physics;
+using Robust.Shared.Random;
+using Robust.Shared.Map;
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -343,7 +343,7 @@ public sealed partial class RevenantSystem
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, component.MalfunctionRadius))
         {
-            _emag.DoEmag(ent, ent); //it emags itself. spooky.
+            _emag.DoEmagEffect(ent, ent); //it emags itself. spooky.
         }
         _psionics.LogPowerUsed(uid, "a spirit power");
     }

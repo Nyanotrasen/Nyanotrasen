@@ -229,6 +229,10 @@
       materialRequirements:
         Cable: 1
         PlasmaGlass: 10
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - AnomalyVesselCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -245,6 +249,10 @@
         Laser: 3
       materialRequirements:
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - APECircuitboard
 
 - type: entity
   id: ThermomachineFreezerMachineCircuitBoard
@@ -351,6 +359,21 @@
       difficulty: 3
       recipes:
         - MedicalScannerMachineCircuitboard
+
+- type: entity
+  id: CrewMonitoringServerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crew monitoring server machine board
+  description: A machine printed circuit board for a crew monitoring server
+  components:
+    - type: MachineBoard
+      prototype: CrewMonitoringServer
+      requirements:
+        Capacitor: 1
+        ScanningModule: 2
+      materialRequirements:
+        Steel: 1
+        Cable: 2
 
 - type: entity
   id: CryoPodMachineCircuitboard
