@@ -1,6 +1,7 @@
 ﻿using Content.Server.Anomaly.Components;
 using Content.Server.Construction;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Psionics.Glimmer;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Examine;
@@ -85,13 +86,20 @@ public sealed partial class AnomalySystem
 
     private void OnVesselGetPointsPerSecond(EntityUid uid, AnomalyVesselComponent component, ref ResearchServerGetPointsPerSecondEvent args)
     {
+        TryComp<GlimmerSourceComponent>(uid, out var glimmerSource);
+
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
         {
             args.Points = 0;
+            if (glimmerSource != null)
+                glimmerSource.Active = false;
             return;
         }
 
+        args.Sources++;
         args.Points += (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier);
+        if (glimmerSource != null)
+            glimmerSource.Active = true;
     }
 
     private void OnVesselAnomalyShutdown(ref AnomalyShutdownEvent args)
