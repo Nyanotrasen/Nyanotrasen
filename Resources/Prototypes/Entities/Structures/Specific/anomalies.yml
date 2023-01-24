@@ -20,7 +20,7 @@
   - type: Transform
     anchored: true
   - type: Physics
-    bodyType: Static  
+    bodyType: Static
   - type: Fixtures
     fixtures:
     - shape:
@@ -43,8 +43,9 @@
     guides:
     - AnomalousResearch
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       path: /Audio/Effects/teleport_arrival.ogg
+  - type: Psionic
 
 - type: entity
   id: AnomalyPyroclastic
