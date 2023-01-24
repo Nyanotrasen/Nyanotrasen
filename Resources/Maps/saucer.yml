@@ -32599,12 +32599,6 @@ entities:
   - pos: 20.5,-47.5
     parent: 67
     type: Transform
-- uid: 3900
-  type: SpawnPointTechnicalAssistant
-  components:
-  - pos: 19.5,-44.5
-    parent: 67
-    type: Transform
 - uid: 3901
   type: SpawnPointBartender
   components:
@@ -33059,12 +33053,6 @@ entities:
   type: SpawnPointStationEngineer
   components:
   - pos: 20.5,-45.5
-    parent: 67
-    type: Transform
-- uid: 3977
-  type: SpawnPointTechnicalAssistant
-  components:
-  - pos: 19.5,-45.5
     parent: 67
     type: Transform
 - uid: 3978
