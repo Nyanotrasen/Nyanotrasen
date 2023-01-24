@@ -17,3 +17,6 @@ guide-entry-altars-golemancy = Altars and Golemancy
 guide-entry-anomalous-research = Anomalous Research
 guide-entry-scanners-and-vessels = Scanners and Vessels
 guide-entry-ape = A.P.E.
+guide-entry-xenoarchaeology = Xenoarchaeology
+guide-entry-artifact-reports = Artifact Reports
+guide-entry-traversal-distorter = Traversal Distorter

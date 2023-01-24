@@ -57,6 +57,9 @@
     heldPrefix: ano01
   - type: Actions
   - type: Psionic
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
 
 - type: entity
   parent: BaseXenoArtifactItem
