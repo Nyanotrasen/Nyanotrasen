@@ -32599,12 +32599,6 @@ entities:
   - pos: 20.5,-47.5
     parent: 67
     type: Transform
-- uid: 3900
-  type: SpawnPointTechnicalAssistant
-  components:
-  - pos: 19.5,-44.5
-    parent: 67
-    type: Transform
 - uid: 3901
   type: SpawnPointBartender
   components:
@@ -32651,18 +32645,6 @@ entities:
   type: SpawnPointChef
   components:
   - pos: 15.5,-33.5
-    parent: 67
-    type: Transform
-- uid: 3909
-  type: SpawnPointChemist
-  components:
-  - pos: 42.5,-10.5
-    parent: 67
-    type: Transform
-- uid: 3910
-  type: SpawnPointChemist
-  components:
-  - pos: 43.5,-10.5
     parent: 67
     type: Transform
 - uid: 3911
@@ -32813,18 +32795,6 @@ entities:
   type: SpawnPointMedicalCyborg
   components:
   - pos: 43.5,-13.5
-    parent: 67
-    type: Transform
-- uid: 3936
-  type: SpawnPointMedicalIntern
-  components:
-  - pos: 41.5,-13.5
-    parent: 67
-    type: Transform
-- uid: 3937
-  type: SpawnPointMedicalIntern
-  components:
-  - pos: 40.5,-13.5
     parent: 67
     type: Transform
 - uid: 3938
@@ -33026,19 +32996,19 @@ entities:
     parent: 67
     type: Transform
 - uid: 3971
-  type: SpawnPointServiceWorker
+  type: SpawnPointValet
   components:
   - pos: 28.5,-30.5
     parent: 67
     type: Transform
 - uid: 3972
-  type: SpawnPointServiceWorker
+  type: SpawnPointValet
   components:
   - pos: 27.5,-31.5
     parent: 67
     type: Transform
 - uid: 3973
-  type: SpawnPointServiceWorker
+  type: SpawnPointValet
   components:
   - pos: 29.5,-29.5
     parent: 67
@@ -33059,12 +33029,6 @@ entities:
   type: SpawnPointStationEngineer
   components:
   - pos: 20.5,-45.5
-    parent: 67
-    type: Transform
-- uid: 3977
-  type: SpawnPointTechnicalAssistant
-  components:
-  - pos: 19.5,-45.5
     parent: 67
     type: Transform
 - uid: 3978

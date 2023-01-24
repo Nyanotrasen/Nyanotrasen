@@ -141,3 +141,11 @@
     layers:
       - state: green
       - state: prisoner
+
+- type: entity
+  id: SpawnPointValet
+  parent: SpawnPointJobBase
+  name: valet
+  components:
+  - type: SpawnPoint
+    job_id: Valet
