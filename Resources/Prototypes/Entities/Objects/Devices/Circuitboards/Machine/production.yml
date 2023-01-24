@@ -229,6 +229,10 @@
       materialRequirements:
         Cable: 1
         PlasmaGlass: 10
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - AnomalyVesselCircuitboard
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -245,6 +249,10 @@
         Laser: 3
       materialRequirements:
         Cable: 1
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - APECircuitboard
 
 - type: entity
   id: ThermomachineFreezerMachineCircuitBoard

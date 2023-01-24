@@ -421,6 +421,11 @@
   - SignalTrigger
   - VoiceTrigger
   - TimerTrigger
+  - CapacitorStockPart
+  - MatterBinStockPart
+  - MicroLaserStockPart
+  - MicroManipulatorStockPart
+  - ScanningModuleStockPart
 
 - type: technology
   name: technologies-electrical-engineering
@@ -528,6 +533,42 @@
   unlockedRecipes:
   - PowerCellHigh
 
+- type: technology
+  name: technologies-adv-parts-technology
+  id: AdvancedPartsTechnology
+  description: technologies-adv-parts-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: adv_capacitor
+  requiredPoints: 15000
+  requiredTechnologies:
+  - CompactPowerTechnology
+  - ElectricalEngineering
+  unlockedRecipes:
+  - AdvancedCapacitorStockPart
+  - AdvancedMatterBinStockPart
+  - HighPowerMicroLaserStockPart
+  - NanoManipulatorStockPart
+  - AdvancedScanningModuleStockPart
+  - ReverseEngineeringMachineCircuitboard
+
+- type: technology
+  name: technologies-robotics-technology
+  id: RoboticsTechnology
+  description: technologies-robotics-technology-description
+  icon:
+    sprite: Mobs/Silicon/Bots/honkbot.rsi
+    state: honkbot
+  requiredPoints: 7500
+  requiredTechnologies:
+  - CompactPowerTechnology
+  unlockedRecipes:
+  - ProximitySensor
+  - LeftArmBorg
+  - RightArmBorg
+  - Drone
+  - ExosuitFabricatorMachineCircuitboard
+
 # Entertainment Technology Tree
 
 - type: technology
@@ -558,11 +599,6 @@
   - BasicResearch
   unlockedRecipes:
   - TechDiskComputerCircuitboard
-  - CapacitorStockPart
-  - MatterBinStockPart
-  - MicroLaserStockPart
-  - MicroManipulatorStockPart
-  - ScanningModuleStockPart
   - NodeScanner
   - AnomalyScanner
 
@@ -581,23 +617,6 @@
   - APECircuitboard
 
 - type: technology
-  name: technologies-robotics-technology
-  id: RoboticsTechnology
-  description: technologies-robotics-technology-description
-  icon:
-    sprite: Mobs/Silicon/Bots/honkbot.rsi
-    state: honkbot
-  requiredPoints: 7500
-  requiredTechnologies:
-  - ScientificTechnology
-  unlockedRecipes:
-  - ProximitySensor
-  - LeftArmBorg
-  - RightArmBorg
-  - Drone
-  - ExosuitFabricatorMachineCircuitboard
-
-- type: technology
   name: technologies-archaeology
   id: ArchaeologicalEquipment
   description: technologies-archaeology-description
@@ -613,26 +632,6 @@
   - TraversalDistorterMachineCircuitboard
 
 - type: technology
-  name: technologies-adv-parts-technology
-  id: AdvancedPartsTechnology
-  description: technologies-adv-parts-technology-description
-  icon:
-    sprite: Objects/Misc/stock_parts.rsi
-    state: adv_capacitor
-  requiredPoints: 15000
-  requiredTechnologies:
-  - ScientificTechnology
-  - CompactPowerTechnology
-  unlockedRecipes:
-  - AdvancedCapacitorStockPart
-  - AdvancedMatterBinStockPart
-  - HighPowerMicroLaserStockPart
-  - NanoManipulatorStockPart
-  - AdvancedScanningModuleStockPart
-  - ReverseEngineeringMachineCircuitboard
-
-# Spacetime - the end point...
-- type: technology
   name: technologies-space-time-technology
   id: SpaceTimeTechnology
   description: technologies-space-time-technology-description
@@ -644,7 +643,7 @@
     - CompactPowerTechnology
     - AdvancedPartsTechnology
     - ArchaeologicalEquipment
-    - ChemistryTechnology
+    - AnomalyTechnology
   unlockedRecipes:
     - QSI
     - BluespaceBeaker
