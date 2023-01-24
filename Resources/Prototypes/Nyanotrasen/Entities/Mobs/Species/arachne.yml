@@ -78,7 +78,7 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
-  - type: Humanoid
+  - type: HumanoidAppearance
     species: Arachne
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.

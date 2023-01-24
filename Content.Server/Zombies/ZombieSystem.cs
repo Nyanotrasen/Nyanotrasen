@@ -8,8 +8,6 @@ using Content.Server.Inventory;
 using Content.Server.Speech;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chemistry.Components;
-using Content.Server.Chat.Systems;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Disease.Events;
 using Content.Shared.Inventory;
