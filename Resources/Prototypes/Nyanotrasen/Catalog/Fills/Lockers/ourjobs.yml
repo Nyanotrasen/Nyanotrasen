@@ -25,7 +25,7 @@
       - id: ClothingHeadsetScience
       - id: ClothingMaskSterile
       - id: ClothingOuterRobeWhite
-      - id: Paper
+      - id: AnomalyScanner
 
 - type: entity
   id: LockerForensicMantisFilled
@@ -49,4 +49,3 @@
     pack: DetDrobeInventory
   - type: AccessReader
     access: [["Detective"]]
-  - type: Actions ### ???
