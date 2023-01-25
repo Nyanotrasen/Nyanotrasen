@@ -13,7 +13,7 @@
 - type: entity
   parent: IDCardStandard
   id: EpistemicsIDCard
-  name: epistemologist ID card
+  name: acolyte ID card
   components:
   - type: Sprite
     layers:
@@ -98,3 +98,15 @@
     - state: idintern-service
   - type: PresetIdCard
     job: Valet
+
+- type: entity
+  parent: IDCardStandard
+  id: CataloguerIDCard
+  name: cataloguer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idscientist
+  - type: PresetIdCard
+    job: Cataloguer
