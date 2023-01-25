@@ -101,7 +101,6 @@ namespace Content.Client.Launcher
                     newAddress = address;
             }
             RedirectAddress = newAddress;
-            Logger.Error("Redirect address: " + RedirectAddress);
             ConnectFailReason = reason[0];
 
             CurrentPage = Page.ConnectFailed;

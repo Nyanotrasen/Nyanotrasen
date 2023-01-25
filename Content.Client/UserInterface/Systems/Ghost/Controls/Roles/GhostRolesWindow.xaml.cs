@@ -62,8 +62,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 
         public void SetRedirect(bool enabled)
         {
-            Logger.Error("enabled: " + enabled);
-
             var textLabel = new RichTextLabel();
             textLabel.SetMessage(Loc.GetString("ghost-roles-window-redirect-label"));
             EntryContainer.AddChild(textLabel);

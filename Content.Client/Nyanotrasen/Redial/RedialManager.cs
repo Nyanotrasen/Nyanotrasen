@@ -11,7 +11,6 @@ namespace Content.Client.Redial
 
         public void Initialize()
         {
-            Logger.Error("Initializing redial...");
             _net.RegisterNetMessage<MsgRedialServer>(RxRedialServer);
         }
 

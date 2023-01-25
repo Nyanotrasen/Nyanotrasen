@@ -64,7 +64,6 @@ namespace Content.Client.Launcher
 
         private void RedirectAddressChanged(string? address)
         {
-            Logger.Error("Redirect address changed to " + address);
             if (address == null)
             {
                 RedirectButton.Visible = false;

@@ -84,7 +84,6 @@ public class RedialManager
 
     public bool RedialAvailable()
     {
-        Logger.Error("Valid servers: " + _validServers.Count);
         return (_validServers.Count > 0);
     }
 
