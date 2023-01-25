@@ -1,17 +1,13 @@
 using Content.Shared.Redial;
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Client;
 namespace Content.Client.Redial;
 
+// We can't raise network event outside of an entity system I don't think...
 public sealed class RedialSystem : EntitySystem
 {
-    [Dependency] private readonly IGameController _gameController = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RedialManager _redial = default!;
-
     public void TryRedialToRandom()
     {
-        RaiseNetworkEvent(new RequestRedialServersMessage());
+        RaiseNetworkEvent(new RequestRandomRedialServer());
     }
 }

@@ -10,7 +10,7 @@ namespace Content.Shared.Redial
     ///     Should this also be a net message? I dunno it's sending no actual info.
     /// </summary>
     [Serializable, NetSerializable]
-    public sealed class RequestRedialServersMessage : EntityEventArgs
+    public sealed class RequestRandomRedialServer : EntityEventArgs
     {
     }
 

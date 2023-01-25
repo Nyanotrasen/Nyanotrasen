@@ -9,10 +9,11 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
+using Robust.Shared.Players;
 
 namespace Content.Server.Redial;
 
-public class RedialSystem : EntitySystem
+public class RedialManager
 {
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -25,17 +26,14 @@ public class RedialSystem : EntitySystem
     private TimeSpan _nextUpdateTime = TimeSpan.Zero;
     private TimeSpan _updateRate = TimeSpan.FromSeconds(30);
     private List<string> _validServers = new();
-    public override void Initialize()
+    public void Initialize()
     {
-        base.Initialize();
-        SubscribeNetworkEvent<RequestRedialServersMessage>(OnRequestRedials);
         _net.RegisterNetMessage<MsgRedialServer>();
         _nextUpdateTime = _timing.CurTime;
     }
 
-    public override void Update(float frameTime)
+    public void Update()
     {
-        base.Update(frameTime);
         if (_timing.CurTime < _nextUpdateTime)
             return;
 
@@ -57,25 +55,35 @@ public class RedialSystem : EntitySystem
         _nextUpdateTime = _timing.CurTime + _updateRate;
     }
 
-    private void OnRequestRedials(RequestRedialServersMessage request, EntitySessionEventArgs args)
+    private void OnRequestRedials(RequestRandomRedialServer request, EntitySessionEventArgs args)
     {
-        Logger.Error("Valid servers: " + _validServers.Count);
         if (_validServers.Count < 1)
             return;
-
-        foreach (var server in _validServers)
-        {
-            Logger.Error("Address: " + server);
-        }
 
         var msg = new MsgRedialServer
         {
             Server = _random.Pick(_validServers)
         };
 
-        Logger.Error("sending message to connect to server: " + msg.Server);
-
         _net.ServerSendMessage(msg, args.SenderSession.ConnectedClient);
+    }
+
+    public void SendRedialMessage(ICommonSession session, string? server = null)
+    {
+        if (server == null)
+        {
+            if (_validServers.Count < 1)
+                return;
+            else
+                server = _random.Pick(_validServers);
+        }
+
+        var msg = new MsgRedialServer
+        {
+            Server = server
+        };
+
+        _net.ServerSendMessage(msg, session.ConnectedClient);
     }
 
     private async Task UpdateServer(string address)
@@ -84,17 +92,12 @@ public class RedialSystem : EntitySystem
 
         var status = new ServerStatus(null, 0, 0);
 
-        Logger.Error("Getting status for " + statusAddress);
         status = await _http.GetFromJsonAsync<ServerStatus>(statusAddress)
                     ?? throw new InvalidDataException();
 
-        Logger.Error("Name: " + status.Name);
-        Logger.Error("Max players: " + status.SoftMaxPlayerCount);
-        Logger.Error("Current players: " + status.PlayerCount);
-
         var ss14Address = "ss14:" + address;
 
-        if (status.PlayerCount < status.SoftMaxPlayerCount)
+        if (status.PlayerCount < status.SoftMaxPlayerCount - 5)
         {
             _validServers.Add(ss14Address);
         } else
