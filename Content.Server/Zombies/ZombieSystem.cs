@@ -8,6 +8,11 @@ using Content.Server.Inventory;
 using Content.Server.Speech;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chemistry.Components;
+using Content.Server.Chat.Systems;
+using Content.Server.Emoting.Systems;
+using Content.Server.Speech.EntitySystems;
+using Content.Shared.Movement.Systems;
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Disease.Events;
 using Content.Shared.Inventory;
@@ -26,7 +31,6 @@ namespace Content.Server.Zombies
         [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
         [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
         [Dependency] private readonly ServerInventorySystem _inv = default!;
-        [Dependency] private readonly VocalSystem _vocal = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -34,6 +38,10 @@ namespace Content.Server.Zombies
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<ZombieComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<ZombieComponent, EmoteEvent>(OnEmote, before:
+                new []{typeof(VocalSystem), typeof(BodyEmotesSystem)});
 
             SubscribeLocalEvent<ZombieComponent, MeleeHitEvent>(OnMeleeHit);
             SubscribeLocalEvent<ZombieComponent, MobStateChangedEvent>(OnMobState);
@@ -46,6 +54,21 @@ namespace Content.Server.Zombies
         private void OnSleepAttempt(EntityUid uid, ActiveZombieComponent component, ref TryingToSleepEvent args)
         {
             args.Cancelled = true;
+        }
+
+        private void OnStartup(EntityUid uid, ZombieComponent component, ComponentStartup args)
+        {
+            if (component.EmoteSoundsId == null)
+                return;
+            _protoManager.TryIndex(component.EmoteSoundsId, out component.EmoteSounds);
+        }
+
+        private void OnEmote(EntityUid uid, ZombieComponent component, ref EmoteEvent args)
+        {
+            // always play zombie emote sounds and ignore others
+            if (args.Handled)
+                return;
+            args.Handled = _chat.TryPlayEmoteSound(uid, component.EmoteSounds, args.Emote);
         }
 
         private void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
@@ -149,7 +172,7 @@ namespace Content.Server.Zombies
                 // [automated maintainer groan]
                 _chat.TrySendInGameICMessage(uid, "[automated zombie groan]", InGameICChatType.Speak, false);
             else
-                _vocal.TryScream(uid);
+                _chat.TryEmoteWithoutChat(uid, component.GroanEmoteId);
 
             component.LastDamageGroanCooldown = component.GroanCooldown;
         }
