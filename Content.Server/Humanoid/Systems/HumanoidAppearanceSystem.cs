@@ -109,7 +109,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="uid">The mob's entity UID.</param>
     /// <param name="profile">The character profile to load.</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public bool SaveProfile(EntityUid uid, [NotNullWhen(true)] out HumanoidCharacterProfile? profile, HumanoidComponent? humanoid = null)
+    public bool SaveProfile(EntityUid uid, [NotNullWhen(true)] out HumanoidCharacterProfile? profile, HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid))
         {
@@ -117,16 +117,14 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             return false;
         }
 
-        var newAppearance = HumanoidCharacterAppearance.DefaultWithSpecies(humanoid.Species).WithSkinColor(humanoid.SkinColor);
-
-        if (humanoid.CustomBaseLayers.TryGetValue(HumanoidVisualLayers.Eyes, out var eyeInfo))
-        {
-            newAppearance = newAppearance.WithEyeColor(eyeInfo.Color);
-        }
+        var newAppearance = HumanoidCharacterAppearance
+            .DefaultWithSpecies(humanoid.Species)
+            .WithSkinColor(humanoid.SkinColor)
+            .WithEyeColor(humanoid.EyeColor);
 
         // Unless there's some major change, there should only ever be one Hair marking.
         // LoadProfile assumes as much as well.
-        if (humanoid.CurrentMarkings.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) &&
+        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) &&
             hairMarkings.Count > 0 &&
             hairMarkings[0].MarkingColors.Count > 0)
         {
@@ -136,7 +134,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         // Same for Facial hair.
-        if (humanoid.CurrentMarkings.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
+        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
             facialHairMarkings.Count > 0 &&
             facialHairMarkings[0].MarkingColors.Count > 0)
         {
@@ -145,7 +143,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
                 .WithFacialHairStyleName(facialHairMarkings[0].MarkingId);
         }
 
-        newAppearance = newAppearance.WithMarkings(humanoid.CurrentMarkings.GetForwardEnumerator().ToList());
+        newAppearance = newAppearance.WithMarkings(humanoid.MarkingSet.GetForwardEnumerator().ToList());
 
         profile = HumanoidCharacterProfile.Default()
             .WithSpecies(humanoid.Species)
