@@ -1,13 +1,14 @@
-using System.Threading;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json.Serialization;
 using System.IO;
 using Content.Shared.CCVar;
+using Content.Shared.Redial;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Timing;
+using Robust.Shared.Network;
+using Robust.Shared.Random;
 
 namespace Content.Server.Redial;
 
@@ -16,15 +17,20 @@ public class RedialSystem : EntitySystem
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IServerNetManager _net = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+
     private readonly HttpClient _http = new();
 
     private TimeSpan _nextUpdateTime = TimeSpan.Zero;
     private TimeSpan _updateRate = TimeSpan.FromSeconds(30);
-    private List<String> _validServers = new();
+    private List<string> _validServers = new();
     public override void Initialize()
     {
         base.Initialize();
-        _nextUpdateTime = _timing.CurTime + TimeSpan.FromSeconds(15);
+        SubscribeNetworkEvent<RequestRedialServersMessage>(OnRequestRedials);
+        _net.RegisterNetMessage<MsgRedialServer>();
+        _nextUpdateTime = _timing.CurTime;
     }
 
     public override void Update(float frameTime)
@@ -32,8 +38,6 @@ public class RedialSystem : EntitySystem
         base.Update(frameTime);
         if (_timing.CurTime < _nextUpdateTime)
             return;
-
-        _validServers.Clear();
 
         var path = _cfg.GetCVar(CCVars.RedialAddressesFile);
         try
@@ -53,6 +57,27 @@ public class RedialSystem : EntitySystem
         _nextUpdateTime = _timing.CurTime + _updateRate;
     }
 
+    private void OnRequestRedials(RequestRedialServersMessage request, EntitySessionEventArgs args)
+    {
+        Logger.Error("Valid servers: " + _validServers.Count);
+        if (_validServers.Count < 1)
+            return;
+
+        foreach (var server in _validServers)
+        {
+            Logger.Error("Address: " + server);
+        }
+
+        var msg = new MsgRedialServer
+        {
+            Server = _random.Pick(_validServers)
+        };
+
+        Logger.Error("sending message to connect to server: " + msg.Server);
+
+        _net.ServerSendMessage(msg, args.SenderSession.ConnectedClient);
+    }
+
     private async Task UpdateServer(string address)
     {
         var statusAddress = "http:" + address + "/status";
@@ -67,16 +92,14 @@ public class RedialSystem : EntitySystem
         Logger.Error("Max players: " + status.SoftMaxPlayerCount);
         Logger.Error("Current players: " + status.PlayerCount);
 
+        var ss14Address = "ss14:" + address;
+
         if (status.PlayerCount < status.SoftMaxPlayerCount)
         {
-            _validServers.Add(address);
+            _validServers.Add(ss14Address);
+        } else
+        {
+            _validServers.Remove(ss14Address);
         }
     }
-
-    private sealed record ServerStatus(
-        [property: JsonPropertyName("name")] string? Name,
-        [property: JsonPropertyName("players")]
-        int PlayerCount,
-        [property: JsonPropertyName("soft_max_players")]
-        int SoftMaxPlayerCount);
 }

@@ -3,6 +3,7 @@ using System.Text;
 using Content.Shared.CCVar;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
+using Content.Shared.Redial;
 using Robust.Client;
 using Robust.Client.Player;
 using Robust.Shared.Configuration;
@@ -18,6 +19,7 @@ public sealed class PlayTimeTrackingManager
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IGameController _gameController = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private bool _whitelisted = false;
@@ -26,6 +28,7 @@ public sealed class PlayTimeTrackingManager
     {
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
         _net.RegisterNetMessage<MsgWhitelist>(RxWhitelist);
+        _net.RegisterNetMessage<MsgRedialServer>(RxRedialServers);
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
     }
@@ -54,6 +57,12 @@ public sealed class PlayTimeTrackingManager
         {
             sawmill.Info($"{tracker}: {time}");
         }*/
+    }
+
+
+    private void RxRedialServers(MsgRedialServer msg)
+    {
+        _gameController.Redial(msg.Server, "Connecting to another server...");
     }
 
     private void RxWhitelist(MsgWhitelist message)
