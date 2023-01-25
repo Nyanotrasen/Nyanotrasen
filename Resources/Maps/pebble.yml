@@ -14036,8 +14036,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -14066,8 +14066,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 18.405577
-      - 69.24003
+      - 17.89022
+      - 67.30131
       - 0
       - 0
       - 0
@@ -14081,8 +14081,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 20.619795
-      - 77.56971
+      - 20.04244
+      - 75.39776
       - 0
       - 0
       - 0
@@ -19757,17 +19757,6 @@ entities:
     pos: 5.5,-1.5
     parent: 7
     type: Transform
-  - inputs:
-      Reverse:
-      - port: Right
-        uid: 8078
-      Forward:
-      - port: Left
-        uid: 8078
-      Off:
-      - port: Middle
-        uid: 8078
-    type: SignalReceiver
 - uid: 864
   type: Grille
   components:
@@ -20943,17 +20932,6 @@ entities:
     pos: 6.5,-1.5
     parent: 7
     type: Transform
-  - inputs:
-      Reverse:
-      - port: Right
-        uid: 8078
-      Forward:
-      - port: Left
-        uid: 8078
-      Off:
-      - port: Middle
-        uid: 8078
-    type: SignalReceiver
   - type: ActiveConveyor
 - uid: 1042
   type: Table
@@ -53982,12 +53960,6 @@ entities:
   - pos: -14.5,4.5
     parent: 7
     type: Transform
-- uid: 5702
-  type: SpawnPointCargoTechnician
-  components:
-  - pos: 6.5,-0.5
-    parent: 7
-    type: Transform
 - uid: 5703
   type: WindoorSecure
   components:
@@ -67858,18 +67830,6 @@ entities:
   - pos: 13.5,-27.5
     parent: 7
     type: Transform
-- uid: 7712
-  type: SpawnPointCargoTechnician
-  components:
-  - pos: 12.5,-0.5
-    parent: 7
-    type: Transform
-- uid: 7713
-  type: SpawnPointCargoTechnician
-  components:
-  - pos: 12.5,1.5
-    parent: 7
-    type: Transform
 - uid: 7714
   type: filingCabinet
   components:
@@ -70334,31 +70294,6 @@ entities:
   - pos: -15.5,-7.5
     parent: 7
     type: Transform
-- uid: 8078
-  type: TwoWayLever
-  components:
-  - name: Conveyor Lever
-    type: MetaData
-  - pos: 6.5,-0.5
-    parent: 7
-    type: Transform
-  - outputs:
-      Left:
-      - port: Forward
-        uid: 863
-      - port: Forward
-        uid: 1041
-      Right:
-      - port: Reverse
-        uid: 863
-      - port: Reverse
-        uid: 1041
-      Middle:
-      - port: Off
-        uid: 863
-      - port: Off
-        uid: 1041
-    type: SignalTransmitter
 - uid: 8079
   type: ClothingUniformMailCarrier
   components:
