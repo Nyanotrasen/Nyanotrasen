@@ -2198,3 +2198,10 @@ Entries:
   - {message: Added The Lid O' Saws!, type: Add}
   id: 337
   time: '2023-01-25T06:14:33.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed spawning as cataloguer., type: Fix}
+  - {message: Fixed a desync with blindfolds that allowed permanent blindness to be
+      removed., type: Fix}
+  id: 338
+  time: '2023-01-25T19:44:47.0000000+00:00'
