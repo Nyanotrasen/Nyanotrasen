@@ -38,11 +38,15 @@ public class RedialManager
             return;
 
         var path = _cfg.GetCVar(CCVars.RedialAddressesFile);
+        var ours = _cfg.GetCVar(CCVars.OurAddress);
         try
         {
             var addresses = _res.ContentFileReadAllText($"/Server Info/{path}").Split("\n");
             foreach (var address in addresses)
             {
+                if (address == ours)
+                    continue;
+
                 if (address.StartsWith("//"))
                     UpdateServer(address);
             }
