@@ -311,7 +311,7 @@ namespace Content.Server.Mind
         /// <exception cref="ArgumentException">
         ///     Thrown if <paramref name="entity"/> is already owned by another mind.
         /// </exception>
-        public void TransferTo(EntityUid? entity, bool ghostCheckOverride = false)
+        public void TransferTo(EntityUid? entity, bool ghostCheckOverride = false, bool respectOtherPlayers = true)
         {
             // Looks like caller just wants us to go back to normal.
             if (entity == OwnedEntity)
@@ -337,7 +337,7 @@ namespace Content.Server.Mind
                 if (_entityManager.TryGetComponent<ActorComponent>(entity.Value, out var actor))
                 {
                     // Happens when transferring to your currently visited entity.
-                    if (actor.PlayerSession != Session)
+                    if (respectOtherPlayers && actor.PlayerSession != Session)
                     {
                         throw new ArgumentException("Visit target already has a session.", nameof(entity));
                     }

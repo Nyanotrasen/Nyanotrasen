@@ -156,10 +156,10 @@ namespace Content.Server.Abilities.Psionics
             TryComp<ActorComponent>(target, out var targetActor);
 
             if (perfActor != null)
-                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true);
+                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true, false);
 
             if (targetActor != null)
-                targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true);
+                targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true, false);
 
             if (end)
             {
