@@ -10,3 +10,32 @@
       - state: icon
   - type: Item
     size: 1001
+
+# Unlikely this file would be edited, unless salami lid is removed.
+- type: entity
+  id: LidOSaws
+  parent: BaseItem
+  name: lid o' saws
+  description: Good fucking god is that four (count em FOUR!) chainsaws strapped to a fucking salami lid? we dont even have chainsaws! also play letter league.
+  components:
+  - type: Sprite
+    sprite: Objects/Decoration/lidsalami.rsi
+    layers:
+      - state: lidosaws
+  - type: Item
+    size: 1111
+  - type: Tool
+    qualities:
+      - Slicing
+  - type: MeleeWeapon
+    attackRate: 1
+    range: 1
+    damage:
+      types:
+        Slash: 15
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MeleeBloodletter
+    bloodReduction:
+      types:
+        Slash: 20.0
