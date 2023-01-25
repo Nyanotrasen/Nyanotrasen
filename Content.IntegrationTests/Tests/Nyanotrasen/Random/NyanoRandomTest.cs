@@ -103,7 +103,7 @@ namespace Content.IntegrationTests.Tests.Random
                 Assert.IsTrue(prototypeManager.TryIndex<WeightedRandomPrototype>("MetempsychoticHumanoidPool", out var humanoidPool),
                     "Could not index MetempsychoticHumanoidPool");
 
-                if (nonHumanoidPool != null)
+                if (humanoidPool != null)
                 {
                     foreach (var proto in humanoidPool.Weights.Keys)
                     {
