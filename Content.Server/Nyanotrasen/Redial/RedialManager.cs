@@ -68,6 +68,16 @@ public class RedialManager
         _net.ServerSendMessage(msg, args.SenderSession.ConnectedClient);
     }
 
+    public string? GetRandomRedial()
+    {
+        if (_validServers.Count < 1)
+            return null;
+
+        var server = _random.Pick(_validServers);
+
+        return server;
+    }
+
     public void SendRedialMessage(ICommonSession session, string? server = null)
     {
         if (server == null)
