@@ -78,6 +78,12 @@ public class RedialManager
         return server;
     }
 
+    public bool RedialAvailable()
+    {
+        Logger.Error("Valid servers: " + _validServers.Count);
+        return (_validServers.Count > 0);
+    }
+
     public void SendRedialMessage(ICommonSession session, string? server = null)
     {
         if (server == null)
