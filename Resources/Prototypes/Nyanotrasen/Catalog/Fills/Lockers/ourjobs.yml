@@ -25,7 +25,7 @@
       - id: ClothingHeadsetScience
       - id: ClothingMaskSterile
       - id: ClothingOuterRobeWhite
-      - id: Paper
+      - id: AnomalyScanner
 
 - type: entity
   id: LockerForensicMantisFilled
@@ -39,14 +39,3 @@
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: BoxForensicPad
-
-- type: entity
-  id: VendingMachineForensics
-  name: Forensics Wardrobe
-  description: A fez dispenser.
-  components:
-  - type: VendingMachine
-    pack: DetDrobeInventory
-  - type: AccessReader
-    access: [["Detective"]]
-  - type: Actions ### ???

@@ -108,14 +108,17 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
-        private void DealDispelDamage(EntityUid uid)
+        public void DealDispelDamage(EntityUid uid)
         {
-            DamageSpecifier damage = new();
-            damage.DamageDict.Add("Blunt", 100);
+            if (Deleted(uid))
+                return;
 
-            _damageableSystem.TryChangeDamage(uid, damage, true, true);
             _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.SmallCaution);
             _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
+
+            DamageSpecifier damage = new();
+            damage.DamageDict.Add("Blunt", 100);
+            _damageableSystem.TryChangeDamage(uid, damage, true, true);
         }
     }
 

@@ -47,8 +47,7 @@
       path: /Audio/Effects/teleport_arrival.ogg
   - type: Psionic
   - type: GlimmerSource
-    active: false
-    secondsPerGlimmer: 10 #More effecient than probers by virtue of much higher point score...
+    secondsPerGlimmer: 60
 
 - type: entity
   id: AnomalyPyroclastic
