@@ -8,8 +8,8 @@ public sealed class RedialSystem : EntitySystem
 {
     [Dependency] private readonly IGameController _gameController = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    /// <summary>
-    /// True if we have valid servers, false otherwise.
+    [Dependency] private readonly RedialManager _redial = default!;
+
     public void TryRedialToRandom()
     {
         RaiseNetworkEvent(new RequestRedialServersMessage());
