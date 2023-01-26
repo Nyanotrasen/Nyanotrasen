@@ -32,7 +32,6 @@ namespace Content.Client.EntityHealthBar
             if (_player.LocalPlayer?.ControlledEntity == uid)
             {
                 _overlay.DamageContainer = component.DamageContainer;
-                _overlay.CheckLOS = component.CheckLOS;
                 _overlayMan.AddOverlay(_overlay);
             }
 
@@ -43,8 +42,6 @@ namespace Content.Client.EntityHealthBar
             if (_player.LocalPlayer?.ControlledEntity == uid)
             {
                 _overlay.DamageContainer = null;
-                _overlay.CheckLOS = false;
-                _overlay.Reset();
                 _overlayMan.RemoveOverlay(_overlay);
             }
         }
@@ -52,24 +49,18 @@ namespace Content.Client.EntityHealthBar
         private void OnPlayerAttached(EntityUid uid, ShowHealthBarsComponent component, PlayerAttachedEvent args)
         {
             _overlay.DamageContainer = null;
-            _overlay.CheckLOS = component.CheckLOS;
-            _overlay.Reset();
             _overlayMan.AddOverlay(_overlay);
         }
 
         private void OnPlayerDetached(EntityUid uid, ShowHealthBarsComponent component, PlayerDetachedEvent args)
         {
             _overlay.DamageContainer = null;
-            _overlay.CheckLOS = false;
-            _overlay.Reset();
             _overlayMan.RemoveOverlay(_overlay);
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
         {
             _overlay.DamageContainer = null;
-            _overlay.CheckLOS = false;
-            _overlay.Reset();
             _overlayMan.RemoveOverlay(_overlay);
         }
     }

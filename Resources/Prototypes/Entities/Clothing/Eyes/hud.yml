@@ -22,7 +22,6 @@
   - type: ClothingGrantComponent
     component:
     - type: ShowHealthBars
-      checkLOS: true
       damageContainer: Biological
   - type: ReverseEngineering
     difficulty: 3

@@ -10,12 +10,6 @@ namespace Content.Shared.EntityHealthBar
     public sealed class ShowHealthBarsComponent : Component
     {
         /// <summary>
-        /// Whether we should occlude entities we couldn't otherwise examine.
-        /// </summary>
-        [DataField("checkLOS")]
-        public bool CheckLOS = false;
-
-        /// <summary>
         /// If null, displays all health bars.
         /// If not null, displays health bars of only that damage container.
         /// </summary>
