@@ -48,7 +48,9 @@ public class RedialManager
                 if (address == ours)
                     continue;
 
-                if (address.StartsWith("//"))
+                // so far it seems like ss14: and ss14s: are the 2 valid ones.
+                // if we get a third URI scheme this probably needs updating.
+                if (address.StartsWith("ss14"))
                     UpdateServer(address);
             }
         }
@@ -108,21 +110,19 @@ public class RedialManager
 
     private async Task UpdateServer(string address)
     {
-        var statusAddress = "http:" + address + "/status";
+        var statusAddress = "http://" + address.Split("//")[1] + "/status";
 
         var status = new ServerStatus(null, 0, 0);
 
         status = await _http.GetFromJsonAsync<ServerStatus>(statusAddress)
                     ?? throw new InvalidDataException();
 
-        var ss14Address = "ss14:" + address;
-
-        if (status.PlayerCount < status.SoftMaxPlayerCount - 5)
+        if (status.PlayerCount < Math.Round((float) status.SoftMaxPlayerCount * 0.93))
         {
-            _validServers.Add(ss14Address);
+            _validServers.Add(address);
         } else
         {
-            _validServers.Remove(ss14Address);
+            _validServers.Remove(address);
         }
     }
 }
