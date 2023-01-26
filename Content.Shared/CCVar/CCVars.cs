@@ -30,6 +30,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> RulesHeader =
             CVarDef.Create("server.rules_header", "ui-rules-header", CVar.REPLICATED | CVar.SERVER);
 
+        /// <summary>
+        ////    A txt file containing other servers that we're happy redialing to.
+        /// </summary>
+        public static readonly CVarDef<string> RedialAddressesFile =
+            CVarDef.Create("server.redial_addresses", "RedialAddresses.txt", CVar.REPLICATED | CVar.SERVER);
+
         /*
          * Ambience
          */

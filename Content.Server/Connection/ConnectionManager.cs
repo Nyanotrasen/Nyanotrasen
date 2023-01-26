@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;
 using Content.Server.Preferences.Managers;
+using Content.Server.Redial;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Robust.Server.Player;
@@ -28,6 +29,7 @@ namespace Content.Server.Connection
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IAdminManager _admin = default!;
+        [Dependency] private readonly RedialManager _redial = default!;
 
         public void Initialize()
         {
@@ -139,7 +141,17 @@ namespace Content.Server.Connection
                             status == PlayerGameStatus.JoinedGame;
             if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
             {
-                return (ConnectionDenyReason.Full, Loc.GetString("soft-player-cap-full"), null);
+                var reason = Loc.GetString("soft-player-cap-full");
+                var redial = _redial.GetRandomRedial();
+
+                if (redial != null)
+                {
+                    // It's not super easy to get messages to client we redirect so we're gonna hitch a ride.
+                    reason += "%redial";
+                    reason += redial;
+                }
+
+                return (ConnectionDenyReason.Full, reason, null);
             }
 
             var bans = await _db.GetServerBansAsync(addr, userId, hwId, includeUnbanned: false);
