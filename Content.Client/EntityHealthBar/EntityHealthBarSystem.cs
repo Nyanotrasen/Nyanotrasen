@@ -5,7 +5,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Examine;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Robust.Shared.GameObjects;
 using JetBrains.Annotations;
 
 namespace Content.Client.EntityHealthBar
