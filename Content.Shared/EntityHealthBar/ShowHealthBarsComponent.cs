@@ -3,6 +3,9 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.EntityHealthBar
 {
+    /// <summary>
+    /// This component allows you to see health bars above damageable mobs.
+    /// </summary>
     [RegisterComponent]
     public sealed class ShowHealthBarsComponent : Component
     {
