@@ -89,7 +89,7 @@ namespace Content.Client.Launcher
                 // Result deliberately discarded.
                 Redial();
             }
-            var reason = args.Reason.Split("\n");
+            var reason = args.Reason.Split("%redial");
 
             string? newAddress = null;
 
@@ -97,7 +97,8 @@ namespace Content.Client.Launcher
             {
                 var address = reason[1];
 
-                if (address.StartsWith("ss14://"))
+                // Assuming URI format will stay restricted to ss14 or ss14s
+                if (address.StartsWith("ss14"))
                     newAddress = address;
             }
             RedirectAddress = newAddress;

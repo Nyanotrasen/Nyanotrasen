@@ -147,7 +147,7 @@ namespace Content.Server.Connection
                 if (redial != null)
                 {
                     // It's not super easy to get messages to client we redirect so we're gonna hitch a ride.
-                    reason += "\n";
+                    reason += "%redial";
                     reason += redial;
                 }
 
