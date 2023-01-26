@@ -5,8 +5,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Examine;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.GameObjects;
 using JetBrains.Annotations;
-
 
 namespace Content.Client.EntityHealthBar
 {
@@ -15,6 +15,7 @@ namespace Content.Client.EntityHealthBar
     {
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
+        [Dependency] private readonly SharedTransformSystem _transformSys = default!;
 
         private readonly Dictionary<EntityUid, EntityHealthBarGui> _guis = new();
         private EntityUid? _attachedEntity;
@@ -39,8 +40,15 @@ namespace Content.Client.EntityHealthBar
             }
         }
 
+        /// <summary>
+        /// Occlude other bars based on line-of-sight
+        /// </summary>
         public bool CheckLOS = false;
+        /// <summary>
+        /// If this is not null, we'll only use this damage container.
+        /// </summary>
         public string? DamageContainer;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -65,6 +73,9 @@ namespace Content.Client.EntityHealthBar
             _attachedEntity = message.AttachedEntity;
         }
 
+
+        // Yeah it kind of sucks that this iterates even when we don't have the comp
+        // This problem has not been solved by anything else in the codebase right now...
         public override void FrameUpdate(float frameTime)
         {
             base.Update(frameTime);
@@ -90,38 +101,34 @@ namespace Content.Client.EntityHealthBar
                     continue;
 
                 if (Transform(ent).MapID != Transform(entity).MapID ||
-                    !viewBox.Contains(Transform(entity).WorldPosition))
+                    !viewBox.Contains(_transformSys.GetWorldPosition(entity)))
                 {
-                    if (_guis.TryGetValue(entity, out var oldGui))
-                    {
-                        _guis.Remove(entity);
-                        oldGui.Dispose();
-                    }
-
+                    RemoveGUIFromEntity(entity);
                     continue;
                 }
 
                 var distance = (Transform(entity).Coordinates.Position - viewBox.Center).Length;
 
-
                 if (CheckLOS && !ExamineSystemShared.InRangeUnOccluded(ourXform.MapPosition, Transform(entity).MapPosition, distance, e => e == _attachedEntity.Value, entMan: _entities))
                 {
-                    if (_guis.TryGetValue(entity, out var oldGui))
-                    {
-                        _guis.Remove(entity);
-                        oldGui.Dispose();
-                    }
-
+                    RemoveGUIFromEntity(entity);
                     continue;
                 }
 
-                if (_guis.ContainsKey(entity))
+                if (!_guis.ContainsKey(entity))
                 {
-                    continue;
+                    var gui = new EntityHealthBarGui(entity);
+                    _guis.Add(entity, gui);
                 }
+            }
+        }
 
-                var gui = new EntityHealthBarGui(entity);
-                _guis.Add(entity, gui);
+        private void RemoveGUIFromEntity(EntityUid entity)
+        {
+            if (_guis.TryGetValue(entity, out var oldGui))
+            {
+                _guis.Remove(entity);
+                oldGui.Dispose();
             }
         }
     }
