@@ -1,6 +1,8 @@
+using System.Threading;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.IO;
 using Content.Shared.CCVar;
 using Content.Shared.Redial;
@@ -114,8 +116,25 @@ public class RedialManager
 
         var status = new ServerStatus(null, 0, 0);
 
-        status = await _http.GetFromJsonAsync<ServerStatus>(statusAddress)
-                    ?? throw new InvalidDataException();
+        var cancel = new CancellationToken();
+
+        try
+        {
+            using (var linkedToken = CancellationTokenSource.CreateLinkedTokenSource(cancel))
+            {
+                linkedToken.CancelAfter(TimeSpan.FromSeconds(10));
+
+                status = await _http.GetFromJsonAsync<ServerStatus>(statusAddress, linkedToken.Token)
+                            ?? throw new InvalidDataException();
+            }
+
+            cancel.ThrowIfCancellationRequested();
+        }
+        catch
+        {
+            _validServers.Remove(address);
+            return;
+        }
 
         if (status.PlayerCount < Math.Round((float) status.SoftMaxPlayerCount * 0.93))
         {
