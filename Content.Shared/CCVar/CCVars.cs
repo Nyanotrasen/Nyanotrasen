@@ -36,12 +36,6 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> RedialAddressesFile =
             CVarDef.Create("server.redial_addresses", "RedialAddresses.txt", CVar.REPLICATED | CVar.SERVER);
 
-        /// <summary>
-        ///     This server's address in the format of the file above, so that it may be removed from the above.
-        /// </summary>
-        public static readonly CVarDef<string> OurAddress =
-            CVarDef.Create("server.our_address", "//example.moe:1212", CVar.REPLICATED | CVar.SERVER);
-
         /*
          * Ambience
          */

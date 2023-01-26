@@ -10,6 +10,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Players;
+using Robust.Shared;
 
 namespace Content.Server.Redial;
 
@@ -38,7 +39,7 @@ public class RedialManager
             return;
 
         var path = _cfg.GetCVar(CCVars.RedialAddressesFile);
-        var ours = _cfg.GetCVar(CCVars.OurAddress);
+        var ours = _cfg.GetCVar(CVars.HubServerUrl);
         try
         {
             var addresses = _res.ContentFileReadAllText($"/Server Info/{path}").Split("\n");
