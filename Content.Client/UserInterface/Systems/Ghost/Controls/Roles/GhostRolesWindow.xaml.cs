@@ -14,6 +14,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
     {
         public event Action<GhostRoleInfo>? OnRoleRequested;
         public event Action<GhostRoleInfo>? OnRoleFollow;
+
         public void ClearEntries()
         {
             NoRolesMessage.Visible = true;
