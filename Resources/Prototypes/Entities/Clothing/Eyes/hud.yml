@@ -20,7 +20,10 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/med.rsi
   - type: ClothingGrantComponent
-    component: HealthGlasses
+    component:
+    - type: ShowHealthBars
+      checkLOS: true
+      damageContainer: Biological
   - type: ReverseEngineering
     difficulty: 3
     recipes:

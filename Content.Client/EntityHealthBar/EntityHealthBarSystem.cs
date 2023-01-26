@@ -1,38 +1,22 @@
-using System.Collections.Generic;
-using Content.Client.HealthOverlay.UI;
+using Content.Client.EntityHealthBar.UI;
 using Content.Shared.Damage;
 using Content.Shared.GameTicking;
 using Content.Shared.Mobs.Components;
-using JetBrains.Annotations;
+using Content.Shared.Examine;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
-using Content.Shared.Examine;
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Content.Client.Examine;
-using Content.Shared.CCVar;
-using Content.Shared.Examine;
-using Content.Shared.Interaction;
-using Content.Shared.Popups;
-using Robust.Client.Graphics;
-using Robust.Client.Player;
-using Robust.Client.ResourceManagement;
-using Robust.Client.UserInterface;
-using Robust.Shared;
-using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
-using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
+using JetBrains.Annotations;
 
-namespace Content.Client.HealthOverlay
+
+namespace Content.Client.EntityHealthBar
 {
     [UsedImplicitly]
-    public sealed class HealthOverlaySystem : EntitySystem
+    public sealed class EntityHealthBarSystem : EntitySystem
     {
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
 
-        private readonly Dictionary<EntityUid, HealthOverlayGui> _guis = new();
+        private readonly Dictionary<EntityUid, EntityHealthBarGui> _guis = new();
         private EntityUid? _attachedEntity;
         private bool _enabled;
 
@@ -56,7 +40,7 @@ namespace Content.Client.HealthOverlay
         }
 
         public bool CheckLOS = false;
-        public bool OrganicsOnly = false;
+        public string? DamageContainer;
         public override void Initialize()
         {
             base.Initialize();
@@ -102,7 +86,7 @@ namespace Content.Client.HealthOverlay
             {
                 var entity = mobState.Owner;
 
-                if (OrganicsOnly && damageable.DamageContainerID != "Biological")
+                if (DamageContainer != null && damageable.DamageContainerID != DamageContainer)
                     continue;
 
                 if (Transform(ent).MapID != Transform(entity).MapID ||
@@ -136,7 +120,7 @@ namespace Content.Client.HealthOverlay
                     continue;
                 }
 
-                var gui = new HealthOverlayGui(entity);
+                var gui = new EntityHealthBarGui(entity);
                 _guis.Add(entity, gui);
             }
         }

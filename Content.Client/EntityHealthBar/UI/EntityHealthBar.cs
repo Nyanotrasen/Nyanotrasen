@@ -1,18 +1,16 @@
 ﻿using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
-using Robust.Shared.IoC;
-using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.HealthOverlay.UI
+namespace Content.Client.EntityHealthBar.UI
 {
-    public sealed class HealthOverlayBar : Control
+    public sealed class EntityHealthBar : Control
     {
         public const byte HealthBarScale = 2;
 
         private const int XPixelDiff = 20 * HealthBarScale;
 
-        public HealthOverlayBar()
+        public EntityHealthBar()
         {
             IoCManager.InjectDependencies(this);
             Shader = IoCManager.Resolve<IPrototypeManager>().Index<ShaderPrototype>("unshaded").Instance();

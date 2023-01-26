@@ -5,35 +5,35 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.EntityHealthBar;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 using Robust.Client.Player;
-using Content.Shared.SimpleStation14.Clothing;
 
-namespace Content.Client.HealthOverlay.UI
+namespace Content.Client.EntityHealthBar.UI
 {
-    public sealed class HealthOverlayGui : BoxContainer
+    public sealed class EntityHealthBarGui : BoxContainer
     {
         [Dependency] private readonly IEyeManager _eyeManager = default!;
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
-        public HealthOverlayGui(EntityUid entity)
+        public EntityHealthBarGui(EntityUid entity)
         {
             IoCManager.InjectDependencies(this);
             UserInterfaceManager.WindowRoot.AddChild(this);
             SeparationOverride = 0;
             Orientation = LayoutOrientation.Vertical;
 
-            CritBar = new HealthOverlayBar
+            CritBar = new EntityHealthBar
             {
                 Visible = false,
                 VerticalAlignment = VAlignment.Center,
                 Color = Color.Red
             };
 
-            HealthBar = new HealthOverlayBar
+            HealthBar = new EntityHealthBar
             {
                 Visible = false,
                 VerticalAlignment = VAlignment.Center,
@@ -47,7 +47,7 @@ namespace Content.Client.HealthOverlay.UI
                     new TextureRect
                     {
                         Texture = StaticIoC.ResC.GetTexture("/Textures/Interface/Misc/health_bar.rsi/icon.png"),
-                        TextureScale = Vector2.One * HealthOverlayBar.HealthBarScale,
+                        TextureScale = Vector2.One * EntityHealthBar.HealthBarScale,
                         VerticalAlignment = VAlignment.Center,
                     },
                     CritBar,
@@ -60,9 +60,9 @@ namespace Content.Client.HealthOverlay.UI
 
         public PanelContainer Panel { get; }
 
-        public HealthOverlayBar HealthBar { get; }
+        public EntityHealthBar HealthBar { get; }
 
-        public HealthOverlayBar CritBar { get; }
+        public EntityHealthBar CritBar { get; }
 
         public EntityUid Entity { get; }
 
@@ -146,7 +146,7 @@ namespace Content.Client.HealthOverlay.UI
                 return;
             }
 
-            if (!_entities.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out HealthGlassesComponent? glassComp))
+            if (!_entities.TryGetComponent(_playerManager.LocalPlayer?.ControlledEntity, out ShowHealthBarsComponent? glassComp))
             {
                 SetVisibility(false);
                 return;
