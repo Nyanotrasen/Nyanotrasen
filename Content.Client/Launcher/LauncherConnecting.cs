@@ -153,7 +153,7 @@ namespace Content.Client.Launcher
                 }
                 else
                 {
-                    Logger.InfoS("launcher-ui", $"Redial not possible, no Ss14Address");
+                    Logger.InfoS("launcher-ui", $"Redial not possible, no address");
                 }
             }
             catch (Exception ex)
