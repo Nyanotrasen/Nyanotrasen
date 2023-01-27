@@ -133,6 +133,9 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
                 return;
 
+            if (!args.ViaCommand)
+                return;
+
             args.Result = false;
             args.Handled = true;
         }
