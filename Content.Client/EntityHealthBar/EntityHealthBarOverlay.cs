@@ -11,6 +11,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.EntityHealthBar;
 
+/// <summary>
+/// Yeah a lot of this is duplicated from doafters.
+/// Not much to be done until there's a generic HUD system
+/// </summary>
 public sealed class EntityHealthBarOverlay : Overlay
 {
     private readonly IEntityManager _entManager;
