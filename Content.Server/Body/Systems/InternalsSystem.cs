@@ -12,8 +12,6 @@ using Content.Server.Popups;
 using Content.Server.DoAfter;
 using System.Threading;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Body.Systems;
 
