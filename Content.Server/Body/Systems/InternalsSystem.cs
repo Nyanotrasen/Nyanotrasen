@@ -11,6 +11,8 @@ using Content.Shared.Verbs;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
 using System.Threading;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Body.Systems;
 
@@ -24,6 +26,7 @@ public sealed class InternalsSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -59,6 +62,11 @@ public sealed class InternalsSystem : EntitySystem
     public void ToggleInternals(EntityUid uid, EntityUid user, bool force, InternalsComponent? internals = null)
     {
         if (!Resolve(uid, ref internals, false))
+        {
+            return;
+        }
+
+        if (TryComp<MobStateComponent>(user, out var userMobState) && _mobState.IsIncapacitated(user, userMobState))
         {
             return;
         }
