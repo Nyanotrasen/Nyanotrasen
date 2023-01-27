@@ -11,6 +11,7 @@ using Content.Shared.Verbs;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
 using System.Threading;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 
@@ -26,7 +27,7 @@ public sealed class InternalsSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     public override void Initialize()
     {
@@ -66,10 +67,8 @@ public sealed class InternalsSystem : EntitySystem
             return;
         }
 
-        if (TryComp<MobStateComponent>(user, out var userMobState) && _mobState.IsIncapacitated(user, userMobState))
-        {
+        if (_actionBlocker.CanInteract(user, uid) == false)
             return;
-        }
 
         // Toggle off if they're on
         if (AreInternalsWorking(internals))
