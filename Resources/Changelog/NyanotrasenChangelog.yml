@@ -2272,3 +2272,8 @@ Entries:
       2 weeks and fixed it., type: Fix}
   id: 350
   time: '2023-01-27T20:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: We'll only redirect to servers with at least 3 players on., type: Tweak}
+  id: 351
+  time: '2023-01-27T22:33:47.0000000+00:00'
