@@ -321,6 +321,9 @@ public sealed partial class BuckleSystem
             if (HasComp<SleepingComponent>(buckleId) && buckleId == user)
                 return false;
 
+            if (_actionBlocker.CanInteract(user, buckleId) == false)
+                return false;
+
             // If the strap is a vehicle and the rider is not the person unbuckling, return.
             if (TryComp(oldBuckledTo.Owner, out VehicleComponent? vehicle) &&
                 vehicle.Rider != user)
