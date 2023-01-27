@@ -2255,3 +2255,20 @@ Entries:
   - {message: Changed many outer-layer clothes to withstand cold temperatures., type: Tweak}
   id: 347
   time: '2023-01-27T19:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Lots of bugfixes and refactors. Be sure to report any
+      regressions., type: Add}
+  id: 348
+  time: '2023-01-27T19:48:03.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Completely overhauled Ovni's Epistemics and air alarms., type: Tweak}
+  id: 349
+  time: '2023-01-27T19:48:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: I think I've tracked down the main mind swap regression from the past
+      2 weeks and fixed it., type: Fix}
+  id: 350
+  time: '2023-01-27T20:24:07.0000000+00:00'
