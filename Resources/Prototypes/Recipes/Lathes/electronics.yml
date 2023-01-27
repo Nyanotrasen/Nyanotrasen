@@ -32,7 +32,6 @@
 
 - type: latheRecipe
   id: IntercomElectronics
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: IntercomElectronics
   completetime: 2
   materials:
@@ -84,7 +83,6 @@
 
 - type: latheRecipe
   id: CryoPodMachineCircuitboard
-  icon: Objects/Misc/module.rsi/id_mod.png
   result: CryoPodMachineCircuitboard
   completetime: 4
   materials:
@@ -228,7 +226,6 @@
 
 - type: latheRecipe
   id: HotplateMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: HotplateMachineCircuitboard
   completetime: 4
   materials:
@@ -246,7 +243,6 @@
 
 - type: latheRecipe
   id: TechDiskComputerCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: cpu_science }
   result: TechDiskComputerCircuitboard
   completetime: 4
   materials:
@@ -298,7 +294,6 @@
 
 - type: latheRecipe
   id: RipleyCentralElectronics
-  icon: Objects/Misc/module.rsi/mainboard.png
   result: RipleyCentralElectronics
   completetime: 4
   materials:
@@ -308,7 +303,6 @@
 
 - type: latheRecipe
   id: RipleyPeripheralsElectronics
-  icon: Objects/Misc/module.rsi/id_mod.png
   result: RipleyPeripheralsElectronics
   completetime: 4
   materials:
@@ -504,7 +498,6 @@
 
 - type: latheRecipe
   id: BoozeDispenserMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: BoozeDispenserMachineCircuitboard
   completetime: 4
   materials:
@@ -513,7 +506,6 @@
 
 - type: latheRecipe
   id: SodaDispenserMachineCircuitboard
-  icon: { sprite: Objects/Misc/module.rsi, state: id_mod }
   result: SodaDispenserMachineCircuitboard
   completetime: 4
   materials:
