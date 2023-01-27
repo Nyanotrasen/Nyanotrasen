@@ -202,7 +202,7 @@ namespace Content.Server.Fugitive
             report.PushNewline();
 
 
-            if (!TryComp<HumanoidComponent>(uid, out var humanoidComponent) ||
+            if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidComponent) ||
                 !_prototypeManager.TryIndex<SpeciesPrototype>(humanoidComponent.Species, out var species))
             {
                 report.AddMarkup(Loc.GetString("fugitive-report-inhuman", ("name", uid)));

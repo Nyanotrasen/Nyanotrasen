@@ -34,7 +34,7 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
@@ -148,7 +148,7 @@ namespace Content.Server.EvilTwin
         }
         public EntityUid? SpawnEvilTwin()
         {
-            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidComponent>().ToList();
+            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidAppearanceComponent>().ToList();
             _random.Shuffle(candidates);
 
             foreach (var candidate in candidates)

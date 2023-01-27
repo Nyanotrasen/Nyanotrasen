@@ -58,7 +58,7 @@ namespace Content.Server.Soul
             if (!TryComp<ActorComponent>(args.User, out var userActor))
                 return;
 
-            if (!HasComp<HumanoidComponent>(args.User))
+            if (!HasComp<HumanoidAppearanceComponent>(args.User))
                 return;
 
             if (!_uiSystem.TryGetUi(args.Target.Value, GolemUiKey.Key, out var ui))
