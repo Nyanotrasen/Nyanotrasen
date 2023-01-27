@@ -8,6 +8,10 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/white.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/white.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.8
 
 - type: entity
   parent: ClothingOuterBase
@@ -19,6 +23,10 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/brown.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.8
 
 - type: entity
   parent: ClothingOuterBase
@@ -30,6 +38,10 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/mystic.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/mystic.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterBase
@@ -41,3 +53,7 @@
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/techpriest.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/OuterClothing/Robes/techpriest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75

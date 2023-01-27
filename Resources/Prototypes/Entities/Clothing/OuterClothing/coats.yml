@@ -8,6 +8,10 @@
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -28,7 +32,7 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.6
-        Heat: 0.9
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -40,6 +44,10 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.8
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -80,6 +88,10 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -141,4 +153,4 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.4
-        Heat: 0.8
+        Heat: 0.75
