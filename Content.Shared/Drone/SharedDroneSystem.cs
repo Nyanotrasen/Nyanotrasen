@@ -1,5 +1,6 @@
 using Content.Shared.Interaction.Events;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Damage;
 using Content.Shared.Item;
 using Content.Shared.Tag;
 using Robust.Shared.Serialization;
@@ -18,6 +19,9 @@ namespace Content.Shared.Drone
         {
             if (args.Target == null)
                 return;
+
+            if (TryComp<DamageableComponent>(args.Target, out var dmg) && dmg.DamageContainerID == "Biological")
+                args.Cancel();
 
             if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target)
                 && !_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
