@@ -30,6 +30,18 @@
 - type: entity
   noSpawn: true
   parent: BaseMail
+  id: MailSake
+  suffix: osake
+  components:
+  - type: Mail
+    contents:
+    - id: DrinkSakeCup
+      amount: 2
+    - id: DrinkTokkuri
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
   id: MailAMEGuide
   suffix: ameguide
   components:

@@ -38,7 +38,10 @@ reagent-name-rum = rum
 reagent-desc-rum = Distilled alcoholic drink made from sugarcane byproducts.
 
 reagent-name-sake = sake
-reagent-desc-sake = Alcoholic beverage made by fermenting rice that has been polished.
+reagent-desc-sake = Alcoholic beverage made by brewing rice that has been polished.
+
+reagent-name-soju = soju
+reagent-desc-sake = Alcoholic beverage made by distilling rice that has been polished.
 
 reagent-name-tequila = tequila
 reagent-desc-tequila = A strong and mildly flavoured, mexican produced spirit.
