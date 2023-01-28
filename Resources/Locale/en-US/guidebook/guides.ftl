@@ -20,4 +20,8 @@ guide-entry-ape = A.P.E.
 guide-entry-xenoarchaeology = Xenoarchaeology
 guide-entry-artifact-reports = Artifact Reports
 guide-entry-traversal-distorter = Traversal Distorter
+<<<<<<< HEAD
 guide-entry-chemistry = Chemistry
+=======
+guide-entry-chemistry = Chemistry
+>>>>>>> ac73b1ab677079ccda328ec66ab6cc65f171ff5f
