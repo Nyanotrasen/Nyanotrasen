@@ -1,0 +1,35 @@
+- type: reagent
+  id: Sake
+  name: reagent-name-sake
+  parent: BaseAlcohol
+  desc: reagent-desc-sake
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: sake
+  color: "#DDDDDD"
+  spritePath: sakeglass.rsi
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.07
+
+- type: reagent
+  id: Soju
+  name: reagent-name-soju
+  parent: BaseAlcohol
+  desc: reagent-desc-soju
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: soju
+  color: "#DDDDDD"
+  spritePath: sojuglass.rsi
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.15
