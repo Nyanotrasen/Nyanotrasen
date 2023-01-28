@@ -8,6 +8,17 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
+    blackboard:
+      NavInteract: !type:Bool #double check this
+        true
+      NavPry: !type:Bool
+        true
+  - type: Tool
+    speed: 0.75 #is this backwards? Should be slightly slower than human w/crowbar
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Faction
     factions:
     - SimpleHostile
@@ -32,13 +43,12 @@
     allowedStates:
       - Alive
       - Dead
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      150: Dead
   - type: Stamina
     excess: 150
   - type: Appearance
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bear
   - type: DamageStateVisuals
     states:
       Alive:
@@ -70,9 +80,11 @@
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
     animation: WeaponArcClaw
+    bluntStaminaDamageFactor: 3.0
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 10
+        Slash: 5
   - type: ReplacementAccent
     accent: genericAggressive
   - type: GhostTakeoverAvailable
