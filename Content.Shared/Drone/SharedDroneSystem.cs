@@ -16,7 +16,10 @@ namespace Content.Shared.Drone
 
         private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
         {
-            if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target)
+            if (args.Target == null)
+                return;
+
+            if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target)
                 && !_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
                 args.Cancel();
         }
