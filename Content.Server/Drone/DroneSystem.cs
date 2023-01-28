@@ -1,5 +1,4 @@
 using Content.Server.Body.Systems;
-using Content.Server.Drone.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Popups;
@@ -9,9 +8,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Drone;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -34,7 +30,6 @@ namespace Content.Server.Drone
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<DroneComponent, ExaminedEvent>(OnExamined);
@@ -42,18 +37,6 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, MindRemovedMessage>(OnMindRemoved);
             SubscribeLocalEvent<DroneComponent, EmoteAttemptEvent>(OnEmoteAttempt);
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
-        }
-
-        private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
-        {
-            if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target))
-                args.Cancel();
-
-            if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
-            {
-                if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
-                    args.Cancel();
-            }
         }
 
         private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)

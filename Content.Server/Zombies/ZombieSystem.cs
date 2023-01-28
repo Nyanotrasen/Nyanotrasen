@@ -3,16 +3,11 @@ using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
-using Content.Server.Drone.Components;
 using Content.Server.Inventory;
-using Content.Server.Speech;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Chemistry.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Damage;
 using Content.Shared.Disease.Events;
 using Content.Shared.Inventory;
@@ -138,7 +133,7 @@ namespace Content.Server.Zombies
                 if (args.User == entity)
                     continue;
 
-                if (!TryComp<MobStateComponent>(entity, out var mobState) || HasComp<DroneComponent>(entity))
+                if (!TryComp<MobStateComponent>(entity, out var mobState))
                     continue;
 
                 if (HasComp<DiseaseCarrierComponent>(entity) && _robustRandom.Prob(GetZombieInfectionChance(entity, component)))
