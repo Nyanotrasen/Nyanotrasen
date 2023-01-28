@@ -40,6 +40,7 @@ namespace Content.Client.IgnoreHumanoids
         {
             if (_player.LocalPlayer?.ControlledEntity == uid)
             {
+                _overlay.Reset();
                 _overlayMan.RemoveOverlay(_overlay);
             }
         }
@@ -51,11 +52,13 @@ namespace Content.Client.IgnoreHumanoids
 
         private void OnPlayerDetached(EntityUid uid, IgnoreHumanoidsOverlayComponent component, PlayerDetachedEvent args)
         {
+            _overlay.Reset();
             _overlayMan.RemoveOverlay(_overlay);
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent args)
         {
+            _overlay.Reset();
             _overlayMan.RemoveOverlay(_overlay);
         }
     }

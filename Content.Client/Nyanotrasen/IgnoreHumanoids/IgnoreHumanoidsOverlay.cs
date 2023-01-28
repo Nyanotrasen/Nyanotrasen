@@ -14,32 +14,24 @@ public sealed class IgnoreHumanoidsOverlay : Overlay
 {
     private readonly IEntityManager _entManager;
     private readonly SharedTransformSystem _transform;
-    private readonly Texture _barTexture;
-    private readonly ShaderInstance _shader;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
+
+    private Dictionary<EntityUid, EntityUid> _effectList = new();
 
     public IgnoreHumanoidsOverlay(IEntityManager entManager, IPrototypeManager protoManager)
     {
         _entManager = entManager;
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
-
-        var sprite = new SpriteSpecifier.Rsi(new ResourcePath("/Textures/Interface/Misc/health_bar.rsi"), "icon");
-        _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
-
-        _shader = protoManager.Index<ShaderPrototype>("unshaded").Instance();
     }
 
+    /// <summary>
+    /// Yeah we technically aren't directly drawing anything here.
+    /// If I made it an entity system there would be some overhead, though...
+    /// </summary>
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var handle = args.WorldHandle;
-        var rotation = args.Viewport.Eye?.Rotation ?? Angle.Zero;
         var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
-
-        const float scale = 1f;
-        var scaleMatrix = Matrix3.CreateScale(new Vector2(scale, scale));
-        var rotationMatrix = Matrix3.CreateRotation(-rotation);
-        handle.UseShader(_shader);
 
         foreach (var humanoid in _entManager.EntityQuery<HumanoidAppearanceComponent>(true))
         {
@@ -48,10 +40,48 @@ public sealed class IgnoreHumanoidsOverlay : Overlay
                 continue;
             }
 
-            sprite.Visible = false;
+            if (!xformQuery.TryGetComponent(humanoid.Owner, out var xform))
+            {
+                continue;
+            }
+
+            if (sprite.Visible && !_effectList.ContainsKey(humanoid.Owner))
+            {
+                sprite.Visible = false;
+                var effect = _entManager.SpawnEntity("EffectUnknownHumanoid", xform.Coordinates);
+                _effectList.Add(humanoid.Owner, effect);
+            }
         }
 
-        handle.UseShader(null);
-        handle.SetTransform(Matrix3.Identity);
+        // surprisingly no collectionmodified CBT when I tested
+        foreach (var (underlying, effect) in _effectList)
+        {
+            if (_entManager.Deleted(underlying))
+            {
+                _entManager.DeleteEntity(effect);
+                _effectList.Remove(underlying);
+                continue;
+            }
+
+            if (!xformQuery.TryGetComponent(underlying, out var underlyingxform))
+                continue;
+
+            if (!xformQuery.TryGetComponent(effect, out var effectxform))
+                continue;
+
+            _transform.SetLocalPositionRotation(effectxform, underlyingxform.LocalPosition, underlyingxform.LocalRotation);
+        }
+    }
+
+    public void Reset()
+    {
+        foreach (var (underlying, effect) in _effectList)
+        {
+            _entManager.DeleteEntity(effect);
+            _effectList.Remove(underlying);
+
+            if (_entManager.TryGetComponent<SpriteComponent>(underlying, out var sprite))
+                sprite.Visible = true;
+        }
     }
 }
