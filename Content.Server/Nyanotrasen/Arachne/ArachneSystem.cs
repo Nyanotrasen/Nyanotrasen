@@ -341,7 +341,7 @@ namespace Content.Server.Arachne
 
             arachne.CancelToken = null;
 
-            var spawnProto = HasComp<HumanoidComponent>(args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
+            var spawnProto = HasComp<HumanoidAppearanceComponent>(args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
             Transform(args.Target).AttachToGridOrMap();
             var cocoon = Spawn(spawnProto, Transform(args.Target).Coordinates);
 

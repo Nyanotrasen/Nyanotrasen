@@ -39,7 +39,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.GameObjects.Components.Localization;
-
 namespace Content.Server.Cloning
 {
     public sealed class CloningSystem : EntitySystem
@@ -49,7 +48,7 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly EuiManager _euiManager = null!;
         [Dependency] private readonly CloningConsoleSystem _cloningConsoleSystem = default!;
-        [Dependency] private readonly HumanoidSystem _humanoidSystem = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
         [Dependency] private readonly ContainerSystem _containerSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
@@ -187,7 +186,7 @@ namespace Content.Server.Cloning
             if (pref == null)
                 return false;
 
-            if (!TryComp<HumanoidComponent>(bodyToClone, out var humanoid))
+            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
 
             if (!_prototype.TryIndex<SpeciesPrototype>(humanoid.Species, out var speciesPrototype))
@@ -339,7 +338,7 @@ namespace Content.Server.Cloning
         /// <summary>
         /// Handles fetching the mob and any appearance stuff...
         /// </summary>
-        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidComponent humanoid, EntityUid bodyToClone, float karmaBonus)
+        private EntityUid FetchAndSpawnMob(CloningPodComponent clonePod, HumanoidCharacterProfile pref, SpeciesPrototype speciesPrototype, HumanoidAppearanceComponent humanoid, EntityUid bodyToClone, float karmaBonus)
         {
             List<Sex> sexes = new();
             bool switchingSpecies = false;
@@ -367,7 +366,7 @@ namespace Content.Server.Cloning
             }
 
             var mob = Spawn(toSpawn, Transform(clonePod.Owner).MapPosition);
-            if (TryComp<HumanoidComponent>(mob, out var newHumanoid))
+            if (TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
             {
                 if (switchingSpecies || HasComp<MetempsychosisKarmaComponent>(bodyToClone))
                 {

@@ -16,10 +16,10 @@ Each technology costs [color=#a4885c]Research Points[/color] and unlocks recipes
 ## Lathes
 <Box>
 <GuideEntityEmbed Entity="Protolathe"/>
-<GuideEntityEmbed Entity="CircuitImprinter"/>
+<GuideEntityEmbed Entity="ScienceTechFab"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="ExosuitFabricator"/>
+<GuideEntityEmbed Entity="EngineeringTechFab"/>
 <GuideEntityEmbed Entity="MedicalTechFab"/>
 </Box>
 At a lathe, you can sync to a server to allow it print whatever recipes you have unlocked. Recipes require various materials (steel, glass, plastic, gold, plasma) which can be acquired at Cargo or Salvage.

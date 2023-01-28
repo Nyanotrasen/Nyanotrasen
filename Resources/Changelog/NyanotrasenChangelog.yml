@@ -2173,3 +2173,121 @@ Entries:
   - {message: Anomalies interact with the glimmer system., type: Add}
   id: 332
   time: '2023-01-24T02:39:34.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Anomalies take damage from being dispelled., type: Add}
+  id: 333
+  time: '2023-01-24T03:02:39.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added anomaly scanners to epi lockers., type: Add}
+  id: 334
+  time: '2023-01-24T03:23:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added an anomaly lab to Angle station., type: Add}
+  id: 335
+  time: '2023-01-24T03:51:58.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: Anomaly Lab for pebble., type: Add}
+  id: 336
+  time: '2023-01-24T04:10:49.0000000+00:00'
+- author: Daemon
+  changes:
+  - {message: Added The Lid O' Saws!, type: Add}
+  id: 337
+  time: '2023-01-25T06:14:33.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed spawning as cataloguer., type: Fix}
+  - {message: Fixed a desync with blindfolds that allowed permanent blindness to be
+      removed., type: Fix}
+  id: 338
+  time: '2023-01-25T19:44:47.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed a mindswap regression caused by upstream changes to the mind system.,
+    type: Fix}
+  id: 339
+  time: '2023-01-25T20:49:56.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rewrote several parts of the rules., type: Tweak}
+  id: 340
+  time: '2023-01-26T05:46:02.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Increase Glow Duration for the Red Glowstick, type: Tweak}
+  id: 341
+  time: '2023-01-26T18:31:11.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: You can be redirected to another server when the server is full or from
+      the ghost roles menu., type: Add}
+  id: 342
+  time: '2023-01-26T23:44:46.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The health bars from medical HUDs have been completely rewritten! They
+      should look a bit fancier and everyone should get a small performance improvement.,
+    type: Add}
+  id: 343
+  time: '2023-01-27T00:44:05.0000000+00:00'
+- author: QuizzyQuin
+  changes:
+  - {message: Added two new end round clips, type: Add}
+  id: 344
+  time: '2023-01-27T05:54:46.0000000+00:00'
+- author: ODJ
+  changes:
+  - {message: Track 4, type: Add}
+  id: 345
+  time: '2023-01-27T08:35:07.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Telegnostic Projections are no longer consumed by the Singularity.,
+    type: Fix}
+  id: 346
+  time: '2023-01-27T19:15:39.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Changed many outer-layer clothes to withstand cold temperatures., type: Tweak}
+  id: 347
+  time: '2023-01-27T19:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Lots of bugfixes and refactors. Be sure to report any
+      regressions., type: Add}
+  id: 348
+  time: '2023-01-27T19:48:03.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Completely overhauled Ovni's Epistemics and air alarms., type: Tweak}
+  id: 349
+  time: '2023-01-27T19:48:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: I think I've tracked down the main mind swap regression from the past
+      2 weeks and fixed it., type: Fix}
+  id: 350
+  time: '2023-01-27T20:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: We'll only redirect to servers with at least 3 players on., type: Tweak}
+  id: 351
+  time: '2023-01-27T22:33:47.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Players can no longer unbuckle or toggle internals while dead or in
+      critical condition, type: Fix}
+  id: 352
+  time: '2023-01-27T22:36:29.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Drones are back with a new overlay and some of their old law enforcement
+      mechanics tweaked. Fifth time is the charm? Don''t make me disable them again.',
+    type: Add}
+  - {message: Drone interaction blocker is predicted., type: Fix}
+  id: 353
+  time: '2023-01-28T01:13:28.0000000+00:00'

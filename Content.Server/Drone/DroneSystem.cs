@@ -1,6 +1,4 @@
 using Content.Server.Body.Systems;
-using Content.Server.Drone.Components;
-using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Popups;
@@ -10,17 +8,11 @@ using Content.Shared.Body.Components;
 using Content.Shared.Drone;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Drone
@@ -37,9 +29,7 @@ namespace Content.Server.Drone
 
         public override void Initialize()
         {
-            base.Initialize();
-            // SubscribeLocalEvent<DroneComponent, InteractionAttemptEvent>(OnInteractionAttempt);
-            // SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
+            SubscribeLocalEvent<DroneComponent, UserOpenActivatableUIAttemptEvent>(OnActivateUIAttempt);
             SubscribeLocalEvent<DroneComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<DroneComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<DroneComponent, MindAddedMessage>(OnMindAdded);
@@ -48,25 +38,13 @@ namespace Content.Server.Drone
             SubscribeLocalEvent<DroneComponent, ThrowAttemptEvent>(OnThrowAttempt);
         }
 
-        // private void OnInteractionAttempt(EntityUid uid, DroneComponent component, InteractionAttemptEvent args)
-        // {
-        //     if (args.Target != null && !HasComp<UnremoveableComponent>(args.Target) && NonDronesInRange(uid, component))
-        //         args.Cancel();
-
-        //     if (HasComp<ItemComponent>(args.Target) && !HasComp<UnremoveableComponent>(args.Target))
-        //     {
-        //         if (!_tagSystem.HasAnyTag(args.Target.Value, "DroneUsable", "Trash"))
-        //             args.Cancel();
-        //     }
-        // }
-
-        // private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
-        // {
-        //     if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
-        //     {
-        //         args.Cancel();
-        //     }
-        // }
+        private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
+        {
+            if (!_tagSystem.HasTag(args.Target, "DroneUsable"))
+            {
+                args.Cancel();
+            }
+        }
 
         private void OnExamined(EntityUid uid, DroneComponent component, ExaminedEvent args)
         {
@@ -122,25 +100,6 @@ namespace Content.Server.Drone
             {
                 appearance.SetData(DroneVisuals.Status, status);
             }
-        }
-
-        private bool NonDronesInRange(EntityUid uid, DroneComponent component)
-        {
-            var xform = Comp<TransformComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, component.InteractionBlockRange))
-            {
-                // Return true if the entity is/was controlled by a player and is not a drone or ghost.
-                if (HasComp<MindComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))
-                {
-                    // Filter out dead ghost roles. Dead normal players are intended to block.
-                    if ((TryComp<MobStateComponent>(entity, out var entityMobState) && HasComp<GhostTakeoverAvailableComponent>(entity) && _mobStateSystem.IsDead(entity, entityMobState)))
-                        continue;
-                    if (_gameTiming.IsFirstTimePredicted)
-                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", Identity.Entity(entity, EntityManager))), uid, uid);
-                    return true;
-                }
-            }
-            return false;
         }
     }
 }

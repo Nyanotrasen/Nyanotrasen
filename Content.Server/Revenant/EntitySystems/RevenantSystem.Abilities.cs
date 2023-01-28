@@ -71,7 +71,7 @@ public sealed partial class RevenantSystem
             return;
         }
 
-        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidComponent>(target) || HasComp<RevenantComponent>(target))
+        if (!HasComp<MobStateComponent>(target) || !HasComp<HumanoidAppearanceComponent>(target) || HasComp<RevenantComponent>(target))
             return;
 
         args.Handled = true;

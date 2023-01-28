@@ -23,6 +23,9 @@
                     </BoxContainer>
                     <BoxContainer Orientation="Vertical" Name="ConnectFail" Visible="False">
                         <RichTextLabel Name="ConnectFailReason" VerticalAlignment="Stretch"/>
+                        <Button Name="RedirectButton" Text="{Loc 'connecting-redirect'}"
+                                HorizontalAlignment="Center"
+                                VerticalExpand="True" VerticalAlignment="Bottom" />
                         <Button Name="RetryButton" Text="{Loc 'connecting-retry'}"
                                 HorizontalAlignment="Center"
                                 VerticalExpand="True" VerticalAlignment="Bottom" />

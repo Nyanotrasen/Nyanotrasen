@@ -70,7 +70,6 @@
   components:
     - type: ExpendableLight
       spentName: expendable-light-spent-red-glowstick-name
-      glowDuration: 10 # time in seconds
       fadeOutDuration: 5
     - type: Sprite
       layers:

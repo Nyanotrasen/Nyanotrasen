@@ -1,6 +1,7 @@
 using Content.Server.EUI;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
+using Content.Server.Redial;
 
 namespace Content.Server.Ghost.Roles.UI
 {
@@ -8,7 +9,10 @@ namespace Content.Server.Ghost.Roles.UI
     {
         public override GhostRolesEuiState GetNewState()
         {
-            return new(EntitySystem.Get<GhostRoleSystem>().GetGhostRolesInfo());
+            // trying to do this the way the obsolete warning suggests results in an NRE :^)
+            var roles = EntitySystem.Get<GhostRoleSystem>().GetGhostRolesInfo();
+            var enabled = IoCManager.Resolve<RedialManager>().RedialAvailable();
+            return new GhostRolesEuiState(roles, enabled);
         }
 
         public override void HandleMessage(EuiMessageBase msg)

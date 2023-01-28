@@ -1,0 +1,29 @@
+﻿- type: job
+  id: Valet
+  name: job-name-valet
+  description: job-description-valet
+  playTimeTracker: JobValet
+  startingGear: ValetGear
+  icon: "ServiceWorker"
+  supervisors: job-supervisors-everyone
+  setPreference: false
+  access:
+  - Service
+  - Bar
+  - Kitchen
+  - Cargo
+
+- type: startingGear
+  id: ValetGear
+  equipment:
+    head: ClothingHeadHatBellhop
+    jumpsuit: ClothingUniformJumpsuitBartender
+    outerClothing: ClothingOuterVestValet
+    gloves: ClothingHandsGlovesColorWhite
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: ServiceWorkerPDA
+    ears: ClothingHeadsetService
+  innerclothingskirt: ClothingUniformJumpskirtBartender
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

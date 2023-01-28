@@ -34,15 +34,8 @@ public sealed class PrototypeSaveTest
 {
     private readonly HashSet<string> _ignoredPrototypes = new()
     {
-        /// *waves at upstream*
-        "Singularity",
-        // yeah we should take a look-see at these
-        "MobGolemCult",
-        "MobGolemWood",
-        "EngineeringTechFab",
-        "MobObserverTelegnostic",
-        "PoweredlightBlueInterior",
-        "SpawnPointGhostVampSpider",
+        "Singularity", // physics collision uses "AllMask" (-1). The flag serializer currently fails to save this because this features un-named bits.
+        "constructionghost",
     };
 
     [Test]

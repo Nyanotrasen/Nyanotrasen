@@ -133,6 +133,9 @@ namespace Content.Server.Abilities.Psionics
             if (!HasComp<MindSwappedComponent>(args.Mind.CurrentEntity))
                 return;
 
+            if (!args.ViaCommand)
+                return;
+
             args.Result = false;
             args.Handled = true;
         }
@@ -156,10 +159,10 @@ namespace Content.Server.Abilities.Psionics
             TryComp<ActorComponent>(target, out var targetActor);
 
             if (perfActor != null)
-                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true);
+                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true, false);
 
             if (targetActor != null)
-                targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true);
+                targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true, false);
 
             if (end)
             {
