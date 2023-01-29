@@ -6,7 +6,7 @@
   maxPlayers: 30
   stations:
     Ovni:
-      mapNameTemplate: 'NSS Platillo "Ovni" {1}'
+      mapNameTemplate: '{0} Ovni Station {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
