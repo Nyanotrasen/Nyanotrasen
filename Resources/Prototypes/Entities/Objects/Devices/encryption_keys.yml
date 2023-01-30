@@ -268,3 +268,7 @@
   - type: Sprite
     sprite: Objects/Devices/encryption_keys.rsi
     state: syn_cypherkey
+  - type: ReverseEngineering
+    difficulty: 5
+    recipes:
+      - EncryptionKeySyndie
