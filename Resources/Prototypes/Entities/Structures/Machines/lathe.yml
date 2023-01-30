@@ -311,7 +311,7 @@
   parent: Protolathe
   id: ExosuitFabricator
   name: exosuit fabricator
-  description: Creates parts for robotics and other mechanical needs
+  description: Creates parts for mechs and hardsuits.
   components:
   - type: Sprite
     netsync: false
@@ -339,6 +339,8 @@
     - RipleyRLeg
     - MechEquipmentGrabber
     - ClothingOuterHardsuitSyndieReverseEngineered
+    - JetpackBlue
+    - JetpackMini
   - type: MaterialStorage
     whitelist:
       tags:
