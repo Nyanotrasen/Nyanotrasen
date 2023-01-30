@@ -36,6 +36,14 @@
     params:
       variation: 0.125
 
+- type: emoteSounds
+  id: UnisexFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
