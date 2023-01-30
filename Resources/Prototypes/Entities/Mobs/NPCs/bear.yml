@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: space bear
   id: MobBearSpace
   parent: SimpleSpaceMobBase
@@ -9,12 +9,12 @@
   - type: HTN
     rootTask: SimpleHostileCompound
     blackboard:
-      NavInteract: !type:Bool #double check this
+      NavInteract: !type:Bool 
         true
       NavPry: !type:Bool
         true
   - type: Tool
-    speed: 0.75 #is this backwards? Should be slightly slower than human w/crowbar
+    speed: 0.75 
     qualities:
       - Prying
     useSound:
@@ -43,6 +43,11 @@
     allowedStates:
       - Alive
       - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
   - type: Stamina
     excess: 150
   - type: Appearance
@@ -87,6 +92,7 @@
         Slash: 5
   - type: ReplacementAccent
     accent: genericAggressive
+  #remove
   - type: GhostTakeoverAvailable
     prob: 0.05
     name: space bear
