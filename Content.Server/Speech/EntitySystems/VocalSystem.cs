@@ -76,7 +76,7 @@ public sealed class VocalSystem : EntitySystem
         if (args.Handled)
             return;
 
-        _chat.TryEmoteWithChat(uid, component.ScreamActionId);
+        _chat.TryEmoteWithChat(uid, component.ScreamActionId, checkEmote: false);
         args.Handled = true;
     }
 
