@@ -44,6 +44,14 @@
     Scream:
       collection: FelinidScreams
 
+- type: emoteSounds
+  id: UnisexMoth
+  sound:
+    path: /Audio/Voice/Moth/scream_moth.ogg
+  params:
+    variation: 0.125
+
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
@@ -54,13 +62,6 @@
       collection: Snaps
       params:
         volume: -6
-
-- type: emoteSounds
-  id: UnisexMoth
-  sound:
-    path: /Audio/Voice/Moth/scream_moth.ogg
-  params:
-    variation: 0.125
 
 # mobs
 - type: emoteSounds
