@@ -56,11 +56,11 @@ public partial class ChatSystem
     /// <param name="hideGlobalGhostChat">Whether or not this message should appear in the chat window for out-of-range ghosts (which otherwise ignore range restrictions)</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     public void TryEmoteWithChat(EntityUid source, string emoteId, bool hideChat = false,
-        bool hideGlobalGhostChat = false, string? nameOverride = null)
+        bool hideGlobalGhostChat = false, string? nameOverride = null, bool checkEmote = true)
     {
         if (!_prototypeManager.TryIndex<EmotePrototype>(emoteId, out var proto))
             return;
-        TryEmoteWithChat(source, proto, hideChat, hideGlobalGhostChat, nameOverride);
+        TryEmoteWithChat(source, proto, hideChat, hideGlobalGhostChat, nameOverride, checkEmote);
     }
 
     /// <summary>
@@ -72,13 +72,13 @@ public partial class ChatSystem
     /// <param name="hideGlobalGhostChat">Whether or not this message should appear in the chat window for out-of-range ghosts (which otherwise ignore range restrictions)</param>
     /// <param name="nameOverride">The name to use for the speaking entity. Usually this should just be modified via <see cref="TransformSpeakerNameEvent"/>. If this is set, the event will not get raised.</param>
     public void TryEmoteWithChat(EntityUid source, EmotePrototype emote, bool hideChat = false,
-        bool hideGlobalGhostChat = false, string? nameOverride = null)
+        bool hideGlobalGhostChat = false, string? nameOverride = null, bool checkEmote = true)
     {
         // check if proto has valid message for chat
         if (emote.ChatMessages.Count != 0)
         {
             var action = _random.Pick(emote.ChatMessages);
-            SendEntityEmote(source, action, hideChat, hideGlobalGhostChat, nameOverride, false);
+            SendEntityEmote(source, action, hideChat, hideGlobalGhostChat, nameOverride, false, checkEmote);
         }
 
         // do the rest of emote event logic here
