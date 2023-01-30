@@ -47,10 +47,10 @@
 - type: emoteSounds
   id: UnisexMoth
   sound:
-    path: /Audio/Voice/Moth/scream_moth.ogg
+    Scream:
+      path: /Audio/Voice/Moth/scream_moth.ogg
   params:
     variation: 0.125
-
 
 # body emotes
 - type: emoteSounds
