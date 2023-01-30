@@ -1,4 +1,4 @@
-alert-level-announcement = Attention! Station alert level is now {$name}! {$announcement}
+alert-level-announcement = Attention! Station alert level has been set to {$name}! {$announcement}
 
 alert-level-green = Green
 alert-level-green-announcement = It is now safe to return to your workplaces.
