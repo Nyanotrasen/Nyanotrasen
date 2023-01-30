@@ -2323,3 +2323,8 @@ Entries:
   - {message: The station's automated PA system has been upgraded., type: Add}
   id: 359
   time: '2023-01-30T04:41:17.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Fixed Moth and Felinid screams using the wrong sound, type: Fix}
+  id: 360
+  time: '2023-01-30T18:18:40.0000000+00:00'
