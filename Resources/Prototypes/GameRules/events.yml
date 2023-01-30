@@ -41,6 +41,10 @@
     !type:StationEventRuleConfiguration
     id: BureaucraticError
     startAnnouncement: station-event-bureaucratic-error-announcement
+    startAudio:
+      path: /Audio/Announcements/bureaucratic_error.ogg
+      params:
+        volume: -1
     minimumPlayers: 25
     weight: 5
     endAfter: 1
@@ -53,7 +57,7 @@
     startAudio:
       path: /Audio/Announcements/outbreak7.ogg
       params:
-        volume: -4
+        volume: -1
     id: DiseaseOutbreak
     weight: 5
     endAfter: 1
@@ -94,7 +98,7 @@
     id: GasLeak
     startAnnouncement: station-event-gas-leak-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/gas_leak.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     earliestStart: 10
     minimumPlayers: 5
@@ -106,6 +110,8 @@
   config:
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
+    startAudio:
+      path: /Audio/Announcements/kudzu.ogg
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
@@ -125,7 +131,7 @@
     startAudio:
       path: /Audio/Announcements/meteors.ogg
       params:
-        volume: -4
+        volume: -1
     startAfter: 30
 
 # - type: gameRule
@@ -169,7 +175,7 @@
     id: VentClog
     startAnnouncement: station-event-vent-clog-start-announcement
     startAudio:
-      path: /Audio/Announcements/attention.ogg
+      path: /Audio/Announcements/ventclog.ogg
     earliestStart: 15
     minimumPlayers: 15
     weight: 5
