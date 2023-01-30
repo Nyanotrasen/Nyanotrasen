@@ -36,6 +36,22 @@
     params:
       variation: 0.125
 
+- type: emoteSounds
+  id: UnisexFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+
+- type: emoteSounds
+  id: UnisexMoth
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Moth/scream_moth.ogg
+
 # body emotes
 - type: emoteSounds
   id: GeneralBodyEmotes
