@@ -225,7 +225,7 @@
 
 # - type: listing
 #   id: UplinkHoloparaKit
-#   name: 
+#   name:
 #   description: uplink-holopara-kit-desc
 #   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
 #   productEntity: BoxHoloparasite
@@ -304,12 +304,22 @@
   categories:
     - UplinkUtility
 
-#TODO: Increase the price of this to 4-5/remove it when we get encrpytion keys
+#TODO: Increase the price to 4 when flashbang prof.
 - type: listing
   id: UplinkHeadset
   name: uplink-headset-name
   description: uplink-headset-desc
   productEntity: ClothingHeadsetAltSyndicate
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkUtility
+
+- type: listing
+  id: UplinkHeadsetEncryptionKey
+  name: uplink-encryption-key-name
+  description: uplink-encryption-key-desc
+  productEntity: EncryptionKeySyndie
   cost:
     Telecrystal: 2
   categories:

@@ -4,12 +4,13 @@
   name: epistemics headset
   description: Faithfully recreates the true essence of remote sound waves.
   components:
-  - type: Headset
-    channels:
-    - Common
-    - Science
-    defaultChannel: Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScience
   - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
 
 - type: entity
@@ -18,13 +19,13 @@
   name: mystagogue headset
   description: Still useful to someone with psychic powers.
   components:
-  - type: Headset
-    channels:
-    - Command
-    - Common
-    - Science
-    defaultChannel: Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyRD
   - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
 
 - type: entity
@@ -32,28 +33,25 @@
   id: ClothingHeadsetAltMystagogue
   name: epistemics over-ear headset
   components:
-  - type: Headset
-    channels:
-    - Command
-    - Common
-    - Science
-    defaultChannel: Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyRD
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetAlt
   id: ClothingHeadsetMantis
   name: mantis headset
-  description: Specially fitted to be worn under a fez.
   components:
-  - type: Headset
-    channels:
-    - Common
-    - Science
-    - Security
-    defaultChannel: Science
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMantis
   - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Clothing
     sprite: Clothing/Ears/Headsets/science.rsi
