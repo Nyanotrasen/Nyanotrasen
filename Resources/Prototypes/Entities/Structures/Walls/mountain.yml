@@ -18,14 +18,14 @@
         acts: ["Destruction"]
   - type: OreVein
     oreChance: 0.2
-    oreRarityPrototypeId: RandomOreDistributionHigh
+    oreRarityPrototypeId: RandomOreDistributionHigh    
 
 - type: entity
   id: MountainRockMining
   parent: BaseStructure
   name: mountain rock
   suffix: un-mineable
-  description: A craggy mountain wall. It's too hard to mine.
+  description: A craggy mountain wall. It is too hard to mine.
   components:
   - type: Sprite
     sprite: Structures/Walls/mountain_rock.rsi
