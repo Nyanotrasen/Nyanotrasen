@@ -1,8 +1,8 @@
 - type: entity
-  id: MountainRock
+  id: MountainRockMining
   parent: AsteroidRock
   name: mountain rock
-  suffix: Low Ore Yield/High Value
+  suffix: Higher Value Ore
   description: A craggy mountain wall.
   components:
   - type: Sprite
@@ -17,11 +17,11 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: OreVein
-    oreChance: 0.2
+    oreChance: 0.33
     oreRarityPrototypeId: RandomOreDistributionHigh    
 
 - type: entity
-  id: MountainRockMining
+  id: MountainRock
   parent: BaseStructure
   name: mountain rock
   suffix: un-mineable
@@ -56,6 +56,3 @@
   - type: IconSmooth
     key: walls
     base: rock_
-  - type: OreVein
-    oreChance: 0.33
-    oreRarityPrototypeId: RandomOreDistributionHigh
