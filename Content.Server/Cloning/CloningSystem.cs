@@ -7,6 +7,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Tag;
 using Content.Shared.CCVar;
 using Content.Shared.Preferences;
+using Content.Shared.Emoting;
 using Content.Server.Psionics;
 using Content.Server.Cloning.Components;
 using Content.Server.Speech.Components;
@@ -400,6 +401,7 @@ namespace Content.Server.Cloning
 
             EnsureComp<PotentialPsionicComponent>(mob);
             EnsureComp<SpeechComponent>(mob);
+            EnsureComp<EmotingComponent>(mob);
             RemComp<ReplacementAccentComponent>(mob);
             RemComp<MonkeyAccentComponent>(mob);
             RemComp<SentienceTargetComponent>(mob);
