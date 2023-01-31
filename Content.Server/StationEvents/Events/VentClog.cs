@@ -37,7 +37,7 @@ public sealed class VentClog : StationEventSystem
         var sound = new SoundPathSpecifier("/Audio/Effects/extinguish.ogg");
         var mod = (float) Math.Sqrt(GetSeverityModifier());
 
-        foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>())
+        foreach (var (_, transform) in EntityManager.EntityQuery<GasVentScrubberComponent, TransformComponent>())
         {
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != chosenStation)
             {
