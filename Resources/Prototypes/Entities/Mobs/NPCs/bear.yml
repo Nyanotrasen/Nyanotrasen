@@ -92,12 +92,6 @@
         Slash: 5
   - type: ReplacementAccent
     accent: genericAggressive
-  #remove
-  - type: GhostTakeoverAvailable
-    prob: 0.05
-    name: space bear
-    description: |
-      You're a bear! Do bear things.
 
 - type: entity
   id: MobBearSpaceSalvage
