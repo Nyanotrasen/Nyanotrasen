@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/red.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.4
 
 - type: entity
   parent: ClothingNeckBase
@@ -22,7 +22,7 @@
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/blue.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.4
 
 - type: entity
   parent: ClothingNeckBase
@@ -35,7 +35,7 @@
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/green.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.4
 
 - type: entity
   parent: ClothingNeckBase
@@ -48,4 +48,4 @@
   - type: Clothing
     sprite: Clothing/Neck/Scarfs/zebra.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.4
