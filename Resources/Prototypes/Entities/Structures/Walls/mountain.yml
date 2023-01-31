@@ -5,15 +5,56 @@
   description: A craggy mountain wall.
   components:
   - type: Sprite
-    sprite: Structures/Walls/mountain_rock.rsi
+    sprite: Nyanotrasen/Structures/Walls/mountain_rock_ore.rsi
     state: full
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: OreVein
+    oreChance: 0.2
+    oreRarityPrototypeId: RandomOreDistributionHigh
 
 - type: entity
   id: MountainRockMining
-  parent: AsteroidRockMining
+  parent: BaseStructure
   name: mountain rock
-  description: A craggy mountain wall.
+  suffix: un-mineable
+  description: A craggy mountain wall. It's too hard to mine.
   components:
   - type: Sprite
     sprite: Structures/Walls/mountain_rock.rsi
     state: full
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Occluder
+  - type: Airtight
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.5,-0.5,0.5,0.5"
+      density: 100
+      mask:
+      - FullTileMask
+      layer:
+      - WallLayer
+  - type: IconSmooth
+    key: walls
+    base: rock_
+  - type: OreVein
+    oreChance: 0.33
+    oreRarityPrototypeId: RandomOreDistributionHigh
