@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: space bear
   id: MobBearSpace
   parent: SimpleSpaceMobBase
@@ -8,6 +8,17 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
+    blackboard:
+      NavInteract: !type:Bool 
+        true
+      NavPry: !type:Bool
+        true
+  - type: Tool
+    speed: 0.75 
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
   - type: Faction
     factions:
     - SimpleHostile
@@ -35,10 +46,14 @@
   - type: MobThresholds
     thresholds:
       0: Alive
+      100: Critical
       150: Dead
   - type: Stamina
     excess: 150
   - type: Appearance
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Bear
   - type: DamageStateVisuals
     states:
       Alive:
@@ -70,16 +85,13 @@
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
     animation: WeaponArcClaw
+    bluntStaminaDamageFactor: 3.0
     damage:
-      groups:
-        Brute: 15
+      types:
+        Blunt: 10
+        Slash: 5
   - type: ReplacementAccent
     accent: genericAggressive
-  - type: GhostTakeoverAvailable
-    prob: 0.05
-    name: space bear
-    description: |
-      You're a bear! Do bear things.
 
 - type: entity
   id: MobBearSpaceSalvage
