@@ -24,10 +24,16 @@ namespace Content.Server.Weapons.Melee
         public float HitCost { get; set; }
 
         /// <summary>
-        /// How much is the stamina cost muliplied by when the weapon is Wielded?
+        /// Added to cost if weapon is wielded. Applied before heavy cost which is a bit of a buff to wielding.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        [DataField("wieldCoefficient")]
-        public float WieldCoefficient { get; set; } = 1.5f;
+        [DataField("wieldModifier")]
+        public float WieldModifier { get; set; } = 5f;
+
+        /// <summary>
+        /// Stamina cost modifier for heavy attack.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite), DataField("heavyStaminaCostModifier")]
+        public float HeavyStaminaCostModifier = 3f;
     }
 }

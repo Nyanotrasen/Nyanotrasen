@@ -13,6 +13,8 @@
     damage:
       types:
         Blunt: 7.5
+  - type: MeleeStaminaCost
+    swing: 8
   - type: StaminaDamageOnHit
     damage: 8
   - type: Wieldable
