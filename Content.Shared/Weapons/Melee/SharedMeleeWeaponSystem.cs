@@ -22,7 +22,6 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Weapons.Melee;
 
@@ -59,12 +58,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         SubscribeLocalEvent<MeleeWeaponComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<MeleeWeaponComponent, ComponentHandleState>(OnHandleState);
-        SubscribeLocalEvent<MeleeWeaponComponent, HandDeselectedEvent>(OnMeleeDropped);
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
 
         SubscribeAllEvent<LightAttackEvent>(OnLightAttack);
-        SubscribeAllEvent<StartHeavyAttackEvent>(OnStartHeavyAttack);
-        SubscribeAllEvent<StopHeavyAttackEvent>(OnStopHeavyAttack);
         SubscribeAllEvent<HeavyAttackEvent>(OnHeavyAttack);
         SubscribeAllEvent<DisarmAttackEvent>(OnDisarmAttack);
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
@@ -89,15 +85,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         Dirty(component);
     }
 
-    private void OnMeleeDropped(EntityUid uid, MeleeWeaponComponent component, HandDeselectedEvent args)
-    {
-        if (component.WindUpStart == null)
-            return;
-
-        component.WindUpStart = null;
-        Dirty(component);
-    }
-
     private void OnStopAttack(StopAttackEvent msg, EntitySessionEventArgs args)
     {
         var user = args.SenderSession.AttachedEntity;
@@ -117,23 +104,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         Dirty(weapon);
     }
 
-    private void OnStartHeavyAttack(StartHeavyAttackEvent msg, EntitySessionEventArgs args)
-    {
-        var user = args.SenderSession.AttachedEntity;
-
-        if (user == null)
-            return;
-
-        var weapon = GetWeapon(user.Value);
-
-        if (weapon?.Owner != msg.Weapon)
-            return;
-
-        DebugTools.Assert(weapon.WindUpStart == null);
-        weapon.WindUpStart = Timing.CurTime;
-        Dirty(weapon);
-    }
-
     protected abstract void Popup(string message, EntityUid? uid, EntityUid? user);
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
@@ -149,28 +119,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return;
 
         AttemptAttack(args.SenderSession.AttachedEntity!.Value, weapon, msg, args.SenderSession);
-    }
-
-    private void OnStopHeavyAttack(StopHeavyAttackEvent msg, EntitySessionEventArgs args)
-    {
-        if (args.SenderSession.AttachedEntity == null ||
-            !TryComp<MeleeWeaponComponent>(msg.Weapon, out var weapon))
-        {
-            return;
-        }
-
-        var userWeapon = GetWeapon(args.SenderSession.AttachedEntity.Value);
-
-        if (userWeapon != weapon)
-            return;
-
-        if (weapon.WindUpStart.Equals(null))
-        {
-            return;
-        }
-
-        weapon.WindUpStart = null;
-        Dirty(weapon);
     }
 
     private void OnHeavyAttack(HeavyAttackEvent msg, EntitySessionEventArgs args)
@@ -207,7 +155,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     private void OnGetState(EntityUid uid, MeleeWeaponComponent component, ref ComponentGetState args)
     {
         args.State = new MeleeWeaponComponentState(component.AttackRate, component.Attacking, component.NextAttack,
-            component.WindUpStart, component.ClickAnimation, component.WideAnimation, component.Range);
+            component.ClickAnimation, component.WideAnimation, component.Range);
     }
 
     private void OnHandleState(EntityUid uid, MeleeWeaponComponent component, ref ComponentHandleState args)
@@ -218,7 +166,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         component.Attacking = state.Attacking;
         component.AttackRate = state.AttackRate;
         component.NextAttack = state.NextAttack;
-        component.WindUpStart = state.WindUpStart;
 
         component.ClickAnimation = state.ClickAnimation;
         component.WideAnimation = state.WideAnimation;
@@ -357,30 +304,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (lightAttack)
             return 1f;
 
-        var windup = component.WindUpStart;
-        if (windup == null)
-            return 0f;
-
-        var releaseTime = (Timing.CurTime - windup.Value).TotalSeconds;
-        var windupTime = component.WindupTime.TotalSeconds;
-
-        // Wraps around back to 0
-        releaseTime %= (2 * windupTime);
-
-        var releaseDiff = Math.Abs(releaseTime - windupTime);
-
-        if (releaseDiff < 0)
-            releaseDiff = Math.Min(0, releaseDiff + GracePeriod);
-        else
-            releaseDiff = Math.Max(0, releaseDiff - GracePeriod);
-
-        var fraction = (windupTime - releaseDiff) / windupTime;
-
-        if (fraction < 0.4)
-            fraction = 0;
-
-        DebugTools.Assert(fraction <= 1);
-        return (float) fraction * component.HeavyDamageModifier.Float();
+        return (float) component.HeavyDamageModifier;
     }
 
     protected abstract bool InRange(EntityUid user, EntityUid target, float range, ICommonSession? session);
