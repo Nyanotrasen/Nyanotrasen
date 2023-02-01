@@ -2392,3 +2392,9 @@ Entries:
   - {message: Remastered all N.E.I.L. announcements., type: Tweak}
   id: 372
   time: '2023-02-01T01:02:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Removed windup from melee weapons., type: Remove}
+  - {message: Heavy attacks now cost more stamina., type: Add}
+  id: 373
+  time: '2023-02-01T02:08:07.0000000+00:00'
