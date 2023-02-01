@@ -261,8 +261,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 break;
         }
 
-        // Windup time checked elsewhere.
-
         if (weapon.NextAttack < curTime)
             weapon.NextAttack = curTime;
 
