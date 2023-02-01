@@ -55,29 +55,16 @@ public sealed class MeleeWeaponComponent : Component
     public bool Attacking = false;
 
     /// <summary>
-    /// When did we start a heavy attack.
-    /// </summary>
-    /// <returns></returns>
-    [ViewVariables(VVAccess.ReadWrite), DataField("windUpStart")]
-    public TimeSpan? WindUpStart;
-
-    /// <summary>
-    /// How long it takes a heavy attack to windup.
-    /// </summary>
-    [ViewVariables]
-    public TimeSpan WindupTime => AttackRate > 0 ? TimeSpan.FromSeconds(1 / AttackRate * HeavyWindupModifier) : TimeSpan.Zero;
-
-    /// <summary>
-    /// Heavy attack windup time gets multiplied by this value and the light attack cooldown.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("heavyWindupModifier")]
-    public float HeavyWindupModifier = 1.5f;
-
-    /// <summary>
-    /// Light attacks get multiplied by this over the base <see cref="Damage"/> value.
+    /// Heavy attacks get multiplied by this over the base <see cref="Damage"/> value.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("heavyDamageModifier")]
     public FixedPoint2 HeavyDamageModifier = FixedPoint2.New(2);
+
+    /// <summary>
+    /// Minimum stamina % for heavy attack.
+    /// </summary>
+    [DataField("heavyMinStamina")]
+    public float HeavyMinStamina = 0.2f;
 
     /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
@@ -154,18 +141,15 @@ public sealed class MeleeWeaponComponentState : ComponentState
     public float AttackRate;
     public bool Attacking;
     public TimeSpan NextAttack;
-    public TimeSpan? WindUpStart;
-
     public string ClickAnimation;
     public string WideAnimation;
     public float Range;
 
-    public MeleeWeaponComponentState(float attackRate, bool attacking, TimeSpan nextAttack, TimeSpan? windupStart, string clickAnimation, string wideAnimation, float range)
+    public MeleeWeaponComponentState(float attackRate, bool attacking, TimeSpan nextAttack, string clickAnimation, string wideAnimation, float range)
     {
         AttackRate = attackRate;
         Attacking = attacking;
         NextAttack = nextAttack;
-        WindUpStart = windupStart;
         ClickAnimation = clickAnimation;
         WideAnimation = wideAnimation;
         Range = range;

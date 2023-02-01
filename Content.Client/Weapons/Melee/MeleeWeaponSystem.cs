@@ -9,11 +9,9 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
-using Robust.Client.ResourceManagement;
 using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -25,7 +23,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IOverlayManager _overlayManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly IStateManager _stateManager = default!;
@@ -38,7 +35,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     {
         base.Initialize();
         InitializeEffect();
-        _overlayManager.AddOverlay(new MeleeWindupOverlay(EntityManager, _timing, _player, _protoManager));
         SubscribeAllEvent<DamageEffectEvent>(OnDamageEffect);
         SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
     }
@@ -46,7 +42,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     public override void Shutdown()
     {
         base.Shutdown();
-        _overlayManager.RemoveOverlay<MeleeWindupOverlay>();
     }
 
     public override void Update(float frameTime)
@@ -70,11 +65,6 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity))
         {
             weapon.Attacking = false;
-            if (weapon.WindUpStart != null)
-            {
-                EntityManager.RaisePredictiveEvent(new StopHeavyAttackEvent(weapon.Owner));
-            }
-
             return;
         }
 
@@ -93,22 +83,22 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
+            var mousePos = _eyeManager.ScreenToMap(_inputManager.MouseScreenPosition);
+            EntityCoordinates coordinates;
+
+            if (MapManager.TryFindGridAt(mousePos, out var grid))
+            {
+                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, EntityManager);
+            }
+            else
+            {
+                coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
+            }
+
             // If it's an unarmed attack then do a disarm
             if (weapon.Owner == entity)
             {
                 EntityUid? target = null;
-
-                var mousePos = _eyeManager.ScreenToMap(_inputManager.MouseScreenPosition);
-                EntityCoordinates coordinates;
-
-                if (MapManager.TryFindGridAt(mousePos, out var grid))
-                {
-                    coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, EntityManager);
-                }
-                else
-                {
-                    coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
-                }
 
                 if (_stateManager.CurrentState is GameplayStateBase screen)
                 {
@@ -119,41 +109,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 return;
             }
 
-            // Otherwise do heavy attack if it's a weapon.
-
-            // Start a windup
-            if (weapon.WindUpStart == null)
-            {
-                EntityManager.RaisePredictiveEvent(new StartHeavyAttackEvent(weapon.Owner));
-                weapon.WindUpStart = currentTime;
-            }
-
             // Try to do a heavy attack.
-            if (useDown == BoundKeyState.Down)
-            {
-                var mousePos = _eyeManager.ScreenToMap(_inputManager.MouseScreenPosition);
-                EntityCoordinates coordinates;
-
-                // Bro why would I want a ternary here
-                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-                if (MapManager.TryFindGridAt(mousePos, out var grid))
-                {
-                    coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, EntityManager);
-                }
-                else
-                {
-                    coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
-                }
-
-                EntityManager.RaisePredictiveEvent(new HeavyAttackEvent(weapon.Owner, coordinates));
-            }
-
+            EntityManager.RaisePredictiveEvent(new HeavyAttackEvent(weapon.Owner, coordinates));
             return;
-        }
-
-        if (weapon.WindUpStart != null)
-        {
-            EntityManager.RaisePredictiveEvent(new StopHeavyAttackEvent(weapon.Owner));
         }
 
         // Light attack

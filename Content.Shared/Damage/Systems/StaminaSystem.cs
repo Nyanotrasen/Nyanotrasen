@@ -112,6 +112,16 @@ public sealed class StaminaSystem : EntitySystem
         return MathF.Max(0f, component.StaminaDamage - MathF.Max(0f, (float) (curTime - (component.NextUpdate + pauseTime)).TotalSeconds * component.Decay));
     }
 
+    public float GetFreeStaminaPercentage(EntityUid uid, StaminaComponent? component = null)
+    {
+        if (!Resolve(uid, ref component, false))
+            return 1f;
+
+        var damage = GetStaminaDamage(uid, component);
+
+        return 1 -(damage / component.CritThreshold);
+    }
+
     private void OnDisarmed(EntityUid uid, StaminaComponent component, DisarmedEvent args)
     {
         if (args.Handled || !_random.Prob(args.PushProbability))
