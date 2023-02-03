@@ -349,7 +349,7 @@ namespace Content.Server.Tools
 
             if (welder.Lit)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-cant-refill-when-lit"), welderUid, user, PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("welder-component-cant-refill-when-lit"), welderUid, user, PopupType.MediumCaution);
                 return;
             }
 
