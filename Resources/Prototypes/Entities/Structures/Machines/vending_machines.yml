@@ -417,11 +417,15 @@
     offState: off
     brokenState: broken
     normalState: normal-unshaded
+    denyState: deny-unshaded
+    ejectState: eject-unshaded
+    denyDelay: 1.0
+    ejectDelay: 1.3
   - type: Advertise
     pack: DiscountDansAds
   - type: Speech
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/discount.rsi
+    sprite: Nyanotrasen/Structures/Machines/VendingMachines/discount.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
