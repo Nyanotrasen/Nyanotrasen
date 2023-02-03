@@ -6,6 +6,7 @@
   stations:
     arena:
       mapNameTemplate: '{0} Arena Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/UCLB_grid.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: 'TG'
