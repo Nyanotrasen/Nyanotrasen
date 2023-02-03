@@ -8,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Popups;
 using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Tools.Components;
@@ -241,6 +242,13 @@ namespace Content.Server.Tools
                 && _solutionContainerSystem.TryGetDrainableSolution(target, out var targetSolution)
                 && _solutionContainerSystem.TryGetSolution(uid, welder.FuelSolution, out var welderSolution))
             {
+                if (welder.Lit)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("welder-component-cant-refill-when-lit"), uid, args.User, PopupType.SmallCaution);
+                    args.Handled = true;
+                    return;
+                }
+
                 var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
                 if (trans > 0)
                 {
