@@ -5,9 +5,9 @@
   description: It's comfy.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/hyenh.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/hyenh.rsi
     - type: TemperatureProtection
       coefficient: 0.1
 
@@ -18,9 +18,9 @@
   description: Even your legs will be warm with this stylish coat.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/long_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/long_winter_coat.rsi
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/long_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/long_winter_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -29,9 +29,9 @@
   description: It might be made out of actual wool.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/plaid_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/plaid_winter_coat.rsi
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/plaid_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/plaid_winter_coat.rsi
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -40,6 +40,6 @@
   description: It'll keep away the cold but not the dogs.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/mail_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mail_winter_coat.rsi
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/OuterClothing/Coats/mail_winter_coat.rsi
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mail_winter_coat.rsi
