@@ -43,3 +43,14 @@
       sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mail_winter_coat.rsi
     - type: Clothing
       sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mail_winter_coat.rsi
+
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: ClothingOuterWinterCoatMantis
+  name: forensic mantis' winter coat
+  description: Solve cold cases in style.
+  components:
+    - type: Sprite
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mantis_winter_coat.rsi
+    - type: Clothing
+      sprite: Nyanotrasen/Clothing/OuterClothing/WinterCoats/mantis_winter_coat.rsi
