@@ -53,6 +53,7 @@ namespace Content.Shared.Humanoid
                     break;
                 case HumanoidVisualLayers.Chest:
                     yield return HumanoidVisualLayers.Chest;
+                    yield return HumanoidVisualLayers.Wings;
                     yield return HumanoidVisualLayers.Tail;
                     break;
                 default:
@@ -70,6 +71,8 @@ namespace Content.Shared.Humanoid
                     return HumanoidVisualLayers.Chest;
                 case BodyPartType.Tail:
                     return HumanoidVisualLayers.Tail;
+                case BodyPartType.Wings:
+                    return HumanoidVisualLayers.Wings;
                 case BodyPartType.Head:
                     // use the Sublayers method to hide the rest of the parts,
                     // if that's what you're looking for

@@ -14,6 +14,7 @@ namespace Content.Shared.Humanoid.Markings
         Chest,
         Arms,
         Legs,
+        Wings,
         Tail,
         Overlay
     }
@@ -39,6 +40,7 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.RLeg => MarkingCategories.Legs,
                 HumanoidVisualLayers.LFoot => MarkingCategories.Legs,
                 HumanoidVisualLayers.RFoot => MarkingCategories.Legs,
+                HumanoidVisualLayers.Wings => MarkingCategories.Wings,
                 HumanoidVisualLayers.Tail => MarkingCategories.Tail,
                 _ => MarkingCategories.Overlay
             };
