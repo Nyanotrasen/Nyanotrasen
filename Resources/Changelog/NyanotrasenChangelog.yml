@@ -2421,3 +2421,19 @@ Entries:
   - {message: Added an entirely new outfit for the forensic mantis., type: Add}
   id: 377
   time: '2023-02-05T08:36:05.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Trying to refill a lit welder feels impossibly stupid now, type: Tweak}
+  id: 378
+  time: '2023-02-05T17:02:49.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The forensic mantis' extra headset is now a proper mantis headset instead
+      of a regular epistemics headset., type: Fix}
+  - {message: The forensic mantis' cabinet has been made more resilient to intrusion.,
+    type: Tweak}
+  - {message: 'The forensic mantis'' cabinet now holds all of the mantis'' gear, including
+      the anti-psychic knife.', type: Add}
+  - {message: The Forensics Drobe has been retired., type: Remove}
+  id: 379
+  time: '2023-02-05T17:03:15.0000000+00:00'
