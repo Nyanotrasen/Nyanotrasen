@@ -123,3 +123,14 @@
         Radiation: 0.95
   - type: TinfoilHat
     destroyOnFry: false #At least while they aren't printable.
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFezMantis
+  name: forensic mantis' fez
+  description: A fine red fez with a gold tassel.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi

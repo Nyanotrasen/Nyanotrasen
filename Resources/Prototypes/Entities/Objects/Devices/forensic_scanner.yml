@@ -24,3 +24,6 @@
     - key: enum.ForensicScannerUiKey.Key
       type: ForensicScannerBoundUserInterface
   - type: ForensicScanner
+  - type: Tag
+    tags:
+      - ForensicBeltEquip
