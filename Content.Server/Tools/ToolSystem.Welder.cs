@@ -247,7 +247,7 @@ namespace Content.Server.Tools
 
             if (!welder.Lit)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-welder-not-lit-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
                 args.Cancel();
                 return;
             }
@@ -256,7 +256,7 @@ namespace Content.Server.Tools
 
             if (FixedPoint2.New(args.Fuel) > fuel)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-cannot-weld-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-cannot-weld-message"), args.User);
                 args.Cancel();
             }
         }
@@ -268,7 +268,7 @@ namespace Content.Server.Tools
 
             if (!welder.Lit)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-welder-not-lit-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
                 args.Cancel();
                 return;
             }
@@ -359,15 +359,15 @@ namespace Content.Server.Tools
                 var drained = _solutionContainerSystem.Drain(target, targetSolution,  trans);
                 _solutionContainerSystem.TryAddSolution(welderUid, welderSolution, drained);
                 _audioSystem.PlayPvs(welder.WelderRefill, welderUid);
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-after-interact-refueled-message"), welderUid, user);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-after-interact-refueled-message"), user);
             }
             else if (welderSolution.AvailableVolume <= 0)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-already-full"), welderUid, user);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-already-full"), user);
             }
             else
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-no-fuel-in-tank", ("owner", target)), welderUid, user);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-no-fuel-in-tank", ("owner", target)), user);
             }
         }
     }
