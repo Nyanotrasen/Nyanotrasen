@@ -2444,3 +2444,8 @@ Entries:
   - {message: Fixed the Vaccinator not connecting to a server on startup., type: Fix}
   id: 380
   time: '2023-02-05T19:53:57.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged the bugfix from upstream for voice masks., type: Add}
+  id: 381
+  time: '2023-02-05T20:43:04.0000000+00:00'
