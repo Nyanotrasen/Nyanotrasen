@@ -30,12 +30,27 @@
 - type: entity
   id: LockerForensicMantisFilled
   suffix: Filled
-  parent: LockerDetective
-  name: forensic mantis' cabinet
+  parent: LockerForensicMantis
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHeadHatFez
+      # Tools
       - id: FlashlightSeclite
       - id: ForensicScanner
       - id: BoxForensicPad
+      - id: AntiPsychicKnife
+      # Spare change of clothes
+      - id: ClothingUniformJumpsuitMantis
+      - id: ClothingUniformSkirtMantis
+      - id: ClothingBeltMantis
+      - id: ClothingShoesBootsMantis
+      - id: ClothingHandsGlovesColorWhite
+      - id: ClothingHeadsetMantis
+      - id: ClothingHeadHatFezMantis
+      - id: ClothingOuterCoatMantis
+      - id: ClothingOuterWinterCoatMantis
+      - id: ClothingEyesGlassesSunglasses
+      # Insulative headgear
+      - id: ClothingHeadHelmetInsulated
+      - id: ClothingHeadCage
+      - id: ClothingHeadCage

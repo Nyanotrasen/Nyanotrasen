@@ -21,17 +21,6 @@
   - type: WiresVisuals
 
 - type: entity
-  parent: VendingMachineDetDrobe
-  id: VendingMachineForensicsDrobe
-  name: Forensics Wardrobe
-  description: A fez dispenser.
-  components:
-  - type: VendingMachine
-    pack: ForensicsDrobeInventory
-  - type: AccessReader
-    access: [["Detective"]]
-
-- type: entity
   parent: VendingMachineSciDrobe
   id: VendingMachineEpiDrobe
   name: EpiDrobe
