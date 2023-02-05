@@ -70529,14 +70529,6 @@ entities:
   - pos: 0.5,41.5
     parent: 7
     type: Transform
-- uid: 8200
-  type: VendingMachineForensicsDrobe
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: -12.5,26.5
-    parent: 7
-    type: Transform
 - uid: 8201
   type: Grille
   components:

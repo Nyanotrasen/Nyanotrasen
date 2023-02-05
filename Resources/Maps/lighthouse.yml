@@ -28637,15 +28637,6 @@ entities:
   - pos: 9.5,-17.5
     parent: 100
     type: Transform
-- uid: 326
-  type: VendingMachineForensicsDrobe
-  components:
-  - flags: SessionSpecific
-    name: ForensicsDrobe
-    type: MetaData
-  - pos: 8.5,-17.5
-    parent: 100
-    type: Transform
 - uid: 327
   type: ComputerTelevision
   components:
