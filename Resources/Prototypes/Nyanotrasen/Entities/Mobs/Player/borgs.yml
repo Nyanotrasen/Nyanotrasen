@@ -145,7 +145,6 @@
     autoRot: true
   - type: Appearance
   - type: Eye
-  - type: RandomMetadata
     nameSegments: [names_autoborg]
   - type: Strap
     position: Stand
@@ -171,6 +170,7 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -228,6 +228,7 @@
     - NanoTrasen
   - type: TypingIndicator
     proto: robot
+  - type: PlayerJobEntityMetadata
 
 - type: entity
   parent: PlayerCyborgBase
@@ -287,3 +288,4 @@
   - type: FabricateCandy
   - type: ShowHealthBars
     damageContainer: Biological
+  - type: PlayerJobEntityMetadata

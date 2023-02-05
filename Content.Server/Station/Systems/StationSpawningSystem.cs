@@ -74,6 +74,9 @@ public sealed class StationSpawningSystem : EntitySystem
 
         DebugTools.Assert(ev.SpawnResult is {Valid: true} or null);
 
+        var ev2 = new PlayerMobSpawnedEvent(job, profile, station, lateJoin);
+        RaiseLocalEvent(ev.SpawnResult!.Value, ev2);
+
         return ev.SpawnResult;
     }
 
@@ -240,6 +243,38 @@ public sealed class PlayerSpawningEvent : EntityEventArgs
     public bool LateJoin;
 
     public PlayerSpawningEvent(Job? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station, bool lateJoin)
+    {
+        Job = job;
+        HumanoidCharacterProfile = humanoidCharacterProfile;
+        Station = station;
+        LateJoin = lateJoin;
+    }
+}
+
+/// <summary>
+/// Event fired after player mob has successfully been spawned.
+/// </summary>
+[PublicAPI]
+public sealed class PlayerMobSpawnedEvent : EntityEventArgs
+{
+    /// <summary>
+    /// The job to use, if any.
+    /// </summary>
+    public readonly Job? Job;
+    /// <summary>
+    /// The profile to use, if any.
+    /// </summary>
+    public readonly HumanoidCharacterProfile? HumanoidCharacterProfile;
+    /// <summary>
+    /// The target station, if any.
+    /// </summary>
+    public readonly EntityUid? Station;
+    /// <summary>
+    /// Whether we're latejoining (or not and we just don't want to use the latejoin spawn point...)
+    /// </summary>
+    public bool LateJoin;
+
+    public PlayerMobSpawnedEvent(Job? job, HumanoidCharacterProfile? humanoidCharacterProfile, EntityUid? station, bool lateJoin)
     {
         Job = job;
         HumanoidCharacterProfile = humanoidCharacterProfile;
