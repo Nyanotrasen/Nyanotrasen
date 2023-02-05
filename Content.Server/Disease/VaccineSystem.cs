@@ -32,13 +32,17 @@ namespace Content.Server.Disease
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, CreateVaccineMessage>(OnCreateVaccineMessageReceived);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, DiseaseMachineFinishedEvent>(OnVaccinatorFinished);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, MaterialAmountChangedEvent>(OnVaccinatorAmountChanged);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchClientServerSelectedMessage>(OnServerSelected);
+            SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchClientServerDeselectedMessage>(OnServerDeselected);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, VaccinatorSyncRequestMessage>(OnSyncRequest);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, VaccinatorServerSelectionMessage>(OpenServerList);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, AfterActivatableUIOpenEvent>(AfterUIOpen);
@@ -51,6 +55,14 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<TargetVaxxSuccessfulEvent>(OnTargetVaxxSuccessful);
             SubscribeLocalEvent<VaxxCancelledEvent>(OnVaxxCancelled);
 
+        }
+
+        private void OnResearchRegistrationChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref ResearchRegistrationChangedEvent args)
+        {
+            if (TryComp<DiseaseServerComponent>(args.Server, out var diseaseServer))
+                component.DiseaseServer = diseaseServer;
+            else
+                component.DiseaseServer = null;
         }
 
         /// <summary>
@@ -140,6 +152,12 @@ namespace Content.Server.Disease
                 return;
 
             component.DiseaseServer = diseaseServer;
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private void OnServerDeselected(EntityUid uid, DiseaseVaccineCreatorComponent component, ResearchClientServerDeselectedMessage args)
+        {
+            component.DiseaseServer = null;
             UpdateUserInterfaceState(uid, component);
         }
 
