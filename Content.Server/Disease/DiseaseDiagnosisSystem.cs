@@ -33,6 +33,8 @@ namespace Content.Server.Disease
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly PaperSystem _paperSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly VaccineSystem _vaccineSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -357,6 +359,17 @@ namespace Content.Server.Disease
             MetaData(printed).EntityName = reportTitle;
 
             _paperSystem.SetContent(printed, contents.ToMarkup(), paper);
+
+            // Update the UI for all DiseaseVaccineCreators on the station so
+            // players watching for the vaccine to be available see it as soon
+            // as possible.
+            foreach (var creator in EntityQuery<DiseaseVaccineCreatorComponent>())
+            {
+                if (_stationSystem.GetOwningStation(creator.Owner) != _stationSystem.GetOwningStation(uid))
+                    continue;
+
+                _vaccineSystem.UpdateUserInterfaceState(creator.Owner, creator);
+            }
         }
 
         /// <summary>

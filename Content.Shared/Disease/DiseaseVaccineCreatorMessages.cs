@@ -45,12 +45,15 @@ namespace Content.Shared.Disease.Components
 
         public bool Locked;
 
-        public VaccineMachineUpdateState(int biomass, int biomassCost, List<(string id, string name)> diseases, bool locked)
+        public bool HasServer;
+
+        public VaccineMachineUpdateState(int biomass, int biomassCost, List<(string id, string name)> diseases, bool locked, bool hasServer)
         {
             Biomass = biomass;
             BiomassCost = biomassCost;
             Diseases = diseases;
             Locked = locked;
+            HasServer = hasServer;
         }
     }
 
