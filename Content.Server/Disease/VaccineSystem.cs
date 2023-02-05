@@ -180,6 +180,7 @@ namespace Content.Server.Disease
             var biomass = _storageSystem.GetMaterialAmount(uid, "Biomass");
 
             var diseases = new List<(string id, string name)>();
+            var hasServer = false;
 
             if (component.DiseaseServer != null)
             {
@@ -190,12 +191,13 @@ namespace Content.Server.Disease
 
                     diseases.Add((disease.ID, disease.Name));
                 }
+
+                hasServer = true;
             }
-            var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid));
+
+            var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid), hasServer);
             _uiSys.SetUiState(ui, state);
         }
-
-
 
         /// <summary>
         /// Called when a vaccine is used on someone
@@ -303,6 +305,7 @@ namespace Content.Server.Disease
         {
             args.Vaxx.CancelToken = null;
         }
+
         /// These two are standard doafter stuff you can ignore
         private sealed class VaxxCancelledEvent : EntityEventArgs
         {
@@ -312,6 +315,7 @@ namespace Content.Server.Disease
                 Vaxx = vaxx;
             }
         }
+
         private sealed class TargetVaxxSuccessfulEvent : EntityEventArgs
         {
             public EntityUid User { get; }
