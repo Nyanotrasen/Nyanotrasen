@@ -2449,3 +2449,9 @@ Entries:
   - {message: Merged the bugfix from upstream for voice masks., type: Add}
   id: 381
   time: '2023-02-05T20:43:04.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Unlit welders are ATEX certified again. Lit welders are definitely not.,
+    type: Fix}
+  id: 382
+  time: '2023-02-06T14:33:56.0000000+00:00'
