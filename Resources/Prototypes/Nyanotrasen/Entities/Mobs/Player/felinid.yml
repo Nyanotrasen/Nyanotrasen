@@ -23,9 +23,9 @@
   - type: Vocal
     wilhelm: "/Audio/Voice/Felinid/cat_wilhelm.ogg"
     sounds:
-      Male: UnisexFelinid
-      Female: UnisexFelinid
-      Unsexed: UnisexFelinid
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
   - type: Actions
   - type: Eye
   - type: CameraRecoil
