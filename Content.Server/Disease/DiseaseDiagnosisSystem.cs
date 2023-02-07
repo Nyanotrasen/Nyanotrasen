@@ -34,6 +34,7 @@ namespace Content.Server.Disease
         [Dependency] private readonly PaperSystem _paperSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
         [Dependency] private readonly VaccineSystem _vaccineSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -267,8 +268,8 @@ namespace Content.Server.Disease
             if (!TryComp<AppearanceComponent>(uid, out var appearance))
                 return;
 
-            appearance.SetData(DiseaseMachineVisuals.IsOn, isOn);
-            appearance.SetData(DiseaseMachineVisuals.IsRunning, isRunning);
+            _appearance.SetData(uid, DiseaseMachineVisuals.IsOn, isOn, appearance);
+            _appearance.SetData(uid, DiseaseMachineVisuals.IsRunning, isRunning, appearance);
         }
         /// <summary>
         /// Makes sure the machine is visually off/on.
