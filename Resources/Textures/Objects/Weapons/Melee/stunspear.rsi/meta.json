@@ -3,12 +3,102 @@
     "license": "CC-BY-SA-3.0",
     "copyright": "made by AR",
     "size": {
-        "x": 32,
-        "y": 32
+      "x": 32,
+      "y": 32
     },
     "states": [
-        {
-            "name": "stunspear"
-        }
+      {
+        "name": "stunspearoff"
+      },
+      {
+        "name": "stunspearon"
+      },
+      {
+        "name": "stunspearon",
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        ]
+      },
+      {
+        "name": "equipped-BELT",
+        "directions": 4
+      },
+      {
+        "name": "off-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "off-inhand-right",
+        "directions": 4
+      },
+      {
+        "name": "on-inhand-left",
+        "directions": 4,
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        ]
+      },
+      {
+        "name": "on-inhand-right",
+        "directions": 4,
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ],
+          [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        ]
+      }
     ]
-}
+  }
+  
