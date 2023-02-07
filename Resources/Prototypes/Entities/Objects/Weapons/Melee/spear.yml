@@ -78,3 +78,35 @@
     damage:
       types:
         Blunt: 5
+
+- type: entity
+  name: Stun spear
+  parent: Spear
+  id: stunspear
+  description: zappy stick
+  components:
+  - type: Tag
+    tags:
+    - Spear
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/stunspear.rsi
+    netsync: false
+    state: spear
+  - type: MeleeWeapon
+    range: 2.0
+    damage:
+      types:
+        stamima: 35
+        blunt: 2
+    angle: 0
+    animation: WeaponArcThrust
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        stamima: 50
+        blunt: 5
+        bleeding: 2
+  - type: Item
+    size: 30
+  - type: Clothing
