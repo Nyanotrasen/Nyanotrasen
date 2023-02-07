@@ -54,6 +54,9 @@
   - type: ContainerContainer
     containers:
       Nuke: !type:ContainerSlot
+  - type: WarpPoint
+    follow: true
+    location: nuclear fission explosive
 
 - type: entity
   parent: NuclearBomb
