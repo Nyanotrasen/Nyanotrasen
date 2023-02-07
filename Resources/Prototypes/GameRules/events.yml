@@ -110,6 +110,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
+    startAnnouncement: station-event-kudzu-growth-start-announcement
     startAudio:
       path: /Audio/Announcements/kudzu.ogg
     earliestStart: 15
