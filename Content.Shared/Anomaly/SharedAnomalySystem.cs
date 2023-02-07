@@ -146,7 +146,7 @@ public abstract class SharedAnomalySystem : EntitySystem
         Appearance.SetData(uid, AnomalyVisuals.IsPulsing, true);
 
         var ev = new AnomalyPulseEvent(component.Stability, component.Severity);
-        _glimmer.Glimmer += (int) (10f * component.Severity);
+        _glimmer.Glimmer += (int) (5f * component.Severity);
         RaiseLocalEvent(uid, ref ev);
     }
 
