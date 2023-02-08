@@ -1,0 +1,79 @@
+- type: entity
+  id: MobGlimmerWisp
+  name: glimmer wisp
+  description: A strange orb that moves with intent.
+  components:
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Ghosts
+    sprite: Nyanotrasen/Mobs/Monster/glimmer_wisp.rsi
+    state: willowisp
+    layers:
+      - state: willowisp
+        shader: unshaded
+  - type: Psionic
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: KinematicController
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeCircle
+        radius: 0.35
+      density: 13
+      mask:
+      - GhostImpassable
+      layer:
+      - MobLayer
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 8
+    baseWalkSpeed: 5
+  - type: MovementIgnoreGravity
+  - type: Stealth
+    lastVisibility: 0.66
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Actions
+  - type: Alerts
+  - type: CombatMode
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: Stamina
+    excess: 100
+  - type: InputMover
+  - type: MobMover
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - SlowedDown
+      - Pacified
+  - type: PointLight
+    color: "#419ba3"
+  - type: Gun
+    fireRate: 0.7
+    showExamineText: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 1
+  - type: HTN
+    rootTask: SimpleRangedCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+  - type: Faction
+    factions:
+      - SimpleHostile
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
