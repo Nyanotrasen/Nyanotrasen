@@ -2484,3 +2484,15 @@ Entries:
   - {message: The anomaly spawn event is slightly less common., type: Tweak}
   id: 387
   time: '2023-02-07T23:45:46.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Restored the oni naming scheme that got accidentally removed at some
+      point., type: Fix}
+  id: 388
+  time: '2023-02-08T00:09:17.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Probers will ignore mobs like pAIs that are immune to electrocution.,
+    type: Tweak}
+  id: 389
+  time: '2023-02-08T00:20:57.0000000+00:00'
