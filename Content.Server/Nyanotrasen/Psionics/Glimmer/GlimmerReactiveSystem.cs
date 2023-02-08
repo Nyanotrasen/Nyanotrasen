@@ -9,6 +9,7 @@ using Content.Server.Revenant.EntitySystems;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
+using Content.Shared.StatusEffect;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs.Components;
@@ -212,12 +213,13 @@ namespace Content.Server.Psionics.Glimmer
         public void BeamRandomNearProber(EntityUid prober, int targets, float range = 10f)
         {
             List<EntityUid> targetList = new();
-            foreach (var target in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            foreach (var target in _entityLookupSystem.GetComponentsInRange<StatusEffectsComponent>(Transform(prober).Coordinates, range))
             {
-                targetList.Add(target.Owner);
+                if (target.AllowedEffects.Contains("Electrocution"))
+                    targetList.Add(target.Owner);
             }
 
-            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<MobStateComponent>(Transform(prober).Coordinates, range))
+            foreach(var reactive in _entityLookupSystem.GetComponentsInRange<SharedGlimmerReactiveComponent>(Transform(prober).Coordinates, range))
             {
                 targetList.Add(reactive.Owner);
             }
