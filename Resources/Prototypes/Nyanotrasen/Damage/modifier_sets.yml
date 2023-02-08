@@ -57,6 +57,18 @@
     Heat: 5
 
 - type: damageModifierSet
+  id: GlimmerWisp
+  coeffecients:
+    Blunt: 0.1
+    Slash: 0.1
+    Piercing: 0
+    Poison: 0
+    Cold: 0
+    Radiation: 0
+    Heat: 3
+    Shock: -1
+
+- type: damageModifierSet
   id: CancerMouse
   coefficients:
     Radiation: -0.25
