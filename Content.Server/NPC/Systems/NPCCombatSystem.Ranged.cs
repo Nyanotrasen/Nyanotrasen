@@ -104,8 +104,15 @@ public sealed partial class NPCCombatSystem
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
-                comp.Status = CombatStatus.TargetUnreachable;
-                continue;
+                if (!comp.CanMove)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    continue;
+                }
+                else
+                {
+                    comp.Status = CombatStatus.NotInSight;
+                }
             }
 
             if (!oldInLos && comp.SoundTargetInLOS != null)
@@ -130,6 +137,23 @@ public sealed partial class NPCCombatSystem
             if (!_rotate.TryRotateTo(comp.Owner, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
                 continue;
+            }
+
+
+            if (comp.CanMove)
+            {
+                if (TryComp<NPCSteeringComponent>(comp.Owner, out var steering) &&
+                    steering.Status == SteeringStatus.NoPath)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    return;
+                }
+
+                steering = EnsureComp<NPCSteeringComponent>(comp.Owner);
+                steering.Range = 3.5f;
+
+                // Gets unregistered on component shutdown.
+                _steering.TryRegister(comp.Owner, new EntityCoordinates(comp.Target, Vector2.Zero), steering);
             }
 
             // TODO: LOS

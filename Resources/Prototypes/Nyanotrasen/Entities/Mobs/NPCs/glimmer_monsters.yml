@@ -68,9 +68,6 @@
     fireCost: 1
   - type: HTN
     rootTask: SimpleRangedCompound
-    blackboard:
-      SoundTargetInLOS: !type:SoundPathSpecifier
-        path: /Audio/Effects/double_beep.ogg
   - type: Faction
     factions:
       - SimpleHostile
