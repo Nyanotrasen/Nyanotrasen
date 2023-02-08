@@ -20,3 +20,7 @@ guide-entry-ape = A.P.E.
 guide-entry-xenoarchaeology = Xenoarchaeology
 guide-entry-artifact-reports = Artifact Reports
 guide-entry-traversal-distorter = Traversal Distorter
+guide-entry-space-law = Space Law
+guide-entry-jurisdiction = Jurisdiction
+guide-entry-trial-prodedure = Trial Procedure
+guide-entry-charges-and-times = Charges & Sentencing
