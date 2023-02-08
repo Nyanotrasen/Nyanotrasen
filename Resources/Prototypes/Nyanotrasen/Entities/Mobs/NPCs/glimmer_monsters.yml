@@ -93,3 +93,7 @@
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
+  - type: DamageOnDispel
+    damage:
+      types:
+        Heat: 75

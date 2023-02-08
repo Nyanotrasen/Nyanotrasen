@@ -61,12 +61,12 @@
   coefficients:
     Blunt: 0.1
     Slash: 0.1
-    Piercing: 0
-    Poison: 0
-    Cold: 0
-    Radiation: 0
-    Heat: 3
-    Shock: -1
+    Piercing: 0.0
+    Poison: 0.0
+    Cold: 0.0
+    Radiation: 0.0
+    Heat: 3.0
+    Shock: -1.0
 
 - type: damageModifierSet
   id: CancerMouse
