@@ -91,3 +91,13 @@
 
 - type: faction
   id: Mailman
+
+- type: faction
+  id: GlimmerMonster # Crew hostile psionic
+  hostile:
+  - PsionicInterloper
+
+- type: faction
+  id: PsionicInterloper # Crew aligned psionic
+  hostile:
+  - GlimmerMonster

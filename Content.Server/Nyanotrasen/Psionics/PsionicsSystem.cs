@@ -8,6 +8,8 @@ using Content.Shared.IdentityManagement;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Electrocution;
 using Content.Server.Chat.Systems;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -23,6 +25,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly FactionSystem _factions = default!;
 
         /// <summary>
         /// Unfortunately, since spawning as a normal role and anything else is so different,
@@ -46,6 +49,9 @@ namespace Content.Server.Psionics
             SubscribeLocalEvent<AntiPsionicWeaponComponent, StaminaMeleeHitEvent>(OnStamHit);
 
             SubscribeLocalEvent<PotentialPsionicComponent, MobStateChangedEvent>(OnDeathGasp);
+
+            SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<PsionicComponent, ComponentRemove>(OnRemove);
             SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
@@ -101,6 +107,25 @@ namespace Content.Server.Psionics
             }
 
             _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+        }
+
+        private void OnInit(EntityUid uid, PsionicComponent component, ComponentInit args)
+        {
+            if (!TryComp<FactionComponent>(uid, out var factions))
+                return;
+
+            if (_factions.ContainsFaction(uid, "GlimmerMonster", factions))
+                return;
+
+            _factions.AddFaction(uid, "PsionicInterloper");
+        }
+
+        private void OnRemove(EntityUid uid, PsionicComponent component, ComponentRemove args)
+        {
+            if (!TryComp<FactionComponent>(uid, out var factions))
+                return;
+
+            _factions.RemoveFaction(uid, "PsionicInterloper");
         }
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
