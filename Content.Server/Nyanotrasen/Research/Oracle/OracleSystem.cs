@@ -181,7 +181,7 @@ namespace Content.Server.Research.Oracle
 
             var nextItem = true;
 
-            if (component.LastDesiredPrototype != null && CheckValidity(meta.EntityPrototype, component.DesiredPrototype))
+            if (component.LastDesiredPrototype != null && CheckValidity(meta.EntityPrototype, component.LastDesiredPrototype))
             {
                 nextItem = false;
                 validItem = true;
