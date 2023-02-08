@@ -287,6 +287,12 @@ namespace Content.Shared.CCVar
 #endif
 
         /*
+         * Damage
+         */
+        public static readonly CVarDef<float> DamageVariance =
+            CVarDef.Create("damage.variance", 0.15f, CVar.SERVER | CVar.REPLICATED);
+
+        /*
          * Discord
          */
 
