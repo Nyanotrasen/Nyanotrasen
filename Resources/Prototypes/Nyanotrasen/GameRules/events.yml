@@ -63,6 +63,15 @@
     glimmerBurnLower: 50
     glimmerBurnUpper: 110
 
+- type: gameRule
+  id: GlimmerWispSpawn
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: GlimmerWispSpawn
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    report: glimmer-event-report-signatures
+
 ## converted upstream events
 - type: gameRule
   id: GlimmerRandomSentience
@@ -78,6 +87,6 @@
   config:
     !type:GlimmerEventRuleConfiguration
     id: GlimmerRevenantSpawn
-    minimumGlimmer: 600
+    minimumGlimmer: 500
     maximumGlimmer: 900
     report: glimmer-event-report-signatures
