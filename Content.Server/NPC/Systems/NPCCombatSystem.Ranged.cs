@@ -2,17 +2,11 @@ using Content.Server.NPC.Components;
 using Content.Server.NPC.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
+using Content.Shared.Examine;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
-using Content.Server.CombatMode;
-using Content.Server.NPC.Components;
-using Content.Server.NPC.Events;
+using static Content.Shared.Examine.ExamineSystemShared;
 using Content.Shared.NPC;
-using Content.Shared.Weapons.Melee;
-using Robust.Shared.Map;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Random;
-
 
 namespace Content.Server.NPC.Systems;
 
@@ -87,6 +81,8 @@ public sealed partial class NPCCombatSystem
         {
             combat.IsInCombatMode = false;
         }
+
+        _steering.Unregister(component.Owner);
     }
 
     private void UpdateRanged(float frameTime)
@@ -143,13 +139,13 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                comp.TargetInLOS = _interaction.InRangeUnobstructed(comp.Owner, comp.Target, distance + 0.1f);
+                comp.TargetInLOS = ExamineSystemShared.InRangeUnOccluded(comp.Owner, comp.Target, distance + 1f, null);
             }
 
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
-                if (!comp.CanMove)
+                if (!comp.CanMove || distance >= 9f)
                 {
                     comp.Status = CombatStatus.TargetUnreachable;
                     continue;
