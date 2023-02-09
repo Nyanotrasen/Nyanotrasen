@@ -59,6 +59,11 @@ public sealed class RangedOperator : HTNOperator
         {
             ranged.SoundTargetInLOS = losSound;
         }
+
+        if (blackboard.TryGetValue<bool>(NPCBlackboard.CanMove, out var canMove, _entManager))
+        {
+            ranged.CanMove = canMove;
+        }
     }
 
     public override void Shutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
@@ -87,10 +92,7 @@ public sealed class RangedOperator : HTNOperator
             {
                 switch (combat.Status)
                 {
-                    case CombatStatus.TargetUnreachable:
                     case CombatStatus.NotInSight:
-                        status = HTNOperatorStatus.Failed;
-                        break;
                     case CombatStatus.Normal:
                         status = HTNOperatorStatus.Continuing;
                         break;

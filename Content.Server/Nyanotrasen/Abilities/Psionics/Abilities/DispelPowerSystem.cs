@@ -9,6 +9,7 @@ using Content.Server.Bible.Components;
 using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Abilities.Psionics
@@ -20,6 +21,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly GuardianSystem _guardianSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
@@ -33,8 +35,9 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<DispelPowerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<DispelPowerActionEvent>(OnPowerUsed);
 
-            // Upstream stuff we're just gonna handle here
             SubscribeLocalEvent<DispellableComponent, DispelledEvent>(OnDispelled);
+            SubscribeLocalEvent<DamageOnDispelComponent, DispelledEvent>(OnDmgDispelled);
+            // Upstream stuff we're just gonna handle here
             SubscribeLocalEvent<GuardianComponent, DispelledEvent>(OnGuardianDispelled);
             SubscribeLocalEvent<FamiliarComponent, DispelledEvent>(OnFamiliarDispelled);
             SubscribeLocalEvent<RevenantComponent, DispelledEvent>(OnRevenantDispelled);
@@ -84,6 +87,16 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
+        private void OnDmgDispelled(EntityUid uid, DamageOnDispelComponent component, DispelledEvent args)
+        {
+            var damage = component.Damage;
+            var modifier = (1 + component.Variance) - (_random.NextFloat(0, component.Variance * 2));
+
+            damage *= modifier;
+            DealDispelDamage(uid, damage);
+            args.Handled = true;
+        }
+
         private void OnGuardianDispelled(EntityUid uid, GuardianComponent guardian, DispelledEvent args)
         {
             if (TryComp<GuardianHostComponent>(guardian.Host, out var host))
@@ -108,7 +121,7 @@ namespace Content.Server.Abilities.Psionics
             args.Handled = true;
         }
 
-        public void DealDispelDamage(EntityUid uid)
+        public void DealDispelDamage(EntityUid uid, DamageSpecifier? damage = null)
         {
             if (Deleted(uid))
                 return;
@@ -116,8 +129,11 @@ namespace Content.Server.Abilities.Psionics
             _popupSystem.PopupCoordinates(Loc.GetString("psionic-burn-resist", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.SmallCaution);
             _audioSystem.Play("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
 
-            DamageSpecifier damage = new();
-            damage.DamageDict.Add("Blunt", 100);
+            if (damage == null)
+            {
+                damage = new();
+                damage.DamageDict.Add("Blunt", 100);
+            }
             _damageableSystem.TryChangeDamage(uid, damage, true, true);
         }
     }

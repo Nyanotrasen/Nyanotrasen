@@ -1,8 +1,18 @@
 using Content.Server.NPC.Components;
+using Content.Server.NPC.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Content.Server.CombatMode;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Events;
+using Content.Shared.NPC;
+using Content.Shared.Weapons.Melee;
+using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+
 
 namespace Content.Server.NPC.Systems;
 
@@ -20,9 +30,44 @@ public sealed partial class NPCCombatSystem
 
     private void InitializeRanged()
     {
+        SubscribeLocalEvent<NPCRangedCombatComponent, NPCSteeringEvent>(OnRangedSteering);
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentStartup>(OnRangedStartup);
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentShutdown>(OnRangedShutdown);
     }
+
+    private void OnRangedSteering(EntityUid uid, NPCRangedCombatComponent component, ref NPCSteeringEvent args)
+    {
+        args.Steering.CanSeek = true;
+
+        if (!_physics.TryGetNearestPoints(uid, component.Target, out _, out var pointB))
+            return;
+
+        var idealDistance = 4f;
+        var obstacleDirection = pointB - args.WorldPosition;
+        var obstacleDistance = obstacleDirection.Length;
+
+        if (obstacleDistance > idealDistance || obstacleDistance < 1f)
+        {
+            return;
+        }
+
+        args.Steering.CanSeek = false;
+        obstacleDirection = args.OffsetRotation.RotateVec(obstacleDirection);
+        var norm = obstacleDirection.Normalized;
+
+        var weight = (idealDistance - obstacleDistance) / idealDistance;
+
+        for (var i = 0; i < SharedNPCSteeringSystem.InterestDirections; i++)
+        {
+            var result = -Vector2.Dot(norm, NPCSteeringSystem.Directions[i]) * weight;
+
+            if (result < 0f)
+                continue;
+
+            args.Interest[i] = MathF.Max(args.Interest[i], result);
+        }
+    }
+
 
     private void OnRangedStartup(EntityUid uid, NPCRangedCombatComponent component, ComponentStartup args)
     {
@@ -104,8 +149,15 @@ public sealed partial class NPCCombatSystem
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
-                comp.Status = CombatStatus.TargetUnreachable;
-                continue;
+                if (!comp.CanMove)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    continue;
+                }
+                else
+                {
+                    comp.Status = CombatStatus.NotInSight;
+                }
             }
 
             if (!oldInLos && comp.SoundTargetInLOS != null)
@@ -130,6 +182,23 @@ public sealed partial class NPCCombatSystem
             if (!_rotate.TryRotateTo(comp.Owner, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
                 continue;
+            }
+
+
+            if (comp.CanMove)
+            {
+                if (TryComp<NPCSteeringComponent>(comp.Owner, out var steering) &&
+                    steering.Status == SteeringStatus.NoPath)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    return;
+                }
+
+                steering = EnsureComp<NPCSteeringComponent>(comp.Owner);
+                steering.Range = 3.5f;
+
+                // Gets unregistered on component shutdown.
+                _steering.TryRegister(comp.Owner, new EntityCoordinates(comp.Target, Vector2.Zero), steering);
             }
 
             // TODO: LOS
