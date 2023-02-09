@@ -2511,3 +2511,19 @@ Entries:
   - {message: Oracle will accept its last requested item again., type: Fix}
   id: 392
   time: '2023-02-08T08:08:56.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed an issue that was causing several regressions., type: Fix}
+  id: 393
+  time: '2023-02-08T22:01:53.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Heavy attack damage multiplier and stamina cost from 2.0/3.0 to 1.1/2.0.,
+    type: Tweak}
+  id: 394
+  time: '2023-02-09T02:30:45.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: Added 10 new salvage maps from the remains of Atlas Station, type: Add}
+  id: 395
+  time: '2023-02-09T02:31:27.0000000+00:00'
