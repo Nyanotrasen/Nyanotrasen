@@ -139,7 +139,7 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                comp.TargetInLOS = ExamineSystemShared.InRangeUnOccluded(comp.Owner, comp.Target, distance + 1f, null);
+                comp.TargetInLOS = ExamineSystemShared.InRangeUnOccluded(comp.Owner, comp.Target, distance + 0.1f, null);
             }
 
             if (!comp.TargetInLOS)
