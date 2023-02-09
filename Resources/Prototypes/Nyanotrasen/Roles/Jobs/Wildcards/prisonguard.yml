@@ -9,7 +9,7 @@
   startingGear: PrisonGuardGear
   alwaysUseSpawner: true
   canBeAntag: false
-  icon: "PrisonGuard" 
+  icon: "Warden" 
   supervisors: job-supervisors-warden
   setPreference: false
   whitelistRequired: true
@@ -26,7 +26,6 @@
     shoes: ClothingShoesBootsJack
     eyes: ClothingEyesGlassesSecurity
     head: ClothingHeadPrisonGuard
-    #outerClothing: ClothingOuterVestKevlar
     id: GuardPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltSecurityFilled
