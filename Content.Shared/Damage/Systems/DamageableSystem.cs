@@ -4,10 +4,13 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Radiation.Events;
 using Content.Shared.Rejuvenate;
+using Content.Shared.CCVar;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Damage
 {
@@ -16,6 +19,10 @@ namespace Content.Shared.Damage
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+
+        public float Variance = 0.15f;
 
         public override void Initialize()
         {
@@ -24,6 +31,7 @@ namespace Content.Shared.Damage
             SubscribeLocalEvent<DamageableComponent, ComponentGetState>(DamageableGetState);
             SubscribeLocalEvent<DamageableComponent, OnIrradiatedEvent>(OnIrradiated);
             SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate);
+            _configurationManager.OnValueChanged(CCVars.DamageVariance, UpdateVariance);
         }
 
         /// <summary>
@@ -159,6 +167,10 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
+            // Apply universal variance
+            var multiplier = (1f + Variance) - (_random.NextFloat(0, Variance * 2f));
+            damage *= multiplier;
+
             // Apply resistances
             if (!ignoreResistances)
             {
@@ -280,6 +292,11 @@ namespace Content.Shared.Damage
                 component.Damage = newDamage;
                 DamageChanged(component, delta);
             }
+        }
+
+        private void UpdateVariance(float variance)
+        {
+            Variance = variance;
         }
     }
 
