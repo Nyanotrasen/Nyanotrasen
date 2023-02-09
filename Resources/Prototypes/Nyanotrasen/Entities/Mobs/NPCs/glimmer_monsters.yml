@@ -94,6 +94,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: WispLash
     fireCost: 1
+    infinite: true
+    examinable: false
   - type: HTN
     rootTask: SimpleRangedCompound
   - type: Faction
