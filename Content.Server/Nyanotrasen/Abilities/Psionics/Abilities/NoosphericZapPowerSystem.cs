@@ -51,17 +51,11 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(NoosphericZapPowerActionEvent args)
         {
-            Logger.Error("Received event...");
-            Logger.Error("args.Performer: " + args.Performer);
-            Logger.Error("args.Target: " + args.Target);
-
             if (!HasComp<PotentialPsionicComponent>(args.Target))
                 return;
 
             if (HasComp<PsionicInsulationComponent>(args.Target))
                 return;
-
-            Logger.Error("Passed checks...");
 
             _beam.TryCreateBeam(args.Performer, args.Target, "LightningNoospheric");
 
