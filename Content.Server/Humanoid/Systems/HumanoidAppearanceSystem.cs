@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -100,6 +101,58 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         humanoid.Age = profile.Age;
 
         Dirty(humanoid);
+    }
+
+    /// <summary>
+    ///     Saves a humanoid mob's appearance into a humanoid character profile.
+    /// </summary>
+    /// <param name="uid">The mob's entity UID.</param>
+    /// <param name="profile">The character profile to load.</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public bool SaveProfile(EntityUid uid, [NotNullWhen(true)] out HumanoidCharacterProfile? profile, HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid))
+        {
+            profile = null;
+            return false;
+        }
+
+        var newAppearance = HumanoidCharacterAppearance
+            .DefaultWithSpecies(humanoid.Species)
+            .WithSkinColor(humanoid.SkinColor)
+            .WithEyeColor(humanoid.EyeColor);
+
+        // Unless there's some major change, there should only ever be one Hair marking.
+        // LoadProfile assumes as much as well.
+        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Hair, out var hairMarkings) &&
+            hairMarkings.Count > 0 &&
+            hairMarkings[0].MarkingColors.Count > 0)
+        {
+            newAppearance = newAppearance
+                .WithHairColor(hairMarkings[0].MarkingColors[0])
+                .WithHairStyleName(hairMarkings[0].MarkingId);
+        }
+
+        // Same for Facial hair.
+        if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.FacialHair, out var facialHairMarkings) &&
+            facialHairMarkings.Count > 0 &&
+            facialHairMarkings[0].MarkingColors.Count > 0)
+        {
+            newAppearance = newAppearance
+                .WithFacialHairColor(facialHairMarkings[0].MarkingColors[0])
+                .WithFacialHairStyleName(facialHairMarkings[0].MarkingId);
+        }
+
+        newAppearance = newAppearance.WithMarkings(humanoid.MarkingSet.GetForwardEnumerator().ToList());
+
+        profile = HumanoidCharacterProfile.Default()
+            .WithSpecies(humanoid.Species)
+            .WithAge(humanoid.Age)
+            .WithSex(humanoid.Sex)
+            .WithGender(humanoid.Gender)
+            .WithCharacterAppearance(newAppearance);
+
+        return true;
     }
 
     // this was done enough times that it only made sense to do it here
