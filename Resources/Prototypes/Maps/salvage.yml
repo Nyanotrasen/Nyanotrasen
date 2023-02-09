@@ -186,6 +186,12 @@
   mapPath: /Maps/Salvage/atlas_cargo.yml
   bounds: "-12, -10, 13.5, 8.5"
 
+- type: salvageMap
+  id: ServiceChunk
+  name: "Medium Service Chunk"
+  mapPath: /Maps/Salvage/medium-service-chunk-1.yml
+  bounds: "-8, -7, 7, 8"
+
 # Large
 - type: salvageMap
   id: ResearchPost
