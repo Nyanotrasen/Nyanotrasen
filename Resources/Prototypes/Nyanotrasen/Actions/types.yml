@@ -105,8 +105,8 @@
   name: action-name-noospheric-zap
   description: action-description-noospheric-zap
   icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
-  # useDelay: 120
-  range: 4
+  useDelay: 100
+  range: 5
   serverEvent: !type:NoosphericZapPowerActionEvent
 
 - type: entityTargetAction

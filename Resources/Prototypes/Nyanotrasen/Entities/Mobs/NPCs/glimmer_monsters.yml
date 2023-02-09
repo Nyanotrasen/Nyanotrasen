@@ -13,6 +13,8 @@
       - state: willowisp
         shader: unshaded
   - type: Psionic
+    removable: false
+  - type: NoosphericZapPower
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
