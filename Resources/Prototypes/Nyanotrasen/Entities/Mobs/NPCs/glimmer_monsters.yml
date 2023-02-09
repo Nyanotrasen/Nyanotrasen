@@ -47,7 +47,7 @@
       behaviors:
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Items/Toys/mousesqueek.ogg
+          path: /Audio/Nyanotrasen/Mobs/GlimmerWisp/wail.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialBluespace:
@@ -78,6 +78,8 @@
     color: "#419ba3"
   - type: Gun
     fireRate: 0.7
+    soundGunshot:
+      collection: MagicMissile
     showExamineText: false
     selectedMode: SemiAuto
     availableModes:
@@ -97,3 +99,8 @@
     damage:
       types:
         Heat: 75
+  - type: AmbientSound
+    volume: -8
+    range: 5
+    sound:
+      path: /Audio/Nyanotrasen/Mobs/GlimmerWisp/wisp_ambience.ogg

@@ -94,6 +94,7 @@ namespace Content.Server.Abilities.Psionics
 
             damage *= modifier;
             DealDispelDamage(uid, damage);
+            args.Handled = true;
         }
 
         private void OnGuardianDispelled(EntityUid uid, GuardianComponent guardian, DispelledEvent args)
