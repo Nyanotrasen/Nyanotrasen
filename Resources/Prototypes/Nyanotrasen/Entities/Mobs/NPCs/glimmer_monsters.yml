@@ -35,6 +35,9 @@
   - type: Stealth
     lastVisibility: 0.66
   - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -61,6 +64,10 @@
   - type: Actions
   - type: Alerts
   - type: CombatMode
+    combatToggleAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-combat
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
