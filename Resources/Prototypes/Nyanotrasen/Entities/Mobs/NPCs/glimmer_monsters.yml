@@ -12,6 +12,8 @@
     layers:
       - state: willowisp
         shader: unshaded
+  - type: GlimmerWisp
+  - type: DoAfter
   - type: Psionic
     removable: false
   - type: NoosphericZapPower
@@ -66,10 +68,6 @@
   - type: Actions
   - type: Alerts
   - type: CombatMode
-    combatToggleAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-combat
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -78,6 +76,7 @@
     excess: 100
   - type: InputMover
   - type: MobMover
+  - type: Examiner
   - type: StatusEffects
     allowed:
       - Stun
@@ -99,7 +98,7 @@
     infinite: true
     examinable: false
   - type: HTN
-    rootTask: SimpleRangedCompound
+    rootTask: GlimmerWispCompound
   - type: Faction
     factions:
       - GlimmerMonster

@@ -50,7 +50,7 @@
 - type: htnPrimitive
   id: MoveToAccessiblePrimitive
   operator: !type:MoveToOperator
-    pathfindInPlanning: false
+    pathfindInPlanning: true
 
 - type: htnPrimitive
   id: RandomIdleTimePrimitive

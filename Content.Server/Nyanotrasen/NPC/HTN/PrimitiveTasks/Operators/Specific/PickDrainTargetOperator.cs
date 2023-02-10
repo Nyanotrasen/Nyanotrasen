@@ -1,20 +1,20 @@
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Pathfinding;
-using Robust.Shared.Map;
+using Content.Server.NPC.Systems;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Abilities.Psionics;
 
-namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators;
+namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
-/// <summary>
-/// Picks a nearby component that is accessible.
-/// </summary>
-public sealed class PickAccessibleComponentOperator : HTNOperator
+public sealed class PickDrainTargetOperator : HTNOperator
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    private PathfindingSystem _pathfinding = default!;
+    private FactionSystem _factions = default!;
+    private MobStateSystem _mobSystem = default!;
+
     private EntityLookupSystem _lookup = default!;
+    private PathfindingSystem _pathfinding = default!;
 
     [DataField("rangeKey", required: true)]
     public string RangeKey = string.Empty;
@@ -22,8 +22,8 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
     [DataField("targetKey", required: true)]
     public string TargetKey = string.Empty;
 
-    [DataField("component", required: true)]
-    public string Component = string.Empty;
+    [DataField("drainKey")]
+    public string DrainKey = string.Empty;
 
     /// <summary>
     /// Where the pathfinding result will be stored (if applicable). This gets removed after execution.
@@ -36,51 +36,33 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
         base.Initialize(sysManager);
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
+        _mobSystem = sysManager.GetEntitySystem<MobStateSystem>();
+        _factions = sysManager.GetEntitySystem<FactionSystem>();
     }
 
-    /// <inheritdoc/>
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
         CancellationToken cancelToken)
     {
-        // Check if the component exists
-        if (!_factory.TryGetRegistration(Component, out var registration))
-        {
-            return (false, null);
-        }
-
-        var range = blackboard.GetValueOrDefault<float>(RangeKey, _entManager);
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        if (!blackboard.TryGetValue<EntityCoordinates>(NPCBlackboard.OwnerCoordinates, out var coordinates, _entManager))
-        {
+        if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager))
             return (false, null);
-        }
 
-        var compType = registration.Type;
-        var query = _entManager.GetEntityQuery(compType);
+        var psionicQuery = _entManager.GetEntityQuery<PsionicComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+
         var targets = new List<EntityUid>();
 
-        // TODO: Need to get ones that are accessible.
-        // TODO: Look at unreal HTN to see repeatable ones maybe?
-        // TODO: Need type
-        foreach (var entity in _lookup.GetEntitiesInRange(coordinates, range))
+        foreach (var entity in _factions.GetNearbyHostiles(owner, range))
         {
-            if (entity == owner || !query.TryGetComponent(entity, out var comp))
+            if (!psionicQuery.TryGetComponent(entity, out var psionic))
+                continue;
+
+            if (!_mobSystem.IsCritical(entity))
                 continue;
 
             targets.Add(entity);
         }
-
-        if (targets.Count == 0)
-        {
-            return (false, null);
-        }
-
-        blackboard.TryGetValue<float>(RangeKey, out var maxRange, _entManager);
-
-        if (maxRange == 0f)
-            maxRange = 7f;
 
         foreach (var target in targets)
         {
@@ -97,6 +79,7 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
             return (true, new Dictionary<string, object>()
             {
                 { TargetKey, targetCoords },
+                { DrainKey, target },
                 { PathfindKey, path}
             });
         }
