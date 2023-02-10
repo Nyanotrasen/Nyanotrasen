@@ -1,0 +1,15 @@
+- type: entity
+  parent: Ash
+  id: Ectoplasm
+  name: ectoplasm
+  description: The remains of a spirit.
+  components:
+  - type: Sprite
+    color: "#61a79d"
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 10
