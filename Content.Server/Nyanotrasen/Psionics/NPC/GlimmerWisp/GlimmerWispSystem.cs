@@ -6,7 +6,11 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Verbs;
 using Content.Shared.Rejuvenate;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Pulling.Components;
 using Content.Server.Popups;
+using Content.Server.NPC.Components;
+using Content.Server.NPC.Systems;
+using Content.Server.Carrying;
 using Robust.Shared.Player;
 using Robust.Server.GameObjects;
 
@@ -20,6 +24,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
         [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly NPCCombatTargetSystem _combatTargetSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -82,7 +87,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
             _doAfter.DoAfter(new DoAfterEventArgs(uid, component.DrainDelay, component.CancelToken.Token, target: target)
             {
                 BroadcastFinishedEvent = new TargetDrainSuccessfulEvent(uid, target),
-                BroadcastCancelledEvent = new DrainCancelledEvent(uid),
+                BroadcastCancelledEvent = new DrainCancelledEvent(uid, target),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
                 DistanceThreshold = 2f,
@@ -118,15 +123,29 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
 
             component.CancelToken = null;
             component.DrainStingStream?.Stop();
+
+            if (TryComp<SharedPullableComponent>(ev.Target, out var pullable) && pullable.Puller != null)
+            {
+                _combatTargetSystem.StartHostility(ev.Drainer, pullable.Puller.Value);
+                return;
+            }
+
+            if (TryComp<BeingCarriedComponent>(ev.Target, out var carried))
+            {
+                _combatTargetSystem.StartHostility(ev.Drainer, carried.Carrier);
+                return;
+            }
         }
 
         private sealed class DrainCancelledEvent : EntityEventArgs
         {
             public EntityUid Drainer;
+            public EntityUid Target;
 
-            public DrainCancelledEvent(EntityUid drainer)
+            public DrainCancelledEvent(EntityUid drainer, EntityUid target)
             {
                 Drainer = drainer;
+                Target = target;
             }
         }
 
