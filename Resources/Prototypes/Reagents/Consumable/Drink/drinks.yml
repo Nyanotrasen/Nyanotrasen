@@ -273,11 +273,11 @@
   parent: BaseDrink
   desc: reagent-name-holywater
   physicalDesc: reagent-physical-desc-translucent
-  flavor: water
+  flavor: holy
   color: "#75b1f0"
   boilingPoint: 100.0
   meltingPoint: 0.0
-  metabolisms: #Should damage vampires/undead and could nullify debuffs of feeding. Placeholder of healing burns and giving back some blood
+  metabolisms: #Could nullify debuffs of feeding.
     Drink:
       effects:
       - !type:SatiateThirst
@@ -290,6 +290,7 @@
         damage:
           groups:
             Burn: -0.5
+            Holy: 1
   plantMetabolism: #Heals plants a little with the holy power within it.
     - !type:PlantAdjustHealth
       amount: 0.1
