@@ -1,0 +1,8 @@
+# - type: htnCompound
+#   id: DrainPsionicCompound
+#   branches:
+#     - tasks:
+#       - id: PickDrainTargetPrimitive
+#       - id: MoveToDrainTargetPrimitive
+#       - id: StartDrainDoAfterPrimitive
+#       - id: WaitDoAfterPrimitive
