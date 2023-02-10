@@ -111,6 +111,9 @@ namespace Content.Server.Psionics
 
         private void OnInit(EntityUid uid, PsionicComponent component, ComponentInit args)
         {
+            if (!component.Removable)
+                return;
+
             if (!TryComp<FactionComponent>(uid, out var factions))
                 return;
 
