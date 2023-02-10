@@ -141,7 +141,7 @@ public sealed partial class RevenantSystem : EntitySystem
             int i = 0;
             while (i < amt)
             {
-                Spawn("MaterialBluespace", Transform(uid).Coordinates);
+                Spawn("Ectoplasm", Transform(uid).Coordinates);
                 i++;
             }
             QueueDel(uid);
