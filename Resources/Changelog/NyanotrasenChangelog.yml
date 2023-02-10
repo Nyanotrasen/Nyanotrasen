@@ -2568,3 +2568,14 @@ Entries:
       improvements to not getting stuck., type: Fix}
   id: 402
   time: '2023-02-10T05:54:10.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Added a new damage type: holy.', type: Add}
+  - {message: All bibles deal holy damage in combat mode., type: Add}
+  - {message: Psionic insulation will now suppress your faction., type: Add}
+  - {message: Changed the way all current spirits / familiars / demons etc handle
+      damage., type: Tweak}
+  - {message: Changed several missing or strange behaviors with the glimmer wisp.,
+    type: Tweak}
+  id: 403
+  time: '2023-02-10T21:58:36.0000000+00:00'
