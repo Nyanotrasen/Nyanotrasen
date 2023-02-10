@@ -2554,3 +2554,11 @@ Entries:
   - {message: Add a moth plushie., type: Add}
   id: 400
   time: '2023-02-10T03:56:45.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added a bunch of behavior to wisps., type: Add}
+  - {message: Fixed a bunch of instances of NPCs getting stuck. The reason it was
+      broken I am actually mad the guy that broke NPCs for the past 5 months had the
+      gall to call me a shitcoder., type: Fix}
+  id: 401
+  time: '2023-02-10T04:09:12.0000000+00:00'
