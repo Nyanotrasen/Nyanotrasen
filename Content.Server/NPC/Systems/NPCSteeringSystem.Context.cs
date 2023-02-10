@@ -50,7 +50,7 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
-        if (steering.LastCoordinates.AlignWithClosestGridTile() != ourCoordinates.AlignWithClosestGridTile())
+        if (steering.LastCoordinates != ourCoordinates)
         {
             steering.LastCoordinates = ourCoordinates;
             steering.LastTimeMoved = _timing.CurTime;
