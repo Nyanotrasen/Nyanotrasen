@@ -63,8 +63,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: GlimmerWisp
+    damageContainer: Spirit
+    damageModifierSet: Spirit
   - type: Actions
   - type: Alerts
   - type: CombatMode

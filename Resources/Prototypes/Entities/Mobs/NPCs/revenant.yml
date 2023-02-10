@@ -37,7 +37,8 @@
   - type: HeatResistance
   - type: MovementIgnoreGravity
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Appearance
   - type: Examiner
   - type: NoSlip
