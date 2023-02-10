@@ -5,6 +5,10 @@ using Content.Shared.Damage;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Verbs;
 using Content.Shared.Rejuvenate;
+using Content.Shared.ActionBlocker;
+using Content.Server.Popups;
+using Robust.Shared.Player;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Psionics.NPC.GlimmerWisp
 {
@@ -13,6 +17,9 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly MobStateSystem _mobs = default!;
+        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+        [Dependency] private readonly PopupSystem _popups = default!;
+        [Dependency] private readonly AudioSystem _audioSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -45,13 +52,33 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
             args.Verbs.Add(verb);
         }
 
+
+        public bool NPCStartLifedrain(EntityUid uid, EntityUid target, GlimmerWispComponent? component = null)
+        {
+            if (!Resolve(uid, ref component))
+                return false;
+            if (!HasComp<PsionicComponent>(target))
+                return false;
+            if (!_mobs.IsCritical(target))
+                return false;
+            if (!_actionBlocker.CanInteract(uid, target))
+                return false;
+
+            StartLifeDrain(uid, target, component);
+            return true;
+        }
+
         public void StartLifeDrain(EntityUid uid, EntityUid target, GlimmerWispComponent? component = null)
         {
             if (!Resolve(uid, ref component))
                 return;
 
-
            component.CancelToken = new CancellationTokenSource();
+           component.DrainTarget = target;
+            _popups.PopupEntity(Loc.GetString("life-drain-second-start", ("wisp", uid)), target, target, Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("life-drain-third-start", ("wisp", uid), ("target", target)), target, Filter.PvsExcept(target), true, Shared.Popups.PopupType.LargeCaution);
+
+            component.DrainStingStream = _audioSystem.PlayPvs(component.DrainSoundPath, target);
             _doAfter.DoAfter(new DoAfterEventArgs(uid, component.DrainDelay, component.CancelToken.Token, target: target)
             {
                 BroadcastFinishedEvent = new TargetDrainSuccessfulEvent(uid, target),
@@ -71,8 +98,13 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
 
             component.CancelToken = null;
 
+            _popups.PopupEntity(Loc.GetString("life-drain-second-end", ("wisp", ev.Drainer)), ev.Target, ev.Target, Shared.Popups.PopupType.LargeCaution);
+            _popups.PopupEntity(Loc.GetString("life-drain-third-end", ("wisp", ev.Drainer), ("target", ev.Target)), ev.Target, Filter.PvsExcept(ev.Target), true, Shared.Popups.PopupType.LargeCaution);
+
             var rejEv = new RejuvenateEvent();
             RaiseLocalEvent(ev.Drainer, rejEv);
+
+            _audioSystem.PlayPvs(component.DrainFinishSoundPath, ev.Drainer);
 
             DamageSpecifier damage = new();
             damage.DamageDict.Add("Asphyxiation", 200);
@@ -85,6 +117,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
                 return;
 
             component.CancelToken = null;
+            component.DrainStingStream?.Stop();
         }
 
         private sealed class DrainCancelledEvent : EntityEventArgs

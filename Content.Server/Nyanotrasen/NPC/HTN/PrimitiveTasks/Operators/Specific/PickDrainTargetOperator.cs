@@ -22,6 +22,9 @@ public sealed class PickDrainTargetOperator : HTNOperator
     [DataField("targetKey", required: true)]
     public string TargetKey = string.Empty;
 
+    [DataField("drainKey")]
+    public string DrainKey = string.Empty;
+
     /// <summary>
     /// Where the pathfinding result will be stored (if applicable). This gets removed after execution.
     /// </summary>
@@ -33,6 +36,8 @@ public sealed class PickDrainTargetOperator : HTNOperator
         base.Initialize(sysManager);
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
+        _mobSystem = sysManager.GetEntitySystem<MobStateSystem>();
+        _factions = sysManager.GetEntitySystem<FactionSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
@@ -74,6 +79,7 @@ public sealed class PickDrainTargetOperator : HTNOperator
             return (true, new Dictionary<string, object>()
             {
                 { TargetKey, targetCoords },
+                { DrainKey, target },
                 { PathfindKey, path}
             });
         }
