@@ -21,6 +21,9 @@
   - type: Access
     tags:
     - Chapel
+  - type: Damageable
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Mind
     showExamineInfo: true
   - type: Alerts
