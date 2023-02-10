@@ -30,3 +30,5 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: CrystalNormality
+    - !type:ChangeGlimmerReactionEffect
+      change: -10
