@@ -10,3 +10,23 @@
       catalyst: true
   products:
     LotophagoiOil: 1
+
+- type: reaction
+  id: CreateNormalityCrystal
+  impact: Low
+  quantized: true
+  reactants:
+    Ash:
+      amount: 10
+    Water:
+      amount: 10
+    Blood:
+      amount: 10
+    Ectoplasm:
+      amount: 10
+    Plasma:
+      amount: 5
+      catalyst: true
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: CrystalNormality
