@@ -134,3 +134,14 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPrisonGuard
+  name: prison guard's hat
+  description: Grants full immunity from denying others basic human rights, dignity, or respect.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi

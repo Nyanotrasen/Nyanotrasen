@@ -111,3 +111,15 @@
     state: pda-library
   - type: Icon
     state: pda-library
+    
+- type: entity
+  parent: BasePDA
+  id: GuardPDA
+  name: guard PDA
+  description: Red to hide the stains of prisoner blood.
+  components:
+  - type: PDA
+    id: GuardIDCard
+    state: pda-security
+  - type: Icon
+    state: pda-guard
