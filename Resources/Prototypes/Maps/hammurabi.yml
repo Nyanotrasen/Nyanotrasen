@@ -1,0 +1,51 @@
+- type: gameMap
+  id: Hammurabi
+  mapName: 'Hammurabi'
+  mapPath: /Maps/hammurabi.yml
+  minPlayers: 50
+  stations:
+    hammurabi:
+      mapNameTemplate: '{0} Hammurabi Prison Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Centipede_grid.yml
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: 'TG'
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        Passenger: [ -1, -1 ]
+        Bartender: [ 2, 3 ]
+        Botanist: [ 2, 3 ]
+        Boxer: [ 2, 2 ]
+        Chef: [ 3, 4 ]
+        Clown: [ 1, 1 ]
+        Cyborg: [ 2, 3 ]
+        ForensicMantis: [ 1, 1 ]
+        Janitor: [ 2, 3 ]
+        Mime: [ 1, 2 ]
+        Captain: [ 1, 1 ]
+        HeadOfPersonnel: [ 1, 1 ]
+        ChiefEngineer: [ 1, 1 ]
+        StationEngineer: [ 6, 8 ]
+        ChiefMedicalOfficer: [ 1, 1 ]
+        MedicalDoctor: [ 7, 9 ]
+        MedicalCyborg: [ 1, 2 ]
+        Mystagogue: [ 1, 1 ]
+        Epistemologist: [ 4, 6 ]
+        HeadOfSecurity: [ 1, 1 ]
+        SecurityOfficer: [ 5, 7 ]
+        SecurityCadet: [ 1, 2 ]
+        Chaplain: [ 1, 1 ]
+        Warden: [ 1, 1 ]
+        Cataloguer: [ 1, 1 ]
+        Lawyer: [ 2, 2 ]
+        Quartermaster: [ 3, 5 ]
+        SalvageTechnician: [ 3, 5 ]
+        Musician: [ 2, 3 ]
+        AtmosphericTechnician: [ 2, 3 ]
+        MailCarrier: [ 2, 2 ]
+        Reporter: [ 2, 2 ]
+        Valet: [ 6, 6 ]
+        Psychologist: [ 1, 1 ]
+        Prisoner: [ 10, 12 ]
+        PrisonGuard: [ 0, 6 ]  # 4, 6 if roundstart
