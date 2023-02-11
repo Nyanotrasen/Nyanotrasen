@@ -54,6 +54,7 @@ namespace Content.Client.Disease.UI
                     _machineMenu?.PopulateDiseases(msg.Diseases);
                     _machineMenu?.PopulateBiomass(Machine);
                     _machineMenu?.UpdateCost(msg.BiomassCost);
+                    _machineMenu?.UpdateServerConnection(msg.HasServer);
                     break;
             }
         }

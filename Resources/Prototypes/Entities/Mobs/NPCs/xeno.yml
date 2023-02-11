@@ -509,19 +509,25 @@
   - type: Faction
     factions:
     - Xeno
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      25: Critical
+      45: Dead
   - type: MeleeWeapon
+    range: 1.50
     hidden: true
     angle: 0
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 5
+        Piercing: 7
   - type: SolutionContainerManager
     solutions:
       melee:
         reagents:
         - ReagentId: Toxin
-          Quantity: 50
+          Quantity: 10
   - type: MeleeChemicalInjector
     solution: melee
   - type: Fixtures
@@ -549,6 +555,25 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: small_purple_snake
   - type: Appearance
+  - type: MeleeWeapon
+    range: 1.5
+    hidden: true
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 8
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      15: Critical
+      30: Dead
   - type: DamageStateVisuals
     states:
       Alive:
@@ -559,3 +584,31 @@
         Base: dead_small_purple_snake
   - type: SolutionTransfer
     maxTransferAmount: 1
+
+#GhostTakeover
+
+- type: entity
+  parent: MobPurpleSnake
+  id: MobPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
+
+- type: entity
+  parent: MobSmallPurpleSnake
+  id: MobSmallPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions

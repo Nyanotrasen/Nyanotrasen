@@ -26,6 +26,15 @@ public sealed class NPCSteeringComponent : Component
     public float Radius = 0.35f;
 
     [ViewVariables]
+    public EntityCoordinates LastCoordinates = default!;
+
+    [ViewVariables]
+    public TimeSpan LastTimeMoved = default!;
+
+    [ViewVariables]
+    public TimeSpan TimeOutTime = TimeSpan.FromSeconds(4f);
+
+    [ViewVariables]
     public readonly float[] Interest = new float[SharedNPCSteeringSystem.InterestDirections];
 
     [ViewVariables]

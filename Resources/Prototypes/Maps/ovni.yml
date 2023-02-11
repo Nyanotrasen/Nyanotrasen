@@ -1,12 +1,12 @@
 - type: gameMap
   id: Ovni
-  mapName: 'Ovni Station'
+  mapName: 'Ovni'
   mapPath: /Maps/ovni.yml
   minPlayers: 0
   maxPlayers: 30
   stations:
     Ovni:
-      mapNameTemplate: '{0} NSS Platillo {1}'
+      mapNameTemplate: '{0} Ovni Station {1}'
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'

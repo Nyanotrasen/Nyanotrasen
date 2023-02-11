@@ -1,18 +1,15 @@
 # Guns
 
 - type: listing
-  id: UplinkPistolViper
-  name: uplink-pistol-viper-name
-  description: uplink-pistol-viper-desc
-  productEntity: WeaponPistolViper
+  id: UplinkPistolMk58
+  name: uplink-pistol-mk58-name
+  description: uplink-pistol-mk58-desc
+  productEntity: WeaponPistolMk58
   cost:
     Telecrystal: 6
   categories:
   - UplinkWeapons
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 - type: listing
   id: UplinkRevolverPython
@@ -23,10 +20,7 @@
     Telecrystal: 8
   categories:
   - UplinkWeapons
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -35,13 +29,10 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 8
+    Telecrystal: 7
   categories:
   - UplinkWeapons
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -53,10 +44,7 @@
     Telecrystal: 2
   categories:
   - UplinkWeapons
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 - type: listing
   id: UplinkEsword
@@ -132,10 +120,10 @@
   categories:
     - UplinkExplosives
   conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
 
 - type: listing
   id: UplinkC4
@@ -147,20 +135,11 @@
   categories:
   - UplinkExplosives
 
-- type: listing
-  id: UplinkC4Bundle
-  name: uplink-c4-bundle-name
-  description: uplink-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkExplosives
 
 # Ammo
 
 - type: listing
-  id: UplinkPistol9mmMagazine
+  id: UplinkPistolMagazine
   name: uplink-pistol-magazine-name
   description: uplink-pistol-magazine-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
@@ -169,10 +148,7 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 # For the Cobra
 - type: listing
@@ -185,10 +161,7 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 # For the Python
 - type: listing
@@ -201,10 +174,7 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 # For the mosin
 - type: listing
@@ -216,16 +186,12 @@
     Telecrystal: 2
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
 
 #Utility
 
 # - type: listing
 #   id: UplinkHoloparaKit
-#   name: 
+#   name:
 #   description: uplink-holopara-kit-desc
 #   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
 #   productEntity: BoxHoloparasite
@@ -248,10 +214,7 @@
     Telecrystal: 1
   categories:
   - UplinkUtility
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 - type: listing
   id: UplinkEmag
@@ -269,7 +232,7 @@
   description: uplink-agent-id-card-desc
   productEntity: AgentIDCard
   cost:
-    Telecrystal: 3
+    Telecrystal: 4
   categories:
   - UplinkUtility
 
@@ -290,7 +253,7 @@
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   cost:
-    Telecrystal: 20
+    Telecrystal: 12
   categories:
   - UplinkUtility
 
@@ -300,16 +263,26 @@
   description: uplink-stealth-box-desc
   productEntity: StealthBox
   cost:
-    Telecrystal: 10
+    Telecrystal: 8
   categories:
-    - UplinkUtility
+  - UplinkUtility
 
-#TODO: Increase the price of this to 4-5/remove it when we get encrpytion keys
+#TODO: Increase the price to 4 when flashbang prof.
 - type: listing
   id: UplinkHeadset
   name: uplink-headset-name
   description: uplink-headset-desc
   productEntity: ClothingHeadsetAltSyndicate
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkUtility
+
+- type: listing
+  id: UplinkHeadsetEncryptionKey
+  name: uplink-encryption-key-name
+  description: uplink-encryption-key-desc
+  productEntity: EncryptionKeySyndie
   cost:
     Telecrystal: 2
   categories:
@@ -344,9 +317,9 @@
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
   cost:
-    Telecrystal: 12
+    Telecrystal: 8
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -360,9 +333,9 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
   cost:
-    Telecrystal: 10
+    Telecrystal: 8
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
       blacklist:
@@ -378,7 +351,7 @@
   cost:
     Telecrystal: 25
   categories:
-    - UplinkImplants
+  - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
       whitelist:
@@ -401,6 +374,21 @@
     Telecrystal: 25
   categories:
   - UplinkBundles
+  conditions:
+      - !type:BuyerWhitelistCondition
+        blacklist:
+          components:
+            - SurplusBundle
+
+- type: listing
+  id: UplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkBundles
 
 - type: listing
   id: UplinkBulldogBundle
@@ -412,6 +400,11 @@
     Telecrystal: 25
   categories:
   - UplinkBundles
+  conditions:
+      - !type:BuyerWhitelistCondition
+        blacklist:
+          components:
+            - SurplusBundle
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -423,6 +416,11 @@
     Telecrystal: 30
   categories:
   - UplinkBundles
+  conditions:
+      - !type:BuyerWhitelistCondition
+        blacklist:
+          components:
+            - SurplusBundle
 
 - type: listing
   id: UplinkL6SawBundle
@@ -435,6 +433,7 @@
   categories:
   - UplinkBundles
 
+
 - type: listing
   id: UplinkZombieBundle
   name: uplink-zombie-bundle-name
@@ -446,14 +445,14 @@
   categories:
   - UplinkBundles
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+    - !type:StoreWhitelistCondition
+      whitelist:
+        tags:
+          - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
 
 - type: listing
   id: UplinkSurplusBundle
@@ -461,18 +460,18 @@
   description: uplink-surplus-bundle-desc
   productEntity: CrateSyndicateSurplusBundle
   cost:
-    Telecrystal: 20
+    Telecrystal: 23
   categories:
   - UplinkBundles
   conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+          - SurplusBundle
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -480,7 +479,7 @@
   description: uplink-super-surplus-bundle-desc
   productEntity: CrateSyndicateSuperSurplusBundle
   cost:
-    Telecrystal: 40
+    Telecrystal: 20
   categories:
   - UplinkBundles
   conditions:
@@ -558,13 +557,13 @@
   description: uplink-gatfruit-seeds-desc
   productEntity: GatfruitSeeds
   cost:
-    Telecrystal: 6
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Botanist
+    - !type:BuyerJobCondition
+      whitelist:
+        - Botanist
 
 - type: listing
   id: uplinkNecronomicon
@@ -576,13 +575,13 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
-    whitelist:
-    - Chaplain
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+    - !type:BuyerJobCondition
+      whitelist:
+        - Chaplain
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - SurplusBundle
 
 # Armor
 
@@ -595,7 +594,7 @@
   cost:
     Telecrystal: 6
   categories:
-    - UplinkArmor
+  - UplinkArmor
 
 - type: listing
   id: UplinkClothingNoSlipsShoes
@@ -603,13 +602,13 @@
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
   cost:
-    Telecrystal: 2
+    Telecrystal: 3
   categories:
   - UplinkArmor
   conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Arachne
+    - !type:BuyerSpeciesCondition
+      blacklist:
+        - Arachne
 
 - type: listing
   id: UplinkgClothingThievingGloves
@@ -642,9 +641,9 @@
   categories:
   - UplinkArmor
   conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Arachne
+    - !type:BuyerSpeciesCondition
+      blacklist:
+        - Arachne
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -656,9 +655,9 @@
   categories:
   - UplinkArmor
   conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Arachne
+    - !type:BuyerSpeciesCondition
+      blacklist:
+        - Arachne
 
 - type: listing
   id: UplinkEVASyndie
@@ -677,13 +676,13 @@
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
   productEntity: ClothingOuterHardsuitJuggernaut
   cost:
-    Telecrystal: 12
+    Telecrystal: 14
   categories:
   - UplinkArmor
   conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Arachne
+    - !type:BuyerSpeciesCondition
+      blacklist:
+        - Arachne
 
 # Misc
 
@@ -693,7 +692,7 @@
   description: uplink-cyberpen-desc
   productEntity: CyberPen
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - UplinkMisc
 
@@ -764,14 +763,14 @@
   icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
   productEntity: CrateFunSyndicateSegway
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkMisc
   conditions:
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+    - !type:BuyerWhitelistCondition
+      blacklist:
+        components:
+        - SurplusBundle
 
  # Pointless
 
@@ -781,13 +780,10 @@
   description: uplink-revolver-cap-gun-desc
   productEntity: RevolverCapGun
   cost:
-    Telecrystal: 4
+    Telecrystal: 2
   categories:
   - UplinkPointless
-  conditions:
-  - !type:BuyerSpeciesCondition
-    blacklist:
-    - Oni
+
 
 - type: listing
   id: UplinkSyndicateStamp
@@ -805,7 +801,7 @@
   description: uplink-cat-ears-desc
   productEntity: ClothingHeadHatCatEars
   cost:
-    Telecrystal: 26
+    Telecrystal: 4
   categories:
   - UplinkPointless
 

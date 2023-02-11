@@ -14036,8 +14036,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 16.902393
-      - 63.585197
+      - 16.429127
+      - 61.804813
       - 0
       - 0
       - 0
@@ -14066,8 +14066,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 16.902393
-      - 63.585197
+      - 16.429127
+      - 61.804813
       - 0
       - 0
       - 0
@@ -14081,8 +14081,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -15228,14 +15228,12 @@ entities:
   - color: '#0055CCFF'
     type: AtmosPipeColor
 - uid: 166
-  type: Poweredlight
+  type: JetpackMiniFilled
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -5.5,5.5
+  - rot: 3.141592653589793 rad
+    pos: 7.566767,38.22208
     parent: 7
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 167
   type: WallReinforced
   components:
@@ -17205,20 +17203,19 @@ entities:
 - uid: 469
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -0.5,7.5
+  - rot: 3.141592653589793 rad
+    pos: -0.5,19.5
     parent: 7
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 470
-  type: Poweredlight
+  type: JetpackMiniFilled
   components:
-  - pos: -4.5,10.5
+  - rot: 3.141592653589793 rad
+    pos: 7.566767,38.59734
     parent: 7
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 471
   type: Poweredlight
   components:
@@ -17232,7 +17229,7 @@ entities:
   type: Poweredlight
   components:
   - rot: 3.141592653589793 rad
-    pos: -8.5,8.5
+    pos: 4.5,19.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -17399,8 +17396,8 @@ entities:
 - uid: 496
   type: Poweredlight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -4.5,2.5
+  - rot: 3.141592653589793 rad
+    pos: 7.5,-6.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -20073,8 +20070,8 @@ entities:
 - uid: 908
   type: Poweredlight
   components:
-  - rot: 3.141592653589793 rad
-    pos: -17.5,27.5
+  - rot: -1.5707963267948966 rad
+    pos: -11.5,6.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -21400,8 +21397,8 @@ entities:
 - uid: 1110
   type: Poweredlight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 6.5,6.5
+  - rot: 3.141592653589793 rad
+    pos: -17.5,7.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -21638,11 +21635,14 @@ entities:
     parent: 7
     type: Transform
 - uid: 1147
-  type: JetpackBlueFilled
+  type: Poweredlight
   components:
-  - pos: 7.5062222,38.71518
+  - rot: 1.5707963267948966 rad
+    pos: -23.5,13.5
     parent: 7
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 1148
   type: WallReinforced
   components:
@@ -22839,7 +22839,7 @@ entities:
 - uid: 1332
   type: Poweredlight
   components:
-  - pos: 12.5,-4.5
+  - pos: 4.5,13.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -25743,8 +25743,7 @@ entities:
 - uid: 1780
   type: Poweredlight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -2.5,20.5
+  - pos: -6.5,-17.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -25752,8 +25751,8 @@ entities:
 - uid: 1781
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 5.5,20.5
+  - rot: 1.5707963267948966 rad
+    pos: 3.5,-13.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -25917,8 +25916,8 @@ entities:
 - uid: 1807
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 0.5,20.5
+  - rot: 3.141592653589793 rad
+    pos: 18.5,-20.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -25958,8 +25957,7 @@ entities:
 - uid: 1813
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -12.5,33.5
+  - pos: 24.5,-19.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -26162,11 +26160,13 @@ entities:
     parent: 7
     type: Transform
 - uid: 1845
-  type: JetpackBlueFilled
+  type: Poweredlight
   components:
-  - pos: 7.516639,38.517128
+  - pos: 19.5,-14.5
     parent: 7
     type: Transform
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 1846
   type: Table
   components:
@@ -26320,10 +26320,10 @@ entities:
     parent: 7
     type: Transform
 - uid: 1870
-  type: PoweredlightLED
+  type: PoweredlightBlueInterior
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 8.5,31.5
+  - rot: 3.141592653589793 rad
+    pos: 11.5,23.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -26744,8 +26744,8 @@ entities:
 - uid: 1936
   type: Poweredlight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 2.5,20.5
+  - rot: 3.141592653589793 rad
+    pos: -3.5,-5.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -27010,11 +27010,13 @@ entities:
     parent: 7
     type: Transform
 - uid: 1977
-  type: Poweredlight
+  type: PoweredSmallLight
   components:
-  - pos: 0.5,17.5
+  - pos: 27.5,18.5
     parent: 7
     type: Transform
+  - enabled: False
+    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 1978
@@ -27881,13 +27883,12 @@ entities:
     parent: 7
     type: Transform
 - uid: 2109
-  type: Poweredlight
+  type: JetpackMiniFilled
   components:
-  - pos: 16.5,-26.5
+  - rot: 3.141592653589793 rad
+    pos: 7.5563507,38.420135
     parent: 7
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 2110
   type: PoweredSmallLight
   components:
@@ -30354,14 +30355,28 @@ entities:
     parent: 7
     type: Transform
 - uid: 2477
-  type: Poweredlight
+  type: SignalButtonDirectional
   components:
-  - rot: 3.141592653589793 rad
-    pos: 14.5,-2.5
+  - pos: -20.5,-5.5
     parent: 7
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
+  - outputs:
+      Pressed:
+      - port: Toggle
+        uid: 6060
+      - port: Toggle
+        uid: 6063
+      - port: Toggle
+        uid: 6059
+      - port: Toggle
+        uid: 6061
+      - port: Toggle
+        uid: 6064
+      - port: Toggle
+        uid: 6062
+    type: SignalTransmitter
+  - fixtures: []
+    type: Fixtures
 - uid: 2478
   type: WallReinforced
   components:
@@ -30402,7 +30417,8 @@ entities:
 - uid: 2483
   type: Poweredlight
   components:
-  - pos: 9.5,-4.5
+  - rot: 3.141592653589793 rad
+    pos: -15.5,3.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43296,8 +43312,7 @@ entities:
 - uid: 4234
   type: Poweredlight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 4.5,-20.5
+  - pos: -19.5,-2.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43576,7 +43591,8 @@ entities:
 - uid: 4271
   type: Poweredlight
   components:
-  - pos: -14.5,-10.5
+  - rot: 3.141592653589793 rad
+    pos: 25.5,12.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43602,8 +43618,8 @@ entities:
 - uid: 4273
   type: Poweredlight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,-14.5
+  - rot: 1.5707963267948966 rad
+    pos: -19.5,18.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43613,15 +43629,6 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -11.5,-11.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4275
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,-8.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43644,56 +43651,11 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4278
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,1.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4279
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,4.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4280
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -11.5,7.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4281
   type: Poweredlight
   components:
   - rot: -1.5707963267948966 rad
     pos: -11.5,11.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4282
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -18.5,7.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4283
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -15.5,11.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -43715,48 +43677,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4286
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -23.5,12.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4287
   type: SignMorgue
   components:
   - pos: -23.5,15.5
     parent: 7
     type: Transform
-- uid: 4288
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -17.5,16.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4289
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -17.5,19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4290
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -20.5,21.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4291
   type: Poweredlight
   components:
@@ -43820,15 +43746,6 @@ entities:
     pos: 19.5,-13.5
     parent: 7
     type: Transform
-- uid: 4298
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 10.5,0.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4299
   type: CableMV
   components:
@@ -44525,28 +44442,10 @@ entities:
   - pos: -5.5,31.5
     parent: 7
     type: Transform
-- uid: 4399
-  type: PoweredlightLED
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -4.5,21.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4400
   type: PoweredlightLED
   components:
   - pos: -7.5,24.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4401
-  type: PoweredlightLED
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -9.5,21.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -45213,15 +45112,6 @@ entities:
   - pos: -7.5,27.5
     parent: 7
     type: Transform
-- uid: 4505
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 21.5,14.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4506
   type: Poweredlight
   components:
@@ -46553,15 +46443,6 @@ entities:
     type: Transform
   - color: '#990000FF'
     type: AtmosPipeColor
-- uid: 4693
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 1.5,10.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4694
   type: Poweredlight
   components:
@@ -46719,24 +46600,6 @@ entities:
     pos: -9.5,-32.5
     parent: 7
     type: Transform
-- uid: 4711
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -2.5,-28.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4712
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 1.5,-28.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4713
   type: Poweredlight
   components:
@@ -46760,24 +46623,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: -3.5,-24.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4716
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -3.5,-20.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4717
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 2.5,-20.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -46843,47 +46688,11 @@ entities:
   - pos: 1.5,-24.5
     parent: 7
     type: Transform
-- uid: 4727
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -8.5,-19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4728
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -5.5,-19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4729
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -8.5,-22.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4730
   type: Poweredlight
   components:
   - rot: -1.5707963267948966 rad
     pos: -5.5,-22.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4731
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -8.5,-25.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -47107,24 +46916,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4764
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 3.5,-14.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4765
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 3.5,-10.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4766
   type: Poweredlight
   components:
@@ -47194,24 +46985,6 @@ entities:
   - pos: 11.5,-23.5
     parent: 7
     type: Transform
-- uid: 4775
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -2.5,-28.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4776
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 1.5,-28.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4777
   type: WallReinforced
   components:
@@ -47315,36 +47088,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4793
-  type: Poweredlight
-  components:
-  - pos: 17.5,-18.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4794
-  type: Poweredlight
-  components:
-  - pos: 20.5,-18.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4795
   type: Catwalk
   components:
   - pos: -25.5,60.5
     parent: 7
     type: Transform
-- uid: 4796
-  type: Poweredlight
-  components:
-  - pos: 23.5,-19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4797
   type: SpawnPointChiefEngineer
   components:
@@ -47357,23 +47106,6 @@ entities:
   - pos: 26.5,12.5
     parent: 7
     type: Transform
-- uid: 4799
-  type: Poweredlight
-  components:
-  - pos: 26.5,-19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4800
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 25.5,-21.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4801
   type: Poweredlight
   components:
@@ -47470,15 +47202,6 @@ entities:
     type: Transform
   - color: '#990000FF'
     type: AtmosPipeColor
-- uid: 4816
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 11.5,23.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4817
   type: ReinforcedWindow
   components:
@@ -47486,15 +47209,6 @@ entities:
     pos: -30.5,-9.5
     parent: 7
     type: Transform
-- uid: 4818
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 19.5,-16.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4819
   type: Lamp
   components:
@@ -47502,15 +47216,6 @@ entities:
     pos: -23.580538,21.13313
     parent: 7
     type: Transform
-- uid: 4820
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 17.5,-15.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4821
   type: GasPipeStraight
   components:
@@ -47524,15 +47229,6 @@ entities:
   type: Poweredlight
   components:
   - pos: 14.5,-16.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4823
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 13.5,-19.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -47737,15 +47433,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4854
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -6.5,-11.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4855
   type: Poweredlight
   components:
@@ -47775,15 +47462,6 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -9.5,28.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4859
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 0.5,-13.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -47826,27 +47504,10 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 4864
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -3.5,-5.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4865
   type: Poweredlight
   components:
   - pos: -8.5,-1.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 4866
-  type: Poweredlight
-  components:
-  - pos: -5.5,-1.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -47857,15 +47518,6 @@ entities:
   - pos: -26.5,-0.5
     parent: 7
     type: Transform
-- uid: 4868
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -16.5,-8.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4869
   type: FirelockGlass
   components:
@@ -47928,15 +47580,6 @@ entities:
   - pos: -6.5,8.5
     parent: 7
     type: Transform
-- uid: 4877
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 3.5,12.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4878
   type: Poweredlight
   components:
@@ -47967,15 +47610,6 @@ entities:
   - pos: -19.5,53.5
     parent: 7
     type: Transform
-- uid: 4882
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,1.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4883
   type: Poweredlight
   components:
@@ -48232,15 +47866,6 @@ entities:
   - pos: 21.5,36.5
     parent: 7
     type: Transform
-- uid: 4919
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 1.5,4.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4920
   type: ScienceTechFab
   components:
@@ -48396,15 +48021,6 @@ entities:
   - pos: -21.5,31.5
     parent: 7
     type: Transform
-- uid: 4944
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 4.5,-3.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 4945
   type: Poweredlight
   components:
@@ -50036,32 +49652,6 @@ entities:
     pos: 6.5,-4.5
     parent: 7
     type: Transform
-- uid: 5189
-  type: Poweredlight
-  components:
-  - pos: -14.5,5.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 5190
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -17.5,3.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 5191
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -14.5,3.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 5192
   type: WallSolid
   components:
@@ -50322,15 +49912,6 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: 17.5,23.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 5227
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 13.5,25.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -50792,15 +50373,6 @@ entities:
   components:
   - rot: 3.141592653589793 rad
     pos: 12.5,-6.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 5283
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 6.5,-6.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -51336,12 +50908,6 @@ entities:
   components:
   - rot: 1.5707963267948966 rad
     pos: 3.5,38.5
-    parent: 7
-    type: Transform
-- uid: 5363
-  type: JetpackBlueFilled
-  components:
-  - pos: 7.5062222,38.63179
     parent: 7
     type: Transform
 - uid: 5364
@@ -55973,15 +55539,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 5976
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: -23.5,7.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 5977
   type: Poweredlight
   components:
@@ -56345,29 +55902,6 @@ entities:
     pos: 11.70978,-25.222563
     parent: 7
     type: Transform
-- uid: 6026
-  type: RemoteSignaller
-  components:
-  - name: Shutter Remote
-    type: MetaData
-  - pos: -19.573996,-6.4328947
-    parent: 7
-    type: Transform
-  - outputs:
-      Pressed:
-      - port: Toggle
-        uid: 6060
-      - port: Toggle
-        uid: 6063
-      - port: Toggle
-        uid: 6059
-      - port: Toggle
-        uid: 6061
-      - port: Toggle
-        uid: 6064
-      - port: Toggle
-        uid: 6062
-    type: SignalTransmitter
 - uid: 6027
   type: CableMV
   components:
@@ -56584,7 +56118,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6060
   type: ShuttersNormalOpen
@@ -56597,7 +56131,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6061
   type: ShuttersNormalOpen
@@ -56610,7 +56144,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6062
   type: ShuttersNormalOpen
@@ -56623,7 +56157,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6063
   type: ShuttersWindowOpen
@@ -56636,7 +56170,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6064
   type: ShuttersWindowOpen
@@ -56649,7 +56183,7 @@ entities:
       Close: []
       Toggle:
       - port: Pressed
-        uid: 6026
+        uid: 2477
     type: SignalReceiver
 - uid: 6065
   type: CableMV
@@ -56853,24 +56387,6 @@ entities:
     type: Transform
   - color: '#0055CCFF'
     type: AtmosPipeColor
-- uid: 6097
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -25.5,-1.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 6098
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -25.5,-5.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 6099
   type: Poweredlight
   components:
@@ -57451,14 +56967,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 6175
-  type: Poweredlight
-  components:
-  - pos: -20.5,-2.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 6176
   type: CableHV
   components:
@@ -57524,14 +57032,6 @@ entities:
     parent: 7
     type: Transform
   - type: ActiveEmergencyLight
-- uid: 6186
-  type: Poweredlight
-  components:
-  - pos: -18.5,-2.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 6187
   type: CableApcExtension
   components:
@@ -58158,14 +57658,6 @@ entities:
   - pos: 8.395719,28.495592
     parent: 7
     type: Transform
-- uid: 6276
-  type: MiningDrill
-  components:
-  - pos: 8.548652,31.451391
-    parent: 7
-    type: Transform
-  - nextAttack: 1942.0657521
-    type: MeleeWeapon
 - uid: 6277
   type: WallReinforced
   components:
@@ -64547,24 +64039,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 7226
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -23.5,-22.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7227
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -22.5,-19.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7228
   type: Poweredlight
   components:
@@ -64587,14 +64061,6 @@ entities:
   type: Poweredlight
   components:
   - pos: -17.5,-11.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7231
-  type: Poweredlight
-  components:
-  - pos: -20.5,-11.5
     parent: 7
     type: Transform
   - powerLoad: 0
@@ -66591,14 +66057,6 @@ entities:
   - pos: 28.5,10.5
     parent: 7
     type: Transform
-- uid: 7534
-  type: Poweredlight
-  components:
-  - pos: 25.5,15.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7535
   type: CableMV
   components:
@@ -66613,15 +66071,6 @@ entities:
     type: Transform
   - enabled: False
     type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7537
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 27.5,12.5
-    parent: 7
-    type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 7538
@@ -66659,14 +66108,6 @@ entities:
     type: Transform
   - enabled: False
     type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 7542
-  type: Poweredlight
-  components:
-  - pos: 11.5,6.5
-    parent: 7
-    type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 7543
@@ -68801,15 +68242,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 7860
-  type: Poweredlight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 23.5,-17.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7861
   type: EmergencyLight
   components:
@@ -70397,14 +69829,6 @@ entities:
     type: Transform
   - color: '#990000FF'
     type: AtmosPipeColor
-- uid: 8094
-  type: PoweredlightExterior
-  components:
-  - pos: 10.5,26.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8095
   type: WallReinforced
   components:
@@ -71103,14 +70527,6 @@ entities:
   type: WallReinforced
   components:
   - pos: 0.5,41.5
-    parent: 7
-    type: Transform
-- uid: 8200
-  type: VendingMachineForensicsDrobe
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: -12.5,26.5
     parent: 7
     type: Transform
 - uid: 8201
@@ -74172,14 +73588,6 @@ entities:
   - pos: -23.5,9.5
     parent: 7
     type: Transform
-- uid: 8654
-  type: Poweredlight
-  components:
-  - pos: -23.5,14.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8655
   type: CrateNPCHamlet
   components:
@@ -74302,8 +73710,8 @@ entities:
   - pos: -9.5,38.5
     parent: 7
     type: Transform
-  - radius: 4.1
-    energy: 5.6
+  - radius: 5.3999996
+    energy: 7.6
     type: PointLight
 - uid: 8675
   type: WallReinforced
@@ -74422,22 +73830,6 @@ entities:
   - pos: -9.5,30.5
     parent: 7
     type: Transform
-- uid: 8691
-  type: PoweredlightLED
-  components:
-  - pos: -9.5,36.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 8692
-  type: PoweredlightLED
-  components:
-  - pos: -5.5,36.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8693
   type: PoweredlightLED
   components:
@@ -74681,15 +74073,6 @@ entities:
     pos: -4.5,21.5
     parent: 7
     type: Transform
-- uid: 8731
-  type: PoweredlightLED
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -2.5,30.5
-    parent: 7
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8732
   type: PoweredlightLED
   components:

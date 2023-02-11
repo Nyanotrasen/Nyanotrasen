@@ -43,10 +43,8 @@
     sprite: Clothing/OuterClothing/Misc/chef.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chef.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.8
+  - type: TemperatureProtection
+    coefficient: 0.1
 
 - type: entity
   parent: ClothingOuterBase
@@ -58,10 +56,8 @@
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.8
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -73,10 +69,8 @@
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.8
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -101,10 +95,8 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.75
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -160,10 +152,8 @@
     sprite: Clothing/OuterClothing/Misc/santa.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/santa.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.75
+  - type: TemperatureProtection
+    coefficient: 0.33
 
 - type: entity
   parent: ClothingOuterBase

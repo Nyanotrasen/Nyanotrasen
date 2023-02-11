@@ -21,6 +21,7 @@ job-description-ertjanitor = Ensure that the station is properly cleaned--for mo
 job-description-ertleader = Lead the Emergency Response Team in dealing with threats to Nanotrasen assets.
 job-description-ertmedic = Ensure that the crew of the station is kept alive and healthy.
 job-description-ertsecurity = Ensure that any active threats to the station are put to rest.
+job-description-guard = Keep track of prisoners and make sure they have their basic needs. 
 job-description-hop = Handle access reassignment fairly using your ID console, manage the service department, and keep Ian safe.
 job-description-hos = Manage your security force and keep them efficient, quell dissent, and keep the other heads of staff safe.
 job-description-intern = Learn the basics of administering medicine, cloning the dead, and creating chemicals.

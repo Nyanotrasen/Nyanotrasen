@@ -41,6 +41,9 @@
         0: Alive
         50: Critical
         100: Dead
+    - type: Damageable
+      damageContainer: Biological
+      damageModifierSet: Carp
     - type: Stamina
       excess: 100
     - type: MovementAlwaysTouching
@@ -65,8 +68,7 @@
         path: /Audio/Effects/bite.ogg
       damage:
         types:
-          Piercing: 5
-          Slash: 10
+          Slash: 15
     - type: TypingIndicator
       proto: alien
     - type: NoSlip

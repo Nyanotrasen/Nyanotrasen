@@ -509,3 +509,18 @@
   - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/soymilk.rsi
+
+- type: entity
+  parent: DrinkBottleBaseFull
+  id: DrinkHolyWaterFull
+  name: flask of holy water
+  description: A flask of holy water.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: HolyWater
+          Quantity: 100
+  - type: Sprite
+    sprite: Objects/Consumable/Drinks/flaskholywater.rsi

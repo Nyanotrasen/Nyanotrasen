@@ -11,6 +11,7 @@
       groups:
         Brute: -35
         Burn: -35
+        Immaterial: -10
     damageOnFail:
       groups:
         Brute: 15
@@ -43,6 +44,13 @@
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 3
+        Holy: 10
+  - type: MeleeStaminaCost
+    swing: 5
   - type: Tag
     tags:
     - Book

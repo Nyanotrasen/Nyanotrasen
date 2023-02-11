@@ -1,19 +1,58 @@
 - type: entity
-  id: MountainRock
+  id: MountainRockMining
   parent: AsteroidRock
   name: mountain rock
+  suffix: Low Yield/Higher Value Ore
   description: A craggy mountain wall.
   components:
   - type: Sprite
-    sprite: Structures/Walls/mountain_rock.rsi
+    sprite: Nyanotrasen/Structures/walls/mountain_rock_ore.rsi
     state: full
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: OreVein
+    oreChance: 0.20
+    oreRarityPrototypeId: RandomOreDistributionHigh    
 
 - type: entity
-  id: MountainRockMining
-  parent: AsteroidRockMining
+  id: MountainRock
+  parent: BaseStructure
   name: mountain rock
-  description: A craggy mountain wall.
+  suffix: un-mineable
+  description: A craggy mountain wall. It is too hard to mine.
   components:
   - type: Sprite
     sprite: Structures/Walls/mountain_rock.rsi
     state: full
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Occluder
+  - type: Airtight
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.5,-0.5,0.5,0.5"
+      density: 100
+      mask:
+      - FullTileMask
+      layer:
+      - WallLayer
+  - type: IconSmooth
+    key: walls
+    base: rock_

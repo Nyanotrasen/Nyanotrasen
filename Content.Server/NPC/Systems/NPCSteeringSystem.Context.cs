@@ -50,6 +50,16 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
+        if (steering.LastCoordinates != ourCoordinates)
+        {
+            steering.LastCoordinates = ourCoordinates;
+            steering.LastTimeMoved = _timing.CurTime;
+        } else if (_timing.CurTime > steering.LastTimeMoved + steering.TimeOutTime)
+        {
+            steering.Status = SteeringStatus.NoPath;
+            return false;
+        }
+
         // We've arrived, nothing else matters.
         if (xform.Coordinates.TryDistance(EntityManager, destinationCoordinates, out var distance) &&
             distance <= steering.Range)

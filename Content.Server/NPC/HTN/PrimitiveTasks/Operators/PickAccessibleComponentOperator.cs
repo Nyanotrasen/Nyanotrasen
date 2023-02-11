@@ -58,7 +58,8 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
 
         var compType = registration.Type;
         var query = _entManager.GetEntityQuery(compType);
-        var targets = new List<Component>();
+        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var targets = new List<EntityUid>();
 
         // TODO: Need to get ones that are accessible.
         // TODO: Look at unreal HTN to see repeatable ones maybe?
@@ -68,7 +69,7 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
             if (entity == owner || !query.TryGetComponent(entity, out var comp))
                 continue;
 
-            targets.Add(comp);
+            targets.Add(entity);
         }
 
         if (targets.Count == 0)
@@ -81,24 +82,21 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
         if (maxRange == 0f)
             maxRange = 7f;
 
-        while (targets.Count > 0)
+        foreach (var target in targets)
         {
-            var path = await _pathfinding.GetRandomPath(
-                owner,
-                maxRange,
-                cancelToken,
-                flags: _pathfinding.GetFlags(blackboard));
+            if (!xformQuery.TryGetComponent(target, out var xform))
+                continue;
 
+            var targetCoords = xform.Coordinates;
+            var path = await _pathfinding.GetPath(owner, target, range, cancelToken);
             if (path.Result != PathResult.Path)
             {
-                return (false, null);
+                continue;
             }
-
-            var target = path.Path.Last().Coordinates;
 
             return (true, new Dictionary<string, object>()
             {
-                { TargetKey, target },
+                { TargetKey, targetCoords },
                 { PathfindKey, path}
             });
         }

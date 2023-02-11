@@ -43,3 +43,13 @@
     OrePlasma: 4
     OreSilver: 1
     OreUranium: 1
+
+- type: weightedRandom
+  id: RandomOreDistributionHigh
+  weights:
+    OreSteel: 1
+    OreSpaceQuartz: 2
+    OreGold: 10
+    OrePlasma: 8
+    OreSilver: 4
+    OreUranium: 6

@@ -131,6 +131,22 @@
     - Bottle
 
 - type: entity
+  id: MercuryChemistryBottle
+  name: mercury bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mercury
+          Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
+
+- type: entity
   id: RobustHarvestChemistryBottle
   name: robust harvest bottle
   description: This will increase the potency of your plants.
