@@ -93,7 +93,7 @@ namespace Content.Client.Launcher
 
             string? newAddress = null;
 
-            if (reason[1] != null)
+            if (reason.Length > 1 && reason[1] != null)
             {
                 var address = reason[1];
 
