@@ -290,6 +290,7 @@
         damage:
           groups:
             Burn: -0.5
+          types:
             Holy: 1
   plantMetabolism: #Heals plants a little with the holy power within it.
     - !type:PlantAdjustHealth
