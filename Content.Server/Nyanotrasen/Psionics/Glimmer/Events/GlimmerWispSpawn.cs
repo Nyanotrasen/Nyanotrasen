@@ -29,7 +29,7 @@ public sealed class GlimmerWispSpawn : GlimmerEventSystem
         int i = 0;
         while (i < total)
         {
-            if (glimmerSources.Count != 0 && _robustRandom.Prob(0.6f))
+            if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
                 EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
                 i++;
