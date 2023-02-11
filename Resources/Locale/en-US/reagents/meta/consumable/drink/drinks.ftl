@@ -61,6 +61,9 @@ reagent-desc-tonic-water = It tastes strange but at least the quinine keeps the 
 reagent-name-water = water
 reagent-desc-water = A colorless liquid that humans need in order to survive.
 
+reagent-name-holywater = holy water
+reagent-desc-holywater = Water blessed by some otherworldly powers.
+
 reagent-name-ice = ice
 reagent-desc-ice = Frozen water.
 
