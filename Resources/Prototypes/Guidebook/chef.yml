@@ -1,0 +1,11 @@
+- type: guideEntry
+  id: Chef
+  name: guide-entry-chef
+  text: "/Server Info/Guidebook/Chef/intro.xml"
+  children:
+  - Cookbook
+
+- type: guideEntry
+  id: Cookbook
+  name: guide-entry-cookbook
+  text: "/Server Info/Guidebook/Chef/cookbook.xml"
