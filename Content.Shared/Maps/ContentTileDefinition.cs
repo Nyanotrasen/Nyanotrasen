@@ -31,15 +31,15 @@ namespace Content.Shared.Maps
         public string Name { get; private set; } = "";
         [DataField("sprite")] public ResourcePath? Sprite { get; }
 
-        [DataField("edgeSprites")] public Dictionary<Direction, ResourcePath> EdgeSprites { get; } = new();
+        [DataField("cornerSprites")] public List<ResourcePath> CornerSprites { get; } = new();
+
+        [DataField("cardinalSprites")] public List<ResourcePath> CardinalSprites { get; } = new();
 
         [DataField("isSubfloor")] public bool IsSubFloor { get; private set; }
 
         [DataField("baseTurfs")] public List<string> BaseTurfs { get; } = new();
 
         [DataField("canCrowbar")] public bool CanCrowbar { get; private set; }
-
-        [DataField("canShovel")] public bool CanShovel { get; private set; }
 
         [DataField("canWirecutter")] public bool CanWirecutter { get; private set; }
 
