@@ -46,7 +46,9 @@ namespace Content.Server.Shipyard.Systems
 
         private void OnShipyardStartup(EntityUid uid, ShipyardConsoleComponent component, ComponentInit args)
         {
-            if (!_enabled) return;
+            if (!_enabled)
+                return;
+
             SetupShipyard();
         }
 
@@ -58,7 +60,9 @@ namespace Content.Server.Shipyard.Systems
 
         private void SetShipyardEnabled(bool value)
         {
-            if (_enabled == value) return;
+            if (_enabled == value)
+                return;
+
             _enabled = value;
 
             if (value)
