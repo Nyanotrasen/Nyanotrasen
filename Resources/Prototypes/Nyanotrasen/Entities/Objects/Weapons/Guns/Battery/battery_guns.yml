@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseWeaponBattery
   id: Decloner
-  name: decloner
-  description: A weapon that damages the target's genome, making it very hard to heal from
+  name: experimental facilitate laser pistol
+  description: A weapon that has a series of lens to allacate a beam through.
   components:
   - type: Sprite
     netsync: false
@@ -16,5 +16,5 @@
     proto: BoltDecloner
     fireCost: 100
   - type: Battery
-    maxCharge: 600
-    startingCharge: 600
+    maxCharge: 1000
+    startingCharge: 0
