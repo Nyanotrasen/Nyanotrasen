@@ -521,3 +521,12 @@
     Steel: 100
     Glass: 300
     Plasma: 200
+
+- type: latheRecipe
+  id: ClothingEyesHudDiagnostic
+  icon: { sprite: Clothing/Eyes/Hud/diag.rsi, state: icon }
+  result: ClothingEyesHudDiagnostic
+  completetime: 4
+  materials:
+    Steel: 300
+    Glass: 300
