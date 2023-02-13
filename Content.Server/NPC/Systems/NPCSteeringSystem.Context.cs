@@ -50,7 +50,8 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
-        if (steering.LastCoordinates != ourCoordinates)
+        if (xform.Coordinates.TryDistance(EntityManager, steering.LastCoordinates, out var movedDistance) &&
+            movedDistance > 1)
         {
             steering.LastCoordinates = ourCoordinates;
             steering.LastTimeMoved = _timing.CurTime;
