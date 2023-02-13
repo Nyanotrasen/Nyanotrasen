@@ -81,6 +81,7 @@ namespace Content.Server.NPC.Systems
             _configManager.OnValueChanged(CCVars.NPCEnabled, SetNPCEnabled, true);
             _configManager.OnValueChanged(CCVars.NPCPathfinding, SetNPCPathfinding, true);
 
+            SubscribeLocalEvent<NPCSteeringComponent, ComponentStartup>(OnSteeringStartup);
             SubscribeLocalEvent<NPCSteeringComponent, ComponentShutdown>(OnSteeringShutdown);
             SubscribeNetworkEvent<RequestNPCSteeringDebugEvent>(OnDebugRequest);
         }
@@ -130,6 +131,12 @@ namespace Content.Server.NPC.Systems
                 _subscribedSessions.Add(args.SenderSession);
             else
                 _subscribedSessions.Remove(args.SenderSession);
+        }
+
+        private void OnSteeringStartup(EntityUid uid, NPCSteeringComponent component, ComponentStartup args)
+        {
+            component.LastCoordinates = Transform(uid).Coordinates;
+            component.LastTimeMoved = _timing.CurTime;
         }
 
         private void OnSteeringShutdown(EntityUid uid, NPCSteeringComponent component, ComponentShutdown args)
