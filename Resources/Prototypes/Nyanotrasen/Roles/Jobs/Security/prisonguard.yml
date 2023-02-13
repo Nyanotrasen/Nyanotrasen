@@ -11,7 +11,7 @@
   canBeAntag: false
   icon: "Warden" 
   supervisors: job-supervisors-warden
-  setPreference: false
+  setPreference: true
   whitelistRequired: true
   access:
   - Security
