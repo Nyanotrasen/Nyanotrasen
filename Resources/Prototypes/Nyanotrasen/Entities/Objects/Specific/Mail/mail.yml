@@ -579,6 +579,9 @@
       orGroup: Plushie
     - id: PlushieMoff
       orGroup: Plushie
+    - id: PlushieMoffsician
+      prob: 0.5
+      orGroup: Plushie
 
 - type: entity
   noSpawn: true
