@@ -173,11 +173,11 @@
   quantized: true
   reactants:
     UncookedAnimalProteins:
-      amount: 5
+      amount: 3
     Flour:
       amount: 5
     Egg:
-      amount: 6
+      amount: 2
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodMeatMeatball
