@@ -199,6 +199,16 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Patron
+
+        Task<bool> GetPatronStatusAsync(NetUserId player);
+
+        Task AddPatronAsync(NetUserId player);
+
+        Task RemovePatronAsync(NetUserId player);
+
+        #endregion
+
         #region Uploaded Resources Logs
 
         Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data);
@@ -562,6 +572,24 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return _db.RemoveFromWhitelistAsync(player);
+        }
+
+        public Task<bool> GetPatronStatusAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return _db.GetPatronStatusAsync(player);
+        }
+
+        public Task AddPatronAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return _db.AddPatronAsync(player);
+        }
+
+        public Task RemovePatronAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return _db.AddPatronAsync(player);
         }
 
         public Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data)

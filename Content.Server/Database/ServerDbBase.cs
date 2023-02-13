@@ -875,6 +875,32 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Patron
+        public async Task<bool> GetPatronStatusAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Patron.AnyAsync(p => p.UserId == player);
+        }
+
+        public async Task AddPatronAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            db.DbContext.Patron.Add(new Patron { UserId = player });
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task RemovePatronAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+            var entry = await db.DbContext.Patron.SingleAsync(p => p.UserId == player);
+            db.DbContext.Patron.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        #endregion
+
         #region Uploaded Resources Logs
 
         public async Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data)

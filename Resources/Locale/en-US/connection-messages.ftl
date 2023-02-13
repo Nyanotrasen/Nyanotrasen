@@ -7,11 +7,23 @@ command-whitelistadd-existing = {$username} is already on the whitelist!
 command-whitelistadd-added = {$username} added to the whitelist
 command-whitelistadd-not-found = Unable to find '{$username}'
 
+command-patronadd-description = Adds the player with the given username to the patron list.
+command-patronadd-help = patronadd <username>
+command-patronadd-existing = {$username} is already a patron!
+command-patronadd-added = {$username} added to patron list.
+command-patronadd-not-found = Unable to find '{$username}'
+
 command-whitelistremove-description = Removes the player with the given username from the server whitelist.
 command-whitelistremove-help = whitelistremove <username>
 command-whitelistremove-existing = {$username} is not on the whitelist!
 command-whitelistremove-removed = {$username} removed from the whitelist
 command-whitelistremove-not-found = Unable to find '{$username}'
+
+command-patronremove-description = Removes an inactive patron from the patron list.
+command-patronremove-help = patronremove <username>
+command-patronremove-existing = {$username} is not on the patron list!
+command-patronremove-removed = {$username} removed from the patron list
+command-patronremove-not-found = Unable to find '{$username}'
 
 command-kicknonwhitelisted-description = Kicks all non-whitelisted players from the server.
 command-kicknonwhitelisted-help = kicknonwhitelisted
