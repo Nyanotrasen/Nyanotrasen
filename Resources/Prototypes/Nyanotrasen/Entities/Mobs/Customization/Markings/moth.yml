@@ -1,48 +1,1118 @@
+# All the moth customization
+
+#
 # Antennas
+#
 - type: marking
-  id: MothAntennasDefault
+  id: MothAntennasPlain
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
-  - sprite: Nyanotrasen/Mobs/Customization/moth_parts.rsi
-    state: antenna_default
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: plain
 
+- type: marking
+  id: MothAntennasReddish
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: reddish
+
+- type: marking
+  id: MothAntennasRoyal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: royal
+
+- type: marking
+  id: MothAntennasGothic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: gothic
+
+- type: marking
+  id: MothAntennasLovers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: lovers
+
+- type: marking
+  id: MothAntennasWhitefly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: whitefly
+
+- type: marking
+  id: MothAntennasFirewatch
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: firewatch
+
+- type: marking
+  id: MothAntennasDeathshead
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: deathshead
+
+- type: marking
+  id: MothAntennasPoison
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: poison
+
+- type: marking
+  id: MothAntennasMoonfly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: moonfly
+
+- type: marking
+  id: MothAntennasSnow
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: snow
+
+- type: marking
+  id: MothAntennasOakworm
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: oakworm
+
+- type: marking
+  id: MothAntennasWitchking
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: witchking
+
+- type: marking
+  id: MothAntennasJungle
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: jungle
+
+- type: marking
+  id: MothAntennasRegal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: regal
+
+- type: marking
+  id: MothAntennasRosy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: rosy
+
+- type: marking
+  id: MothAntennasFeathery
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: feathery
+
+- type: marking
+  id: MothAntennasBrown
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: brown
+
+- type: marking
+  id: MothAntennasPlasmafire
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: plasmafire
+
+- type: marking
+  id: MothAntennasMoffra
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: moffra
+
+#
 # Wings
+#
+
 - type: marking
-  id: MothWingsDefault
+  id: MothWingsPlain
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
-    state: default
+    state: plain
 
 - type: marking
-  id: MothWingsLook1
+  id: MothWingsAtlas
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
-    state: look1
+    state: atlas
 
 - type: marking
-  id: MothWingsLook2
+  id: MothWingsLuna
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
-    state: look2
+    state: luna
 
 - type: marking
-  id: MothWingsLook3
+  id: MothWingsMonarch
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Moth]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
-    state: look3
+    state: monarch
 
-# Other markings
+- type: marking
+  id: MothWingsReddish
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: false
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: reddish
+
+- type: marking
+  id: MothWingsRoyal
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: false
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: royal
+
+- type: marking
+  id: MothWingsGothic
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: false
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: gothic
+
+- type: marking
+  id: MothWingsLovers
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: false
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: lovers
+
+- type: marking
+  id: MothWingsWhitefly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: whitefly
+
+- type: marking
+  id: MothWingsFirewatch
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: firewatch
+
+- type: marking
+  id: MothWingsDeathshead
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: deathshead
+
+- type: marking
+  id: MothWingsPoison
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: poison
+
+- type: marking
+  id: MothWingsRagged
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: ragged
+
+- type: marking
+  id: MothWingsMoonfly
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: moonfly
+
+- type: marking
+  id: MothWingsSnow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: snow
+
+- type: marking
+  id: MothWingsOakworm
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: oakworm
+
+- type: marking
+  id: MothWingsWitchking
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: witchking
+
+- type: marking
+  id: MothWingsJungle
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: jungle
+
+- type: marking
+  id: MothWingsRosy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: rosy
+
+- type: marking
+  id: MothWingsFeathery
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: feathery
+
+- type: marking
+  id: MothWingsBrown
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: brown
+
+- type: marking
+  id: MothWingsPlasmafire
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: plasmafire
+
+- type: marking
+  id: MothWingsMoffra
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: moffra
+
+#
+# Markings
+#
+
+# Reddish
+- type: marking
+  id: MothMarkingsReddishHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-head
+
+- type: marking
+  id: MothMarkingsReddishChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-chest
+
+- type: marking
+  id: MothMarkingsReddishLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-larm
+
+- type: marking
+  id: MothMarkingsReddishRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-rarm
+
+- type: marking
+  id: MothMarkingsReddishLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-lleg
+
+- type: marking
+  id: MothMarkingsReddishRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: reddish-rleg
+
+# Royal
+- type: marking
+  id: MothMarkingsRoyalHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-head
+
+- type: marking
+  id: MothMarkingsRoyalChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-chest
+
+- type: marking
+  id: MothMarkingsRoyalLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-larm
+
+- type: marking
+  id: MothMarkingsRoyalRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-rarm
+
+- type: marking
+  id: MothMarkingsRoyalLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-lleg
+
+- type: marking
+  id: MothMarkingsRoyalRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: royal-rleg
+
+# Gothic
+- type: marking
+  id: MothMarkingsGothicHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-head
+
+- type: marking
+  id: MothMarkingsGothicChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-chest
+
+- type: marking
+  id: MothMarkingsGothicLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-larm
+
+- type: marking
+  id: MothMarkingsGothicRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-rarm
+
+- type: marking
+  id: MothMarkingsGothicLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-lleg
+
+- type: marking
+  id: MothMarkingsGothicRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: gothic-rleg
+
+# Lovers
+- type: marking
+  id: MothMarkingsLoversHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-head
+
+- type: marking
+  id: MothMarkingsLoversChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-chest
+
+- type: marking
+  id: MothMarkingsLoversLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-larm
+
+- type: marking
+  id: MothMarkingsLoversRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-rarm
+
+- type: marking
+  id: MothMarkingsLoversLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-lleg
+
+- type: marking
+  id: MothMarkingsLoversRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: lovers-rleg
+
+# Whitefly
+- type: marking
+  id: MothMarkingsWhiteflyHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-head
+
+- type: marking
+  id: MothMarkingsWhiteflyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-chest
+
+- type: marking
+  id: MothMarkingsWhiteflyLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-larm
+
+- type: marking
+  id: MothMarkingsWhiteflyRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-rarm
+
+- type: marking
+  id: MothMarkingsWhiteflyLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-lleg
+
+- type: marking
+  id: MothMarkingsWhiteflyRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: whitefly-rleg
+
+# Firewatch
+- type: marking
+  id: MothMarkingsFirewatchHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-head
+
+- type: marking
+  id: MothMarkingsFirewatchChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-chest
+
+- type: marking
+  id: MothMarkingsFirewatchLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-larm
+
+- type: marking
+  id: MothMarkingsFirewatchRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-rarm
+
+- type: marking
+  id: MothMarkingsFirewatchLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-lleg
+
+- type: marking
+  id: MothMarkingsFirewatchRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: firewatch-rleg
+
+# Deathshead
+- type: marking
+  id: MothMarkingsDeathsheadHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-head
+
+- type: marking
+  id: MothMarkingsDeathsheadChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-chest
+
+- type: marking
+  id: MothMarkingsDeathsheadLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-larm
+
+- type: marking
+  id: MothMarkingsDeathsheadRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-rarm
+
+- type: marking
+  id: MothMarkingsDeathsheadLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-lleg
+
+- type: marking
+  id: MothMarkingsDeathsheadRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: deathshead-rleg
+
+# Poison
+- type: marking
+  id: MothMarkingsPoisonHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-head
+
+- type: marking
+  id: MothMarkingsPoisonChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-chest
+
+- type: marking
+  id: MothMarkingsPoisonLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-larm
+
+- type: marking
+  id: MothMarkingsPoisonRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-rarm
+
+- type: marking
+  id: MothMarkingsPoisonLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-lleg
+
+- type: marking
+  id: MothMarkingsPoisonRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: poison-rleg
+
+# Ragged
+- type: marking
+  id: MothMarkingsRaggedHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-head
+
+- type: marking
+  id: MothMarkingsRaggedChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-chest
+
+- type: marking
+  id: MothMarkingsRaggedLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-larm
+
+- type: marking
+  id: MothMarkingsRaggedRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-rarm
+
+- type: marking
+  id: MothMarkingsRaggedLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-lleg
+
+- type: marking
+  id: MothMarkingsRaggedRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: ragged-rleg
+
+# Moonfly
+- type: marking
+  id: MothMarkingsMoonflyHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-head
+
+- type: marking
+  id: MothMarkingsMoonflyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-chest
+
+- type: marking
+  id: MothMarkingsMoonflyLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-larm
+
+- type: marking
+  id: MothMarkingsMoonflyRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-rarm
+
+- type: marking
+  id: MothMarkingsMoonflyLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-lleg
+
+- type: marking
+  id: MothMarkingsMoonflyRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: moonfly-rleg
+
+# Oakworm
+- type: marking
+  id: MothMarkingsOakwormHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-head
+
+- type: marking
+  id: MothMarkingsOakwormChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-chest
+
+- type: marking
+  id: MothMarkingsOakwormLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-larm
+
+- type: marking
+  id: MothMarkingsOakwormRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-rarm
+
+- type: marking
+  id: MothMarkingsOakwormLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-lleg
+
+- type: marking
+  id: MothMarkingsOakwormRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: oakworm-rleg
+
+# Jungle
+- type: marking
+  id: MothMarkingsJungleHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-head
+
+- type: marking
+  id: MothMarkingsJungleChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-chest
+
+- type: marking
+  id: MothMarkingsJungleLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-larm
+
+- type: marking
+  id: MothMarkingsJungleRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-rarm
+
+- type: marking
+  id: MothMarkingsJungleLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-lleg
+
+- type: marking
+  id: MothMarkingsJungleRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: jungle-rleg
+
+# Witchking
+- type: marking
+  id: MothMarkingsWitchkingHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-head
+
+- type: marking
+  id: MothMarkingsWitchkingChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-chest
+
+- type: marking
+  id: MothMarkingsWitchkingLeftArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-larm
+
+- type: marking
+  id: MothMarkingsWitchkingRightArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-rarm
+
+- type: marking
+  id: MothMarkingsWitchkingLeftLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-lleg
+
+- type: marking
+  id: MothMarkingsWitchkingRightLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_markings.rsi
+    state: witchking-rleg

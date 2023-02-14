@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/be0e6efdf6b18e953d3dcb1eff584b66a9d3b9e3",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "reddish-head",
+      "directions": 4
+    },
+    {
+      "name": "reddish-chest",
+      "directions": 4
+    },
+    {
+      "name": "reddish-rarm",
+      "directions": 4
+    },
+    {
+      "name": "reddish-larm",
+      "directions": 4
+    },
+    {
+      "name": "reddish-rleg",
+      "directions": 4
+    },
+    {
+      "name": "reddish-lleg",
+      "directions": 4
+    },
+    {
+      "name": "royal-head",
+      "directions": 4
+    },
+    {
+      "name": "royal-chest",
+      "directions": 4
+    },
+    {
+      "name": "royal-rarm",
+      "directions": 4
+    },
+    {
+      "name": "royal-larm",
+      "directions": 4
+    },
+    {
+      "name": "royal-rleg",
+      "directions": 4
+    },
+    {
+      "name": "royal-lleg",
+      "directions": 4
+    },
+    {
+      "name": "gothic-head",
+      "directions": 4
+    },
+    {
+      "name": "gothic-chest",
+      "directions": 4
+    },
+    {
+      "name": "gothic-rarm",
+      "directions": 4
+    },
+    {
+      "name": "gothic-larm",
+      "directions": 4
+    },
+    {
+      "name": "gothic-rleg",
+      "directions": 4
+    },
+    {
+      "name": "gothic-lleg",
+      "directions": 4
+    },
+    {
+      "name": "lovers-head",
+      "directions": 4
+    },
+    {
+      "name": "lovers-chest",
+      "directions": 4
+    },
+    {
+      "name": "lovers-rarm",
+      "directions": 4
+    },
+    {
+      "name": "lovers-larm",
+      "directions": 4
+    },
+    {
+      "name": "lovers-rleg",
+      "directions": 4
+    },
+    {
+      "name": "lovers-lleg",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-head",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-chest",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-rarm",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-larm",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-rleg",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-lleg",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-head",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-chest",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-rarm",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-larm",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-rleg",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-lleg",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-head",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-chest",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-rarm",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-larm",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-rleg",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-lleg",
+      "directions": 4
+    },
+    {
+      "name": "poison-head",
+      "directions": 4
+    },
+    {
+      "name": "poison-chest",
+      "directions": 4
+    },
+    {
+      "name": "poison-rarm",
+      "directions": 4
+    },
+    {
+      "name": "poison-larm",
+      "directions": 4
+    },
+    {
+      "name": "poison-rleg",
+      "directions": 4
+    },
+    {
+      "name": "poison-lleg",
+      "directions": 4
+    },
+    {
+      "name": "ragged-head",
+      "directions": 4
+    },
+    {
+      "name": "ragged-chest",
+      "directions": 4
+    },
+    {
+      "name": "ragged-rarm",
+      "directions": 4
+    },
+    {
+      "name": "ragged-larm",
+      "directions": 4
+    },
+    {
+      "name": "ragged-rleg",
+      "directions": 4
+    },
+    {
+      "name": "ragged-lleg",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-head",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-chest",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-rarm",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-larm",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-rleg",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-lleg",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-head",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-chest",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-rarm",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-larm",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-rleg",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-lleg",
+      "directions": 4
+    },
+    {
+      "name": "jungle-head",
+      "directions": 4
+    },
+    {
+      "name": "jungle-chest",
+      "directions": 4
+    },
+    {
+      "name": "jungle-rarm",
+      "directions": 4
+    },
+    {
+      "name": "jungle-larm",
+      "directions": 4
+    },
+    {
+      "name": "jungle-rleg",
+      "directions": 4
+    },
+    {
+      "name": "jungle-lleg",
+      "directions": 4
+    },
+    {
+      "name": "witchking-head",
+      "directions": 4
+    },
+    {
+      "name": "witchking-chest",
+      "directions": 4
+    },
+    {
+      "name": "witchking-rarm",
+      "directions": 4
+    },
+    {
+      "name": "witchking-larm",
+      "directions": 4
+    },
+    {
+      "name": "witchking-rleg",
+      "directions": 4
+    },
+    {
+      "name": "witchking-lleg",
+      "directions": 4
+    }
+  ]
+}
