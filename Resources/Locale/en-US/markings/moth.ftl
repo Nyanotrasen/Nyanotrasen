@@ -137,16 +137,16 @@ marking-MothMarkingsReddishHead = Reddish
 marking-MothMarkingsReddishChest-reddish-chest = Reddish
 marking-MothMarkingsReddishChest = Reddish
 
-marking-MothMarkingsReddishLeftArm-reddish-larm = Reddish (Left Arm)
+marking-MothMarkingsReddishLeftArm-reddish-leftarm = Reddish (Left Arm)
 marking-MothMarkingsReddishLeftArm = Reddish (Left Arm)
 
-marking-MothMarkingsReddishRightArm-reddish-rarm = Reddish (Right Arm)
+marking-MothMarkingsReddishRightArm-reddish-rightarm = Reddish (Right Arm)
 marking-MothMarkingsReddishRightArm = Reddish (Right Arm)
 
-marking-MothMarkingsReddishLeftLeg-reddish-lleg = Reddish (Left Leg)
+marking-MothMarkingsReddishLeftLeg-reddish-leftleg = Reddish (Left Leg)
 marking-MothMarkingsReddishLeftLeg = Reddish (Left Leg)
 
-marking-MothMarkingsReddishRightLeg-reddish-rleg = Reddish (Right Leg)
+marking-MothMarkingsReddishRightLeg-reddish-rightleg = Reddish (Right Leg)
 marking-MothMarkingsReddishRightLeg = Reddish (Right Leg)
 
 
@@ -156,16 +156,16 @@ marking-MothMarkingsRoyalHead = Royal
 marking-MothMarkingsRoyalChest-royal-chest = Royal
 marking-MothMarkingsRoyalChest = Royal
 
-marking-MothMarkingsRoyalLeftArm-royal-larm = Royal (Left Arm)
+marking-MothMarkingsRoyalLeftArm-royal-leftarm = Royal (Left Arm)
 marking-MothMarkingsRoyalLeftArm = Royal (Left Arm)
 
-marking-MothMarkingsRoyalRightArm-royal-rarm = Royal (Right Arm)
+marking-MothMarkingsRoyalRightArm-royal-rightarm = Royal (Right Arm)
 marking-MothMarkingsRoyalRightArm = Royal (Right Arm)
 
-marking-MothMarkingsRoyalLeftLeg-royal-lleg = Royal (Left Leg)
+marking-MothMarkingsRoyalLeftLeg-royal-leftleg = Royal (Left Leg)
 marking-MothMarkingsRoyalLeftLeg = Royal (Left Leg)
 
-marking-MothMarkingsRoyalRightLeg-royal-rleg = Royal (Right Leg)
+marking-MothMarkingsRoyalRightLeg-royal-rightleg = Royal (Right Leg)
 marking-MothMarkingsRoyalRightLeg = Royal (Right Leg)
 
 
@@ -175,16 +175,16 @@ marking-MothMarkingsGothicHead = Gothic
 marking-MothMarkingsGothicChest-gothic-chest = Gothic
 marking-MothMarkingsGothicChest = Gothic
 
-marking-MothMarkingsGothicLeftArm-gothic-larm = Gothic (Left Arm)
+marking-MothMarkingsGothicLeftArm-gothic-leftarm = Gothic (Left Arm)
 marking-MothMarkingsGothicLeftArm = Gothic (Left Arm)
 
-marking-MothMarkingsGothicRightArm-gothic-rarm = Gothic (Right Arm)
+marking-MothMarkingsGothicRightArm-gothic-rightarm = Gothic (Right Arm)
 marking-MothMarkingsGothicRightArm = Gothic (Right Arm)
 
-marking-MothMarkingsGothicLeftLeg-gothic-lleg = Gothic (Left Leg)
+marking-MothMarkingsGothicLeftLeg-gothic-leftleg = Gothic (Left Leg)
 marking-MothMarkingsGothicLeftLeg = Gothic (Left Leg)
 
-marking-MothMarkingsGothicRightLeg-gothic-rleg = Gothic (Right Leg)
+marking-MothMarkingsGothicRightLeg-gothic-rightleg = Gothic (Right Leg)
 marking-MothMarkingsGothicRightLeg = Gothic (Right Leg)
 
 
@@ -194,16 +194,16 @@ marking-MothMarkingsLoversHead = Lovers
 marking-MothMarkingsLoversChest-lovers-chest = Lovers
 marking-MothMarkingsLoversChest = Lovers
 
-marking-MothMarkingsLoversLeftArm-lovers-larm = Lovers (Left Arm)
+marking-MothMarkingsLoversLeftArm-lovers-leftarm = Lovers (Left Arm)
 marking-MothMarkingsLoversLeftArm = Lovers (Left Arm)
 
-marking-MothMarkingsLoversRightArm-lovers-rarm = Lovers (Right Arm)
+marking-MothMarkingsLoversRightArm-lovers-rightarm = Lovers (Right Arm)
 marking-MothMarkingsLoversRightArm = Lovers (Right Arm)
 
-marking-MothMarkingsLoversLeftLeg-lovers-lleg = Lovers (Left Leg)
+marking-MothMarkingsLoversLeftLeg-lovers-leftleg = Lovers (Left Leg)
 marking-MothMarkingsLoversLeftLeg = Lovers (Left Leg)
 
-marking-MothMarkingsLoversRightLeg-lovers-rleg = Lovers (Right Leg)
+marking-MothMarkingsLoversRightLeg-lovers-rightleg = Lovers (Right Leg)
 marking-MothMarkingsLoversRightLeg = Lovers (Right Leg)
 
 
@@ -213,16 +213,16 @@ marking-MothMarkingsWhiteflyHead = Whitefly
 marking-MothMarkingsWhiteflyChest-whitefly-chest = Whitefly
 marking-MothMarkingsWhiteflyChest = Whitefly
 
-marking-MothMarkingsWhiteflyLeftArm-whitefly-larm = Whitefly (Left Arm)
+marking-MothMarkingsWhiteflyLeftArm-whitefly-leftarm = Whitefly (Left Arm)
 marking-MothMarkingsWhiteflyLeftArm = Whitefly (Left Arm)
 
-marking-MothMarkingsWhiteflyRightArm-whitefly-rarm = Whitefly (Right Arm)
+marking-MothMarkingsWhiteflyRightArm-whitefly-rightarm = Whitefly (Right Arm)
 marking-MothMarkingsWhiteflyRightArm = Whitefly (Right Arm)
 
-marking-MothMarkingsWhiteflyLeftLeg-whitefly-lleg = Whitefly (Left Leg)
+marking-MothMarkingsWhiteflyLeftLeg-whitefly-leftleg = Whitefly (Left Leg)
 marking-MothMarkingsWhiteflyLeftLeg = Whitefly (Left Leg)
 
-marking-MothMarkingsWhiteflyRightLeg-whitefly-rleg = Whitefly (Right Leg)
+marking-MothMarkingsWhiteflyRightLeg-whitefly-rightleg = Whitefly (Right Leg)
 marking-MothMarkingsWhiteflyRightLeg = Whitefly (Right Leg)
 
 
@@ -232,16 +232,16 @@ marking-MothMarkingsFirewatchHead = Firewatch
 marking-MothMarkingsFirewatchChest-firewatch-chest = Firewatch
 marking-MothMarkingsFirewatchChest = Firewatch
 
-marking-MothMarkingsFirewatchLeftArm-firewatch-larm = Firewatch (Left Arm)
+marking-MothMarkingsFirewatchLeftArm-firewatch-leftarm = Firewatch (Left Arm)
 marking-MothMarkingsFirewatchLeftArm = Firewatch (Left Arm)
 
-marking-MothMarkingsFirewatchRightArm-firewatch-rarm = Firewatch (Right Arm)
+marking-MothMarkingsFirewatchRightArm-firewatch-rightarm = Firewatch (Right Arm)
 marking-MothMarkingsFirewatchRightArm = Firewatch (Right Arm)
 
-marking-MothMarkingsFirewatchLeftLeg-firewatch-lleg = Firewatch (Left Leg)
+marking-MothMarkingsFirewatchLeftLeg-firewatch-leftleg = Firewatch (Left Leg)
 marking-MothMarkingsFirewatchLeftLeg = Firewatch (Left Leg)
 
-marking-MothMarkingsFirewatchRightLeg-firewatch-rleg = Firewatch (Right Leg)
+marking-MothMarkingsFirewatchRightLeg-firewatch-rightleg = Firewatch (Right Leg)
 marking-MothMarkingsFirewatchRightLeg = Firewatch (Right Leg)
 
 
@@ -251,16 +251,16 @@ marking-MothMarkingsDeathsheadHead = Deathshead
 marking-MothMarkingsDeathsheadChest-deathshead-chest = Deathshead
 marking-MothMarkingsDeathsheadChest = Deathshead
 
-marking-MothMarkingsDeathsheadLeftArm-deathshead-larm = Deathshead (Left Arm)
+marking-MothMarkingsDeathsheadLeftArm-deathshead-leftarm = Deathshead (Left Arm)
 marking-MothMarkingsDeathsheadLeftArm = Deathshead (Left Arm)
 
-marking-MothMarkingsDeathsheadRightArm-deathshead-rarm = Deathshead (Right Arm)
+marking-MothMarkingsDeathsheadRightArm-deathshead-rightarm = Deathshead (Right Arm)
 marking-MothMarkingsDeathsheadRightArm = Deathshead (Right Arm)
 
-marking-MothMarkingsDeathsheadLeftLeg-deathshead-lleg = Deathshead (Left Leg)
+marking-MothMarkingsDeathsheadLeftLeg-deathshead-leftleg = Deathshead (Left Leg)
 marking-MothMarkingsDeathsheadLeftLeg = Deathshead (Left Leg)
 
-marking-MothMarkingsDeathsheadRightLeg-deathshead-rleg = Deathshead (Right Leg)
+marking-MothMarkingsDeathsheadRightLeg-deathshead-rightleg = Deathshead (Right Leg)
 marking-MothMarkingsDeathsheadRightLeg = Deathshead (Right Leg)
 
 
@@ -270,16 +270,16 @@ marking-MothMarkingsPoisonHead = Poison
 marking-MothMarkingsPoisonChest-poison-chest = Poison
 marking-MothMarkingsPoisonChest = Poison
 
-marking-MothMarkingsPoisonLeftArm-poison-larm = Poison (Left Arm)
+marking-MothMarkingsPoisonLeftArm-poison-leftarm = Poison (Left Arm)
 marking-MothMarkingsPoisonLeftArm = Poison (Left Arm)
 
-marking-MothMarkingsPoisonRightArm-poison-rarm = Poison (Right Arm)
+marking-MothMarkingsPoisonRightArm-poison-rightarm = Poison (Right Arm)
 marking-MothMarkingsPoisonRightArm = Poison (Right Arm)
 
-marking-MothMarkingsPoisonLeftLeg-poison-lleg = Poison (Left Leg)
+marking-MothMarkingsPoisonLeftLeg-poison-leftleg = Poison (Left Leg)
 marking-MothMarkingsPoisonLeftLeg = Poison (Left Leg)
 
-marking-MothMarkingsPoisonRightLeg-poison-rleg = Poison (Right Leg)
+marking-MothMarkingsPoisonRightLeg-poison-rightleg = Poison (Right Leg)
 marking-MothMarkingsPoisonRightLeg = Poison (Right Leg)
 
 
@@ -289,16 +289,16 @@ marking-MothMarkingsRaggedHead = Ragged
 marking-MothMarkingsRaggedChest-ragged-chest = Ragged
 marking-MothMarkingsRaggedChest = Ragged
 
-marking-MothMarkingsRaggedLeftArm-ragged-larm = Ragged (Left Arm)
+marking-MothMarkingsRaggedLeftArm-ragged-leftarm = Ragged (Left Arm)
 marking-MothMarkingsRaggedLeftArm = Ragged (Left Arm)
 
-marking-MothMarkingsRaggedRightArm-ragged-rarm = Ragged (Right Arm)
+marking-MothMarkingsRaggedRightArm-ragged-rightarm = Ragged (Right Arm)
 marking-MothMarkingsRaggedRightArm = Ragged (Right Arm)
 
-marking-MothMarkingsRaggedLeftLeg-ragged-lleg = Ragged (Left Leg)
+marking-MothMarkingsRaggedLeftLeg-ragged-leftleg = Ragged (Left Leg)
 marking-MothMarkingsRaggedLeftLeg = Ragged (Left Leg)
 
-marking-MothMarkingsRaggedRightLeg-ragged-rleg = Ragged (Right Leg)
+marking-MothMarkingsRaggedRightLeg-ragged-rightleg = Ragged (Right Leg)
 marking-MothMarkingsRaggedRightLeg = Ragged (Right Leg)
 
 
@@ -308,16 +308,16 @@ marking-MothMarkingsMoonflyHead = Moonfly
 marking-MothMarkingsMoonflyChest-moonfly-chest = Moonfly
 marking-MothMarkingsMoonflyChest = Moonfly
 
-marking-MothMarkingsMoonflyLeftArm-moonfly-larm = Moonfly (Left Arm)
+marking-MothMarkingsMoonflyLeftArm-moonfly-leftarm = Moonfly (Left Arm)
 marking-MothMarkingsMoonflyLeftArm = Moonfly (Left Arm)
 
-marking-MothMarkingsMoonflyRightArm-moonfly-rarm = Moonfly (Right Arm)
+marking-MothMarkingsMoonflyRightArm-moonfly-rightarm = Moonfly (Right Arm)
 marking-MothMarkingsMoonflyRightArm = Moonfly (Right Arm)
 
-marking-MothMarkingsMoonflyLeftLeg-moonfly-lleg = Moonfly (Left Leg)
+marking-MothMarkingsMoonflyLeftLeg-moonfly-leftleg = Moonfly (Left Leg)
 marking-MothMarkingsMoonflyLeftLeg = Moonfly (Left Leg)
 
-marking-MothMarkingsMoonflyRightLeg-moonfly-rleg = Moonfly (Right Leg)
+marking-MothMarkingsMoonflyRightLeg-moonfly-rightleg = Moonfly (Right Leg)
 marking-MothMarkingsMoonflyRightLeg = Moonfly (Right Leg)
 
 
@@ -327,16 +327,16 @@ marking-MothMarkingsOakwormHead = Oakworm
 marking-MothMarkingsOakwormChest-oakworm-chest = Oakworm
 marking-MothMarkingsOakwormChest = Oakworm
 
-marking-MothMarkingsOakwormLeftArm-oakworm-larm = Oakworm (Left Arm)
+marking-MothMarkingsOakwormLeftArm-oakworm-leftarm = Oakworm (Left Arm)
 marking-MothMarkingsOakwormLeftArm = Oakworm (Left Arm)
 
-marking-MothMarkingsOakwormRightArm-oakworm-rarm = Oakworm (Right Arm)
+marking-MothMarkingsOakwormRightArm-oakworm-rightarm = Oakworm (Right Arm)
 marking-MothMarkingsOakwormRightArm = Oakworm (Right Arm)
 
-marking-MothMarkingsOakwormLeftLeg-oakworm-lleg = Oakworm (Left Leg)
+marking-MothMarkingsOakwormLeftLeg-oakworm-leftleg = Oakworm (Left Leg)
 marking-MothMarkingsOakwormLeftLeg = Oakworm (Left Leg)
 
-marking-MothMarkingsOakwormRightLeg-oakworm-rleg = Oakworm (Right Leg)
+marking-MothMarkingsOakwormRightLeg-oakworm-rightleg = Oakworm (Right Leg)
 marking-MothMarkingsOakwormRightLeg = Oakworm (Right Leg)
 
 
@@ -346,16 +346,16 @@ marking-MothMarkingsJungleHead = Jungle
 marking-MothMarkingsJungleChest-jungle-chest = Jungle
 marking-MothMarkingsJungleChest = Jungle
 
-marking-MothMarkingsJungleLeftArm-jungle-larm = Jungle (Left Arm)
+marking-MothMarkingsJungleLeftArm-jungle-leftarm = Jungle (Left Arm)
 marking-MothMarkingsJungleLeftArm = Jungle (Left Arm)
 
-marking-MothMarkingsJungleRightArm-jungle-rarm = Jungle (Right Arm)
+marking-MothMarkingsJungleRightArm-jungle-rightarm = Jungle (Right Arm)
 marking-MothMarkingsJungleRightArm = Jungle (Right Arm)
 
-marking-MothMarkingsJungleLeftLeg-jungle-lleg = Jungle (Left Leg)
+marking-MothMarkingsJungleLeftLeg-jungle-leftleg = Jungle (Left Leg)
 marking-MothMarkingsJungleLeftLeg = Jungle (Left Leg)
 
-marking-MothMarkingsJungleRightLeg-jungle-rleg = Jungle (Right Leg)
+marking-MothMarkingsJungleRightLeg-jungle-rightleg = Jungle (Right Leg)
 marking-MothMarkingsJungleRightLeg = Jungle (Right Leg)
 
 
@@ -365,14 +365,14 @@ marking-MothMarkingsWitchkingHead = Witchking
 marking-MothMarkingsWitchkingChest-witchking-chest = Witchking
 marking-MothMarkingsWitchkingChest = Witchking
 
-marking-MothMarkingsWitchkingLeftArm-witchking-larm = Witchking (Left Arm)
+marking-MothMarkingsWitchkingLeftArm-witchking-leftarm = Witchking (Left Arm)
 marking-MothMarkingsWitchkingLeftArm = Witchking (Left Arm)
 
-marking-MothMarkingsWitchkingRightArm-witchking-rarm = Witchking (Right Arm)
+marking-MothMarkingsWitchkingRightArm-witchking-rightarm = Witchking (Right Arm)
 marking-MothMarkingsWitchkingRightArm = Witchking (Right Arm)
 
-marking-MothMarkingsWitchkingLeftLeg-witchking-lleg = Witchking (Left Leg)
+marking-MothMarkingsWitchkingLeftLeg-witchking-leftleg = Witchking (Left Leg)
 marking-MothMarkingsWitchkingLeftLeg = Witchking (Left Leg)
 
-marking-MothMarkingsWitchkingRightLeg-witchking-rleg = Witchking (Right Leg)
+marking-MothMarkingsWitchkingRightLeg-witchking-rightleg = Witchking (Right Leg)
 marking-MothMarkingsWitchkingRightLeg = Witchking (Right Leg)
