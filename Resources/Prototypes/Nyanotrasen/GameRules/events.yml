@@ -72,6 +72,15 @@
     maximumGlimmer: 1000
     report: glimmer-event-report-signatures
 
+- type: gameRule
+  id: FreeProber
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: FreeProber
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    report: glimmer-event-report-signatures
+
 ## converted upstream events
 - type: gameRule
   id: GlimmerRandomSentience
