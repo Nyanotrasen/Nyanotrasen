@@ -10,7 +10,7 @@ using Content.Shared.Mobs.Components;
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 /// <summary>
-/// Find an appropriate target for the drugs tricordrazine OR epinephrine.
+/// Find an appropriate target for the drugs tricordrazine OR inaprovaline.
 /// </summary>
 public sealed class PickNearbyInjectableOperator : HTNOperator
 {
@@ -64,7 +64,7 @@ public sealed class PickNearbyInjectableOperator : HTNOperator
                 if (mobStateComponent.CurrentState == Shared.Mobs.MobState.Dead)
                     continue;
 
-                // Tricordrazine does nothing above 50 damage. Epinephrine requires them to be crit.
+                // Tricordrazine does nothing above 50 damage. Inaprovaline requires them to be crit.
                 if (damage.TotalDamage > 50 && mobStateComponent.CurrentState != Shared.Mobs.MobState.Critical)
                     continue;
 
