@@ -22,3 +22,6 @@ ghost-role-information-hamlet-description = Lives in the station bridge, has a b
 
 ghost-role-information-cancer-mouse-name = Cancer Mouse
 ghost-role-information-cancer-mouse-description = Make off color comments, but not so edgy that they break the rules of the server.
+
+ghost-role-information-medibot-name = Medibot
+ghost-role-information-medibot-description = Click people to heal them. Heal anyone your autoinjector lets you.
