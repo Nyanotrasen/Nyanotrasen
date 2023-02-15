@@ -4,8 +4,80 @@
   text: "/Server Info/Guidebook/Chef/intro.xml"
   children:
   - Cookbook
+  - CookSandwich
+  - CookBurger
+  - CookPizza
+  - CookSoup
+  - CookPasta
+  - CookRice
+  - CookPie
+  - CookCake
+  - CookPastry
+  - CookDessert
+  - CookSnack
+  - CookKebab
 
 - type: guideEntry
   id: Cookbook
   name: guide-entry-cookbook
   text: "/Server Info/Guidebook/Chef/cookbook.xml"
+
+- type: guideEntry
+  id: CookPie
+  name: guide-entry-pies
+  text: "/Server Info/Guidebook/Chef/3.14.xml"
+
+- type: guideEntry
+  id: CookBurger
+  name: guide-entry-burgers
+  text: "/Server Info/Guidebook/Chef/borgir.xml"
+
+- type: guideEntry
+  id: CookDessert
+  name: guide-entry-desserts
+  text: "/Server Info/Guidebook/Chef/desert.xml"
+
+- type: guideEntry
+  id: CookCake
+  name: guide-entry-cakes
+  text: "/Server Info/Guidebook/Chef/lies.xml"
+
+- type: guideEntry
+  id: CookPastry
+  name: guide-entry-pastries
+  text: "/Server Info/Guidebook/Chef/pastry.xml"
+
+- type: guideEntry
+  id: CookPizza
+  name: guide-entry-pizzas
+  text: "/Server Info/Guidebook/Chef/pitzah.xml"
+
+- type: guideEntry
+  id: CookKebab
+  name: guide-entry-kebabs
+  text: "/Server Info/Guidebook/Chef/remove kebab.xml"
+
+- type: guideEntry
+  id: CookRice
+  name: guide-entry-rice
+  text: "/Server Info/Guidebook/Chef/ris.xml"
+
+- type: guideEntry
+  id: CookSandwich
+  name: guide-entry-sandwiches
+  text: "/Server Info/Guidebook/Chef/sandvich.xml"
+
+- type: guideEntry
+  id: CookSnack
+  name: guide-entry-snacks
+  text: "/Server Info/Guidebook/Chef/snacc.xml"
+
+- type: guideEntry
+  id: CookPasta
+  name: guide-entry-pasta
+  text: "/Server Info/Guidebook/Chef/spaget.xml"
+
+- type: guideEntry
+  id: CookSoup
+  name: guide-entry-soups
+  text: "/Server Info/Guidebook/Chef/sup.xml"
