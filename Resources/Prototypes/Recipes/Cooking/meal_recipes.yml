@@ -219,7 +219,7 @@
 #   result: FoodSandwich
 #   time: 10
 #   solids:
-#     FoodBreadSlice: 2
+#     FoodBreadPlainSlice: 2
 #     FoodMeatSteak: 1
 #     FoodCheeseSlice: 1
 
@@ -237,7 +237,7 @@
 #   result: FoodGrilledCheese
 #   time: 5
 #   solids:
-#     FoodBreadSlice: 2
+#     FoodBreadPlainSlice: 2
 #     FoodCheeseSlice: 1
 
 #- type: microwaveMealRecipe
@@ -547,7 +547,7 @@
   result: FoodMealCubancarp
   time: 15
   solids:
-    FoodBreadSlice: 2
+    FoodBreadPlainSlice: 2
     FoodCheeseSlice: 2
     FoodChili: 1
     FoodMeatFish: 2
