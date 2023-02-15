@@ -2665,3 +2665,10 @@ Entries:
   - {message: Merged upstream. Be sure to report any new bugs or regressions!, type: Add}
   id: 419
   time: '2023-02-14T22:27:52.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Greatly improved medibot behavior., type: Fix}
+  - {message: 'Inaprovaline now works based off of whether the mob is crit or not,
+      rather than 100 damage.', type: Tweak}
+  id: 420
+  time: '2023-02-15T00:15:08.0000000+00:00'
