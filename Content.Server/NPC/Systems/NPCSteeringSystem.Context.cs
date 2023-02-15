@@ -331,7 +331,7 @@ public sealed partial class NPCSteeringSystem
         EntityQuery<PhysicsComponent> bodyQuery,
         EntityQuery<TransformComponent> xformQuery)
     {
-        var detectionRadius = MathF.Max(1.5f, agentRadius + moveSpeed / 4f);
+        var detectionRadius = MathF.Max(1.5f, agentRadius);
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, detectionRadius, LookupFlags.Static))
         {
@@ -352,8 +352,20 @@ public sealed partial class NPCSteeringSystem
             var obstacleDirection = pointB - pointA;
             var obstacleDistance = obstacleDirection.Length;
 
-            if (obstacleDistance > detectionRadius || obstacleDistance == 0f)
+            if (obstacleDistance > detectionRadius)
                 continue;
+
+            // Fallback to worldpos if we're colliding.
+            if (obstacleDistance == 0f)
+            {
+                obstacleDirection = pointB - worldPos;
+                obstacleDistance = obstacleDirection.Length;
+
+                if (obstacleDistance == 0f)
+                    continue;
+
+                obstacleDistance = agentRadius;
+            }
 
             dangerPoints.Add(pointB);
             obstacleDirection = offsetRot.RotateVec(obstacleDirection);
