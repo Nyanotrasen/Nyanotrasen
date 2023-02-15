@@ -1,0 +1,99 @@
+<Document>
+# Pizzas
+<Box Orientation="Vertical">
+	[color=#a4885c]Margherita[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- cheese wedge
+- 4 tomatoes
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaMargherita" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Mushroom Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- 5x chanterelle
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="25 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaMushroom" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Meat Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- cheese wedge
+- tomato
+</Box>
+<Box Orientation="Vertical">
+- 3x raw meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaMeat" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Vegetable Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- eggplant
+- carrot
+</Box>
+<Box Orientation="Vertical">
+- corn
+- tomato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaVegetable" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Pizza Hawaii[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- 3 chicken cutlets
+- 5 slices pineapple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaPineapple" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Dank Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- tomato
+- cheese wedge
+- Ambrosia Vulgaris
+</Box>
+<Box Orientation="Vertical">
+- dough
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaDank" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Donk Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 3 warm Donk pockets
+- cheese wedge
+- tomato
+</Box>
+<Box Orientation="Vertical">
+- dough
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaDonkpocket" Caption=""/>
+</Box>
+</Document>

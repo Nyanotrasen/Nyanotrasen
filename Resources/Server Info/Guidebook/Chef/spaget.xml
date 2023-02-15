@@ -1,0 +1,77 @@
+<Document>
+# Pasta
+<Box Orientation="Vertical">
+	[color=#a4885c]Boiled Noodles[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u flour
+- egg
+</Box>
+<Box Orientation="Vertical">
+- plate
+- stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesBoiled" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Spaghetti[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled noodles
+- 2 tomatoes
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodles" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Spaghetti & Meatballs[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2 meatballs
+- boiled noodles
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesMeatball" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Butter Noodles[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled noodles
+- stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesButter" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Chow Mein[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled noodles
+- eggplant
+- carrot
+</Box>
+<Box Orientation="Vertical">
+- corn
+- egg
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesChowmein" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Copypasta[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2x spaghetti
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesCopy" Caption=""/>
+</Box>
+</Document>
