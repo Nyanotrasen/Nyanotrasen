@@ -4,6 +4,7 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.StationEvents;
 
@@ -15,6 +16,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EventManagerSystem _event = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     [ViewVariables(VVAccess.ReadWrite)]
     private float _endTime;
@@ -43,6 +45,7 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem
         base.Initialize();
 
         SubscribeLocalEvent<GetSeverityModifierEvent>(OnGetSeverityModifier);
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
     }
 
     public override void Started()
@@ -92,6 +95,30 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem
 
         ev.Modifier *= ChaosModifier;
         Logger.Info($"Ramping set modifier to {ev.Modifier}");
+    }
+
+    private void OnRoundEnd(RoundEndTextAppendEvent ev)
+    {
+        if (!RuleAdded)
+            return;
+
+        var goal = TimeSpan.FromMinutes(_cfg.GetCVar<int>(CCVars.SurvivalGoal));
+
+        var result = Loc.GetString("survival-round-end-result", ("minutes", goal.TotalMinutes));
+
+        var roundTime = _gameTicker.RoundDuration();
+
+        if (roundTime > goal)
+        {
+            result += "\n";
+            result += Loc.GetString("survival-success");
+        } else
+        {
+            result += "\n";
+            result += Loc.GetString("survival-failure", ("progress", Math.Round((roundTime.TotalMinutes / goal.TotalMinutes) * 100)));
+        }
+
+        ev.AddLine(result);
     }
 
     private void PickNextEventTime()
