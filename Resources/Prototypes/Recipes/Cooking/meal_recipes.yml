@@ -542,6 +542,16 @@
 #Other
 
 - type: microwaveMealRecipe
+  id: RecipeChickenNuggetBox
+  name: chicken nugget box recipe
+  result: FoodBoxNugget
+  time: 10
+  reagents:
+    Protein: 18
+    Egg: 12
+    Flour: 18
+
+- type: microwaveMealRecipe
   id: RecipeCubanCarp
   name: cuban carp recipe
   result: FoodMealCubancarp
