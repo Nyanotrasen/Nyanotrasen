@@ -2686,3 +2686,11 @@ Entries:
   - {message: Added a round-end report for survival mode., type: Add}
   id: 422
   time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Holy water now works against wisps and revenants when sprayed., type: Add}
+  - {message: Holy water spray damage increased., type: Tweak}
+  - {message: 'Revenant no longer scales infinitely, but has a reasonable essence cap.', type: Tweak}
+  - {message: Revenant's essence loss now is in line with its new resistances., type: Tweak}
+  id: 423
+  time: '2023-02-16T00:15:08.0000000+00:00'
