@@ -334,6 +334,16 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> SuspicionMaxTimeSeconds =
             CVarDef.Create("suspicion.max_time_seconds", 300);
 
+
+        /*
+         * Survival
+         */
+        /// <summary>
+        /// Survival mode goal, in minutes.
+        /// </summary>
+        public static readonly CVarDef<int>
+            SurvivalGoal = CVarDef.Create("survival.goal_time", 120, CVar.ARCHIVE | CVar.SERVERONLY);
+
         /*
          * Traitor
          */
