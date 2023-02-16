@@ -38,53 +38,8 @@ namespace Content.Server.Chat.Commands
                 return;
 
             var entityManager = IoCManager.Resolve<IEntityManager>();
-
-            var chat = new EntityChat(playerEntity, message);
-
-            // Allow systems to parse the message and dictate which channel this message goes to.
-            var parse = new EntityChatParseEvent(chat);
-            entityManager.EventBus.RaiseLocalEvent(playerEntity, ref parse, true);
-
-            if (!parse.Handled)
-                return;
-
-            // -- Below would be part of ChatListener systems.
-
-            // Allow systems to early cancel chat attempts.
-            var attempt = new EntityChatAttemptEvent(chat);
-            entityManager.EventBus.RaiseLocalEvent(playerEntity, ref attempt, true);
-
-            if (attempt.Cancelled)
-                return;
-
-            // Allow systems to select the recipients of the chat message.
-            var getRecipients = new EntityChatGetRecipientsEvent(chat);
-            entityManager.EventBus.RaiseLocalEvent(playerEntity, ref getRecipients, true);
-
-            // No recipients were found, so it should be safe to discard the entire attempt at this point.
-            if (chat.Recipients.Count == 0)
-                return;
-
-            // Allow systems to transform the chat message and source name, at the source.
-            var doTransform = new EntityChatTransformEvent(chat);
-            entityManager.EventBus.RaiseLocalEvent(playerEntity, ref doTransform, true);
-
-            // Allow last-minute cancellation of the chat message.
-            var before = new BeforeEntityChatEvent(chat);
-            entityManager.EventBus.RaiseLocalEvent(playerEntity, ref before, true);
-
-            if (before.Cancelled)
-                return;
-
-            // TODO: allow systems to cancel/transform per recipient?
-
-            // Send the actual message on a per-recipient basis, so they can do
-            // their own individual handling.
-            foreach (var recipient in chat.Recipients)
-            {
-                var gotChat = new GotEntityChatEvent(recipient, chat);
-                entityManager.EventBus.RaiseLocalEvent(recipient, ref gotChat, true);
-            }
+            var chatSystem = entityManager.EntitySysManager.GetEntitySystem<ChatSystem>();
+            chatSystem.TrySendChatUnparsed(playerEntity, message);
         }
     }
 }
