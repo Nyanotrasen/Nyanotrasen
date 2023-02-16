@@ -363,7 +363,10 @@ namespace Content.Server.Physics.Controllers
                         var impulse = force * brakeInput;
                         var wishDir = impulse.Normalized;
                         // TODO: Adjust max possible speed based on total thrust in particular direction.
-                        var wishSpeed = 20f;
+                        //Calculates average thrust from cardinal directions. Then checks if its high enough where it's worth to increase potential linear velocity cap 
+                        //Grid size and mass have huge influence over how fast it can move. Which means that it will never reach linear velocity cap unless shuttle consists of only thrusters
+                        var avgLinearThrust = (shuttle.LinearThrust[0]+shuttle.LinearThrust[1]+shuttle.LinearThrust[2]+shuttle.LinearThrust[3])/4;
+                        var wishSpeed = MathF.Max(20f, (avgLinearThrust+17500)/1000);
 
                         var currentSpeed = Vector2.Dot(shuttleVelocity, wishDir);
                         var addSpeed = wishSpeed - currentSpeed;
@@ -504,7 +507,10 @@ namespace Content.Server.Physics.Controllers
 
                     var wishDir = totalForce.Normalized;
                     // TODO: Adjust max possible speed based on total thrust in particular direction.
-                    var wishSpeed = 20f;
+                    //Calculates average thrust from cardinal directions. Then checks if its high enough where it's worth to increase potential linear velocity cap 
+                    //Grid size and mass have huge influence over how fast it can move. Which means that it will never reach linear velocity cap unless shuttle consists of only thrusters
+                    var avgLinearThrust = (shuttle.LinearThrust[0]+shuttle.LinearThrust[1]+shuttle.LinearThrust[2]+shuttle.LinearThrust[3])/4;
+                    var wishSpeed = MathF.Max(20f, (avgLinearThrust+17500)/1000);
 
                     var currentSpeed = Vector2.Dot(shuttleVelocity, wishDir);
                     var addSpeed = wishSpeed - currentSpeed;
