@@ -22,6 +22,9 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
     [DataField("targetKey", required: true)]
     public string TargetKey = string.Empty;
 
+    [DataField("targetMoveKey", required: true)]
+    public string TargetMoveKey = string.Empty;
+
     [DataField("component", required: true)]
     public string Component = string.Empty;
 
@@ -96,7 +99,8 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
 
             return (true, new Dictionary<string, object>()
             {
-                { TargetKey, targetCoords },
+                { TargetKey, target },
+                { TargetMoveKey, targetCoords },
                 { PathfindKey, path}
             });
         }
