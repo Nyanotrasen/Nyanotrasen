@@ -180,3 +180,7 @@ flavor-complex-sax = like jazz
 flavor-complex-enthralling = enthralling
 flavor-complex-sublime = sublime
 flavor-complex-holy = heavenly
+
+flavor-base-powdery = powdery
+flavor-base-cotton = cotton
+flavor-complex-vanilla = like vanilla
