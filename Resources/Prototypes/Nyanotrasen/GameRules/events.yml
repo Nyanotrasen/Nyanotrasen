@@ -27,8 +27,8 @@
     !type:GlimmerEventRuleConfiguration
     id: MundaneDischarge
     maximumGlimmer: 300
-    glimmerBurnLower: 8
-    glimmerBurnUpper: 30
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
 
 - type: gameRule
   id: NoosphericZap
@@ -51,8 +51,8 @@
     id: PsionicCatGotYourTongue
     minimumGlimmer: 200
     maximumGlimmer: 500
-    glimmerBurnLower: 8
-    glimmerBurnUpper: 30
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
 
 # - type: gameRule
 #   id: MassMindSwap

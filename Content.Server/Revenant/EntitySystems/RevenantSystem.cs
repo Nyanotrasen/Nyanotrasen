@@ -209,6 +209,7 @@ public sealed partial class RevenantSystem : EntitySystem
 
             if (rev.Accumulator <= 1)
                 continue;
+
             rev.Accumulator -= 1;
 
             if (rev.Essence < rev.EssenceRegenCap)
