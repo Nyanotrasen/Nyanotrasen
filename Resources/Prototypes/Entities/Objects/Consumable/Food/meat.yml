@@ -515,6 +515,18 @@
     state: meatball
 
 - type: entity
+  name: meat patty
+  parent: FoodMeatBase
+  id: FoodMeatPatty
+  description: Flippin'.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+  - type: Sprite
+    state: patty
+
+- type: entity
   name: slimeball
   parent: FoodMeatBase
   id: FoodMeatSlime

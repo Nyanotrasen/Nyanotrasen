@@ -183,6 +183,19 @@
       entity: FoodMeatMeatball
 
 - type: reaction
+  id: CreateMeatPatty
+  impact: Low
+  quantized: true
+  reactants:
+    UncookedAnimalProteins:
+      amount: 9
+    TableSalt:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatPatty
+
+- type: reaction
   id: Ghee
   impact: Low
   minTemp: 373
