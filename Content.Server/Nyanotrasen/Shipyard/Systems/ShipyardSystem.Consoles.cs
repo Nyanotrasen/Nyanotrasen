@@ -25,14 +25,15 @@ namespace Content.Server.Shipyard.Systems
 {
     public sealed class ShipyardConsoleSystem : SharedShipyardSystem
     {
-        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
+        [Dependency] private readonly AccessReaderSystem _access = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private readonly UserInterfaceSystem _ui = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ShipyardSystem _shipyard = default!;
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly CargoSystem _cargo = default!;
-        [Dependency] private readonly RadioSystem _radioSystem = default!;
+        [Dependency] private readonly RadioSystem _radio = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public void InitializeConsole()
         {
@@ -59,7 +60,7 @@ namespace Content.Server.Shipyard.Systems
                 return;
             }
 
-            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_accessSystem.IsAllowed(player, accessReaderComponent))
+            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_access.IsAllowed(player, accessReaderComponent))
             {
                 ConsolePopup(args.Session, Loc.GetString("comms-console-permission-denied"));
                 PlayDenySound(uid, component);
@@ -99,14 +100,14 @@ namespace Content.Server.Shipyard.Systems
 
             _cargo.DeductFunds(bank, vessel.Price);
             var channel = _prototypeManager.Index<RadioChannelPrototype>("Command");
-            _radioSystem.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
+            _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
             PlayConfirmSound(uid, component);
 
             var newState = new ShipyardConsoleInterfaceState(
                 bank.Balance,
                 true);
 
-            _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
+            _ui.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
         }
         
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
@@ -124,7 +125,7 @@ namespace Content.Server.Shipyard.Systems
                 bank.Balance,
                 true);
 
-            _uiSystem.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState);
+            _ui.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState);
         }
 
         private void ConsolePopup(ICommonSession session, string text)
@@ -135,12 +136,12 @@ namespace Content.Server.Shipyard.Systems
 
         private void PlayDenySound(EntityUid uid, SharedShipyardConsoleComponent component)
         {
-            SoundSystem.Play(component.ErrorSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
+            _audio.PlayPvs(_audio.GetSound(component.ErrorSound), uid);
         }
         
         private void PlayConfirmSound(EntityUid uid, SharedShipyardConsoleComponent component)
         {
-            SoundSystem.Play(component.ConfirmSound.GetSound(), Filter.Pvs(uid, entityManager: EntityManager), uid);
+            _audio.PlayPvs(_audio.GetSound(component.ConfirmSound), uid);
         }
 
         private bool TryPurchaseVessel(StationBankAccountComponent component, VesselPrototype vessel, out ShuttleComponent? deed)

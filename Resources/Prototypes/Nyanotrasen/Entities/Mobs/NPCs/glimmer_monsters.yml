@@ -39,6 +39,9 @@
   - type: MovementIgnoreGravity
   - type: Stealth
     lastVisibility: 0.66
+  - type: Reactive
+    groups:
+      Acidic: [Touch] #Holy water
   - type: MobState
     allowedStates:
     - Alive

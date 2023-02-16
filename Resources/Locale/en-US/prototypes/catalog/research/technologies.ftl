@@ -85,6 +85,9 @@ technologies-archaeology-description = Advanced equipment for uncovering the sec
 technologies-adv-parts-technology = Advanced parts technology
 technologies-adv-parts-technology-description = Like the previous ones, but better!
 
+technologies-super-parts-technology = Super parts technology
+technologies-super-parts-technology-description = New heights of machine performance.
+
 technologies-security-technology = Security technology
 technologies-security-technology-descritpion =  Learn to replace and restock our current security equipment.
 

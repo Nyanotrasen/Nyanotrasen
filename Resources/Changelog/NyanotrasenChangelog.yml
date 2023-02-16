@@ -2597,3 +2597,100 @@ Entries:
       demons etc., type: Tweak}
   id: 406
   time: '2023-02-11T03:09:25.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Ban messages should appear again when you connect. Report any further
+      issues., type: Fix}
+  id: 407
+  time: '2023-02-11T21:29:12.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Diagnostic hud shows the health of inorganic lifeforms, type: Add}
+  - {message: Engineering techfab can make a diagnostic hud with robotics tech, type: Add}
+  id: 408
+  time: '2023-02-12T04:43:31.0000000+00:00'
+- author: Nousagi37
+  changes:
+  - {message: 'Bolas have been added to the SecTech, and also the Nonlethal crate
+      from Cargo.', type: Add}
+  id: 409
+  time: '2023-02-12T05:01:02.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Proofread Guidebook and made the text a bit more colourful., type: Tweak}
+  id: 410
+  time: '2023-02-12T05:01:40.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Fixed moth's left leg position., type: Fix}
+  id: 411
+  time: '2023-02-13T17:14:13.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Added moth laugh and a rare moth musician plushie., type: Add}
+  id: 412
+  time: '2023-02-13T22:26:57.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed basically all issues with the ghost role UI and redialing., type: Fix}
+  id: 413
+  time: '2023-02-13T23:15:55.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Items that can be reverse engineered say so when examined., type: Add}
+  id: 414
+  time: '2023-02-13T23:28:00.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs will give up on paths that don't seem to be working out., type: Fix}
+  id: 415
+  time: '2023-02-13T23:28:19.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Changed ectoplasm reagent in dropped ectoplasm from 10 to 25., type: Tweak}
+  id: 416
+  time: '2023-02-14T01:31:22.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added another fun glimmer event!, type: Add}
+  id: 417
+  time: '2023-02-14T01:31:35.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs should stop getting stuck on railings., type: Fix}
+  id: 418
+  time: '2023-02-14T04:22:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Be sure to report any new bugs or regressions!, type: Add}
+  id: 419
+  time: '2023-02-14T22:27:52.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Greatly improved medibot behavior., type: Fix}
+  - {message: 'Inaprovaline now works based off of whether the mob is crit or not,
+      rather than 100 damage.', type: Tweak}
+  id: 420
+  time: '2023-02-15T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rewote cleanbots., type: Fix}
+  - {message: New glimmer event will not select spawn locations off-station., type: Fix}
+  - {message: Reverted the upstream decision to make mice weigh 20 kilograms., type: Fix}
+  - {message: Cleanbots are now ghost roles., type: Add}
+  - {message: Cleanbots now fit under doors., type: Add}
+  id: 421
+  time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added a round-end report for survival mode., type: Add}
+  id: 422
+  time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Holy water now works against wisps and revenants when sprayed., type: Add}
+  - {message: Holy water spray damage increased., type: Tweak}
+  - {message: 'Revenant no longer scales infinitely, but has a reasonable essence cap.', type: Tweak}
+  - {message: Revenant's essence loss now is in line with its new resistances., type: Tweak}
+  id: 423
+  time: '2023-02-16T00:15:08.0000000+00:00'

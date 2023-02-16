@@ -46,6 +46,22 @@
     price: 500
 
 - type: entity
+  parent: BaseWeaponShotgun
+  id: BaseWeaponShotgunNonLethal
+  suffix: Beanbag
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    autoCycle: false
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 7
+    proto: ShellShotgunBeanbag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+
+- type: entity
   name: Bulldog
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: BaseItem
@@ -119,6 +135,15 @@
     deconstructionTarget: null
 
 - type: entity
+  name: double-barreled shotgun
+  description: An immortal classic. Uses .50 shotgun shells.
+  id: WeaponShotgunDoubleBarreledNonLethal
+  parent: ["BaseWeaponShotgunNonLethal", "WeaponShotgunDoubleBarreled"]
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 2
+
+- type: entity
   name: Enforcer
   parent: BaseWeaponShotgun
   id: WeaponShotgunEnforcer
@@ -131,6 +156,12 @@
   - type: BallisticAmmoProvider
 
 - type: entity
+  name: Enforcer
+  description: A next-generation Frozen Star shotgun. Uses .50 shotgun shells.
+  id: WeaponShotgunEnforcerNonLethal
+  parent: ["BaseWeaponShotgunNonLethal", "WeaponShotgunEnforcer"]
+
+- type: entity
   name: Kammerer
   parent: BaseWeaponShotgun
   id: WeaponShotgunKammerer
@@ -140,6 +171,15 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: BallisticAmmoProvider
+    capacity: 4
+
+- type: entity
+  name: Kammerer
+  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
+  id: WeaponShotgunKammererNonLethal
+  parent: ["BaseWeaponShotgunNonLethal", "WeaponShotgunKammerer"]
+  components:
   - type: BallisticAmmoProvider
     capacity: 4
 

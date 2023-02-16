@@ -8,6 +8,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
+using Content.Server.Maps;
+using Content.Server.Revenant.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -21,9 +23,6 @@ using Content.Server.Ghost;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
-using Content.Server.Maps;
-using Content.Server.Revenant.Components;
-using Content.Server.Store.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics;
@@ -180,19 +179,16 @@ public sealed partial class RevenantSystem
 
         essence.Harvested = true;
         ChangeEssenceAmount(uid, essence.EssenceAmount, component);
-        if (TryComp<StoreComponent>(uid, out var store))
-        {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2>()
-                { {component.StolenEssenceCurrencyPrototype, essence.EssenceAmount} }, store);
-        }
+        _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
+            { {component.StolenEssenceCurrencyPrototype, essence.EssenceAmount} }, uid);
 
-        if (!TryComp<MobStateComponent>(args.Target, out var mobstate))
+        if (!HasComp<MobStateComponent>(args.Target))
             return;
 
         if (_mobState.IsAlive(args.Target) || _mobState.IsCritical(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("revenant-max-essence-increased"), uid, uid);
-            component.EssenceRegenCap += component.MaxEssenceUpgradeAmount;
+            component.EssenceRegenCap = Math.Min((float) component.EssenceCeiling, (float) component.EssenceRegenCap + component.MaxEssenceUpgradeAmount);
         }
 
         //KILL THEMMMM

@@ -338,7 +338,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Remove any components that wouldn't make sense anymore.
-            RemComp<SharedButcherableComponent>(item);
+            RemComp<ButcherableComponent>(item);
 
             if (TryComp<PaperComponent>(item, out var paperComponent))
             {
