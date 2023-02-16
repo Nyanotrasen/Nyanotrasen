@@ -186,7 +186,7 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: GhostTakeoverAvailable
     makeSentient: true
-    allowSpeech: true
+    allowSpeech: false
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-cleanbot-name
