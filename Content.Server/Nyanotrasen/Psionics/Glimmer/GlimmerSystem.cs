@@ -29,7 +29,7 @@ namespace Content.Server.Psionics.Glimmer
 
             if (DecayAccumulator > SecondsToLoseOneGlimmer)
             {
-                if (_robustRandom.Prob(0.5f))
+                if (_robustRandom.Prob(0.75f))
                     _sharedGlimmerSystem.Glimmer--;
                 DecayAccumulator -= SecondsToLoseOneGlimmer;
             }
