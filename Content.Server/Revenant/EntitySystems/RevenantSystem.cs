@@ -124,7 +124,7 @@ public sealed partial class RevenantSystem : EntitySystem
         if (!allowDeath && component.Essence + amount <= 0)
             return false;
 
-        component.Essence += amount;
+        component.Essence = Math.Min((float) component.EssenceCeiling, (float) (component.Essence + amount));
 
         if (regenCap)
             FixedPoint2.Min(component.Essence, component.EssenceRegenCap);
@@ -140,7 +140,7 @@ public sealed partial class RevenantSystem : EntitySystem
             int i = 0;
             while (i < amt)
             {
-                Spawn("Ectoplasm", Transform(uid).Coordinates);
+                Spawn("EctoplasmRevenant", Transform(uid).Coordinates);
                 i++;
             }
             QueueDel(uid);

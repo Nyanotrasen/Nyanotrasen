@@ -188,7 +188,7 @@ public sealed partial class RevenantSystem
         if (_mobState.IsAlive(args.Target) || _mobState.IsCritical(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("revenant-max-essence-increased"), uid, uid);
-            component.EssenceRegenCap += component.MaxEssenceUpgradeAmount;
+            component.EssenceRegenCap = Math.Min((float) component.EssenceCeiling, (float) component.EssenceRegenCap + component.MaxEssenceUpgradeAmount);
         }
 
         //KILL THEMMMM
