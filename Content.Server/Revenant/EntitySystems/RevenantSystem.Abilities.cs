@@ -199,7 +199,7 @@ public sealed partial class RevenantSystem
         dspec.DamageDict.Add("Poison", damage.Value);
         _damage.TryChangeDamage(args.Target, dspec, true, origin: uid);
 
-        _psionics.LogPowerUsed(uid, "a soul draining power", 4, 8);
+        _psionics.LogPowerUsed(uid, "a soul draining power", 2, 6);
     }
 
     private void OnHarvestCancelled(EntityUid uid, RevenantComponent component, HarvestDoAfterCancelled args)
@@ -268,7 +268,7 @@ public sealed partial class RevenantSystem
             if (lights.HasComponent(ent))
                 _ghost.DoGhostBooEvent(ent);
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"));
     }
 
     private void OnOverloadLightsAction(EntityUid uid, RevenantComponent component, RevenantOverloadLightsActionEvent args)
@@ -305,7 +305,7 @@ public sealed partial class RevenantSystem
             comp.Target = ent; //who they gon fire at?
         }
 
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"));
     }
 
     private void OnBlightAction(EntityUid uid, RevenantComponent component, RevenantBlightActionEvent args)
@@ -324,7 +324,7 @@ public sealed partial class RevenantSystem
             if (emo.TryGetComponent(ent, out var comp))
                 _disease.TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
     }
 
     private void OnMalfunctionAction(EntityUid uid, RevenantComponent component, RevenantMalfunctionActionEvent args)
@@ -341,6 +341,6 @@ public sealed partial class RevenantSystem
         {
             _emag.DoEmagEffect(ent, ent); //it emags itself. spooky.
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
     }
 }
