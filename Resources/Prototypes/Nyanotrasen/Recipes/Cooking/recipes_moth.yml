@@ -58,7 +58,7 @@
   reagents:
     OilOlive: 5
   solids:
-    FoodTofuSlice: 2
+    FoodMeatFish: 1 #FoodTofuSlice: 2
     FoodOnionSlice: 1
     FoodChili: 1
     FoodCarrot: 1
@@ -73,14 +73,14 @@
   result: FoodMothGreenLasagne
   time: 20
   reagents:
-    OilOlive: 5
+    #OilOlive: 5
     Milk: 5
     Flour: 10
   solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodButter: 1
-    FoodGarlic: 1
+    #FoodGarlic: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothMozzarellaSticks
