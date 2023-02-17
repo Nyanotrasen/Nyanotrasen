@@ -1,5 +1,3 @@
-# Moth related cuisine
-
 # Raw Moth
 - type: entity
   name: raw moth meat
@@ -117,37 +115,121 @@
         - ReagentId: Protein
           Quantity: 2
 
-# Moth Burgers
-# Using default icons for them for now
-- type: entity
-  name: moth burger
-  parent: FoodBurgerBase
-  id: FoodMothBurger
-  description: Smells like bug. Tastes like bug dust.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bun
-      - meaty
-      - powdery
-  - type: Sprite
-    state: plain
-
-- type: entity
-  name: moth cheese burger
-  parent: FoodBurgerCheese
-  id: FoodMothCheeseBurger
-  description: There is a joke about milk products and moth around here.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - meaty
-      - cheesy
-      - powdery
-  - type: Sprite
-    state: cheese
-
 # Moth Cuisine
+- type: entity
+  name: toasted seeds
+  parent: FoodBakingBase
+  id: FoodMothToastedSeeds
+  description: While they're far from filling, toasted seeds are a popular snack amongst the moths. Some more exotic flavours may be added for some extra pep.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - seeds
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: toastedseeds
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: oven-baked corn
+  parent: FoodBakingBase
+  id: FoodMothBakedCorn
+  description: A cob of corn, baked in the roasting heat of an oven until it blisters and blackens.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corn
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: bakedcorn
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 6
+
+- type: entity
+  name: buttered baked corn
+  parent: FoodBakingBase
+  id: FoodMothButteredBakedCorn
+  description: A cob of corn, baked in the roasting heat of an oven until it blisters and blackens.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corn
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: butteredbakedcorn
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 7
+
+- type: entity
+  name: mozzarella sticks
+  parent: FoodBakingBase
+  id: FoodMothMozzarellaSticks
+  description: Little sticks of mozzarella, breaded and fried.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - bread
+      - oil
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: mozzarellasticks
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 5
+
+# Mac Balls should use macncheese donks
+- type: entity
+  name: mac balls
+  parent: FoodBakingBase
+  id: FoodMothMacBalls
+  description: Fried balls of donk-pocket dipped in corn batter, served with tomato sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corn
+      - bread
+      - meaty
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: macballs
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
 
 - type: entity
   name: baked cheese wheel
@@ -215,6 +297,34 @@
         - ReagentId: Protein
           Quantity: 1
 
+- type: entity
+  name: squeaking stir fry
+  parent: FoodMealBase
+  id: FoodMothSqueakingFry
+  description: A mothic classic made with cheese curds and tofu (amongst other things).
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - tofu
+      - spicy
+  - type: Food
+    trash: FoodPlateSmall
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: squeakingstirfry
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 8
+
 #Soups and Stew
 - type: entity
   name: cotton soup
@@ -276,6 +386,7 @@
     flavors:
       - bitter
       - sour
+      - seeds
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: seedsoup
@@ -302,6 +413,7 @@
       - spicy
       - salty
       - savory
+      - seeds
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: beanstew
@@ -345,6 +457,55 @@
         - ReagentId: Water
           Quantity: 5
 
+# Porridges
+- type: entity
+  name: mulan congee
+  parent: FoodBowlBase
+  id: FoodMothHuaMulanCongee
+  description: A smiley bowl of rice porridge with eggs and bacon.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - eggs
+      - bacon
+      - rice
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: cornmealporridge
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 6
+
+- type: entity
+  name: cornmeal porridge
+  parent: FoodBowlBase
+  id: FoodMothCornmealPorridge
+  description: A plate of cornmeal porridge. It's more flavourful than most porridges, and makes a good base for other flavours, too.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corn
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: cornmealporridge
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 4
+
 - type: entity
   name: cheesy porridge
   parent: FoodBowlBase
@@ -365,11 +526,11 @@
         maxvol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 9
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 5
         - ReagentId: Protein
-          Quantity: 8
+          Quantity: 6
 
 - type: entity
   name: fried eggplant and polenta
@@ -399,6 +560,61 @@
           Quantity: 12
 
 #Salads
+- type: entity
+  name: herby cheese
+  parent: FoodBakingBase
+  id: FoodMothHerbyCheese
+  description: As a staple of mothic cuisine, cheese is often augmented with various flavours to keep variety in their diet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - leafy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: herbycheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Cream
+          Quantity: 1
+        - ReagentId: Bicaridine #Since it use Ambrosia as placeholder might as well
+          Quantity: 2
+        - ReagentId: Kelotane
+          Quantity: 2
+
+- type: entity
+  name: caprese salad
+  parent: FoodBakingBase
+  id: FoodMothCapreseSalad
+  description: A very tasty yet simple to prepare salad.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - tomato
+      - leafy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: capresesalad
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 8
+
 - type: entity
   name: mothic salad
   parent: FoodBowlBase
@@ -501,6 +717,8 @@
           Quantity: 6
         - ReagentId: Protein
           Quantity: 12
+        - ReagentId: Bicaridine #Since it use Poppy as placeholder might as well
+          Quantity: 2
 
 #Pastries
 - type: entity
@@ -579,3 +797,38 @@
           Quantity: 4
         - ReagentId: Sugar
           Quantity: 2
+
+- type: entity
+  name: moffin
+  parent: FoodBakedBase
+  id: FoodBakedMoffin
+  description: A delicious, spongy and dusty little cake.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    layers:
+      - state: moffin
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+    netsync: false
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          moffin: ""
+      - enum.DamageStateVisualLayers.Base:
+          moffin2: ""
+      - enum.DamageStateVisualLayers.Base:
+          moffin3: ""
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - cotton
+      - chalky
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1

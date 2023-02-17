@@ -182,5 +182,6 @@ flavor-complex-sublime = sublime
 flavor-complex-holy = heavenly
 
 flavor-base-powdery = powdery
+flavor-base-seeds = seeds
 flavor-complex-cotton = like cotton
 flavor-complex-vanilla = like vanilla
