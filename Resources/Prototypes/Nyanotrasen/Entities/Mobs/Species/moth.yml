@@ -17,10 +17,6 @@
     requiredLegs: 2
   - type: DiseaseCarrier
     diseaseResist: 0.1
-  - type: Butcherable
-    spawned:
-    - id: FoodMothMeat
-      amount: 5
   - type: Flammable
     damage:
       types:
