@@ -60,7 +60,7 @@
   solids:
     #FoodTofuSlice: 2
     FoodOnionSlice: 1
-    FoodChilli: 1
+    FoodChili: 1
     FoodCarrot: 1
     FoodCheeseCurds: 1
 
@@ -171,7 +171,7 @@
 # Porridges
 - type: microwaveMealRecipe
   id: RecipeMothHuaMulanCongee
-  name: hua mulan congee recipe
+  name: mulan congee recipe
   result: FoodMothHuaMulanCongee
   time: 10
   solids:
@@ -326,5 +326,5 @@
   reagents:
     Milk: 5
   solids:
-    FoodDoughPastryBase: 1
+    FoodDoughSlice: 1 #Eventually use the pastry dough
     MaterialCloth1: 1

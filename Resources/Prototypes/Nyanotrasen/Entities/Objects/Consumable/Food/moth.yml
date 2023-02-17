@@ -640,7 +640,7 @@
 - type: entity
   name: fleet salad
   parent: FoodBowlBase
-  id: FoodMothFleedSalad
+  id: FoodMothFleetSalad
   description: The grilled cheese makes it particularly filling, while the croutons provide a crunchy kick.
   components:
   - type: FlavorProfile
@@ -801,7 +801,7 @@
 - type: entity
   name: moffin
   parent: FoodBakedBase
-  id: FoodBakedMoffin
+  id: FoodMothMoffin
   description: A delicious, spongy and dusty little cake.
   components:
   - type: Sprite
