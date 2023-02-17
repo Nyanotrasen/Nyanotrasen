@@ -131,10 +131,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 10
         reagents:
-        - ReagentId: Vitamin
+        - ReagentId: Nutriments
           Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Bicaridine
+          Quantity: 1
 
 - type: entity
   name: oven-baked corn
@@ -151,12 +155,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 14
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 2
 
 - type: entity
   name: buttered baked corn
@@ -173,12 +177,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 16
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 7
+          Quantity: 6
 
 - type: entity
   name: mozzarella sticks
@@ -197,7 +201,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
@@ -225,11 +229,13 @@
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 10
         - ReagentId: Protein
-          Quantity: 5
+          Quantity: 2
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 2
+        - ReagentId: Omnizine
+          Quantity: 1
 
 - type: entity
   name: baked cheese wheel
@@ -240,6 +246,17 @@
   - type: FlavorProfile
     flavors:
       - cheesy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 18
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 1
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: bakedcheese
@@ -253,7 +270,7 @@
   - type: FlavorProfile
     flavors:
       - cheesy
-      #- pesto
+      #- garlic
       - pasta
   - type: SliceableFood
     count: 6
@@ -269,7 +286,7 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 18
+          Quantity: 24
         - ReagentId: Protein
           Quantity: 6
 
@@ -282,7 +299,7 @@
   - type: FlavorProfile
     flavors:
       - cheesy
-      #- pesto
+      #- garlic
       - pasta
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
@@ -319,7 +336,7 @@
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 6
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Protein
@@ -342,14 +359,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 6
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 4
 
 - type: entity
   name: cheese soup
@@ -370,11 +387,13 @@
         maxvol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 10
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 5
         - ReagentId: Protein
-          Quantity: 12
+          Quantity: 1
+        - ReagentId: Milk
+          Quantity: 3
 
 - type: entity
   name: seed soup
@@ -393,20 +412,22 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 7
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 2
         - ReagentId: Water
           Quantity: 5
+        - ReagentId: Bicaridine
+          Quantity: 1
 
 - type: entity
   name: bean stew
   parent: FoodBowlBase
   id: FoodMothBeanStew
-  description: A seed based soup, made by germinating seeds and then boiling them.
+  description: A spicy bean stew with lots of veggies, commonly served as a filling and satisfying meal with rice or bread.
   components:
   - type: FlavorProfile
     flavors:
@@ -423,11 +444,11 @@
         maxvol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 12
         - ReagentId: Vitamin
           Quantity: 8
         - ReagentId: Protein
-          Quantity: 6
+          Quantity: 3
         - ReagentId: Water
           Quantity: 2
 
@@ -448,12 +469,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
-        - ReagentId: Vitamin
           Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
         - ReagentId: Water
           Quantity: 5
 
@@ -471,18 +492,16 @@
       - rice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: cornmealporridge
+    state: huamulancongee
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 10
+          Quantity: 26
         - ReagentId: Protein
-          Quantity: 6
+          Quantity: 4
 
 - type: entity
   name: cornmeal porridge
@@ -499,12 +518,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 15
+        maxvol: 11
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 9
         - ReagentId: Vitamin
-          Quantity: 4
+          Quantity: 2
 
 - type: entity
   name: cheesy porridge
@@ -523,14 +542,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 9
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 4
         - ReagentId: Protein
-          Quantity: 6
+          Quantity: 4
 
 - type: entity
   name: fried eggplant and polenta
@@ -576,20 +595,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 12
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 4
         - ReagentId: Protein
           Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 2
         - ReagentId: Cream
           Quantity: 1
         - ReagentId: Bicaridine #Since it use Ambrosia as placeholder might as well
-          Quantity: 2
+          Quantity: 1
         - ReagentId: Kelotane
-          Quantity: 2
+          Quantity: 1
 
 - type: entity
   name: caprese salad
@@ -608,12 +625,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 15
+        maxvol: 10
         reagents:
-        - ReagentId: Protein
+        - ReagentId: Nutriment
           Quantity: 6
-        - ReagentId: Vitamin
-          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Bicaridine #Since it use Ambrosia as placeholder might as well
+          Quantity: 1
 
 - type: entity
   name: mothic salad
@@ -632,10 +651,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 10
+        maxvol: 6
         reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 4
 
 - type: entity
   name: fleet salad
@@ -658,11 +679,11 @@
         maxvol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5
+          Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 7
-        - ReagentId: Protein
           Quantity: 5
+        - ReagentId: Protein
+          Quantity: 3
 
 - type: entity
   name: cotton salad
@@ -682,14 +703,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 30
+        maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 8
         - ReagentId: Vitamin
           Quantity: 6
-        - ReagentId: Protein
-          Quantity: 12
 
 - type: entity
   name: kachumbari salad
@@ -709,14 +728,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 30
+        maxvol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Protein
-          Quantity: 12
+          Quantity: 7
         - ReagentId: Bicaridine #Since it use Poppy as placeholder might as well
           Quantity: 2
 
@@ -791,7 +810,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 6
+        maxVol: 7
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
