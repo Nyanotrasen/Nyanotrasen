@@ -126,21 +126,6 @@
 
 - type: entity
   parent: BasePDA
-  id: ERTLeaderPDA
-  name: ERT Leader PDA
-  description: Red for the firepower.
-  components:
-  - type: PDA
-    id: ERTLeaderIDCard
-    state: pda-ert
-  - type: PDABorderColor
-    borderColor: "#A32D26"
-    accentHColor: "#447987"
-  - type: Icon
-    state: pda-ert
-
-- type: entity
-  parent: BasePDA
   id: ERTJanitorPDA
   name: ERT Janitor PDA
   description: Red for the mopped blood.

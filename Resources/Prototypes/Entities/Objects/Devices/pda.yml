@@ -489,8 +489,8 @@
 - type: entity
   parent: BasePDA
   id: ERTLeaderPDA
-  name: ERT PDA
-  description: Red for firepower.
+  name: ERT Leader PDA
+  description: Red for the firepower.
   components:
   - type: PDA
     id: ERTLeaderIDCard
