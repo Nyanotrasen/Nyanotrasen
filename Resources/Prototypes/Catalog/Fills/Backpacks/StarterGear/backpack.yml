@@ -167,19 +167,17 @@
     - type: StorageFill
       contents:
         - id: BoxSurvivalMedical
-        - id: MedkitAdvancedFilled
+        - id: MedkitOxygenFilled
         - id: EpinephrineChemistryBottle
-        - id: OmnizineChemistryBottle
+        - id: AntiPoisonMedipen
+          amount: 2
         - id: Syringe
         - id: Gauze
-        - id: PillCryptobiolin
-        - id: PillDylovene
-          amount: 2
         - id: PillHyronalin
           amount: 2
-        - id: PillDexalin
-          amount: 2
         - id: PillIron
+          amount: 2
+        - id: PillCryptobiolin
 
 
 - type: entity
