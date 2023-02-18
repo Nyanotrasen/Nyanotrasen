@@ -1,18 +1,4 @@
 - type: entity
-  parent: CentcomIDCard
-  id: ERTLeaderIDCard
-  name: ERT Leader ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: gold
-    - state: ert_commander
-  - type: IdCard
-    jobTitle: ert commander
-  - type: Item
-    heldPrefix: gold
-
-- type: entity
   parent: IDCardStandard
   id: ERTJanitorIDCard
   name: ERT Janitor ID card

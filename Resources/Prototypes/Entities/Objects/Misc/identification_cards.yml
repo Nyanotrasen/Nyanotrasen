@@ -292,12 +292,14 @@
 - type: entity
   parent: CentcomIDCard
   id: ERTLeaderIDCard
-  name: ERT ID card
+  name: ERT Leader ID card
   components:
   - type: Sprite
     layers:
     - state: gold
-    - state: ert_commander # we have the sprites but don't need individual ID entities for now.
+    - state: ert_commander
+  - type: IdCard
+    jobTitle: ert commander
   - type: Item
     heldPrefix: gold
 
