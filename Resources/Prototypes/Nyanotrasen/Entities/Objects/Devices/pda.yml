@@ -128,7 +128,7 @@
   parent: BasePDA
   id: ERTLeaderPDA
   name: ERT Leader PDA
-  description: Red for firepower.
+  description: Red for the firepower.
   components:
   - type: PDA
     id: ERTLeaderIDCard
@@ -143,7 +143,7 @@
   parent: BasePDA
   id: ERTJanitorPDA
   name: ERT Janitor PDA
-  description: Red for blood you have to mop.
+  description: Red for the mopped blood.
   components:
   - type: PDA
     id: ERTJanitorIDCard
