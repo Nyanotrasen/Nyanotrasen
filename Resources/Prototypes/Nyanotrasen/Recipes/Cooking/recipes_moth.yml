@@ -9,8 +9,8 @@
   reagents:
     OilOlive: 5
   solids:
-    WheatSeeds: 1 #Sunflower
-    CarrotSeeds: 1 #Pumpkin
+    WheatSeeds: 1
+    CarrotSeeds: 1
     PoppySeeds: 1
 
 - type: microwaveMealRecipe
@@ -48,7 +48,7 @@
     Ketchup: 5 #Tomato Sauce
   solids:
     FoodDonkpocket: 1 #macncheese donk
-    FoodCorn: 1 #CornMeal technically
+    FoodCorn: 1 #CornMeal
 
 - type: microwaveMealRecipe
   id: RecipeMothSqueakingFry
@@ -148,7 +148,7 @@
   solids:
     FoodBowlBig: 1
     FoodTinBeansOpen: 1
-    #FoodCabbage: 1
+    FoodAmbrosiaVulgaris: 1 #Cabbage
     FoodTomato: 1
     FoodOnion: 1
     FoodChili: 1
@@ -164,7 +164,7 @@
     Oats: 5
   solids:
     FoodBowlBig: 1
-    FoodCarrot: 1
+    FoodCarrot: 2 #1 when Parsnip
     FoodPotato: 1
     #FoodParsnip: 1
 
@@ -224,7 +224,7 @@
   time: 10
   solids:
     FoodCurdCheese: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
+    FoodPoppy: 1 #Herbs
 
 - type: microwaveMealRecipe
   id: RecipeMothCapreseSalad
@@ -245,7 +245,7 @@
   result: FoodMothSaladBase
   time: 10
   solids:
-    #FoodCabbage: 1
+    FoodAmbrosiaVulgaris: 1 #Cabbage
     FoodOnionRedSlice: 2
     FoodTomato: 1
 

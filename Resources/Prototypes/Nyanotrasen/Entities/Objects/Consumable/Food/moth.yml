@@ -19,9 +19,7 @@
         - ReagentId: Nutriment
           Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: Bicaridine
-          Quantity: 1
+          Quantity: 5
 
 - type: entity
   name: oven-baked corn
@@ -300,11 +298,9 @@
         - ReagentId: Nutriment
           Quantity: 7
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 3
         - ReagentId: Water
           Quantity: 5
-        - ReagentId: Bicaridine
-          Quantity: 1
 
 - type: entity
   name: bean stew
@@ -481,14 +477,10 @@
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 7
         - ReagentId: Protein
-          Quantity: 3
+          Quantity: 2
         - ReagentId: Cream
-          Quantity: 1
-        - ReagentId: Bicaridine #Since it use Ambrosia as placeholder might as well
-          Quantity: 1
-        - ReagentId: Kelotane
           Quantity: 1
 
 - type: entity
@@ -511,11 +503,9 @@
         maxvol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
+          Quantity: 7
         - ReagentId: Protein
           Quantity: 3
-        - ReagentId: Bicaridine #Since it use Ambrosia as placeholder might as well
-          Quantity: 1
 
 - type: entity
   name: mothic salad
@@ -614,13 +604,11 @@
         maxvol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 12
         - ReagentId: Vitamin
           Quantity: 6
         - ReagentId: Protein
           Quantity: 7
-        - ReagentId: Bicaridine #Since it use Poppy as placeholder might as well
-          Quantity: 2
 
 #Pastries
 - type: entity
