@@ -246,7 +246,7 @@
   time: 10
   solids:
     FoodAmbrosiaVulgaris: 1 #Cabbage
-    FoodOnionRedSlice: 2
+    FoodOnionSlice: 2 #RedOnions aren't findable yet
     FoodTomato: 1
 
 - type: microwaveMealRecipe
@@ -290,7 +290,7 @@
     FoodMothSaladBase: 1
     FoodMothBakedCorn: 1
     FoodChili: 1
-    FoodOnionRed: 1
+    FoodOnion: 1 #RedOnions aren't findable yet
     FoodPoppy: 1 #Herbs
 
 # Pastries: Get them out of microwave when proper oven.
