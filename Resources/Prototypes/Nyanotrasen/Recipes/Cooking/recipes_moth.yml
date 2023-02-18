@@ -317,6 +317,7 @@
     MilkSoy: 5 #Soybeans
     #Vanilla: 5
 
+#Eventually use the pastry dough
 - type: microwaveMealRecipe
   id: RecipeMothMoffin
   name: Moffin recipe
@@ -324,6 +325,7 @@
   time: 5
   reagents:
     Milk: 5
+    Sugar: 5 #To 'make' the Dough into pastry dough
   solids:
-    FoodDoughSlice: 1 #Eventually use the pastry dough
+    FoodDoughSlice: 1
     MaterialCloth1: 1
