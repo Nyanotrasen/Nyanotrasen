@@ -17,7 +17,7 @@
   id: RecipeMothBakedCorn
   name: baked corn recipe
   result: FoodMothBakedCorn
-  time: 20
+  time: 15
   solids:
     FoodCorn: 1
 
@@ -25,7 +25,7 @@
   id: RecipeMothButteredBakedCorn
   name: buttered baked corn recipe
   result: FoodMothButteredBakedCorn
-  time: 15
+  time: 5
   solids:
     FoodMothBakedCorn: 1
     FoodButter: 1

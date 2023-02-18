@@ -13,6 +13,7 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodCurdCheese
+      number: 2
       
 # Mozzarella
 - type: reaction
@@ -30,3 +31,4 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodMozzarella
+      number: 2
