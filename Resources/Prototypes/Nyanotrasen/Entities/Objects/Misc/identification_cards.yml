@@ -1,0 +1,108 @@
+- type: entity
+  parent: CentcomIDCard
+  id: ERTLeaderIDCard
+  name: ERT Leader ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: gold
+    - state: ert_commander
+  - type: IdCard
+    jobTitle: ert commander
+  - type: Item
+    heldPrefix: gold
+
+- type: entity
+  parent: IDCardStandard
+  id: ERTJanitorIDCard
+  name: ERT Janitor ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: ert_janitor
+  - type: IdCard
+    jobTitle: ert janitor
+  - type: Item
+    heldPrefix: blue
+  - type: Access
+    tags:
+    - Bar
+    - Kitchen
+    - Hydroponics
+    - Service
+    - Janitor
+    - Theatre
+    - Chapel
+    - Cargo
+    - Mail
+    - Maintenance
+    - External
+
+- type: entity
+  parent: IDCardStandard
+  id: ERTEngineerIDCard
+  name: ERT Engineer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: ert_engineer
+  - type: IdCard
+    jobTitle: ert engineer
+  - type: Item
+    heldPrefix: blue
+  - type: Access
+    tags:
+    - ChiefEngineer
+    - Engineering
+    - Salvage
+    - Atmospherics
+    - Cargo
+    - Mail
+    - Maintenance
+    - External
+
+- type: entity
+  parent: IDCardStandard
+  id: ERTMedicIDCard
+  name: ERT Medic ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: ert_medic
+  - type: IdCard
+    jobTitle: ert medic
+  - type: Item
+    heldPrefix: blue
+  - type: Access
+    tags:
+    - ChiefMedicalOfficer
+    - Medical
+    - Chemistry
+    - Cargo
+    - Mail
+    - Maintenance
+    - External
+
+- type: entity
+  parent: IDCardStandard
+  id: ERTSecurityIDCard
+  name: ERT Security ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: ert security
+  - type: Item
+    heldPrefix: blue
+  - type: Access
+    tags:
+    - HeadOfSecurity
+    - Brig
+    - Security
+    - Armory
+    - Detective
+    - Cargo
+    - Mail
+    - Maintenance
+    - External

@@ -123,3 +123,78 @@
     state: pda-security
   - type: Icon
     state: pda-guard
+
+- type: entity
+  parent: BasePDA
+  id: ERTLeaderPDA
+  name: ERT Leader PDA
+  description: Red for firepower.
+  components:
+  - type: PDA
+    id: ERTLeaderIDCard
+    state: pda-ert
+  - type: PDABorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+  - type: Icon
+    state: pda-ert
+
+- type: entity
+  parent: BasePDA
+  id: ERTJanitorPDA
+  name: ERT Janitor PDA
+  description: Red for blood you have to mop.
+  components:
+  - type: PDA
+    id: ERTJanitorIDCard
+    state: pda-ert
+  - type: PDABorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+  - type: Icon
+    state: pda-ert
+
+- type: entity
+  parent: BasePDA
+  id: ERTSecurityPDA
+  name: ERT Security PDA
+  description: Red for the law.
+  components:
+  - type: PDA
+    id: ERTSecurityIDCard
+    state: pda-ert
+  - type: PDABorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+  - type: Icon
+    state: pda-ert
+
+- type: entity
+  parent: BasePDA
+  id: ERTMedicPDA
+  name: ERT Medic PDA
+  description: Red for the blood of patients.
+  components:
+  - type: PDA
+    id: ERTMedicIDCard
+    state: pda-ert
+  - type: PDABorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+  - type: Icon
+    state: pda-ert
+
+- type: entity
+  parent: BasePDA
+  id: ERTEngineerPDA
+  name: ERT Engineer PDA
+  description: Red for the hard work.
+  components:
+  - type: PDA
+    id: ERTEngineerIDCard
+    state: pda-ert
+  - type: PDABorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+  - type: Icon
+    state: pda-ert
