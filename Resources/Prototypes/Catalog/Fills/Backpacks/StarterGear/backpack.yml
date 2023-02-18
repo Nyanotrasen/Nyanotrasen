@@ -140,10 +140,10 @@
       contents:
         - id: BoxSurvival
         - id: WeaponPulsePistol
-        - id: WeaponPistolMk58
-        - id: MagazinePistolHighCapacityRubber
-        - id: MagazinePistol
+        - id: WeaponDisabler
+        - id: Stunbaton
         - id: Handcuffs
+        - id: PillCryptobiolin
 
 
 - type: entity
@@ -153,12 +153,11 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: BoxSurvivalSecurity
         - id: WeaponDisabler
-        - id: WeaponPulsePistol
-        - id: WeaponPulseCarbine
         - id: BoxHandcuff
         - id: Handcuffs
+        - id: PillCryptobiolin
 
 - type: entity
   noSpawn: true
@@ -167,10 +166,20 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
-        - id: WeaponPulseCarbine
-        - id: Hypospray
+        - id: BoxSurvivalMedical
         - id: MedkitAdvancedFilled
+        - id: EpinephrineChemistryBottle
+        - id: OmnizineChemistryBottle
+        - id: Syringe
+        - id: Gauze
+        - id: PillCryptobiolin
+        - id: PillDylovene
+          amount: 2
+        - id: PillHyronalin
+          amount: 2
+        - id: PillDexalin
+          amount: 2
+        - id: PillIron
 
 
 - type: entity
@@ -180,13 +189,17 @@
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvival
+        - id: BoxSurvivalEngineering
         - id: trayScanner
-        - id: WeaponPulseCarbine
-        - id: RCD
-        - id: RCDAmmo
-        - id: RCDAmmo
-        - id: RCDAmmo
+        - id: CableHVStack
+        - id: CableMVStack
+        - id: CableApcStack
+        - id: SheetSteel
+        - id: PartRodMetal
+        - id: InflatableWallStack
+        - id: InflatableDoorStack1
+          amount: 4
+        - id: PillCryptobiolin
 
 - type: entity
   noSpawn: true
@@ -196,11 +209,10 @@
     - type: StorageFill
       contents:
         - id: BoxSurvival
-        - id: WeaponPulsePistol
-        - id: MedkitFilled
         - id: BoxLightMixed
         - id: BoxLightMixed
         - id: Soap
+        - id: PillCryptobiolin
 
 - type: entity
   noSpawn: true

@@ -136,7 +136,7 @@
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
   - type: Storage
-    capacity: 250
+    capacity: 120 #Nerf it to the size of a duffel bag.
 
 - type: entity
   parent: ClothingBackpackERTLeader

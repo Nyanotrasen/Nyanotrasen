@@ -13,3 +13,17 @@
   - type: Sprite
     sprite: Objects/Devices/encryption_keys.rsi
     state: sci_cypherkey
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyERT
+  name: ERT encryption key
+  description: An encryption key used by members of ERT squads to communicate.
+  components:
+  - type: EncryptionKey
+    channels:
+    - CentCom
+    defaultChannel: CentCom
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: bin_cypherkey

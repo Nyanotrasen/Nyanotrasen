@@ -5,7 +5,7 @@
   description: job-description-ertleader
   playTimeTracker: JobERTLeader
   setPreference: false
-  startingGear: ERTLeaderGearEVA
+  startingGear: ERTLeaderGear
   icon: "Nanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -19,11 +19,11 @@
     back: ClothingBackpackERTLeaderFilled
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHelmetHelmet
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
     outerclothing: ClothingOuterVestKevlar
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTLeader
     belt: ClothingBeltSecurityWebbing
     pocket1: Flare
 
@@ -34,12 +34,12 @@
     back: ClothingBackpackERTLeaderFilled
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskBreath
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterHardsuitERTLeader
     suitStorage: OxygenTankFilled
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTLeader
     belt: ClothingBeltSecurityFilled
     pocket1: Flare
 
@@ -50,7 +50,7 @@
   description: job-description-ertengineer
   playTimeTracker: JobERTEngineer
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ERTEngineerGear
   icon: "Nanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -68,8 +68,8 @@
     gloves: ClothingHandsGlovesColorYellow
     outerClothing: ClothingOuterVestKevlar
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltChiefEngineerFilled
+    ears: ClothingHeadsetAltERTEngineer
+    belt: ClothingBeltUtilityFilled
     pocket1: Flare
 
 - type: startingGear
@@ -77,15 +77,15 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTEngineer
     back: ClothingBackpackERTEngineerFilled
-    shoes: ClothingShoesBootsMagAdv
+    shoes: ClothingShoesBootsMag
     mask: ClothingMaskBreath
     eyes: ClothingEyesGlassesMeson
     gloves: ClothingHandsGlovesColorYellow
     outerClothing: ClothingOuterHardsuitERTEngineer
     suitStorage: OxygenTankFilled
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltChiefEngineerFilled
+    ears: ClothingHeadsetAltERTEngineer
+    belt: ClothingBeltUtilityFilled
     pocket1: Flare
 
 # Security
@@ -95,7 +95,7 @@
   description: job-description-ertsecurity
   playTimeTracker: JobERTSecurity
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ERTSecurityGear
   icon: "Nanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -113,8 +113,8 @@
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterVestKevlar
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltSecurityWebbing
+    ears: ClothingHeadsetAltERTSecurity
+    belt: ClothingBeltSecurityFilled
     pocket1: Flare
 
 - type: startingGear
@@ -129,8 +129,8 @@
     outerClothing: ClothingOuterHardsuitERTSecurity
     suitStorage: OxygenTankFilled
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltSecurityWebbing
+    ears: ClothingHeadsetAltERTSecurity
+    belt: ClothingBeltSecurityFilled
     pocket1: Flare
 
 # Medical
@@ -140,7 +140,7 @@
   description: job-description-ertmedic
   playTimeTracker: JobERTMedical
   setPreference: false
-  startingGear: ERTMedicalGearEVA
+  startingGear: ERTMedicalGear
   icon: "Nanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -155,10 +155,10 @@
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHelmetHelmet
     eyes: ClothingEyesHudMedical
-    gloves: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterVestKevlar
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTMedic
     belt: ClothingBeltMedicalFilled
     pocket1: HandheldHealthAnalyzer
     pocket2: Flare
@@ -171,11 +171,11 @@
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskBreath
     eyes: ClothingEyesHudMedical
-    gloves: ClothingHandsGlovesColorBlack
+    gloves: ClothingHandsGlovesNitrile
     outerClothing: ClothingOuterHardsuitERTMedical
     suitStorage: OxygenTankFilled
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTMedic
     belt: ClothingBeltMedicalFilled
     pocket1: HandheldHealthAnalyzer
     pocket2: Flare
@@ -187,7 +187,7 @@
   description: job-description-ertjanitor
   playTimeTracker: JobERTJanitor
   setPreference: false
-  startingGear: ERTJanitorGearEVA
+  startingGear: ERTJanitorGear
   icon: "Nanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -201,12 +201,14 @@
     back: ClothingBackpackERTJanitorFilled
     shoes: ClothingShoesGaloshes
     head: ClothingHeadHelmetHelmet
-    gloves: ClothingHandsGlovesColorBlack
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorYellowBudget
     outerClothing: ClothingOuterVestKevlar
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTJanitor
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: SprayBottleSpaceCleaner
+    pocket2: Flare
 
 - type: startingGear
   id: ERTJanitorGearEVA
@@ -215,10 +217,12 @@
     back: ClothingBackpackERTJanitorFilled
     shoes: ClothingShoesBootsMag
     mask: ClothingMaskBreath
-    gloves: ClothingHandsGlovesColorBlack
+    eyes: ClothingEyesGlassesSunglasses
+    gloves: ClothingHandsGlovesColorYellowBudget
     outerClothing: ClothingOuterHardsuitERTJanitor
     suitStorage: OxygenTankFilled
     id: ERTLeaderPDA
-    ears: ClothingHeadsetAltCommand
+    ears: ClothingHeadsetAltERTJanitor
     belt: ClothingBeltJanitorFilled
-    pocket1: Flare
+    pocket1: SprayBottleSpaceCleaner
+    pocket2: Flare
