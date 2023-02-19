@@ -24,6 +24,9 @@
     components:
     - type: PsionicBonusChance
       multiplier: 3
+    - type: ExtraLanguages
+      canUnderstand:
+      - Demonic
 
 - type: startingGear
   id: ChaplainGear

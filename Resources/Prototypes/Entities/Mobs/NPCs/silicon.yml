@@ -97,6 +97,11 @@
   - type: Examiner
   - type: Actions
   - type: Alerts
+  - type: Linguistic
+    canUnderstand:
+    - Binary
+    canSpeak:
+    - Binary
 
 - type: entity
   parent: MobSiliconBase

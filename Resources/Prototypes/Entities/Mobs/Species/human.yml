@@ -9,6 +9,11 @@
   - type: Thirst
   - type: Carriable
   - type: Perishable
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    canSpeak:
+    - Basic
 
 - type: entity
   name: Urist McHands

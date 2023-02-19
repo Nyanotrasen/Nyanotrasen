@@ -171,6 +171,15 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    - Binary
+    canSpeak:
+    - Basic
+    - Binary
+    default: Basic
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard

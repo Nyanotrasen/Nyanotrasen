@@ -65,6 +65,11 @@
   - type: Tag
     tags:
       - ShoesRequiredStepTriggerImmune
+  - type: Linguistic
+    canUnderstand:
+    - Binary
+    canSpeak:
+    - Binary
 
 - type: entity
   name: drone
@@ -159,8 +164,6 @@
         states:
           enum.DroneStatus.Off: shell
           enum.DroneStatus.On: drone
-  - type: ReplacementAccent
-    accent: silicon
   - type: Repairable
     fuelcost: 15
     doAfterDelay: 8

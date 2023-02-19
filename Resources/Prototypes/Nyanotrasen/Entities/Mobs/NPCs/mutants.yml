@@ -113,8 +113,6 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
-  - type: ReplacementAccent
-    accent: xeno
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -187,6 +185,12 @@
     tags:
       - Oneirophage
   - type: MovementAlwaysTouching
+  - type: Linguistic
+    canUnderstand:
+    - Bestial
+    canSpeak:
+    - Bestial
+    dialect: Spider
 
 - type: entity
   name: oneirophage

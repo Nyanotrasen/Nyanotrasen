@@ -90,6 +90,14 @@
     factions:
     - PsionicInterloper
     - NanoTrasen
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    - Demonic
+    canSpeak:
+    - Basic
+    - Demonic
+    default: Basic
 
 - type: entity
   parent: WelderExperimental

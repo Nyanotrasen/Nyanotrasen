@@ -93,6 +93,8 @@ namespace Content.Client.Entry
             // Do not add to the above, they are legacy
 
             _prototypeManager.RegisterIgnore("accent");
+            _prototypeManager.RegisterIgnore("dialect");
+            _prototypeManager.RegisterIgnore("language");
             _prototypeManager.RegisterIgnore("material");
             _prototypeManager.RegisterIgnore("reaction"); //Chemical reactions only needed by server. Reactions checks are server-side.
             _prototypeManager.RegisterIgnore("gasReaction");

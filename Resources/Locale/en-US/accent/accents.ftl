@@ -28,6 +28,7 @@ accent-words-silicon-1 = Beep.
 accent-words-silicon-2 = Boop.
 accent-words-silicon-3 = Whirr.
 accent-words-silicon-4 = Beep-boop.
+accent-words-silicon-5 = Bzzt.
 
 # Xeno
 accent-words-xeno-1 = Hiss.

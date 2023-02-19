@@ -1,0 +1,7 @@
+- type: instantAction
+  id: ChangeLanguage
+  name: action-name-change-language
+  description: action-description-change-language
+  icon: Interface/Actions/change-language.png
+  serverEvent: !type:ChangeLanguageActionEvent
+  priority: -20

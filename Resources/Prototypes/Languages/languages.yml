@@ -1,0 +1,77 @@
+# The language that all usual humans speak, be it English, Mandarin, Russian, et cetera.
+- type: language
+  id: Basic
+  name: Basic
+  distorter:
+    !type:EmotionalDistorter
+    phonemes:
+    - ba
+    - bal
+    - bar
+    - bi
+    - bla
+
+# The language spoken by robots.
+- type: language
+  id: Binary
+  name: Binary
+  distorter:
+    !type:GenericDistorter
+    lines:
+    - accent-words-silicon-1
+    - accent-words-silicon-2
+    - accent-words-silicon-3
+    - accent-words-silicon-4
+    - accent-words-silicon-5
+
+# The language spoken by infernal familiars.
+- type: language
+  id: Demonic
+  name: Demonic
+  distorter:
+    !type:EmotionalDistorter
+    phonemes:
+    - agh
+    - ash
+    - burzum
+    - gimba
+    - ishi
+    - krimpa
+    - nazga
+    - thraka
+    - tul
+    - tuluk
+
+# The language spoken by usual animals and pets.
+- type: language
+  id: Bestial
+  name: Bestial
+  distorter:
+    !type:DialectDistorter
+
+# The language spoken by xenos.
+- type: language
+  id: Xenomorphic
+  name: Xenomorphic
+  distorter:
+    !type:GenericDistorter
+    lines:
+    - accent-words-xeno-1
+    - accent-words-xeno-2
+    - accent-words-xeno-3
+    - accent-words-xeno-4
+
+# The language spoken by zombies.
+- type: language
+  id: Zombie
+  name: Zombie
+  distorter:
+    !type:GenericDistorter
+    lines:
+    - accent-words-zombie-1
+    - accent-words-zombie-2
+    - accent-words-zombie-3
+    - accent-words-zombie-4
+    - accent-words-zombie-5
+    - accent-words-zombie-6
+    - accent-words-zombie-7

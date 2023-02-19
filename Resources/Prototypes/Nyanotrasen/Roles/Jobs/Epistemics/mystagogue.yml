@@ -30,6 +30,11 @@
     - type: BibleUser #Lets them heal with bibles
     - type: Psionic
     - type: DispelPower
+    - type: ExtraLanguages
+      canUnderstand:
+      - Demonic
+      canSpeak:
+      - Demonic
 
 - type: startingGear
   id: MystagogueGear

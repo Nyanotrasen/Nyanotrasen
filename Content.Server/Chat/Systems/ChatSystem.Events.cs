@@ -1,3 +1,4 @@
+using Content.Server.Language;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 
@@ -5,15 +6,37 @@ namespace Content.Server.Chat.Systems
 {
     public class EntityChat
     {
+        /// <summary>
+        /// The origin of the chat message.
+        /// </summary>
         public EntityUid Source;
+
+        /// <summary>
+        /// The original chat message.
+        /// </summary>
         public string Message;
+
+        /// <summary>
+        /// A dictionary of recipients to arbitrary data objects.
+        /// </summary>
+        /// <remarks>
+        /// The objects are passed to the recipients at a later stage of processing.
+        /// </remarks>
         public Dictionary<EntityUid, object> Recipients;
+
         public ChatChannel Channel;
 
-        // Has a system claimed this chat message for their own?
+        /// <summary>
+        /// Which system, if any, has claimed this chat message.
+        /// </summary>
+        /// <remarks>
+        /// If a system claims a chat, they are saying they will be responsible for sending it.
+        /// </remarks>
         public Type? ClaimedBy;
 
-        public string? SourceName;
+        /// <summary>
+        /// Arbitrary data that may be attached to a chat message.
+        /// </summary>
         public object? Data;
 
         public EntityChat(EntityUid source, string message)
@@ -26,19 +49,44 @@ namespace Content.Server.Chat.Systems
 
     public class EntityChatSpokenData
     {
-        public string? Language;
+        /// <summary>
+        /// The radio channel that this chat is being transmitted to.
+        /// </summary>
         public RadioChannelPrototype? RadioChannel;
+
+        /// <summary>
+        /// The language used for this chat.
+        /// </summary>
+        public LanguagePrototype? Language;
+
+        /// <summary>
+        /// A distorted version of the message for anyone who does not
+        /// understand the language used.
+        /// </summary>
+        public string? DistortedMessage;
     }
 
     public class EntityChatSpokenRecipientData
     {
+        /// <summary>
+        /// The distance from the source.
+        /// </summary>
         public float Distance;
+
+        /// <summary>
+        /// A message specifically for this recipient.
+        /// </summary>
         public string? Message;
 
-        public EntityChatSpokenRecipientData(float distance, string? message = null)
+        /// <summary>
+        /// A wrapped message specifically for this recipient. This is the
+        /// message that will appear in the chat log.
+        /// </summary>
+        public string? WrappedMessage;
+
+        public EntityChatSpokenRecipientData(float distance)
         {
             Distance = distance;
-            Message = message;
         }
     }
 
@@ -49,7 +97,7 @@ namespace Content.Server.Chat.Systems
     // GetRecipients            - we get who will receive this chat
     // Transform                - we can change what the speaker says
     // BeforeChat
-
+    //
     // GotEntityChatTransform   - we can change what the recipient hears
     // GotEntityChat            - finally, show the user the message
 

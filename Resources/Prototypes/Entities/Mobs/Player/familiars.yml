@@ -39,6 +39,12 @@
     factions:
     - PsionicInterloper
     - NanoTrasen
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    - Demonic
+    canSpeak:
+    - Demonic
 
 - type: entity
   name: Cerberus
@@ -93,3 +99,12 @@
     factions:
     - PsionicInterloper
     - SimpleNeutral
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    - Demonic
+    - Bestial
+    canSpeak:
+    - Demonic
+    - Bestial
+    default: Demonic

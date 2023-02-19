@@ -116,6 +116,11 @@
     chance: -2
   - type: Psionic
     removable: false
+  - type: Linguistic
+    canUnderstand:
+    - Xenomorphic
+    canSpeak:
+    - Xenomorphic
 
 # NPC versions
 
