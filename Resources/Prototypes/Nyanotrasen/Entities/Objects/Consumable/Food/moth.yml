@@ -50,28 +50,6 @@
         - ReagentId: Vitamin
           Quantity: 4
 
-- type: entity
-  name: toasted seeds
-  parent: FoodBakingBase
-  id: FoodMothToastedSeeds
-  description: While they're far from filling, toasted seeds are a popular snack amongst the moths. Some more exotic flavours may be added for some extra pep.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - seeds
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: toastedseeds
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 5
-
 # Entrees
 - type: entity
   name: squeaking stir fry
@@ -103,6 +81,56 @@
 #Tastes like cheese, tofu and veggies
 
 - type: entity
+  name: toasted seeds
+  parent: FoodBakingBase
+  id: FoodMothToastedSeeds
+  description: While they're far from filling, toasted seeds are a popular snack amongst the moths. Some more exotic flavours may be added for some extra pep.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - seeds
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: toastedseeds
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: sweet chili cabbage wrap
+  parent: FoodMealBase
+  id: FoodMothChiliCabbageWrap
+  description: Grilled cheese and salad in a cabbage wrap, topped with delicious sweet chili sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - cabbage
+      - sweet
+      - spicy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: sweetchilicabbagewrap
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: CapsaicinOil
+          Quantity: 1
+#Tastes like cheese, salad, sweet chili
+
+- type: entity
   name: baked cheese wheel
   parent: FoodBakingBase
   id: FoodMothBakedCheese
@@ -125,6 +153,31 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: bakedcheese
+
+- type: entity
+  name: baked cheese platter
+  parent: FoodBakingBase
+  id: FoodMothBakedCheesePlatter
+  description: A favourite for sharing. Usually served with crispy bread slices for dipping, because the only thing better than good cheese is good cheese on bread.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - bread
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 16
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 2
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: bakedcheeseplatter
 
 # Meals
 
@@ -628,6 +681,9 @@
         - ReagentId: Protein
           Quantity: 7
 #Tastes like onion, tomato, corn, chili and cilantro
+
+# Pizzas
+# Eventually.
 
 # Sweets
 

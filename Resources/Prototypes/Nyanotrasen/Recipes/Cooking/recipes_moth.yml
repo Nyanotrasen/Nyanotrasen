@@ -1,5 +1,39 @@
 # Moth related cuisine
-# A lot of those recipes are using placeholders ingredients
+
+# Base ingredients: Should be moved out of microwave as soon as possible.
+- type: microwaveMealRecipe
+  id: RecipeMothHerbyCheese
+  name: herby cheese recipe
+  result: FoodMothHerbyCheese
+  time: 10
+  solids:
+    FoodCurdCheese: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
+- type: microwaveMealRecipe
+  id: RecipeMothMothicSalad
+  name: mothic salad recipe
+  result: FoodMothSaladBase
+  time: 10
+  solids:
+    FoodCabbage: 1
+    FoodOnionRedSlice: 2
+    FoodTomato: 1
+
+# Entrees
+- type: microwaveMealRecipe
+  id: RecipeMothSqueakingFry
+  name: squeaking stir fry recipe
+  result: FoodMothSqueakingFry
+  time: 15
+  reagents:
+    OilOlive: 5
+  solids:
+    FoodMeatFish: 1 #FoodTofuSlice: 2
+    FoodOnionSlice: 1
+    FoodChili: 1
+    FoodCarrot: 1
+    FoodCheeseCurds: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothToastedSeeds
@@ -12,6 +46,53 @@
     WheatSeeds: 1
     CarrotSeeds: 1
     PoppySeeds: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothChiliCabbageWrap
+  name: sweet chili cabbage wrap recipe
+  result: FoodMothChiliCabbageWrap
+  time: 15
+  reagents:
+    Sugar: 5 #Honey
+  solids:
+    FoodCheeseSlice: 1 #Grilled cheese slice
+    FoodMothSaladBase: 1
+    FoodChili: 1
+    FoodCabbage: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothBakedCheese
+  name: baked cheese recipe
+  result: FoodMothBakedCheese
+  time: 20
+  solids:
+    FoodCheese: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothBakedCheesePlatter
+  name: baked cheese platter recipe
+  result: FoodMothBakedCheesePlatter
+  time: 5
+  solids:
+    FoodMothBakedCheese: 1
+    FoodBreadPlainSlice: 3 #3 toasts
+
+# Meals
+# Remove the ingredients for Pesto and Bechamel if they become a thing Pesto (salt, garlic, oil) Bechamel Sauce (milk, flour, butter)
+- type: microwaveMealRecipe
+  id: RecipeMothGreenLasagne
+  name: green lasagne recipe
+  result: FoodMothGreenLasagne
+  time: 20
+  reagents:
+    #OilOlive: 5
+    Milk: 5
+    Flour: 10
+  solids:
+    FoodNoodlesBoiled: 1
+    FoodCheeseSlice: 1
+    FoodButter: 1
+    #FoodGarlic: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBakedCorn
@@ -31,58 +112,6 @@
     FoodButter: 1
 
 - type: microwaveMealRecipe
-  id: RecipeMothBakedCheese
-  name: baked cheese recipe
-  result: FoodMothBakedCheese
-  time: 20
-  solids:
-    FoodCheese: 1
-
-# Mac Balls: Eventually have it use the correct ingredients
-- type: microwaveMealRecipe
-  id: RecipeMothMacBalls
-  name: mac balls recipe
-  result: FoodMothMacBalls
-  time: 15
-  reagents:
-    Ketchup: 5 #Tomato Sauce
-  solids:
-    FoodDonkpocket: 1 #macncheese donk
-    FoodCorn: 1 #CornMeal
-
-- type: microwaveMealRecipe
-  id: RecipeMothSqueakingFry
-  name: squeaking stir fry recipe
-  result: FoodMothSqueakingFry
-  time: 15
-  reagents:
-    OilOlive: 5
-  solids:
-    FoodMeatFish: 1 #FoodTofuSlice: 2
-    FoodOnionSlice: 1
-    FoodChili: 1
-    FoodCarrot: 1
-    FoodCheeseCurds: 1
-
-# Remove the ingredients for Pesto and Bechamel if they become a thing
-# Pesto (salt, garlic, oil)
-# Bechamel Sauce (milk, flour, butter)
-- type: microwaveMealRecipe
-  id: RecipeMothGreenLasagne
-  name: green lasagne recipe
-  result: FoodMothGreenLasagne
-  time: 20
-  reagents:
-    #OilOlive: 5
-    Milk: 5
-    Flour: 10
-  solids:
-    FoodNoodlesBoiled: 1
-    FoodCheeseSlice: 1
-    FoodButter: 1
-    #FoodGarlic: 1
-
-- type: microwaveMealRecipe
   id: RecipeMothMozzarellaSticks
   name: mozzarella sticks recipe
   result: FoodMothMozzarellaSticks
@@ -93,6 +122,17 @@
   solids:
     FoodMozzarella: 1
     FoodBreadPlainSlice: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothMacBalls
+  name: mac balls recipe
+  result: FoodMothMacBalls
+  time: 15
+  reagents:
+    Ketchup: 5 #Tomato Sauce
+  solids:
+    FoodDonkpocket: 1 #macncheese donk
+    FoodCorn: 1 #CornMeal
 
 # Soups and stews
 - type: microwaveMealRecipe
@@ -168,7 +208,6 @@
     FoodPotato: 1
     #FoodParsnip: 1
 
-# Porridges
 - type: microwaveMealRecipe
   id: RecipeMothHuaMulanCongee
   name: mulan congee recipe
@@ -216,16 +255,7 @@
     FoodBreadPlainSlice: 2
     FoodMozzarella: 1
 
-# SALADS: These should be moved out of the microwave as soon as possible
-- type: microwaveMealRecipe
-  id: RecipeMothHerbyCheese
-  name: herby cheese recipe
-  result: FoodMothHerbyCheese
-  time: 10
-  solids:
-    FoodCurdCheese: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
-
+# Salads: These should be moved out of the microwave as soon as possible
 - type: microwaveMealRecipe
   id: RecipeMothCapreseSalad
   name: caprese salad recipe
@@ -238,16 +268,6 @@
     FoodTomato: 1
     FoodMozzarella: 1
     FoodAmbrosiaVulgaris: 1 #Herbs
-
-- type: microwaveMealRecipe
-  id: RecipeMothMothicSalad
-  name: mothic salad recipe
-  result: FoodMothSaladBase
-  time: 10
-  solids:
-    FoodCabbage: 1
-    FoodOnionRedSlice: 2
-    FoodTomato: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothFleetSalad
@@ -293,7 +313,9 @@
     FoodOnionRed: 1
     FoodAmbrosiaVulgaris: 1 #Herbs
 
-# Pastries: Get them out of microwave when proper oven.
+# Pizzas
+
+# Sweets: Get them out of microwave when proper oven.
 - type: microwaveMealRecipe
   id: RecipeMothCheesecakeBalls
   name: cheesecake balls recipe
