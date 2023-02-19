@@ -223,7 +223,7 @@
       - pasta
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: greenlasagneslice
+    state: greenlasagne-slice
   - type: SolutionContainerManager
     solutions:
       food:
@@ -683,7 +683,132 @@
 #Tastes like onion, tomato, corn, chili and cilantro
 
 # Pizzas
-# Eventually.
+- type: entity
+  name: mothic margherita pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaMargherita
+  description: This pizza is characterised by the use of fresh ingredients,	particularly fresh mozzarella, and the use of strong flour to produce a glutenous dough.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - tomato
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: margherita
+  - type: SliceableFood
+    slice: FoodMothPizzaMargheritaSlice
+
+- type: entity
+  name: slice of mothic margherita
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaMargheritaSlice
+  description: A slice of mothic margherita pizza, the most humble of pizzas.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - tomato
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: margherita-slice
+# Tastes like crust, tomato, cheese
+
+- type: entity
+  name: mothic firecracker pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaFirecracker
+  description: They're not kidding when they call this a hot pizza pie.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - spicy
+      - corn
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: firecracker
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: CapsaicinOil
+          Quantity: 1
+        - ReagentId: BbqSauce
+          Quantity: 4
+  - type: SliceableFood
+    slice: FoodMothPizzaFirecrackerSlice
+
+- type: entity
+  name: slice of mothic firecracker
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaFirecrackerSlice
+  description: A spicy slice of something quite nice.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - spicy
+      - corn
+      - cheesy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 0.8
+        - ReagentId: CapsaicinOil
+          Quantity: 0.1
+        - ReagentId: BbqSauce
+          Quantity: 0.5
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: firecracker-slice
+# Tastes like crust, chili, corn, cheese
+
+- type: entity
+  name: mothic five-cheese pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaFiveCheese
+  description: For centuries, scholars have asked; how much cheese is too much cheese?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - oily
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: fivecheese
+  - type: SliceableFood
+    slice: FoodMothPizzaFiveCheeseSlice
+
+- type: entity
+  name: slice of mothic five-cheese
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaFiveCheeseSlice
+  description: It's the cheesiest slice in the galaxy!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - oily
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: fivecheese-slice
+# Tastes like crust, cheese, more cheese, excessive amount of cheese
 
 # Sweets
 
@@ -755,7 +880,7 @@
       - sublime
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: mothmallowslice
+    state: mothmallow-slice
   - type: SolutionContainerManager
     solutions:
       food:

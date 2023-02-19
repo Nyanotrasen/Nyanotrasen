@@ -314,6 +314,43 @@
     FoodAmbrosiaVulgaris: 1 #Herbs
 
 # Pizzas
+- type: microwaveMealRecipe
+  id: RecipeMothMargherita
+  name: mothic margherita pizza recipe
+  result: FoodMothPizzaMargherita
+  time: 30
+  solids:
+    FoodDough: 1
+    FoodTomato: 2 #TomatoSauce
+    FoodMozzarella: 1
+    FoodCheeseSlice: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
+- type: microwaveMealRecipe
+  id: RecipeMothFirecracker
+  name: mothic firecracker pizza recipe
+  result: FoodMothPizzaFirecracker
+  time: 30
+  reagents:
+    BbqSauce: 10
+  solids:
+    FoodDough: 1
+    FoodCheeseSlice: 1
+    FoodMothBakedCorn: 1
+    FoodChili: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothFiveCheese
+  name: mothic five-cheese pizza recipe
+  result: FoodMothPizzaFiveCheese
+  time: 30
+  solids:
+    FoodDough: 1
+    FoodTomato: 2 #TomatoSauce
+    FoodMozzarella: 1
+    FoodCheeseSlice: 1
+    FoodCurdCheese: 1
+    FoodCheeseCurds: 1
 
 # Sweets: Get them out of microwave when proper oven.
 - type: microwaveMealRecipe
