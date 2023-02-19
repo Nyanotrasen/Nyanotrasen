@@ -164,6 +164,9 @@
     flavors:
       - cheesy
       - bread
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: bakedcheeseplatter
   - type: SolutionContainerManager
     solutions:
       food:
@@ -175,9 +178,61 @@
           Quantity: 5
         - ReagentId: Protein
           Quantity: 2
+
+- type: entity
+  name: big baked rice
+  parent: FoodBakingBase
+  id: FoodMothBakedRice
+  description: A mothic favourite, baked rice can be filled with a variety of vegetable fillings to make a delicious meal to share.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potato
+      - cabbage
+      - rice
+  - type: SliceableFood
+    count: 6
+    slice: FoodMothBakedRicePortion
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: bakedcheeseplatter
+    state: bakedrice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 12
+
+- type: entity
+  name: lil baked rice
+  parent: FoodBakingBase
+  id: FoodMothBakedRicePortion
+  description: A single portion of baked rice, perfect as a side dish, or even as a full meal.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - potato
+      - cabbage
+      - rice
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: bakedrice-portion
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Protein
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 2
 
 # Meals
 
@@ -694,11 +749,11 @@
       - bread
       - tomato
       - cheesy
+  - type: SliceableFood
+    slice: FoodMothPizzaMargheritaSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: margherita
-  - type: SliceableFood
-    slice: FoodMothPizzaMargheritaSlice
 
 - type: entity
   name: slice of mothic margherita
@@ -728,6 +783,8 @@
       - spicy
       - corn
       - cheesy
+  - type: SliceableFood
+    slice: FoodMothPizzaFirecrackerSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: firecracker
@@ -744,8 +801,6 @@
           Quantity: 1
         - ReagentId: BbqSauce
           Quantity: 4
-  - type: SliceableFood
-    slice: FoodMothPizzaFirecrackerSlice
 
 - type: entity
   name: slice of mothic firecracker
@@ -759,6 +814,9 @@
       - spicy
       - corn
       - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: firecracker-slice
   - type: SolutionContainerManager
     solutions:
       food:
@@ -772,9 +830,6 @@
           Quantity: 0.1
         - ReagentId: BbqSauce
           Quantity: 0.5
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: firecracker-slice
 # Tastes like crust, chili, corn, cheese
 
 - type: entity
@@ -788,11 +843,11 @@
       - bread
       - oily
       - cheesy
+  - type: SliceableFood
+    slice: FoodMothPizzaFiveCheeseSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: fivecheese
-  - type: SliceableFood
-    slice: FoodMothPizzaFiveCheeseSlice
 
 - type: entity
   name: slice of mothic five-cheese
@@ -850,6 +905,9 @@
       - vanilla
       - sweet
       - sublime
+  - type: SliceableFood
+    count: 5
+    slice: FoodMothMothmallowSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: mothmallow
@@ -862,9 +920,6 @@
           Quantity: 20
         - ReagentId: Sugar
           Quantity: 10
-  - type: SliceableFood
-    count: 5
-    slice: FoodMothMothmallowSlice
 #Tastes like vanilla and clouds.
 
 - type: entity

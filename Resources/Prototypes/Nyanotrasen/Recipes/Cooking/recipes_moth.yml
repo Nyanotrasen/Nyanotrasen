@@ -77,6 +77,20 @@
     FoodMothBakedCheese: 1
     FoodBreadPlainSlice: 3 #3 toasts
 
+- type: microwaveMealRecipe
+  id: RecipeMothBakedRice
+  name: baked rice recipe
+  result: FoodMothBakedRice
+  time: 15
+  reagents:
+    Water: 5
+  solids:
+    FoodRiceBoiled: 1
+    FoodPotato: 2
+    FoodCabbage: 1
+    FoodChili: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
 # Meals
 # Remove the ingredients for Pesto and Bechamel if they become a thing Pesto (salt, garlic, oil) Bechamel Sauce (milk, flour, butter)
 - type: microwaveMealRecipe
