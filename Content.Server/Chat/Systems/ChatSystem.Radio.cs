@@ -42,7 +42,7 @@ public sealed partial class ChatSystem
         _prototypeManager.PrototypesReloaded -= OnPrototypeReload;
     }
 
-    private (string, RadioChannelPrototype?) GetRadioPrefix(EntityUid source, string message)
+    public (string, RadioChannelPrototype?) GetRadioPrefix(EntityUid source, string message)
     {
         // TODO: Turn common into a true frequency and support multiple aliases.
         var isRadioMessage = false;
