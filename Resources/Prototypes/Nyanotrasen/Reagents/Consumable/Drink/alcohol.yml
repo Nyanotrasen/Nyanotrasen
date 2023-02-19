@@ -6,7 +6,9 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: sake
   color: "#DDDDDD"
-  spritePath: sakeglass.rsi
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/sakeglass.rsi
+    state: icon
   metabolisms:
     Drink:
       effects:
@@ -24,7 +26,9 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: soju
   color: "#DDDDDD"
-  spritePath: sojuglass.rsi
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/sojuglass.rsi
+    state: icon
   metabolisms:
     Drink:
       effects:
