@@ -50,9 +50,9 @@ namespace Content.Server.Chat.Systems
     public class EntityChatSpokenData
     {
         /// <summary>
-        /// The radio channel that this chat is being transmitted to.
+        /// The radio channels that this chat is being transmitted to.
         /// </summary>
-        public RadioChannelPrototype? RadioChannel;
+        public RadioChannelPrototype[]? RadioChannel;
 
         /// <summary>
         /// The language used for this chat.
