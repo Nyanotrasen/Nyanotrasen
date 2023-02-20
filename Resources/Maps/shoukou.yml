@@ -10191,8 +10191,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 19.481253
-      - 73.28662
+      - 18.935778
+      - 71.2346
       - 0
       - 0
       - 0
@@ -10293,7 +10293,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -87616,7 +87616,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 11357
-  type: RandomPosterLegit
+  type: PosterLegitShoukou
   components:
   - pos: 38.5,-30.5
     parent: 34
@@ -89976,6 +89976,30 @@ entities:
   type: Syringe
   components:
   - pos: -29.291363,3.4877024
+    parent: 34
+    type: Transform
+- uid: 11715
+  type: PosterLegitShoukou
+  components:
+  - pos: -0.5,1.5
+    parent: 34
+    type: Transform
+- uid: 11716
+  type: PosterLegitShoukou
+  components:
+  - pos: 3.5,1.5
+    parent: 34
+    type: Transform
+- uid: 11717
+  type: PosterMapShoukou
+  components:
+  - pos: 1.5,1.5
+    parent: 34
+    type: Transform
+- uid: 11718
+  type: PosterMapShoukou
+  components:
+  - pos: 39.5,-30.5
     parent: 34
     type: Transform
 ...
