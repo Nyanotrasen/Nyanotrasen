@@ -85,6 +85,9 @@ technologies-archaeology-description = Advanced equipment for uncovering the sec
 technologies-adv-parts-technology = Advanced parts technology
 technologies-adv-parts-technology-description = Like the previous ones, but better!
 
+technologies-super-parts-technology = Super parts technology
+technologies-super-parts-technology-description = New heights of machine performance.
+
 technologies-security-technology = Security technology
 technologies-security-technology-descritpion =  Learn to replace and restock our current security equipment.
 
@@ -97,8 +100,11 @@ technologies-direct-energy-technology-description = Leverage our advances in pow
 technologies-non-lethal-technology = Non-lethal technology
 technologies-non-lethal-technology-description = Less lethal options for security.
 
-technologies-space-time-technology = Spacetime technology
-technologies-space-time-technology-description = Pushing the limits of the universe.
-
 technologies-ripley-technology = Exosuit: Ripley
 technologies-ripley-technology-description = The latest and greatest in mechanized cargo construction.
+
+technologies-bluespace-technology = Bluespace technology
+technologies-bluespace-technology-description = Extradimensional storage.
+
+technologies-teleportation-technology = Teleportation technology
+technologies-teleportation-technology-description = The ability to move matter instantly from one place to another.

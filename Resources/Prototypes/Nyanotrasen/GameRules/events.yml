@@ -27,8 +27,8 @@
     !type:GlimmerEventRuleConfiguration
     id: MundaneDischarge
     maximumGlimmer: 300
-    glimmerBurnLower: 8
-    glimmerBurnUpper: 30
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
 
 - type: gameRule
   id: NoosphericZap
@@ -51,23 +51,32 @@
     id: PsionicCatGotYourTongue
     minimumGlimmer: 200
     maximumGlimmer: 500
-    glimmerBurnLower: 8
-    glimmerBurnUpper: 30
+    glimmerBurnLower: 18
+    glimmerBurnUpper: 40
 
-- type: gameRule
-  id: MassMindSwap
-  config:
-    !type:GlimmerEventRuleConfiguration
-    id: MassMindSwap
-    minimumGlimmer: 900
-    glimmerBurnLower: 50
-    glimmerBurnUpper: 110
+# - type: gameRule
+#   id: MassMindSwap
+#   config:
+#     !type:GlimmerEventRuleConfiguration
+#     id: MassMindSwap
+#     minimumGlimmer: 900
+#     glimmerBurnLower: 50
+#     glimmerBurnUpper: 110
 
 - type: gameRule
   id: GlimmerWispSpawn
   config:
     !type:GlimmerEventRuleConfiguration
     id: GlimmerWispSpawn
+    minimumGlimmer: 300
+    maximumGlimmer: 1000
+    report: glimmer-event-report-signatures
+
+- type: gameRule
+  id: FreeProber
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: FreeProber
     minimumGlimmer: 300
     maximumGlimmer: 1000
     report: glimmer-event-report-signatures

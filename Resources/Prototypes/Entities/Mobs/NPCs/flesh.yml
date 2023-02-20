@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: SimpleMobBase
+  parent: SimpleFleshAnomalyBase
   id: BaseMobFlesh
   name: aberrant flesh
   description: A shambling mass of flesh, animated through anomalous energy.
@@ -51,7 +51,9 @@
     animation: WeaponArcClaw
     damage:
       types:
-        Slash: 3
+        Slash: 2
+        Blunt: 1
+    bluntStaminaDamageFactor: 3
   - type: ReplacementAccent
     accent: genericAggressive
 

@@ -143,12 +143,10 @@ namespace Content.Server.Disease
 
         private void OnServerSelected(EntityUid uid, DiseaseVaccineCreatorComponent component, ResearchClientServerSelectedMessage args)
         {
-            var server = _research.GetServerById(args.ServerId);
-
-            if (server == null)
+            if (!_research.TryGetServerById(args.ServerId, out var serverUid, out var serverComponent))
                 return;
 
-            if (!TryComp<DiseaseServerComponent>(server.Owner, out var diseaseServer))
+            if (!TryComp<DiseaseServerComponent>(serverUid, out var diseaseServer))
                 return;
 
             component.DiseaseServer = diseaseServer;

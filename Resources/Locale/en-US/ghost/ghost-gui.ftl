@@ -22,4 +22,5 @@ ghost-roles-window-no-roles-available-label = There are currently no available g
 ghost-roles-window-rules-footer = The button will enable after {$time} seconds (this delay is to make sure you read the rules).
 
 ghost-roles-window-redirect-label = Or, you can connect to another server.
+ghost-roles-window-redirect-label-empty = You can connect to another server.
 ghost-roles-window-redirect = Connect
