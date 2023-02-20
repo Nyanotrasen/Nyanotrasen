@@ -2,8 +2,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Language
 {
-    [Prototype("dialect")]
-    public sealed class DialectPrototype : IPrototype
+    [Prototype("unintelligibleSounds")]
+    public sealed class UnintelligibleSoundsPrototype : IPrototype
     {
         [ViewVariables]
         [IdDataField]

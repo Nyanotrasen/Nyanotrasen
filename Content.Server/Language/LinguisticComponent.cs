@@ -34,9 +34,13 @@ namespace Content.Server.Language
         [ViewVariables]
         public LanguagePrototype? ChosenLanguage = null;
 
+        /// <summary>
+        /// What will this entity sound like when not understood by others in a
+        /// language with an UnintelligibleSoundsDistorter?
+        /// </summary>
         [ViewVariables]
-        [DataField("dialect", customTypeSerializer: typeof(PrototypeIdSerializer<DialectPrototype>))]
-        public string? Dialect = null!;
+        [DataField("unintelligibleSounds", customTypeSerializer: typeof(PrototypeIdSerializer<UnintelligibleSoundsPrototype>))]
+        public string? UnintelligibleSounds = null!;
 
         // WYCI:
         /* public List<string> CanRead = new(); */

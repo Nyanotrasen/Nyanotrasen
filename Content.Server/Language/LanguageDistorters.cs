@@ -94,7 +94,7 @@ namespace Content.Server.Language
     }
 
     [UsedImplicitly]
-    public sealed class DialectDistorter : UnknownLanguageDistorter
+    public sealed class UnintelligibleSoundsDistorter : UnknownLanguageDistorter
     {
         public override string Distort(EntityUid source, string message)
         {
@@ -103,20 +103,20 @@ namespace Content.Server.Language
 
             var component = entityManager.GetComponent<LinguisticComponent>(source);
 
-            if (component?.Dialect == null)
+            if (component?.UnintelligibleSounds == null)
             {
-                Logger.ErrorS("language", $"DialectDistorter found no dialect on {source}");
+                Logger.ErrorS("language", $"UnintelligibleSoundsDistorter found no sounds on {source}");
                 return message;
             }
 
-            if (!prototypeManager.TryIndex<DialectPrototype>(component.Dialect, out var dialect))
+            if (!prototypeManager.TryIndex<UnintelligibleSoundsPrototype>(component.UnintelligibleSounds, out var sounds))
             {
-                Logger.ErrorS("language", $"{source} has invalid dialect {dialect}");
+                Logger.ErrorS("language", $"{source} has invalid sounds {component.UnintelligibleSounds}");
                 return message;
             }
 
             var random = IoCManager.Resolve<IRobustRandom>();
-            return Loc.GetString(random.Pick(dialect.Lines));
+            return Loc.GetString(random.Pick(sounds.Lines));
         }
     }
 }

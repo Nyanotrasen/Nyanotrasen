@@ -56,7 +56,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Mouse
+    unintelligibleSounds: Mouse
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -208,7 +208,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Chicken
+    unintelligibleSounds: Chicken
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
 
@@ -263,7 +263,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Duck
+    unintelligibleSounds: Duck
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
 
@@ -765,7 +765,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Mouse
+    unintelligibleSounds: Mouse
   - type: Tag
     tags:
     - Trash
@@ -1277,7 +1277,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Spider
+    unintelligibleSounds: Spider
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
@@ -1525,7 +1525,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Dog
+    unintelligibleSounds: Dog
   - type: InteractionPopup
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
@@ -1702,7 +1702,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Cat
+    unintelligibleSounds: Cat
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cat
@@ -1992,7 +1992,7 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Mouse
+    unintelligibleSounds: Mouse
   - type: Tag
     tags:
     - Trash
@@ -2102,6 +2102,6 @@
     - Bestial
     canSpeak:
     - Bestial
-    dialect: Pig
+    unintelligibleSounds: Pig
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
