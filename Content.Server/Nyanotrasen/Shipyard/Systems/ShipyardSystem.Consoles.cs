@@ -60,7 +60,7 @@ namespace Content.Server.Shipyard.Systems
                 return;
             }
 
-            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && accessReaderComponent.Enabled && !_access.IsAllowed(player, accessReaderComponent))
+            if (TryComp<AccessReaderComponent>(uid, out var accessReaderComponent) && !_access.IsAllowed(player, accessReaderComponent))
             {
                 ConsolePopup(args.Session, Loc.GetString("comms-console-permission-denied"));
                 PlayDenySound(uid, component);
@@ -107,9 +107,9 @@ namespace Content.Server.Shipyard.Systems
                 bank.Balance,
                 true);
 
-            _ui.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState); 
+            _ui.TrySetUiState(uid, ShipyardConsoleUiKey.Shipyard, newState);
         }
-        
+
         private void OnConsoleUIOpened(EntityUid uid, SharedShipyardConsoleComponent component, BoundUIOpenedEvent args)
         {
             if (!args.Session.AttachedEntity.HasValue)
@@ -138,7 +138,7 @@ namespace Content.Server.Shipyard.Systems
         {
             _audio.PlayPvs(_audio.GetSound(component.ErrorSound), uid);
         }
-        
+
         private void PlayConfirmSound(EntityUid uid, SharedShipyardConsoleComponent component)
         {
             _audio.PlayPvs(_audio.GetSound(component.ConfirmSound), uid);
@@ -163,13 +163,13 @@ namespace Content.Server.Shipyard.Systems
 
             return true;
         }
-        
+
         public StationBankAccountComponent? GetBankAccount(EntityUid? uid)
         {
             if (uid != null && TryComp<StationBankAccountComponent>(uid, out var bankAccount))
-            { 
+            {
                 return bankAccount;
-            }    
+            }
             return null;
         }
     }
