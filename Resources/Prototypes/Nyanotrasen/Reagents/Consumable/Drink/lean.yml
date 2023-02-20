@@ -5,7 +5,9 @@
   desc: A disgusting mixture of soda, booze, and cough syrup.
   physicalDesc: strong-smelling
   color: "#9400D3"
-  spritePath: lean.rsi
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/lean.rsi
+    state: icon
   metabolisms:
     Narcotic:
       effects:
