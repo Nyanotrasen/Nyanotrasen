@@ -34,7 +34,7 @@
   components:
   - type: FlavorProfile
     flavors:
-      - fiber #cabbage
+      - cabbage
       - onion
       - tomato
   - type: Sprite
@@ -274,7 +274,7 @@
   - type: FlavorProfile
     flavors:
       - cheesy
-      #- garlic
+      #- pesto
       - pasta
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
@@ -530,6 +530,32 @@
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
+  name: heartburn soup
+  parent: FoodBowlBase
+  id: FoodMothHeartburnSoup
+  description: The heartburn soup is named after two things; it's rosy pink colour and it's scorchingly hot chili heat.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+      - pink
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: heartburnsoup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: CapsaicinOil
+          Quantity: 2
+#Tastes like oats, sweet potato, carrot and parsnip
+
+- type: entity
   name: mulan congee
   parent: FoodBowlBase
   id: FoodMothHuaMulanCongee
@@ -753,10 +779,10 @@
     slice: FoodMothPizzaMargheritaSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: margherita
+    state: pizza-margherita
 
 - type: entity
-  name: slice of mothic margherita
+  name: slice of mothic margherita pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaMargheritaSlice
   description: A slice of mothic margherita pizza, the most humble of pizzas.
@@ -768,7 +794,7 @@
       - cheesy
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: margherita-slice
+    state: pizza-margherita-slice
 # Tastes like crust, tomato, cheese
 
 - type: entity
@@ -787,7 +813,7 @@
     slice: FoodMothPizzaFirecrackerSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: firecracker
+    state: pizza-firecracker
   - type: SolutionContainerManager
     solutions:
       food:
@@ -803,7 +829,7 @@
           Quantity: 4
 
 - type: entity
-  name: slice of mothic firecracker
+  name: slice of mothic firecracker pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaFirecrackerSlice
   description: A spicy slice of something quite nice.
@@ -816,7 +842,7 @@
       - cheesy
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: firecracker-slice
+    state: pizza-firecracker-slice
   - type: SolutionContainerManager
     solutions:
       food:
@@ -847,10 +873,10 @@
     slice: FoodMothPizzaFiveCheeseSlice
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: fivecheese
+    state: pizza-fivecheese
 
 - type: entity
-  name: slice of mothic five-cheese
+  name: slice of mothic five-cheese pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaFiveCheeseSlice
   description: It's the cheesiest slice in the galaxy!
@@ -862,8 +888,107 @@
       - cheesy
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: fivecheese-slice
+    state: pizza-fivecheese-slice
 # Tastes like crust, cheese, more cheese, excessive amount of cheese
+
+- type: entity
+  name: mothic pesto pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaPesto
+  description: Pesto is a popular pizza topping for moths, quite possibly because it exemplifies their favourite flavours; cheese, herbs, and veggies.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      #- pesto
+      - cheesy
+  - type: SliceableFood
+    slice: FoodMothPizzaPestoSlice
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-pesto
+
+- type: entity
+  name: slice of mothic pesto pizza
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaPestoSlice
+  description: Green as the grass in the garden.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      #- pesto
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-pesto-slice
+# Tastes like crust, pesto, cheese
+
+- type: entity
+  name: mothic garlic pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaGarlic
+  description: The best food in the galaxy, hands down.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - garlic
+      - butter
+  - type: SliceableFood
+    slice: FoodMothPizzaGarlicSlice
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-garlic
+
+- type: entity
+  name: slice of mothic garlic pizza
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaGarlicSlice
+  description: The best combination of oily, garlicky, and crusty known to mothkind.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - garlic
+      - butter
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-garlic-slice
+# Tastes like crust, garlic, butter
+
+- type: entity
+  name: mothic cotton pizza
+  parent: FoodPizzaBase
+  id: FoodMothPizzaCotton
+  description: A crime to some, a delicious pizza to others. Cotton and cheese.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - cotton
+      - cheesy
+  - type: SliceableFood
+    slice: FoodMothPizzaCottonSlice
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-cotton
+
+- type: entity
+  name: slice of mothic cotton pizza
+  parent: FoodPizzaSliceBase
+  id: FoodMothPizzaCottonSlice
+  description: White as a sheet of paper.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bread
+      - cotton
+      - cheesy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pizza-cotton-slice
+# Tastes like crust, cotton, cheese
 
 # Sweets
 
