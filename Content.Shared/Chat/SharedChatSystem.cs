@@ -17,6 +17,7 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesPrefix = '@';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
+    public const char TelepathicPrefix = '=';
 
     public const char DefaultChannelKey = 'h';
     public const string CommonChannel = "Common";
