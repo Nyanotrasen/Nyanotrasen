@@ -588,6 +588,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem
         if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
             return;
 
+        if (component.FirstMindAdded)
+            return;
+
+        component.FirstMindAdded = true;
+
         var mind = mindComponent.Mind;
 
         if (_operativeMindPendingData.TryGetValue(uid, out var role))
