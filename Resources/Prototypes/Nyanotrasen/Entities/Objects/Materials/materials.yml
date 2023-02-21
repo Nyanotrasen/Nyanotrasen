@@ -1,7 +1,8 @@
 - type: entity
   parent: MaterialBase
   id: MaterialBluespace
-  name: Bluespace Crystal
+  suffix: Full
+  name: bluespace crystal
   components:
   - type: Sprite
     netsync: false
@@ -16,4 +17,15 @@
       - RawMaterial
   - type: Stack
     stackType: Bluespace
+    count: 5
+    maxCountOverride: 5 #yeah this seems to just ignore the prototype so we'll define it again lol
+
+- type: entity
+  parent: MaterialBluespace
+  id: MaterialBluespace1
+  suffix: 1
+  components:
+  - type: Stack
+    stackType: Bluespace
+    maxCountOverride: 5
     count: 1
