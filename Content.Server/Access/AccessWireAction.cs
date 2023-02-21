@@ -16,7 +16,7 @@ public sealed class AccessWireAction : ComponentWireAction<AccessReaderComponent
 
     public override StatusLightState? GetLightState(Wire wire, AccessReaderComponent comp)
     {
-        return EntityManager.HasComponent<EmaggedComponent>(comp.Owner) ? StatusLightState.On : StatusLightState.Off;
+        return EntityManager.HasComponent<EmaggedComponent>(comp.Owner) ? StatusLightState.Off : StatusLightState.On;
     }
 
     public override object StatusKey { get; } = AccessWireActionKey.Status;
@@ -24,19 +24,19 @@ public sealed class AccessWireAction : ComponentWireAction<AccessReaderComponent
     public override bool Cut(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
         WiresSystem.TryCancelWireAction(wire.Owner, PulseTimeoutKey.Key);
-        EntityManager.RemoveComponent<EmaggedComponent>(comp.Owner);
+        EntityManager.EnsureComponent<EmaggedComponent>(comp.Owner);
         return true;
     }
 
     public override bool Mend(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
-        EntityManager.AddComponent<EmaggedComponent>(comp.Owner);
+        EntityManager.RemoveComponent<EmaggedComponent>(comp.Owner);
         return true;
     }
 
     public override void Pulse(EntityUid user, Wire wire, AccessReaderComponent comp)
     {
-        EntityManager.RemoveComponent<EmaggedComponent>(comp.Owner);
+        EntityManager.EnsureComponent<EmaggedComponent>(comp.Owner);
         WiresSystem.StartWireAction(wire.Owner, _pulseTimeout, PulseTimeoutKey.Key, new TimedWireEvent(AwaitPulseCancel, wire));
     }
 
