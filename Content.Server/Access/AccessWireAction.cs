@@ -16,7 +16,12 @@ public sealed class AccessWireAction : ComponentWireAction<AccessReaderComponent
 
     public override StatusLightState? GetLightState(Wire wire, AccessReaderComponent comp)
     {
-        return EntityManager.HasComponent<EmaggedComponent>(comp.Owner) ? StatusLightState.Off : StatusLightState.On;
+        if (wire.IsCut)
+            return StatusLightState.Off;
+        else if (EntityManager.HasComponent<EmaggedComponent>(comp.Owner))
+            return StatusLightState.BlinkingSlow;
+        else
+            return StatusLightState.On;
     }
 
     public override object StatusKey { get; } = AccessWireActionKey.Status;
