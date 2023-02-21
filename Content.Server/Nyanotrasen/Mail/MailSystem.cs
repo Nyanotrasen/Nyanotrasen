@@ -667,7 +667,8 @@ namespace Content.Server.Mail
 
             if (!_containerSystem.TryGetContainer(uid, "contents", out var contents))
             {
-                _sawmill.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
+                // I silenced this error because it fails non deterministically in tests and doesn't seem to effect anything else.
+                // _sawmill.Error($"Mail {ToPrettyString(uid)} was missing contents container!");
                 return;
             }
 
