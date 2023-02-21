@@ -2736,3 +2736,26 @@ Entries:
   - {message: Merged upstream., type: Add}
   id: 431
   time: '2023-02-21T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Buckets won't try to equip when you drink from them., type: Fix}
+  - {message: Fixed issue with mind swapping nukies, fugis, etc., type: Fix}
+  - {message: Fixed error spam issue with health overlay bars., type: Fix}
+  - {message: Bluespace crystals can stack to 5., type: Tweak}
+  id: 432
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Fixed wire hacking., type: Fix}
+  id: 433
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Updated Angle., type: Add}
+  id: 434
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Guess-My-Name
+  changes:
+  - {message: Oracle will no longer ask for bags of holding., type: Fix}
+  id: 435
+  time: '2023-02-22T00:15:08.0000000+00:00'
