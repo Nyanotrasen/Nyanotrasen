@@ -169,7 +169,16 @@
     state: shoukouposter
 
 # SAFETY MOTH
-# Original art credit to AspEv
+# Actual original art credit to AspEv
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandSMSyndie
+  name: Syndie Moth - Nuclear Operation
+  description: Syndie Moth™ tells the viewer to keep the nuclear authentication disk unsecured. "Peace was never an option!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_0
 
 - type: entity
   parent: PosterBase
@@ -185,7 +194,7 @@
   parent: PosterBase
   id: PosterLegitSMBoH
   name: Safety Moth - Bag of Holding
-  description: Safety Moth™ informs the viewer of the dangers of Bags of Holding. "Remember! bags of Holding may be pretty, but they're pretty dangerous! Never put one inside another!"
+  description: Safety Moth™ informs the viewer of the dangers of Bags of Holding. "Remember! Bags of Holding may be pretty, but they're also pretty dangerous! Never put one inside another!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -241,23 +250,33 @@
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
     state: safetymoth_8
 
-#Not the official image description but eh.
 - type: entity
   parent: PosterBase
   id: PosterLegitSMPills
   name: Safety Moth - Pill Bottles
-  description: Safety Moth™ informs the viewer to that leaving pills unsupervised on tables could lead to unforseen consequences. "Hungry critters loves to eat everything! Keep your pills in crates and pill bottles!"
+  description: Safety Moth™ informs the viewer to that leaving pills unsupervised on tables could lead to unforseen consequences. "Hungry critters loves to eat everything! Keep your pills safe in crates and pill bottles!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
     state: safetymoth_9
 
+# We don't have supermatter so it's going to be anomalies and glimmer for now
 - type: entity
   parent: PosterBase
-  id: PosterContrabandSMSyndie
-  name: Syndie Moth - Nuclear Operation
-  description: Syndie Moth™ tells the viewer to keep the nuclear authentication disk unsecured. "Peace was never an option!"
+  id: PosterLegitSMSupermatter
+  name: Safety Moth - Anomalies
+  description: Safety Moth™ promotes proper safety equipment when working around anomalies. "Every good Moths wears protection when working with anomalies, but don't get too close! Not everything that glows is a friend!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
     state: safetymoth_10
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSMDelamination
+  name: Safety Moth - Glimmer Safety Precautions
+  description: Safety Moth™ tells the viewer to wear isulative equipments and hide in lockers when the glimmer gets within critical levels. Evacuating might be a better strategy.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_11
