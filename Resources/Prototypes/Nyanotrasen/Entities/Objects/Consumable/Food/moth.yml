@@ -548,11 +548,13 @@
         maxvol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8
+          Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 4
         - ReagentId: CapsaicinOil
-          Quantity: 2
+          Quantity: 1
 #Tastes like oats, sweet potato, carrot and parsnip
 
 - type: entity
@@ -575,9 +577,9 @@
         maxvol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 26
+          Quantity: 22
         - ReagentId: Protein
-          Quantity: 4
+          Quantity: 8
 
 - type: entity
   name: cornmeal porridge
