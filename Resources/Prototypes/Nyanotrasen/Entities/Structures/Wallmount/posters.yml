@@ -175,7 +175,7 @@
   parent: PosterBase
   id: PosterLegitSMPoisoning
   name: Safety Moth - Poisoning
-  description: Safety Moth(TM) tells the viewer not to poison the station donuts.
+  description: Safety Moth™ tells the viewer not to poison the station donuts.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -185,7 +185,7 @@
   parent: PosterBase
   id: PosterLegitSMBoH
   name: Safety Moth - Bag of Holding
-  description: Safety Moth(TM) informs the viewer of the dangers of Bags of Holding. "Remember! bags of Holding may be pretty, but they're pretty dangerous! Never put one inside another!"
+  description: Safety Moth™ informs the viewer of the dangers of Bags of Holding. "Remember! bags of Holding may be pretty, but they're pretty dangerous! Never put one inside another!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -195,7 +195,7 @@
   parent: PosterBase
   id: PosterLegitSMHardhats
   name: Safety Moth - Hardhats
-  description: Safety Moth(TM) tells the viewer to wear hardhats in cautious areas. "It's like a lamp on your head!"
+  description: Safety Moth™ tells the viewer to wear hardhats in cautious areas. "It's like a lamp on your head!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -205,7 +205,7 @@
   parent: PosterBase
   id: PosterLegitSMFires
   name: Safety Moth - Fires
-  description: Safety Moth(TM) promotes safe handling of plasma and to keep firefighting equipment within hand reach.
+  description: Safety Moth™ promotes safe handling of plasma and to keep firefighting equipment within hand reach.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -225,7 +225,7 @@
   parent: PosterBase
   id: PosterLegitSMMeth
   name: Safety Moth - Methamphetamine
-  description: Safety Moth(TM) tells the viewer to seek CMO approval before cooking methamphetamine. "Stay close to the target temperature, and never go over!"
+  description: Safety Moth™ tells the viewer to seek CMO approval before cooking methamphetamine. "Stay close to the target temperature, and never go over!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -241,6 +241,17 @@
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
     state: safetymoth_8
 
+#Not the official image description but eh.
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSMPills
+  name: Safety Moth - Pill Bottles
+  description: Safety Moth™ informs the viewer to that leaving pills unsupervised on tables could lead to unforseen consequences. "Hungry critters loves to eat everything! Keep your pills in crates and pill bottles!"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
+    state: safetymoth_9
+
 - type: entity
   parent: PosterBase
   id: PosterContrabandSMSyndie
@@ -249,4 +260,4 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
-    state: safetymoth_9
+    state: safetymoth_10
