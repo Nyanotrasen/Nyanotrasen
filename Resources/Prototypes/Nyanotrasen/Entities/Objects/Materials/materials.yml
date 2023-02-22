@@ -7,7 +7,14 @@
   - type: Sprite
     netsync: false
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
-    state: bluespace
+    state: bluespace_3
+  - type: Appearance
+    visuals:
+    - type: StackVisualizer
+      stackLayers:
+      - bluespace
+      - bluespace_2
+      - bluespace_3
   - type: Material
     materials:
       Bluespace: 100
