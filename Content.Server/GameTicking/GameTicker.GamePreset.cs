@@ -262,9 +262,6 @@ namespace Content.Server.GameTicking
 
             _taskManager.BlockWaitOnTask(task);
             RoundId = task.GetAwaiter().GetResult();
-
-            var startingEvent = new RoundStartingEvent(RoundId);
-            RaiseLocalEvent(startingEvent);
         }
     }
 
