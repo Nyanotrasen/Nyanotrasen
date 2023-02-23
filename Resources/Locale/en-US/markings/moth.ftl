@@ -58,6 +58,12 @@ marking-MothAntennasPlasmafire = Plasmafire Antennas
 marking-MothAntennasMoffra-moffra = Moffra Antennas
 marking-MothAntennasMoffra = Moffra Antennas
 
+marking-MothAntennasAspen-aspen = Aspen Antennas
+marking-MothAntennasAspen = Aspen Antennas
+
+marking-MothAntennasMint-mint = Mint Antennas
+marking-MothAntennasMint = Mint Antennas
+
 
 
 marking-MothWingsPlain-plain = Plain Wings
@@ -128,6 +134,12 @@ marking-MothWingsPlasmafire = Plasmafire Wings
 
 marking-MothWingsMoffra-moffra = Moffra Wings
 marking-MothWingsMoffra = Moffra Wings
+
+marking-MothWingsAspen-aspen = Aspen Wings
+marking-MothWingsAspen = Aspen Wings
+
+marking-MothWingsMint-mint = Mint Wings
+marking-MothWingsMint = Mint Wings
 
 
 
