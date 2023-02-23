@@ -263,7 +263,7 @@
 # We don't have supermatter so it's going to be anomalies and glimmer for now
 - type: entity
   parent: PosterBase
-  id: PosterLegitSMSupermatter
+  id: PosterLegitSMAnomalies
   name: Safety Moth - Anomalies
   description: Safety Moth™ promotes proper safety equipment when working around anomalies. "Every good Moths wears protection when working with anomalies, but don't get too close! Not everything that glows is a friend!"
   components:
@@ -273,9 +273,9 @@
 
 - type: entity
   parent: PosterBase
-  id: PosterLegitSMDelamination
+  id: PosterLegitSMGlimmer
   name: Safety Moth - Glimmer Safety Precautions
-  description: Safety Moth™ tells the viewer to wear isulative equipments and hide in lockers when the glimmer gets within critical levels. Evacuating might be a better strategy.
+  description: Safety Moth™ tells the viewer to wear insulative equipments and hide in lockers when the glimmer gets within critical levels. Evacuating might be a better strategy.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
