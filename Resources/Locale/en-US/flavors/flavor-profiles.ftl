@@ -85,6 +85,7 @@ flavor-complex-pineapple = like pineapple
 flavor-complex-onion = like onion
 flavor-complex-eggplant = like eggplant
 flavor-complex-carrot = like carrots
+flavor-complex-cabbage = like cabbages
 flavor-complex-potatoes = like potatoes
 flavor-complex-mushroom = like mushrooms
 flavor-complex-tomato = like tomatoes
@@ -95,6 +96,7 @@ flavor-complex-bungo = like bungo
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
+flavor-complex-nuggie = like "chicken"
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 

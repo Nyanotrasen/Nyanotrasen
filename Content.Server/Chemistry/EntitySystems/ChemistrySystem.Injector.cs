@@ -1,7 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
-using Content.Server.CombatMode;
 using Content.Server.DoAfter;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -198,7 +197,7 @@ public sealed partial class ChemistrySystem
 
     private void OnInjectorStartup(EntityUid uid, InjectorComponent component, ComponentStartup args)
     {
-        // ???? why ?????
+        // Necessary for the Client-side InjectorStatusControl to get the appropriate Volume values.
         Dirty(component);
     }
 
@@ -465,6 +464,7 @@ public sealed partial class ChemistrySystem
         Dirty(component);
         AfterDraw(component);
     }
+
     private sealed class InjectionCompleteEvent : EntityEventArgs
     {
         public InjectorComponent Component { get; init; } = default!;

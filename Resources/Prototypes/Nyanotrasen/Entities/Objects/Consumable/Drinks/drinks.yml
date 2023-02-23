@@ -13,20 +13,3 @@
           Quantity: 100
   - type: Sprite
     sprite: Objects/Consumable/Drinks/saketokkuri.rsi
-
-- type: entity
-  parent: DrinkGlassBase
-  id: DrinkSakeGlass
-  name: sake glass
-  description: Wine made from rice, it's sake!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 50
-        reagents:
-        - ReagentId: Sake
-          Quantity: 50
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/sakeglass.rsi

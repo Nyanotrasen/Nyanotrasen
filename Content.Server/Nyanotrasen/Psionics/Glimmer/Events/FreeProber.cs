@@ -1,6 +1,7 @@
 using Content.Server.Construction;
 using Content.Server.Coordinates.Helpers;
 using Content.Shared.Psionics.Glimmer;
+using Content.Server.Station.Systems;
 using Content.Server.Power.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
@@ -13,7 +14,7 @@ public sealed class FreeProberSpawn : GlimmerEventSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
     [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
-
+    [Dependency] private readonly StationSystem _stationSystem = default!;
     public override string Prototype => "FreeProber";
     private static readonly string ProberPrototype = "GlimmerProber";
 
@@ -44,6 +45,9 @@ public sealed class FreeProberSpawn : GlimmerEventSystem
             foreach (var source in PossibleSpawns)
             {
                 if (!TryComp<PhysicsComponent>(source, out var physics))
+                    continue;
+
+                if (_stationSystem.GetOwningStation(source) == null)
                     continue;
 
                 for (var i = 0; i < 4; i++)

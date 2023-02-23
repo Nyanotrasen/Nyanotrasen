@@ -8,6 +8,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
+using Content.Server.Maps;
+using Content.Server.Revenant.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
@@ -21,9 +23,6 @@ using Content.Server.Ghost;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
-using Content.Server.Maps;
-using Content.Server.Revenant.Components;
-using Content.Server.Store.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics;
@@ -180,19 +179,16 @@ public sealed partial class RevenantSystem
 
         essence.Harvested = true;
         ChangeEssenceAmount(uid, essence.EssenceAmount, component);
-        if (TryComp<StoreComponent>(uid, out var store))
-        {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2>()
-                { {component.StolenEssenceCurrencyPrototype, essence.EssenceAmount} }, store);
-        }
+        _store.TryAddCurrency(new Dictionary<string, FixedPoint2>
+            { {component.StolenEssenceCurrencyPrototype, essence.EssenceAmount} }, uid);
 
-        if (!TryComp<MobStateComponent>(args.Target, out var mobstate))
+        if (!HasComp<MobStateComponent>(args.Target))
             return;
 
         if (_mobState.IsAlive(args.Target) || _mobState.IsCritical(args.Target))
         {
             _popup.PopupEntity(Loc.GetString("revenant-max-essence-increased"), uid, uid);
-            component.EssenceRegenCap += component.MaxEssenceUpgradeAmount;
+            component.EssenceRegenCap = Math.Min((float) component.EssenceCeiling, (float) component.EssenceRegenCap + component.MaxEssenceUpgradeAmount);
         }
 
         //KILL THEMMMM
@@ -203,7 +199,7 @@ public sealed partial class RevenantSystem
         dspec.DamageDict.Add("Poison", damage.Value);
         _damage.TryChangeDamage(args.Target, dspec, true, origin: uid);
 
-        _psionics.LogPowerUsed(uid, "a soul draining power", 4, 8);
+        _psionics.LogPowerUsed(uid, "a soul draining power", 2, 6);
     }
 
     private void OnHarvestCancelled(EntityUid uid, RevenantComponent component, HarvestDoAfterCancelled args)
@@ -272,7 +268,7 @@ public sealed partial class RevenantSystem
             if (lights.HasComponent(ent))
                 _ghost.DoGhostBooEvent(ent);
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"));
     }
 
     private void OnOverloadLightsAction(EntityUid uid, RevenantComponent component, RevenantOverloadLightsActionEvent args)
@@ -309,7 +305,7 @@ public sealed partial class RevenantSystem
             comp.Target = ent; //who they gon fire at?
         }
 
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"));
     }
 
     private void OnBlightAction(EntityUid uid, RevenantComponent component, RevenantBlightActionEvent args)
@@ -328,7 +324,7 @@ public sealed partial class RevenantSystem
             if (emo.TryGetComponent(ent, out var comp))
                 _disease.TryAddDisease(ent, component.BlightDiseasePrototypeId, comp);
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
     }
 
     private void OnMalfunctionAction(EntityUid uid, RevenantComponent component, RevenantMalfunctionActionEvent args)
@@ -345,6 +341,6 @@ public sealed partial class RevenantSystem
         {
             _emag.DoEmagEffect(ent, ent); //it emags itself. spooky.
         }
-        _psionics.LogPowerUsed(uid, "a spirit power");
+        _psionics.LogPowerUsed(uid, Loc.GetString("revenant-psionic-power"), 6, 10);
     }
 }

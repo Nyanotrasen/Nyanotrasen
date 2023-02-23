@@ -28,10 +28,16 @@ public sealed class RevenantComponent : Component
     public FixedPoint2 EssenceRegenCap = 75;
 
     /// <summary>
+    /// Maximum essence, rather than infinite scaling.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("essenceCeiling")]
+    public FixedPoint2 EssenceCeiling = 150;
+
+    /// <summary>
     /// The coefficient of damage taken to actual health lost.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("damageToEssenceCoefficient")]
-    public float DamageToEssenceCoefficient = 0.75f;
+    public float DamageToEssenceCoefficient = 1f;
 
     /// <summary>
     /// The amount of essence passively generated per second.

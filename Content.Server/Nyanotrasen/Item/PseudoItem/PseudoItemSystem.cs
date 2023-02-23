@@ -1,7 +1,7 @@
 using System.Threading;
 using Content.Shared.Verbs;
 using Content.Shared.Item;
-using Content.Shared.DragDrop;
+using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
