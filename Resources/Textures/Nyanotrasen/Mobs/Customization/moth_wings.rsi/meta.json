@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/a92719210eb834cf284c571b3b3d94c2d82c26ea",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/a92719210eb834cf284c571b3b3d94c2d82c26ea | Aspen from https://github.com/fulpstation/fulpstation/commit/b21af07f57c2c4fb1cdcdb4162ca222da97ed54c",
   "size": {
     "x": 64,
     "y": 64
@@ -97,6 +97,14 @@
     },
     {
       "name": "moffra",
+      "directions": 4
+    },
+    {
+      "name": "aspen",
+      "directions": 4
+    },
+    {
+      "name": "mint",
       "directions": 4
     },
     {
