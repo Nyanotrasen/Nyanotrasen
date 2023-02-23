@@ -203,6 +203,26 @@
   - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
     state: moffra
 
+- type: marking
+  id: MothAntennasAspen
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: true
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: aspen
+
+- type: marking
+  id: MothAntennasMint
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  followSkinColor: true
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_antennas.rsi
+    state: mint
+
 #
 # Wings
 #
@@ -436,6 +456,26 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
     state: moffra
+
+- type: marking
+  id: MothAntennasAspen
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: true
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: aspen
+
+- type: marking
+  id: MothAntennasMint
+  bodyPart: Tail
+  markingCategory: Tail
+  followSkinColor: true
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/moth_wings.rsi
+    state: mint
 
 #
 # Markings
