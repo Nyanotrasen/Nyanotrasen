@@ -11,6 +11,19 @@
     Plastic: 250
 
 - type: latheRecipe
+  id: HandTeleporter
+  icon:
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    state: icon
+  result: HandTeleporter
+  completetime: 8
+  materials:
+    Bluespace: 600
+    Steel: 200
+    Plastic: 200
+    Gold: 200
+
+- type: latheRecipe
   id: BluespaceBeaker
   icon:
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
