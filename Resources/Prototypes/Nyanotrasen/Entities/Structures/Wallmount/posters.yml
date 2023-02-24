@@ -203,8 +203,8 @@
 - type: entity
   parent: PosterBase
   id: PosterLegitSMHardhats
-  name: Safety Moth - Hardhats
-  description: Safety Moth™ tells the viewer to wear hardhats in cautious areas. "It's like a lamp on your head!"
+  name: Safety Moth - Hard hats
+  description: Safety Moth™ tells the viewer to wear hard hats in cautious areas. "It's like a lamp on your head!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
@@ -254,7 +254,7 @@
   parent: PosterBase
   id: PosterLegitSMPills
   name: Safety Moth - Pill Bottles
-  description: Safety Moth™ informs the viewer to that leaving pills unsupervised on tables could lead to unforseen consequences. "Hungry critters loves to eat everything! Keep your pills safe in crates and pill bottles!"
+  description: Safety Moth™ informs the viewer that leaving pills unsupervised on tables could lead to unforeseen consequences. "Hungry critters love to eat everything! Keep your pills safe in crates and pill bottles!"
   components:
   - type: Sprite
     sprite: Nyanotrasen/Structures/Wallmounts/Posters/safetymoth.rsi
