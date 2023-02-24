@@ -2775,3 +2775,15 @@ Entries:
   - {message: Removed orb of compromise., type: Remove}
   id: 438
   time: '2023-02-23T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed skeleton and arachne coloring issues., type: Fix}
+  - {message: Removed starting hand teleporter., type: Remove}
+  - {message: Hand teleporter recipe is unlocked at teleportation technology., type: Add}
+  id: 439
+  time: '2023-02-24T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Moth sprites have been re-ported from /tg/station and should render as intended., type: Fix}
+  id: 440
+  time: '2023-02-24T00:15:08.0000000+00:00'
