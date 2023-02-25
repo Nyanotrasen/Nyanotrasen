@@ -45,3 +45,19 @@
       path: /Audio/Voice/Moth/squeak_moth.ogg
   - type: UseDelay
     delay: 2
+
+- type: entity
+  abstract: true
+  parent: BasePlushie
+  id: BasePlushieStorage
+  components:
+  - type: Storage
+    capacity: 10
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface

@@ -1,0 +1,8 @@
+- type: entity
+  id: ToyAmongPequenoStorageFilled
+  parent: ToyAmongPequenoStorage
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CombatKnife

@@ -12,3 +12,28 @@
     state: salpen
   - type: BloodSuckerGlandInjector
     injectReagent: Nocturine
+
+- type: entity
+  parent: BasePlushieStorage
+  id: ToyAmongPequenoStorage
+  name: among pequeno
+  suffix: Storage
+  description: sus!
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/pequeno.rsi
+    netsync: false
+    layers:
+    - state: base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: visor
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          base: Sixteen
+  - type: Storage
+    whitelist:
+      tags:
+        - Knife
+  - type: DynamicPrice
+    price: 3
