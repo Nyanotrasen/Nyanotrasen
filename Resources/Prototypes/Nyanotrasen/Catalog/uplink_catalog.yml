@@ -43,3 +43,14 @@
   - !type:BuyerJobCondition
     whitelist:
     - Musician
+
+- type: listing
+  id: UplinkToyAmongPequenoStorageFilled
+  name: uplink-toy-among-pequeno-storage-filled-name
+  description: uplink-toy-among-pequeno-storage-filled-desc
+  icon: { sprite: /Textures/Objects/Fun/pequeno.rsi, state: icon }
+  productEntity: ToyAmongPequenoStorageFilled
+  cost:
+    Telecrystal: 4
+  categories:
+    - UplinkMisc

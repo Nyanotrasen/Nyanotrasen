@@ -198,6 +198,9 @@ uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
 uplink-nocturine-gland-injector-name = Nocturine Injector Gland
 uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine whenever you suck blood.
 
+uplink-toy-among-pequeno-storage-filled-name = Among Pequeno
+uplink-toy-among-pequeno-storage-filled-desc = The real Impostor. Comes with a knife! Very sus.
+
 # Pointless
 uplink-revolver-cap-gun-name = Cap Gun
 uplink-revolver-cap-gun-desc = Looks almost like the real thing! Ages 8 and up.
