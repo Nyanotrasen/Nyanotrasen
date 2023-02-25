@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Server.Body.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
@@ -76,8 +75,6 @@ namespace Content.Server.Body.Components
         public SoundSpecifier CPRSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/CPR.ogg");
 
         public IPlayingAudioStream? CPRPlayingStream;
-
-        public CancellationTokenSource? CancelToken;
     }
 }
 

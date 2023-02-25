@@ -27,7 +27,7 @@ public sealed class DrainOperator : HTNOperator
         if (!_entManager.TryGetComponent<GlimmerWispComponent>(owner, out var wisp))
             return HTNOperatorStatus.Failed;
 
-        if (wisp.CancelToken != null)
+        if (wisp.IsDraining)
             return HTNOperatorStatus.Continuing;
 
         if (wisp.DrainTarget == null)

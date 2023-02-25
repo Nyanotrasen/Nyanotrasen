@@ -7,6 +7,7 @@ using Content.Server.Popups;
 using Content.Server.Contests;
 using Content.Server.Climbing;
 using Content.Shared.Mobs;
+using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
@@ -57,20 +58,13 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
             SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
-            SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
-            SubscribeLocalEvent<CarryCancelledEvent>(OnCarryCancelled);
+            SubscribeLocalEvent<CarriableComponent, DoAfterEvent>(OnDoAfter);
         }
 
 
         private void AddCarryVerb(EntityUid uid, CarriableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
             if (!args.CanInteract || !args.CanAccess)
-                return;
-
-            if (component.CancelToken != null)
-                return;
-
-            if (TryComp<CarriableComponent>(args.User, out var userCarry) && userCarry.CancelToken != null)
                 return;
 
             if (!CanCarry(args.User, uid, component))
@@ -159,7 +153,7 @@ namespace Content.Server.Carrying
         /// </summary>
         private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
         {
-            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.CancelToken != null)
+            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape))
                 return;
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
@@ -199,33 +193,16 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnCarrySuccess(CarrySuccessfulEvent ev)
+        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent args)
         {
-            if (!CanCarry(ev.Carrier, ev.Carried, ev.Component))
-            {
-                ev.Component.CancelToken = null;
-                return;
-            }
-
-            Carry(ev.Carrier, ev.Carried);
-        }
-
-        private void OnCarryCancelled(CarryCancelledEvent ev)
-        {
-            if (ev.Component == null)
+            if (args.Handled || args.Cancelled || args.Args.Target == null || !CanCarry(args.Args.User, args.Args.Target.Value, component))
                 return;
 
-            ev.Component.CancelToken = null;
+            Carry(args.Args.User, args.Args.Target.Value);
+            args.Handled = true;
         }
-
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
-            if (component.CancelToken != null)
-            {
-                component.CancelToken.Cancel();
-                component.CancelToken = null;
-            }
-
             float length = 3f;
 
             var mod = _contests.MassContest(carrier, carried);
@@ -242,11 +219,8 @@ namespace Content.Server.Carrying
             if (!HasComp<KnockedDownComponent>(carried))
                 length *= 2f;
 
-            component.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, target: carried)
             {
-                BroadcastFinishedEvent = new CarrySuccessfulEvent(carrier, carried, component),
-                BroadcastCancelledEvent = new CarryCancelledEvent(carrier, component),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -287,12 +261,6 @@ namespace Content.Server.Carrying
             Transform(carried).AttachToGridOrMap();
             _standingState.Stand(carried);
             _movementSpeed.RefreshMovementSpeedModifiers(carrier);
-
-            if (TryComp<CarriableComponent>(carrier, out var carrierA))
-                carrierA.CancelToken = null;
-
-            if (TryComp<CarriableComponent>(carried, out var carriedA))
-                carriedA.CancelToken = null;
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
@@ -327,35 +295,6 @@ namespace Content.Server.Carrying
                 return false;
 
             return true;
-        }
-
-        private sealed class CarryCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Uid;
-
-            public CarriableComponent Component;
-
-            public CarryCancelledEvent(EntityUid uid, CarriableComponent component)
-            {
-                Uid = uid;
-                Component = component;
-            }
-        }
-
-        private sealed class CarrySuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Carrier;
-
-            public EntityUid Carried;
-
-            public CarriableComponent Component;
-
-            public CarrySuccessfulEvent(EntityUid carrier, EntityUid carried, CarriableComponent component)
-            {
-                Carrier = carrier;
-                Carried = carried;
-                Component = component;
-            }
         }
     }
 }

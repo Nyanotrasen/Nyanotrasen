@@ -20,14 +20,12 @@ public sealed partial class ToolSystem
     {
         if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
             return;
-        component.CancelToken = null;
     }
 
     private void OnEarthDigComplete(EarthDiggingCompleteEvent args)
     {
         if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
             return;
-        component.CancelToken = null;
 
         var gridUid = args.Coordinates.GetGridUid(EntityManager);
         if (gridUid == null)
@@ -59,9 +57,6 @@ public sealed partial class ToolSystem
 
     private bool TryDig(EntityUid user, EntityUid shovel, EarthDiggingComponent component, EntityCoordinates clickLocation)
     {
-        if (component.CancelToken != null)
-            return true;
-
         ToolComponent? tool = null;
         if (component.ToolComponentNeeded && !TryComp<ToolComponent?>(component.Owner, out tool))
             return false;
@@ -86,29 +81,10 @@ public sealed partial class ToolSystem
         }
 
         var token = new CancellationTokenSource();
-        component.CancelToken = token;
 
-        bool success = UseTool(
-            component.Owner,
-            user,
-            null,
-            0f,
-            component.Delay,
-            new [] {component.QualityNeeded},
-            new EarthDiggingCompleteEvent
-            {
-                Coordinates = clickLocation,
-                Shovel = shovel,
-            },
-            new EarthDiggingCancelledEvent()
-            {
-                Shovel = shovel,
-            },
-            toolComponent: tool,
-            cancelToken: token.Token);
+        var toolEvData = new ToolEventData(new EarthDiggingCompleteEvent(coordinates, shovel), targetEntity:shovel);
 
-        if (!success)
-            component.CancelToken = null;
+        UseTool(shovel, user, null, component.Delay, new[] { component.QualityNeeded }, toolEvData);
 
         return true;
     }
@@ -117,6 +93,12 @@ public sealed partial class ToolSystem
     {
         public EntityCoordinates Coordinates { get; set; }
         public EntityUid Shovel;
+
+        public EarthDiggingCompleteEvent(EntityCoordinates coordinates, EntityUid shovel)
+        {
+            Coordinates = coordinates;
+            Shovel = shovel;
+        }
     }
 
     private sealed class EarthDiggingCancelledEvent : EntityEventArgs
