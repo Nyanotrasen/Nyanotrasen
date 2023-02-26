@@ -16,6 +16,7 @@ using Content.Server.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Vampiric
 {
@@ -58,7 +59,7 @@ namespace Content.Server.Vampiric
                     StartSuccDoAfter(uid, args.Target, component, bloodstream); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);

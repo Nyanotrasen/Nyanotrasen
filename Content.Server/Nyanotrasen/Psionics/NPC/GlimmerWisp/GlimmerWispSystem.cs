@@ -11,6 +11,7 @@ using Content.Server.Popups;
 using Content.Server.NPC.Systems;
 using Content.Server.Carrying;
 using Robust.Shared.Player;
+using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Psionics.NPC.GlimmerWisp
@@ -49,7 +50,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
                     StartLifeDrain(uid, args.Target, component);
                 },
                 Text = Loc.GetString("verb-life-drain"),
-                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);
