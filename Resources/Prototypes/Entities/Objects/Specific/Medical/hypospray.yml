@@ -21,6 +21,8 @@
     pierceArmor: true
   - type: DynamicPrice
     price: 750
+  - type: UseDelay
+    delay: 0.5
 
 - type: entity
   name: gorlax hypospray
@@ -42,7 +44,12 @@
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
+<<<<<<< HEAD
     pierceArmor: true
+=======
+  - type: UseDelay
+    delay: 0.5
+>>>>>>> 553a46ff90 (Add cooldown to hypospray (#13953))
 
 - type: entity
   name: chemical medipen
@@ -175,8 +182,14 @@
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
+<<<<<<< HEAD
   - type: Tag
     tags:
     - Write
   - type: DynamicPrice
+=======
+  - type: UseDelay
+    delay: 0.5
+  - type: StaticPrice # A new shitcurity meta
+>>>>>>> 553a46ff90 (Add cooldown to hypospray (#13953))
     price: 75
