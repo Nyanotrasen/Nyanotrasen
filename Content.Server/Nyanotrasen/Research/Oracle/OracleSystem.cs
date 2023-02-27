@@ -65,6 +65,7 @@ namespace Content.Server.Research.Oracle
             "MobTomatoKiller",
             "Drone",
             "QSI",
+            "HandTeleporter",
             "BluespaceBeaker",
             "ClothingBackpackHolding",
             "ClothingBackpackSatchelHolding",
