@@ -41,7 +41,16 @@ reagent-name-sake = sake
 reagent-desc-sake = Alcoholic beverage made by brewing rice that has been polished.
 
 reagent-name-soju = soju
-reagent-desc-sake = Alcoholic beverage made by distilling rice that has been polished.
+reagent-desc-soju = Alcoholic beverage made by distilling rice that has been polished.
+
+reagent-name-orange-creamcicle = orange creamcicle
+reagent-desc-orange-creamcicle = Orangy, creamy goodness.
+
+reagent-name-silverjack = silverjack
+reagent-desc-silverjack = Reminds you of family.
+
+reagent-name-brainbomb = brainbomb
+reagent-desc-brainbomb = Toxic to about anything alive, especially your liver.
 
 reagent-name-tequila = tequila
 reagent-desc-tequila = A strong and mildly flavoured, mexican produced spirit.
