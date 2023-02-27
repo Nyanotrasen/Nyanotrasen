@@ -2787,3 +2787,16 @@ Entries:
   - {message: Moth sprites have been re-ported from /tg/station and should render as intended., type: Fix}
   id: 440
   time: '2023-02-24T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Fixed guitar hit sounds being too loud., type: Fix}
+  id: 441
+  time: '2023-02-28T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The game will keep trying to start the default gamemode in subsequent rounds where it fails to start due to pop., type: Add}
+  - {message: Building switches requires cables too., type: Tweak}
+  - {message: Small bots use the robot typing indicator sprite.., type: Fix}
+  - {message: Oracle will no longer request hand teleporters., type: Fix}
+  id: 442
+  time: '2023-02-28T00:15:08.0000000+00:00'
