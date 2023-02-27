@@ -627,11 +627,19 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 600 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           path: /Audio/Effects/metalbreak.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
     destroySound:
@@ -650,6 +658,51 @@
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
+  - type: Construction
+    graph: Girder
+    node: shuttleWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+    destroySound:
+      path: /Audio/Effects/metalbreak.ogg
+  - type: IconSmooth
+    key: walls
+    base: state
+
+- type: entity
+  parent: BaseWall
+  id: WallShuttleInterior
+  name: shuttle wall
+  suffix: Interior
+  components:
+  - type: Tag
+    tags:
+      - Wall
+      - RCDDeconstructWhitelist
+  - type: Sprite
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttleinterior.rsi
+  - type: Construction
+    graph: Girder
+    node: shuttleInteriorWall
   - type: Destructible
     thresholds:
     - trigger:
@@ -666,6 +719,7 @@
   - type: IconSmooth
     key: walls
     base: state
+
 
 - type: entity
   parent: BaseWall
