@@ -391,6 +391,24 @@ namespace Content.Client.Stylesheets
             whisperBox.SetPatchMargin(StyleBox.Margin.All, 2);
             whisperBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
 
+            // Emote box
+            var emoteTexture = resCache.GetTexture("/Textures/Interface/Nano/emote.png");
+            var emoteBox = new StyleBoxTexture
+            {
+                Texture = emoteTexture,
+            };
+            emoteBox.SetPatchMargin(StyleBox.Margin.All, 2);
+            emoteBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+
+            // Radio box
+            var radioTexture = resCache.GetTexture("/Textures/Interface/Nano/radio.png");
+            var radioBox = new StyleBoxTexture
+            {
+                Texture = radioTexture,
+            };
+            radioBox.SetPatchMargin(StyleBox.Margin.All, 2);
+            radioBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+
             // Placeholder
             var placeholderTexture = resCache.GetTexture("/Textures/Interface/Nano/placeholder.png");
             var placeholder = new StyleBoxTexture {Texture = placeholderTexture};
@@ -891,12 +909,22 @@ namespace Content.Client.Stylesheets
                     new StyleProperty(PanelContainer.StylePropertyPanel, whisperBox)
                 }),
 
+                new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "emoteBox"}, null, null), new[]
+                {
+                    new StyleProperty(PanelContainer.StylePropertyPanel, emoteBox)
+                }),
+
                 new StyleRule(new SelectorChild(
                     new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "emoteBox"}, null, null),
                     new SelectorElement(typeof(RichTextLabel), null, null, null)),
                     new[]
                 {
                     new StyleProperty("font", notoSansItalic12),
+                }),
+
+                new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "radioBox"}, null, null), new[]
+                {
+                    new StyleProperty(PanelContainer.StylePropertyPanel, radioBox)
                 }),
 
                 // alert tooltip
