@@ -93,6 +93,9 @@ public sealed partial class PricingSystem : EntitySystem
 
     private void CalculateMobPrice(EntityUid uid, MobPriceComponent component, ref PriceCalculationEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TryComp<BodyComponent>(uid, out var body) || !TryComp<MobStateComponent>(uid, out var state))
         {
             Logger.ErrorS("pricing", $"Tried to get the mob price of {ToPrettyString(uid)}, which has no {nameof(BodyComponent)} and no {nameof(MobStateComponent)}.");
@@ -111,6 +114,9 @@ public sealed partial class PricingSystem : EntitySystem
 
     private void CalculateStackPrice(EntityUid uid, StackPriceComponent component, ref PriceCalculationEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TryComp<StackComponent>(uid, out var stack))
         {
             Logger.ErrorS("pricing", $"Tried to get the stack price of {ToPrettyString(uid)}, which has no {nameof(StackComponent)}.");
@@ -130,7 +136,10 @@ public sealed partial class PricingSystem : EntitySystem
 
     private void CalculateSolutionPrice(EntityUid uid, SolutionContainerManagerComponent component, ref PriceCalculationEvent args)
     {
-        double price = 0;
+        if (args.Handled)
+            return;
+
+        double price = 0f;
 
         foreach (var solution in component.Solutions.Values)
         {
@@ -154,6 +163,9 @@ public sealed partial class PricingSystem : EntitySystem
 
     private void CalculateStaticPrice(EntityUid uid, StaticPriceComponent component, ref PriceCalculationEvent args)
     {
+        if (args.Handled)
+            return;
+
         args.Price += component.Price;
     }
 
@@ -219,6 +231,9 @@ public sealed partial class PricingSystem : EntitySystem
     {
         var ev = new PriceCalculationEvent(sale);
         RaiseLocalEvent(uid, ref ev);
+
+        if (ev.Handled)
+            return ev.Price;
 
         //TODO: Add an OpaqueToAppraisal component or similar for blocking the recursive descent into containers, or preventing material pricing.
 
@@ -300,4 +315,11 @@ public struct PriceCalculationEvent
     {
         Sale = sale;
     }
+
+    /// <summary>
+    /// Whether this event was already handled.
+    /// </summary>
+    public bool Handled = false;
+
+    public PriceCalculationEvent() { }
 }
