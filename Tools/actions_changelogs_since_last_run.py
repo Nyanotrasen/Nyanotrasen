@@ -131,3 +131,4 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
 
 
 main()
+
