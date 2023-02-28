@@ -1,6 +1,21 @@
 <Document>
 # Rice
 <Box Orientation="Vertical">
+	[color=#a4885c]Rice Pudding[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u rice
+- 10u milk
+</Box>
+<Box Orientation="Vertical">
+- 5u sugar
+- Bowl
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRicePudding" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
 	[color=#a4885c]Boiled Rice[/color]
 </Box>
 <Box>
