@@ -1,14 +1,65 @@
 <Document>
 # Kebab
+[color=#fcdf03]Each and every kind of kebab requires a skewer![/color] Don't worry, you'll get them back! [color=#888084]Hopefully.[/color]
+
 <Box Orientation="Vertical">
-	[color=#a4885c]w[/color]
+	[color=#a4885c]Meat Kebab[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 
+- 3 meat cutlets
 </Box>
-<GuideEntityEmbed Entity="w" Caption="w"/>
-<GuideEntityEmbed Entity="w" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatKebab" Caption=""/>
 </Box>
-
+<Box Orientation="Vertical">
+	[color=#a4885c]Hawaiian Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- chili pepper
+- meat cutlet
+- slice of pineapple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatHawaiianKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Fiesta Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- chili pepper
+- corn
+</Box>
+<Box Orientation="Vertical">
+- meat cutlet
+- tomato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatFiestaKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Rat Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- rat (or two)
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 (20) sec"/>
+<GuideEntityEmbed Entity="FoodMeatRatKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Human Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- human torso
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMeatHumanKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]w[/color]
+</Box>
 </Document>
