@@ -214,24 +214,24 @@
   conditions:
     - !type:TileNotBlocked
 
-# diagonal shuttle wall here when figure out how to keep selected rotation
-#- type: construction
-#  name: diagonal shuttle wall
-#  id: DiagonalShuttleWall
-#  graph: Girder
-#  startNode: start
-#  targetNode: diagonalshuttleWall
-#  category: construction-category-structures
-#  description: Keeps the air in and the greytide out.
-#  icon:
-#    sprite: Structures/Walls/shuttle_diagonal.rsi
-#    state: state0
-#  objectType: Structure
-#  placementMode: SnapgridCenter
-#  canRotate: true
-#  canBuildInImpassable: false
-#  conditions:
-#    - !type:TileNotBlocked
+
+- type: construction
+  name: diagonal shuttle wall
+  id: DiagonalShuttleWall
+  graph: Girder
+  startNode: start
+  targetNode: diagonalshuttleWall
+  category: construction-category-structures
+  description: Keeps the air in and the greytide out.
+  icon:
+    sprite: Structures/Walls/shuttle_diagonal.rsi
+    state: state0
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
 
 - type: construction
   name: grille
