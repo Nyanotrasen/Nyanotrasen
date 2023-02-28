@@ -84,10 +84,27 @@ namespace Content.Server.Chat.Systems
             args.Handled = true;
         }
 
+        public override void OnRecipientTransformChat(ref GotEntityChatTransformEvent args)
+        {
+            if (args.Chat.Data is not EntityChatSpokenData spokenData)
+                return;
+
+            if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
+                return;
+
+           if (spokenData.RelayedSpeaker != null)
+           {
+               // TODO: make better
+               recipientData.Identity = $"{Name(args.Chat.Source)} ({Name(spokenData.RelayedSpeaker.Value)})";
+           }
+        }
+
         public override void OnChat(ref GotEntityChatEvent args)
         {
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
+
+            args.Handled = true;
 
             _sawmill.Debug($"onchat: {args.Chat.Message}");
 
@@ -98,38 +115,43 @@ namespace Content.Server.Chat.Systems
                 return;
 
             if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
-            {
-                var message = args.Chat.Message;
-                var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
-                    ("entityName", args.Chat.Source),
-                    ("message", FormattedMessage.EscapeText(message)));
-
-                _chatManager.ChatMessageToOne(args.Chat.Channel,
-                    args.Chat.Message,
-                    wrappedMessage,
-                    args.Chat.Source,
-                    false, // hideChat,
-                    actorComponent.PlayerSession.ConnectedClient);
                 return;
-            }
-            else
+
+            // TODO: use Identity everywhere
+
+            // If a message has been designated specifically for this recipient, use that instead.
+            var message = recipientData.Message ?? args.Chat.Message;
+            var wrappedMessage = recipientData.WrappedMessage ?? Loc.GetString("chat-manager-entity-say-wrap-message",
+                ("entityName", recipientData.Identity ?? Name(args.Chat.Source)),
+                ("message", FormattedMessage.EscapeText(message)));
+
+            _chatManager.ChatMessageToOne(args.Chat.Channel,
+                message,
+                wrappedMessage,
+                args.Chat.Source,
+                false, // hideChat,
+                actorComponent.PlayerSession.ConnectedClient);
+        }
+    }
+
+    public sealed partial class ChatSystem
+    {
+        /// <summary>
+        /// Try to send a say message from an entity.
+        /// </summary>
+        public bool TrySendSay(EntityUid source, string message, EntityUid? speaker = null)
+        {
+            var chat = new EntityChat(source, message)
             {
-                // If a message has been designated specifically for this recipient, use that instead.
-                var message = recipientData.Message ?? args.Chat.Message;
+                Channel = ChatChannel.Local,
+                ClaimedBy = typeof(SayListenerSystem),
+                Data = new EntityChatSpokenData()
+                {
+                    RelayedSpeaker = speaker
+                }
+            };
 
-                var wrappedMessage = recipientData.WrappedMessage ?? Loc.GetString("chat-manager-entity-say-wrap-message",
-                    ("entityName", args.Chat.Source),
-                    ("message", FormattedMessage.EscapeText(message)));
-
-                _chatManager.ChatMessageToOne(args.Chat.Channel,
-                    message,
-                    wrappedMessage,
-                    args.Chat.Source,
-                    false, // hideChat,
-                    actorComponent.PlayerSession.ConnectedClient);
-            }
-
-            args.Handled = true;
+            return TrySendChat(source, chat);
         }
     }
 }

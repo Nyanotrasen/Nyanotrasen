@@ -1,4 +1,6 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Language;
+using Content.Shared.Chat;
 
 namespace Content.Server.Language
 {
@@ -30,7 +32,9 @@ namespace Content.Server.Language
             // Hook into the old TransformSpeech event for accents.
             args.Chat.Message = _chatSystem.TransformSpeech(args.Chat.Source, args.Chat.Message);
 
-            if (TryComp<LinguisticComponent>(args.Chat.Source, out var linguisticComponent) &&
+            // Only set Language from LinguisticComponent if it hasn't been set from somewhere else up the chain.
+            if (spokenData.Language == null &&
+                TryComp<LinguisticComponent>(args.Chat.Source, out var linguisticComponent) &&
                 linguisticComponent.ChosenLanguage != null)
             {
                 spokenData.Language = linguisticComponent.ChosenLanguage;
@@ -84,6 +88,31 @@ namespace Content.Server.Language
 
             recipientData.Message = spokenData.DistortedMessage;
             _sawmill.Debug("we have been mangled");
+        }
+    }
+}
+
+namespace Content.Server.Chat.Systems
+{
+    public sealed partial class ChatSystem
+    {
+        /// <summary>
+        /// Try to send a say message from an entity.
+        /// </summary>
+        public bool TrySendSayWithLanguage(EntityUid source, string message, LanguagePrototype language, EntityUid? speaker = null)
+        {
+            var chat = new EntityChat(source, message)
+            {
+                Channel = ChatChannel.Local,
+                ClaimedBy = typeof(SayListenerSystem),
+                Data = new EntityChatSpokenData()
+                {
+                    Language = language,
+                    RelayedSpeaker = speaker,
+                }
+            };
+
+            return TrySendChat(source, chat);
         }
     }
 }

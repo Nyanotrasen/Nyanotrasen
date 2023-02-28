@@ -50,6 +50,11 @@ namespace Content.Server.Chat.Systems
     public class EntityChatSpokenData
     {
         /// <summary>
+        /// The source of the radio communication, if any.
+        /// </summary>
+        public EntityUid? RadioSource;
+
+        /// <summary>
         /// The radio channels that this chat is being transmitted to.
         /// </summary>
         public RadioChannelPrototype[]? RadioChannels;
@@ -64,6 +69,12 @@ namespace Content.Server.Chat.Systems
         /// understand the language used.
         /// </summary>
         public string? DistortedMessage;
+
+        /// <summary>
+        /// This is a reference to the entity who was speaking.
+        /// This exists so that the EntityChat Source could be a radio, television, etc.
+        /// </summary>
+        public EntityUid? RelayedSpeaker;
     }
 
     public class EntityChatSpokenRecipientData
@@ -84,9 +95,18 @@ namespace Content.Server.Chat.Systems
         /// </summary>
         public string? WrappedMessage;
 
+        /// <summary>
+        /// An obfuscated version of Message.
+        /// </summary>
         public string? ObfuscatedMessage;
 
+        /// <summary>
+        /// This is the identity of the source for the recipient.
+        /// </summary>
+        public string? Identity;
+
         public bool WillHearRadio;
+
         public RadioChannelPrototype? DominantRadio;
 
         public EntityChatSpokenRecipientData(float distance)
