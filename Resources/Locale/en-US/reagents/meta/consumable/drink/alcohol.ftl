@@ -257,7 +257,7 @@ reagent-name-brainbomb = brainbomb
 reagent-desc-brainbomb = Toxic to about anything alive, especially your liver.
 
 reagent-name-clownblood = clown blood
-reagent-desc-clownblood = Security Officer's favorite drink after a long day.
+reagent-desc-clownblood = Security Officers favorite drink after a long day.
 
 reagent-name-circusjuice = circus juice
 reagent-desc-circusjuice = Honkmother would be proud.

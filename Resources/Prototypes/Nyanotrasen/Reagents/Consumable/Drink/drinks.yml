@@ -34,9 +34,6 @@
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:AdjustReagent
-        reagent: Radium
-        amount: 0.01
 
 - type: reagent
   id: BubbleTea
