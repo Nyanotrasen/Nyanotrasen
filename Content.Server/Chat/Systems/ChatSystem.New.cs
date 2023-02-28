@@ -52,11 +52,11 @@ namespace Content.Server.Chat.Systems
             foreach (var (recipient, data) in chat.Recipients)
             {
                 // Allow last-minute cancellation of the chat message at the recipient.
-                var before = new BeforeEntityChatEvent(chat);
-                RaiseLocalEvent(source, ref before, true);
+                var before = new BeforeEntityChatEvent(recipient, chat);
+                RaiseLocalEvent(recipient, ref before, true);
 
                 if (before.Cancelled)
-                    return false;
+                    continue;
 
                 // Allow systems to transform the chat message and source name, at the destination.
                 var doTransformRecipient = new GotEntityChatTransformEvent(recipient, chat, data);

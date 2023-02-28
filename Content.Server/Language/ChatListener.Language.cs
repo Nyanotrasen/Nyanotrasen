@@ -52,13 +52,13 @@ namespace Content.Server.Language
 
             if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
             {
-                _sawmill.Error($"{ToPrettyString(args.Receiver)} received chat from {ToPrettyString(args.Chat.Source)} with spoken data but lacked recipient data.");
+                _sawmill.Error($"{ToPrettyString(args.Recipient)} received chat from {ToPrettyString(args.Chat.Source)} with spoken data but lacked recipient data.");
                 return;
             }
 
             _sawmill.Debug("here we are");
 
-            if (TryComp<LinguisticComponent>(args.Receiver, out var linguisticComponent) &&
+            if (TryComp<LinguisticComponent>(args.Recipient, out var linguisticComponent) &&
                 linguisticComponent.CanUnderstand.Contains(spokenData.Language.ID))
             {
                 // The recipient understands us, no mangling needed.

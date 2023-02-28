@@ -50,7 +50,7 @@ namespace Content.Server.Language
             // TODO: WillNeedWrapper flag set by LanguageListener so we don't
             // have to check all these conditions again?
 
-            if (TryComp<LinguisticComponent>(args.Receiver, out var linguisticComponent) &&
+            if (TryComp<LinguisticComponent>(args.Recipient, out var linguisticComponent) &&
                 linguisticComponent.CanUnderstand.Contains(spokenData.Language.ID))
             {
                 if (linguisticComponent.ChosenLanguage != spokenData.Language)

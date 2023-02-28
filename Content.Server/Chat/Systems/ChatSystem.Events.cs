@@ -163,10 +163,12 @@ namespace Content.Server.Chat.Systems
     [ByRefEvent]
     public struct BeforeEntityChatEvent
     {
+        public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
 
-        public BeforeEntityChatEvent(EntityChat chat)
+        public BeforeEntityChatEvent(EntityUid recipient, EntityChat chat)
         {
+            Recipient = recipient;
             Chat = chat;
         }
 
@@ -178,13 +180,13 @@ namespace Content.Server.Chat.Systems
     [ByRefEvent]
     public sealed class GotEntityChatTransformEvent
     {
-        public readonly EntityUid Receiver;
+        public readonly EntityUid Recipient;
         public EntityChat Chat;
         public object? RecipientData;
 
-        public GotEntityChatTransformEvent(EntityUid receiver, EntityChat chat, object? recipientData = null)
+        public GotEntityChatTransformEvent(EntityUid recipient, EntityChat chat, object? recipientData = null)
         {
-            Receiver = receiver;
+            Recipient = recipient;
             Chat = chat;
             RecipientData = recipientData;
         }
@@ -195,13 +197,13 @@ namespace Content.Server.Chat.Systems
     [ByRefEvent]
     public sealed class GotEntityChatEvent
     {
-        public readonly EntityUid Receiver;
+        public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
         public readonly object? RecipientData;
 
-        public GotEntityChatEvent(EntityUid receiver, EntityChat chat, object? recipientData = null)
+        public GotEntityChatEvent(EntityUid recipient, EntityChat chat, object? recipientData = null)
         {
-            Receiver = receiver;
+            Recipient = recipient;
             Chat = chat;
             RecipientData = recipientData;
         }

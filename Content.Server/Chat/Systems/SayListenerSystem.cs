@@ -91,7 +91,7 @@ namespace Content.Server.Chat.Systems
 
             _sawmill.Debug($"onchat: {args.Chat.Message}");
 
-            if (!TryComp<ActorComponent>(args.Receiver, out var actorComponent))
+            if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
             if (args.Chat.Data is not EntityChatSpokenData data)
