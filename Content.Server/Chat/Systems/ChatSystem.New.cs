@@ -47,18 +47,16 @@ namespace Content.Server.Chat.Systems
             var doTransform = new EntityChatTransformEvent(chat);
             RaiseLocalEvent(source, ref doTransform, true);
 
-            // Allow last-minute cancellation of the chat message.
-            var before = new BeforeEntityChatEvent(chat);
-            RaiseLocalEvent(source, ref before, true);
-
-            if (before.Cancelled)
-                return false;
-
             // Send the actual message on a per-recipient basis, so they can do
             // their own individual handling.
             foreach (var (recipient, data) in chat.Recipients)
             {
-                // TODO: Allow last-minute cancellation of the chat message at the recipient.
+                // Allow last-minute cancellation of the chat message at the recipient.
+                var before = new BeforeEntityChatEvent(chat);
+                RaiseLocalEvent(source, ref before, true);
+
+                if (before.Cancelled)
+                    return false;
 
                 // Allow systems to transform the chat message and source name, at the destination.
                 var doTransformRecipient = new GotEntityChatTransformEvent(recipient, chat, data);

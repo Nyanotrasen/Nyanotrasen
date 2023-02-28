@@ -52,7 +52,7 @@ namespace Content.Server.Chat.Systems
         /// <summary>
         /// The radio channels that this chat is being transmitted to.
         /// </summary>
-        public RadioChannelPrototype[]? RadioChannel;
+        public RadioChannelPrototype[]? RadioChannels;
 
         /// <summary>
         /// The language used for this chat.
@@ -84,6 +84,11 @@ namespace Content.Server.Chat.Systems
         /// </summary>
         public string? WrappedMessage;
 
+        public string? ObfuscatedMessage;
+
+        public bool WillHearRadio;
+        public RadioChannelPrototype? DominantRadio;
+
         public EntityChatSpokenRecipientData(float distance)
         {
             Distance = distance;
@@ -96,8 +101,8 @@ namespace Content.Server.Chat.Systems
     // Attempt                  - now we know what type of chat this is, do we continue?
     // GetRecipients            - we get who will receive this chat
     // Transform                - we can change what the speaker says
-    // BeforeChat
     //
+    // BeforeEntityChat         - we could cancel the chat at the recipient
     // GotEntityChatTransform   - we can change what the recipient hears
     // GotEntityChat            - finally, show the user the message
 

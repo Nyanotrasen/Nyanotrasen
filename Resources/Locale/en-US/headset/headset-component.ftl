@@ -1,5 +1,6 @@
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={$color}]{$channel} {$name} says: "{$message}"[/color]
+chat-radio-message-wrap = [color={$color}]{$channel} {$name} says, "{$message}"[/color]
+chat-radio-language-message-wrap = [color={$color}]{$channel} {$name} says in {$language}, "{$message}"[/color]
 
 headset-encryption-key-successfully-installed = You put the key into the headset.
 headset-encryption-key-slots-already-full = There is no place for another key.

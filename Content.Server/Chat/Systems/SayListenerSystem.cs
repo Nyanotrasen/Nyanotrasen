@@ -2,7 +2,6 @@ using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
-using Content.Server.Ghost.Components;
 using Content.Shared.Chat;
 
 namespace Content.Server.Chat.Systems
@@ -50,14 +49,11 @@ namespace Content.Server.Chat.Systems
 
         public override void OnGetRecipients(ref EntityChatGetRecipientsEvent args)
         {
-            if (args.Handled)
+            if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
             _sawmill.Debug($"ongetrecipients: {args.Chat.Message}");
 
-            // TODO: ghost listener?
-
-            var ghosts = GetEntityQuery<GhostComponent>();
             var xforms = GetEntityQuery<TransformComponent>();
 
             var transformSource = xforms.GetComponent(args.Chat.Source);
@@ -77,12 +73,6 @@ namespace Content.Server.Chat.Systems
 
                 if (transformEntity.MapID != sourceMapId)
                     continue;
-
-                if (ghosts.HasComponent(playerEntity))
-                {
-                    args.Chat.Recipients.Add(playerEntity, new EntityChatSpokenRecipientData(0));
-                    continue;
-                }
 
                 if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceRange)
                 {
@@ -108,21 +98,36 @@ namespace Content.Server.Chat.Systems
                 return;
 
             if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
+            {
+                var message = args.Chat.Message;
+                var wrappedMessage = Loc.GetString("chat-manager-entity-say-wrap-message",
+                    ("entityName", args.Chat.Source),
+                    ("message", FormattedMessage.EscapeText(message)));
+
+                _chatManager.ChatMessageToOne(args.Chat.Channel,
+                    args.Chat.Message,
+                    wrappedMessage,
+                    args.Chat.Source,
+                    false, // hideChat,
+                    actorComponent.PlayerSession.ConnectedClient);
                 return;
+            }
+            else
+            {
+                // If a message has been designated specifically for this recipient, use that instead.
+                var message = recipientData.Message ?? args.Chat.Message;
 
-            // If a message has been designated specifically for this recipient, use that instead.
-            var message = recipientData.Message ?? args.Chat.Message;
+                var wrappedMessage = recipientData.WrappedMessage ?? Loc.GetString("chat-manager-entity-say-wrap-message",
+                    ("entityName", args.Chat.Source),
+                    ("message", FormattedMessage.EscapeText(message)));
 
-            var wrappedMessage = recipientData.WrappedMessage ?? Loc.GetString("chat-manager-entity-say-wrap-message",
-                ("entityName", args.Chat.Source),
-                ("message", FormattedMessage.EscapeText(message)));
-
-            _chatManager.ChatMessageToOne(args.Chat.Channel,
-                message,
-                wrappedMessage,
-                args.Chat.Source,
-                false, // hideChat,
-                actorComponent.PlayerSession.ConnectedClient);
+                _chatManager.ChatMessageToOne(args.Chat.Channel,
+                    message,
+                    wrappedMessage,
+                    args.Chat.Source,
+                    false, // hideChat,
+                    actorComponent.PlayerSession.ConnectedClient);
+            }
 
             args.Handled = true;
         }

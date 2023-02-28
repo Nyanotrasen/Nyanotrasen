@@ -1,27 +1,24 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Prototypes;
-using Content.Server.Chat.Systems;
 using Content.Server.Popups;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Popups;
 
 namespace Content.Server.Language
 {
-    public sealed class LanguageSystem : ChatListenerSystem
+    public sealed class LanguageSystem : EntitySystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         private ISawmill _sawmill = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-
-            InitializeListeners();
 
             _sawmill = Logger.GetSawmill("chat.language");
 
@@ -177,7 +174,7 @@ namespace Content.Server.Language
 
             component.ChosenLanguage = language;
 
-            _popupSystem.PopupEntity($"You begin speaking {component.ChosenLanguage.Name}.", uid, uid);
+            _popupSystem.PopupEntity($"You begin speaking {component.ChosenLanguage.Name}.", uid, uid, PopupType.Medium);
         }
 
         private void OnExtraLanguages(EntityUid uid, ExtraLanguagesComponent component, ComponentStartup args)
@@ -189,105 +186,6 @@ namespace Content.Server.Language
 
             foreach (var languageId in component.CanSpeak)
                 AddLanguage(uid, languageId, true, linguisticComponent);
-        }
-
-        public override void OnTransformChat(ref EntityChatTransformEvent args)
-        {
-            if (args.Chat.Data is not EntityChatSpokenData spokenData)
-                return;
-
-            // Hook into the old TransformSpeech event for accents.
-            args.Chat.Message = _chatSystem.TransformSpeech(args.Chat.Source, args.Chat.Message);
-
-            if (TryComp<LinguisticComponent>(args.Chat.Source, out var linguisticComponent) &&
-                linguisticComponent.ChosenLanguage != null)
-            {
-                spokenData.Language = linguisticComponent.ChosenLanguage;
-            }
-
-        }
-
-        public override void OnRecipientTransformChat(ref GotEntityChatTransformEvent args)
-        {
-            // Within this function, there are checks of ClaimedBy for specific
-            // types. This is for determining whether the wrapped message
-            // should change, based on the linguistic comprehensibility.
-            //
-            // This extra bit requires some coupling somewhere, and I decided
-            // it made the most sense for LanguageSystem to know about
-            // SayListener et al, rather than the other listeners to explicitly
-            // know about Language.
-
-            if (args.Chat.Data is not EntityChatSpokenData spokenData)
-                return;
-
-            if (spokenData.Language == null)
-                // This chat has no specified language, so there's nothing we can
-                // do with it.
-                //
-                // Having null for language is effectively someone speaking in
-                // tongues. Everyone will understand it.
-                return;
-
-            if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
-            {
-                _sawmill.Error($"{ToPrettyString(args.Receiver)} received chat from {ToPrettyString(args.Chat.Source)} with spoken data but lacked recipient data.");
-                return;
-            }
-
-            if (TryComp<LinguisticComponent>(args.Receiver, out var linguisticComponent) &&
-                linguisticComponent.CanUnderstand.Contains(spokenData.Language.ID))
-            {
-                // The recipient understands us, no mangling needed.
-
-                if (linguisticComponent.ChosenLanguage != spokenData.Language)
-                {
-                    // But if they're currently speaking a different language,
-                    // we should indicate that, to lessen any confusing
-                    // scenarios where one person is speaking English and the
-                    // other is speaking Mandarin, but they do not realize it,
-                    // and a third party speaks only one of these languages.
-
-                    switch (args.Chat.ClaimedBy)
-                    {
-                        case Type SayListenerSystem:
-                            recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-say-language-wrap-message",
-                                ("language", spokenData.Language.Name),
-                                ("entityName", args.Chat.Source),
-                                ("message", args.Chat.Message));
-                            break;
-                    }
-                }
-
-                return;
-            }
-
-            if (spokenData.Language.Distorter == null)
-            {
-                _sawmill.Error($"Needed to distort a message for language {spokenData.Language.ID} but it has no distorter set.");
-                return;
-            }
-
-            if (spokenData.DistortedMessage == null)
-            {
-                // The distorted version of this message has yet to be
-                // generated. It's created only when necessary to save on
-                // string manipulation cycles.
-
-                spokenData.DistortedMessage = spokenData.Language.Distorter.Distort(args.Chat.Source, args.Chat.Message);
-            }
-
-            recipientData.Message = spokenData.DistortedMessage;
-
-            switch (args.Chat.ClaimedBy)
-            {
-                case Type SayListenerSystem:
-                    recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-say-language-wrap-message",
-                        ("language", Loc.GetString("chat-manager-unknown-language")),
-                        ("entityName", args.Chat.Source),
-                        ("message", spokenData.DistortedMessage));
-                break;
-            }
         }
     }
 }
