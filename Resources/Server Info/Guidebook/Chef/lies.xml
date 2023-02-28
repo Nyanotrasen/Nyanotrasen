@@ -1,14 +1,137 @@
 <Document>
 # Cakes
 <Box Orientation="Vertical">
-	[color=#a4885c]w[/color]
+	[color=#a4885c]Cake Batter[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 
+- 15u flour
+- 2 eggs
+- 5u sugar
 </Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="w"/>
-<GuideEntityEmbed Entity="w" Caption=""/>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
+<GuideEntityEmbed Entity="FoodCakeBatter" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Plain Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- cake batter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodCakePlain" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Apple Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 3x apple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeApple" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Carrot Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 3x carrot
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeCarrot" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Lemon Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 3x lemon
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeLemon" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Orange Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 30u orange juice
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeOrange" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Lime Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 30u lime juice
+- Plain cake
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeLime" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheesecake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 3x cheese wedge
+- 10u cream
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeCheese" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Clown Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- Clown mask
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeClown" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Chocolate Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2x chocolate bar
+- Plain cake
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeChocolate" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Brain Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- Human brain
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodCakeBrain" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Slime Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u slime
+- Plain cake
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeSlime" Caption=""/>
 </Box>
 
 </Document>

@@ -1,14 +1,51 @@
 <Document>
 # Rice
 <Box Orientation="Vertical">
-	[color=#a4885c]w[/color]
+	[color=#a4885c]Boiled Rice[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 
+- bowl
+- 15u rice
+- 10u water
 </Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="w"/>
-<GuideEntityEmbed Entity="w" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceBoiled" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Rice and Pork[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled rice
+- 3x meat cutlet
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRicePork" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Black-Eyed Gumbo[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled rice
+- 3x meat cutlet
+- 2x chili pepper
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceGumbo" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Egg-Fried Rice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- boiled rice
+- egg
+- carrot
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceEgg" Caption=""/>
 </Box>
 
 </Document>
