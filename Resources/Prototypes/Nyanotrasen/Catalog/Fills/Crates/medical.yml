@@ -1,0 +1,32 @@
+- type: entity
+  id: CrateBoxChemicalEmergencyMedipen
+  parent: CrateMedicalSecure
+  name: Emergency Medipen Crate
+  description: A container for shipping emergency medipens.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxChemicalEmergencyMedipen
+        amount: 2
+
+- type: entity
+  id: CrateBoxChemicalAntiPoisonMedipen
+  parent: CrateMedicalSecure
+  name: Anti-poison Medipen Crate
+  description: A container for shipping anti-poison medipens.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxChemicalAntiPoisonMedipen
+        amount: 2
+
+- type: entity
+  id: CrateBoxChemicalSpaceMedipen
+  parent: CrateMedicalSecure
+  name: Space Medipen Crate
+  description: A container for shipping space medipens.
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxChemicalSpaceMedipen
+        amount: 2

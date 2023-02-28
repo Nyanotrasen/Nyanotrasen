@@ -1,0 +1,36 @@
+# 1 crate = 2 boxes = 1554
+- type: cargoProduct
+  id: BulkEmergencyMedipenCrate
+  name: Emergency Medipen Crate
+  description: A container for shipping emergency medipens.
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: medipen
+  product: CrateAssortedMedipenBox
+  cost: 3600
+  category: Medical
+  group: market
+
+- type: cargoProduct
+  id: BulkAntiPoisonMedipenCrate
+  name: Anti-poison Medipen Crate
+  description: A container for shipping anti-poison medipens.
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: oxapen
+  product: CrateBoxChemicalAntiPoison
+  cost: 3600
+  category: Medical
+  group: market
+
+- type: cargoProduct
+  id: BulkSpaceMedipenCrate
+  name: Space Medipen Crate
+  description: A container for shipping space medipens.
+  icon:
+    sprite: Objects/Specific/Medical/medipen.rsi
+    state: hypovolemic
+  product: CrateBoxChemicalSpaceMedipen
+  cost: 3600
+  category: Medical
+  group: market

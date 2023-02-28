@@ -1,0 +1,45 @@
+- type: entity
+  name: chemical medipen box
+  parent: BoxCardboard
+  id: BoxChemicalMedipen
+  abstract: true
+  description: Contains chemical medipens. A sterile injector for rapid administration of drugs to patients.
+  components:
+  - type: Sprite
+    layers:
+      - state: box
+      - state: medipen
+      
+- type: entity
+  name: emergency medipen box
+  parent: BoxChemicalMedipen
+  id: BoxChemicalEmergencyMedipen
+  description: Contains emergency medipens. A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EmergencyMedipen
+        amount: 10
+      
+- type: entity
+  name: anti-poison medipen box
+  parent: BoxChemicalMedipen
+  id: BoxChemicalAntiPoisonMedipen
+  description: Contains anti-poison medipens. Contains ultravasculine and epinephrine.
+  components:
+  - type: StorageFill
+    contents:
+      - id: AntiPoisonMedipen
+        amount: 10
+      
+- type: entity
+  name: space medipen box
+  parent: BoxChemicalMedipen
+  id: BoxChemicalSpaceMedipen
+  description: Contains space medipens. Contains a mix of chemicals that protect you from the deadly effects of space.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceMedipen
+        amount: 10
+ 
