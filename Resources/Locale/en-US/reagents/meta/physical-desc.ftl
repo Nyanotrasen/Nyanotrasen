@@ -85,3 +85,4 @@ reagent-physical-desc-enigmatic = enigmatic
 reagent-physical-desc-porous = porous
 reagent-physical-desc-exotic-smelling = exotic smelling
 reagent-physical-desc-ethereal = ethereal
+reagent-physical-desc-glittery = glittery
