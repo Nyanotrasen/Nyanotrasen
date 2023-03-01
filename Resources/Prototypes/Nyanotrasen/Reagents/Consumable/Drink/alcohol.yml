@@ -56,7 +56,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 0.05
 
 - type: reagent
   id: Silverjack
@@ -76,7 +76,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 0.0625
 
 - type: reagent
   id: Brainbomb
@@ -103,7 +103,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.25
+        amount: 0.085
       - !type:AdjustReagent
         reagent: THCOil
         amount: 0.35
@@ -122,6 +122,14 @@
   metamorphicSprite:
     sprite: Nyanotrasen/Objects/Consumable/Drinks/clownblood.rsi
     state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.025
 
 - type: reagent
   id: CircusJuice
@@ -141,7 +149,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.3
+        amount: 0.0625
       - !type:Emote #It's very funny
         emote: Laugh
         probability: 0.15
@@ -164,7 +172,7 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.2
+        amount: 0.065
       - !type:AdjustTemperature
         amount: 75 # thermal energy, not temperature!
 
@@ -186,4 +194,4 @@
         factor: 2
       - !type:AdjustReagent
         reagent: Ethanol
-        amount: 0.3
+        amount: 0.03
