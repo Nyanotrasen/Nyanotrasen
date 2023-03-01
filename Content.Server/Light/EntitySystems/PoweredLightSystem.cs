@@ -104,9 +104,6 @@ namespace Content.Server.Light.EntitySystems
             if (bulbUid == null)
                 return;
 
-            // delay the interaction by 2 seconds
-            var curTime = _gameTiming.CurTime;
-
             // check if it's possible to apply burn damage to user
             var userUid = args.User;
             if (EntityManager.TryGetComponent(userUid, out HeatResistanceComponent? heatResist) &&
@@ -119,12 +116,13 @@ namespace Content.Server.Light.EntitySystems
                 var burnedHand = light.CurrentLit && res < lightBulb.BurningTemperature;
 
                 // check for interaction delay
-                if (curTime < light.cooldownEnd)
-                {
-                    return;
-                }
+                var curTime = _gameTiming.CurTime;
 
-                light.cooldownEnd = curTime + TimeSpan.FromSeconds(2);
+                if (curTime < light.CooldownEnd)
+                    return;
+
+                // set a 2 second CD
+                light.CooldownEnd = curTime + TimeSpan.FromSeconds(2);
 
                 if (burnedHand)
                 {
