@@ -28,7 +28,6 @@ guide-entry-chef = Chef
 guide-entry-cookbook = The Cookbook
 guide-entry-pies =
 guide-entry-burgers =
-guide-entry-desserts =
 guide-entry-cakes =
 guide-entry-pastries =
 guide-entry-pizzas =

@@ -13,7 +13,6 @@
   - CookPie
   - CookCake
   - CookPastry
-  - CookDessert
   - CookSnack
   - CookKebab
 
@@ -31,11 +30,6 @@
   id: CookBurger
   name: guide-entry-burgers
   text: "/Server Info/Guidebook/Chef/borgir.xml"
-
-- type: guideEntry
-  id: CookDessert
-  name: guide-entry-desserts
-  text: "/Server Info/Guidebook/Chef/desert.xml"
 
 - type: guideEntry
   id: CookCake
