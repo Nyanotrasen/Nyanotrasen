@@ -46,8 +46,6 @@ namespace Content.Server.Light.EntitySystems
 
         public const string LightBulbContainer = "light_bulb";
 
-        public TimeSpan cooldownEnd = TimeSpan.FromSeconds(0);
-
         public override void Initialize()
         {
             base.Initialize();
@@ -108,12 +106,6 @@ namespace Content.Server.Light.EntitySystems
 
             // delay the interaction by 2 seconds
             var curTime = _gameTiming.CurTime;
-            if (curTime < cooldownEnd)
-            {
-                return;
-            }
-
-            cooldownEnd = curTime + TimeSpan.FromSeconds(2);
 
             // check if it's possible to apply burn damage to user
             var userUid = args.User;
@@ -125,6 +117,15 @@ namespace Content.Server.Light.EntitySystems
 
                 // check heat resistance against user
                 var burnedHand = light.CurrentLit && res < lightBulb.BurningTemperature;
+
+                // check for interaction delay
+                if (curTime < light.cooldownEnd)
+                {
+                    return;
+                }
+
+                light.cooldownEnd = curTime + TimeSpan.FromSeconds(2);
+
                 if (burnedHand)
                 {
                     // apply damage to users hands and show message with sound
