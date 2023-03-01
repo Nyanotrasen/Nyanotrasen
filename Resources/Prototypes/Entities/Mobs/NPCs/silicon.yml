@@ -97,6 +97,8 @@
   - type: Examiner
   - type: Actions
   - type: Alerts
+  - type: TypingIndicator
+    proto: robot
 
 - type: entity
   parent: MobSiliconBase

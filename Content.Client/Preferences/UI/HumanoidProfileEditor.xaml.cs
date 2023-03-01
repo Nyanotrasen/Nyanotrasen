@@ -694,6 +694,12 @@ namespace Content.Client.Preferences.UI
                     Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
                     break;
                 }
+                case HumanoidSkinColor.None:
+                {
+                    CMarkings.CurrentSkinColor = Color.White;
+                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(Color.White));
+                    break;
+                }
             }
 
             IsDirty = true;

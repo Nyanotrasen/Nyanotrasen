@@ -105,6 +105,7 @@ namespace Content.Shared.Humanoid
                 HumanoidSkinColor.HumanToned => Humanoid.SkinColor.HumanSkinTone(speciesPrototype.DefaultHumanSkinTone),
                 HumanoidSkinColor.Hues => speciesPrototype.DefaultSkinTone,
                 HumanoidSkinColor.TintedHues => Humanoid.SkinColor.TintedHues(speciesPrototype.DefaultSkinTone),
+                HumanoidSkinColor.None => Color.White,
                 _ => Humanoid.SkinColor.ValidHumanSkinTone
             };
 
@@ -161,6 +162,9 @@ namespace Content.Shared.Humanoid
                 case HumanoidSkinColor.HumanToned:
                     var tone = random.Next(0, 100);
                     newSkinColor = Humanoid.SkinColor.HumanSkinTone(tone);
+                    break;
+                case HumanoidSkinColor.None:
+                    newSkinColor = Color.White;
                     break;
                 case HumanoidSkinColor.Hues:
                 case HumanoidSkinColor.TintedHues:

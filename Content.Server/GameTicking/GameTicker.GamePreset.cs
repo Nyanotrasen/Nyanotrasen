@@ -61,6 +61,8 @@ namespace Content.Server.GameTicking
                     return false;
                 }
 
+                _resetFromFallback = true;
+
                 RefreshLateJoinAllowed();
             }
             else

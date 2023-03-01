@@ -128,14 +128,6 @@
   serverEvent: !type:SpinWebActionEvent
 
 - type: instantAction
-  id: RFSensitivity
-  name: action-name-rf-sensitivity
-  description: action-desc-rf-sensitivity
-  icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
-  useDelay: 3
-  serverEvent: !type:RFSensitivityPowerActionEvent
-
-- type: instantAction
   id: HairballAction
   name: hairball-action
   description: hairball-action-desc
