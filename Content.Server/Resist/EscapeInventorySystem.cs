@@ -1,3 +1,4 @@
+using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Contests;
 using Content.Server.Popups;
@@ -67,11 +68,16 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     public void AttemptEscape(EntityUid user, EntityUid container, CanEscapeInventoryComponent component, float multiplier = 1f)
     {
+        if (component.IsEscaping)
+            return;
+
+        component.CancelToken = new CancellationTokenSource();
+        component.IsEscaping = true;
         var escapeEvent = new EscapeInventoryEvent();
-        var doAfterEventArgs = new DoAfterEventArgs(user, component.BaseResistTime * multiplier, target:container)
+        var doAfterEventArgs = new DoAfterEventArgs(user, component.BaseResistTime * multiplier, cancelToken: component.CancelToken.Token, target:container)
         {
             BreakOnTargetMove = false,
-            BreakOnUserMove = false,
+            BreakOnUserMove = true,
             BreakOnDamage = true,
             BreakOnStun = true,
             NeedHand = false
@@ -84,7 +90,14 @@ public sealed class EscapeInventorySystem : EntitySystem
 
     private void OnEscape(EntityUid uid, CanEscapeInventoryComponent component, DoAfterEvent<EscapeInventoryEvent> args)
     {
-        if (args.Handled || args.Cancelled)
+        if (args.Cancelled)
+        {
+            component.CancelToken = null;
+            component.IsEscaping = false;
+            return;
+        }
+
+        if (args.Handled)
             return;
 
         if (TryComp<BeingCarriedComponent>(uid, out var carried))
@@ -95,12 +108,15 @@ public sealed class EscapeInventorySystem : EntitySystem
 
         Transform(uid).AttachParentToContainerOrGrid(EntityManager);
 
+        component.CancelToken = null;
+        component.IsEscaping = false;
         args.Handled = true;
     }
 
     private void OnDropped(EntityUid uid, CanEscapeInventoryComponent component, DroppedEvent args)
     {
-        //TODO: Enter cancel logic here
+        component.CancelToken?.Cancel();
+        component.CancelToken = null;
     }
 
     private sealed class EscapeInventoryEvent : EntityEventArgs
