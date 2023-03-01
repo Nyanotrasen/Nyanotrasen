@@ -42,8 +42,11 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-        private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
+        private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(value: 2);
+
         public const string LightBulbContainer = "light_bulb";
+
+        public TimeSpan cooldownEnd = TimeSpan.FromSeconds(value: 0);
 
         public override void Initialize()
         {
@@ -102,6 +105,15 @@ namespace Content.Server.Light.EntitySystems
             var bulbUid = GetBulb(uid, light);
             if (bulbUid == null)
                 return;
+
+            // delay the interaction by 2 seconds
+            var curTime = _gameTiming.CurTime;
+            if (curTime < cooldownEnd)
+            {
+                return;
+            }
+
+            cooldownEnd = curTime + TimeSpan.FromSeconds(2);
 
             // check if it's possible to apply burn damage to user
             var userUid = args.User;

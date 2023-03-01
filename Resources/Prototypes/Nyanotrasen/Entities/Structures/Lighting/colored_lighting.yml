@@ -10,7 +10,7 @@
     hasLampOnSpawn: ColoredLightTubeRed
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   id: PoweredlightColoredFrostyBlue
@@ -22,7 +22,7 @@
     hasLampOnSpawn: ColoredLightTubeFrostyBlue
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   id: PoweredlightColoredBlack
@@ -34,7 +34,7 @@
     hasLampOnSpawn: ColoredLightTubeBlackLight
     damage:
       types:
-        Heat: 5
+        Heat: 0.2
 
 - type: entity
   id: PoweredLightPostSmallRed
@@ -51,4 +51,4 @@
     hasLampOnSpawn: ColoredLightTubeRed
     damage:
       types:
-        Heat: 20
+        Heat: 2
