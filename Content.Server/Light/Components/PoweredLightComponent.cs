@@ -66,6 +66,9 @@ namespace Content.Server.Light.Components
 
         public CancellationTokenSource? CancelToken;
 
+        //Delay for the lights interactions
+        public TimeSpan cooldownEnd;
+
         /// <summary>
         /// How long it takes to eject a bulb from this
         /// </summary>
