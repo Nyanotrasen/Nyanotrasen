@@ -1,11 +1,23 @@
 <Document>
 # Burgers
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Bun[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough slice
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBreadBun" Caption=""/>
+</Box>
+- All burgers need a bun along with everything else!
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Cheeseburger[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - raw meat
 - cheese wedge
 </Box>
@@ -17,9 +29,8 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - raw meat
-- 3x chili peppers 
+- 3x chili peppers
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerFive" Caption=""/>
@@ -29,7 +40,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - 2x raw meat
 - cheese wedge
 </Box>
@@ -45,7 +55,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - fish meat
 - cheese wedge
 </Box>
@@ -57,7 +66,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - human brain
 - cheese wedge
 </Box>
@@ -69,7 +77,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - clown mask
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -80,7 +87,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - appendix
 - cheese wedge
 </Box>
@@ -92,7 +98,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - red beret
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -103,7 +108,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - xeno meat
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -114,7 +118,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - bear meat
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -125,7 +128,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - corgi meat
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -136,7 +138,6 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - 3x raw meat
 - 3x cheese wedge
 </Box>
@@ -152,21 +153,32 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - 2 sheets plasma
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerEmpowered" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
+	[color=#a4885c]Amanita Jelly[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u water
+- 5u vodka
+- 3x Fly Amanita
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodJellyAmanita" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
 	[color=#a4885c]Jellyburger[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bun
 - Amanita jelly
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerJelly" Caption=""/>
 </Box>
+
 </Document>
