@@ -42,11 +42,11 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
-        private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(value: 2);
+        private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
 
         public const string LightBulbContainer = "light_bulb";
 
-        public TimeSpan cooldownEnd = TimeSpan.FromSeconds(value: 0);
+        public TimeSpan cooldownEnd = TimeSpan.FromSeconds(0);
 
         public override void Initialize()
         {
