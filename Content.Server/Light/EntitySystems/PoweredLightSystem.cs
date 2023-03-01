@@ -109,7 +109,6 @@ namespace Content.Server.Light.EntitySystems
             if (EntityManager.TryGetComponent(userUid, out HeatResistanceComponent? heatResist) &&
                 EntityManager.TryGetComponent(bulbUid.Value, out LightBulbComponent? lightBulb))
             {
-
                 // get users heat resistance
                 var res = heatResist.GetHeatResistance();
 
