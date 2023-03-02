@@ -2805,3 +2805,13 @@ Entries:
   - {message: Added 10 new drinks., type: Add}
   id: 443
   time: '2023-03-01T00:15:08.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: Burning yourself on lightbulbs now has a cooldown and deals less damage., type: Tweak}
+  id: 444
+  time: '2023-03-02T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rats do not trigger door deny sounds when they walk under them., type: Fix}
+  id: 445
+  time: '2023-03-02T00:15:08.0000000+00:00'

@@ -43,6 +43,7 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
+
         public const string LightBulbContainer = "light_bulb";
 
         public override void Initialize()
@@ -113,6 +114,16 @@ namespace Content.Server.Light.EntitySystems
 
                 // check heat resistance against user
                 var burnedHand = light.CurrentLit && res < lightBulb.BurningTemperature;
+
+                // check for interaction delay
+                var curTime = _gameTiming.CurTime;
+
+                if (curTime < light.CooldownEnd)
+                    return;
+
+                // set a 2 second CD
+                light.CooldownEnd = curTime + TimeSpan.FromSeconds(2);
+
                 if (burnedHand)
                 {
                     // apply damage to users hands and show message with sound

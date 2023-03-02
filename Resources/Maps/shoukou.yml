@@ -10191,8 +10191,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 18.935778
-      - 71.2346
+      - 18.405577
+      - 69.24003
       - 0
       - 0
       - 0
@@ -40920,21 +40920,21 @@ entities:
     parent: 34
     type: Transform
 - uid: 4786
-  type: ClothingOuterHardsuitEVAPrisoner
+  type: ClothingHeadHelmetEVA
   components:
-  - pos: 35.369946,-2.1155844
+  - pos: 35.724197,-2.30786
     parent: 34
     type: Transform
 - uid: 4787
-  type: ClothingOuterHardsuitEVAPrisoner
+  type: ClothingHeadHelmetEVA
   components:
-  - pos: 35.682446,-2.099949
+  - pos: 35.474197,-2.5476098
     parent: 34
     type: Transform
 - uid: 4788
-  type: ClothingOuterHardsuitEVAPrisoner
+  type: ClothingHeadHelmetEVA
   components:
-  - pos: 35.54182,-2.334487
+  - pos: 35.26586,-2.2870111
     parent: 34
     type: Transform
 - uid: 4789
@@ -82386,16 +82386,15 @@ entities:
     - 10616
     type: DeviceList
 - uid: 10619
-  type: ToolboxEmergencyFilled
+  type: Rack
   components:
-  - pos: 35.786263,-4.6821046
+  - pos: 35.5,-4.5
     parent: 34
     type: Transform
 - uid: 10620
-  type: OxygenTankFilled
+  type: ToolboxEmergencyFilled
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 35.239388,-4.6603737
+  - pos: 35.42211,-3.1417718
     parent: 34
     type: Transform
 - uid: 10621
@@ -90000,6 +89999,24 @@ entities:
   type: PosterMapShoukou
   components:
   - pos: 39.5,-30.5
+    parent: 34
+    type: Transform
+- uid: 11719
+  type: ClothingMaskBreath
+  components:
+  - pos: 35.30753,-4.3822174
+    parent: 34
+    type: Transform
+- uid: 11720
+  type: ClothingMaskBreath
+  components:
+  - pos: 35.67211,-4.4656076
+    parent: 34
+    type: Transform
+- uid: 11721
+  type: ClothingMaskBreath
+  components:
+  - pos: 35.30753,-4.68451
     parent: 34
     type: Transform
 ...
