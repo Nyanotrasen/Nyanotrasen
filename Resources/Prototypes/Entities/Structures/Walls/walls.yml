@@ -660,6 +660,7 @@
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
+    state: full
   - type: Construction
     graph: Girder
     node: shuttleWall
@@ -672,6 +673,7 @@
   id: WallShuttleInterior
   name: shuttle wall
   suffix: Interior
+  components:
   - type: Sprite
     sprite: Structures/Walls/shuttleinterior.rsi
   - type: Icon
