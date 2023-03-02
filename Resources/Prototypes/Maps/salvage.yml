@@ -234,3 +234,23 @@
   name: "Atlas Service Area"
   mapPath: /Maps/Salvage/atlas_service.yml
   bounds: "-13.5, -13, 15, 9.5"
+
+# Asteroids
+
+- type: salvageMap
+  id: LargeAsteroid_1
+  name: "30x30 Medical Asteroid"
+  mapPath: /Maps/Salvage/asteroidLarge01.yml
+  bounds: "-15, -16, 15, 14"
+
+- type: salvageMap
+  id: LargeAsteroid_2
+  name: "30x30 Botanical Asteroid"
+  mapPath: /Maps/Salvage/asteroidLarge02.yml
+  bounds: "-15, -16, 15, 14"
+
+- type: salvageMap
+  id: LargeAsteroid_3
+  name: "30x30 Artifact Asteroid"
+  mapPath: /Maps/Salvage/asteroidLarge03.yml
+  bounds: "-15, -16, 15, 14"
