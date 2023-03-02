@@ -4,7 +4,6 @@ using Content.Server.Disease.Components;
 using Content.Server.Body.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Nutrition.Components;
-using Robust.Shared.Player;
 using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Server.Body.Systems;
@@ -17,6 +16,7 @@ using Content.Server.Hands.Components;
 using Content.Server.Mind.Commands;
 using Content.Server.Temperature.Components;
 using Content.Shared.Movement.Components;
+using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Server.Traitor;
@@ -29,13 +29,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee;
-/* <<<<<<< HEAD */
 using Robust.Shared.Audio;
-/* ======= */
-using Content.Server.Chat;
-using Content.Server.Chat.Systems;
-using Content.Shared.Nutrition.Components;
-/* >>>>>>> 0f0b534239 (Hunger ECS (#14939)) */
 
 namespace Content.Server.Zombies
 {
