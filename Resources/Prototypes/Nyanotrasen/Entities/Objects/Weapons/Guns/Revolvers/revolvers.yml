@@ -43,13 +43,13 @@
     price: 500
 
 - type: entity
-  name: K-38 Combat Masterpiece
+  name: K-38 Masterpiece
   parent: BaseWeaponSpecialRevolver
   id: WeaponRevolverK38Combat
-  description: A classic, if not outdated, law enforcement firearm. Uses .38 Special rounds.
+  description: Outdated and perfect for self defence. Uses .38 Special rounds.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38combat.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38master.rsi
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -63,6 +63,15 @@
       path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+
+- type: entity
+  name: Police Special
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverPolice
+  description: A classic, if not outdated, law enforcement firearm. Uses .38 Special rounds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/police.rsi
 
 - type: entity
   name: Faith
