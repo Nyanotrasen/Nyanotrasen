@@ -17,6 +17,7 @@
 - type: entity
   parent: Bible
   id: BibleChaplain
+  description: The chaplain's holy book. Comes with a handheld blessing dispenser.
   components:
   - type: Storage
     capacity: 10
