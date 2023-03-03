@@ -13,22 +13,3 @@
   - type: Item
     size: 15
     sprite: Nyanotrasen/Objects/Specific/Chapel/holylight.rsi
-
-- type: entity
-  parent: Bible
-  id: BibleChaplain
-  description: The chaplain's holy book. Comes with a handheld blessing dispenser.
-  components:
-  - type: Storage
-    capacity: 10
-  - type: StorageFill
-    contents:
-      - id: WeaponRevolverFaith
-        amount: 1
-  - type: Sprite
-    netsync: false
-    sprite: Nyanotrasen/Objects/Specific/Chapel/chaplainbible.rsi
-    state: icon
-  - type: Item
-    size: 15
-    sprite: Nyanotrasen/Objects/Specific/Chapel/chaplainbible.rsi

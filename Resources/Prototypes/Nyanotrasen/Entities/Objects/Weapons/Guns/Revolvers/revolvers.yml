@@ -74,25 +74,6 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/police.rsi
 
 - type: entity
-  name: Faith
-  parent: BaseWeaponSpecialRevolver
-  id: WeaponRevolverFaith
-  description: Delivers blessings in bullet form. Uses .38 Special rounds.
-  components:
-  - type: Gun
-    fireRate: 1
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/faith.rsi
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeSpecial #Requires manual reload.
-    proto: CartridgeSpecialHoly
-    capacity: 4
-    chambers: [ True, True, True, True ]
-    ammoSlots: [ null, null, null, null ]
-
-- type: entity
   name: Lucky 37
   parent: BaseWeaponSpecialRevolver
   id: WeaponRevolverLucky

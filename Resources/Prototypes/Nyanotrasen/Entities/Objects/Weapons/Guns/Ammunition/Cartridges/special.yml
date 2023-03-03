@@ -52,11 +52,3 @@
   components:
   - type: CartridgeAmmo
     proto: BulletSpecialRubber
-
-- type: entity
-  id: CartridgeSpecialHoly
-  name: cartridge (.38 special holy)
-  parent: BaseCartridgeSpecial
-  components:
-  - type: CartridgeAmmo
-    proto: BulletSpecialHoly
