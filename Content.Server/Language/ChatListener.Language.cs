@@ -111,6 +111,7 @@ namespace Content.Server.Language
                 // string manipulation cycles.
 
                 distortedMessage = language.Distorter.Distort(args.Chat.Source, args.Chat.Message);
+                args.Chat.SetData(ChatDataLanguage.DistortedMessage, distortedMessage);
             }
 
             args.RecipientData.SetData(ChatRecipientDataSay.Message, distortedMessage);
