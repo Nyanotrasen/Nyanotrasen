@@ -45,6 +45,9 @@ namespace Content.Server.Language
             if (!args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
                 return;
 
+            var name = args.Chat.Source;
+            var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
+
             // TODO: WillNeedWrapper flag set by LanguageListener so we don't
             // have to check all these conditions again?
 
@@ -58,15 +61,13 @@ namespace Content.Server.Language
                     if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
                     {
                         args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
-                            ("entityName", args.Chat.Source),
-                            ("message", args.Chat.Message),
+                            ("entityName", name),
+                            ("message", message),
                             ("language", language.Name)));
                     }
                     else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
                     {
-                        var name = args.Chat.Source;
                         var channel = args.RecipientData.GetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel);
-                        var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
 
                         if (channel == null)
                         {
@@ -91,22 +92,20 @@ namespace Content.Server.Language
                 return;
             }
 
-            if (!args.Chat.TryGetData<string>(ChatDataLanguage.DistortedMessage, out var distortedMessage))
-                return;
-
             _sawmill.Debug("mangles us");
 
+            var unknownLanguage = Loc.GetString("chat-manager-unknown-language");
+
             if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
+            {
                 args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
-                    ("language", Loc.GetString("chat-manager-unknown-language")),
-                    ("entityName", args.Chat.Source),
-                    ("message", distortedMessage)));
+                    ("entityName", name),
+                    ("message", message),
+                    ("language", unknownLanguage)));
+            }
             else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
             {
-                var name = args.Chat.Source;
                 var channel = args.RecipientData.GetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel);
-                var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-                var unknownLanguage = Loc.GetString("chat-manager-unknown-language");
 
                 if (channel == null)
                 {
