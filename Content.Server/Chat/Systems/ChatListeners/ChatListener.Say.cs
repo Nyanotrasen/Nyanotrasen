@@ -6,6 +6,50 @@ using Content.Shared.Chat;
 
 namespace Content.Server.Chat.Systems
 {
+    public enum ChatDataSay
+    {
+        /// <summary>
+        /// The speaker behind this message.
+        /// </summary>
+        /// <remarks>
+        /// This is for situations where an entity is relaying a chat from
+        /// somewhere else, like someone talking on a television or radio
+        /// object in a room.
+        /// </remarks>
+        RelayedSpeaker,
+
+        /// <summary>
+        /// A flag to notify other ChatListeners that this chat is a spoken message.
+        /// </summary>
+        /// <remarks>
+        /// As opposed to a telepathic or visual message.
+        /// </remarks>
+        IsSpoken,
+    }
+
+    public enum ChatRecipientDataSay
+    {
+        /// <summary>
+        /// A recipient-specific override message.
+        /// </summary>
+        Message,
+
+        /// <summary>
+        /// A recipient-specific override message, wrapped for the chat log.
+        /// </summary>
+        WrappedMessage,
+
+        /// <summary>
+        /// The distance from the source.
+        /// </summary>
+        Distance,
+
+        /// <summary>
+        /// The string of how the recipient perceives the sender.
+        /// </summary>
+        Identity,
+    }
+
     /// <summary>
     /// This is the fallback ChatListener.
     ///
@@ -37,7 +81,7 @@ namespace Content.Server.Chat.Systems
 
             args.Chat.Channel = ChatChannel.Local;
             args.Chat.ClaimedBy = this.GetType();
-            args.Chat.Data = new EntityChatSpokenData();
+            args.Chat.SetData(ChatDataSay.IsSpoken, true);
 
             // TODO: sanitize
 
@@ -76,7 +120,9 @@ namespace Content.Server.Chat.Systems
 
                 if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceRange)
                 {
-                    args.Chat.Recipients.Add(playerEntity, new EntityChatSpokenRecipientData(distance));
+                    var recipientData = new EntityChatData();
+                    recipientData.SetData(ChatRecipientDataSay.Distance, distance);
+                    args.Chat.Recipients.Add(playerEntity, recipientData);
                     continue;
                 }
             }
@@ -86,17 +132,11 @@ namespace Content.Server.Chat.Systems
 
         public override void OnRecipientTransformChat(ref GotEntityChatTransformEvent args)
         {
-            if (args.Chat.Data is not EntityChatSpokenData spokenData)
-                return;
-
-            if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
-                return;
-
-           if (spokenData.RelayedSpeaker != null)
-           {
-               // TODO: make better
-               recipientData.Identity = $"{Name(args.Chat.Source)} ({Name(spokenData.RelayedSpeaker.Value)})";
-           }
+            if (args.Chat.TryGetData<EntityUid>(ChatDataSay.RelayedSpeaker, out var relayedSpeaker))
+            {
+                // TODO: make better
+                args.RecipientData.SetData(ChatRecipientDataSay.Identity, $"{Name(args.Chat.Source)} ({Name(relayedSpeaker)})");
+            }
         }
 
         public override void OnChat(ref GotEntityChatEvent args)
@@ -111,19 +151,13 @@ namespace Content.Server.Chat.Systems
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
-            if (args.Chat.Data is not EntityChatSpokenData data)
-                return;
-
-            if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
-                return;
-
             // TODO: use Identity everywhere
 
-            // If a message has been designated specifically for this recipient, use that instead.
-            var message = recipientData.Message ?? args.Chat.Message;
-            var wrappedMessage = recipientData.WrappedMessage ?? Loc.GetString("chat-manager-entity-say-wrap-message",
-                ("entityName", recipientData.Identity ?? Name(args.Chat.Source)),
-                ("message", FormattedMessage.EscapeText(message)));
+            var identity = args.RecipientData.GetData<string>(ChatRecipientDataSay.Identity) ?? Name(args.Chat.Source);
+            var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
+            var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-say-wrap-message",
+                    ("entityName", identity),
+                    ("message", FormattedMessage.EscapeText(message)));
 
             _chatManager.ChatMessageToOne(args.Chat.Channel,
                 message,
@@ -145,11 +179,12 @@ namespace Content.Server.Chat.Systems
             {
                 Channel = ChatChannel.Local,
                 ClaimedBy = typeof(SayListenerSystem),
-                Data = new EntityChatSpokenData()
-                {
-                    RelayedSpeaker = speaker
-                }
             };
+
+            chat.SetData(ChatDataSay.IsSpoken, true);
+
+            if (speaker != null)
+                chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
 
             return TrySendChat(source, chat);
         }

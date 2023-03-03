@@ -1,10 +1,56 @@
-using Content.Server.Language;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chat;
-using Content.Shared.Radio;
 
 namespace Content.Server.Chat.Systems
 {
-    public class EntityChat
+    /// <summary>
+    /// Arbitrary data container to be filled by ChatListeners.
+    /// </summary>
+    public class EntityChatData
+    {
+        private Dictionary<Enum, object> _data = new();
+
+        public bool TryGetData<T>(Enum key, [NotNullWhen(true)] out T value)
+        {
+            if (_data.TryGetValue(key, out var objValue) &&
+                objValue is T)
+            {
+                value = (T)objValue;
+                return true;
+            }
+
+            value = default!;
+            return false;
+        }
+
+        public T? GetData<T>(Enum key)
+        {
+            if (_data.TryGetValue(key, out var objValue) &&
+                objValue is T)
+            {
+                return (T)objValue;
+            }
+
+            return default;
+        }
+
+        public bool HasData<T>(Enum key)
+        {
+            return _data.TryGetValue(key, out var objValue) && objValue is T;
+        }
+
+        public bool HasData(Enum key)
+        {
+            return _data.TryGetValue(key, out var _);
+        }
+
+        public void SetData(Enum key, object value)
+        {
+            _data[key] = value;
+        }
+    }
+
+    public class EntityChat : EntityChatData
     {
         /// <summary>
         /// The origin of the chat message.
@@ -12,18 +58,24 @@ namespace Content.Server.Chat.Systems
         public EntityUid Source;
 
         /// <summary>
-        /// The original chat message.
+        /// The chat message.
         /// </summary>
+        /// <remarks>
+        /// May be changed by listeners.
+        /// </remarks>
         public string Message;
 
         /// <summary>
-        /// A dictionary of recipients to arbitrary data objects.
+        /// A dictionary of recipients to objects containing arbitrary data.
         /// </summary>
         /// <remarks>
         /// The objects are passed to the recipients at a later stage of processing.
         /// </remarks>
-        public Dictionary<EntityUid, object> Recipients;
+        public Dictionary<EntityUid, EntityChatData> Recipients = new();
 
+        /// <summary>
+        /// The designated ChatChannel for this message.
+        /// </summary>
         public ChatChannel Channel;
 
         /// <summary>
@@ -34,84 +86,10 @@ namespace Content.Server.Chat.Systems
         /// </remarks>
         public Type? ClaimedBy;
 
-        /// <summary>
-        /// Arbitrary data that may be attached to a chat message.
-        /// </summary>
-        public object? Data;
-
         public EntityChat(EntityUid source, string message)
         {
             Source = source;
             Message = message;
-            Recipients = new();
-        }
-    }
-
-    public class EntityChatSpokenData
-    {
-        /// <summary>
-        /// The source of the radio communication, if any.
-        /// </summary>
-        public EntityUid? RadioSource;
-
-        /// <summary>
-        /// The radio channels that this chat is being transmitted to.
-        /// </summary>
-        public RadioChannelPrototype[]? RadioChannels;
-
-        /// <summary>
-        /// The language used for this chat.
-        /// </summary>
-        public LanguagePrototype? Language;
-
-        /// <summary>
-        /// A distorted version of the message for anyone who does not
-        /// understand the language used.
-        /// </summary>
-        public string? DistortedMessage;
-
-        /// <summary>
-        /// This is a reference to the entity who was speaking.
-        /// This exists so that the EntityChat Source could be a radio, television, etc.
-        /// </summary>
-        public EntityUid? RelayedSpeaker;
-    }
-
-    public class EntityChatSpokenRecipientData
-    {
-        /// <summary>
-        /// The distance from the source.
-        /// </summary>
-        public float Distance;
-
-        /// <summary>
-        /// A message specifically for this recipient.
-        /// </summary>
-        public string? Message;
-
-        /// <summary>
-        /// A wrapped message specifically for this recipient. This is the
-        /// message that will appear in the chat log.
-        /// </summary>
-        public string? WrappedMessage;
-
-        /// <summary>
-        /// An obfuscated version of Message.
-        /// </summary>
-        public string? ObfuscatedMessage;
-
-        /// <summary>
-        /// This is the identity of the source for the recipient.
-        /// </summary>
-        public string? Identity;
-
-        public bool WillHearRadio;
-
-        public RadioChannelPrototype? DominantRadio;
-
-        public EntityChatSpokenRecipientData(float distance)
-        {
-            Distance = distance;
         }
     }
 
@@ -202,9 +180,9 @@ namespace Content.Server.Chat.Systems
     {
         public readonly EntityUid Recipient;
         public EntityChat Chat;
-        public object? RecipientData;
+        public EntityChatData RecipientData;
 
-        public GotEntityChatTransformEvent(EntityUid recipient, EntityChat chat, object? recipientData = null)
+        public GotEntityChatTransformEvent(EntityUid recipient, EntityChat chat, EntityChatData recipientData)
         {
             Recipient = recipient;
             Chat = chat;
@@ -219,9 +197,9 @@ namespace Content.Server.Chat.Systems
     {
         public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
-        public readonly object? RecipientData;
+        public readonly EntityChatData RecipientData;
 
-        public GotEntityChatEvent(EntityUid recipient, EntityChat chat, object? recipientData = null)
+        public GotEntityChatEvent(EntityUid recipient, EntityChat chat, EntityChatData recipientData)
         {
             Recipient = recipient;
             Chat = chat;

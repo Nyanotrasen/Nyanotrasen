@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Shared.Radio;
 
 namespace Content.Server.Language
 {
@@ -38,55 +39,51 @@ namespace Content.Server.Language
             // SayListener et al, rather than the other listeners to explicitly
             // know about Language.
 
-            if (args.Chat.Data is not EntityChatSpokenData spokenData)
+            if (!args.Chat.GetData<bool>(ChatDataSay.IsSpoken))
                 return;
 
-            if (spokenData.Language == null)
-                return;
-
-            if (args.RecipientData is not EntityChatSpokenRecipientData recipientData)
+            if (!args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
                 return;
 
             // TODO: WillNeedWrapper flag set by LanguageListener so we don't
             // have to check all these conditions again?
 
             if (TryComp<LinguisticComponent>(args.Recipient, out var linguisticComponent) &&
-                linguisticComponent.CanUnderstand.Contains(spokenData.Language.ID))
+                linguisticComponent.CanUnderstand.Contains(language.ID))
             {
-                if (linguisticComponent.ChosenLanguage != spokenData.Language)
+                if (linguisticComponent.ChosenLanguage != language)
                 {
                     _sawmill.Debug("understands us");
 
                     if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
                     {
-                        recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-say-language-wrap-message",
+                        args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
                             ("entityName", args.Chat.Source),
                             ("message", args.Chat.Message),
-                            ("language", spokenData.Language.Name));
+                            ("language", language.Name)));
                     }
                     else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
                     {
                         var name = args.Chat.Source;
-                        var channel = recipientData.DominantRadio;
-                        var message = recipientData.Message ?? args.Chat.Message;
-                        var language = spokenData.Language.Name;
+                        var channel = args.RecipientData.GetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel);
+                        var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
 
                         if (channel == null)
                         {
                             // Receiving only the whisper part.
-                            recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-radio-language-wrap-message",
+                            args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-radio-language-wrap-message",
                                 ("entityName", name),
                                 ("message", message),
-                                ("language", language));
+                                ("language", language.Name)));
                         }
                         else
                         {
-                            recipientData.WrappedMessage = Loc.GetString("chat-radio-language-message-wrap",
+                            args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-radio-language-message-wrap",
                                 ("color", channel.Color),
                                 ("channel", $"\\[{channel.LocalizedName}\\]"),
                                 ("name", name),
                                 ("message", message),
-                                ("language", spokenData.Language.Name));
+                                ("language", language.Name)));
                         }
                     }
                 }
@@ -94,39 +91,39 @@ namespace Content.Server.Language
                 return;
             }
 
-            if (spokenData.DistortedMessage == null)
+            if (!args.Chat.TryGetData<string>(ChatDataLanguage.DistortedMessage, out var distortedMessage))
                 return;
 
             _sawmill.Debug("mangles us");
 
             if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
-                recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-say-language-wrap-message",
+                args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
                     ("language", Loc.GetString("chat-manager-unknown-language")),
                     ("entityName", args.Chat.Source),
-                    ("message", spokenData.DistortedMessage));
+                    ("message", distortedMessage)));
             else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
             {
                 var name = args.Chat.Source;
-                var channel = recipientData.DominantRadio;
-                var message = recipientData.Message ?? args.Chat.Message;
-                var language = Loc.GetString("chat-manager-unknown-language");
+                var channel = args.RecipientData.GetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel);
+                var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
+                var unknownLanguage = Loc.GetString("chat-manager-unknown-language");
 
                 if (channel == null)
                 {
                     // Receiving only the whisper part.
-                    recipientData.WrappedMessage = Loc.GetString("chat-manager-entity-radio-language-wrap-message",
+                    args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-radio-language-wrap-message",
                         ("entityName", name),
                         ("message", message),
-                        ("language", language));
+                        ("language", unknownLanguage)));
                 }
                 else
                 {
-                    recipientData.WrappedMessage = Loc.GetString("chat-radio-language-message-wrap",
+                    args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-radio-language-message-wrap",
                         ("color", channel.Color),
                         ("channel", $"\\[{channel.LocalizedName}\\]"),
                         ("name", name),
                         ("message", message),
-                        ("language", language));
+                        ("language", unknownLanguage)));
                 }
             }
         }
