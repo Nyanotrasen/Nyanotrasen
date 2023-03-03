@@ -17,6 +17,19 @@ namespace Content.Server.Language
         DistortedMessage,
     }
 
+    enum ChatRecipientDataLanguage
+    {
+        /// <summary>
+        /// The recipient understands the language used.
+        /// </summary>
+        IsUnderstood,
+
+        /// <summary>
+        /// The recipient is speaking the same language as the speaker.
+        /// </summary>
+        IsSpeakingSameLanguage,
+    }
+
     public sealed class LanguageListener : ChatListenerSystem
     {
         [Dependency] private readonly ChatSystem _chatSystem = default!;
@@ -76,6 +89,8 @@ namespace Content.Server.Language
                 linguisticComponent.CanUnderstand.Contains(language.ID))
             {
                 // The recipient understands us, no mangling needed.
+                args.RecipientData.SetData(ChatRecipientDataLanguage.IsUnderstood, true);
+                args.RecipientData.SetData(ChatRecipientDataLanguage.IsSpeakingSameLanguage, linguisticComponent.ChosenLanguage == language);
                 return;
             }
 
