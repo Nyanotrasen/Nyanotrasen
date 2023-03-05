@@ -2841,3 +2841,11 @@ Entries:
   - {message: 'Added a new vending machine to contain all of the pride items.', type: Add}
   id: 450
   time: '2023-03-04T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Added a seal for the forensic mantis documentation work., type: Add}
+  - {message: Changed the mystagogue's stamp to a signet ring., type: Tweak}
+  - {message: 'Forensic pads now only take up 1 space instead of 3.', type: Tweak}
+  - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
+  id: 451
+  time: '2023-03-05T00:15:08.0000000+00:00'
