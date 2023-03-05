@@ -1,6 +1,5 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Roles;
 using Content.Server.Objectives.Interfaces;
 
 namespace Content.Server.Objectives.Requirements
@@ -8,7 +7,7 @@ namespace Content.Server.Objectives.Requirements
     [DataDefinition]
     public sealed class AdditionalObjectiveRequirement : IObjectiveRequirement
     {
-        [DataField("objective", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<JobPrototype>))]
+        [DataField("objective", required: true, customTypeSerializer:typeof(PrototypeIdSerializer<ObjectivePrototype>))]
         private string _objectiveId = default!;
 
         /// <summary>
