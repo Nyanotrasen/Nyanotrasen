@@ -11,6 +11,8 @@
       roleId: Captain
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: CaptainIDCard
@@ -87,6 +89,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ChiefMedicalOfficer
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: Hypospray
@@ -103,6 +107,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Mystagogue
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: ClothingOuterHardsuitRd
@@ -128,6 +134,8 @@
       roleId: ChiefMedicalOfficer
     - !type:NotRoleRequirement
       roleId: Mystagogue
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: NukeDisk
@@ -143,6 +151,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: HeadOfPersonnel
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: IDComputerCircuitboard
@@ -159,6 +169,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ChiefEngineer
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: ClothingShoesBootsMagAdv
@@ -174,6 +186,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Quartermaster
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: CargoRequestComputerCircuitboard
@@ -190,6 +204,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: WeaponAntiqueLaser
@@ -206,6 +222,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: Captain
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: JetpackCaptainFilled
@@ -220,6 +238,8 @@
         - DieCondition
     - !type:NotRoleRequirement
       roleId: ForensicMantis
+    - !type:AdditionalObjectiveRequirement
+      objective: EscapeShuttleObjective
   conditions:
     - !type:StealCondition
       prototype: AntiPsychicKnife
