@@ -14037,8 +14037,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 15.969111
-      - 60.07428
+      - 15.521976
+      - 58.3922
       - 0
       - 0
       - 0
@@ -14067,8 +14067,8 @@ entities:
     - volume: 2500
       temperature: 235
       moles:
-      - 15.969111
-      - 60.07428
+      - 15.521976
+      - 58.3922
       - 0
       - 0
       - 0
@@ -14082,8 +14082,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 17.89022
-      - 67.30131
+      - 17.389294
+      - 65.41687
       - 0
       - 0
       - 0
@@ -53237,12 +53237,6 @@ entities:
     type: Transform
   - color: '#990000FF'
     type: AtmosPipeColor
-- uid: 5656
-  type: SpawnMobWalter
-  components:
-  - pos: -16.5,11.5
-    parent: 7
-    type: Transform
 - uid: 5657
   type: APCBasic
   components:

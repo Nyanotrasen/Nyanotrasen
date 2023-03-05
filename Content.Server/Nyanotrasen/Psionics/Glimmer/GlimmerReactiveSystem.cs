@@ -184,7 +184,7 @@ namespace Content.Server.Psionics.Glimmer
 
         private void OnDestroyed(EntityUid uid, SharedGlimmerReactiveComponent component, DestructionEventArgs args)
         {
-            Spawn("MaterialBluespace", Transform(uid).Coordinates);
+            Spawn("MaterialBluespace1", Transform(uid).Coordinates);
 
             var tier = _sharedGlimmerSystem.GetGlimmerTier();
             if (tier < GlimmerTier.High)

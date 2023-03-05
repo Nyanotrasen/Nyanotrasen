@@ -102,6 +102,8 @@
     - Binary
     canSpeak:
     - Binary
+  - type: TypingIndicator
+    proto: robot
 
 - type: entity
   parent: MobSiliconBase

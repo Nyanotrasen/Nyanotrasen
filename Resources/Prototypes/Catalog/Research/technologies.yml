@@ -674,9 +674,10 @@
   icon:
     sprite: Nyanotrasen/Objects/Devices/QSI.rsi
     state: icon
-  requiredPoints: 10000
+  requiredPoints: 15000
   requiredTechnologies:
     - SuperPartsTechnology
     - AnomalyTechnology
   unlockedRecipes:
     - QSI
+    - HandTeleporter
