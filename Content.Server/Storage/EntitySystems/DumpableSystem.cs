@@ -105,6 +105,7 @@ namespace Content.Server.Storage.EntitySystems
 
             _doAfterSystem.DoAfter(new DoAfterEventArgs(userUid, delay, target: targetUid, used: storageUid)
             {
+                RaiseOnTarget = false,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
