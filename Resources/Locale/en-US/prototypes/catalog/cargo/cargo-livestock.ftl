@@ -45,3 +45,6 @@ ent-LivestockPenguin = { ent-CrateNPCPenguin }
 
 ent-LivestockSnake = { ent-CrateNPCSnake }
     .desc = { ent-CrateNPCSnake.desc }
+
+ent-LivestockLizard = { ent-CrateNPCLizard }
+    .desc = { ent-CrateNPCLizard.desc }

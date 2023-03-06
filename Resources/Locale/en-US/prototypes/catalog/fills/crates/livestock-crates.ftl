@@ -48,3 +48,6 @@ ent-CrateNPCPig = Pig crate
 
 ent-CrateNPCSnake = Snake crate
     .desc = A crate containing three snakes.
+
+ent-CrateNPCLizard = Lizard crate
+    .desc = A crate containing a lizard.
