@@ -38,7 +38,7 @@ namespace Content.Server.Chat.Commands
                 return;
 
             IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>()
-                .TrySendInGameICMessage(playerEntity, message, InGameICChatType.Emote, false, false, shell, player);
+                .SendInGameICMessage(playerEntity, message, InGameICChatType.Emote, shell, player);
         }
     }
 }
