@@ -40,7 +40,7 @@ namespace Content.Server.Language
         {
             base.Initialize();
 
-            Before = new Type[] { typeof(SayListenerSystem), typeof(RadioListenerSystem) };
+            Before = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(RadioListenerSystem) };
 
             InitializeListeners();
 

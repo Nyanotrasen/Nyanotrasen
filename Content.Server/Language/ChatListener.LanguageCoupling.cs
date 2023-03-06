@@ -62,6 +62,13 @@ namespace Content.Server.Language
                         ("message", message),
                         ("language", language.Name)));
                 }
+                else if (args.Chat.ClaimedBy == typeof(WhisperListenerSystem))
+                {
+                    args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-whisper-language-wrap-message",
+                        ("entityName", name),
+                        ("message", message),
+                        ("language", language.Name)));
+                }
                 else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
                 {
                     var channel = args.RecipientData.GetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel);
@@ -95,6 +102,13 @@ namespace Content.Server.Language
             if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
             {
                 args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
+                    ("entityName", name),
+                    ("message", message),
+                    ("language", unknownLanguage)));
+            }
+            else if (args.Chat.ClaimedBy == typeof(WhisperListenerSystem))
+            {
+                args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-whisper-language-wrap-message",
                     ("entityName", name),
                     ("message", message),
                     ("language", unknownLanguage)));
