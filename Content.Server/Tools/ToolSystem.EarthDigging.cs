@@ -27,8 +27,6 @@ public sealed partial class ToolSystem
 
     private void OnEarthDigComplete(EntityUid uid, EarthDiggingComponent component, EarthDiggingCompleteEvent args)
     {
-        Logger.Error("Received dig event...");
-
         var gridUid = args.Coordinates.GetGridUid(EntityManager);
         if (gridUid == null)
             return;
@@ -44,7 +42,6 @@ public sealed partial class ToolSystem
             return;
         }
 
-        Logger.Error("Digging tile...");
         _tile.DigTile(tile);
     }
 
