@@ -73,7 +73,7 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
             SubscribeLocalEvent<ArachneComponent, DoAfterEvent<WebData>>(OnWebDoAfter);
-            SubscribeLocalEvent<ArachneComponent, DoAfterEvent>(OnCocoonDoAfter);
+            SubscribeLocalEvent<ArachneComponent, DoAfterEvent<CocoonData>>(OnCocoonDoAfter);
         }
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
@@ -317,12 +317,18 @@ namespace Content.Server.Arachne
             if (HasComp<KnockedDownComponent>(target))
                 delay *= component.CocoonKnockdownMultiplier;
 
-            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, target:target)
+            // Is it good practice to use empty data just to disambiguate doafters
+            // Who knows, there's no docs!
+            var data = new CocoonData();
+
+            var args = new DoAfterEventArgs(uid, delay, target:target)
             {
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
                 BreakOnStun = true,
-            });
+            };
+
+            _doAfter.DoAfter(args, data);
         }
 
         private void OnWebDoAfter(EntityUid uid, ArachneComponent component, DoAfterEvent<WebData> args)
@@ -344,7 +350,7 @@ namespace Content.Server.Arachne
             args.Handled = true;
         }
 
-        private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, DoAfterEvent args)
+        private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, DoAfterEvent<CocoonData> args)
         {
             if (args.Handled || args.Cancelled || args.Args.Target == null)
                 return;
@@ -383,6 +389,12 @@ namespace Content.Server.Arachne
         {
             public EntityCoordinates Coords = Coords;
         }
+
+        /// <summary>
+        /// Experimenting if we can disambiguate like this...
+        /// </summary>
+        private record struct CocoonData()
+        {}
     }
     public sealed class SpinWebActionEvent : WorldTargetActionEvent {}
 }

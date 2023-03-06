@@ -1,3 +1,4 @@
+using System.Threading;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Tools;
 
@@ -17,4 +18,9 @@ public sealed class EarthDiggingComponent : Component
     [ViewVariables]
     [DataField("delay")]
     public float Delay = 2f;
+
+    /// <summary>
+    /// Used for do_afters.
+    /// </summary>
+    public CancellationTokenSource? CancelToken = null;
 }

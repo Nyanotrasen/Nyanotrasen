@@ -43,7 +43,7 @@ namespace Content.Server.Chapel
             base.Initialize();
             SubscribeLocalEvent<SacrificialAltarComponent, GetVerbsEvent<AlternativeVerb>>(AddSacrificeVerb);
             SubscribeLocalEvent<SacrificialAltarComponent, BuckleChangeEvent>(OnBuckleChanged);
-            SubscribeLocalEvent<SacrificialAltarComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<SacrificialAltarComponent, DoAfterEvent<SacrificeData>>(OnDoAfter);
         }
 
         private void AddSacrificeVerb(EntityUid uid, SacrificialAltarComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -82,14 +82,14 @@ namespace Content.Server.Chapel
                 component.CancelToken.Cancel();
         }
 
-        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, DoAfterEvent<SacrificeData> args)
         {
             component.SacrificeStingStream?.Stop();
+            component.CancelToken?.Cancel();
+            component.CancelToken = null;
 
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
-
-            component.CancelToken?.Cancel();
 
             // note: we checked this twice in case they could have gone SSD in the doafter time.
             if (!TryComp<ActorComponent>(args.Args.Target.Value, out var actor))
@@ -197,13 +197,20 @@ namespace Content.Server.Chapel
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
             component.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient, used: altar)
+
+            var data = new SacrificeData();
+            var args = new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient, used: altar)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfterSystem.DoAfter(args, data);
         }
+
+        private record struct SacrificeData()
+        {};
     }
 }

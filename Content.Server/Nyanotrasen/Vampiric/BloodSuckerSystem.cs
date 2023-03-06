@@ -37,7 +37,7 @@ namespace Content.Server.Vampiric
             SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuccVerb);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<BloodSuckerComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<BloodSuckerComponent, DoAfterEvent<BloodSuckData>>(OnDoAfter);
         }
 
         private void AddSuccVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
@@ -83,7 +83,7 @@ namespace Content.Server.Vampiric
             }
         }
 
-        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, DoAfterEvent<BloodSuckData> args)
         {
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
@@ -140,7 +140,8 @@ namespace Content.Server.Vampiric
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
-            _doAfter.DoAfter(new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, target: victim)
+            var data = new BloodSuckData();
+            var args = new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, target: victim)
             {
                 RaiseOnTarget = false,
                 RaiseOnUser = true,
@@ -149,7 +150,9 @@ namespace Content.Server.Vampiric
                 DistanceThreshold = 2f,
                 BreakOnStun = true,
                 NeedHand = false
-            });
+            };
+
+            _doAfter.DoAfter(args, data);
         }
 
         public bool TrySucc(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
@@ -211,5 +214,8 @@ namespace Content.Server.Vampiric
             }
             return true;
         }
+
+        private record struct BloodSuckData()
+        {}
     }
 }

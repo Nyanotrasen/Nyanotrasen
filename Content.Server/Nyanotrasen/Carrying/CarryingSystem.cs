@@ -1,5 +1,5 @@
-using System.Threading;
 using Content.Server.DoAfter;
+using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Hands.Components;
 using Content.Server.Resist;
@@ -41,6 +41,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+        [Dependency] private readonly RespiratorSystem _respirator = default!;
 
         public override void Initialize()
         {
@@ -58,7 +59,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
             SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
-            SubscribeLocalEvent<CarriableComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<CarriableComponent, DoAfterEvent<CarryData>>(OnDoAfter);
         }
 
 
@@ -81,7 +82,6 @@ namespace Content.Server.Carrying
 
             if (args.User == args.Target)
                 return;
-
 
             AlternativeVerb verb = new()
             {
@@ -193,9 +193,15 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent<CarryData> args)
         {
-            if (args.Handled || args.Cancelled || args.Args.Target == null || !CanCarry(args.Args.User, args.Args.Target.Value, component))
+            if (args.Handled || args.Cancelled)
+                return;
+
+            if (!TryComp<CarriableComponent>(args.Args.Target, out var targetCarry))
+                return;
+
+            if (!CanCarry(args.Args.User, args.Args.Target.Value, targetCarry))
                 return;
 
             Carry(args.Args.User, args.Args.Target.Value);
@@ -219,13 +225,18 @@ namespace Content.Server.Carrying
             if (!HasComp<KnockedDownComponent>(carried))
                 length *= 2f;
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, target: carried)
+            var data = new CarryData();
+            var args = new DoAfterEventArgs(carrier, length, target: carried)
             {
+                RaiseOnUser = true,
+                RaiseOnTarget = false,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfterSystem.DoAfter(args, data);
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)
@@ -279,13 +290,16 @@ namespace Content.Server.Carrying
 
         public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
         {
-            if (!Resolve(carried, ref carriedComp))
+            if (!Resolve(carried, ref carriedComp, false))
                 return false;
 
             if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
                 return false;
 
-            if (HasComp<BeingCarriedComponent>(carrier))
+            if (HasComp<BeingCarriedComponent>(carrier) || HasComp<BeingCarriedComponent>(carried))
+                return false;
+
+            if (_respirator.IsReceivingCPR(carried))
                 return false;
 
             if (!TryComp<HandsComponent>(carrier, out var hands))
@@ -296,5 +310,8 @@ namespace Content.Server.Carrying
 
             return true;
         }
+
+        private record struct CarryData()
+        {}
     }
 }

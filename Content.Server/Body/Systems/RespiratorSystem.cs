@@ -54,7 +54,7 @@ namespace Content.Server.Body.Systems
             // We want to process lung reagents before we inhale new reagents.
             UpdatesAfter.Add(typeof(MetabolizerSystem));
             SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent<CPRData>>(OnDoAfter);
         }
 
         public override void Update(float frameTime)
@@ -233,9 +233,10 @@ namespace Content.Server.Body.Systems
                 component.AccumulatedFrametime = component.CycleDelay;
         }
 
-        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent<CPRData> args)
         {
             component.CPRPlayingStream?.Stop();
+            component.IsReceivingCPR = false;
 
             if (args.Handled || args.Cancelled)
                 return;
@@ -270,6 +271,9 @@ namespace Content.Server.Body.Systems
             if (!_blocker.CanInteract(user, uid))
                 return;
 
+            if (component.IsReceivingCPR)
+                return;
+
             if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outer))
             {
                 _popupSystem.PopupEntity(Loc.GetString("cpr-must-remove", ("clothing", outer)), uid, user, Shared.Popups.PopupType.MediumCaution);
@@ -285,8 +289,11 @@ namespace Content.Server.Body.Systems
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", Identity.Entity(uid, EntityManager))), uid, user, Shared.Popups.PopupType.Medium);
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", Identity.Entity(user, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
 
+            component.IsReceivingCPR = true;
             component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
-            _doAfter.DoAfter(new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), target:uid)
+
+            var data = new CPRData();
+            var args = new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), target:uid)
             {
                 RaiseOnUser = false,
                 RaiseOnTarget = true,
@@ -295,8 +302,24 @@ namespace Content.Server.Body.Systems
                 BreakOnDamage = true,
                 BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfter.DoAfter(args, data);
         }
+
+        /// <summary>
+        /// Used mostly to prevent doafter conflicts on entities with a metric fuckton of doafters.
+        /// </summary>
+        public bool IsReceivingCPR(EntityUid uid, RespiratorComponent? component = null)
+        {
+            if (!Resolve(uid, ref component, false))
+                return false;
+
+            return component.IsReceivingCPR;
+        }
+
+        private record struct CPRData()
+        {}
     }
 }
 

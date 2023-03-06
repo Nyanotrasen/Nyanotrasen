@@ -12,20 +12,22 @@ public sealed partial class ToolSystem
     private void InitializeEarthDigging()
     {
         SubscribeLocalEvent<EarthDiggingComponent, AfterInteractEvent>(OnEarthDiggingAfterInteract);
-        SubscribeLocalEvent<EarthDiggingCompleteEvent>(OnEarthDigComplete);
-        SubscribeLocalEvent<EarthDiggingCancelledEvent>(OnEarthDigCancelled);
+        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCompleteEvent>(OnEarthDigComplete);
+        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCancelledEvent>(OnEarthDigCancelled);
     }
 
-    private void OnEarthDigCancelled(EarthDiggingCancelledEvent args)
+    private void OnEarthDigCancelled(EntityUid uid, EarthDiggingComponent component, EarthDiggingCancelledEvent args)
     {
-        if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
-            return;
+        if (component.CancelToken != null)
+        {
+            component.CancelToken.Cancel();
+            component.CancelToken = null;
+        }
     }
 
-    private void OnEarthDigComplete(EarthDiggingCompleteEvent args)
+    private void OnEarthDigComplete(EntityUid uid, EarthDiggingComponent component, EarthDiggingCompleteEvent args)
     {
-        if (!TryComp<EarthDiggingComponent>(args.Shovel, out var component))
-            return;
+        Logger.Error("Received dig event...");
 
         var gridUid = args.Coordinates.GetGridUid(EntityManager);
         if (gridUid == null)
@@ -42,6 +44,7 @@ public sealed partial class ToolSystem
             return;
         }
 
+        Logger.Error("Digging tile...");
         _tile.DigTile(tile);
     }
 
@@ -82,9 +85,10 @@ public sealed partial class ToolSystem
 
         var token = new CancellationTokenSource();
 
-        var toolEvData = new ToolEventData(new EarthDiggingCompleteEvent(coordinates, shovel), targetEntity:shovel);
+        var toolEvData = new ToolEventData(new EarthDiggingCompleteEvent(clickLocation, shovel), cancelledEv:new EarthDiggingCancelledEvent() ,targetEntity:shovel);
 
-        UseTool(shovel, user, null, component.Delay, new[] { component.QualityNeeded }, toolEvData);
+        if (!UseTool(shovel, user, null, component.Delay, new[] { component.QualityNeeded }, toolEvData, toolComponent: tool, cancelToken: component.CancelToken))
+            return false;
 
         return true;
     }
