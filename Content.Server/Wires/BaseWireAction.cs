@@ -102,15 +102,20 @@ public abstract class BaseWireAction : IWireAction
         if (!Random.Prob(ShockChance))
             return false;
 
-        var player = EntityManager.ToPrettyString(user);
-        var owner = EntityManager.ToPrettyString(wire.Owner);
-        var name = Loc.GetString(Name);
-        var color = wire.Color.Name();
-        var action = GetType().Name;
+        var shocked = ElectrocutionSystem.TryDoElectrocution(user, wire.Owner, ShockDamage, ShockStunTime, false);
 
-        _adminLogger.Add(LogType.WireHacking, LogImpact.Medium, $"{player} shocked by {owner} when {verb} {color} {name} wire ({action})");
+        if (shocked)
+        {
+            var player = EntityManager.ToPrettyString(user);
+            var owner = EntityManager.ToPrettyString(wire.Owner);
+            var name = Loc.GetString(Name);
+            var color = wire.Color.Name();
+            var action = GetType().Name;
 
-        return ElectrocutionSystem.TryDoElectrocution(user, wire.Owner, ShockDamage, ShockStunTime, false);
+            _adminLogger.Add(LogType.WireHacking, LogImpact.Medium, $"{player} shocked by {owner} when {verb} {color} {name} wire ({action})");
+        }
+
+        return shocked;
     }
 
     private bool Log(EntityUid user, Wire wire, string verb)
