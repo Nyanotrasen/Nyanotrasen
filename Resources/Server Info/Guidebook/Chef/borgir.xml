@@ -1,17 +1,7 @@
 <Document>
 # Burgers
 
-<Box Orientation="Vertical">
-	[color=#a4885c]Bun[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- Dough slice
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBreadBun" Caption=""/>
-</Box>
-- All burgers need a bun along with everything else!
+- All burgers need a [color=#a4885c]Bun[/color] along with everything else!
 
 <Box Orientation="Vertical">
 	[color=#a4885c]Cheeseburger[/color]
