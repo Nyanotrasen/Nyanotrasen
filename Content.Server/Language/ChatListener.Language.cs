@@ -86,7 +86,8 @@ namespace Content.Server.Language
             _sawmill.Debug("here we are");
 
             if (TryComp<LinguisticComponent>(args.Recipient, out var linguisticComponent) &&
-                linguisticComponent.CanUnderstand.Contains(language.ID))
+                (linguisticComponent.BypassUnderstanding ||
+                linguisticComponent.CanUnderstand.Contains(language.ID)))
             {
                 // The recipient understands us, no mangling needed.
                 args.RecipientData.SetData(ChatRecipientDataLanguage.IsUnderstood, true);

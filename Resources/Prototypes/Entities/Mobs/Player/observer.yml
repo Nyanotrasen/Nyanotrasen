@@ -56,3 +56,9 @@
     baseSprintSpeed: 8
     baseWalkSpeed: 5
   - type: MovementIgnoreGravity
+  - type: Linguistic
+    canSpeak:
+    - Basic
+    canUnderstand:
+    - Basic
+    bypassUnderstanding: true

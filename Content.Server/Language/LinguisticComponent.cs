@@ -35,6 +35,13 @@ namespace Content.Server.Language
         public LanguagePrototype? ChosenLanguage = null;
 
         /// <summary>
+        /// Can this entity understand all languages?
+        /// </summary>
+        [ViewVariables]
+        [DataField("bypassUnderstanding")]
+        public bool BypassUnderstanding = false;
+
+        /// <summary>
         /// What will this entity sound like when not understood by others in a
         /// language with an UnintelligibleSoundsDistorter?
         /// </summary>
