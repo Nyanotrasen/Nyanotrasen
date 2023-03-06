@@ -604,3 +604,14 @@
   materials:
     Cloth: 300
     Durathread: 300
+
+- type: latheRecipe
+  id: ClothingOuterCoatBomber
+  icon:
+    sprite: Clothing/OuterClothing/Coats/bomber.rsi
+    state: icon
+  result: ClothingOuterCoatBomber
+  completetime: 3.2
+  materials:
+    Cloth: 200
+    Durathread: 300
