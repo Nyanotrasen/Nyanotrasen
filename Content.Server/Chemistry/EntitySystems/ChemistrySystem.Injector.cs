@@ -8,12 +8,13 @@ using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Robust.Shared.GameStates;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
+using Content.Shared.Tag;
 using Content.Shared.Popups;
+using Robust.Shared.GameStates;
+using Robust.Server.GameObjects;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
@@ -69,6 +70,15 @@ public sealed partial class ChemistrySystem
 
     private void UseInjector(EntityUid target, EntityUid user, EntityUid injector, InjectorComponent component)
     {
+        if (_entMan.TryGetComponent<TagComponent>(target, out var tag))
+        {
+            if (tag.Tags.Contains("HardsuitOn"))
+            {
+                _popup.PopupEntity(Loc.GetString("injector-component-failure-hardsuit"), target, user, PopupType.MediumCaution);
+                return;
+            }
+        }
+
         // Handle injecting/drawing for solutions
         if (component.ToggleState == SharedInjectorComponent.InjectorToggleMode.Inject)
         {
@@ -171,7 +181,7 @@ public sealed partial class ChemistrySystem
 
     private void OnInjectorStartup(EntityUid uid, InjectorComponent component, ComponentStartup args)
     {
-        // ???? why ?????
+        // Necessary for the Client-side InjectorStatusControl to get the appropriate Volume values.
         Dirty(component);
     }
 

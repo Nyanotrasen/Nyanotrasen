@@ -4,8 +4,8 @@ using Content.Shared.Inventory;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared.DoAfter;
+using Content.Shared.Forensics;
 using Content.Shared.IdentityManagement;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.Forensics
 {
@@ -17,7 +17,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-
+        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -111,6 +111,8 @@ namespace Content.Server.Forensics
 
             padComponent.Sample = args.AdditionalData.Sample;
             padComponent.Used = true;
+
+            _appearanceSystem.SetData(uid, ForensicPadVisuals.IsUsed, true);
 
             args.Handled = true;
         }
