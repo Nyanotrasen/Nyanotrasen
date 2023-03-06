@@ -83,8 +83,6 @@ namespace Content.Server.Language
             /*     return; */
             /* } */
 
-            _sawmill.Debug("here we are");
-
             if (TryComp<LinguisticComponent>(args.Recipient, out var linguisticComponent) &&
                 (linguisticComponent.BypassUnderstanding ||
                 linguisticComponent.CanUnderstand.Contains(language.ID)))
@@ -94,8 +92,6 @@ namespace Content.Server.Language
                 args.RecipientData.SetData(ChatRecipientDataLanguage.IsSpeakingSameLanguage, linguisticComponent.ChosenLanguage == language);
                 return;
             }
-
-            _sawmill.Debug("here we are, misunderstood");
 
             if (language.Distorter == null)
             {
@@ -116,7 +112,6 @@ namespace Content.Server.Language
             }
 
             args.RecipientData.SetData(ChatRecipientDataSay.Message, distortedMessage);
-            _sawmill.Debug("we have been mangled");
         }
     }
 }

@@ -50,8 +50,6 @@ namespace Content.Server.Language
 
             if (args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsUnderstood))
             {
-                _sawmill.Debug("understands us");
-
                 if (args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsSpeakingSameLanguage))
                     return;
 
@@ -94,8 +92,6 @@ namespace Content.Server.Language
 
                 return;
             }
-
-            _sawmill.Debug("mangles us");
 
             var unknownLanguage = Loc.GetString("chat-manager-unknown-language");
 
