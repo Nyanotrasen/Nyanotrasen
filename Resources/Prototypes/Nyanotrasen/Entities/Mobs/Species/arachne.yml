@@ -78,7 +78,11 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
-  - type: Humanoid
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: HumanoidAppearance
     species: Arachne
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.

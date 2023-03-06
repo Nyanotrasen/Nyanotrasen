@@ -102,6 +102,11 @@ namespace Content.Server.Fugitive
             if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
                 return;
 
+            if (component.FirstMindAdded)
+                return;
+
+            component.FirstMindAdded = true;
+
             var mind = mindComponent.Mind;
 
             mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(FugitiveRole)));
@@ -202,7 +207,7 @@ namespace Content.Server.Fugitive
             report.PushNewline();
 
 
-            if (!TryComp<HumanoidComponent>(uid, out var humanoidComponent) ||
+            if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidComponent) ||
                 !_prototypeManager.TryIndex<SpeciesPrototype>(humanoidComponent.Species, out var species))
             {
                 report.AddMarkup(Loc.GetString("fugitive-report-inhuman", ("name", uid)));

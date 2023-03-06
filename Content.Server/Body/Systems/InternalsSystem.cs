@@ -11,6 +11,7 @@ using Content.Shared.Verbs;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
 using System.Threading;
+using Content.Shared.ActionBlocker;
 
 namespace Content.Server.Body.Systems;
 
@@ -24,6 +25,7 @@ public sealed class InternalsSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
 
     public override void Initialize()
     {
@@ -62,6 +64,9 @@ public sealed class InternalsSystem : EntitySystem
         {
             return;
         }
+
+        if (_actionBlocker.CanInteract(user, uid) == false)
+            return;
 
         // Toggle off if they're on
         if (AreInternalsWorking(internals))

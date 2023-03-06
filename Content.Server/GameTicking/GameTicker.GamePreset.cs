@@ -61,6 +61,8 @@ namespace Content.Server.GameTicking
                     return false;
                 }
 
+                _resetFromFallback = true;
+
                 RefreshLateJoinAllowed();
             }
             else
@@ -155,7 +157,7 @@ namespace Content.Server.GameTicking
             if (playerEntity != null && viaCommand)
                 _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
 
-            var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
+            var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal, viaCommand);
             RaiseLocalEvent(handleEv);
 
             // Something else has handled the ghost attempt for us! We return its result.
@@ -182,6 +184,9 @@ namespace Content.Server.GameTicking
             var position = playerEntity is {Valid: true}
                 ? Transform(playerEntity.Value).Coordinates
                 : GetObserverSpawnPoint();
+
+            if (position == default)
+                return false;
 
             // Ok, so, this is the master place for the logic for if ghosting is "too cheaty" to allow returning.
             // There's no reason at this time to move it to any other place, especially given that the 'side effects required' situations would also have to be moved.
@@ -245,11 +250,13 @@ namespace Content.Server.GameTicking
         public Mind.Mind Mind { get; }
         public bool CanReturnGlobal { get; }
         public bool Result { get; set; }
+        public bool ViaCommand { get; set; }
 
-        public GhostAttemptHandleEvent(Mind.Mind mind, bool canReturnGlobal)
+        public GhostAttemptHandleEvent(Mind.Mind mind, bool canReturnGlobal, bool viaCommand)
         {
             Mind = mind;
             CanReturnGlobal = canReturnGlobal;
+            ViaCommand = viaCommand;
         }
     }
 }

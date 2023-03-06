@@ -102,6 +102,11 @@ namespace Content.Client.Disease.UI
             Locked = locked;
         }
 
+        public void UpdateServerConnection(bool hasServer)
+        {
+            ServerSyncButton.Disabled = !hasServer;
+        }
+
         private void HandleAmountChanged(object? sender, ValueChangedEventArgs args)
         {
             UpdateCost(CostPer);

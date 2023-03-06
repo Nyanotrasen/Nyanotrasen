@@ -33,6 +33,9 @@ namespace Content.Server.Disease
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly PaperSystem _paperSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
+        [Dependency] private readonly VaccineSystem _vaccineSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -265,8 +268,8 @@ namespace Content.Server.Disease
             if (!TryComp<AppearanceComponent>(uid, out var appearance))
                 return;
 
-            appearance.SetData(DiseaseMachineVisuals.IsOn, isOn);
-            appearance.SetData(DiseaseMachineVisuals.IsRunning, isRunning);
+            _appearance.SetData(uid, DiseaseMachineVisuals.IsOn, isOn, appearance);
+            _appearance.SetData(uid, DiseaseMachineVisuals.IsRunning, isRunning, appearance);
         }
         /// <summary>
         /// Makes sure the machine is visually off/on.
@@ -357,6 +360,17 @@ namespace Content.Server.Disease
             MetaData(printed).EntityName = reportTitle;
 
             _paperSystem.SetContent(printed, contents.ToMarkup(), paper);
+
+            // Update the UI for all DiseaseVaccineCreators on the station so
+            // players watching for the vaccine to be available see it as soon
+            // as possible.
+            foreach (var creator in EntityQuery<DiseaseVaccineCreatorComponent>())
+            {
+                if (_stationSystem.GetOwningStation(creator.Owner) != _stationSystem.GetOwningStation(uid))
+                    continue;
+
+                _vaccineSystem.UpdateUserInterfaceState(creator.Owner, creator);
+            }
         }
 
         /// <summary>

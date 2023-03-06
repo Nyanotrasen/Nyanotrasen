@@ -127,7 +127,8 @@ public sealed partial class GunSystem
     {
         if (!TryComp<BatteryComponent>(uid, out var battery)) return;
 
-        battery.CurrentCharge -= component.FireCost;
+        if (!component.Infinite)
+            battery.CurrentCharge -= component.FireCost;
         UpdateShots(component, battery);
     }
 }

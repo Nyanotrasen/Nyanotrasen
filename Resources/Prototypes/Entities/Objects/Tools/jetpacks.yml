@@ -68,6 +68,11 @@
     - type: Appearance
     - type: DynamicPrice
       price: 100
+    - type: ReverseEngineering
+      generic: true
+      difficulty: 3
+      recipes:
+        - JetpackBlue
 
 #Empty blue
 - type: entity
@@ -184,6 +189,10 @@
       outputPressure: 42.6
       air:
         volume: 4
+    - type: ReverseEngineering
+      difficulty: 2
+      recipes:
+        - JetpackMini
 
 # Filled mini
 - type: entity
@@ -216,6 +225,7 @@
     sprite: Objects/Tanks/Jetpacks/security.rsi
     slots:
       - Back
+
 
 #Filled security
 - type: entity

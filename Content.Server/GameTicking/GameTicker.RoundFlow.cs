@@ -47,6 +47,13 @@ namespace Content.Server.GameTicking
         [ViewVariables]
         private bool _startingRound;
 
+        /// <summary>
+        /// If we failed to start a game mode, and fell back to the fallback gamemode,
+        /// we'll give the next round another try at the default gamemode.
+        /// </summary>
+        [ViewVariables]
+        private bool _resetFromFallback;
+
         [ViewVariables]
         private GameRunLevel _runLevel;
 
@@ -403,6 +410,12 @@ namespace Content.Server.GameTicking
                     _roundStartCountdownHasNotStartedYetDueToNoPlayers = true;
                 else
                     _roundStartTime = _gameTiming.CurTime + LobbyDuration;
+
+                if (_resetFromFallback)
+                {
+                    SetGamePreset(_cfg.GetCVar(CCVars.GameLobbyDefaultPreset));
+                    _resetFromFallback = false;
+                }
 
                 SendStatusToAll();
 

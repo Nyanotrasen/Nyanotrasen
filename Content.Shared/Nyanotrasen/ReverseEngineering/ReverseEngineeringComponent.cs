@@ -23,6 +23,13 @@ public sealed partial class ReverseEngineeringComponent : Component
     public readonly int Difficulty = 1;
 
     /// <summary>
+    /// Used to mark whether this entity intentionally lets its children use its recipe.
+    /// e.g. all jetpacks unlock the same jetpack recipe. Used for tests.
+    /// </summary>
+    [DataField("generic")]
+    public bool Generic = false;
+
+    /// <summary>
     /// A new item that should be given back by the reverse engineering machine instead of this one.
     /// E.g., NT aligned versions of syndicate items.
     /// </summary>

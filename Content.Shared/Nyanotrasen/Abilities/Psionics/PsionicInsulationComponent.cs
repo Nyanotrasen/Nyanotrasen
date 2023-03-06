@@ -4,5 +4,7 @@ namespace Content.Shared.Abilities.Psionics
     public sealed class PsionicInsulationComponent : Component
     {
         public bool Passthrough = false;
+
+        public List<String> SuppressedFactions = new();
     }
 }

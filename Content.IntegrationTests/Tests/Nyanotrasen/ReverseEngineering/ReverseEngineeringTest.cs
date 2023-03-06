@@ -38,7 +38,7 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                             Assert.IsTrue(prototypeManager.TryIndex<LatheRecipePrototype>(recipe, out var recipeProto),
                                 "Could not index lathe recipe " + recipe + " for reverse engineering component on entity prototype " + proto.ID);
 
-                            if (rev.NewItem == null)
+                            if (rev.NewItem == null && !rev.Generic)
                             {
                                 Assert.IsTrue(recipeProto?.Result == proto.ID,
                                     "Reverse engineering " + proto.ID + " results in a different entity: " + recipeProto?.Result);

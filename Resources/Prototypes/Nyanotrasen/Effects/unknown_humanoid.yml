@@ -1,0 +1,15 @@
+# Client entity that drones will see in place of humanoids.
+# Using an entity instead of just a shader will ensure that the drone can't find any way to get information out of the actual entity since it's not displayed to them.
+- type: entity
+  id: EffectUnknownHumanoid
+  name: unknown humanoid
+  description: Ignore.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Effects/unknown_humanoid.rsi
+    drawDepth: Mobs
+    netsync: false
+    noRot: true
+    layers:
+    - state: unknown_humanoid
+      shader: unshaded

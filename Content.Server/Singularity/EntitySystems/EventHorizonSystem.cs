@@ -11,6 +11,7 @@ using Content.Server.Ghost.Components;
 using Content.Server.Station.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.Events;
+using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.Singularity.EntitySystems;
 
@@ -43,6 +44,7 @@ public sealed class EventHorizonSystem : SharedEventHorizonSystem
 
         SubscribeLocalEvent<MapGridComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<GhostComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
+        SubscribeLocalEvent<TelegnosticProjectionComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<StationDataComponent, EventHorizonAttemptConsumeEntityEvent>(PreventConsume);
         SubscribeLocalEvent<EventHorizonComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<EventHorizonComponent, EntGotInsertedIntoContainerMessage>(OnEventHorizonContained);

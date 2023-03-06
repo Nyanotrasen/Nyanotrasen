@@ -136,7 +136,11 @@ public class RedialManager
             return;
         }
 
-        if (status.PlayerCount < Math.Round((float) status.SoftMaxPlayerCount * 0.93))
+        // Current playercount standards:
+        // 1. At least 3 players (we don't want to redirect people to a literally empty server, but we'll help seed)
+        // 2. Less than 93% full when rounded (that number works well with all the common player limits)
+        if (status.PlayerCount < Math.Round((float) status.SoftMaxPlayerCount * 0.93)
+            && status.PlayerCount >= 3)
         {
             _validServers.Add(address);
         } else

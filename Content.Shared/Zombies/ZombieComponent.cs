@@ -1,7 +1,9 @@
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using static Content.Shared.Humanoid.HumanoidAppearanceState;
 
 namespace Content.Shared.Zombies
 {
@@ -60,5 +62,10 @@ namespace Content.Shared.Zombies
         /// </summary>
         [DataField("zombieRoleId", customTypeSerializer: typeof(PrototypeIdSerializer<AntagPrototype>))]
         public readonly string ZombieRoleId = "Zombie";
+
+        [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
+        public string? EmoteSoundsId = "Zombie";
+
+        public EmoteSoundsPrototype? EmoteSounds;
     }
 }

@@ -152,6 +152,14 @@ namespace Content.Server.NPC.Systems
             }
         }
 
+        public bool ContainsFaction(EntityUid uid, string faction, FactionComponent? factions = null)
+        {
+            if (!Resolve(uid, ref factions, false))
+                return false;
+
+            return factions.Factions.Contains(faction);
+        }
+
         public IEnumerable<EntityUid> GetNearbyHostiles(EntityUid entity, float range, FactionComponent? component = null)
         {
             if (!Resolve(entity, ref component, false))

@@ -2234,3 +2234,618 @@ Entries:
     type: Add}
   id: 343
   time: '2023-01-27T00:44:05.0000000+00:00'
+- author: QuizzyQuin
+  changes:
+  - {message: Added two new end round clips, type: Add}
+  id: 344
+  time: '2023-01-27T05:54:46.0000000+00:00'
+- author: ODJ
+  changes:
+  - {message: Track 4, type: Add}
+  id: 345
+  time: '2023-01-27T08:35:07.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Telegnostic Projections are no longer consumed by the Singularity.,
+    type: Fix}
+  id: 346
+  time: '2023-01-27T19:15:39.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Changed many outer-layer clothes to withstand cold temperatures., type: Tweak}
+  id: 347
+  time: '2023-01-27T19:42:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Lots of bugfixes and refactors. Be sure to report any
+      regressions., type: Add}
+  id: 348
+  time: '2023-01-27T19:48:03.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Completely overhauled Ovni's Epistemics and air alarms., type: Tweak}
+  id: 349
+  time: '2023-01-27T19:48:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: I think I've tracked down the main mind swap regression from the past
+      2 weeks and fixed it., type: Fix}
+  id: 350
+  time: '2023-01-27T20:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: We'll only redirect to servers with at least 3 players on., type: Tweak}
+  id: 351
+  time: '2023-01-27T22:33:47.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Players can no longer unbuckle or toggle internals while dead or in
+      critical condition, type: Fix}
+  id: 352
+  time: '2023-01-27T22:36:29.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Drones are back with a new overlay and some of their old law enforcement
+      mechanics tweaked. Fifth time is the charm? Don''t make me disable them again.',
+    type: Add}
+  - {message: Drone interaction blocker is predicted., type: Fix}
+  id: 353
+  time: '2023-01-28T01:13:28.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added Sake and Soju bottles and glasses. Kanpai!, type: Add}
+  id: 354
+  time: '2023-01-28T04:08:18.0000000+00:00'
+- author: router
+  changes:
+  - {message: Added more triggers to the emoting system., type: Tweak}
+  id: 355
+  time: '2023-01-28T04:37:09.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The unknown humanoids drone see should look a bit better., type: Fix}
+  id: 356
+  time: '2023-01-28T18:57:37.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Drone restrictions only apply to items and mobs, not structures.',
+    type: Fix}
+  id: 357
+  time: '2023-01-28T22:20:30.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: 'Removed most small salvages from rotation. If you''re interested in
+      working on the brand new salvage set, check our mapping channel.', type: Remove}
+  id: 358
+  time: '2023-01-28T22:31:26.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The station's automated PA system has been upgraded., type: Add}
+  id: 359
+  time: '2023-01-30T04:41:17.0000000+00:00'
+- author: Debug
+  changes:
+  - {message: Fixed Moth and Felinid screams using the wrong sound, type: Fix}
+  id: 360
+  time: '2023-01-30T18:18:40.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Screams should no longer double., type: Fix}
+  id: 361
+  time: '2023-01-30T21:21:51.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Their killer feature for this weekend is headset encryption
+      keys., type: Add}
+  id: 362
+  time: '2023-01-30T21:24:07.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Jetpacks and syndicate encryption keys can be reverse engineered., type: Add}
+  - {message: Fixed the draw depth for the reverse engineering machine., type: Fix}
+  id: 363
+  time: '2023-01-30T22:04:59.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Did a pass on all of the N.E.I.L. voice lines after player feedback.,
+    type: Add}
+  id: 364
+  time: '2023-01-30T22:05:16.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Bluespace crystals can be recovered from deconstruction., type: Fix}
+  id: 365
+  time: '2023-01-30T23:31:42.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Added a corridor between Salvage and Cargo on Ovni, type: Tweak}
+  id: 366
+  time: '2023-01-31T00:33:11.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: Rebalanced angry critters!, type: Tweak}
+  id: 367
+  time: '2023-01-31T00:38:50.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Scrubber backpressure now comes out of scrubbers instead of vents, type: Fix}
+  id: 368
+  time: '2023-01-31T01:33:57.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: a bunch of lights from pebble, type: Remove}
+  id: 369
+  time: '2023-01-31T18:10:41.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Fixed cold clothing not protecting against cold; also scarves protect
+      against cold now., type: Fix}
+  id: 370
+  time: '2023-01-31T18:56:51.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Primates from the metempsychtoic machine can emote again., type: Fix}
+  id: 371
+  time: '2023-01-31T23:00:28.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Remastered all N.E.I.L. announcements., type: Tweak}
+  id: 372
+  time: '2023-02-01T01:02:13.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Removed windup from melee weapons., type: Remove}
+  - {message: Heavy attacks now cost more stamina., type: Add}
+  id: 373
+  time: '2023-02-01T02:08:07.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: The mail carrier can now get a winter coat from the MailDrobe., type: Add}
+  - {message: 'Added two new types of winter coats, available in the mail and from
+      the ClothesMate.', type: Add}
+  - {message: Freed the soul of the Discount Dan's vending machine sprite., type: Fix}
+  id: 374
+  time: '2023-02-03T19:09:20.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged Emisse's salvage updates from upstream., type: Add}
+  id: 375
+  time: '2023-02-04T22:47:38.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: Added a winter coat for the forensic mantis., type: Add}
+  id: 376
+  time: '2023-02-05T06:59:40.0000000+00:00'
+- author: Huvy
+  changes:
+  - {message: Added an entirely new outfit for the forensic mantis., type: Add}
+  id: 377
+  time: '2023-02-05T08:36:05.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Trying to refill a lit welder feels impossibly stupid now, type: Tweak}
+  id: 378
+  time: '2023-02-05T17:02:49.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The forensic mantis' extra headset is now a proper mantis headset instead
+      of a regular epistemics headset., type: Fix}
+  - {message: The forensic mantis' cabinet has been made more resilient to intrusion.,
+    type: Tweak}
+  - {message: 'The forensic mantis'' cabinet now holds all of the mantis'' gear, including
+      the anti-psychic knife.', type: Add}
+  - {message: The Forensics Drobe has been retired., type: Remove}
+  id: 379
+  time: '2023-02-05T17:03:15.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: The Vaccinator's UI will now update as soon as a vaccine is available.,
+    type: Tweak}
+  - {message: Fixed the Vaccinator not connecting to a server on startup., type: Fix}
+  id: 380
+  time: '2023-02-05T19:53:57.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Merged the bugfix from upstream for voice masks., type: Add}
+  id: 381
+  time: '2023-02-05T20:43:04.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Unlit welders are ATEX certified again. Lit welders are definitely not.,
+    type: Fix}
+  id: 382
+  time: '2023-02-06T14:33:56.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Felinids and moths can laugh with sound again., type: Fix}
+  id: 383
+  time: '2023-02-07T09:20:03.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Be sure to report any regressions on GitHub or Discord.,
+    type: Add}
+  id: 384
+  time: '2023-02-07T22:25:50.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Cats will eventually rip the mouse toy apart when they play with it.,
+    type: Add}
+  id: 385
+  time: '2023-02-07T23:45:12.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: TC costs+general rebalance for certain uplink items, type: Tweak}
+  id: 386
+  time: '2023-02-07T23:45:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Glimmer from anomalies has been reduced to more manageable levels.,
+    type: Tweak}
+  - {message: The anomaly spawn event is slightly less common., type: Tweak}
+  id: 387
+  time: '2023-02-07T23:45:46.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Restored the oni naming scheme that got accidentally removed at some
+      point., type: Fix}
+  id: 388
+  time: '2023-02-08T00:09:17.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Probers will ignore mobs like pAIs that are immune to electrocution.,
+    type: Tweak}
+  id: 389
+  time: '2023-02-08T00:20:57.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Added a Space Law Quick Reference to the Guidebook, type: Add}
+  id: 390
+  time: '2023-02-08T00:34:42.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs no longer get to cheat and attack inside containers., type: Fix}
+  id: 391
+  time: '2023-02-08T00:50:33.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Oracle will accept its last requested item again., type: Fix}
+  id: 392
+  time: '2023-02-08T08:08:56.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed an issue that was causing several regressions., type: Fix}
+  id: 393
+  time: '2023-02-08T22:01:53.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Heavy attack damage multiplier and stamina cost from 2.0/3.0 to 1.1/2.0.,
+    type: Tweak}
+  id: 394
+  time: '2023-02-09T02:30:45.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: Added 10 new salvage maps from the remains of Atlas Station, type: Add}
+  id: 395
+  time: '2023-02-09T02:31:27.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added 15% damage variance., type: Add}
+  id: 396
+  time: '2023-02-09T02:32:28.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added glimmer wisps., type: Add}
+  id: 397
+  time: '2023-02-09T02:32:41.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Ectoplasm can be used to create normality crystals. Check the psionics
+      guidebook page for details., type: Add}
+  - {message: Glimmer wisps and revenants drop ectoplasm., type: Add}
+  id: 398
+  time: '2023-02-10T00:58:22.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: Added new map Hammurabi Prison Station!, type: Add}
+  id: 399
+  time: '2023-02-10T02:24:05.0000000+00:00'
+- author: DEATHB4DEFEAT
+  changes:
+  - {message: Add a moth plushie., type: Add}
+  id: 400
+  time: '2023-02-10T03:56:45.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added a bunch of behavior to wisps., type: Add}
+  - {message: Fixed a bunch of instances of NPCs getting stuck. The reason it was
+      broken I am actually mad the guy that broke NPCs for the past 5 months had the
+      gall to call me a shitcoder., type: Fix}
+  id: 401
+  time: '2023-02-10T04:09:12.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs should be a little less laggy looking and still get "most" of the
+      improvements to not getting stuck., type: Fix}
+  id: 402
+  time: '2023-02-10T05:54:10.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Added a new damage type: holy.', type: Add}
+  - {message: All bibles deal holy damage in combat mode., type: Add}
+  - {message: Psionic insulation will now suppress your faction., type: Add}
+  - {message: Changed the way all current spirits / familiars / demons etc handle
+      damage., type: Tweak}
+  - {message: Changed several missing or strange behaviors with the glimmer wisp.,
+    type: Tweak}
+  id: 403
+  time: '2023-02-10T21:58:36.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: You can grind soul crystals into ectoplasm., type: Add}
+  id: 404
+  time: '2023-02-11T00:12:49.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: added Holy Water, type: Add}
+  id: 405
+  time: '2023-02-11T01:50:17.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Wisp spawn location should be a bit more varied., type: Tweak}
+  - {message: Fixed golem faction., type: Fix}
+  - {message: Anti-psychic knife should be better against wisps and even against non-psychic
+      demons etc., type: Tweak}
+  id: 406
+  time: '2023-02-11T03:09:25.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Ban messages should appear again when you connect. Report any further
+      issues., type: Fix}
+  id: 407
+  time: '2023-02-11T21:29:12.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Diagnostic hud shows the health of inorganic lifeforms, type: Add}
+  - {message: Engineering techfab can make a diagnostic hud with robotics tech, type: Add}
+  id: 408
+  time: '2023-02-12T04:43:31.0000000+00:00'
+- author: Nousagi37
+  changes:
+  - {message: 'Bolas have been added to the SecTech, and also the Nonlethal crate
+      from Cargo.', type: Add}
+  id: 409
+  time: '2023-02-12T05:01:02.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Proofread Guidebook and made the text a bit more colourful., type: Tweak}
+  id: 410
+  time: '2023-02-12T05:01:40.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Fixed moth's left leg position., type: Fix}
+  id: 411
+  time: '2023-02-13T17:14:13.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Added moth laugh and a rare moth musician plushie., type: Add}
+  id: 412
+  time: '2023-02-13T22:26:57.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed basically all issues with the ghost role UI and redialing., type: Fix}
+  id: 413
+  time: '2023-02-13T23:15:55.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Items that can be reverse engineered say so when examined., type: Add}
+  id: 414
+  time: '2023-02-13T23:28:00.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs will give up on paths that don't seem to be working out., type: Fix}
+  id: 415
+  time: '2023-02-13T23:28:19.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Changed ectoplasm reagent in dropped ectoplasm from 10 to 25., type: Tweak}
+  id: 416
+  time: '2023-02-14T01:31:22.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added another fun glimmer event!, type: Add}
+  id: 417
+  time: '2023-02-14T01:31:35.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: NPCs should stop getting stuck on railings., type: Fix}
+  id: 418
+  time: '2023-02-14T04:22:20.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream. Be sure to report any new bugs or regressions!, type: Add}
+  id: 419
+  time: '2023-02-14T22:27:52.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Greatly improved medibot behavior., type: Fix}
+  - {message: 'Inaprovaline now works based off of whether the mob is crit or not,
+      rather than 100 damage.', type: Tweak}
+  id: 420
+  time: '2023-02-15T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rewote cleanbots., type: Fix}
+  - {message: New glimmer event will not select spawn locations off-station., type: Fix}
+  - {message: Reverted the upstream decision to make mice weigh 20 kilograms., type: Fix}
+  - {message: Cleanbots are now ghost roles., type: Add}
+  - {message: Cleanbots now fit under doors., type: Add}
+  id: 421
+  time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added a round-end report for survival mode., type: Add}
+  id: 422
+  time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Holy water now works against wisps and revenants when sprayed., type: Add}
+  - {message: Holy water spray damage increased., type: Tweak}
+  - {message: 'Revenant no longer scales infinitely, but has a reasonable essence cap.', type: Tweak}
+  - {message: Revenant's essence loss now is in line with its new resistances., type: Tweak}
+  id: 423
+  time: '2023-02-16T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: You can no longer print normality crystals., type: Remove}
+  - {message: Passive glimmer values have been changed so the average round will have 2000 less glimmer., type: Tweak}
+  - {message: 'Spacetime technology has been split into one for teleportation, and one for bluespace.', type: Tweak}
+  id: 424
+  time: '2023-02-17T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added a recipe for chicken nuggets., type: Add}
+  id: 425
+  time: '2023-02-17T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added hit sounds to guitars., type: Add}
+  id: 426
+  time: '2023-02-18T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Starting rations have much more variety. Trade!, type: Add}
+  id: 427
+  time: '2023-02-18T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Fixed several issues with door bolts and deconstruction., type: Fix}
+  id: 428
+  time: '2023-02-20T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Fixed hypospray displaying 0 volume., type: Fix}
+  id: 429
+  time: '2023-02-21T00:15:08.0000000+00:00'
+- author: Colin-Tel and Hyenh
+  changes:
+  - {message: Added several new posters., type: Add}
+  id: 430
+  time: '2023-02-21T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged upstream., type: Add}
+  id: 431
+  time: '2023-02-21T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Buckets won't try to equip when you drink from them., type: Fix}
+  - {message: Fixed issue with mind swapping nukies, fugis, etc., type: Fix}
+  - {message: Fixed error spam issue with health overlay bars., type: Fix}
+  - {message: Bluespace crystals can stack to 5., type: Tweak}
+  id: 432
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Fixed wire hacking., type: Fix}
+  id: 433
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Updated Angle., type: Add}
+  id: 434
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: Guess-My-Name
+  changes:
+  - {message: Oracle will no longer ask for bags of holding., type: Fix}
+  id: 435
+  time: '2023-02-22T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added stack visuals for bluespace crystals., type: Add}
+  id: 436
+  time: '2023-02-23T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added several new posters featuring safety moth., type: Add}
+  id: 437
+  time: '2023-02-23T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Increased cost of bags of holding., type: Tweak}
+  - {message: Removed orb of compromise., type: Remove}
+  id: 438
+  time: '2023-02-23T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Fixed skeleton and arachne coloring issues., type: Fix}
+  - {message: Removed starting hand teleporter., type: Remove}
+  - {message: Hand teleporter recipe is unlocked at teleportation technology., type: Add}
+  id: 439
+  time: '2023-02-24T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Moth sprites have been re-ported from /tg/station and should render as intended., type: Fix}
+  id: 440
+  time: '2023-02-24T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Fixed guitar hit sounds being too loud., type: Fix}
+  id: 441
+  time: '2023-02-28T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: The game will keep trying to start the default gamemode in subsequent rounds where it fails to start due to pop., type: Add}
+  - {message: Building switches requires cables too., type: Tweak}
+  - {message: Small bots use the robot typing indicator sprite.., type: Fix}
+  - {message: Oracle will no longer request hand teleporters., type: Fix}
+  id: 442
+  time: '2023-02-28T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added 10 new drinks., type: Add}
+  id: 443
+  time: '2023-03-01T00:15:08.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: Burning yourself on lightbulbs now has a cooldown and deals less damage., type: Tweak}
+  id: 444
+  time: '2023-03-02T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Rats do not trigger door deny sounds when they walk under them., type: Fix}
+  id: 445
+  time: '2023-03-02T00:15:08.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: 'Updated Arena, Hammurabi, and Tortuga.', type: Add}
+  id: 446
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added 3 new asteroid salvages experimenting with further randomization., type: Add}
+  - {message: Totally designed Shoukou's medical department layout., type: Add}
+  id: 447
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: Added a new painting., type: Add}
+  id: 448
+  time: '2023-03-03T00:15:08.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: 'Shuttle walls and windows are constructible. This means you can repair meteor damage to the cargo shuttle, etc.', type: Add}
+  id: 449
+  time: '2023-03-04T00:15:08.0000000+00:00'
+- author: Dorragon
+  changes:
+  - {message: 'Added a new vending machine to contain all of the pride items.', type: Add}
+  id: 450
+  time: '2023-03-04T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Added a seal for the forensic mantis documentation work., type: Add}
+  - {message: Changed the mystagogue's stamp to a signet ring., type: Tweak}
+  - {message: 'Forensic pads now only take up 1 space instead of 3.', type: Tweak}
+  - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
+  id: 451
+  time: '2023-03-05T00:15:08.0000000+00:00'

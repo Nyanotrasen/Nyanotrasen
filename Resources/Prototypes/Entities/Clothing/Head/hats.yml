@@ -239,6 +239,20 @@
     sprite: Clothing/Head/Hats/redwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -250,6 +264,8 @@
     sprite: Clothing/Head/Hats/santahat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/santahat.rsi
+  - type: TemperatureProtection
+    coefficient: 0.33
 
 - type: entity
   parent: ClothingHeadBase
@@ -316,6 +332,8 @@
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
   - type: AddAccentClothing
     accent: RussianAccent
 
@@ -329,6 +347,20 @@
     sprite: Clothing/Head/Hats/violetwizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -373,6 +405,20 @@
     sprite: Clothing/Head/Hats/wizardhat.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/wizardhat.rsi
+  - type: Item
+    size: 10
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+  - type: IngestionBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: DiseaseProtection
+    protection: 0.05
+  - type: IdentityBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -399,8 +445,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateBlack
-  name: syndicate black pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: black pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
@@ -410,8 +456,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicatePink
-  name: syndicate pink pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: pink pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
@@ -421,8 +467,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateRed
-  name: syndicate red pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: red pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi

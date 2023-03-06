@@ -6,10 +6,7 @@
   components:
   - type: PDA
     id: MailCarrierIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-mailcarrier
+    state: pda-mailcarrier
   - type: Icon
     state: pda-mailcarrier
 
@@ -28,10 +25,7 @@
   components:
   - type: PDA
     id: ForensicMantisIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-detective
+    state: pda-detective
   - type: Icon
     state: pda-detective
 
@@ -43,10 +37,7 @@
   components:
   - type: PDA
     id: EpistemicsIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-science
+    state: pda-science
   - type: Icon
     state: pda-science
 
@@ -58,10 +49,7 @@
   components:
   - type: PDA
     id: MystaIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-rd
+    state: pda-rd
   - type: Icon
     state: pda-rd
 
@@ -73,10 +61,7 @@
   components:
   - type: PDA
     id: ParamedicIDCard
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-genetics
+    state: pda-genetics
   - type: Icon
     state: pda-genetics
   - type: HealthAnalyzer
@@ -88,14 +73,11 @@
   name: prisoner PDA
   description: Clear, so you can make sure there's nothing being smuggled inside.
   components:
-  - type: Appearance
-    visuals:
-      - type: PDAVisualizer
-        state: pda-clear
-  - type: Icon
-    state: pda-clear
   - type: PDA
     id: PrisonerIDCard
+    state: pda-clear
+  - type: Icon
+    state: pda-clear
 
 - type: entity
   parent: PrisonerPDA
@@ -113,10 +95,7 @@
   components:
   - type: PDA
     id: ValetIDCard
-  - type: Appearance
-    visuals:
-    - type: PDAVisualizer
-      state: pda-internservice
+    state: pda-internservice
   - type: Icon
     state: pda-internservice
 
@@ -129,8 +108,18 @@
   - type: PDA
     id: CataloguerIDCard
   - type: Appearance
-    visuals:
-    - type: PDAVisualizer
-      state: pda-library
+    state: pda-library
   - type: Icon
     state: pda-library
+    
+- type: entity
+  parent: BasePDA
+  id: GuardPDA
+  name: guard PDA
+  description: Red to hide the stains of prisoner blood.
+  components:
+  - type: PDA
+    id: GuardIDCard
+    state: pda-security
+  - type: Icon
+    state: pda-guard

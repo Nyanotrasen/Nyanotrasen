@@ -7,6 +7,9 @@ ent-CrateServiceReplacementLights = Replacement lights crate
 ent-CrateMousetrapBoxes = Mousetraps crate
     .desc = Mousetraps, for when all of service is being haunted by an entire horde of rats. Use sparingly... or not.
 
+ent-CrateHolyWaterKit = DIY holy water crate
+    .desc = For when undeads or vampires becomes a real problem and you'd rather keep them at bay.
+
 ent-CrateServiceSmokeables = Smokeables crate
     .desc = Tired of a quick death on the station? Order this crate and chain-smoke your way to a coughy demise!
 

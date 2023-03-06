@@ -11,6 +11,7 @@
           steps:
             - material: Plasteel
               amount: 5
+              doAfter: 8
             - material: Cable
               amount: 5
 
@@ -21,36 +22,9 @@
           conditions:
             - !type:EntityAnchored {}
           steps:
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
-            - tag: BluespaceCrystal
-              icon:
-                sprite: Nyanotrasen/Objects/Materials/materials.rsi
-                state: bluespace
-              name: a bluespace crystal
-              doAfter: 1
+            - material: Bluespace
+              amount: 5
+              doAfter: 10
             - tool: Welding
               doAfter: 5
         - to: glimmerDrain

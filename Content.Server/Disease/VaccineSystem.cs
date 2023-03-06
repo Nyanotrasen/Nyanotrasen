@@ -32,13 +32,17 @@ namespace Content.Server.Disease
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchRegistrationChangedEvent>(OnResearchRegistrationChanged);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, CreateVaccineMessage>(OnCreateVaccineMessageReceived);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, DiseaseMachineFinishedEvent>(OnVaccinatorFinished);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, MaterialAmountChangedEvent>(OnVaccinatorAmountChanged);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchClientServerSelectedMessage>(OnServerSelected);
+            SubscribeLocalEvent<DiseaseVaccineCreatorComponent, ResearchClientServerDeselectedMessage>(OnServerDeselected);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, VaccinatorSyncRequestMessage>(OnSyncRequest);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, VaccinatorServerSelectionMessage>(OpenServerList);
             SubscribeLocalEvent<DiseaseVaccineCreatorComponent, AfterActivatableUIOpenEvent>(AfterUIOpen);
@@ -51,6 +55,14 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<TargetVaxxSuccessfulEvent>(OnTargetVaxxSuccessful);
             SubscribeLocalEvent<VaxxCancelledEvent>(OnVaxxCancelled);
 
+        }
+
+        private void OnResearchRegistrationChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref ResearchRegistrationChangedEvent args)
+        {
+            if (TryComp<DiseaseServerComponent>(args.Server, out var diseaseServer))
+                component.DiseaseServer = diseaseServer;
+            else
+                component.DiseaseServer = null;
         }
 
         /// <summary>
@@ -131,15 +143,19 @@ namespace Content.Server.Disease
 
         private void OnServerSelected(EntityUid uid, DiseaseVaccineCreatorComponent component, ResearchClientServerSelectedMessage args)
         {
-            var server = _research.GetServerById(args.ServerId);
-
-            if (server == null)
+            if (!_research.TryGetServerById(args.ServerId, out var serverUid, out var serverComponent))
                 return;
 
-            if (!TryComp<DiseaseServerComponent>(server.Owner, out var diseaseServer))
+            if (!TryComp<DiseaseServerComponent>(serverUid, out var diseaseServer))
                 return;
 
             component.DiseaseServer = diseaseServer;
+            UpdateUserInterfaceState(uid, component);
+        }
+
+        private void OnServerDeselected(EntityUid uid, DiseaseVaccineCreatorComponent component, ResearchClientServerDeselectedMessage args)
+        {
+            component.DiseaseServer = null;
             UpdateUserInterfaceState(uid, component);
         }
 
@@ -180,6 +196,7 @@ namespace Content.Server.Disease
             var biomass = _storageSystem.GetMaterialAmount(uid, "Biomass");
 
             var diseases = new List<(string id, string name)>();
+            var hasServer = false;
 
             if (component.DiseaseServer != null)
             {
@@ -190,12 +207,13 @@ namespace Content.Server.Disease
 
                     diseases.Add((disease.ID, disease.Name));
                 }
+
+                hasServer = true;
             }
-            var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid));
+
+            var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid), hasServer);
             _uiSys.SetUiState(ui, state);
         }
-
-
 
         /// <summary>
         /// Called when a vaccine is used on someone
@@ -303,6 +321,7 @@ namespace Content.Server.Disease
         {
             args.Vaxx.CancelToken = null;
         }
+
         /// These two are standard doafter stuff you can ignore
         private sealed class VaxxCancelledEvent : EntityEventArgs
         {
@@ -312,6 +331,7 @@ namespace Content.Server.Disease
                 Vaxx = vaxx;
             }
         }
+
         private sealed class TargetVaxxSuccessfulEvent : EntityEventArgs
         {
             public EntityUid User { get; }

@@ -105,8 +105,8 @@
   name: action-name-noospheric-zap
   description: action-description-noospheric-zap
   icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
-  # useDelay: 120
-  range: 4
+  useDelay: 100
+  range: 5
   serverEvent: !type:NoosphericZapPowerActionEvent
 
 - type: entityTargetAction
@@ -126,14 +126,6 @@
   icon: { sprite: Nyanotrasen/Structures/web.rsi, state: web1 }
   range: 1.5
   serverEvent: !type:SpinWebActionEvent
-
-- type: instantAction
-  id: RFSensitivity
-  name: action-name-rf-sensitivity
-  description: action-desc-rf-sensitivity
-  icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
-  useDelay: 3
-  serverEvent: !type:RFSensitivityPowerActionEvent
 
 - type: instantAction
   id: HairballAction

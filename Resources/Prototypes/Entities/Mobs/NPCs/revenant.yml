@@ -18,6 +18,9 @@
     sprite: Mobs/Ghosts/revenant.rsi
     layers:
     - state: active
+  - type: Reactive
+    groups:
+      Acidic: [Touch] #Holy water
   - type: Clickable
   - type: StatusEffects
     allowed:
@@ -37,7 +40,8 @@
   - type: HeatResistance
   - type: MovementIgnoreGravity
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Appearance
   - type: Examiner
   - type: NoSlip

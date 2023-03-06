@@ -21,6 +21,9 @@
   - type: Access
     tags:
     - Chapel
+  - type: Damageable
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Mind
     showExamineInfo: true
   - type: Alerts
@@ -32,6 +35,10 @@
     prototype: VampiricAnimal
   - type: Psionic
     removable: false
+  - type: Faction
+    factions:
+    - PsionicInterloper
+    - NanoTrasen
 
 - type: entity
   name: Cerberus
@@ -56,9 +63,6 @@
         Slash: 7
   - type: InputMover
   - type: MobMover
-  - type: Faction
-    factions:
-    - SimpleNeutral
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-corrupted-corgi
@@ -85,3 +89,7 @@
   - type: Dispellable
   - type: Psionic
     removable: false
+  - type: Faction
+    factions:
+    - PsionicInterloper
+    - SimpleNeutral

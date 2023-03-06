@@ -21,11 +21,11 @@
         Asphyxiation: -1.5
   - type: Alerts
   - type: Vocal
-    maleScream:
-      collection: FelinidScreams
-    femaleScream:
-      collection: FelinidScreams
     wilhelm: "/Audio/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
   - type: Actions
   - type: Eye
   - type: CameraRecoil

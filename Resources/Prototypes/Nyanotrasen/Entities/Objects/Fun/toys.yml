@@ -1,0 +1,47 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieMoff
+  name: moth plushie
+  description: A cute little moff you can hold in the palm of your hand!
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
+    state: moff
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/scream_moth.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: UseDelay
+    delay: 2
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieMoffsician
+  name: mothsician plushie
+  description: A rare plushie depicting an adorable mothperson with a tiny synthesizer and tiny glasses.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Toys/moffsician.rsi
+    state: moffsician
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/scream_moth.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+  - type: UseDelay
+    delay: 2

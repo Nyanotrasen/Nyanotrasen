@@ -29,11 +29,14 @@ namespace Content.Server.Weapons.Melee
 
             float coefficient = 1.0f;
 
-            if (TryComp(uid, out WieldableComponent? wieldableComponent) && wieldableComponent.Wielded)
-                coefficient = component.WieldCoefficient;
+            if (args.HeavyAttack == true)
+                coefficient = component.HeavyStaminaCostModifier;
 
             // We can see if it's a swing or a hit by checking if there are any HitEntities.
             float staminaDamage = coefficient * (component.SwingCost + (args.HitEntities.Any() ? component.HitCost : 0f));
+            if (TryComp(uid, out WieldableComponent? wieldableComponent) && wieldableComponent.Wielded)
+                staminaDamage -= component.WieldModifier;
+
             float meleeCostLimit = staminaComponent.CritThreshold * staminaComponent.MeleeCostLimitFactor;
 
             // Avoid GetStaminaDamage: it uses some time-based prediction calculation.

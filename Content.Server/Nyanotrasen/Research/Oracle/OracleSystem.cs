@@ -65,10 +65,11 @@ namespace Content.Server.Research.Oracle
             "MobTomatoKiller",
             "Drone",
             "QSI",
+            "HandTeleporter",
             "BluespaceBeaker",
-            "BackpackOfHolding",
-            "SatchelOfHolding",
-            "DuffelbagOfHolding",
+            "ClothingBackpackHolding",
+            "ClothingBackpackSatchelHolding",
+            "ClothingBackpackDuffelHolding",
             "TrashBagOfHolding",
             "BluespaceCrystal",
             "InsulativeHeadcage",
@@ -181,7 +182,7 @@ namespace Content.Server.Research.Oracle
 
             var nextItem = true;
 
-            if (component.LastDesiredPrototype != null && CheckValidity(meta.EntityPrototype, component.DesiredPrototype))
+            if (component.LastDesiredPrototype != null && CheckValidity(meta.EntityPrototype, component.LastDesiredPrototype))
             {
                 nextItem = false;
                 validItem = true;
@@ -205,7 +206,7 @@ namespace Content.Server.Research.Oracle
 
             while (i != 0)
             {
-                EntityManager.SpawnEntity("MaterialBluespace", Transform(args.User).Coordinates);
+                EntityManager.SpawnEntity("MaterialBluespace1", Transform(args.User).Coordinates);
                 i--;
             }
 

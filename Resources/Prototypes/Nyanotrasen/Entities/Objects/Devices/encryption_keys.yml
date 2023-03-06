@@ -1,0 +1,15 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyMantis
+  name: mantis encryption key
+  description: An encryption key used by the mantis. Epi and Sec? What a peculiar role...
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Science
+    - Security
+    defaultChannel: Science
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    state: sci_cypherkey

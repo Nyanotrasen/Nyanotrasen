@@ -26,7 +26,7 @@
   id: ClothingOuterApronChef
   name: apron
   suffix: Chef
-  description: An apron-jacket used by a high class chef.
+  description: An apron used by a high class chef.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/apronchef.rsi
@@ -43,6 +43,8 @@
     sprite: Clothing/OuterClothing/Misc/chef.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chef.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
 
 - type: entity
   parent: ClothingOuterBase
@@ -54,6 +56,8 @@
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -65,6 +69,8 @@
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -89,6 +95,8 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.3
 
 - type: entity
   parent: ClothingOuterBase
@@ -144,6 +152,8 @@
     sprite: Clothing/OuterClothing/Misc/santa.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/santa.rsi
+  - type: TemperatureProtection
+    coefficient: 0.33
 
 - type: entity
   parent: ClothingOuterBase
@@ -161,7 +171,7 @@
 
 # Is this wizard wearing a fanny pack???
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase
   id: ClothingOuterWizardViolet
   name: violet wizard robes
   description: A bizarre gem-encrusted violet robe that radiates magical energies.
@@ -172,7 +182,7 @@
     sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase
   id: ClothingOuterWizard
   name: wizard robes
   description: A bizarre gem-encrusted blue robe that radiates magical energies.
@@ -183,7 +193,7 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterEVASuitBase
   id: ClothingOuterWizardRed
   name: red wizard robes
   description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.

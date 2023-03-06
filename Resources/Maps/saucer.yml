@@ -30540,14 +30540,6 @@ entities:
   - pos: 26.5,-16.5
     parent: 67
     type: Transform
-- uid: 3601
-  type: VendingMachineForensicsDrobe
-  components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 16.5,-2.5
-    parent: 67
-    type: Transform
 - uid: 3602
   type: GasPipeBend
   components:
@@ -31540,12 +31532,6 @@ entities:
   type: DrinkGrapeCan
   components:
   - pos: 9.869757,-5.202921
-    parent: 67
-    type: Transform
-- uid: 3743
-  type: DrinkCarafe
-  components:
-  - pos: 12.14059,-7.2676277
     parent: 67
     type: Transform
 - uid: 3744

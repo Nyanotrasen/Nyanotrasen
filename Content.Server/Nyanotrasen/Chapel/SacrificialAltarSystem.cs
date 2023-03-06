@@ -107,7 +107,7 @@ namespace Content.Server.Chapel
 
             while (i > 0)
             {
-                Spawn("MaterialBluespace", Transform(args.Altar).Coordinates);
+                Spawn("MaterialBluespace1", Transform(args.Altar).Coordinates);
                 i--;
             }
 
@@ -167,7 +167,7 @@ namespace Content.Server.Chapel
             }
 
             // and no golems or familiars or whatever should be sacrificing
-            if (!HasComp<HumanoidComponent>(agent))
+            if (!HasComp<HumanoidAppearanceComponent>(agent))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-user-humanoid"), altar, agent, Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -179,7 +179,7 @@ namespace Content.Server.Chapel
                 return;
             }
 
-            if (!HasComp<HumanoidComponent>(patient) && !HasComp<MetempsychosisKarmaComponent>(patient))
+            if (!HasComp<HumanoidAppearanceComponent>(patient) && !HasComp<MetempsychosisKarmaComponent>(patient))
             {
                 _popups.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", patient)), altar, agent, Shared.Popups.PopupType.SmallCaution);
                 return;

@@ -15,6 +15,9 @@ public sealed class NPCRangedCombatComponent : Component
     [ViewVariables]
     public CombatStatus Status = CombatStatus.Normal;
 
+    [ViewVariables]
+    public bool CanMove = true;
+
     // Most of the below is to deal with turrets.
 
     /// <summary>

@@ -6,7 +6,8 @@
   id: RandomHumanoidSpawnerERTLeader
   name: ERT leader
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertleader
     - type: RandomMetadata
@@ -38,7 +39,8 @@
   name: ERT leader
   suffix: EVA
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertleadereva
     - type: RandomHumanoidSpawner
@@ -61,7 +63,8 @@
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT janitor
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertjanitor
     - type: RandomMetadata
@@ -91,7 +94,8 @@
   name: ERT janitor
   suffix: EVA
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertjanitoreva
     - type: RandomHumanoidSpawner
@@ -114,7 +118,8 @@
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT engineer
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertengineer
     - type: RandomMetadata
@@ -144,7 +149,8 @@
   name: ERT engineer
   suffix: EVA
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertengineereva
     - type: RandomHumanoidSpawner
@@ -167,7 +173,8 @@
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT security
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertsecurity
     - type: RandomMetadata
@@ -197,7 +204,8 @@
   name: ERT security
   suffix: EVA
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertsecurityeva
     - type: RandomHumanoidSpawner
@@ -220,7 +228,8 @@
   parent: RandomHumanoidSpawnerERTLeader
   name: ERT medic
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertmedical
     - type: RandomMetadata
@@ -250,7 +259,8 @@
   name: ERT medic
   suffix: EVA
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: ertmedicaleva
     - type: RandomHumanoidSpawner
@@ -272,7 +282,8 @@
   id: RandomHumanoidSpawnerCBURNUnit
   name: CBURN Agent
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: cburn
     - type: RandomHumanoidSpawner
@@ -298,7 +309,8 @@
   name: CentCom official
   id: RandomHumanoidSpawnerCentcomOfficial
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Markers/jobs.rsi
       state: centcom
     - type: RandomHumanoidSpawner
@@ -319,7 +331,8 @@
   id: RandomHumanoidSpawnerSyndicateAgent
   name: Syndicate Agent
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomMetadata
@@ -339,7 +352,8 @@
   id: RandomHumanoidSpawnerNukeOp
   name: Nuclear Operative
   components:
-    - type: Icon
+    - type: Sprite
+      netsync: false
       sprite: Mobs/Species/Human/parts.rsi
       state: full
     - type: RandomHumanoidSpawner

@@ -32,12 +32,15 @@
 - type: startingGear
   id: ForensicMantisGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBlue
+    jumpsuit: ClothingUniformJumpsuitMantis
     back: ClothingBackpackMantisFilled
-    shoes: ClothingShoesColorBlue
-    head: ClothingHeadHatFez
+    shoes: ClothingShoesBootsMantis
+    head: ClothingHeadHatFezMantis
     id: ForensicMantisPDA
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetMantis
+    gloves: ClothingHandsGlovesColorWhite
+    outerClothing: ClothingOuterCoatMantis
+    belt: ClothingBeltMantis
     pocket2: ForensicScanner
-  innerclothingskirt: ClothingUniformJumpskirtColorBlue
+  innerclothingskirt: ClothingUniformSkirtMantis

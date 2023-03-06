@@ -274,7 +274,6 @@
     - ShellSoulbreaker
     - CartridgePistolRubber
     - CartridgeMagnumRubber
-    - CartridgeCaselessRifleRubber
     - CartridgeLightRifleRubber
     - CartridgeRifleRubber
     - ShockCollar
@@ -553,6 +552,24 @@
   - ReverseEngineeringMachineCircuitboard
 
 - type: technology
+  name: technologies-super-parts-technology
+  id: SuperPartsTechnology
+  description: technologies-super-parts-technology-description
+  icon:
+    sprite: Objects/Misc/stock_parts.rsi
+    state: super_capacitor
+  requiredPoints: 20000
+  requiredTechnologies:
+  - AdvancedPartsTechnology
+  - CompactPowerTechnology
+  unlockedRecipes:
+  - SuperCapacitorStockPart
+  - SuperMatterBinStockPart
+  - UltraHighPowerMicroLaserStockPart
+  - PicoManipulatorStockPart
+  - PhasicScanningModuleStockPart
+
+- type: technology
   name: technologies-robotics-technology
   id: RoboticsTechnology
   description: technologies-robotics-technology-description
@@ -568,6 +585,7 @@
   - RightArmBorg
   - Drone
   - ExosuitFabricatorMachineCircuitboard
+  - ClothingEyesHudDiagnostic
 
 # Entertainment Technology Tree
 
@@ -632,23 +650,34 @@
   - TraversalDistorterMachineCircuitboard
 
 - type: technology
-  name: technologies-space-time-technology
-  id: SpaceTimeTechnology
-  description: technologies-space-time-technology-description
+  name: technologies-bluespace-technology
+  id: BluespaceTechnology
+  description: technologies-bluespace-technology-description
   icon:
-    sprite: Nyanotrasen/Objects/Devices/QSI.rsi
-    state: icon
-  requiredPoints: 20000
+    sprite: Nyanotrasen/Objects/Materials/materials.rsi
+    state: bluespace
+  requiredPoints: 15000
   requiredTechnologies:
-    - CompactPowerTechnology
-    - AdvancedPartsTechnology
-    - ArchaeologicalEquipment
+    - SuperPartsTechnology
     - AnomalyTechnology
   unlockedRecipes:
-    - QSI
     - BluespaceBeaker
     - BackpackOfHolding
     - SatchelOfHolding
     - DuffelbagOfHolding
     - TrashBagOfHolding
-    - NormalityCrystal
+
+- type: technology
+  name: technologies-teleportation-technology
+  id: TeleportationTechnology
+  description: technologies-teleporation-technology-description
+  icon:
+    sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+    state: icon
+  requiredPoints: 15000
+  requiredTechnologies:
+    - SuperPartsTechnology
+    - AnomalyTechnology
+  unlockedRecipes:
+    - QSI
+    - HandTeleporter
