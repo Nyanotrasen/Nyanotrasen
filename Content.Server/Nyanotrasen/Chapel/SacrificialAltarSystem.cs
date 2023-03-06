@@ -1,4 +1,6 @@
+using System.Threading;
 using Content.Shared.Verbs;
+using Content.Shared.DoAfter;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Body.Components;
 using Content.Shared.Psionics.Glimmer;
@@ -8,7 +10,6 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
-using Content.Shared.DoAfter;
 using Content.Server.Bible.Components;
 using Content.Server.Stunnable;
 using Content.Server.DoAfter;
@@ -47,7 +48,7 @@ namespace Content.Server.Chapel
 
         private void AddSacrificeVerb(EntityUid uid, SacrificialAltarComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanAccess || !args.CanInteract)
+            if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -77,14 +78,18 @@ namespace Content.Server.Chapel
 
         private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
         {
-            if (component.DoAfter != null)
-                _doAfterSystem.Cancel(uid, component.DoAfter);
+            if (component.CancelToken != null)
+                component.CancelToken.Cancel();
         }
 
         private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, DoAfterEvent args)
         {
-            if (args.Handled || args.Cancelled || args.Args.Target == null || args.Args.Used == null)
+            component.SacrificeStingStream?.Stop();
+
+            if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
+
+            component.CancelToken?.Cancel();
 
             // note: we checked this twice in case they could have gone SSD in the doafter time.
             if (!TryComp<ActorComponent>(args.Args.Target.Value, out var actor))
@@ -95,7 +100,7 @@ namespace Content.Server.Chapel
             if (!_prototypeManager.TryIndex<WeightedRandomPrototype>(component.RewardPool, out var pool))
                 return;
 
-            var chance = HasComp<BibleUserComponent>(args.Args.Used) ? component.RewardPoolChanceBibleUser : component.RewardPoolChance;
+            var chance = HasComp<BibleUserComponent>(args.Args.User) ? component.RewardPoolChanceBibleUser : component.RewardPoolChance;
 
             if (_robustRandom.Prob(chance))
                 Spawn(pool.Pick(), Transform(uid).Coordinates);
@@ -130,12 +135,14 @@ namespace Content.Server.Chapel
             {
                 QueueDel(args.Args.Target.Value);
             }
-            args.Handled = true;
         }
 
         public void AttemptSacrifice(EntityUid agent, EntityUid patient, EntityUid altar, SacrificialAltarComponent? component = null)
         {
             if (!Resolve(altar, ref component))
+                return;
+
+            if (component.CancelToken != null)
                 return;
 
             // can't sacrifice yourself
@@ -189,7 +196,8 @@ namespace Content.Server.Chapel
             _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Shared.Popups.PopupType.LargeCaution);
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
-            component.DoAfter = _doAfterSystem.DoAfter(new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, target: patient, used: altar)
+            component.CancelToken = new CancellationTokenSource();
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient, used: altar)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
