@@ -5,13 +5,10 @@
   children:
   - Cookbook
   - CookSandwich
+  - CookPasta
   - CookBurger
   - CookPizza
   - CookSoup
-  - CookPasta
-  - CookRice
-  - CookPie
-  - CookCake
   - CookPastry
   - CookSnack
   - CookKebab
@@ -20,11 +17,6 @@
   id: Cookbook
   name: guide-entry-cookbook
   text: "/Server Info/Guidebook/Chef/cookbook.xml"
-
-- type: guideEntry
-  id: CookPie
-  name: guide-entry-pies
-  text: "/Server Info/Guidebook/Chef/3.14.xml"
 
 - type: guideEntry
   id: CookBurger
@@ -40,6 +32,8 @@
   id: CookPastry
   name: guide-entry-pastries
   text: "/Server Info/Guidebook/Chef/pastry.xml"
+  children:
+  - CookCake
 
 - type: guideEntry
   id: CookPizza
@@ -50,11 +44,6 @@
   id: CookKebab
   name: guide-entry-kebabs
   text: "/Server Info/Guidebook/Chef/remove kebab.xml"
-
-- type: guideEntry
-  id: CookRice
-  name: guide-entry-rice
-  text: "/Server Info/Guidebook/Chef/ris.xml"
 
 - type: guideEntry
   id: CookSandwich
