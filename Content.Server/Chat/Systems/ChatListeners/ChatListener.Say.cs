@@ -1,8 +1,8 @@
-using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
+using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Chat.Systems
 {
@@ -61,7 +61,7 @@ namespace Content.Server.Chat.Systems
         private ISawmill _sawmill = default!;
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public override void Initialize()
         {
@@ -77,13 +77,9 @@ namespace Content.Server.Chat.Systems
             if (args.Handled)
                 return;
 
-            _sawmill.Debug($"onparsechat: {args.Chat.Message}");
-
             args.Chat.Channel = ChatChannel.Local;
             args.Chat.ClaimedBy = this.GetType();
             args.Chat.SetData(ChatDataSay.IsSpoken, true);
-
-            // TODO: sanitize
 
             /* var ev = new EntitySpokeEvent(args.Chat.Source, args.Chat.Message, null, null); */
             /* RaiseLocalEvent(args.Chat.Source, ev, true); */
@@ -96,35 +92,14 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            _sawmill.Debug($"ongetrecipients: {args.Chat.Message}");
-
-            var xforms = GetEntityQuery<TransformComponent>();
-
-            var transformSource = xforms.GetComponent(args.Chat.Source);
-            var sourceMapId = transformSource.MapID;
-            var sourceCoords = transformSource.Coordinates;
-
             // TODO: unhardcode
-
             var voiceRange = 10;
 
-            foreach (var player in _playerManager.Sessions)
+            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, voiceRange))
             {
-                if (player.AttachedEntity is not {Valid: true} playerEntity)
-                    continue;
-
-                var transformEntity = xforms.GetComponent(playerEntity);
-
-                if (transformEntity.MapID != sourceMapId)
-                    continue;
-
-                if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) && distance < voiceRange)
-                {
-                    var recipientData = new EntityChatData();
-                    recipientData.SetData(ChatRecipientDataSay.Distance, distance);
-                    args.Chat.Recipients.Add(playerEntity, recipientData);
-                    continue;
-                }
+                var recipientData = new EntityChatData();
+                recipientData.SetData(ChatRecipientDataSay.Distance, distance);
+                args.Chat.Recipients.TryAdd(playerEntity, recipientData);
             }
 
             args.Handled = true;
@@ -146,18 +121,16 @@ namespace Content.Server.Chat.Systems
 
             args.Handled = true;
 
-            _sawmill.Debug($"onchat: {args.Chat.Message}");
-
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
             // TODO: use Identity everywhere
 
-            var identity = args.RecipientData.GetData<string>(ChatRecipientDataSay.Identity) ?? Name(args.Chat.Source);
+            var identity = args.RecipientData.GetData<string>(ChatRecipientDataSay.Identity) ?? Identity.Name(args.Chat.Source, EntityManager);
             var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
             var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-say-wrap-message",
-                    ("entityName", identity),
-                    ("message", FormattedMessage.EscapeText(message)));
+                ("entityName", identity),
+                ("message", FormattedMessage.EscapeText(message)));
 
             _chatManager.ChatMessageToOne(args.Chat.Channel,
                 message,
