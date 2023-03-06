@@ -1,35 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
-
-@PowerfulAtom111
-PowerfulAtom111
-/
-Nyanotrasen
-Public
-forked from Nyanotrasen/Nyanotrasen
-Cannot fork because you own this repository and are not a member of any organizations.
-Code
-Pull requests
-Actions
-Projects
-Security
-Insights
-Settings
-Beta Try the new code view
-Nyanotrasen/Resources/Prototypes/Entities/Objects/Fun/toys.yml
-@mhamsterr
-mhamsterr Add atmosian plushie (#14062)
-Latest commit f671720 2 weeks ago
- History
- 47 contributors
-@metalgearsloth@SweptWasTaken@Zumorica@ElectroJr@DogZeroX@mirrorcult@DrSmugleaf@GalacticChimp@PaulRitter@PJB3005@Elijahrane@moonheart08
-838 lines (778 sloc)  19 KB
-
 ## Plushies
 
 - type: entity
@@ -363,7 +331,7 @@ Latest commit f671720 2 weeks ago
   components:
   - type: Sprite
     sprite: Objects/Fun/soyjak_plushie.rsi
-    state: plushie_soyjak
+    state: base
 
 - type: entity
   parent: BasePlushie
