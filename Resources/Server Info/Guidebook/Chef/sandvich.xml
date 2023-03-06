@@ -1,41 +1,6 @@
 <Document>
 # Breads & Sandwiches
-<Box Orientation="Vertical">
-	[color=#a4885c]Chicken Sandwich[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- bun
-- chicken meat
-- cheese wedge
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerChicken" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Duck Sandwich[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- bun
-- duck meat
-- cheese wedge
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerDuck" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]McGuffin[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- bun
-- cheese wedge
-- 2x egg
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerMcguffin" Caption=""/>
-</Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Bread[/color]
 </Box>
@@ -95,6 +60,42 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBreadMoldySlice" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Chicken Sandwich[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- chicken meat
+- cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerChicken" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Duck Sandwich[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- duck meat
+- cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerDuck" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]McGuffin[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- cheese wedge
+- 2x egg
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerMcguffin" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
 	[color=#a4885c]Cuban Carp[/color]

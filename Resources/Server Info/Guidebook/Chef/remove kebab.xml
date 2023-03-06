@@ -1,6 +1,6 @@
 <Document>
 # Kebab
-[color=#fcdf03]Each and every kind of kebab requires a skewer![/color] Don't worry, you'll get them back! [color=#888084]Hopefully.[/color]
+[color=#fcdf03]Each and every kind of kebab requires a skewer![/color] Don't worry, you'll get them back! [color=#888084]Hopefully.[/color] Just place them in the microwave with everything else.
 
 <Box Orientation="Vertical">
 	[color=#a4885c]Meat Kebab[/color]
@@ -48,6 +48,7 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 (20) sec"/>
 <GuideEntityEmbed Entity="FoodMeatRatKebab" Caption=""/>
+<GuideEntityEmbed Entity="FoodMeatRatdoubleKebab" Caption="Alt."/>
 </Box>
 <Box Orientation="Vertical">
 	[color=#a4885c]Human Kebab[/color]

@@ -44,28 +44,17 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeApple" Caption=""/>
 </Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Carrot Cake[/color]
+- Some cakes are made similarly, just by using three pieces of a different ingredient [color=#888084](examine to learn more about them)[/color]!
+
+<Box>
+<GuideEntityEmbed Entity="FoodCarrot" Caption="V"/>
+<GuideEntityEmbed Entity="FoodLemon" Caption="V"/>
 </Box>
 <Box>
-<Box Orientation="Vertical">
-- Plain cake
-- 3x carrot
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeCarrot" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Lemon Cake[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- Plain cake
-- 3x lemon
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeLemon" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Orange Cake[/color]
 </Box>
@@ -76,18 +65,10 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeOrange" Caption=""/>
+<GuideEntityEmbed Entity="FoodCakeLime" Caption="Alt."/>
 </Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Lime Cake[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- 30u lime juice
-- Plain cake
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodCakeLime" Caption=""/>
-</Box>
+- Use lime juice instead to make [color=#a4885c]Lime Cake[/color]!
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Cheesecake[/color]
 </Box>
