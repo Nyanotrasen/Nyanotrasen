@@ -658,6 +658,36 @@
           Quantity: 12
 #Tastes like cornmeal, cheese, eggplant and tomato sauce
 
+- type: entity
+  name: vegetarian chili
+  parent: FoodBowlBase
+  id: FoodMothVegetarianChili
+  description: For the hombres who don't want carne.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - sour
+      - tomato
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: chili-hot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: CapsaicinOil
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: JuiceTomato
+          Quantity: 3
+
 #Salads
 
 - type: entity

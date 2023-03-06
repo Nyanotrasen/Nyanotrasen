@@ -1,6 +1,7 @@
 # Moth related cuisine
 
 # Base ingredients: Should be moved out of microwave as soon as possible.
+
 - type: microwaveMealRecipe
   id: RecipeMothHerbyCheese
   name: herby cheese recipe
@@ -21,6 +22,7 @@
     FoodTomato: 1
 
 # Entrees
+
 - type: microwaveMealRecipe
   id: RecipeMothSqueakingFry
   name: squeaking stir fry recipe
@@ -29,7 +31,7 @@
   reagents:
     OilOlive: 5
   solids:
-    FoodTofuSlice: 2
+    #FoodTofuSlice: 2
     FoodOnionSlice: 1
     FoodChili: 1
     FoodCarrot: 1
@@ -92,6 +94,7 @@
     FoodAmbrosiaVulgaris: 1 #Herbs
 
 # Meals
+
 # Remove the ingredients for Pesto and Bechamel if they become a thing Pesto (salt, garlic, oil) Bechamel Sauce (milk, flour, butter)
 - type: microwaveMealRecipe
   id: RecipeMothGreenLasagne
@@ -99,14 +102,17 @@
   result: FoodMothGreenLasagne
   time: 20
   reagents:
+    #Pesto: 1 #Salt, OilOlive, Onion placeholders
+    #Bechamel: 1 #Milk, Flour, Butter placeholders
     OilOlive: 5
     Milk: 5
+    Salt: 5
     Flour: 10
   solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodButter: 1
-    FoodGarlic: 1
+    FoodOnion: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBakedCorn
@@ -148,6 +154,7 @@
     FoodCorn: 1 #CornMeal
 
 # Soups and stews
+
 - type: microwaveMealRecipe
   id: RecipeMothCottonSoup
   name: cotton soup recipe
@@ -171,11 +178,12 @@
   reagents:
     Milk: 5
     Flour: 5
-    Butter: 10
+    #Butter: 10 #Butter placeholder
   solids:
     FoodBowlBig: 1
     FoodCheeseSlice: 1
     FoodPotato: 1
+    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothSeedSoup
@@ -232,7 +240,7 @@
     Cream: 5
   solids:
     FoodBowlBig: 1
-    FoodTofu: 1
+    #FoodTofu: 1
     FoodChili: 1
     #FoodYogurt: 1 #Milk and Cream placeholder
 
@@ -283,13 +291,28 @@
     FoodBreadPlainSlice: 2
     FoodMozzarella: 1
 
+- type: microwaveMealRecipe
+  id: RecipeMothVegetarianChili
+  name: cheesy porridge recipe
+  result: FoodMothVegetarianChili
+  time: 10
+  reagents:
+    Water: 10
+    Salt: 5
+  solids:
+    FoodBowlBig: 1
+    FoodTomato: 1
+    FoodChili: 1
+
 # Salads: These should be moved out of the microwave as soon as possible
+
 - type: microwaveMealRecipe
   id: RecipeMothCapreseSalad
   name: caprese salad recipe
   result: FoodMothCapreseSalad
   time: 10
   reagents:
+    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
     OilOlive: 5
     Vinegar: 5
   solids:
@@ -303,6 +326,7 @@
   result: FoodMothFleetSalad
   time: 10
   reagents:
+    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
     OilOlive: 5
     Vinegar: 5
   solids:
@@ -318,6 +342,7 @@
   result: FoodMothCottonSalad
   time: 10
   reagents:
+    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
     OilOlive: 5
     Vinegar: 5
   solids:
@@ -387,10 +412,12 @@
   result: FoodMothPizzaPesto
   time: 30
   reagents:
+    #Pesto: 1 #Salt, OilOlive, Onion placeholders
     OilOlive: 5
+    Salt: 5
   solids:
     FoodDough: 1
-    FoodGarlic: 1
+    FoodOnion: 1
     FoodMozzarella: 1
 
 - type: microwaveMealRecipe
@@ -401,7 +428,7 @@
   solids:
     FoodDough: 1
     FoodButter: 1
-    FoodGarlic: 1
+    #FoodGarlic: 1
     FoodAmbrosiaVulgaris: 1 #Herbs
 
 - type: microwaveMealRecipe
@@ -438,10 +465,9 @@
   reagents:
     Sugar: 10
     Rum: 5
-    MilkSoy: 5
     #Vanilla: 5
   solids:
-    FoodSoybean: 1
+    #FoodSoybean: 1
 
 #Eventually use the pastry dough
 - type: microwaveMealRecipe
