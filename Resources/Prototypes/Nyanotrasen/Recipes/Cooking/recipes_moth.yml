@@ -31,7 +31,7 @@
   reagents:
     OilOlive: 5
   solids:
-    #FoodTofuSlice: 2
+    FoodTofuSlice: 2
     FoodOnionSlice: 1
     FoodChili: 1
     FoodCarrot: 1
@@ -102,7 +102,7 @@
   result: FoodMothGreenLasagne
   time: 20
   reagents:
-    #Pesto: 1 #Salt, OilOlive, Onion placeholders
+    #Pesto: 1 #Salt, OilOlive, Garlic placeholders
     #Bechamel: 1 #Milk, Flour, Butter placeholders
     OilOlive: 5
     Milk: 5
@@ -112,7 +112,7 @@
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
     FoodButter: 1
-    FoodOnion: 1
+    FoodGarlic: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBakedCorn
@@ -240,7 +240,7 @@
     Cream: 5
   solids:
     FoodBowlBig: 1
-    #FoodTofu: 1
+    FoodTofu: 1
     FoodChili: 1
     #FoodYogurt: 1 #Milk and Cream placeholder
 
@@ -312,8 +312,7 @@
   result: FoodMothCapreseSalad
   time: 10
   reagents:
-    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
-    OilOlive: 5
+    Vinaigrette: 5
     Vinegar: 5
   solids:
     FoodTomato: 1
@@ -326,9 +325,7 @@
   result: FoodMothFleetSalad
   time: 10
   reagents:
-    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
-    OilOlive: 5
-    Vinegar: 5
+    Vinaigrette: 5
   solids:
     FoodBowlBig: 1
     FoodMothSaladBase: 1
@@ -342,9 +339,7 @@
   result: FoodMothCottonSalad
   time: 10
   reagents:
-    #Vinaigrette: 5 #OilOlive and Vinegar placeholder
-    OilOlive: 5
-    Vinegar: 5
+    Vinaigrette: 5
   solids:
     FoodBowlBig: 1
     FoodMothSaladBase: 1
@@ -412,12 +407,12 @@
   result: FoodMothPizzaPesto
   time: 30
   reagents:
-    #Pesto: 1 #Salt, OilOlive, Onion placeholders
+    #Pesto: 1 #Salt, OilOlive, Garlic placeholders
     OilOlive: 5
     Salt: 5
   solids:
     FoodDough: 1
-    FoodOnion: 1
+    FoodGarlic: 1
     FoodMozzarella: 1
 
 - type: microwaveMealRecipe
@@ -428,7 +423,7 @@
   solids:
     FoodDough: 1
     FoodButter: 1
-    #FoodGarlic: 1
+    FoodGarlic: 1
     FoodAmbrosiaVulgaris: 1 #Herbs
 
 - type: microwaveMealRecipe
@@ -467,7 +462,7 @@
     Rum: 5
     #Vanilla: 5
   solids:
-    #FoodSoybean: 1
+    FoodSoybean: 1
 
 #Eventually use the pastry dough
 - type: microwaveMealRecipe
