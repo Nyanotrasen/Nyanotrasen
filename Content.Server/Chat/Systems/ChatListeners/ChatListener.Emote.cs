@@ -13,6 +13,8 @@ namespace Content.Server.Chat.Systems
 
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
+        public readonly static int EmoteRange = SayListenerSystem.VoiceRange;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -29,10 +31,7 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            // TODO: unhardcode
-            var emoteRange = 10;
-
-            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, emoteRange))
+            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, EmoteRange))
             {
                 var recipientData = new EntityChatData();
                 recipientData.SetData(ChatRecipientDataSay.Distance, distance);

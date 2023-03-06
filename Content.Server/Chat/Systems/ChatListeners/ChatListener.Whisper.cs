@@ -14,8 +14,7 @@ namespace Content.Server.Chat.Systems
 
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-        static int ObfuscatedRange = 3;
-        static int WhisperRange = 10;
+        public readonly static int ObfuscatedRange = 3;
 
         public override void Initialize()
         {
@@ -33,7 +32,7 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, WhisperRange))
+            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, SayListenerSystem.VoiceRange))
             {
                 var recipientData = new EntityChatData();
                 recipientData.SetData(ChatRecipientDataSay.Distance, distance);

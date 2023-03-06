@@ -63,6 +63,8 @@ namespace Content.Server.Chat.Systems
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
+        public readonly static int VoiceRange = 10;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -92,10 +94,7 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            // TODO: unhardcode
-            var voiceRange = 10;
-
-            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, voiceRange))
+            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, VoiceRange))
             {
                 var recipientData = new EntityChatData();
                 recipientData.SetData(ChatRecipientDataSay.Distance, distance);
