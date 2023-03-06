@@ -1,7 +1,85 @@
+using Robust.Server.Player;
+using Robust.Shared.Console;
+using Content.Server.Ghost.Components;
+using Content.Shared.CCVar;
+
 namespace Content.Server.Chat.Systems
 {
     public sealed partial class ChatSystem
     {
+        /// <summary>
+        /// This method's purpose is to handle sanitizing messages from the IC speaking commands
+        /// or to forward them to dead chat if the source is a ghost.
+        /// </summary>
+        /// <remarks>
+        /// NPC code should directly use TrySendSay et cetera.
+        /// </remarks>
+        public void SendInGameICMessage(EntityUid source, string message, InGameICChatType desiredType, IConsoleShell? shell = null, IPlayerSession? player = null, bool force = false)
+        {
+            if (HasComp<GhostComponent>(source))
+            {
+                // Ghosts can only send dead chat messages, so we'll forward it to InGame OOC.
+                TrySendInGameOOCMessage(source, message, InGameOOCChatType.Dead, false, shell, player);
+                return;
+            }
+
+            if (!force && !CanSendInGame(message, shell, player))
+                return;
+
+            bool shouldCapitalize = (desiredType != InGameICChatType.Emote);
+            bool shouldPunctuate = _configurationManager.GetCVar(CCVars.ChatPunctuation);
+
+            message = SanitizeInGameICMessage(source, message, out var emoteStr, shouldCapitalize, shouldPunctuate);
+
+            // This can happen if the entire string is sanitized out.
+            if (string.IsNullOrEmpty(message))
+                return;
+
+            // Otherwise, send whatever type.
+            switch (desiredType)
+            {
+                case InGameICChatType.Speak:
+                    // There could be a radio message in it, so...
+                    TrySendChatUnparsed(source, message);
+                    // NOTE: This unparsed call won't be necessary when there are actual commands for every radio channel.
+                    break;
+                case InGameICChatType.Whisper:
+                    TrySendWhisper(source, message);
+                    break;
+                case InGameICChatType.Emote:
+                    TrySendEmote(source, message);
+                    break;
+                /* case InGameICChatType.Telepathic: */
+                /*     _nyanoChatSystem.SendTelepathicChat(source, message); */
+                /*     break; */
+            }
+        }
+
+        /// <summary>
+        /// Returns an enumerable of tuples containing player EntityUids and the distance from the source.
+        /// </summary>
+        public IEnumerable<(EntityUid, float)> GetPlayerEntitiesInRange(EntityUid source, float range)
+        {
+            var xforms = GetEntityQuery<TransformComponent>();
+
+            var transformSource = xforms.GetComponent(source);
+            var sourceCoords = transformSource.Coordinates;
+
+            foreach (var player in _playerManager.Sessions)
+            {
+                if (player.AttachedEntity is not {Valid: true} playerEntity)
+                    continue;
+
+                var transformEntity = xforms.GetComponent(playerEntity);
+
+                if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) &&
+                    distance <= range)
+                {
+                    yield return (playerEntity, distance);
+                }
+            }
+        }
+
         /// <summary>
         /// Try to send an unparsed chat message from an entity.
         /// </summary>
