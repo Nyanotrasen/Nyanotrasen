@@ -42,6 +42,7 @@ namespace Content.Server.Chat.Systems
                 if (args.Chat.TryGetData<RadioChannelPrototype[]>(ChatDataRadio.RadioChannels, out var radioChannels) &&
                     radioChannels.Length > 0)
                 {
+                    // Take the first radio channel as the shared one, since it is likely the dominant.
                     recipientData.SetData(ChatRecipientDataRadio.SharedRadioChannel, radioChannels[0]);
                     recipientData.SetData(ChatRecipientDataRadio.WillHearRadio, true);
                 }
