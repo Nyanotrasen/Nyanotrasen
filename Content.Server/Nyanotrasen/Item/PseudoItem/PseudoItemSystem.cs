@@ -32,6 +32,9 @@ namespace Content.Server.Item.PseudoItem
             if (!args.CanInteract || !args.CanAccess)
                 return;
 
+            if (component.Active)
+                return;
+
             if (!TryComp<ServerStorageComponent>(args.Target, out var targetStorage))
                 return;
 
@@ -81,6 +84,9 @@ namespace Content.Server.Item.PseudoItem
 
         private void OnEntRemoved(EntityUid uid, PseudoItemComponent component, EntGotRemovedFromContainerMessage args)
         {
+            if (!component.Active)
+                return;
+
             RemComp<ItemComponent>(uid);
             component.Active = false;
         }
@@ -118,8 +124,6 @@ namespace Content.Server.Item.PseudoItem
             var item = EnsureComp<ItemComponent>(toInsert);
             _itemSystem.SetSize(toInsert, component.Size, item);
 
-            component.Active = true;
-
             if (!_storageSystem.Insert(storageUid, toInsert, storage))
             {
                 component.Active = false;
@@ -127,6 +131,7 @@ namespace Content.Server.Item.PseudoItem
                 return false;
             } else
             {
+                component.Active = true;
                 Transform(storageUid).AttachToGridOrMap();
                 return true;
             }
