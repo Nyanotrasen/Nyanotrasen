@@ -141,6 +141,15 @@
     - RegalRatNameKingdom
     - RegalRatNameTitle
   - type: PotentialPsionic
+  - type: Linguistic
+    canUnderstand:
+    - Basic
+    - Bestial
+    canSpeak:
+    - Basic
+    - Bestial
+    default: Basic
+    unintelligibleSounds: Mouse
 
 - type: entity
   id: MobRatKingBuff
@@ -324,3 +333,9 @@
     spawned:
     - id: FoodMeatRat
       amount: 1
+  - type: Linguistic
+    canUnderstand:
+    - Bestial
+    canSpeak:
+    - Bestial
+    unintelligibleSounds: Mouse

@@ -812,6 +812,12 @@
   - type: Faction
     factions:
     - RatPassive
+  - type: Linguistic
+    canUnderstand:
+    - Bestial
+    canSpeak:
+    - Bestial
+    unintelligibleSounds: Mouse
 
 - type: entity
   parent: MobMouse
