@@ -2849,3 +2849,19 @@ Entries:
   - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
   id: 451
   time: '2023-03-05T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Merged a huge refactor of doafters (progress bars for delayed actions.) It took me like 6 hours. The upstream one has needed 5 bugfix PRs and counting. Please report any bugs with our progress bars.', type: Add}
+  - {message: 'Merged a bunch of other stuff. A highlight, by request, is some new traits.', type: Add}
+  id: 452
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: PowerfulAtom111
+  changes:
+    - {message: 'Added a chemistry guidebook.', type: Add}
+  id: 453
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+    - {message: 'Enhanced intrusion defenses have been deployed in electrical systems.', type: Add}
+  id: 453
+  time: '2023-03-07T00:15:08.0000000+00:00'
