@@ -50,6 +50,49 @@
         - ReagentId: Vitamin
           Quantity: 4
 
+# Pesto
+- type: entity
+  name: pesto
+  parent: FoodBakingBase
+  id: FoodMothPesto
+  description: A combination of salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - garlic
+      - nutty
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: pesto
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 3
+
+# Bechamel
+- type: entity
+  name: bechamel sauce
+  parent: FoodBakingBase
+  id: FoodMothBechamel
+  description: A classic white sauce common to several European cultures.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - creamy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: bechamel
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 3
+
 # Entrees
 - type: entity
   name: squeaking stir fry
@@ -932,7 +975,8 @@
   - type: FlavorProfile
     flavors:
       - bread
-      #- pesto
+      - garlic
+      - nutty
       - cheesy
   - type: SliceableFood
     slice: FoodMothPizzaPestoSlice
@@ -949,7 +993,8 @@
   - type: FlavorProfile
     flavors:
       - bread
-      #- pesto
+      - garlic
+      - nutty
       - cheesy
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi

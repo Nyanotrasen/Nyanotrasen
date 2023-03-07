@@ -21,6 +21,29 @@
     FoodOnionRedSlice: 2
     FoodTomato: 1
 
+- type: microwaveMealRecipe
+  id: RecipeMothPesto
+  name: pesto recipe
+  result: FoodMothPesto
+  time: 5
+  reagents:
+    OilOlive: 5
+    Salt: 5
+  solids:
+    FoodGarlic: 1
+    FoodAmbrosiaVulgaris: 1 #Herbs
+
+- type: microwaveMealRecipe
+  id: RecipeMothBechamel
+  name: bechamel recipe
+  result: FoodMothBechamel
+  time: 5
+  reagents:
+    Milk: 10
+    Flour: 5
+  solids:
+    FoodButter: 1
+
 # Entrees
 
 - type: microwaveMealRecipe
@@ -95,24 +118,16 @@
 
 # Meals
 
-# Remove the ingredients for Pesto and Bechamel if they become a thing Pesto (salt, garlic, oil) Bechamel Sauce (milk, flour, butter)
 - type: microwaveMealRecipe
   id: RecipeMothGreenLasagne
   name: green lasagne recipe
   result: FoodMothGreenLasagne
   time: 20
-  reagents:
-    #Pesto: 1 #Salt, OilOlive, Garlic placeholders
-    #Bechamel: 1 #Milk, Flour, Butter placeholders
-    OilOlive: 5
-    Milk: 5
-    Salt: 5
-    Flour: 10
   solids:
     FoodNoodlesBoiled: 1
     FoodCheeseSlice: 1
-    FoodButter: 1
-    FoodGarlic: 1
+    FoodMothBechamel: 1
+    FoodMothPesto: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBakedCorn
@@ -400,20 +415,15 @@
     FoodCurdCheese: 1
     FoodCheeseCurds: 1
 
-# Remove the ingredients for Pesto if they become a thing (salt, garlic, oil)
 - type: microwaveMealRecipe
   id: RecipeMothPestoPizza
   name: mothic pesto pizza recipe
   result: FoodMothPizzaPesto
   time: 30
-  reagents:
-    #Pesto: 1 #Salt, OilOlive, Garlic placeholders
-    OilOlive: 5
-    Salt: 5
   solids:
     FoodDough: 1
-    FoodGarlic: 1
     FoodMozzarella: 1
+    FoodMothPesto: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothGarlicPizza
