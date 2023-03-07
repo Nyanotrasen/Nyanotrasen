@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Audio
@@ -42,6 +43,15 @@ namespace Content.Shared.Audio
                 return;
 
             ambience.Volume = value;
+            Dirty(ambience);
+        }
+
+        public virtual void SetSound(EntityUid uid, SoundSpecifier path, AmbientSoundComponent? ambience = null)
+        {
+            if (!Resolve(uid, ref ambience, false) || ambience.Sound == path)
+                return;
+
+            ambience.Sound = path;
             Dirty(ambience);
         }
 
