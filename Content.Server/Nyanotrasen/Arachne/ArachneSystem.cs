@@ -32,6 +32,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
 using Robust.Server.Console;
 using static Content.Shared.Examine.ExamineSystemShared;
@@ -198,7 +199,7 @@ namespace Content.Server.Arachne
                     _bloodSuckerSystem.StartSuccDoAfter(args.User, victim.Value, sucker, stream, false); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);

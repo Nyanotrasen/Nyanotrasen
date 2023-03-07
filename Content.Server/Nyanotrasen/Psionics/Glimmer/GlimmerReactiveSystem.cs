@@ -15,6 +15,7 @@ using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -161,7 +162,7 @@ namespace Content.Server.Psionics.Glimmer
                     _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
                     _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
                 },
-                IconTexture = "/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
                 Priority = -3
             };
