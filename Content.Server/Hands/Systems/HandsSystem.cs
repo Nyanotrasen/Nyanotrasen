@@ -20,6 +20,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Throwing;
 using JetBrains.Annotations;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Input.Binding;
@@ -43,6 +44,8 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly StorageSystem _storageSystem = default!;
+        [Dependency] private readonly ISharedPlayerManager _player = default!;
+        [Dependency] private readonly IConfigurationManager _configuration = default!;
 
         public override void Initialize()
         {
@@ -100,7 +103,7 @@ namespace Content.Server.Hands.Systems
             if (finalPosition.EqualsApprox(initialPosition.Position, tolerance: 0.1f))
                 return;
 
-            var filter = Filter.Pvs(item);
+            var filter = Filter.Pvs(item, entityManager: EntityManager, playerManager: _player, cfgManager: _configuration);
 
             if (exclude != null)
                 filter = filter.RemoveWhereAttachedEntity(entity => entity == exclude);
