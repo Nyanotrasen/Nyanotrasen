@@ -6,5 +6,6 @@ namespace Content.Server.GameTicking.Rules.Components;
 [RegisterComponent]
 public sealed class NukeOperativeComponent : Component
 {
-
+    [DataField("firstMindAdded")]
+    public bool FirstMindAdded = false;
 }

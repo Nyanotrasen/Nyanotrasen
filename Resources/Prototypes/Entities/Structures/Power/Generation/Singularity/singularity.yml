@@ -45,3 +45,6 @@
     enabled: true
     radius: 10
   - type: Appearance
+  - type: WarpPoint
+    follow: true
+    location: singularity

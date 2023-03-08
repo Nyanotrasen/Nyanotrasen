@@ -29,6 +29,7 @@
   - type: Tag
     tags:
     - Document
+    - Trash
   - type: Appearance
   - type: PaperVisuals
   - type: Recyclable
@@ -489,16 +490,17 @@
     state: stamp-qm
 
 - type: entity
-  name: mystagogue's rubber stamp
+  name: mystagogue's signet ring
   parent: RubberStampMime
   id: RubberStampRd
+  description: The mystagogue's blessed silver signet ring.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-rd
     stampState: "paper_stamp-rd"
   - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    state: stamp-rd
+    sprite: Nyanotrasen/Objects/Misc/signet_rings.rsi
+    state: mystagogue
 
 - type: entity
   name: warden's rubber stamp
