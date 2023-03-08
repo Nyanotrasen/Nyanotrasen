@@ -30,11 +30,11 @@ Meat can be processed into animal protein in the grinder, or can be sliced with 
 <GuideEntityEmbed Entity="FoodCheeseSlice" Caption=""/>
 <GuideEntityEmbed Entity="FoodButter" Caption=""/>
 </Box>
-[color=#a4885c]Dairy[/color] is another big part of humanoid diet. A [color=#a4885c]cow[/color] is often provided, which can be milked, though it has to be fed fruit or wheat and water on occasion to keep lactating. [color=#a4885c]Cheese and butter[/color] are made in reaction between milk and [color=#a4885c]universal enzyme[/color] or salt, respectively. [color=#fcdf03]The latter is a catalyst and is not consumed by making dairy products.[/color] Cheese can be sliced into [color=#a4885c]wedges[/color].
+[color=#a4885c]Dairy[/color] is another big part of humanoid diet. A [color=#a4885c]cow[/color] is often provided, which can be milked, though it has to be fed fruit or wheat and water on occasion to keep lactating. [color=#a4885c]Cheese[/color] and [color=#a4885c]butter[/color] are made in reaction between milk and [color=#a4885c]universal enzyme[/color] or [color=#a4885c]salt[/color], respectively. [color=#fcdf03]The latter is a catalyst and is not consumed by making dairy products.[/color] Cheese can be sliced into [color=#a4885c]wedges[/color].
 
 [color=#a4885c]Soy milk[/color] is available, but is usually not a substitute for regular milk. There are other foods one can make of it, however.
 
-- One egg usually contains 6u of egg liquid, but depending on the source, they may contain less or more. If recipes with eggs don't work, crack them into a vessel to be sure that you have enough.
+- One [color=#a4885c]egg[/color] usually contains 6u of egg liquid, but depending on the source, they may contain less or more. If recipes with eggs don't work, crack them into a vessel to be sure that you have enough.
 
 ## Basic Foods
 
@@ -75,12 +75,18 @@ Meat can be processed into animal protein in the grinder, or can be sliced with 
 </Box>
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Bun[/color]
+	[color=#a4885c]Bread[/color]
 </Box>
 <Box>
-<Box Orientation="Vertical">
-- Dough slice
+<GuideEntityEmbed Entity="FoodDough" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodBreadPlain" Caption=""/>
 </Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Bun[/color]
+</Box>
+<GuideEntityEmbed Entity="FoodDoughSlice" Caption="5 sec"/>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBreadBun" Caption=""/>
 </Box>
@@ -95,7 +101,7 @@ Meat can be processed into animal protein in the grinder, or can be sliced with 
 - 1 egg
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBreadBun" Caption=""/>
+<GuideEntityEmbed Entity="FoodMeatMeatball" Caption=""/>
 </Box>
 
 </Document>
