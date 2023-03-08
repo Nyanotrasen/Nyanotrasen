@@ -166,6 +166,16 @@
     heldPrefix: pink
 
 - type: entity
+  parent: BasePlushie
+  id: PlushieSoyjak
+  name: soyjak plushie
+  description: A stuffed, handmade plushie that bears a striking resemblance to your worst enemy.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/soyjak_plushie.rsi
+    state: soyjak_plushie
+
+- type: entity
   parent: PlushieSharkBlue
   id: PlushieSharkGrey
   name: grey shark soft toy

@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: soyplush
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: soyjakplush
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 4
+    - node: soyjakplush
+      entity: PlushieSoyjak
