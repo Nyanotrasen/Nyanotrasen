@@ -2,17 +2,16 @@
 
 # Soups & Stews
 
+- [color=#fcdf03]All soups need a[/color] [color=#a4885c]large bowl[/color] [color=#fcdf03]along with everything else![/color]
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Bisque[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- tomato
-</Box>
-<Box Orientation="Vertical">
-- mushroom
-- fish meat
+- Tomato
+- Mushroom
+- Fish meat
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodSoupBisque" Caption=""/>
@@ -23,12 +22,9 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- meatball
-</Box>
-<Box Orientation="Vertical">
-- carrot
-- potato
+- Meatball
+- Carrot
+- Potato
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodSoupMeatball" Caption=""/>
@@ -39,28 +35,11 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- nettle
-- potato
+- Nettle
+- Potato
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodSoupNettle" Caption=""/>
-</Box>
-
-<Box Orientation="Vertical">
-	[color=#a4885c]Eyeball Soup[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- bowl
-- human eyes
-</Box>
-<Box Orientation="Vertical">
-- carrot
-- potato
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
-<GuideEntityEmbed Entity="FoodSoupEyeball" Caption=""/>
 </Box>
 
 <Box Orientation="Vertical">
@@ -68,13 +47,12 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- chili pepper
-- meat cutlet
+- Chili pepper
+- Meat cutlet
 </Box>
 <Box Orientation="Vertical">
-- onion slice
-- tomato
+- Onion slice
+- Tomato
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
 <GuideEntityEmbed Entity="FoodSoupChiliHot" Caption=""/>
@@ -97,12 +75,9 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- onion slice
-</Box>
-<Box Orientation="Vertical">
-- tomato
-- bike horn
+- Onion slice
+- Tomato
+- Bike horn
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodSoupClown" Caption=""/>
@@ -113,17 +88,29 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
-- chili pepper
-- meat cutlet
+- Chili pepper
+- Meat cutlet
+- Onion slice
 </Box>
 <Box Orientation="Vertical">
-- onion slice
-- tomato
-- clown shoes
+- Tomato
+- Clown shoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodSoupChiliClown" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Eyeball Soup[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Human eyes
+- Carrot
+- Potato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupEyeball" Caption=""/>
 </Box>
 
 </Document>

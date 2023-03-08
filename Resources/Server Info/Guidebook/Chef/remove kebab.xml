@@ -17,9 +17,9 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- chili pepper
-- meat cutlet
-- slice of pineapple
+- Chili pepper
+- Meat cutlet
+- Slice of pineapple
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodMeatHawaiianKebab" Caption=""/>
@@ -29,12 +29,12 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- chili pepper
-- corn
+- Chili pepper
+- Ear of corn
 </Box>
 <Box Orientation="Vertical">
-- meat cutlet
-- tomato
+- Meat cutlet
+- Tomato
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodMeatFiestaKebab" Caption=""/>
@@ -44,7 +44,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- rat (or two)
+- Rat (or two)
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 (20) sec"/>
 <GuideEntityEmbed Entity="FoodMeatRatKebab" Caption=""/>
@@ -55,12 +55,10 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- human torso
+- Human torso
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodMeatHumanKebab" Caption=""/>
 </Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]w[/color]
-</Box>
+
 </Document>

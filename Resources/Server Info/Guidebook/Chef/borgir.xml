@@ -1,15 +1,15 @@
 <Document>
 # Burgers
 
-- All burgers need a [color=#a4885c]Bun[/color] along with everything else!
+- [color=#fcdf03]All burgers need a[/color] [color=#a4885c]Bun[/color] [color=#fcdf03]along with everything else![/color]
 
 <Box Orientation="Vertical">
 	[color=#a4885c]Cheeseburger[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- raw meat
-- cheese wedge
+- Raw meat
+- Cheese wedge
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerCheese" Caption=""/>
@@ -19,7 +19,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- raw meat
+- Raw meat
 - 3x chili peppers
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -31,97 +31,14 @@
 <Box>
 <Box Orientation="Vertical">
 - 2x raw meat
-- cheese wedge
+- Cheese wedge
 </Box>
 <Box Orientation="Vertical">
-- tomato
+- Tomato
 - 2 slices of onion
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerBig" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Carpburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- fish meat
-- cheese wedge
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerCarp" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Brainburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- human brain
-- cheese wedge
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerBrain" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Clownburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- clown mask
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerClown" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Appendix Burger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- appendix
-- cheese wedge
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerAppendix" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Mimeburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- red beret
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerMime" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Xenoburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- xeno meat
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerXeno" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Bearger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- bear meat
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerBear" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Curger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- corgi meat
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerCorgi" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
 	[color=#a4885c]Super Bite Burger[/color]
@@ -139,6 +56,17 @@
 <GuideEntityEmbed Entity="FoodBurgerSuper" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
+	[color=#a4885c]Carpburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Fish meat
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerCarp" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
 	[color=#a4885c]Empowered Burger[/color]
 </Box>
 <Box>
@@ -148,6 +76,89 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerEmpowered" Caption=""/>
 </Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Brainburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Human brain
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerBrain" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Clownburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Clown mask
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerClown" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Appendix Burger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Appendix
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerAppendix" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Mimeburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Red beret
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerMime" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Xenoburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Xeno meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerXeno" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Bearger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Bear meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerBear" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Curger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Corgi meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerCorgi" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Jellyburger[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Amanita jelly
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerJelly" Caption=""/>
+</Box>
+- Here is the recipe for the jelly:
 <Box Orientation="Vertical">
 	[color=#a4885c]Amanita Jelly[/color]
 </Box>
@@ -159,16 +170,6 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodJellyAmanita" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Jellyburger[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- Amanita jelly
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodBurgerJelly" Caption=""/>
 </Box>
 
 </Document>

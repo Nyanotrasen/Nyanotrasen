@@ -19,7 +19,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- cake batter
+- Cake batter
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodCakePlain" Caption=""/>
@@ -34,6 +34,29 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeBirthday" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Chocolate Cake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2x chocolate bar
+- Plain cake
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeChocolate" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheesecake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Plain cake
+- 3x cheese wedge
+- 10u cream
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCakeCheese" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
 	[color=#a4885c]Apple Cake[/color]
@@ -72,18 +95,6 @@
 - Use lime juice instead to make [color=#a4885c]Lime Cake[/color]!
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Cheesecake[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- Plain cake
-- 3x cheese wedge
-- 10u cream
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodCakeCheese" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
 	[color=#a4885c]Clown Cake[/color]
 </Box>
 <Box>
@@ -93,17 +104,6 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodCakeClown" Caption=""/>
-</Box>
-<Box Orientation="Vertical">
-	[color=#a4885c]Chocolate Cake[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- 2x chocolate bar
-- Plain cake
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
-<GuideEntityEmbed Entity="FoodCakeChocolate" Caption=""/>
 </Box>
 <Box Orientation="Vertical">
 	[color=#a4885c]Brain Cake[/color]

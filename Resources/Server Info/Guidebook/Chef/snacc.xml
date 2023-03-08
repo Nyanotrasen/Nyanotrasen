@@ -72,9 +72,7 @@
 	[color=#a4885c]Popcorn[/color]
 </Box>
 <Box>
-<Box Orientation="Vertical">
-- Ear of corn
-</Box>
+<GuideEntityEmbed Entity="FoodCorn" Caption=""/>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodSnackPopcorn" Caption=""/>
 </Box>

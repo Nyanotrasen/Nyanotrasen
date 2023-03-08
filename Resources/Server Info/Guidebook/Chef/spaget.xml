@@ -6,11 +6,11 @@
 <Box>
 <Box Orientation="Vertical">
 - 15u flour
-- egg
+- 1 egg
 </Box>
 <Box Orientation="Vertical">
-- plate
-- stick of butter
+- Large plate
+- Stick of butter
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesBoiled" Caption=""/>
@@ -20,7 +20,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled noodles
+- Boiled noodles
 - 2 tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
@@ -32,7 +32,7 @@
 <Box>
 <Box Orientation="Vertical">
 - 2 meatballs
-- boiled noodles
+- Boiled noodles
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesMeatball" Caption=""/>
@@ -42,8 +42,8 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled noodles
-- stick of butter
+- Boiled noodles
+- Stick of butter
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesButter" Caption=""/>
@@ -53,13 +53,13 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled noodles
-- eggplant
-- carrot
+- Boiled noodles
+- Eggplant
+- Carrot
 </Box>
 <Box Orientation="Vertical">
-- corn
-- egg
+- Ear of corn
+- 1 egg
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesChowmein" Caption=""/>
@@ -68,9 +68,7 @@
 	[color=#a4885c]Copypasta[/color]
 </Box>
 <Box>
-<Box Orientation="Vertical">
-- 2x spaghetti
-</Box>
+<GuideEntityEmbed Entity="FoodNoodles" Caption="2x"/>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesCopy" Caption=""/>
 </Box>
@@ -96,7 +94,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- bowl
+- Bowl
 - 15u rice
 - 10u water
 </Box>
@@ -108,7 +106,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled rice
+- Boiled rice
 - 3x meat cutlet
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
@@ -119,7 +117,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled rice
+- Boiled rice
 - 3x meat cutlet
 - 2x chili pepper
 </Box>
@@ -131,9 +129,9 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- boiled rice
-- egg
-- carrot
+- Boiled rice
+- Egg
+- Carrot
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRiceEgg" Caption=""/>
