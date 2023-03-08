@@ -1,0 +1,115 @@
+<Document>
+# Breads & Sandwiches
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Bread[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodDough" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodBreadPlain" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Big Bread[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodDough" Caption="4x"/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="FoodBigBreadPlain" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Baguette[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodBreadBaguette" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Cream Cheese Bread[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- 2x cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="FoodBreadCreamcheese" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Banana-Nut Bread[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- dough
+- banana
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="25 sec"/>
+<GuideEntityEmbed Entity="FoodBreadBanana" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Moldy Breadslice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- slice of bread
+- Fly Amanita
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBreadMoldySlice" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Chicken Sandwich[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- chicken meat
+- cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerChicken" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Duck Sandwich[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- duck meat
+- cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerDuck" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]McGuffin[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- bun
+- cheese wedge
+- 2x egg
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBurgerMcguffin" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Cuban Carp[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2 slices of bread
+- 2 cheese wedges
+</Box>
+<Box Orientation="Vertical">
+- chili pepper
+- 2x fish meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealCubancarp" Caption=""/>
+</Box>
+</Document>
