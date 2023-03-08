@@ -52,6 +52,8 @@ namespace Content.Shared.Audio
                 return;
 
             ambience.Sound = path;
+            // Logger.DebugS("Ambience test:","New path: "+ambience.Sound.GetSound());
+            QueueUpdate(uid, ambience);
             Dirty(ambience);
         }
 
