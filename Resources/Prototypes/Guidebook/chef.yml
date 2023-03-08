@@ -4,6 +4,12 @@
   text: "/Server Info/Guidebook/Chef/intro.xml"
   children:
   - Cookbook
+
+- type: guideEntry
+  id: Cookbook
+  name: guide-entry-cookbook
+  text: "/Server Info/Guidebook/Chef/cookbook.xml"
+  children:
   - CookSandwich
   - CookPasta
   - CookBurger
@@ -12,11 +18,6 @@
   - CookPastry
   - CookSnack
   - CookKebab
-
-- type: guideEntry
-  id: Cookbook
-  name: guide-entry-cookbook
-  text: "/Server Info/Guidebook/Chef/cookbook.xml"
 
 - type: guideEntry
   id: CookBurger
