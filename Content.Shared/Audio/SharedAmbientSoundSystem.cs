@@ -62,6 +62,8 @@ namespace Content.Shared.Audio
             SetAmbience(uid, state.Enabled, component);
             SetRange(uid, state.Range, component);
             SetVolume(uid, state.Volume, component);
+            if (state.Sound != null)
+                SetSound(uid, state.Sound, component);
         }
 
         private void GetCompState(EntityUid uid, AmbientSoundComponent component, ref ComponentGetState args)
@@ -71,6 +73,7 @@ namespace Content.Shared.Audio
                 Enabled = component.Enabled,
                 Range = component.Range,
                 Volume = component.Volume,
+                Sound = component.Sound,
             };
         }
     }
