@@ -66,6 +66,17 @@
             - material: WoodPlank
               amount: 2
               doAfter: 2
+        
+        - to: paperWall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: Paper
+              amount: 2
+              doAfter: 2
 
         - to: uraniumWall
           completed:
@@ -161,6 +172,18 @@
           completed:
             - !type:GivePrototype
               prototype: MaterialWoodPlank1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 10
+
+    - node: paperWall
+      entity: WallPaper
+      edges:
+        - to: girder
+          completed:
+            - !type:GivePrototype
+              prototype: SheetPaper1
               amount: 2
           steps:
             - tool: Prying
