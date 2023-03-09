@@ -86,16 +86,3 @@
     sprite: Clothing/Head/Misc/flower-crown.rsi
     state: icon
   objectType: Item
-
-- type: construction
-  name: soyjak plushie
-  id: soyplush
-  graph: soyplush
-  startNode: start
-  targetNode: soyjakplush
-  category: construction-category-misc
-  description: "A crude representation of anyone you dislike."
-  icon:
-    sprite: Objects/Fun/soyjak_plushie.rsi
-    state: icon
-  objectType: Item
