@@ -224,10 +224,20 @@ namespace Content.Client.Audio
             var metaQuery = GetEntityQuery<MetaDataComponent>();
             var mapPos = playerXform.MapPosition;
 
-            // Remove out-of-range ambiences
+            // Remove out-of-range ambiences and sounds with updated paths
             foreach (var (comp, sound) in _playingSounds)
             {
                 var entity = comp.Owner;
+
+                // check if path has been updated
+                if (sound.Sound != comp.Sound.GetSound())
+                {
+                    sound.Stream?.Stop();
+                    _playingSounds.Remove(comp);
+                    _playingCount[sound.Sound] -= 1;
+                    if (_playingCount[sound.Sound] == 0)
+                        _playingCount.Remove(sound.Sound);
+                }
 
                 if (comp.Enabled &&
                     query.TryGetComponent(entity, out var xform) &&
