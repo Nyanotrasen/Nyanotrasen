@@ -1,4 +1,3 @@
-using System.Threading;
 
 namespace Content.Server.Item.PseudoItem
 {
@@ -9,8 +8,6 @@ namespace Content.Server.Item.PseudoItem
     [RegisterComponent]
     public sealed class PseudoItemComponent : Component
     {
-        public CancellationTokenSource? CancelToken;
-
         [DataField("size")]
         public int Size = 120;
 

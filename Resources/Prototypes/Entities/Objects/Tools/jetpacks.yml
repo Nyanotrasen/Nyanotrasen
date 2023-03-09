@@ -188,7 +188,7 @@
     - type: GasTank
       outputPressure: 42.6
       air:
-        volume: 4
+        volume: 20
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -205,7 +205,7 @@
     outputPressure: 42.6
     air:
       temperature: 293.15
-      volume: 4
+      volume: 20
       moles:
       - 0.747
       - 0.747
@@ -258,6 +258,7 @@
     sprite: Objects/Tanks/Jetpacks/void.rsi
     slots:
       - Back
+      - suitStorage
 
 # Filled void
 - type: entity
