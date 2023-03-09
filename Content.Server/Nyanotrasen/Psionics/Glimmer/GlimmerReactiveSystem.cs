@@ -1,3 +1,4 @@
+using Content.Server.Audio;
 using Content.Server.Power.Components;
 using Content.Server.Electrocution;
 using Content.Server.Lightning;
@@ -6,6 +7,7 @@ using Content.Server.Construction;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Ghost;
 using Content.Server.Revenant.EntitySystems;
+using Content.Shared.Audio;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
@@ -13,6 +15,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
@@ -25,6 +28,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
+        [Dependency] private readonly SharedAmbientSoundSystem _sharedAmbientSoundSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly LightningSystem _lightning = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
@@ -69,6 +73,15 @@ namespace Content.Server.Psionics.Glimmer
                     isEnabled = apcPower.Powered;
 
             _appearanceSystem.SetData(uid, GlimmerReactiveVisuals.GlimmerTier, isEnabled ? currentGlimmerTier : GlimmerTier.Minimal);
+
+            // update ambient sound
+            if (TryComp(uid, out GlimmerSoundComponent? glimmerSound)
+                && TryComp(uid, out AmbientSoundComponent? ambientSoundComponent)
+                && glimmerSound.GetSound(currentGlimmerTier, out SoundSpecifier? spec))
+            {
+                if (spec != null)
+                    _sharedAmbientSoundSystem.SetSound(uid, spec, ambientSoundComponent);
+            }
 
             if (component.ModulatesPointLight)
                 if (TryComp(uid, out SharedPointLightComponent? pointLight))
