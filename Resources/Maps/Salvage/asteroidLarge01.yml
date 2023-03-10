@@ -3423,7 +3423,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 421
-  type: RandomItem
+  type: SalvageAmmoSpawner
   components:
   - pos: 0.5,-2.5
     parent: 0
@@ -5565,6 +5565,12 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -7.5,2.5
+    parent: 0
+    type: Transform
+- uid: 767
+  type: SalvageWeaponSpawner
+  components:
+  - pos: -4.5,-7.5
     parent: 0
     type: Transform
 ...

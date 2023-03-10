@@ -133,7 +133,7 @@ entities:
     type: Gravity
   - chunkCollection:
       -1,-1:
-        1:
+        0:
           cleanable: True
           color: '#FFFFFFFF'
           id: WarnBox
@@ -4171,7 +4171,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 541
-  type: RandomRockSpawner
+  type: SalvageAmmoSpawner
   components:
   - pos: 3.5,5.5
     parent: 0
@@ -4747,9 +4747,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 637
-  type: MaintenanceWeaponSpawner
+  type: SalvageWeaponSpawner
   components:
-  - pos: 1.5,-4.5
+  - pos: 1.5,-5.5
     parent: 0
     type: Transform
 - uid: 638
