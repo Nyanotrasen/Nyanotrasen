@@ -34,8 +34,8 @@
     fixtures:
     - shape:
         !type:PhysShapeCircle
-        radius: 0.48
-      density: 400
+        radius: 0.40
+      density: 100
       mask:
       - MobMask
       layer:
