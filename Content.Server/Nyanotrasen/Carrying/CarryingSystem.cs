@@ -1,3 +1,4 @@
+using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
@@ -195,16 +196,14 @@ namespace Content.Server.Carrying
 
         private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent<CarryData> args)
         {
+            component.CancelToken = null;
             if (args.Handled || args.Cancelled)
                 return;
 
-            if (!TryComp<CarriableComponent>(args.Args.Target, out var targetCarry))
+            if (!CanCarry(args.Args.User, uid, component))
                 return;
 
-            if (!CanCarry(args.Args.User, args.Args.Target.Value, targetCarry))
-                return;
-
-            Carry(args.Args.User, args.Args.Target.Value);
+            Carry(args.Args.User, uid);
             args.Handled = true;
         }
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
@@ -225,11 +224,13 @@ namespace Content.Server.Carrying
             if (!HasComp<KnockedDownComponent>(carried))
                 length *= 2f;
 
+            component.CancelToken = new CancellationTokenSource();
+
             var data = new CarryData();
-            var args = new DoAfterEventArgs(carrier, length, target: carried)
+            var args = new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
             {
-                RaiseOnUser = true,
-                RaiseOnTarget = false,
+                RaiseOnUser = false,
+                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -291,6 +292,9 @@ namespace Content.Server.Carrying
         public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
         {
             if (!Resolve(carried, ref carriedComp, false))
+                return false;
+
+            if (carriedComp.CancelToken != null)
                 return false;
 
             if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
