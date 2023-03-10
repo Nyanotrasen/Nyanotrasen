@@ -6,12 +6,11 @@
   - type: Sprite
     layers:
       - state: red
-      - sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+      - sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
         state: base
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - WeaponSniperMosin
       - WeaponShotgunDoubleBarreled
       - WeaponShotgunSawn
       - WeaponFlareGun
@@ -44,13 +43,12 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - MagazineBoxLightRifle
       - BoxBeanbag
       - BoxLethalshot
       - BoxShotgunSlug
       - MagazineBoxPistol
+      - MagazinePistol
       - SpeedLoaderMagnum
-      - SpeedLoaderLightRifle
     chance: 0.20
     rarePrototypes:
       - WeaponCapacitorRecharger
