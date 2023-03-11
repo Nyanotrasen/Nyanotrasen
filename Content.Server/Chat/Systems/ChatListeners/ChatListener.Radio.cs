@@ -225,17 +225,54 @@ namespace Content.Server.Chat.Systems
             if (args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            if (args.RecipientData.TryGetData<float>(ChatRecipientDataSay.Distance, out var distance) &&
-                args.RecipientData.TryGetData<bool>(ChatRecipientDataRadio.WillHearRadio, out var willHearRadio) &&
-                distance <= ObfuscatedRange &&
-                !willHearRadio)
-            {
-                return;
-            }
+            var distance = args.RecipientData.GetData<float>(ChatRecipientDataSay.Distance);
+            var willHearRadio = args.RecipientData.GetData<bool>(ChatRecipientDataRadio.WillHearRadio);
 
-            // They're out of range of clear hearing, so obfuscate the message.
-            var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-            args.RecipientData.SetData(ChatRecipientDataRadio.ObfuscatedMessage, _chatSystem.ObfuscateMessageReadability(message, 0.2f));
+            // NOTE: This should take into account speech occlusion when it is available.
+
+            // The following conditions determine if a recipient should be able
+            // to clue in to who is actually speaking, with the assumption that
+            // if you're whispering into a radio, you're not able to be outed
+            // as easily unless they're close enough to get extra details.
+            if (willHearRadio)
+            {
+                if (distance > VoiceRange || args.Recipient == args.Chat.Source)
+                {
+                    // The recipient is out of voice range and cannot
+                    // correlate what the source is saying on the radio, so
+                    // they're only getting the voice.
+                    //
+                    // Or, they are the speaker, in which case, let them see
+                    // themselves as others would on the radio.
+                    var identity = _chatSystem.GetVoiceIdentity(args.Chat, args.RecipientData, args.Recipient);
+                    args.RecipientData.SetData(ChatRecipientDataSay.Identity, identity);
+                }
+                else
+                {
+                    // Within voice range and able to hear the specific radio
+                    // channel, so strong correlation if this person has a
+                    // strange voice.
+                    var identity = _chatSystem.GetVisibleVoiceIdentity(args.Chat, args.RecipientData, args.Recipient);
+                    args.RecipientData.SetData(ChatRecipientDataSay.Identity, identity);
+                }
+            }
+            else
+            {
+                if (distance <= ObfuscatedRange)
+                {
+                    // Can't hear the radio, but can hear the person talking,
+                    // so give them a better idea of who this is.
+                    var identity = _chatSystem.GetVisibleVoiceIdentity(args.Chat, args.RecipientData, args.Recipient);
+                    args.RecipientData.SetData(ChatRecipientDataSay.Identity, identity);
+                }
+                else
+                {
+                    // Otherwise, fall back to the same Identity that anything else uses.
+                    // And obscure the message.
+                    var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
+                    args.RecipientData.SetData(ChatRecipientDataSay.Message, _chatSystem.ObfuscateMessageReadability(message, 0.2f));
+                }
+            }
         }
 
         public override void OnChat(ref GotEntityChatEvent args)
@@ -262,13 +299,12 @@ namespace Content.Server.Chat.Systems
                 if (!args.RecipientData.TryGetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel, out var channel))
                     return;
 
-                var name = args.Chat.Source;
-
+                var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
                 var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
                 var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-radio-message-wrap",
                     ("color", channel.Color),
                     ("channel", $"\\[{channel.LocalizedName}\\]"),
-                    ("name", name),
+                    ("name", identity),
                     ("message", FormattedMessage.EscapeText(message)));
 
                 _chatManager.ChatMessageToOne(ChatChannel.Radio,
@@ -278,14 +314,12 @@ namespace Content.Server.Chat.Systems
                     false, // hideChat,
                     actorComponent.PlayerSession.ConnectedClient);
             }
-            else if (args.RecipientData.TryGetData<float>(ChatRecipientDataSay.Distance, out var distance) &&
-                distance <= VoiceRange)
+            else
             {
-                var message = (distance > ObfuscatedRange ?
-                    args.RecipientData.GetData<string>(ChatRecipientDataRadio.ObfuscatedMessage) :
-                    args.RecipientData.GetData<string>(ChatRecipientDataSay.Message)) ?? args.Chat.Message;
+                var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
+                var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
                 var wrappedMessage = Loc.GetString("chat-manager-entity-radio-wrap-message",
-                    ("entityName", args.Chat.Source),
+                    ("entityName", identity),
                     ("message", message));
 
                 _chatManager.ChatMessageToOne(ChatChannel.Radio,

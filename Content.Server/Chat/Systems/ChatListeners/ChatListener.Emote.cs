@@ -51,7 +51,7 @@ namespace Content.Server.Chat.Systems
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
-            var identity = args.RecipientData.GetData<string>(ChatRecipientDataSay.Identity) ?? Identity.Name(args.Chat.Source, EntityManager);
+            var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
             var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
             var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-me-wrap-message",
                 ("entityName", identity),

@@ -2,11 +2,76 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Content.Server.Ghost.Components;
 using Content.Shared.CCVar;
+using Content.Shared.IdentityManagement;
+using Content.Shared.IdentityManagement.Components;
 
 namespace Content.Server.Chat.Systems
 {
     public sealed partial class ChatSystem
     {
+        /// <returns>A string name for an entity, accounting for identity overrides.</returns>
+        public string GetIdentity(EntityChat chat, EntityChatData recipientData, EntityUid? recipient = null)
+        {
+            return recipientData.GetData<string>(ChatRecipientDataSay.Identity) ??
+                chat.GetData<string>(ChatDataSay.Identity) ??
+                Identity.Name(chat.Source, EntityManager, recipient);
+        }
+
+        /// <returns>A string that represents the entity when speaking and visible to another</returns>
+        /// <remarks>
+        /// IdentityManagement et al account only for the visible portion of an entity's identity,
+        /// so here we try to accommodate for when a listener has access to visible information,
+        /// i.e. mismatched IDs, voice mask, etc.
+        /// </remarks>
+        public string GetVisibleVoiceIdentity(EntityChat chat, EntityChatData recipientData, EntityUid? recipient = null)
+        {
+            // TODO: handle ghosts/etc
+            var trueName = Name(chat.Source);
+            Logger.Debug($"trueName: {trueName}");
+
+            var transformNameEvent = new TransformSpeakerNameEvent(chat.Source, trueName);
+            RaiseLocalEvent(chat.Source, transformNameEvent);
+
+            var voiceName = transformNameEvent.Name;
+            Logger.Debug($"voiceName: {voiceName}");
+
+            var seeEvent = new SeeIdentityAttemptEvent();
+            RaiseLocalEvent(chat.Source, seeEvent);
+
+            if (!seeEvent.Cancelled)
+            {
+                // The true identity should be visible to the viewer.
+                if (voiceName != trueName)
+                    return Loc.GetString("identity-masked-voice-outed",
+                        ("speaker", voiceName),
+                        ("falseIdentity", trueName));
+
+                return trueName;
+            }
+
+            // The true identity is blocked.
+            var presumedName = Identity.Name(chat.Source, EntityManager, recipient);
+            Logger.Debug($"presumedName: {presumedName}");
+
+            if (voiceName != presumedName)
+                    return Loc.GetString("identity-masked-voice-outed",
+                        ("speaker", voiceName),
+                        ("falseIdentity", presumedName));
+
+            return voiceName;
+        }
+
+        public string GetVoiceIdentity(EntityChat chat, EntityChatData recipientData, EntityUid? recipient = null)
+        {
+            // TODO: handle ghosts/etc
+            var trueName = Name(chat.Source);
+
+            var transformNameEvent = new TransformSpeakerNameEvent(chat.Source, trueName);
+            RaiseLocalEvent(chat.Source, transformNameEvent);
+
+            return transformNameEvent.Name;
+        }
+
         /// <summary>
         /// This method's purpose is to handle sanitizing messages from the IC speaking commands
         /// or to forward them to dead chat if the source is a ghost.

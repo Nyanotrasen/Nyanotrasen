@@ -25,6 +25,11 @@ namespace Content.Server.Chat.Systems
         /// As opposed to a telepathic or visual message.
         /// </remarks>
         IsSpoken,
+
+        /// <summary>
+        /// The string of how the sender is perceived by default.
+        /// </summary>
+        Identity,
     }
 
     public enum ChatRecipientDataSay
@@ -111,6 +116,12 @@ namespace Content.Server.Chat.Systems
                 // TODO: make better
                 args.RecipientData.SetData(ChatRecipientDataSay.Identity, $"{Name(args.Chat.Source)} ({Name(relayedSpeaker)})");
             }
+
+            if (args.Chat.ClaimedBy != this.GetType())
+                return;
+
+            var identity = _chatSystem.GetVisibleVoiceIdentity(args.Chat, args.RecipientData, args.Recipient);
+            args.RecipientData.SetData(ChatRecipientDataSay.Identity, identity);
         }
 
         public override void OnChat(ref GotEntityChatEvent args)
@@ -123,9 +134,7 @@ namespace Content.Server.Chat.Systems
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
-            // TODO: use Identity everywhere
-
-            var identity = args.RecipientData.GetData<string>(ChatRecipientDataSay.Identity) ?? Identity.Name(args.Chat.Source, EntityManager);
+            var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
             var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
             var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-say-wrap-message",
                 ("entityName", identity),
