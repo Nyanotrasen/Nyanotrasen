@@ -28,6 +28,23 @@ namespace Content.Server.Language
             SubscribeLocalEvent<ExtraLanguagesComponent, ComponentStartup>(OnExtraLanguages);
         }
 
+        /// <returns>True if the entity can understand the language when spoken.</returns>
+        public bool CanEntityUnderstandSpokenLanguage(EntityUid uid, LanguagePrototype? language, LinguisticComponent? component = null)
+        {
+            // Per how LanguageListener works, a null language is understood by all.
+            if (language == null)
+                return true;
+
+            if (!Resolve(uid, ref component))
+                return false;
+
+            return component.BypassUnderstanding || component.CanUnderstand.Contains(language.ID);
+        }
+
+        /// <returns>True if the entity can understand the language when written.</returns>
+        public bool CanEntityReadLanguage(EntityUid uid, LanguagePrototype? language, LinguisticComponent? component = null)
+            => CanEntityUnderstandSpokenLanguage(uid, language, component);
+
         public bool TryGetAnyValidSpokenLanguage(EntityUid uid, [NotNullWhen(true)] out LanguagePrototype? language, LinguisticComponent? component = null)
         {
             language = null;
