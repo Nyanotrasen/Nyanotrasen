@@ -11,3 +11,4 @@ job-description-fugitive = Escape the station alive.
 job-description-prisoner = Sit in prison. Gamble with your cellmates. Talk to the warden. Write your memoirs.
 job-description-gladiator = Put on a combat spectacle for the crew. Fight for your freedom, glory, and honor.
 job-description-paramedic = Head out into the field to save lives. Get shot at by hostile operatives. Take up chain-smoking.
+job-description-martialartist = Be honorable and disciplined, spar in the dojo, challenge security to CQC.
