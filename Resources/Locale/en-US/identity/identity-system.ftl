@@ -9,3 +9,4 @@ identity-gender-masculine = man
 identity-gender-person = person
 
 identity-presumed-name-outed = {$trueName} (as {$presumedName})
+identity-masked-voice-outed = {$speaker} (as {$falseIdentity})
