@@ -387,7 +387,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWizardFake
-  name: fake wizard hat
+  name: wizard hat
+  suffix: fake
   description: It has WIZZARD written across it in sequins. Comes with a cool beard.
   components:
   - type: Sprite
