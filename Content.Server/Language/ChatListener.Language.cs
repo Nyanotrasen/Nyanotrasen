@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Language;
 using Content.Shared.Chat;
+using Content.Shared.Radio;
 
 namespace Content.Server.Language
 {
@@ -132,6 +133,27 @@ namespace Content.Server.Chat.Systems
             };
 
             chat.SetData(ChatDataSay.IsSpoken, true);
+            chat.SetData(ChatDataLanguage.Language, language);
+
+            if (speaker != null)
+                chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
+
+            return TrySendChat(source, chat);
+        }
+
+        /// <summary>
+        /// Try to send a radio message from an entity, with a specific language.
+        /// </summary>
+        public bool TrySendRadioWithLanguage(EntityUid source, string message, RadioChannelPrototype[] radioChannels, LanguagePrototype language, EntityUid? speaker = null)
+        {
+            var chat = new EntityChat(source, message)
+            {
+                Channel = ChatChannel.Radio,
+                ClaimedBy = typeof(RadioListenerSystem)
+            };
+
+            chat.SetData(ChatDataSay.IsSpoken, true);
+            chat.SetData(ChatDataRadio.RadioChannels, radioChannels);
             chat.SetData(ChatDataLanguage.Language, language);
 
             if (speaker != null)
