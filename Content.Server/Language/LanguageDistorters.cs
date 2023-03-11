@@ -37,8 +37,16 @@ namespace Content.Server.Language
         public string[] Phonemes = default!;
 
         [ViewVariables]
+        [DataField("minPhoneChars")]
+        public int MinPhoneChars = 2;
+
+        [ViewVariables]
         [DataField("maxExtraPhoneChars")]
         public int MaxExtraPhoneChars = 3;
+
+        [ViewVariables]
+        [DataField("capitalize")]
+        public bool Capitalize = true;
 
         public override string Distort(EntityUid source, string message)
         {
@@ -54,7 +62,7 @@ namespace Content.Server.Language
 
                 // Take however many letters have been counted so far,
                 // randomize it, then repeat the phoneme up to that distance.
-                var length = random.Next(1, letterChars + MaxExtraPhoneChars);
+                var length = random.Next(MinPhoneChars, letterChars + MaxExtraPhoneChars);
                 var replacement = String.Concat(Enumerable.Repeat(phoneme, 1 + length / phoneme.Length)).Substring(0, length);
 
                 // If at least half of the characters are uppercase, make the whole block uppercase.
@@ -89,7 +97,14 @@ namespace Content.Server.Language
             if (letterChars > 0)
                 AppendPhoneme();
 
-            return builder.ToString();
+            var result = builder.ToString();
+            if (string.IsNullOrEmpty(result))
+                return "";
+
+            if (Capitalize)
+                result = Char.ToUpper(result[0]) + result.Substring(1);
+
+            return result;
         }
     }
 
