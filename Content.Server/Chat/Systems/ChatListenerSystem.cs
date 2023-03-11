@@ -15,6 +15,7 @@ namespace Content.Server.Chat.Systems
             SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: Before, after: After);
             SubscribeLocalEvent<EntityChatGetRecipientsEvent>(OnGetRecipients, before: Before, after: After);
             SubscribeLocalEvent<EntityChatTransformEvent>(OnTransformChat, before: Before, after: After);
+            SubscribeLocalEvent<EntityChatAfterTransformEvent>(AfterTransform, before: Before, after: After);
             SubscribeLocalEvent<BeforeEntityChatEvent>(BeforeChat, before: Before, after: After);
             SubscribeLocalEvent<GotEntityChatTransformEvent>(OnRecipientTransformChat, before: Before, after: After);
             SubscribeLocalEvent<GotEntityChatEvent>(OnChat, before: Before, after: After);
@@ -24,6 +25,7 @@ namespace Content.Server.Chat.Systems
         public virtual void OnChatAttempt(ref EntityChatAttemptEvent args) { }
         public virtual void OnGetRecipients(ref EntityChatGetRecipientsEvent args) { }
         public virtual void OnTransformChat(ref EntityChatTransformEvent args) { }
+        public virtual void AfterTransform(ref EntityChatAfterTransformEvent args) { }
         public virtual void BeforeChat(ref BeforeEntityChatEvent args) { }
         public virtual void OnRecipientTransformChat(ref GotEntityChatTransformEvent args) { }
         public virtual void OnChat(ref GotEntityChatEvent args) { }

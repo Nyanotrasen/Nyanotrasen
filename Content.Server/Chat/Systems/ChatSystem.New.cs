@@ -125,6 +125,11 @@ namespace Content.Server.Chat.Systems
             var doTransform = new EntityChatTransformEvent(chat);
             RaiseLocalEvent(source, ref doTransform, true);
 
+            // All possible source transformation has been completed.
+            // This is where other systems can pick up the chat for further handling.
+            var afterTransform = new EntityChatAfterTransformEvent(chat);
+            RaiseLocalEvent(source, ref afterTransform, true);
+
             // Send the actual message on a per-recipient basis, so they can do
             // their own individual handling.
             foreach (var (recipient, data) in chat.Recipients)

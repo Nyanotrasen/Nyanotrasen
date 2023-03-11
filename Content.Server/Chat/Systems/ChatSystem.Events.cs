@@ -159,6 +159,17 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
+    public struct EntityChatAfterTransformEvent
+    {
+        public readonly EntityChat Chat;
+
+        public EntityChatAfterTransformEvent(EntityChat chat)
+        {
+            Chat = chat;
+        }
+    }
+
+    [ByRefEvent]
     public struct BeforeEntityChatEvent
     {
         public readonly EntityUid Recipient;
@@ -176,7 +187,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public sealed class GotEntityChatTransformEvent
+    public struct GotEntityChatTransformEvent
     {
         public readonly EntityUid Recipient;
         public EntityChat Chat;
@@ -193,7 +204,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public sealed class GotEntityChatEvent
+    public struct GotEntityChatEvent
     {
         public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
