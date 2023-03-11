@@ -40,11 +40,6 @@ namespace Content.Server.Chat.Systems
         /// This is to support sending on multiple radio channels.
         /// </remarks>
         SharedRadioChannel,
-
-        /// <summary>
-        /// An obfuscated version of the message, for eavesdropping.
-        /// </summary>
-        ObfuscatedMessage,
     }
 
     /// <summary>
