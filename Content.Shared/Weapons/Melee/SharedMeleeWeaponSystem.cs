@@ -390,7 +390,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
             else if (component.Damage.Total.Equals(FixedPoint2.Zero) && component.HitSound != null)
             {
-                Audio.PlayPredicted(component.HitSound, meleeUid, user);
+                Audio.PlayPredicted(component.HitSound, component.Owner, user);
             }
             else
             {
