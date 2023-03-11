@@ -1,38 +1,25 @@
-using Content.Shared.Chat;
-using Content.Shared.Radio;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.Radio;
 
 public sealed class RadioReceiveEvent : EntityEventArgs
 {
-    public readonly string Message;
-    public readonly EntityUid Source;
-    public readonly RadioChannelPrototype Channel;
-    public readonly MsgChatMessage ChatMsg;
-    public readonly EntityUid? RadioSource;
+    public readonly EntityChat Chat;
+    public readonly EntityChatData RecipientData;
 
-    public RadioReceiveEvent(string message, EntityUid source, RadioChannelPrototype channel, MsgChatMessage chatMsg, EntityUid? radioSource)
+    public RadioReceiveEvent(EntityChat chat, EntityChatData recipientData)
     {
-        Message = message;
-        Source = source;
-        Channel = channel;
-        ChatMsg = chatMsg;
-        RadioSource = radioSource;
+        Chat = chat;
+        RecipientData = recipientData;
     }
 }
 
 public sealed class RadioReceiveAttemptEvent : CancellableEntityEventArgs
 {
-    public readonly string Message;
-    public readonly EntityUid Source;
-    public readonly RadioChannelPrototype Channel;
-    public readonly EntityUid? RadioSource;
+    public readonly EntityChat Chat;
 
-    public RadioReceiveAttemptEvent(string message, EntityUid source, RadioChannelPrototype channel, EntityUid? radioSource)
+    public RadioReceiveAttemptEvent(EntityChat chat)
     {
-        Message = message;
-        Source = source;
-        Channel = channel;
-        RadioSource = radioSource;
+        Chat = chat;
     }
 }

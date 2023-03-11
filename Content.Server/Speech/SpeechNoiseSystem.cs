@@ -1,8 +1,6 @@
 using Robust.Shared.Audio;
-using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.Speech;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
@@ -14,6 +12,7 @@ namespace Content.Server.Speech
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
         public override void Initialize()
         {
@@ -33,21 +32,21 @@ namespace Content.Server.Speech
             if (currentTime - component.LastTimeSoundPlayed < cooldown) return;
 
             // Play speech sound
-            string contextSound;
+            SoundSpecifier contextSound;
             var prototype = _protoManager.Index<SpeechSoundsPrototype>(component.SpeechSounds);
-            var message = args.Message;
+            var message = args.Chat.Message;
 
             // Different sounds for ask/exclaim based on last character
-            switch (args.Message[^1])
+            switch (message[^1])
             {
                 case '?':
-                    contextSound = prototype.AskSound.GetSound();
+                    contextSound = prototype.AskSound;
                     break;
                 case '!':
-                    contextSound = prototype.ExclaimSound.GetSound();
+                    contextSound = prototype.ExclaimSound;
                     break;
                 default:
-                    contextSound = prototype.SaySound.GetSound();
+                    contextSound = prototype.SaySound;
                     break;
             }
 
@@ -59,14 +58,14 @@ namespace Content.Server.Speech
             }
             if (uppercaseCount > (message.Length / 2))
             {
-                contextSound = contextSound = prototype.ExclaimSound.GetSound();
+                contextSound = prototype.ExclaimSound;
             }
 
             var scale = (float) _random.NextGaussian(1, prototype.Variation);
             var pitchedAudioParams = component.AudioParams.WithPitchScale(scale);
 
             component.LastTimeSoundPlayed = currentTime;
-            SoundSystem.Play(contextSound, Filter.Pvs(uid, entityManager: EntityManager), uid, pitchedAudioParams);
+            _audioSystem.PlayPvs(contextSound, uid, pitchedAudioParams);
         }
     }
 }

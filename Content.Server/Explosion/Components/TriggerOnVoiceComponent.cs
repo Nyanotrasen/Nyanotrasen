@@ -1,3 +1,5 @@
+using Content.Server.Language;
+
 namespace Content.Server.Explosion.Components
 {
     /// <summary>
@@ -11,6 +13,10 @@ namespace Content.Server.Explosion.Components
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("keyPhrase")]
         public string? KeyPhrase;
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("language")]
+        public LanguagePrototype? Language;
 
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("listenRange")]

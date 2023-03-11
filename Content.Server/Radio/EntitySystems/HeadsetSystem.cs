@@ -4,7 +4,6 @@ using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Shared.Radio.EntitySystems;
-using Robust.Server.GameObjects;
 using Robust.Shared.Network;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -17,10 +16,9 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HeadsetComponent, RadioReceiveEvent>(OnHeadsetReceive);
         SubscribeLocalEvent<HeadsetComponent, EncryptionChannelsChangedEvent>(OnKeysChanged);
 
-        SubscribeLocalEvent<WearingHeadsetComponent, EntitySpokeEvent>(OnSpeak);
+        SubscribeLocalEvent<WearingHeadsetComponent, CanTransmitOnRadioEvent>(OnCanTransmit);
     }
 
     private void OnKeysChanged(EntityUid uid, HeadsetComponent component, EncryptionChannelsChangedEvent args)
@@ -42,14 +40,17 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             EnsureComp<ActiveRadioComponent>(uid).Channels = new(keyHolder.Channels);
     }
 
-    private void OnSpeak(EntityUid uid, WearingHeadsetComponent component, EntitySpokeEvent args)
+    private void OnCanTransmit(EntityUid uid, WearingHeadsetComponent component, ref CanTransmitOnRadioEvent args)
     {
-        if (args.Channel != null
-            && TryComp(component.Headset, out EncryptionKeyHolderComponent? keys)
-            && keys.Channels.Contains(args.Channel.ID))
+        if (args.Handled)
+            return;
+
+        if (TryComp<EncryptionKeyHolderComponent>(component.Headset, out var keys) &&
+            keys.Channels.IsSupersetOf(args.StringChannels))
         {
-            _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
-            args.Channel = null; // prevent duplicate messages from other listeners.
+            args.CanTransmit = true;
+            args.RadioSource = component.Headset;
+            args.Handled = true;
         }
     }
 
@@ -91,11 +92,5 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             EnsureComp<WearingHeadsetComponent>(Transform(uid).ParentUid).Headset = uid;
             UpdateRadioChannels(uid, component);
         }
-    }
-
-    private void OnHeadsetReceive(EntityUid uid, HeadsetComponent component, RadioReceiveEvent args)
-    {
-        if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
     }
 }

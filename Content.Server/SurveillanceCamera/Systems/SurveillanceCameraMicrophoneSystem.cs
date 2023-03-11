@@ -69,7 +69,8 @@ public sealed class SurveillanceCameraMicrophoneSystem : EntitySystem
         if (!TryComp(uid, out SurveillanceCameraComponent? camera))
             return;
 
-        var ev = new SurveillanceCameraSpeechSendEvent(args.Source, args.Message);
+        // TODO: handle language
+        var ev = new SurveillanceCameraSpeechSendEvent(args.Chat.Source, args.Chat.Message);
 
         foreach (var monitor in camera.ActiveMonitors)
         {

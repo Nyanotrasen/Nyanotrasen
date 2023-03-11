@@ -1,10 +1,13 @@
+using System.Linq;
 using Content.Server.GameTicking.Rules.Configurations;
 using Content.Server.Radio.Components;
 using Content.Server.Radio;
 using Robust.Shared.Random;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Light.Components;
+using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -67,8 +70,15 @@ public sealed class SolarFlare : StationEventSystem
 
     private void OnRadioSendAttempt(EntityUid uid, ActiveRadioComponent component, RadioReceiveAttemptEvent args)
     {
-        if (RuleStarted && _event.AffectedChannels.Contains(args.Channel.ID))
-            if (!_event.OnlyJamHeadsets || (HasComp<HeadsetComponent>(uid) || HasComp<HeadsetComponent>(args.RadioSource)))
-                args.Cancel();
+        if (RuleStarted &&
+            args.Chat.TryGetData<RadioChannelPrototype[]>(ChatDataRadio.RadioChannels, out var radioChannels))
+        {
+            var stringRadioChannels = from channel in radioChannels select channel.ID;
+            EntityUid? radioSource = args.Chat.GetData<EntityUid>(ChatDataRadio.RadioSource);
+
+            if (_event.AffectedChannels.IsSupersetOf(stringRadioChannels))
+                if (!_event.OnlyJamHeadsets || (HasComp<HeadsetComponent>(uid) || HasComp<HeadsetComponent>(radioSource)))
+                    args.Cancel();
+        }
     }
 }

@@ -1,5 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
+using Content.Server.Language;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -10,8 +11,6 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Radio;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -190,11 +189,19 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnListen(EntityUid uid, RadioMicrophoneComponent component, ListenEvent args)
     {
-        if (HasComp<RadioSpeakerComponent>(args.Source))
+        if (HasComp<RadioSpeakerComponent>(args.Chat.Source))
             return; // no feedback loops please.
 
-        if (_recentlySent.Add((args.Message, args.Source)))
-            _radio.SendRadioMessage(args.Source, args.Message, _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel), uid);
+        if (_recentlySent.Add((args.Chat.Message, args.Chat.Source)))
+        {
+            var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel);
+            var channels = new RadioChannelPrototype[] { channel };
+
+            if (args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
+                _chat.TrySendRadioWithLanguage(args.Chat.Source, args.Chat.Message, channels, language);
+            else
+                _chat.TrySendRadio(args.Chat.Source, args.Chat.Message, channels);
+        }
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -208,13 +215,9 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, RadioReceiveEvent args)
     {
-        var nameEv = new TransformSpeakerNameEvent(args.Source, Name(args.Source));
-        RaiseLocalEvent(args.Source, nameEv);
-
-        var name = Loc.GetString("speech-name-relay", ("speaker", Name(uid)),
-            ("originalName", nameEv.Name));
-
-        var hideGlobalGhostChat = true; // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
-        _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Speak, false, nameOverride: name, hideGlobalGhostChat:hideGlobalGhostChat, checkRadioPrefix: false);
+        if (args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
+            _chat.TrySendSayWithLanguage(uid, args.Chat.Message, language, args.Chat.Source);
+        else
+            _chat.TrySendSay(uid, args.Chat.Message, args.Chat.Source);
     }
 }

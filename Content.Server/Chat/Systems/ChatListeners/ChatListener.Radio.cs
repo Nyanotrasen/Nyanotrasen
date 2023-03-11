@@ -113,10 +113,6 @@ namespace Content.Server.Chat.Systems
             if (canTransmitEvent.CanTransmit)
                 args.Chat.SetData(ChatDataRadio.RadioChannels, new RadioChannelPrototype[] { radioChannel });
 
-            // Inform old systems...
-            /* var ev = new EntitySpokeEvent(
-            /* RaiseLocalEvent(args.Chat.Source, ev, true); */
-
             args.Handled = true;
         }
 

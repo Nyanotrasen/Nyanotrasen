@@ -1,10 +1,10 @@
 using Content.Server.Explosion.Components;
+using Content.Server.Language;
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Verbs;
-using Robust.Shared.Player;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -28,20 +28,24 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void OnListen(EntityUid uid, TriggerOnVoiceComponent component, ListenEvent args)
         {
-            var message = args.Message.Trim();
+            var message = args.Chat.Message.Trim();
+            LanguagePrototype? language = args.Chat.GetData<LanguagePrototype>(ChatDataLanguage.Language);
 
             if (component.IsRecording)
             {
                 if (message.Length >= component.MinLength || message.Length <= component.MaxLength)
-                    FinishRecording(component, args.Source, args.Message);
+                    FinishRecording(component, args.Chat.Source, args.Chat.Message, language);
+
                 return;
             }
 
-            if (!string.IsNullOrWhiteSpace(component.KeyPhrase) && message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase))
+            if (!string.IsNullOrWhiteSpace(component.KeyPhrase) &&
+                message.Contains(component.KeyPhrase, StringComparison.InvariantCultureIgnoreCase) &&
+                language == component.Language)
             {
                 _adminLogger.Add(LogType.Trigger, LogImpact.High,
-                        $"A voice-trigger on {ToPrettyString(uid):entity} was triggered by {ToPrettyString(args.Source):speaker} speaking the key-phrase {component.KeyPhrase}.");
-                Trigger(uid, args.Source);
+                        $"A voice-trigger on {ToPrettyString(uid):entity} was triggered by {ToPrettyString(args.Chat.Source):speaker} speaking the key-phrase \"{component.KeyPhrase}\" in language {language?.ID}.");
+                Trigger(uid, args.Chat.Source);
             }
         }
 
@@ -98,13 +102,14 @@ namespace Content.Server.Explosion.EntitySystems
             _popupSystem.PopupEntity(Loc.GetString("popup-trigger-voice-stop-recording"), component.Owner);
         }
 
-        public void FinishRecording(TriggerOnVoiceComponent component, EntityUid source, string message)
+        public void FinishRecording(TriggerOnVoiceComponent component, EntityUid source, string message, LanguagePrototype? language = null)
         {
             component.KeyPhrase = message;
+            component.Language = language;
             component.IsRecording = false;
 
             _adminLogger.Add(LogType.Trigger, LogImpact.Low,
-                    $"A voice-trigger on {ToPrettyString(component.Owner):entity} has recorded a new keyphrase: '{component.KeyPhrase}'. Recorded from {ToPrettyString(source):speaker}");
+                    $"A voice-trigger on {ToPrettyString(component.Owner):entity} has recorded a new keyphrase: \"{component.KeyPhrase}\" in language {component.Language?.ID}. Recorded from {ToPrettyString(source):speaker}");
 
             _popupSystem.PopupEntity(Loc.GetString("popup-trigger-voice-recorded", ("keyphrase", component.KeyPhrase!)), component.Owner);
         }
@@ -113,9 +118,13 @@ namespace Content.Server.Explosion.EntitySystems
         {
             if (args.IsInDetailsRange)
             {
-                args.PushText(string.IsNullOrWhiteSpace(component.KeyPhrase)
-                    ? Loc.GetString("trigger-voice-uninitialized")
-                    : Loc.GetString("examine-trigger-voice", ("keyphrase", component.KeyPhrase)));
+                if (string.IsNullOrWhiteSpace(component.KeyPhrase))
+                    args.PushText(Loc.GetString("trigger-voice-uninitialized"));
+                else if (_language.CanEntityReadLanguage(args.Examiner, component.Language))
+                    args.PushText(Loc.GetString("examine-trigger-voice", ("keyphrase", component.KeyPhrase)));
+                else
+                    // NOTE: Use distorted writing when available.
+                    args.PushText(Loc.GetString("trigger-voice-unknown-language"));
             }
         }
     }

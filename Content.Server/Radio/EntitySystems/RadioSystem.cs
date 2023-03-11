@@ -1,16 +1,10 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.Components;
-using Content.Server.VoiceMask;
 using Content.Server.Popups;
-using Content.Shared.Chat;
-using Content.Shared.Database;
 using Content.Shared.Radio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Network;
 using Robust.Shared.Replays;
-using Robust.Shared.Utility;
-using Content.Shared.Popups;
 
 namespace Content.Server.Radio.EntitySystems;
 
@@ -23,6 +17,7 @@ public sealed class RadioSystem : EntitySystem
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     // set used to prevent radio feedback loops.
     private readonly HashSet<string> _messages = new();
@@ -30,27 +25,27 @@ public sealed class RadioSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<IntrinsicRadioReceiverComponent, RadioReceiveEvent>(OnIntrinsicReceive);
-        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, EntitySpokeEvent>(OnIntrinsicSpeak);
+        SubscribeLocalEvent<IntrinsicRadioTransmitterComponent, CanTransmitOnRadioEvent>(OnCanTransmit);
     }
 
-    private void OnIntrinsicSpeak(EntityUid uid, IntrinsicRadioTransmitterComponent component, EntitySpokeEvent args)
+    private void OnCanTransmit(EntityUid uid, IntrinsicRadioTransmitterComponent component, ref CanTransmitOnRadioEvent args)
     {
-        if (args.Channel != null && component.Channels.Contains(args.Channel.ID))
+        if (args.Handled)
+            return;
+
+        if (component.Channels.IsSupersetOf(args.StringChannels))
         {
-            SendRadioMessage(uid, args.Message, args.Channel);
-            args.Channel = null; // prevent duplicate messages from other listeners.
+            args.CanTransmit = true;
+            args.RadioSource = uid;
+            args.Handled = true;
         }
     }
 
-    private void OnIntrinsicReceive(EntityUid uid, IntrinsicRadioReceiverComponent component, RadioReceiveEvent args)
-    {
-        if (TryComp(uid, out ActorComponent? actor))
-            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.ConnectedClient);
-    }
-
+    [Obsolete("Use ChatSystem.TrySendRadio instead.")]
     public void SendRadioMessage(EntityUid source, string message, RadioChannelPrototype channel, EntityUid? radioSource = null)
     {
+        _chatSystem.TrySendRadio(source, message, new RadioChannelPrototype[] { channel });
+        /*
         // TODO if radios ever garble / modify messages, feedback-prevention needs to be handled better than this.
         if (!_messages.Add(message))
             return;
@@ -100,5 +95,6 @@ public sealed class RadioSystem : EntitySystem
 
         _replay.QueueReplayMessage(chat);
         _messages.Remove(message);
+        */
     }
 }

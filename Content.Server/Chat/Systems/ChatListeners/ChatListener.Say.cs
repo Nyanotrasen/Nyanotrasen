@@ -88,9 +88,6 @@ namespace Content.Server.Chat.Systems
             args.Chat.ClaimedBy = this.GetType();
             args.Chat.SetData(ChatDataSay.IsSpoken, true);
 
-            /* var ev = new EntitySpokeEvent(args.Chat.Source, args.Chat.Message, null, null); */
-            /* RaiseLocalEvent(args.Chat.Source, ev, true); */
-
             args.Handled = true;
         }
 

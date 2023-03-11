@@ -1,14 +1,14 @@
+using Content.Server.Chat.Systems;
+
 namespace Content.Server.Speech;
 
 public sealed class ListenEvent : EntityEventArgs
 {
-    public readonly string Message;
-    public readonly EntityUid Source;
+    public readonly EntityChat Chat;
 
-    public ListenEvent(string message, EntityUid source)
+    public ListenEvent(EntityChat chat)
     {
-        Message = message;
-        Source = source;
+        Chat = chat;
     }
 }
 
