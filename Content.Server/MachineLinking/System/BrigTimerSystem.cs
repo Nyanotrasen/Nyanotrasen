@@ -8,30 +8,27 @@ namespace Content.Server.MachineLinking;
 
 public sealed class BrigTimerSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-
     private readonly Dictionary<EntityUid, float> _timers = new();
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var (uid, length) in _timers)
+        foreach (var (entityUid, length) in _timers)
         {
             if (length <= 0)
             {
-                var entity = _entityManager.GetEntity(uid);
-                if (entity.TryGetComponent(out BrigTimerComponent brigTimer) &&
-                    EntityManager.TryGetComponent(brgTimer.Door, out DoorComponent door))
+                if (EntityManager.TryGetComponent(entityUid, out BrigTimerComponent? brigTimer) &&
+                    EntityManager.TryGetComponent(brigTimer.Door, out DoorComponent? door))
                 {
                     door.State = DoorState.Open;
                 }
 
-                _timers.Remove(uid);
+                _timers.Remove(entityUid);
             }
             else
             {
-                _timers[uid] -= frameTime;
+                _timers[entityUid] -= frameTime;
             }
         }
     }
@@ -46,8 +43,7 @@ public sealed class BrigTimerSystem : EntitySystem
 
     public void UseTimer(EntityUid uid)
     {
-        var entity = _entityManager.GetEntity(uid);
-        if (entity.TryGetComponent(out BrigTimerComponent brigTimer))
+        if (EntityManager.TryGetComponent(uid, out BrigTimerComponent? brigTimer))
         {
             StartTimer(uid, brigTimer.Length);
         }
