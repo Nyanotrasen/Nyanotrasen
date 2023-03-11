@@ -1,7 +1,7 @@
 # The language that all usual humans speak, be it English, Mandarin, Russian, et cetera.
 - type: language
   id: Basic
-  name: Basic
+  name: English
   distorter:
     !type:EmotionalDistorter
     phonemes:
