@@ -6,13 +6,12 @@ using Content.Shared.Tabletop.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Players;
 using Robust.Shared.Serialization;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Tabletop
 {
-    public abstract class SharedTabletopSystem : EntitySystem
+    public abstract partial class SharedTabletopSystem : EntitySystem
     {
         [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
@@ -25,6 +24,8 @@ namespace Content.Shared.Tabletop
             SubscribeLocalEvent<TabletopDraggableComponent, ComponentGetState>(GetDraggableState);
             SubscribeAllEvent<TabletopDraggingPlayerChangedEvent>(OnDraggingPlayerChanged);
             SubscribeAllEvent<TabletopMoveEvent>(OnTabletopMove);
+
+            InitializeShogi();
         }
 
         /// <summary>
