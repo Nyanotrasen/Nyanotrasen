@@ -1,0 +1,163 @@
+# Shogi item (normal in game item you can hold in your hand)
+- type: entity
+  parent: BaseItem
+  id: ShogiBoard
+  name: shogi board
+  description: A board for playing the game Shogi, Japanese chess.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Tabletop/chessboard.rsi
+    state: chessboard
+  - type: TabletopGame
+    boardName: tabletop-chess-board-name
+    size: 338, 274
+    setup: !type:TabletopShogiSetup
+
+# Shogi tabletop item (item only visible in tabletop game)
+- type: entity
+  id: ShogiBoardTabletop
+  name: shogi board
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Tabletop/chessboard_tabletop.rsi
+    state: chessboard_tabletop
+    noRot: false
+    drawdepth: FloorTiles
+
+## Shogi pieces
+- type: entity
+  id: BaseShogiPiece
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: TabletopDraggable
+  - type: Sprite
+    netsync: false
+    noRot: true
+  - type: Appearance
+  - type: TabletopShogiPiece
+
+- type: entity
+  id: ShogiBishop
+  name: bishop
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: bishop
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: horse
+        visible: false
+  - type: TabletopShogiPiece
+    canPromote: true
+
+- type: entity
+  id: ShogiGold
+  name: gold general
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: gold
+
+- type: entity
+  id: ShogiKing
+  name: king
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: king
+
+- type: entity
+  id: ShogiKingJeweled
+  name: king
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: king_jewel
+
+- type: entity
+  id: ShogiKnight
+  name: knight
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: knight
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: promoted_knight
+        visible: false
+  - type: TabletopShogiPiece
+    canPromote: true
+
+- type: entity
+  id: ShogiLance
+  name: lance
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: lance
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: promoted_lance
+        visible: false
+  - type: TabletopShogiPiece
+    canPromote: true
+
+- type: entity
+  id: ShogiPawn
+  name: pawn
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: pawn
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: promoted_pawn
+        visible: false
+  - type: TabletopShogiPiece
+    canPromote: true
+
+- type: entity
+  id: ShogiRook
+  name: rook
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: rook
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: dragon
+        visible: false
+    state: rook
+  - type: TabletopShogiPiece
+    canPromote: true
+
+- type: entity
+  id: ShogiSilver
+  name: silver general
+  parent: BaseShogiPiece
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    layers:
+      - map: ["enum.ShogiPieceVisualLayers.Unpromoted"]
+        state: silver
+      - map: ["enum.ShogiPieceVisualLayers.Promoted"]
+        state: promoted_silver
+        visible: false
+  - type: TabletopShogiPiece
+    canPromote: true
