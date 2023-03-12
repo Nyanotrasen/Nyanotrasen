@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace Content.Server.Carrying
 {
     [RegisterComponent]
@@ -9,5 +11,7 @@ namespace Content.Server.Carrying
         /// </summary>
         [DataField("freeHandsRequired")]
         public int FreeHandsRequired = 2;
+
+        public CancellationTokenSource? CancelToken;
     }
 }

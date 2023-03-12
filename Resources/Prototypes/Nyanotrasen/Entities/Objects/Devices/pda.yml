@@ -123,3 +123,12 @@
     state: pda-security
   - type: Icon
     state: pda-guard
+
+- type: entity
+  parent: BoxerPDA
+  id: MartialArtistPDA
+  name: martial artist PDA
+  components:
+  - type: PDA
+    id: MartialArtistIDCard
+    state: pda-boxer

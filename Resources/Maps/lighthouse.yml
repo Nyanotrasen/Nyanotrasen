@@ -110298,7 +110298,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 12226
-  type: ClothingOuterWizard
+  type: ClothingOuterWizardFake
   components:
   - flags: InContainer
     type: MetaData
@@ -110308,7 +110308,7 @@ entities:
     type: Physics
   - type: InsideEntityStorage
 - uid: 12227
-  type: ClothingShoesWizard
+  type: ClothingShoesWizardFake
   components:
   - flags: InContainer
     type: MetaData
@@ -110318,7 +110318,7 @@ entities:
     type: Physics
   - type: InsideEntityStorage
 - uid: 12228
-  type: ClothingHeadHatWizard
+  type: ClothingHeadHatWizardFake
   components:
   - flags: InContainer
     type: MetaData
