@@ -90,7 +90,7 @@ namespace Content.Server.AME.Components
                 InjectSound(overloading);
                 UpdateUserInterface();
 
-                float fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.MaxFuelAmount;
+                float fuelRatio = (float) fuelJar.FuelAmount / (float) fuelJar.FuelCapacity;
 
                 if (fuelRatio <= 0.1f
                     && _entities.TryGetComponent<IntrinsicRadioReceiverComponent>(this.Owner, out var component))
