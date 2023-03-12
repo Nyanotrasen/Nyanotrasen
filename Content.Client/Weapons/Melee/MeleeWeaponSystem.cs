@@ -58,9 +58,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         var entity = entityNull.Value;
-        var weapon = GetWeapon(entity);
 
-        if (weapon == null)
+        if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;
 
         if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity))
@@ -97,7 +96,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
 
             // If it's an unarmed attack then do a disarm
-            if (weapon.Owner == entity)
+            if (weaponUid == entity)
             {
                 EntityUid? target = null;
 
@@ -138,11 +137,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
             if (MapManager.TryFindGridAt(mousePos, out var grid))
             {
-                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, EntityManager);
+                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, _transform, EntityManager);
             }
             else
             {
-                coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
+                coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, _transform, EntityManager);
             }
 
             EntityUid? target = null;
@@ -153,13 +152,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 target = screen.GetClickedEntity(mousePos);
             }
 
-            RaisePredictiveEvent(new LightAttackEvent(target, weapon.Owner, coordinates));
+            RaisePredictiveEvent(new LightAttackEvent(target, weaponUid, coordinates));
             return;
         }
 
         if (weapon.Attacking)
         {
-            RaisePredictiveEvent(new StopAttackEvent(weapon.Owner));
+            RaisePredictiveEvent(new StopAttackEvent(weaponUid));
         }
     }
 
