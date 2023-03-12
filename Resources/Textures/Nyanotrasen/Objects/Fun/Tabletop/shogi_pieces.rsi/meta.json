@@ -1,0 +1,71 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Created by Hyenh#6078 (313846233099927552)",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "bishop",
+            "directions": 4
+        },
+        {
+            "name": "dragon",
+            "directions": 4
+        },
+        {
+            "name": "gold",
+            "directions": 4
+        },
+        {
+            "name": "horse",
+            "directions": 4
+        },
+        {
+            "name": "king",
+            "directions": 4
+        },
+        {
+            "name": "king_jewel",
+            "directions": 4
+        },
+        {
+            "name": "knight",
+            "directions": 4
+        },
+        {
+            "name": "lance",
+            "directions": 4
+        },
+        {
+            "name": "pawn",
+            "directions": 4
+        },
+        {
+            "name": "promoted_knight",
+            "directions": 4
+        },
+        {
+            "name": "promoted_lance",
+            "directions": 4
+        },
+        {
+            "name": "promoted_pawn",
+            "directions": 4
+        },
+        {
+            "name": "promoted_silver",
+            "directions": 4
+        },
+        {
+            "name": "rook",
+            "directions": 4
+        },
+        {
+            "name": "silver",
+            "directions": 4
+        }
+    ]
+}
