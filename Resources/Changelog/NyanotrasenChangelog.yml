@@ -2917,3 +2917,32 @@ Entries:
     - {message: 'You will no longer get mailed real wizard clothes.', type: Fix}
   id: 464
   time: '2023-03-13T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+    - {message: 'Mimes will no longer get the objective to become psionic.', type: Fix}
+  id: 465
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+    - {message: 'Steal objectives are now more common.', type: Tweak}
+    - {message: 'Objectives relating to psionics are less common.', type: Tweak}
+  id: 466
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Torun
+  changes:
+    - {message: 'Added a guidebook for chef.', type: Add}
+  id: 467
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: tomasalves8
+  changes:
+    - {message: 'Round durations above 24 hours will display properly.', type: Fix}
+  id: 468
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Faye
+  changes:
+    - {message: 'Reduced bloodletter values on most slashing weapons.', type: Tweak}
+    - {message: 'Pierce damage type is less common.', type: Tweak}
+    - {message: 'Captain''s sabre is harder to disarm.',  type: Tweak}
+    - {message: 'Scythe range increased from 1.5 to 1.85.', type: Tweak}
+  id: 469
+  time: '2023-03-14T00:15:08.0000000+00:00'

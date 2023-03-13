@@ -19,8 +19,8 @@
     bluntStaminaDamageFactor: 4.0
     damage:
       types:
-        Blunt: 6
-        Piercing: 10
+        Blunt: 11
+        Slash: 5
   - type: MeleeStaminaCost
     swing: 10
   - type: Clothing
@@ -65,8 +65,8 @@
     attackRate: 0.85
     damage:
       types:
-        Blunt: 8.5
-        Piercing: 10
+        Blunt: 13.5
+        Slash: 5
   - type: MultipleTool
     entries:
       - behavior: Prying
