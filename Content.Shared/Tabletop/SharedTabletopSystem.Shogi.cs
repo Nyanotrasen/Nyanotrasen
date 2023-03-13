@@ -43,7 +43,7 @@ namespace Content.Shared.Tabletop
 
         private void OnShogiDraggingPlayerChanged(TabletopDraggingPlayerChangedEvent msg, EntitySessionEventArgs args)
         {
-            if (!TryComp<TabletopShogiPieceComponent>(msg.DraggedEntityUid, out var component))
+            if (!_gameTiming.IsFirstTimePredicted)
                 return;
 
             if (msg.IsDragging == true)
@@ -52,7 +52,7 @@ namespace Content.Shared.Tabletop
             if (args.SenderSession.AttachedEntity is not { Valid: true } playerEntity)
                 return;
 
-            if (!_gameTiming.IsFirstTimePredicted)
+            if (!TryComp<TabletopShogiPieceComponent>(msg.DraggedEntityUid, out var component))
                 return;
 
             // Play the signature sound.
