@@ -29,7 +29,7 @@ namespace Content.Server.Tabletop
             var transform = entityManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
 
             const string piecesBack       = "lnsgkgsnl";
-            const string piecesRookBishop = " b     r ";
+            const string piecesRookBishop = " r     b ";
             const string piecesPawns      = "ppppppppp";
 
             SpawnPiecesRow(session, entityManager, transform, false, piecesBack, topLeft, separation);
