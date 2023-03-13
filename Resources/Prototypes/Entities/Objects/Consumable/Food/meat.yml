@@ -534,6 +534,14 @@
     - Raw
   - type: Sprite
     state: patty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+        - ReagentId: TableSalt
+          Quantity: 3
 
 - type: entity
   name: slimeball
