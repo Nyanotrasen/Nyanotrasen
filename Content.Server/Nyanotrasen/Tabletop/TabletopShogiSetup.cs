@@ -82,10 +82,9 @@ namespace Content.Server.Tabletop
                     case 'k':
                         spawned = entityManager.SpawnEntity(black ? "ShogiKingJeweled" : "ShogiKing", new MapCoordinates(x + i * separation, y, mapId));
                         break;
+                    default:
+                        continue;
                 }
-
-                if (spawned == null)
-                    continue;
 
                 session.Entities.Add(spawned.Value);
 
