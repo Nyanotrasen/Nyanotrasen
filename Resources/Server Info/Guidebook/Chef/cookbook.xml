@@ -97,12 +97,24 @@ Meat can be processed into animal protein in the grinder, or can be sliced with 
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 5u raw animal protein
+- 3u raw animal protein
 - 5u flour
-- 1 egg
+- 1/3 of an egg
 </Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
 <GuideEntityEmbed Entity="FoodMeatMeatball" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Meat Patty[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 9u raw animal protein
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
+<GuideEntityEmbed Entity="FoodMeatPatty" Caption=""/>
 </Box>
 
 </Document>

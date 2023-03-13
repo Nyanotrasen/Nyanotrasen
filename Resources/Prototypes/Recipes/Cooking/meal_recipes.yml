@@ -43,7 +43,7 @@
   id: RecipeChickenSandwich
   name: chicken sandwich recipe
   result: FoodBurgerChicken
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodMeatChicken: 1
@@ -53,7 +53,7 @@
   id: RecipeDuckBurger
   name: duck sandwich recipe
   result: FoodBurgerDuck
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodMeatDuck: 1
@@ -180,7 +180,7 @@
   id: RecipeBurgerMcguffin
   name: mcguffin recipe
   result: FoodBurgerMcguffin
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodCheeseSlice: 1
@@ -199,7 +199,7 @@
   id: RecipeBaguette
   name: baguette recipe
   result: FoodBreadBaguette
-  time: 10
+  time: 15
   reagents:
     TableSalt: 5
   solids:
@@ -219,7 +219,7 @@
 #   result: FoodSandwich
 #   time: 10
 #   solids:
-#     FoodBreadPlainSlice: 2
+#     FoodBreadSlice: 2
 #     FoodMeatSteak: 1
 #     FoodCheeseSlice: 1
 
@@ -237,7 +237,7 @@
 #   result: FoodGrilledCheese
 #   time: 5
 #   solids:
-#     FoodBreadPlainSlice: 2
+#     FoodBreadSlice: 2
 #     FoodCheeseSlice: 1
 
 #- type: microwaveMealRecipe
@@ -263,7 +263,7 @@
   id: RecipeBananaBread
   name: banana bread recipe
   result: FoodBreadBanana
-  time: 25
+  time: 20
   solids:
     FoodDough: 1
     FoodBanana: 1
@@ -292,7 +292,7 @@
   id: RecipeMushroomPizza
   name: mushroom pizza recipe
   result: FoodPizzaMushroom
-  time: 25
+  time: 30
   solids:
     FoodDough: 1
     FoodMushroom: 5
@@ -304,7 +304,7 @@
   time: 30
   solids:
     FoodDough: 1
-    FoodMeat: 2
+    FoodMeat: 3
     FoodCheeseSlice: 1
     FoodTomato: 1
 
@@ -357,7 +357,7 @@
   id: RecipeBoiledSpaghetti
   name: boiled spaghetti recipe
   result: FoodNoodlesBoiled
-  time: 15
+  time: 10
   reagents:
     Flour: 15
     Egg: 6
@@ -545,7 +545,7 @@
   id: RecipeChickenNuggetBox
   name: chicken nugget box recipe
   result: FoodBoxNugget
-  time: 10
+  time: 15
   reagents:
     Protein: 18
     Egg: 12
@@ -555,7 +555,7 @@
   id: RecipeCubanCarp
   name: cuban carp recipe
   result: FoodMealCubancarp
-  time: 15
+  time: 10
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 2
@@ -886,7 +886,7 @@
   id: RecipeSlimeCake
   name: slime cake recipe
   result: FoodCakeSlime
-  time: 5
+  time: 15
   reagents:
     Slime: 15
   solids:
@@ -961,7 +961,7 @@
   id: RecipeHotChili
   name: hot chili recipe
   result: FoodSoupChiliHot
-  time: 20
+  time: 10
   solids:
     FoodBowlBig: 1
     FoodChili: 1
@@ -1019,7 +1019,7 @@
   id: RecipeEnchiladas
   name: enchiladas recipe
   result: FoodMealEnchiladas
-  time: 20
+  time: 15
   solids:
     FoodChili: 2
     FoodMeatCutlet: 1
@@ -1180,7 +1180,7 @@
   id: RecipeHumanKebab
   name: human kebab recipe
   result: FoodMeatHumanKebab
-  time: 15
+  time: 10
   solids:
     TorsoHuman: 1
     FoodKebabSkewer: 1
