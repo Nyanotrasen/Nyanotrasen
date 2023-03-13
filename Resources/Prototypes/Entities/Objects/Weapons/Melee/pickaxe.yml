@@ -62,14 +62,14 @@
     bluntStaminaDamageFactor: 4.0
     damage:
       types:
-        Piercing: 7.5
-        Blunt: 7.5
+        Slash: 6
+        Blunt: 9
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
-        Slash: 70.0
+        Slash: 65.0
   - type: MeleeStaminaCost
     swing: 15
   - type: StaminaDamageOnHit
