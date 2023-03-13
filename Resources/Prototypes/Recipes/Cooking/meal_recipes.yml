@@ -552,6 +552,16 @@
     Flour: 18
 
 - type: microwaveMealRecipe
+  id: RecipeSalami
+  name: salami recipe
+  result: FoodMeatSalami
+  time: 15
+  reagents:
+    Protein: 18
+    TableSalt: 10
+    Water: 5
+
+- type: microwaveMealRecipe
   id: RecipeCubanCarp
   name: cuban carp recipe
   result: FoodMealCubancarp
