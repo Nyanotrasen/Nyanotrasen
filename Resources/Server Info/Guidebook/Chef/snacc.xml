@@ -1,6 +1,20 @@
 <Document>
 # Snacks
 <Box Orientation="Vertical">
+	[color=#a4885c]Chicken Nuggets[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 18u cooked protein
+- 2 eggs
+- 18u flour
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodBoxNugget" Caption=""/>
+</Box>
+- Makes 6 nuggets per box.
+- To cook protein, put it in the Microwave for a total of 45 seconds.
+<Box Orientation="Vertical">
 	[color=#a4885c]Fish and Chips[/color]
 </Box>
 <Box>
@@ -125,6 +139,54 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodSaladHerb" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Coleslaw[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinegar
+- 5u olive oil
+- Bowl
+</Box>
+<Box Orientation="Vertical">
+- Red onion
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladColeslaw" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Caesar Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u olive oil
+- Bowl
+- Slice of red onion
+</Box>
+<Box Orientation="Vertical">
+- Slice of bread
+- Cheese wedge
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladCaesar" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Kimchi Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinegar
+- Bowl
+</Box>
+<Box Orientation="Vertical">
+- Carrot
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladKimchi" Caption=""/>
 </Box>
 
 </Document>
