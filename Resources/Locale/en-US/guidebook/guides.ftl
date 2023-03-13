@@ -1,6 +1,7 @@
 guide-entry-engineering = Engineering
 guide-entry-construction = Construction
 guide-entry-atmospherics = Atmospherics
+guide-entry-botany = Botany
 guide-entry-fires = Fires & Space
 guide-entry-shuttle-craft = Shuttle-craft
 guide-entry-power = Power
@@ -24,3 +25,4 @@ guide-entry-space-law = Space Law
 guide-entry-jurisdiction = Jurisdiction
 guide-entry-trial-prodedure = Trial Procedure
 guide-entry-charges-and-times = Charges & Sentencing
+guide-entry-chemistry = Chemistry

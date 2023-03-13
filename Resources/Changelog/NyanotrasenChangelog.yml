@@ -2849,3 +2849,71 @@ Entries:
   - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
   id: 451
   time: '2023-03-05T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Merged a huge refactor of doafters (progress bars for delayed actions.) It took me like 6 hours. The upstream one has needed 5 bugfix PRs and counting. Please report any bugs with our progress bars.', type: Add}
+  - {message: 'Merged a bunch of other stuff. A highlight, by request, is some new traits.', type: Add}
+  id: 452
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: PowerfulAtom111
+  changes:
+    - {message: 'Added a chemistry guidebook.', type: Add}
+  id: 453
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+    - {message: 'Enhanced intrusion defenses have been deployed in electrical systems.', type: Add}
+  id: 454
+  time: '2023-03-07T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+    - {message: 'Fixed several bugs with felinids and cardboard boxes.', type: Fix}
+    - {message: 'Telegnostic projections can no longer spill drinks.', type: Fix}
+  id: 455
+  time: '2023-03-09T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+    - {message: 'Merged all currently available upstream doafter fixes.', type: Fix}
+  id: 456
+  time: '2023-03-10T00:15:08.0000000+00:00'
+- author: Rane and Hyenh
+  changes:
+    - {message: 'The juggernaut suit can be reverse engineered.', type: Add}
+  id: 457
+  time: '2023-03-10T00:15:08.0000000+00:00'
+- author: Finket
+  changes:
+    - {message: 'Added ambient sounds for probers.', type: Add}
+  id: 458
+  time: '2023-03-10T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - {message: 'Added dojo equipment.', type: Add}
+  id: 459
+  time: '2023-03-11T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+    - {message: 'Fixed a critical bug that could break ALL of your doafters.', type: Fix}
+  id: 460
+  time: '2023-03-11T00:15:08.0000000+00:00'
+- author: Hyenh
+  changes:
+    - {message: 'Resprited the comfy sweater.', type: Add}
+  id: 461
+  time: '2023-03-13T00:15:08.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - {message: 'Updated Shoukou with dojo equipment.', type: Add}
+    - {message: 'Reenabled valet.', type: Add}
+  id: 462
+  time: '2023-03-13T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+    - {message: 'Made it so valet can actually spawn.', type: Fix}
+  id: 463
+  time: '2023-03-13T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+    - {message: 'You will no longer get mailed real wizard clothes.', type: Fix}
+  id: 464
+  time: '2023-03-13T00:15:08.0000000+00:00'

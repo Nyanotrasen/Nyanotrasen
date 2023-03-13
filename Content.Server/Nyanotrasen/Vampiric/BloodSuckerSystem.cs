@@ -1,5 +1,6 @@
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -15,6 +16,7 @@ using Content.Server.Nutrition.EntitySystems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Vampiric
 {
@@ -36,8 +38,7 @@ namespace Content.Server.Vampiric
             SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuccVerb);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<TargetSuckSuccessfulEvent>(OnSuckSuccessful);
-            SubscribeLocalEvent<SuckCancelledEvent>(OnSuckCancelled);
+            SubscribeLocalEvent<BloodSuckerComponent, DoAfterEvent<BloodSuckData>>(OnDoAfter);
         }
 
         private void AddSuccVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
@@ -58,7 +59,7 @@ namespace Content.Server.Vampiric
                     StartSuccDoAfter(uid, args.Target, component, bloodstream); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);
@@ -81,6 +82,14 @@ namespace Content.Server.Vampiric
                 if (bruteTotal == 0 && airlossTotal == 0)
                     RemComp<BloodSuckedComponent>(uid);
             }
+        }
+
+        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, DoAfterEvent<BloodSuckData> args)
+        {
+            if (args.Cancelled || args.Handled || args.Args.Target == null)
+                return;
+
+            args.Handled = TrySucc(uid, args.Args.Target.Value);
         }
 
         public void StartSuccDoAfter(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodSuckerComponent = null, BloodstreamComponent? stream = null, bool doChecks = true)
@@ -113,9 +122,6 @@ namespace Content.Server.Vampiric
                 }
             }
 
-            if (bloodSuckerComponent.CancelToken != null)
-                return;
-
             if (stream.BloodReagent != "Blood")
             {
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-not-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
@@ -132,62 +138,45 @@ namespace Content.Server.Vampiric
                 return;
             }
 
-
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
-            bloodSuckerComponent.CancelToken = new System.Threading.CancellationTokenSource();
-            _doAfter.DoAfter(new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, bloodSuckerComponent.CancelToken.Token, target: victim)
+            var data = new BloodSuckData();
+            var args = new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, target: victim)
             {
-                BroadcastFinishedEvent = new TargetSuckSuccessfulEvent(bloodsucker, victim),
-                BroadcastCancelledEvent = new SuckCancelledEvent(bloodsucker),
+                RaiseOnTarget = false,
+                RaiseOnUser = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
                 DistanceThreshold = 2f,
                 BreakOnStun = true,
                 NeedHand = false
-            });
+            };
+
+            _doAfter.DoAfter(args, data);
         }
 
-        private void OnSuckSuccessful(TargetSuckSuccessfulEvent ev)
-        {
-            if (!TryComp<BloodSuckerComponent>(ev.Sucker, out var succComp))
-                return;
-
-            succComp.CancelToken = null;
-
-            Succ(ev.Sucker, ev.Target, succComp);
-        }
-
-        private void OnSuckCancelled(SuckCancelledEvent ev)
-        {
-            if (!TryComp<BloodSuckerComponent>(ev.Sucker, out var succComp))
-                return;
-
-            succComp.CancelToken = null;
-        }
-
-        public void Succ(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
+        public bool TrySucc(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)
         {
             // Is bloodsucker a bloodsucker?
             if (!Resolve(bloodsucker, ref bloodsuckerComp))
-                return;
+                return false;
 
             // Does victim have a bloodstream?
             if (!Resolve(victim, ref bloodstream))
-                return;
+                return false;
 
             // No blood left, yikes.
             if (bloodstream.BloodSolution.Volume == 0)
-                return;
+                return false;
 
             // Does bloodsucker have a stomach?
             var stomachList = _bodySystem.GetBodyOrganComponents<StomachComponent>(bloodsucker);
             if (stomachList.Count == 0)
-                return;
+                return false;
 
             if (!_solutionSystem.TryGetSolution(stomachList[0].Comp.Owner, StomachSystem.DefaultSolutionName, out var stomachSolution))
-                return;
+                return false;
 
             // Are we too full?
             var unitsToDrain = bloodsuckerComp.UnitsToSucc;
@@ -198,7 +187,7 @@ namespace Content.Server.Vampiric
             if (unitsToDrain <= 2)
             {
                 _popups.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), bloodsucker, bloodsucker, Shared.Popups.PopupType.MediumCaution);
-                return;
+                return false;
             }
 
             _adminLogger.Add(Shared.Database.LogType.MeleeHit, Shared.Database.LogImpact.Medium, $"{ToPrettyString(bloodsucker):player} sucked blood from {ToPrettyString(victim):target}");
@@ -220,35 +209,14 @@ namespace Content.Server.Vampiric
 
             _damageableSystem.TryChangeDamage(victim, damage, true, true);
 
-            // Inject if we have it.
-            if (!bloodsuckerComp.InjectWhenSucc)
-                return;
-
-            if (!_solutionSystem.TryGetInjectableSolution(victim, out var injectable))
-                return;
-
-            _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
-        }
-
-        private sealed class SuckCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Sucker;
-
-            public SuckCancelledEvent(EntityUid sucker)
+            if (bloodsuckerComp.InjectWhenSucc && _solutionSystem.TryGetInjectableSolution(victim, out var injectable))
             {
-                Sucker = sucker;
+                _solutionSystem.TryAddReagent(victim, injectable, bloodsuckerComp.InjectReagent, bloodsuckerComp.UnitsToInject, out var acceptedQuantity);
             }
+            return true;
         }
 
-        private sealed class TargetSuckSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Sucker;
-            public EntityUid Target;
-            public TargetSuckSuccessfulEvent(EntityUid sucker, EntityUid target)
-            {
-                Sucker = sucker;
-                Target = target;
-            }
-        }
+        private record struct BloodSuckData()
+        {}
     }
 }

@@ -109135,19 +109135,7 @@ entities:
     type: Transform
   - containers:
       stash: !type:ContainerSlot
-        ent: 12055
     type: ContainerContainer
-- uid: 12055
-  type: ClothingHeadHatCatEars
-  components:
-  - flags: InContainer
-    desc: '>:)'
-    name: Devil Horns
-    type: MetaData
-  - parent: 12054
-    type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 12056
   type: PosterLegitPDAAd
   components:
@@ -110310,7 +110298,7 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 12226
-  type: ClothingOuterWizard
+  type: ClothingOuterWizardFake
   components:
   - flags: InContainer
     type: MetaData
@@ -110320,7 +110308,7 @@ entities:
     type: Physics
   - type: InsideEntityStorage
 - uid: 12227
-  type: ClothingShoesWizard
+  type: ClothingShoesWizardFake
   components:
   - flags: InContainer
     type: MetaData
@@ -110330,7 +110318,7 @@ entities:
     type: Physics
   - type: InsideEntityStorage
 - uid: 12228
-  type: ClothingHeadHatWizard
+  type: ClothingHeadHatWizardFake
   components:
   - flags: InContainer
     type: MetaData
@@ -115719,23 +115707,6 @@ entities:
   - pos: 10.5,-73.5
     parent: 100
     type: Transform
-- uid: 12998
-  type: lanternextrabright
-  components:
-  - desc: This magical... Hey wait a minute, this takes batteries!
-    name: Old-Magical Lantern
-    type: MetaData
-  - pos: -2.2168095,-57.596966
-    parent: 100
-    type: Transform
-  - toggleAction:
-      icon: Objects/Tools/flashlight.rsi/flashlight.png
-      iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
-      name: action-name-toggle-light
-      description: action-description-toggle-light
-      keywords: []
-      event: !type:ToggleActionEvent {}
-    type: HandheldLight
 - uid: 12999
   type: WallSolidRust
   components:

@@ -82,6 +82,9 @@
         Blunt: 5
   - type: DynamicPrice
     price: 30
+  - type: GuideHelp
+    guides:
+    - Chemistry
 
 - type: entity
   name: beaker
@@ -293,6 +296,9 @@
     grindableSolutionName: food
   - type: DynamicPrice
     price: 0
+  - type: GuideHelp
+    guides:
+    - Chemistry
 
 - type: entity
   name: pill canister
@@ -319,3 +325,6 @@
       tags:
         - Pill
   - type: Dumpable
+  - type: GuideHelp
+    guides:
+    - Chemistry

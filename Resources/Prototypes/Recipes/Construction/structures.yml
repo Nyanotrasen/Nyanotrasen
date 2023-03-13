@@ -89,6 +89,24 @@
     - !type:TileNotBlocked
 
 - type: construction
+  name: paper wall
+  id: PaperWall
+  graph: Girder
+  startNode: start
+  targetNode: paperWall
+  category: construction-category-structures
+  description: Helps to contain the repeated screams of martial artists.
+  icon:
+    sprite: Structures/Walls/paper.rsi
+    state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   name: uranium wall
   id: UraniumWall
   graph: Girder
