@@ -67,7 +67,7 @@ namespace Content.Client.RoundEnd
             //Duration
             var roundTimeLabel = new RichTextLabel();
             roundTimeLabel.SetMarkup(Loc.GetString("round-end-summary-window-duration-label",
-                                                   ("hours", roundDuration.TotalHours),
+                                                   ("hours", Math.Truncate(roundDuration.TotalHours)),
                                                    ("minutes", roundDuration.Minutes),
                                                    ("seconds", roundDuration.Seconds)));
             roundEndSummaryContainer.AddChild(roundTimeLabel);
