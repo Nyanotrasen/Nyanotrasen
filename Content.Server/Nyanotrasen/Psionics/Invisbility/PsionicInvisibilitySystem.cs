@@ -2,6 +2,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Vehicle.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Visible;
+using Content.Server.NPC.Systems;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
 
@@ -11,6 +12,7 @@ namespace Content.Server.Psionics
     {
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly PsionicInvisibilityPowerSystem _invisSystem = default!;
+        [Dependency] private readonly FactionSystem _factionSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -42,6 +44,18 @@ namespace Content.Server.Psionics
             if (HasComp<PsionicInvisibilityUsedComponent>(uid))
                 _invisSystem.ToggleInvisibility(uid);
 
+            if (_factionSystem.ContainsFaction(uid, "PsionicInterloper"))
+            {
+                component.SuppressedFactions.Add("PsionicInterloper");
+                _factionSystem.RemoveFaction(uid, "PsionicInterloper");
+            }
+
+            if (_factionSystem.ContainsFaction(uid, "GlimmerMonster"))
+            {
+                component.SuppressedFactions.Add("GlimmerMonster");
+                _factionSystem.RemoveFaction(uid, "GlimmerMonster");
+            }
+
             SetCanSeePsionicInvisiblity(uid, true);
         }
 
@@ -51,6 +65,18 @@ namespace Content.Server.Psionics
                 return;
 
             SetCanSeePsionicInvisiblity(uid, false);
+
+            if (!HasComp<PsionicComponent>(uid))
+            {
+                component.SuppressedFactions.Clear();
+                return;
+            }
+
+            foreach (var faction in component.SuppressedFactions)
+            {
+                _factionSystem.AddFaction(uid, faction);
+            }
+            component.SuppressedFactions.Clear();
         }
 
         private void OnInvisInit(EntityUid uid, PsionicallyInvisibleComponent component, ComponentInit args)

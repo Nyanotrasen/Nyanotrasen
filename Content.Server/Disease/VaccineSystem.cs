@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.Disease;
 using Content.Shared.Disease.Components;
 using Content.Shared.Materials;
@@ -7,6 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Content.Shared.Toggleable;
+using Content.Shared.DoAfter;
 using Content.Server.Disease.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.DoAfter;
@@ -52,9 +52,8 @@ namespace Content.Server.Disease
             /// vaccines, the item
             SubscribeLocalEvent<DiseaseVaccineComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<DiseaseVaccineComponent, ExaminedEvent>(OnExamined);
-            SubscribeLocalEvent<TargetVaxxSuccessfulEvent>(OnTargetVaxxSuccessful);
-            SubscribeLocalEvent<VaxxCancelledEvent>(OnVaxxCancelled);
 
+            SubscribeLocalEvent<DiseaseVaccineComponent, DoAfterEvent>(OnDoAfter);
         }
 
         private void OnResearchRegistrationChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref ResearchRegistrationChangedEvent args)
@@ -143,12 +142,10 @@ namespace Content.Server.Disease
 
         private void OnServerSelected(EntityUid uid, DiseaseVaccineCreatorComponent component, ResearchClientServerSelectedMessage args)
         {
-            var server = _research.GetServerById(args.ServerId);
-
-            if (server == null)
+            if (!_research.TryGetServerById(args.ServerId, out var serverUid, out var serverComponent))
                 return;
 
-            if (!TryComp<DiseaseServerComponent>(server.Owner, out var diseaseServer))
+            if (!TryComp<DiseaseServerComponent>(serverUid, out var diseaseServer))
                 return;
 
             component.DiseaseServer = diseaseServer;
@@ -223,22 +220,7 @@ namespace Content.Server.Disease
         /// </summary>
         private void OnAfterInteract(EntityUid uid, DiseaseVaccineComponent vaxx, AfterInteractEvent args)
         {
-            if (vaxx.CancelToken != null)
-            {
-                vaxx.CancelToken.Cancel();
-                vaxx.CancelToken = null;
-                return;
-            }
-            if (args.Target == null)
-                return;
-
-            if (!args.CanReach)
-                return;
-
-            if (vaxx.CancelToken != null)
-                return;
-
-            if (!TryComp<DiseaseCarrierComponent>(args.Target, out var carrier))
+            if (args.Target == null || !args.CanReach)
                 return;
 
             if (vaxx.Used)
@@ -247,14 +229,8 @@ namespace Content.Server.Disease
                 return;
             }
 
-            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-agent", ("target", args.Target), ("vaccine", args.Used)), args.Target.Value, args.User);
-            _popupSystem.PopupEntity(Loc.GetString("vaccine-inject-start-patient", ("user", args.User), ("vaccine", args.Used)), args.Target.Value, args.Target.Value, Shared.Popups.PopupType.SmallCaution);
-
-            vaxx.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, vaxx.InjectDelay, vaxx.CancelToken.Token, target: args.Target)
+            _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, vaxx.InjectDelay, target: args.Target, used:uid)
             {
-                BroadcastFinishedEvent = new TargetVaxxSuccessfulEvent(args.User, args.Target, vaxx, carrier),
-                BroadcastCancelledEvent = new VaxxCancelledEvent(vaxx),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -294,59 +270,14 @@ namespace Content.Server.Disease
             carrier.PastDiseases.Add(disease);
         }
 
-        ///
-        /// Private Events Stuff
-        ///
-
-        /// <summary>
-        /// Injects the vaccine into the target
-        /// if the doafter is completed
-        /// </summary>
-        private void OnTargetVaxxSuccessful(TargetVaxxSuccessfulEvent args)
+        private void OnDoAfter(EntityUid uid, DiseaseVaccineComponent component, DoAfterEvent args)
         {
-            if (args.Vaxx.Disease == null)
+            if (args.Handled || args.Cancelled || !TryComp<DiseaseCarrierComponent>(args.Args.Target, out var carrier) || component.Disease == null)
                 return;
 
-            Vaccinate(args.Carrier, args.Vaxx.Disease);
-
-            _tagSystem.AddTag(args.Vaxx.Owner, "Trash");
-            args.Vaxx.Used = true;
-
-            if (TryComp<AppearanceComponent>(args.Vaxx.Owner, out var appearance))
-                _appearance.SetData(args.Vaxx.Owner, ToggleVisuals.Toggled, false, appearance);
-        }
-
-        /// <summary>
-        /// Cancels the vaccine doafter
-        /// </summary>
-        private static void OnVaxxCancelled(VaxxCancelledEvent args)
-        {
-            args.Vaxx.CancelToken = null;
-        }
-
-        /// These two are standard doafter stuff you can ignore
-        private sealed class VaxxCancelledEvent : EntityEventArgs
-        {
-            public readonly DiseaseVaccineComponent Vaxx;
-            public VaxxCancelledEvent(DiseaseVaccineComponent vaxx)
-            {
-                Vaxx = vaxx;
-            }
-        }
-
-        private sealed class TargetVaxxSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid User { get; }
-            public EntityUid? Target { get; }
-            public DiseaseVaccineComponent Vaxx { get; }
-            public DiseaseCarrierComponent Carrier { get; }
-            public TargetVaxxSuccessfulEvent(EntityUid user, EntityUid? target, DiseaseVaccineComponent vaxx, DiseaseCarrierComponent carrier)
-            {
-                User = user;
-                Target = target;
-                Vaxx = vaxx;
-                Carrier = carrier;
-            }
+            Vaccinate(carrier, component.Disease);
+            EntityManager.DeleteEntity(uid);
+            args.Handled = true;
         }
     }
 }

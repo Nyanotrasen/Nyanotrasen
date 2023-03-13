@@ -47,5 +47,5 @@
         Reporter: [ 2, 2 ]
         Valet: [ 6, 6 ]
         Psychologist: [ 1, 1 ]
-        Prisoner: [ 10, 12 ]
-        PrisonGuard: [ 0, 6 ]  # 4, 6 if roundstart
+        Prisoner: [ 4, 6 ] # move back to 10, 12 when ready 
+        PrisonGuard: [ 4, 6 ]  

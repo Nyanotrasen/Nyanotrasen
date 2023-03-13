@@ -334,6 +334,16 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> SuspicionMaxTimeSeconds =
             CVarDef.Create("suspicion.max_time_seconds", 300);
 
+
+        /*
+         * Survival
+         */
+        /// <summary>
+        /// Survival mode goal, in minutes.
+        /// </summary>
+        public static readonly CVarDef<int>
+            SurvivalGoal = CVarDef.Create("survival.goal_time", 120, CVar.ARCHIVE | CVar.SERVERONLY);
+
         /*
          * Traitor
          */
@@ -1046,6 +1056,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> CargoShuttles =
             CVarDef.Create("shuttle.cargo", true, CVar.SERVERONLY);
 
+        /// <summary>
+        /// Whether the Shipyard is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> Shipyard =
+            CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
+
         /*
          * Emergency
          */
@@ -1208,6 +1224,15 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> ChatShowTypingIndicator =
             CVarDef.Create("chat.show_typing_indicator", true, CVar.CLIENTONLY);
+
+        /// <summary>
+        /// A message broadcast to each player that joins the lobby.
+        /// May be changed by admins ingame through use of the "set-motd" command.
+        /// In this case the new value, if not empty, is broadcast to all connected players and saved between rounds.
+        /// May be requested by any player through use of the "get-motd" command.
+        /// </summary>
+        public static readonly CVarDef<string> MOTD =
+            CVarDef.Create("chat.motd", "", CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE, "A message broadcast to each player that joins the lobby.");
 
         /*
          * AFK

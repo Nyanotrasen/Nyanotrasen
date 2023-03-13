@@ -60,7 +60,7 @@ public sealed class WiresComponent : Component
     ///     layout ID is generated, or if a new wire order should be generated every time.
     /// </summary>
     [DataField("alwaysRandomize")]
-    public bool AlwaysRandomize { get; }
+    public bool AlwaysRandomize { get; } = true;
 
     /// <summary>
     ///     Marks if maintenance panel being open/closed by someone with a screwdriver.

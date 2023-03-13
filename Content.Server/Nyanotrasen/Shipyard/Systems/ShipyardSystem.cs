@@ -11,12 +11,16 @@ using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Content.Shared.CCVar;
+using Robust.Shared.Configuration;
+using Content.Server.Cargo.Components;
 
 namespace Content.Server.Shipyard.Systems
 {
 
     public sealed partial class ShipyardSystem : SharedShipyardSystem
     {
+        [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly PricingSystem _pricing = default!;
         [Dependency] private readonly ShuttleSystem _shuttle = default!;
@@ -28,9 +32,12 @@ namespace Content.Server.Shipyard.Systems
         private float _shuttleIndex;
         private const float ShuttleSpawnBuffer = 1f;
         private ISawmill _sawmill = default!;
+        private bool _enabled;
 
         public override void Initialize()
         {
+            _enabled = _configManager.GetCVar(CCVars.Shipyard);
+            _configManager.OnValueChanged(CCVars.Shipyard, SetShipyardEnabled);
             _sawmill = Logger.GetSawmill("shipyard");
             _shipyardConsole.InitializeConsole();
             SubscribeLocalEvent<ShipyardConsoleComponent, ComponentInit>(OnShipyardStartup);
@@ -39,19 +46,40 @@ namespace Content.Server.Shipyard.Systems
 
         private void OnShipyardStartup(EntityUid uid, ShipyardConsoleComponent component, ComponentInit args)
         {
+            if (!_enabled)
+                return;
+
             SetupShipyard();
         }
 
         private void OnRoundRestart(RoundRestartCleanupEvent ev)
         {
+            _configManager.UnsubValueChanged(CCVars.Shipyard, SetShipyardEnabled);
             CleanupShipyard();
+        }
+
+        private void SetShipyardEnabled(bool value)
+        {
+            if (_enabled == value)
+                return;
+
+            _enabled = value;
+
+            if (value)
+            {
+                SetupShipyard();
+            }
+            else
+            {
+                CleanupShipyard();
+            }
         }
 
         /// <summary>
         /// Adds a ship to the shipyard, calculates its price, and attempts to ftl-dock it to the given station
         /// </summary>
         /// <param name="stationUid">The ID of the station to dock the shuttle to</param>
-        /// <param name="shuttlePath">The path to the grid file to load. Must be a grid file!</param>
+        /// <param name="shuttlePath">The path to the shuttle file to load. Must be a grid file!</param>
         public void PurchaseShuttle(EntityUid? stationUid, string shuttlePath, out ShuttleComponent? vessel)
         {
             if (!TryComp<StationDataComponent>(stationUid, out var stationData) || !TryComp<ShuttleComponent>(AddShuttle(shuttlePath), out var shuttle))

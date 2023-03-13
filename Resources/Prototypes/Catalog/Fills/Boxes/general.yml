@@ -8,6 +8,25 @@
     state: box
 
 - type: entity
+  name: holy water kit
+  parent: BoxCardboard
+  id: BoxHolyWater
+  description: This box is filled with everything you need to make homemade holy water. Water not included.
+  components:
+    - type: StorageFill
+      contents:
+        - id: MercuryChemistryBottle
+          amount: 3
+        - id: DrinkWineBottleFull
+          amount: 1
+        - id: SprayBottle
+          amount: 1
+    - type: Sprite
+      layers:
+        - state: box
+        - state: holywater
+
+- type: entity
   name: mousetrap box
   parent: BoxCardboard
   id: BoxMousetrap

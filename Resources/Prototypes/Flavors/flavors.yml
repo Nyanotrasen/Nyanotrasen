@@ -299,6 +299,11 @@
   description: flavor-complex-carrot
 
 - type: flavor
+  id: cabbage
+  flavorType: Complex
+  description: flavor-complex-cabbage
+
+- type: flavor
   id: potatoes
   flavorType: Complex
   description: flavor-complex-potatoes
@@ -657,3 +662,53 @@
   id: watermelon
   flavorType: Complex
   description: flavor-complex-watermelon
+
+- type: flavor
+  id: nuggie
+  flavorType: Complex
+  description: flavor-complex-nuggie
+
+- type: flavor
+  id: orangecreamcicle
+  flavorType: Complex
+  description: flavor-complex-orangecreamcicle
+
+- type: flavor
+  id: silverjack
+  flavorType: Complex
+  description: flavor-complex-silverjack
+
+- type: flavor
+  id: brainbomb
+  flavorType: Complex
+  description: flavor-complex-brainbomb
+
+- type: flavor
+  id: atomicpunch
+  flavorType: Complex
+  description: flavor-complex-atomicpunch
+
+- type: flavor
+  id: circusjuice
+  flavorType: Complex
+  description: flavor-complex-circusjuice
+
+- type: flavor
+  id: pinkdrink
+  flavorType: Complex
+  description: flavor-complex-pinkdrink
+
+- type: flavor
+  id: sapopicante
+  flavorType: Complex
+  description: flavor-complex-sapopicante
+
+- type: flavor
+  id: graveyard
+  flavorType: Complex
+  description: flavor-complex-graveyard
+
+- type: flavor
+  id: bubbletea
+  flavorType: Complex
+  description: flavor-complex-bubbletea

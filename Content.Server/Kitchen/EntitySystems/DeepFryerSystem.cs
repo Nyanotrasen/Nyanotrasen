@@ -10,13 +10,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
-using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Miasma;
 using Content.Server.Audio;
 using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Cargo.Systems;
-using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Construction;
@@ -41,6 +38,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
+using Content.Shared.DoAfter;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -65,15 +63,12 @@ namespace Content.Server.Kitchen.EntitySystems
 {
     public sealed class DeepFryerSystem : EntitySystem
     {
-        [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
-        [Dependency] private readonly FlammableSystem _flammableSystem = default!;
         [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
         [Dependency] private readonly IGameTiming _gameTimingSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
@@ -121,7 +116,7 @@ namespace Content.Server.Kitchen.EntitySystems
             SubscribeLocalEvent<DeepFryerComponent, DeepFryerScoopVatMessage>(OnScoopVat);
             SubscribeLocalEvent<DeepFryerComponent, DeepFryerClearSlagMessage>(OnClearSlagStart);
             SubscribeLocalEvent<DeepFryerComponent, DeepFryerRemoveAllItemsMessage>(OnRemoveAllItems);
-            SubscribeLocalEvent<DeepFryerComponent, ClearSlagCompleteEvent>(OnClearSlagComplete);
+            SubscribeLocalEvent<DeepFryerComponent, DoAfterEvent<ClearSlagData>>(OnClearSlag);
 
             SubscribeLocalEvent<DeepFriedComponent, ComponentInit>(OnInitDeepFried);
             SubscribeLocalEvent<DeepFriedComponent, ExaminedEvent>(OnExamineFried);
@@ -338,7 +333,7 @@ namespace Content.Server.Kitchen.EntitySystems
             }
 
             // Remove any components that wouldn't make sense anymore.
-            RemComp<SharedButcherableComponent>(item);
+            RemComp<ButcherableComponent>(item);
 
             if (TryComp<PaperComponent>(item, out var paperComponent))
             {
@@ -912,6 +907,8 @@ namespace Content.Server.Kitchen.EntitySystems
 
             var delay = Math.Clamp((float) wasteVolume * 0.1f, 1f, 5f);
 
+            var data = new ClearSlagData(heldSolution, transferAmount);
+
             var doAfterArgs = new DoAfterEventArgs(user.Value, delay, default, uid, heldItem)
             {
                 BreakOnDamage = true,
@@ -920,10 +917,9 @@ namespace Content.Server.Kitchen.EntitySystems
                 BreakOnUserMove = true,
                 MovementThreshold = 0.25f,
                 NeedHand = true,
-                TargetFinishedEvent = new ClearSlagCompleteEvent(uid, user.Value, heldItem.Value, heldSolution, transferAmount),
             };
 
-            _doAfterSystem.DoAfter(doAfterArgs);
+            _doAfterSystem.DoAfter(doAfterArgs, data);
         }
 
         private void OnRemoveAllItems(EntityUid uid, DeepFryerComponent component, DeepFryerRemoveAllItemsMessage args)
@@ -944,23 +940,23 @@ namespace Content.Server.Kitchen.EntitySystems
             UpdateUserInterface(component.Owner, component);
         }
 
-        private void OnClearSlagComplete(EntityUid uid, DeepFryerComponent component, ClearSlagCompleteEvent args)
+        private void OnClearSlag(EntityUid uid, DeepFryerComponent component, DoAfterEvent<ClearSlagData> args)
         {
+            if (args.Handled || args.Cancelled || args.Args.Used == null)
+                return;
+
             FixedPoint2 reagentCount = component.WasteReagents.Count();
 
             var removingSolution = new Solution();
             foreach (var reagent in component.WasteReagents)
             {
-                var removed = component.Solution.RemoveReagent(reagent.ReagentId, args.Amount / reagentCount);
+                var removed = component.Solution.RemoveReagent(reagent.ReagentId, args.AdditionalData.Amount / reagentCount);
                 removingSolution.AddReagent(reagent.ReagentId, removed);
             }
 
             _solutionContainerSystem.UpdateChemicals(uid, component.Solution);
-            _solutionContainerSystem.TryMixAndOverflow(args.Bowl, args.Solution, removingSolution, args.Solution.MaxVolume, out var _);
-
-            // UI update is not necessary here, because the solution change event handles it.
+            _solutionContainerSystem.TryMixAndOverflow(args.Args.Used.Value, args.AdditionalData.Solution, removingSolution, args.AdditionalData.Solution.MaxVolume, out var _);
         }
-
         private void OnInitDeepFried(EntityUid uid, DeepFriedComponent component, ComponentInit args)
         {
             var meta = MetaData(uid);
@@ -1013,25 +1009,13 @@ namespace Content.Server.Kitchen.EntitySystems
                 sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
             }
         }
-
-        private sealed class ClearSlagCompleteEvent : EntityEventArgs
+        private record struct ClearSlagData(Solution Solution, FixedPoint2 Amount)
         {
-            public EntityUid DeepFryer { get; }
-            public EntityUid User { get; }
-            public EntityUid Bowl { get; }
-            public Solution Solution { get; }
-            public FixedPoint2 Amount { get; }
-
-            public ClearSlagCompleteEvent(EntityUid deepFryer, EntityUid user, EntityUid bowl, Solution solution, FixedPoint2 amount)
-            {
-                DeepFryer = deepFryer;
-                User = user;
-                Bowl = bowl;
-                Solution = solution;
-                Amount = amount;
-            }
+            public Solution Solution = Solution;
+            public FixedPoint2 Amount = Amount;
         }
     }
+
 
     public sealed class DeepFryAttemptEvent : CancellableEntityEventArgs
     {

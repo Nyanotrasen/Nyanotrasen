@@ -14,6 +14,7 @@
         shader: unshaded
   - type: GlimmerWisp
   - type: DoAfter
+  - type: PotentialPsionic
   - type: Psionic
     removable: false
   - type: NoosphericZapPower
@@ -38,6 +39,9 @@
   - type: MovementIgnoreGravity
   - type: Stealth
     lastVisibility: 0.66
+  - type: Reactive
+    groups:
+      Acidic: [Touch] #Holy water
   - type: MobState
     allowedStates:
     - Alive
@@ -63,8 +67,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: GlimmerWisp
+    damageContainer: Spirit
+    damageModifierSet: Spirit
   - type: Actions
   - type: Alerts
   - type: CombatMode
@@ -80,10 +84,12 @@
   - type: StatusEffects
     allowed:
       - Stun
+      - KnockedDown #KnockedDown is inseperable from stun because... IT JUST IS OK?
       - SlowedDown
       - Pacified
   - type: PointLight
     color: "#419ba3"
+  - type: Speech
   - type: Gun
     fireRate: 0.7
     soundGunshot:

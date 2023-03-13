@@ -7,6 +7,9 @@ ent-ServiceLightsReplacement = { ent-CrateServiceReplacementLights }
 ent-MousetrapBoxes = { ent-CrateMousetrapBoxes }
     .desc = { ent-CrateMousetrapBoxes.desc }
 
+ent-HolyWaterKit = { ent-CrateHolyWaterKit }
+    .desc = { ent-CrateHolyWaterKit.desc }
+
 ent-ServiceSmokeables = { ent-CrateServiceSmokeables }
     .desc = { ent-CrateServiceSmokeables.desc }
 

@@ -92,6 +92,16 @@
   - type: GlimmerSource
     active: false
     secondsPerGlimmer: 10 #More effecient than probers by virtue of much higher point score...
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.45,-0.45,0.45,0.45"
+      density: 190
+      mask:
+      - MachineMask
+      layer:
+      - HalfWallLayer #Sprite looks short to me...
 
 - type: entity
   id: MachineAPE
@@ -124,7 +134,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      density: 190
+      density: 50
       mask:
       - MachineMask
       layer:

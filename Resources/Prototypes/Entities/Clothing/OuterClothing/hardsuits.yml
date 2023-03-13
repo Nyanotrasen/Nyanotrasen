@@ -250,6 +250,8 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
+  - type: Item
+    size: 100
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: ToggleableClothing
@@ -516,6 +518,11 @@
     damageCoefficient: 0.8
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: ReverseEngineering
+    difficulty: 5
+    newItem: ClothingOuterHardsuitJuggernautReverseEngineered
+    recipes:
+      - ClothingOuterHardsuitJuggernautReverseEngineered
 
 - type: entity
   parent: ClothingOuterHardsuitBase

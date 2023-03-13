@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.Disease;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
@@ -28,10 +27,16 @@ public sealed class RevenantComponent : Component
     public FixedPoint2 EssenceRegenCap = 75;
 
     /// <summary>
+    /// Maximum essence, rather than infinite scaling.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("essenceCeiling")]
+    public FixedPoint2 EssenceCeiling = 150;
+
+    /// <summary>
     /// The coefficient of damage taken to actual health lost.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("damageToEssenceCoefficient")]
-    public float DamageToEssenceCoefficient = 0.75f;
+    public float DamageToEssenceCoefficient = 1f;
 
     /// <summary>
     /// The amount of essence passively generated per second.
@@ -67,9 +72,6 @@ public sealed class RevenantComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("maxEssenceUpgradeAmount")]
     public float MaxEssenceUpgradeAmount = 10;
-
-    public CancellationTokenSource? SoulSearchCancelToken;
-    public CancellationTokenSource? HarvestCancelToken;
     #endregion
 
     //In the nearby radius, causes various objects to be thrown, messed with, and containers opened

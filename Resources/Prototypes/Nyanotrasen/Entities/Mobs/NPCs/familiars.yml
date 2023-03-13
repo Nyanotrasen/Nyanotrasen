@@ -57,8 +57,8 @@
   - type: Familiar
   - type: Dispellable
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Infernal
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -86,6 +86,10 @@
   - type: MovementIgnoreGravity
   - type: Blindable
     blindResistance: 10
+  - type: Faction
+    factions:
+    - PsionicInterloper
+    - NanoTrasen
 
 - type: entity
   parent: WelderExperimental

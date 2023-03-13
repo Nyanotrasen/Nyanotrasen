@@ -92,7 +92,6 @@ public sealed partial class AnomalySystem
 
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
         {
-            args.Points = 0;
             if (glimmerSource != null)
                 glimmerSource.Active = false;
             return;
