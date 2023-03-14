@@ -50,6 +50,15 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38master.rsi
+
+- type: entity
+  name: Blued Steel Special
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverSnub
+  description: A very compact and concealable self defence snub revolver. Uses .38 Special rounds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/snub.rsi
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -63,15 +72,6 @@
       path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-
-- type: entity
-  name: Blued Steel Special
-  parent: BaseWeaponSpecialRevolver
-  id: WeaponRevolverSnub
-  description: A very compact and concealable self defence snub revolver. Uses .38 Special rounds.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/snub.rsi
 
 - type: entity
   name: Lucky 37
