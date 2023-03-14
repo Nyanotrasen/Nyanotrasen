@@ -43,6 +43,7 @@
   id: ShogiBishop
   name: bishop
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
@@ -59,6 +60,7 @@
   id: ShogiGold
   name: gold general
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     state: gold
@@ -67,6 +69,7 @@
   id: ShogiKing
   name: king
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     state: king
@@ -75,6 +78,7 @@
   id: ShogiKingJeweled
   name: king
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     state: king_jeweled
@@ -83,6 +87,7 @@
   id: ShogiKnight
   name: knight
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     layers:
@@ -98,6 +103,7 @@
   id: ShogiLance
   name: lance
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     layers:
@@ -113,6 +119,7 @@
   id: ShogiPawn
   name: pawn
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     layers:
@@ -128,6 +135,7 @@
   id: ShogiRook
   name: rook
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     layers:
@@ -144,6 +152,7 @@
   id: ShogiSilver
   name: silver general
   parent: BaseShogiPiece
+  noSpawn: true
   components:
   - type: Sprite
     layers:
@@ -154,3 +163,65 @@
         visible: false
   - type: TabletopShogiPiece
     canPromote: true
+
+## Promoted pieces (for the guidebook only)
+
+- type: entity
+  id: ShogiBishopPromoted
+  name: bishop
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: horse
+
+- type: entity
+  id: ShogiKnightPromoted
+  name: knight
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: promoted_knight
+
+- type: entity
+  id: ShogiLancePromoted
+  name: lance
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: promoted_lance
+
+- type: entity
+  id: ShogiPawnPromoted
+  name: pawn
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: promoted_pawn
+
+- type: entity
+  id: ShogiRookPromoted
+  name: rook
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: dragon
+
+- type: entity
+  id: ShogiSilverPromoted
+  name: silver general
+  parent: BaseShogiPiece
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_pieces.rsi
+    state: promoted_silver

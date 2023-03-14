@@ -26,3 +26,4 @@ guide-entry-jurisdiction = Jurisdiction
 guide-entry-trial-prodedure = Trial Procedure
 guide-entry-charges-and-times = Charges & Sentencing
 guide-entry-chemistry = Chemistry
+guide-entry-shogi = Shogi
