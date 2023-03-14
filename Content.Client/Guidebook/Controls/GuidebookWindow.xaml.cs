@@ -63,6 +63,7 @@ public sealed partial class GuidebookWindow : FancyWindow
         _entries = entries;
         RepopulateTree(rootEntries, forceRoot);
         ClearSelectedGuide();
+        Tree.SetSelectedIndex(0);
 
         Split.State = SplitContainer.SplitState.Auto;
         if (entries.Count == 1)
@@ -113,7 +114,6 @@ public sealed partial class GuidebookWindow : FancyWindow
         {
             AddEntry(entry.Id, parent, addedEntries);
         }
-        Tree.SetAllExpanded(true);
     }
 
     private TreeItem? AddEntry(string id, TreeItem? parent, HashSet<string> addedEntries)
