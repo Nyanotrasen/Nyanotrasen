@@ -4,11 +4,22 @@
 - [color=#fcdf03]All burgers need a[/color] [color=#a4885c]Bun[/color] [color=#fcdf03]along with everything else![/color]
 
 <Box Orientation="Vertical">
+	[color=#a4885c]Meat Patty[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 9u raw animal protein
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
+<GuideEntityEmbed Entity="FoodMeatPatty" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
 	[color=#a4885c]Cheeseburger[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- Raw meat
+- Meat Patty
 - Cheese wedge
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -19,7 +30,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- Raw meat
+- Meat Patty
 - 3x chili peppers
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -30,7 +41,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 2x raw meat
+- 2x meat patty
 - Cheese wedge
 </Box>
 <Box Orientation="Vertical">
@@ -45,7 +56,7 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 3x raw meat
+- 3x meat patty
 - 3x cheese wedge
 </Box>
 <Box Orientation="Vertical">

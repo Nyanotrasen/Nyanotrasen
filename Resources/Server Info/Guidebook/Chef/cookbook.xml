@@ -25,6 +25,9 @@ In this section of the Guidebook, you will find most recipes you can cook, and b
 [color=#a4885c]Meat[/color] is acquired from most any carcass. Smaller creatures can simply be butchered with any sharp instrument by right-clicking them and clicking the [color=#a4885c]Butcher[/color] option. Larger ones need to be impaled on a [color=#a4885c]meat spike[/color] and then cut into portions with a [color=#a4885c]knife[/color]. [color=#888084]Be careful about answering questions of the meat's origins, though.[/color]
 
 Meat can be processed into animal protein in the grinder, or can be sliced with a knife into [color=#a4885c]cutlets[/color].
+
+Protein can be used raw, but sometimes has to be cooked beforehand. Simply microwave it for 10 seconds, or use a [color=#a4885c]hotplate[/color].
+
 <Box>
 <GuideEntityEmbed Entity="ReagentContainerMilk" Caption=""/>
 <GuideEntityEmbed Entity="FoodCheeseSlice" Caption=""/>
@@ -97,12 +100,25 @@ Meat can be processed into animal protein in the grinder, or can be sliced with 
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- 5u raw animal protein
+- 3u raw animal protein
 - 5u flour
-- 1 egg
+- 1/3 of an egg
 </Box>
 <GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
 <GuideEntityEmbed Entity="FoodMeatMeatball" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Salami[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 18u cooked protein
+- 10u salt
+- 5u water
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMeatSalami" Caption=""/>
 </Box>
 
 </Document>
