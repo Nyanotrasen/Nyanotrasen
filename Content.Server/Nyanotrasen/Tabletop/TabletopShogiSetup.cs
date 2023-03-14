@@ -62,7 +62,7 @@ namespace Content.Server.Tabletop
                         spawned = entityManager.SpawnEntity("ShogiPawn", new MapCoordinates(x + i * separation, y, mapId));
                         break;
                     case 'l':
-                        spawned = entityManager.SpawnEntity("ShogiRook", new MapCoordinates(x + i * separation, y, mapId));
+                        spawned = entityManager.SpawnEntity("ShogiLance", new MapCoordinates(x + i * separation, y, mapId));
                         break;
                     case 'n':
                         spawned = entityManager.SpawnEntity("ShogiKnight", new MapCoordinates(x + i * separation, y, mapId));
