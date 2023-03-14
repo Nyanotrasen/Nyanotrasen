@@ -9,17 +9,17 @@ namespace Content.Server.Tabletop
     public sealed class TabletopShogiSetup : TabletopSetup
     {
         [DataField("boardPrototype", customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-        public string ChessBoardPrototype { get; } = "ChessBoardTabletop";
+        public string ShogiBoardPrototype { get; } = "ShogiBoardTabletop";
 
         private Angle North = Angle.FromDegrees(180);
 
         public override void SetupTabletop(TabletopSession session, IEntityManager entityManager)
         {
-            var chessboard = entityManager.SpawnEntity(ChessBoardPrototype, session.Position.Offset(-1, 0));
+            var chessboard = entityManager.SpawnEntity(ShogiBoardPrototype, session.Position.Offset(0, 0));
 
             session.Entities.Add(chessboard);
 
-            SpawnPieces(session, entityManager, session.Position.Offset(-4.5f, 3.5f));
+            SpawnPieces(session, entityManager, session.Position.Offset(-4f, 4f));
         }
 
         private void SpawnPieces(TabletopSession session, IEntityManager entityManager, MapCoordinates topLeft, float separation = 1f)

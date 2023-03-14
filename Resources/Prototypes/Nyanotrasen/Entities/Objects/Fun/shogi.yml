@@ -6,11 +6,11 @@
   description: A board for playing the game Shogi, Japanese chess.
   components:
   - type: Sprite
-    sprite: Objects/Fun/Tabletop/chessboard.rsi
-    state: chessboard
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_board.rsi
+    state: shogi_board
   - type: TabletopGame
     boardName: tabletop-shogi-board-name
-    size: 480, 320
+    size: 498, 306
     setup: !type:TabletopShogiSetup
 
 # Shogi tabletop item (item only visible in tabletop game)
@@ -20,8 +20,8 @@
   noSpawn: true
   components:
   - type: Sprite
-    sprite: Objects/Fun/Tabletop/chessboard_tabletop.rsi
-    state: chessboard_tabletop
+    sprite: Nyanotrasen/Objects/Fun/Tabletop/shogi_tabletop.rsi
+    state: shogi_tabletop
     noRot: false
     drawdepth: FloorTiles
 
