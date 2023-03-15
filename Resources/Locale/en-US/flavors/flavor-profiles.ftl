@@ -40,6 +40,7 @@ flavor-base-fizzy = fizzy
 flavor-base-shocking = shocking
 flavor-base-cheap = cheap
 flavor-base-piquant = piquant
+flavor-base-sharp = sharp
 
 # lmao
 flavor-base-terrible = terrible
@@ -97,6 +98,7 @@ flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
 flavor-complex-nuggie = like "chicken"
+flavor-complex-garlic = like garlic
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -175,6 +177,7 @@ flavor-complex-medicine = like medicine
 flavor-complex-carpet = like a handful of fur
 flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz
+flavor-complex-bottledlightning = like lightning in a bottle
 
 ## Nyano???
 flavor-complex-enthralling = enthralling

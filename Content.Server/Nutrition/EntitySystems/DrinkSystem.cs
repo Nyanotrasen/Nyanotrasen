@@ -267,8 +267,8 @@ namespace Content.Server.Nutrition.EntitySystems
             var doAfterEventArgs = new DoAfterEventArgs(user, drink.ForceDrink ? drink.ForceFeedDelay : drink.Delay,
                 target: target, used: item)
             {
-                RaiseOnTarget = user != target,
-                RaiseOnUser = false,
+                RaiseOnTarget = drink.ForceDrink,
+                RaiseOnUser = !drink.ForceDrink,
                 BreakOnUserMove = drink.ForceDrink,
                 BreakOnDamage = true,
                 BreakOnStun = true,
