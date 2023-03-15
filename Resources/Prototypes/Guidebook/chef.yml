@@ -15,6 +15,7 @@
   - CookPasta
   - CookBurger
   - CookPizza
+  - CookSalad
   - CookSoup
   - CookPastry
   - CookKebab
@@ -65,3 +66,8 @@
   id: CookSoup
   name: guide-entry-soups
   text: "/Server Info/Guidebook/Chef/sup.xml"
+
+- type: guideEntry
+  id: CookSalad
+  name: guide-entry-salads
+  text: "/Server Info/Guidebook/Chef/salad.xml"

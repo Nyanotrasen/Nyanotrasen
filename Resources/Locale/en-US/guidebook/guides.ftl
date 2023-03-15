@@ -37,3 +37,4 @@ guide-entry-sandwiches = Bread & Sandwiches
 guide-entry-snacks = Snacks
 guide-entry-pasta = Pasta & Rice
 guide-entry-soups = Soups
+guide-entry-salads = Salads
