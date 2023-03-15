@@ -2996,3 +2996,9 @@ Entries:
   - {message: 'Added the board game of Japanese chess, Shogi.', type: Add}
   id: 476
   time: '2023-03-15T16:32:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Reenabled the mass mind swap event, as no new mind swap bugs have been
+      reported in a while.', type: Add}
+  id: 477
+  time: '2023-03-15T16:33:57.0000000+00:00'
