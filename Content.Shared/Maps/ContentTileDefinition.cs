@@ -31,6 +31,8 @@ namespace Content.Shared.Maps
         public string Name { get; private set; } = "";
         [DataField("sprite")] public ResourcePath? Sprite { get; }
 
+        [DataField("edgeSprites")] public Dictionary<Direction, ResourcePath> EdgeSprites { get; } = new();
+
         [DataField("isSubfloor")] public bool IsSubFloor { get; private set; }
 
         [DataField("baseTurfs")] public List<string> BaseTurfs { get; } = new();

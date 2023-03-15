@@ -385,6 +385,11 @@
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
   conditions:
     - !type:TileNotBlocked {}
 
@@ -400,6 +405,11 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   conditions:
     - !type:TileNotBlocked {}
@@ -417,6 +427,11 @@
   icon:
     sprite: Structures/Piping/Atmospherics/scrubber.rsi
     state: scrub_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  - sprite: Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
   conditions:
     - !type:TileNotBlocked {}
 
@@ -432,6 +447,11 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  - sprite: Structures/Piping/Atmospherics/outletinjector.rsi
     state: injector
   conditions:
     - !type:TileNotBlocked {}
@@ -450,6 +470,11 @@
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPressure
   conditions:
     - !type:TileNotBlocked {}
 
@@ -465,6 +490,11 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpVolume
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
   conditions:
     - !type:TileNotBlocked {}
@@ -482,6 +512,11 @@
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPassiveGate
   conditions:
     - !type:TileNotBlocked {}
 
@@ -497,6 +532,11 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/pump.rsi
+    state: pumpManualValve
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
   conditions:
     - !type:TileNotBlocked {}
@@ -514,6 +554,11 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
     state: gasCanisterPort
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeHalf
+  - sprite: Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
   conditions:
     - !type:TileNotBlocked {}
 
@@ -529,6 +574,11 @@
   canBuildInImpassable: false
   icon:
     sprite: Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  layers:
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  - sprite: Structures/Piping/Atmospherics/vent.rsi
     state: vent_off
   conditions:
     - !type:TileNotBlocked {}
