@@ -1,17 +1,11 @@
-using System.Threading;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Chemistry.Components;
-using Content.Shared.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
+using Content.Shared.DoAfter;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Server.NPC.Components;
 using Content.Server.Fluids.Components;
 using Content.Server.Chemistry.EntitySystems;
-using Robust.Shared.Physics.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.Silicons.Bots
@@ -31,8 +25,7 @@ namespace Content.Server.Silicons.Bots
         {
             base.Initialize();
             SubscribeLocalEvent<CleanBotComponent, InteractNoHandEvent>(PlayerClean);
-            SubscribeLocalEvent<TargetCleanSuccessfulEvent>(OnCleanSuccessful);
-            SubscribeLocalEvent<CleanCancelledEvent>(OnCleanCancelled);
+            SubscribeLocalEvent<CleanBotComponent, DoAfterEvent>(OnDoAfter);
         }
 
         private void PlayerClean(EntityUid uid, CleanBotComponent component, InteractNoHandEvent args)
@@ -43,9 +36,30 @@ namespace Content.Server.Silicons.Bots
             TryStartClean(uid, component, args.Target.Value);
         }
 
+        private void OnDoAfter(EntityUid uid, CleanBotComponent component, DoAfterEvent args)
+        {
+            component.IsMopping = false;
+
+            if (args.Handled || args.Cancelled || args.Args.Target == null)
+                return;
+
+            if (!TryComp<PuddleComponent>(args.Args.Target.Value, out var puddle))
+                return;
+
+            if (!_solution.TryGetSolution(args.Args.Target.Value, puddle.SolutionName, out var solution))
+                return;
+
+            _audioSystem.PlayPvs(component.CleanSound, args.Args.Target.Value);
+
+            solution.SplitSolution(component.UnitsToClean);
+
+            if (solution.Volume < 1f)
+                QueueDel(args.Args.Target.Value);
+        }
+
         public bool TryStartClean(EntityUid performer, CleanBotComponent component, EntityUid target)
         {
-            if (component.CancelToken != null)
+            if (component.IsMopping)
                 return false;
 
             if (!_blocker.CanInteract(performer, target))
@@ -54,13 +68,10 @@ namespace Content.Server.Silicons.Bots
             if (!_interactionSystem.InRangeUnobstructed(performer, target))
                 return false;
 
-            component.CancelToken = new CancellationTokenSource();
             component.CleanTarget = target;
-
-            _doAfter.DoAfter(new DoAfterEventArgs(performer, component.CleanDelay, component.CancelToken.Token, target: target)
+            component.IsMopping = true;
+            _doAfter.DoAfter(new DoAfterEventArgs(performer, component.CleanDelay, target: target)
             {
-                BroadcastFinishedEvent = new TargetCleanSuccessfulEvent(performer, target),
-                BroadcastCancelledEvent = new CleanCancelledEvent(performer),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnStun = true,
@@ -68,54 +79,6 @@ namespace Content.Server.Silicons.Bots
             });
 
             return true;
-        }
-
-        private void OnCleanSuccessful(TargetCleanSuccessfulEvent ev)
-        {
-            if (!TryComp<CleanBotComponent>(ev.Cleaner, out var cleanbot))
-                return;
-
-            cleanbot.CancelToken = null;
-
-            if (!TryComp<PuddleComponent>(ev.Target, out var puddle))
-                return;
-
-            if (!_solution.TryGetSolution(ev.Target, puddle.SolutionName, out var solution))
-                return;
-
-            _audioSystem.PlayPvs(cleanbot.CleanSound, ev.Target);
-
-            solution.SplitSolution(cleanbot.UnitsToClean);
-
-            if (solution.Volume < 1f)
-                QueueDel(ev.Target);
-        }
-
-        private void OnCleanCancelled(CleanCancelledEvent ev)
-        {
-            if (!TryComp<CleanBotComponent>(ev.Cleaner, out var cleanbot))
-                return;
-
-            cleanbot.CancelToken = null;
-        }
-        private sealed class CleanCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Cleaner;
-            public CleanCancelledEvent(EntityUid cleaner)
-            {
-                Cleaner = cleaner;
-            }
-        }
-
-        private sealed class TargetCleanSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Cleaner;
-            public EntityUid Target;
-            public TargetCleanSuccessfulEvent(EntityUid cleaner, EntityUid target)
-            {
-                Cleaner = cleaner;
-                Target = target;
-            }
         }
     }
 }

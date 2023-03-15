@@ -1,6 +1,7 @@
-- type: alert
-  id: Caged
-  onClick: !type:RemoveCage  { }
-  icons: [ /Textures/Nyanotrasen/Clothing/Head/Hats/cage.rsi/alert.png ]
-  name: "[color=yellow]Caged[/color]"
-  description: "Your head is [color=yellow]caged[/color] and you can't use your psionics. You could resist if your hands are free."
+# Disabled until headcage functionality is restored
+# - type: alert
+#   id: Caged
+#   onClick: !type:RemoveCage  { }
+#   icons: [ /Textures/Nyanotrasen/Clothing/Head/Hats/cage.rsi/alert.png ]
+#   name: "[color=yellow]Caged[/color]"
+#   description: "Your head is [color=yellow]caged[/color] and you can't use your psionics. You could resist if your hands are free."

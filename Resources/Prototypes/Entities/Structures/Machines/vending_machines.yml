@@ -184,6 +184,9 @@
     radius: 1.5
     energy: 1.6
     color: "#4b93ad"
+  - type: GuideHelp
+    guides:
+    - Chef
 
 - type: entity
   parent: VendingMachine
@@ -350,6 +353,9 @@
     radius: 1.5
     energy: 1.6
     color: "#4b93ad"
+  - type: GuideHelp
+    guides:
+    - Chef
 
 - type: entity
   parent: VendingMachine
@@ -1449,6 +1455,31 @@
     pack: HappyHonkAds
   - type: AccessReader
     access: [["Kitchen"], ["Theatre"]]
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachinePride
+  name: Pride-O-Mat
+  description: A vending machine containing crimes.
+  components:
+  - type: VendingMachine
+    pack: PrideDrobeInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: PrideDrobeAds
+  - type: Speech
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/pride.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
 
 # Gas Tank Dispenser
 

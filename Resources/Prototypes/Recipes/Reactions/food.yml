@@ -173,14 +173,27 @@
   quantized: true
   reactants:
     UncookedAnimalProteins:
-      amount: 5
+      amount: 3
     Flour:
       amount: 5
     Egg:
-      amount: 6
+      amount: 2
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodMeatMeatball
+
+- type: reaction
+  id: CreateMeatPatty
+  impact: Low
+  quantized: true
+  reactants:
+    UncookedAnimalProteins:
+      amount: 9
+    TableSalt:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatPatty
 
 - type: reaction
   id: Ghee

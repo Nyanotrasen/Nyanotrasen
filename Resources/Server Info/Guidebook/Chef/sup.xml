@@ -1,0 +1,116 @@
+<Document>
+
+# Soups & Stews
+
+- [color=#fcdf03]All soups need a[/color] [color=#a4885c]large bowl[/color] [color=#fcdf03]along with everything else![/color]
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Bisque[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Tomato
+- Mushroom
+- Fish meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupBisque" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Meatball Soup[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Meatball
+- Carrot
+- Potato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupMeatball" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Nettle Soup[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Nettle
+- Potato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupNettle" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Hot Chili[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Meat cutlet
+</Box>
+<Box Orientation="Vertical">
+- Onion slice
+- Tomato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupChiliHot" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cold Chili[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Hot Chili
+- 5u nitrogen
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSoupChiliCold" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Clown's Tears[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Onion slice
+- Tomato
+- Bike horn
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodSoupClown" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Chili con Carnival[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Meat cutlet
+- Onion slice
+</Box>
+<Box Orientation="Vertical">
+- Tomato
+- Clown shoes
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodSoupChiliClown" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Eyeball Soup[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Human eyes
+- Carrot
+- Potato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodSoupEyeball" Caption=""/>
+</Box>
+
+</Document>

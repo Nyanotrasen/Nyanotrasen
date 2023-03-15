@@ -53,6 +53,7 @@
     netsync: false
   - type: ItemCooldown
   - type: MeleeWeapon
+    range: 1.85
     damage:
       types:
         Slash: 7
@@ -85,8 +86,8 @@
     range: 1.4
     damage:
       types:
-        Slash: 8
-        Piercing: 3.5
+        Slash: 9
+        Piercing: 2.5
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -111,8 +112,8 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 8
-        Piercing: 3.5 # I guess you can stab it into them?
+        Blunt: 9
+        Slash: 2.5 # I guess you can stab it into them?
   - type: StaminaDamageOnHit
     damage: 5
   - type: Item

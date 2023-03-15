@@ -326,9 +326,9 @@
   components:
   - type: Mail
     contents:
-    - id: ClothingOuterWizard
+    - id: ClothingOuterWizardFake
     - id: ClothingHeadHatWizardFake
-    - id: ClothingShoesWizard
+    - id: ClothingShoesWizardFake
 
 - type: entity
   noSpawn: true

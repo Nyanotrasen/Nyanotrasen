@@ -3,9 +3,11 @@
   name: guide-entry-jobs
   text: "/Server Info/Guidebook/Jobs.xml"
   children:
+  - Chef
+  - Botany
   - Engineering
   - Epistemics
-
+  - Chemistry #TODO replace with med
 - type: guideEntry
   id: Survival
   name: guide-entry-survival
