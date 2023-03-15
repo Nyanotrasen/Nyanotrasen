@@ -62,6 +62,16 @@
     Steel: 5
 
 - type: latheRecipe
+  id: CartridgeSpecialHoly
+  result: CartridgeSpecialHoly
+  completetime: 2
+  materials:
+    Plastic: 5
+    Steel: 5
+    Bluespace: 5
+    Glass: 5
+
+- type: latheRecipe
   id: MagazineBoxSpecial
   result: MagazineBoxSpecial
   completetime: 5

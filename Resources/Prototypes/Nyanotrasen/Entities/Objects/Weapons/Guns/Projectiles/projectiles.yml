@@ -58,3 +58,15 @@
     damage:
       types:
         Blunt: 3
+
+- type: entity
+  id: BulletSpecialHoly
+  name: bullet (.38 special holy)
+  parent: BaseBullet
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 3
+        Holy: 5

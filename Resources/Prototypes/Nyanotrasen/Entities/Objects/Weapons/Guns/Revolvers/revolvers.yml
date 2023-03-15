@@ -52,13 +52,13 @@
     sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38master.rsi
 
 - type: entity
-  name: Blued Steel Special
+  name: Fitz Special
   parent: BaseWeaponSpecialRevolver
   id: WeaponRevolverSnub
-  description: A very compact and concealable self defence snub revolver. Uses .38 Special rounds.
+  description: A compact and concealable self defence snub revolver. Uses .38 Special rounds.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/snub.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/fitz.rsi
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -81,3 +81,22 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/lucky.rsi
+
+- type: entity
+  name: Faith
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverFaith
+  description: Delivers blessings in bullet form. Uses .38 Special rounds.
+  components:
+  - type: Gun
+    fireRate: 1
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/faith.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeSpecial #Requires manual reload.
+    proto: CartridgeSpecialHoly
+    capacity: 4
+    chambers: [ True, True, True, True ]
+    ammoSlots: [ null, null, null, null ]

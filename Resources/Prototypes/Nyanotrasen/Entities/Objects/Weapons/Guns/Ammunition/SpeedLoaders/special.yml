@@ -28,7 +28,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -48,7 +48,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialHighVelocity
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -68,7 +68,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialPractice
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -88,7 +88,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialRubber
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
