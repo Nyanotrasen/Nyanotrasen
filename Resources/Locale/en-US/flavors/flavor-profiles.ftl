@@ -195,5 +195,5 @@ flavor-complex-atomicpunch = like bittersweet radiation
 flavor-complex-circusjuice = extremely funny
 flavor-complex-pinkdrink = overwhelmingly like pink
 flavor-complex-sapopicante = like tomatoes and spices
-flavor-complex-graveyard = like a strong cold brewed
+flavor-complex-graveyard = like a strong cold brew
 flavor-complex-bubbletea = like creamy sweetness

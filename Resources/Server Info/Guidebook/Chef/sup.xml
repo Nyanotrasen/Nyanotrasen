@@ -9,7 +9,10 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
+- 10u water
 - Tomato
+</Box>
+<Box Orientation="Vertical">
 - Mushroom
 - Fish meat
 </Box>
@@ -22,7 +25,10 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
+- 10u water
 - Meatball
+</Box>
+<Box Orientation="Vertical">
 - Carrot
 - Potato
 </Box>
@@ -34,6 +40,10 @@
 	[color=#a4885c]Nettle Soup[/color]
 </Box>
 <Box>
+<Box Orientation="Vertical">
+- 10u water
+- 1 egg
+</Box>
 <Box Orientation="Vertical">
 - Nettle
 - Potato
@@ -105,12 +115,31 @@
 </Box>
 <Box>
 <Box Orientation="Vertical">
+- 10u water
 - Human eyes
+</Box>
+<Box Orientation="Vertical">
 - Carrot
 - Potato
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodSoupEyeball" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Moth Eyeball Soup[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u water
+- Moth eyes
+</Box>
+<Box Orientation="Vertical">
+- Tomato
+- Potato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothEyeballSoup" Caption=""/>
 </Box>
 
 <Box Orientation="Vertical">

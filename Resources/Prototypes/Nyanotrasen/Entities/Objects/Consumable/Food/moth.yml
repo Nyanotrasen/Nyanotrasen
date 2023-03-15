@@ -517,6 +517,30 @@
           Quantity: 5
 
 - type: entity
+  name: moth eyeball soup
+  parent: FoodBowlBase
+  id: FoodMothEyeballSoup
+  description: It's looking back at you...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tomato
+      - metallic
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: eyesoup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 3
+# Tastes like tomato, squirming.
+
+- type: entity
   name: bean stew
   parent: FoodBowlBase
   id: FoodMothBeanStew
