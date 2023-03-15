@@ -1,0 +1,99 @@
+<Document>
+# Shogi
+
+Shogi is the board game of Japanese chess.
+
+## Controls
+
+The board game Shogi has a couple controls in addition to the ones all usual board games have.
+Of course, there is the standard [color=#a4885c][keybind="Use"/][/color] to pick up and move pieces,
+but in Shogi, pieces can be promoted with [color=#a4885c][keybind="UseSecondary"/][/color],
+and when captured, a piece can be rotated with [color=#a4885c][keybind="ActivateItemInWorld"/][/color] to change sides.
+
+## Gameplay
+
+Shogi is a complex game, and the depth of its strategies can only be briefly touched upon here.
+There are vastly superior resources out there to teach you how to play, but this will get you started.
+
+## Pieces
+
+<Box>
+<GuideEntityEmbed Entity="ShogiKing" Caption="King"/>
+<GuideEntityEmbed Entity="ShogiKingJeweled" Caption="Jeweled King" Rotation="180"/>
+</Box>
+
+The king functions much the same as in chess. When put into checkmate, the game is over.
+Black, known as sente, plays the Jeweled King (or jeweled general) and goes first.
+White, known as gote, plays the King (or king general) and goes second.
+
+The king is able to move 1 tile in any direction that would not result in it being checked.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiBishop" Caption="Bishop" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiBishopPromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The bishop moves similarly to the bishop in chess.
+When promoted, it gains the ability to move 1 tile in all directions.
+It is usually referred to as a horse when promoted, based on the Chinese character the promoted version has.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiGold" Caption="Gold General" Rotation="180"/>
+</Box>
+
+The gold general is able to move 1 tile in any direction other than diagonally backwards.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiKnight" Caption="Knight" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiKnightPromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The knight moves similarly as in chess, in an L shaped pattern: two tiles forward and one tile to the side.
+The key difference for a shogi knight is that this knight cannot move backwards.
+
+When promoted, the knight moves like a gold general.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiLance" Caption="Lance" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiLancePromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The lance moves straight ahead for as many tiles as the owner wants. When promoted, the lance moves like a gold general.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiPawn" Caption="Pawn" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiPawnPromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The pawn moves like a pawn in chess, one tile forward at a time. Unlike chess, the shogi pawn does not have the ability to move two tiles if it has not moved yet.
+When promoted, the pawn moves like a gold general.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiRook" Caption="Rook" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiRookPromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The rook moves just like in chess, any number of tiles in any straight horizontal or vertical direction.
+When promoted, it gains the ability to move 1 tile in all directions.
+It is usually referred to as a dragon when promoted, based on the Chinese character the promoted version has.
+
+<Box>
+<GuideEntityEmbed Entity="ShogiSilver" Caption="Silver General" Rotation="180"/>
+<GuideEntityEmbed Entity="ShogiSilverPromoted" Caption="(Promoted)" Rotation="180"/>
+</Box>
+
+The silver general is able to move 1 tile in any direction other than horizontal or backwards.
+
+When promoted, the silver general moves like a gold general.
+
+## Capture & Drops
+
+The most striking difference between chess and shogi is that, in shogi, when you capture your opponent's piece,
+you get to keep it to play later.
+When you have captured pieces, you may spend your turn to drop one into play.
+
+There are restrictions on piece drop, such as forbidding the dropping of pieces that would have no possible moves (a pawn at the opposite edge of the board, for example),
+or dropping an unpromoted pawn on the same file as another,
+or dropping a pawn to complete a mate.
+
+</Document>
