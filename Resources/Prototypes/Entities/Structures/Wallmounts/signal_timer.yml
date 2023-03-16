@@ -1,0 +1,30 @@
+- type: entity
+  id: SignalTimer
+  name: signal timer
+  description: Automate your jail sentencing.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    sprite: Structures/Wallmounts/switch.rsi
+    state: dead
+  - type: SignalTimer
+  - type: UseDelay
+    delay: 0.5 # prevent light-toggling auto-clickers.
+    length: 20
+  - type: Rotatable
+  - type: Construction
+    graph: LightSwitchGraph
+    node: LightSwitchNode
+  - type: SignalTransmitter
+    outputs:
+      On: []
+      Off: []
