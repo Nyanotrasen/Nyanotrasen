@@ -1,17 +1,19 @@
 <Document>
 # Pizzas
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Margherita[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
 - Dough
-- Cheese wedge
-- 4 tomatoes
+- 2 Mozzarella
+- 3 tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaMargherita" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Mushroom Pizza[/color]
 </Box>
@@ -23,6 +25,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaMushroom" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Meat Pizza[/color]
 </Box>
@@ -38,6 +41,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaMeat" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Vegetable Pizza[/color]
 </Box>
@@ -54,6 +58,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaVegetable" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Pizza Hawaii[/color]
 </Box>
@@ -66,6 +71,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaPineapple" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Dank Pizza[/color]
 </Box>
@@ -81,6 +87,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaDank" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Donk Pizza[/color]
 </Box>
@@ -96,4 +103,72 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaDonkpocket" Caption=""/>
 </Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Firecracker Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u bbq sauce
+- Cheese wedge
+- Baked Corn
+</Box>
+<Box Orientation="Vertical">
+- Dough
+- Chili pepper
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFirecracker" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Quattro Formaggi Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- 2 Tomatoes
+- Mozzarella
+</Box>
+<Box Orientation="Vertical">
+- Cheese Wedge
+- Cheese Curds
+- Curd Cheese
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodMothPizzaFiveCheese" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Pesto Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- 10u pesto
+</Box>
+<Box Orientation="Vertical">
+- 2 Mozzarella
+- 2 Tomatoes
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodMothPizzaPesto" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cotton Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u corn oil
+- Mozzarella
+</Box>
+<Box Orientation="Vertical">
+- Curd Cheese
+- Cotton
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodMothPizzaCotton" Caption=""/>
+</Box>
+
 </Document>

@@ -15,6 +15,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesBoiled" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Spaghetti[/color]
 </Box>
@@ -26,6 +27,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodles" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Spaghetti & Meatballs[/color]
 </Box>
@@ -37,6 +39,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesMeatball" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Butter Noodles[/color]
 </Box>
@@ -48,6 +51,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesButter" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Chow Mein[/color]
 </Box>
@@ -64,6 +68,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesChowmein" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Copypasta[/color]
 </Box>
@@ -71,6 +76,22 @@
 <GuideEntityEmbed Entity="FoodNoodles" Caption="2x"/>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodNoodlesCopy" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Green Lasagne[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u bechamel
+- 10u pesto
+</Box>
+<Box Orientation="Vertical">
+- Boiled noodles
+- Cheese Wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="FoodMothGreenLasagne" Caption=""/>
 </Box>
 
 # Rice
@@ -89,6 +110,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRicePudding" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Boiled Rice[/color]
 </Box>
@@ -101,6 +123,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRiceBoiled" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Rice and Pork[/color]
 </Box>
@@ -112,6 +135,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRicePork" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Black-Eyed Gumbo[/color]
 </Box>
@@ -124,6 +148,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRiceGumbo" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Egg-Fried Rice[/color]
 </Box>
@@ -135,6 +160,36 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodRiceEgg" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Rice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 2x Potato
+- Cabbage
+</Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothBakedRice" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mulan Congee[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 2x Fried eggs
+- Meat cutlet
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothHuaMulanCongee" Caption=""/>
 </Box>
 
 </Document>

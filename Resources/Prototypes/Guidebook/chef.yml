@@ -10,11 +10,13 @@
   name: guide-entry-cookbook
   text: "/Server Info/Guidebook/Chef/cookbook.xml"
   children:
-  - CookSandwich
   - CookSnack
-  - CookPasta
   - CookBurger
+  - CookSauce
+  - CookSandwich
+  - CookPasta
   - CookPizza
+  - CookSalad
   - CookSoup
   - CookPastry
   - CookKebab
@@ -65,3 +67,13 @@
   id: CookSoup
   name: guide-entry-soups
   text: "/Server Info/Guidebook/Chef/sup.xml"
+
+- type: guideEntry
+  id: CookSalad
+  name: guide-entry-salads
+  text: "/Server Info/Guidebook/Chef/salad.xml"
+
+- type: guideEntry
+  id: CookSauce
+  name: guide-entry-sauces
+  text: "/Server Info/Guidebook/Chef/sos.xml"

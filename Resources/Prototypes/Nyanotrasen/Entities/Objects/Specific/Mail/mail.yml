@@ -146,6 +146,9 @@
       orGroup: Cake
     - id: FoodCakeVanilla
       orGroup: Cake
+    - id: FoodMothMothmallow
+      orGroup: Cake
+      prob: 0.5
     - id: KnifePlastic
     - id: ForkPlastic
       amount: 2
@@ -520,6 +523,18 @@
     - id: FoodBakedMuffinBerry
     - id: FoodBakedMuffinCherry
     - id: FoodBakedMuffinBluecherry
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
+  id: MailMoffins
+  suffix: moffins
+  components:
+  - type: Mail
+    isPriority: true
+    contents:
+    - id: FoodMothMoffin
+      amount: 3
 
 - type: entity
   noSpawn: true

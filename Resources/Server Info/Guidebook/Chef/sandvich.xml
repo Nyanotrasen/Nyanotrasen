@@ -9,6 +9,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodBreadPlain" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Big Bread[/color]
 </Box>
@@ -17,6 +18,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
 <GuideEntityEmbed Entity="FoodBigBreadPlain" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Baguette[/color]
 </Box>
@@ -28,6 +30,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodBreadBaguette" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Cream Cheese Bread[/color]
 </Box>
@@ -39,6 +42,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
 <GuideEntityEmbed Entity="FoodBreadCreamcheese" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Banana-Nut Bread[/color]
 </Box>
@@ -50,6 +54,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
 <GuideEntityEmbed Entity="FoodBreadBanana" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Moldy Breadslice[/color]
 </Box>
@@ -86,6 +91,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerChicken" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Duck Sandwich[/color]
 </Box>
@@ -98,6 +104,7 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerDuck" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]McGuffin[/color]
 </Box>
@@ -105,11 +112,12 @@
 <Box Orientation="Vertical">
 - Bun
 - Cheese wedge
-- 2x egg
+- 2 eggs
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodBurgerMcguffin" Caption=""/>
 </Box>
+
 <Box Orientation="Vertical">
 	[color=#a4885c]Cuban Carp[/color]
 </Box>
@@ -125,4 +133,5 @@
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
 <GuideEntityEmbed Entity="FoodMealCubancarp" Caption=""/>
 </Box>
+
 </Document>

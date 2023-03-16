@@ -1,0 +1,166 @@
+<Document>
+
+# Salads
+
+- [color=#fcdf03]All salads need a[/color] [color=#a4885c]large bowl[/color] [color=#fcdf03]along with everything else![/color]
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Herb Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Bowl
+- 3x Ambrosia Vulgaris
+- Apple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladHerb" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Valid Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Bowl
+- 3x Ambrosia Vulgaris
+</Box>
+<Box Orientation="Vertical">
+- Potato
+- Meatball
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladValid" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Coleslaw[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinaigrette
+- Bowl
+</Box>
+<Box Orientation="Vertical">
+- Red onion
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladColeslaw" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Caesar Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u olive oil
+- Bowl
+- Slice of red onion
+</Box>
+<Box Orientation="Vertical">
+- Slice of bread
+- Mozzarella
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladCaesar" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Kimchi Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinegar
+- Bowl
+</Box>
+<Box Orientation="Vertical">
+- Carrot
+- Cabbage
+- Garlic
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladKimchi" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mothic Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Cabage
+- Red Onion Slice
+- Tomato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothSaladBase" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Caprese Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinaigrette
+- Tomato
+</Box>
+<Box Orientation="Vertical">
+- Mozzarella
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothCapreseSalad" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Fleet Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinaigrette
+- Mothic Salad
+- Carrot
+</Box>
+<Box Orientation="Vertical">
+- Slice of bread
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothFleetSalad" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cotton Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u vinaigrette
+- Mothic Salad
+</Box>
+<Box Orientation="Vertical">
+- Carrot
+- Cotton
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothCottonSalad" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Kachumbari Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u lime juice
+- Mothic Salad
+- Chili pepper
+</Box>
+<Box Orientation="Vertical">
+- Red onion
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothKachumbariSalad" Caption=""/>
+</Box>
+
+</Document>

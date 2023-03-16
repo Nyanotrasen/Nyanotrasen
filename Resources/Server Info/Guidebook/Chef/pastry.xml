@@ -138,4 +138,51 @@
 <GuideEntityEmbed Entity="FoodPieAmanita" Caption=""/>
 </Box>
 
+#Others
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheesecake Balls[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u sugar
+- 5u flour
+- Curd Cheese
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothCheesecakeBalls" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mothmallow[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u sugar
+- 5u rum
+</Box>
+<Box Orientation="Vertical">
+- 5u soymilk
+- Soy Beans
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothMothmallow" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Moffin[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u milk
+</Box>
+<Box Orientation="Vertical">
+- Egg
+- Cloth
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMothMoffin" Caption=""/>
+</Box>
+
 </Document>

@@ -30,3 +30,11 @@
   solids:
     FoodBreadPlain: 1
     FoodFlyAmanita: 3
+
+- type: microwaveMealRecipe
+  id: RecipeCheeseCurds
+  name: cheese curds recipe
+  result: FoodCheeseCurds
+  time: 5
+  solids:
+    FoodCurdCheese: 1
