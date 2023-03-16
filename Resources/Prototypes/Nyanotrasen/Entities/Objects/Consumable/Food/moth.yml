@@ -46,14 +46,76 @@
         maxvol: 6
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
           Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+
+# base for our special sauces
+- type: entity
+  parent: BaseItem
+  id: BaseFoodMothSauce
+  name: sauce bowl
+  abstract: true
+  description: A small bowl for condiment. Not reusable.
+  components:
+  - type: Drink
+    solution: food
+    refillable: false
+    isOpen: true
+  - type: DrawableSolution
+    solution: food
+  - type: InjectableSolution
+    solution: food
+  - type: DrainableSolution
+    solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+  - type: SolutionTransfer
+    maxTransferAmount: 15
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: condimentbowl
+  - type: Icon
+    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
+    state: condimentbowl
+  - type: TrashOnEmpty
+    solution: food
+
+# Tomato Sauce
+- type: entity
+  name: tomato sauce
+  parent: BaseFoodMothSauce
+  id: FoodMothTomatoSauce
+  description: Tomato with salt and herbs.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tomato
+  - type: Sprite
+    layers:
+      - state: condimentbowl
+      - state: tomatosauce-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: TomatoSauce
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: tomatosauce-
 
 # Pesto
 - type: entity
-  name: pesto
-  parent: FoodBakingBase
+  name: pesto sauce
+  parent: BaseFoodMothSauce
   id: FoodMothPesto
   description: A combination of salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread.
   components:
@@ -62,20 +124,27 @@
       - garlic
       - nutty
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: pesto
+    layers:
+      - state: condimentbowl
+      - state: pesto-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxvol: 15
         reagents:
-        - ReagentId: Vitamin
-          Quantity: 3
+        - ReagentId: Pesto
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: pesto-
 
 # Bechamel
 - type: entity
   name: bechamel sauce
-  parent: FoodBakingBase
+  parent: BaseFoodMothSauce
   id: FoodMothBechamel
   description: A classic white sauce common to several European cultures.
   components:
@@ -83,15 +152,22 @@
     flavors:
       - creamy
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: bechamel
+    layers:
+      - state: condimentbowl
+      - state: bechamel-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 15
         reagents:
-        - ReagentId: Vitamin
-          Quantity: 3
+        - ReagentId: Bechamel
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: bechamel-
 
 # Entrees
 - type: entity
@@ -113,7 +189,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -245,11 +321,11 @@
         maxvol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 16
         - ReagentId: Protein
           Quantity: 6
         - ReagentId: Vitamin
-          Quantity: 12
+          Quantity: 8
 
 - type: entity
   name: lil baked rice
@@ -271,11 +347,11 @@
         maxvol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 2.5
         - ReagentId: Protein
           Quantity: 1
         - ReagentId: Vitamin
-          Quantity: 2
+          Quantity: 1.25
 
 # Meals
 
@@ -303,8 +379,10 @@
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 24
+          Quantity: 18
         - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
           Quantity: 6
 #Tastes like cheese, pesto and pasta
 
@@ -325,11 +403,13 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
+        maxVol: 6
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
         - ReagentId: Protein
+          Quantity: 1
+        - ReagentId: Vitamin
           Quantity: 1
 #Tastes like cheese, pesto and pasta
 
@@ -348,10 +428,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12
+          Quantity: 8
         - ReagentId: Vitamin
           Quantity: 2
 #Tastes like corn and char
@@ -844,7 +924,6 @@
     flavors:
       - onion
       - tomato
-      - corn
       - chili
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
@@ -852,52 +931,20 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 25
+        maxvol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
         - ReagentId: Vitamin
-          Quantity: 6
+          Quantity: 2
         - ReagentId: Protein
-          Quantity: 7
+          Quantity: 6
 #Tastes like onion, tomato, corn, chili and cilantro
 
 # Pizzas
-- type: entity
-  name: mothic margherita pizza
-  parent: FoodPizzaBase
-  id: FoodMothPizzaMargherita
-  description: This pizza is characterised by the use of fresh ingredients,	particularly fresh mozzarella, and the use of strong flour to produce a glutenous dough.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bread
-      - tomato
-      - cheesy
-  - type: SliceableFood
-    slice: FoodMothPizzaMargheritaSlice
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: pizza-margherita
 
 - type: entity
-  name: slice of mothic margherita pizza
-  parent: FoodPizzaSliceBase
-  id: FoodMothPizzaMargheritaSlice
-  description: A slice of mothic margherita pizza, the most humble of pizzas.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bread
-      - tomato
-      - cheesy
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: pizza-margherita-slice
-# Tastes like crust, tomato, cheese
-
-- type: entity
-  name: mothic firecracker pizza
+  name: firecracker pizza
   parent: FoodPizzaBase
   id: FoodMothPizzaFirecracker
   description: They're not kidding when they call this a hot pizza pie.
@@ -928,7 +975,7 @@
           Quantity: 4
 
 - type: entity
-  name: slice of mothic firecracker pizza
+  name: slice of firecracker pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaFirecrackerSlice
   description: A spicy slice of something quite nice.
@@ -958,7 +1005,7 @@
 # Tastes like crust, chili, corn, cheese
 
 - type: entity
-  name: mothic five-cheese pizza
+  name: quattro formaggi pizza
   parent: FoodPizzaBase
   id: FoodMothPizzaFiveCheese
   description: For centuries, scholars have asked; how much cheese is too much cheese?
@@ -975,7 +1022,7 @@
     state: pizza-fivecheese
 
 - type: entity
-  name: slice of mothic five-cheese pizza
+  name: slice of quattro formaggi pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaFiveCheeseSlice
   description: It's the cheesiest slice in the galaxy!
@@ -991,7 +1038,7 @@
 # Tastes like crust, cheese, more cheese, excessive amount of cheese
 
 - type: entity
-  name: mothic pesto pizza
+  name: pesto pizza
   parent: FoodPizzaBase
   id: FoodMothPizzaPesto
   description: Pesto is a popular pizza topping for moths, quite possibly because it exemplifies their favourite flavours; cheese, herbs, and veggies.
@@ -1007,9 +1054,20 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-pesto
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Allicin
+          Quantity: 2
 
 - type: entity
-  name: slice of mothic pesto pizza
+  name: slice of pesto pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaPestoSlice
   description: Green as the grass in the garden.
@@ -1023,43 +1081,21 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: pizza-pesto-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 0.8
+        - ReagentId: Allicin
+          Quantity: 0.25
 # Tastes like crust, pesto, cheese
 
 - type: entity
-  name: mothic garlic pizza
-  parent: FoodPizzaBase
-  id: FoodMothPizzaGarlic
-  description: The best food in the galaxy, hands down.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bread
-      - garlic
-      - butter
-  - type: SliceableFood
-    slice: FoodMothPizzaGarlicSlice
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: pizza-garlic
-
-- type: entity
-  name: slice of mothic garlic pizza
-  parent: FoodPizzaSliceBase
-  id: FoodMothPizzaGarlicSlice
-  description: The best combination of oily, garlicky, and crusty known to mothkind.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - bread
-      - garlic
-      - butter
-  - type: Sprite
-    sprite: Nyanotrasen/Objects/Consumable/Food/moth.rsi
-    state: pizza-garlic-slice
-# Tastes like crust, garlic, butter
-
-- type: entity
-  name: mothic cotton pizza
+  name: cotton pizza
   parent: FoodPizzaBase
   id: FoodMothPizzaCotton
   description: A crime to some, a delicious pizza to others. Cotton and cheese.
@@ -1076,7 +1112,7 @@
     state: pizza-cotton
 
 - type: entity
-  name: slice of mothic cotton pizza
+  name: slice of cotton pizza
   parent: FoodPizzaSliceBase
   id: FoodMothPizzaCottonSlice
   description: White as a sheet of paper.
@@ -1110,12 +1146,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 4
+          Quantity: 2
         - ReagentId: Protein
-          Quantity: 4
+          Quantity: 1
         - ReagentId: Sugar
           Quantity: 12
 #Tastes like cheesecake and honey
@@ -1140,10 +1176,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 10
         - ReagentId: Sugar
           Quantity: 10
 #Tastes like vanilla and clouds.

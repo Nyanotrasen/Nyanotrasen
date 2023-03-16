@@ -22,6 +22,18 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
+  id: RecipeMothTomatoSauce
+  name: pesto recipe
+  result: FoodMothTomatoSauce
+  time: 5
+  reagents:
+    OilOlive: 5
+    TableSalt: 5
+  solids:
+    FoodTomato: 1
+    #Herbs: 1
+
+- type: microwaveMealRecipe
   id: RecipeMothPesto
   name: pesto recipe
   result: FoodMothPesto
@@ -31,7 +43,7 @@
     TableSalt: 5
   solids:
     FoodGarlic: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
+    #Herbs: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothBechamel
@@ -39,10 +51,9 @@
   result: FoodMothBechamel
   time: 5
   reagents:
-    Milk: 10
+    Milk: 5
     Flour: 5
-  solids:
-    FoodButter: 1
+    Butter: 5
 
 # Entrees
 
@@ -89,7 +100,7 @@
   id: RecipeMothBakedCheese
   name: baked cheese recipe
   result: FoodMothBakedCheese
-  time: 20
+  time: 15
   solids:
     FoodCheese: 1
 
@@ -112,7 +123,7 @@
     FoodPotato: 2
     FoodCabbage: 1
     FoodChili: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
+    #Herbs: 1
 
 # Meals
 
@@ -140,18 +151,20 @@
   name: buttered baked corn recipe
   result: FoodMothButteredBakedCorn
   time: 5
+  reagents:
+    Butter: 5
   solids:
     FoodMothBakedCorn: 1
-    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothMozzarellaSticks
   name: mozzarella sticks recipe
   result: FoodMothMozzarellaSticks
   time: 15
+  reagents:
+    TomatoSauce: 10
   solids:
     FoodMozzarella: 1
-    FoodTomato: 2 #TomatoSauce
     FoodBreadPlainSlice: 1
 
 - type: microwaveMealRecipe
@@ -159,8 +172,9 @@
   name: mac balls recipe
   result: FoodMothMacBalls
   time: 15
+  reagents:
+    TomatoSauce: 10
   solids:
-    FoodTomato: 2 #TomatoSauce
     FoodDonkpocket: 1 #macncheese donk
     FoodCorn: 1 #CornMeal
 
@@ -189,12 +203,11 @@
   reagents:
     Milk: 5
     Flour: 5
-    #Butter: 10 #Butter placeholder
+    Butter: 5
   solids:
     FoodBowlBig: 1
     FoodCheeseSlice: 1
     FoodPotato: 1
-    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothSeedSoup
@@ -295,11 +308,11 @@
   time: 10
   reagents:
     Milk: 5
+    Butter: 5
   solids:
     FoodMothCornmealPorridge: 1
     FoodCurdCheese: 1
     FoodCheeseSlice: 1
-    FoodButter: 1
 
 - type: microwaveMealRecipe
   id: RecipeMothEggplantPolenta
@@ -307,7 +320,7 @@
   result: FoodMothEggplantPolenta
   time: 10
   reagents:
-    Ketchup: 5 #Tomato Sauce
+    TomatoSauce: 5
   solids:
     FoodMothCheesyPorridge: 1
     FoodEggplant: 1
@@ -378,27 +391,14 @@
   solids:
     FoodBowlBig: 1
     FoodMothSaladBase: 1
-    FoodMothBakedCorn: 1
     FoodChili: 1
     FoodOnionRed: 1
     FoodAmbrosiaVulgaris: 1 #Herbs
 
 # Pizzas
 - type: microwaveMealRecipe
-  id: RecipeMothMargheritaPizza
-  name: mothic margherita pizza recipe
-  result: FoodMothPizzaMargherita
-  time: 30
-  solids:
-    FoodDough: 1
-    FoodTomato: 2 #TomatoSauce
-    FoodMozzarella: 1
-    FoodCheeseSlice: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
-
-- type: microwaveMealRecipe
   id: RecipeMothFirecrackerPizza
-  name: mothic firecracker pizza recipe
+  name: firecracker pizza recipe
   result: FoodMothPizzaFirecracker
   time: 30
   reagents:
@@ -411,12 +411,13 @@
 
 - type: microwaveMealRecipe
   id: RecipeMothFiveCheesePizza
-  name: mothic five-cheese pizza recipe
+  name: quattro formaggi pizza recipe
   result: FoodMothPizzaFiveCheese
   time: 30
+  reagents:
+    TomatoSauce: 10
   solids:
     FoodDough: 1
-    FoodTomato: 2 #TomatoSauce
     FoodMozzarella: 1
     FoodCheeseSlice: 1
     FoodCurdCheese: 1
@@ -424,28 +425,18 @@
 
 - type: microwaveMealRecipe
   id: RecipeMothPestoPizza
-  name: mothic pesto pizza recipe
+  name: pesto pizza recipe
   result: FoodMothPizzaPesto
   time: 30
   solids:
     FoodDough: 1
-    FoodMozzarella: 1
+    FoodTomato: 2
+    FoodMozzarella: 2
     FoodMothPesto: 1
 
 - type: microwaveMealRecipe
-  id: RecipeMothGarlicPizza
-  name: mothic garlic pizza recipe
-  result: FoodMothPizzaGarlic
-  time: 30
-  solids:
-    FoodDough: 1
-    FoodButter: 1
-    FoodGarlic: 1
-    FoodAmbrosiaVulgaris: 1 #Herbs
-
-- type: microwaveMealRecipe
   id: RecipeMothCottonPizza
-  name: mothic cotton pizza recipe
+  name: cotton pizza recipe
   result: FoodMothPizzaCotton
   time: 30
   reagents:

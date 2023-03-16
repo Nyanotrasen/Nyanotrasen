@@ -7,8 +7,8 @@
 <Box>
 <Box Orientation="Vertical">
 - Dough
-- Cheese wedge
-- 4 tomatoes
+- 2 Mozzarella
+- 3 tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodPizzaMargherita" Caption=""/>
@@ -105,28 +105,11 @@
 </Box>
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Mothic Margherita Pizza[/color]
+	[color=#a4885c]Firecracker Pizza[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
-- Mozzarella
-- Cheese wedge
-- Ambrosia Vulgaris
-</Box>
-<Box Orientation="Vertical">
-- Dough
-- 2 Tomatoes
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
-<GuideEntityEmbed Entity="FoodMothPizzaMargherita" Caption=""/>
-</Box>
-
-<Box Orientation="Vertical">
-	[color=#a4885c]Mothic Firecracker Pizza[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- 10u BBQ sauce
+- 10u bbq sauce
 - Cheese wedge
 - Baked Corn
 </Box>
@@ -139,7 +122,7 @@
 </Box>
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Mothic Five-Cheese Pizza[/color]
+	[color=#a4885c]Quattro Formaggi Pizza[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
@@ -157,36 +140,23 @@
 </Box>
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Mothic Pesto Pizza[/color]
+	[color=#a4885c]Pesto Pizza[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">
 - Dough
-- Mozzarella
-- Pesto
+- 10u pesto
+</Box>
+<Box Orientation="Vertical">
+- 2 Mozzarella
+- 2 Tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodMothPizzaPesto" Caption=""/>
 </Box>
 
 <Box Orientation="Vertical">
-	[color=#a4885c]Mothic Garlic Pizza[/color]
-</Box>
-<Box>
-<Box Orientation="Vertical">
-- Dough
-- Butter
-</Box>
-<Box Orientation="Vertical">
-- Garlic
-- Ambrosia Vulgaris
-</Box>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
-<GuideEntityEmbed Entity="FoodMothPizzaGarlic" Caption=""/>
-</Box>
-
-<Box Orientation="Vertical">
-	[color=#a4885c]Mothic Cotton Pizza[/color]
+	[color=#a4885c]Cotton Pizza[/color]
 </Box>
 <Box>
 <Box Orientation="Vertical">

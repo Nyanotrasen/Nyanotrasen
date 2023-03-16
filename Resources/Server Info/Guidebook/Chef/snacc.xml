@@ -123,6 +123,27 @@
 </Box>
 
 <Box Orientation="Vertical">
+	[color=#a4885c]Cheese Curds[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCurdCheese" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCheeseCurds" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Herby Cheese[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Curd Cheese
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothHerbyCheese" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
 	[color=#a4885c]Squeaking Stir Fry[/color]
 </Box>
 <Box>
@@ -178,7 +199,7 @@
 </Box>
 <Box>
 <GuideEntityEmbed Entity="FoodCheese" Caption=""/>
-<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
 <GuideEntityEmbed Entity="FoodMothBakedCheese" Caption=""/>
 </Box>
 
@@ -209,7 +230,7 @@
 <Box>
 <Box Orientation="Vertical">
 - Baked Corn
-- Butter
+- 5u butter
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
 <GuideEntityEmbed Entity="FoodMothButteredBakedCorn" Caption=""/>

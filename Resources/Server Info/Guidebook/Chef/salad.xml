@@ -18,6 +18,22 @@
 </Box>
 
 <Box Orientation="Vertical">
+	[color=#a4885c]Valid Salad[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Bowl
+- 3x Ambrosia Vulgaris
+</Box>
+<Box Orientation="Vertical">
+- Potato
+- Meatball
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSaladValid" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
 	[color=#a4885c]Coleslaw[/color]
 </Box>
 <Box>
@@ -44,7 +60,7 @@
 </Box>
 <Box Orientation="Vertical">
 - Slice of bread
-- Cheese wedge
+- Mozzarella
 - Cabbage
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
@@ -137,10 +153,9 @@
 <Box Orientation="Vertical">
 - 5u lime juice
 - Mothic Salad
-- Baked Corn
+- Chili pepper
 </Box>
 <Box Orientation="Vertical">
-- Chili pepper
 - Red onion
 - Ambrosia Vulgaris
 </Box>
