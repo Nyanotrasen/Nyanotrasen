@@ -51,3 +51,6 @@ signal-port-description-artifact-analyzer-sender = Analysis console signal sende
 
 signal-port-name-artifact-analyzer-receiver = Pad
 signal-port-description-artifact-analyzer-receiver = Artifact analyzer signal receiver
+
+signal-port-name-hold-open = Hold
+signal-port-description-hold-open = Turns off automatic closing.
