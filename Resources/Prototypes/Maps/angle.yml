@@ -6,7 +6,7 @@
   stations:
     Angle:
       mapNameTemplate: '{0} Angle Rig {1}'
-      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Right.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: '14'
