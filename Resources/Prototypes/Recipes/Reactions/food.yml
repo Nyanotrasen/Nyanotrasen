@@ -96,6 +96,7 @@
       amount: 30
     Enzyme:
       amount: 5
+      catalyst: true
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodTofu
