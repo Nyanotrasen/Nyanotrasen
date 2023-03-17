@@ -56,6 +56,30 @@
 </Box>
 
 <Box Orientation="Vertical">
+	[color=#a4885c]Tofu Bread[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- Tofu block
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="FoodBreadTofu" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Garlic Bread Slice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Slice of bread
+- Garlic
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBreadGarlicSlice" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
 	[color=#a4885c]Moldy Breadslice[/color]
 </Box>
 <Box>

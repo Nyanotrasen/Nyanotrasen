@@ -147,4 +147,16 @@ Protein can be used raw, but sometimes has to be cooked beforehand. Simply micro
 <GuideEntityEmbed Entity="FoodMeatSalami" Caption=""/>
 </Box>
 
+<Box Orientation="Vertical">
+	[color=#a4885c]Tofu[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 30u soy milk
+- 5u univerzal enzyme (c)
+</Box>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
+<GuideEntityEmbed Entity="FoodTofu" Caption=""/>
+</Box>
+
 </Document>
