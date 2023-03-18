@@ -4,15 +4,16 @@ using Content.Shared.Interaction;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-/// <remarks>
-///     Changes that are still missing:
-///     - Pressing the timer opens its UI instead of just activating it
-///     - UI needs an entry field for Length and a cancel button?
-///     - Ability to change component.Length from within the UI.
-/// </remarks>
 
 namespace Content.Server.MachineLinking.System
 {
+    /// <remarks>
+    ///     TODO:
+    ///     - Pressing the timer opens its UI instead of just activating it
+    ///     - UI needs an entry field for Length and a cancel button?
+    ///     - Ability to change component.Length from within the UI.
+    ///     - The UI start button should be what activates the timer
+    /// </remarks>
     public sealed class SignalTimerSystem : EntitySystem
     {
         [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
@@ -35,7 +36,7 @@ namespace Content.Server.MachineLinking.System
             if (args.Handled)
                 return;
 
-            // do nothing if the timer is already on, for now. Should actually open the UI.
+            // do nothing if the timer is already on, for now. Should actually open the UI and handle things there
             // in a separate function the timer will tick down and then reset itself and the component.State.
             if (component.State)
                 return;
@@ -48,7 +49,7 @@ namespace Content.Server.MachineLinking.System
             args.Handled = true;
         }
 
-        // borrowed from MicrowaveSystem
+        // adapted from MicrowaveSystem
         public override void Update(float frameTime)
         {
             base.Update(frameTime);

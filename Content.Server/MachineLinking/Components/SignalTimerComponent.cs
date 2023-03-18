@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server.MachineLinking.Components
 {
     /// <summary>
-    ///     This is a modified version of the switch which acts as a timer.
+    ///     This is a modified version of the signal switch.
     /// </summary>
 
     [RegisterComponent]
