@@ -1,0 +1,12 @@
+<DefaultWindow xmlns="https://spacestation14.io" Title="{Loc signal-timer-window-title}" MinSize="200 100">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <Label Name="CurrentStatusLabel" Text="{Loc 'signal-timer-window-status'}" />
+        <LineEdit Name="StatusLabelEdit" />
+        <Label Name="TimeLabel" Text="{Loc 'signal-timer-window-time'}" />
+        <LineEdit Name="TimeLabelEdit" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Button Name="ButtonStart" Text="{Loc signal-timer-window-start}"/>
+            <Button Name="ButtonStop" Text="{Loc signal-timer-window-stop}"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

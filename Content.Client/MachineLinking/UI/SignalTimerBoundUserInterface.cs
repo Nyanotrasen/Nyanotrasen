@@ -1,0 +1,62 @@
+using Content.Shared.Labels;
+using Content.Shared.MachineLinking;
+using Robust.Client.GameObjects;
+using Robust.Shared.GameObjects;
+
+namespace Content.Client.MachineLinking.UI
+{
+    /// <summary>
+    /// Initializes a <see cref="SignalTimerWindow"/> and updates it when new server messages are received.
+    /// Adapted from HandLabeler code by rolfero and Watermelon914 on GitHub.
+    /// </summary>
+    public sealed class SignalTimerBoundUserInterface : BoundUserInterface
+    {
+        private SignalTimerWindow? _window;
+
+        public SignalTimerBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        {
+        }
+
+        protected override void Open()
+        {
+            base.Open();
+
+            _window = new SignalTimerWindow();
+            if (State != null)
+                UpdateState(State);
+
+            _window.OpenCentered();
+
+            _window.OnClose += Close;
+            _window.OnTimeEntered += OnTimeChanged;
+
+        }
+
+        private void OnTimeChanged(string newTime)
+        {
+
+        }
+
+        /// <summary>
+        /// Update the UI state based on server-sent info
+        /// </summary>
+        /// <param name="state"></param>
+        protected override void UpdateState(BoundUserInterfaceState state)
+        {
+            base.UpdateState(state);
+            if (_window == null || state is not SignalTimerState cast)
+                return;
+
+            _window.SetCurrentStatus(cast.State.ToString());
+            _window.SetCurrentTime(cast.Length.ToString());
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (!disposing) return;
+            _window?.Dispose();
+        }
+    }
+
+}
