@@ -245,6 +245,7 @@
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
     layers:
     - state: robot
+    - state: robot-eyes
     - state: robot-flashlight
       shader: unshaded
       visible: false
