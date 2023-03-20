@@ -10,6 +10,7 @@
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
     layers:
     - state: robot
+    - state: robot-eyes
     - state: robot-flashlight
       shader: unshaded
       visible: false
@@ -38,6 +39,9 @@
         !type:DamageTrigger
         damage: 300
       behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: NoSlip
@@ -171,6 +175,7 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
