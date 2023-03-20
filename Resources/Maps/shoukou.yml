@@ -10384,8 +10384,8 @@ entities:
     - volume: 2500
       temperature: 293.15
       moles:
-      - 21.213781
-      - 79.80423
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -10486,7 +10486,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 3
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -11756,7 +11756,7 @@ entities:
 - uid: 224
   type: tatamimat
   components:
-  - pos: -46.5,-7.5
+  - pos: -46.5,-6.5
     parent: 34
     type: Transform
 - uid: 225
@@ -11848,7 +11848,8 @@ entities:
 - uid: 238
   type: tatamimat
   components:
-  - pos: -47.5,-7.5
+  - rot: 3.141592653589793 rad
+    pos: -45.5,-6.5
     parent: 34
     type: Transform
 - uid: 239
@@ -11963,10 +11964,10 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 253
-  type: tatamimat
+  type: tatamisingle
   components:
-  - rot: 3.141592653589793 rad
-    pos: -45.5,-6.5
+  - rot: -1.5707963267948966 rad
+    pos: -45.5,-7.5
     parent: 34
     type: Transform
 - uid: 254
@@ -12004,8 +12005,7 @@ entities:
 - uid: 259
   type: tatamimat
   components:
-  - rot: 3.141592653589793 rad
-    pos: -46.5,-6.5
+  - pos: -47.5,-7.5
     parent: 34
     type: Transform
 - uid: 260
@@ -12822,7 +12822,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 391
-  type: Grille
+  type: WallSolid
   components:
   - pos: 3.5,-25.5
     parent: 34
@@ -14164,9 +14164,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 604
-  type: RandomDrinkGlass
+  type: DrinkTeacup
   components:
-  - pos: 2.5,-6.5
+  - pos: 4.259925,-6.364277
     parent: 34
     type: Transform
 - uid: 605
@@ -22702,9 +22702,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 1912
-  type: RandomDrinkGlass
+  type: DrinkTeacup
   components:
-  - pos: 3.5,-6.5
+  - pos: 4.082842,-6.520635
     parent: 34
     type: Transform
 - uid: 1913
@@ -22725,9 +22725,9 @@ entities:
   - color: '#F84000FF'
     type: AtmosPipeColor
 - uid: 1915
-  type: FoodMealFriesCarrot
+  type: DrinkTeapot
   components:
-  - pos: 4.1355095,-6.2353354
+  - pos: 3.7286751,-6.1870704
     parent: 34
     type: Transform
 - uid: 1916
@@ -22930,7 +22930,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 1946
-  type: ReinforcedWindow
+  type: PosterLegitMedicate
   components:
   - pos: 3.5,-25.5
     parent: 34
@@ -23897,7 +23897,7 @@ entities:
 - uid: 2099
   type: tatamisingle
   components:
-  - rot: 1.5707963267948966 rad
+  - rot: -1.5707963267948966 rad
     pos: -47.5,-6.5
     parent: 34
     type: Transform
@@ -24016,7 +24016,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 2119
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -51.5,0.5
     parent: 34
@@ -24028,19 +24028,19 @@ entities:
     parent: 34
     type: Transform
 - uid: 2121
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -50.5,0.5
     parent: 34
     type: Transform
 - uid: 2122
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -48.5,0.5
     parent: 34
     type: Transform
 - uid: 2123
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -47.5,0.5
     parent: 34
@@ -24637,13 +24637,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 2204
-  type: BedsheetCosmos
+  type: BedsheetWiz
   components:
   - pos: -45.5,-6.5
     parent: 34
     type: Transform
 - uid: 2205
-  type: BedsheetRainbow
+  type: BedsheetIan
   components:
   - pos: -47.5,-6.5
     parent: 34
@@ -24820,15 +24820,15 @@ entities:
     parent: 34
     type: Transform
 - uid: 2232
-  type: SchoolgirlUniformSpawner
+  type: ClothingKimonoPink
   components:
-  - pos: -45.5,-6.5
+  - pos: -46.664196,-6.5214357
     parent: 34
     type: Transform
 - uid: 2233
-  type: SchoolgirlUniformSpawner
+  type: ClothingKimonoBlue
   components:
-  - pos: -47.5,-6.5
+  - pos: -46.29961,-6.3338046
     parent: 34
     type: Transform
 - uid: 2234
@@ -24912,9 +24912,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 2246
-  type: PosterLegitUeNo
+  type: SpawnMobMedibot
   components:
-  - pos: -45.5,-5.5
+  - pos: 2.5,0.5
     parent: 34
     type: Transform
 - uid: 2247
@@ -29364,10 +29364,10 @@ entities:
     parent: 34
     type: Transform
 - uid: 2926
-  type: tatamisingle
+  type: tatamimat
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -45.5,-7.5
+  - rot: 3.141592653589793 rad
+    pos: -46.5,-7.5
     parent: 34
     type: Transform
 - uid: 2927
@@ -32188,7 +32188,7 @@ entities:
 - uid: 3369
   type: ClothingUnderSocksBee
   components:
-  - pos: -47.809013,-7.037083
+  - pos: -47.789196,-7.7931514
     parent: 34
     type: Transform
 - uid: 3370
@@ -42878,7 +42878,7 @@ entities:
     parent: 34
     type: Transform
 - uid: 5050
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -43.5,0.5
     parent: 34
@@ -47683,13 +47683,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 5809
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -46.5,0.5
     parent: 34
     type: Transform
 - uid: 5810
-  type: WallWood
+  type: WallPaper
   components:
   - pos: -44.5,0.5
     parent: 34
@@ -48009,13 +48009,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 5858
-  type: WoodDoor
+  type: PaperDoor
   components:
   - pos: -45.5,0.5
     parent: 34
     type: Transform
 - uid: 5859
-  type: WoodDoor
+  type: PaperDoor
   components:
   - pos: -49.5,0.5
     parent: 34
@@ -48027,15 +48027,15 @@ entities:
     parent: 34
     type: Transform
 - uid: 5861
-  type: RandomPosterAny
+  type: PosterLegitUeNo
   components:
   - pos: -47.5,0.5
     parent: 34
     type: Transform
 - uid: 5862
-  type: RandomPosterAny
+  type: PosterMapShoukou
   components:
-  - pos: -50.5,0.5
+  - pos: 3.5,-46.5
     parent: 34
     type: Transform
 - uid: 5863
@@ -61557,9 +61557,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 8020
-  type: PosterLegitMedicate
+  type: PottedPlantRandom
   components:
-  - pos: 2.5,-25.5
+  - pos: 3.5,-29.5
     parent: 34
     type: Transform
 - uid: 8021
@@ -79655,9 +79655,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 10234
-  type: SpawnMobMedibot
+  type: SpawnMobCleanBot
   components:
-  - pos: -10.5,-0.5
+  - pos: -4.5,-20.5
     parent: 34
     type: Transform
 - uid: 10235
@@ -89962,6 +89962,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 11692
+  type: ClothingKimonoBlue
+  components:
+  - pos: 15.840258,-45.6794
+    parent: 34
+    type: Transform
 - uid: 11693
   type: IngotGold
   components:
@@ -91682,9 +91688,9 @@ entities:
     parent: 34
     type: Transform
 - uid: 11938
-  type: ClothingUniformKendoHakama
+  type: ClothingKimonoPink
   components:
-  - pos: -46.536366,-6.463881
+  - pos: 35.418346,-41.04132
     parent: 34
     type: Transform
 - uid: 11939
@@ -91712,6 +91718,18 @@ entities:
   type: SpawnPointMartialArtist
   components:
   - pos: -2.5,5.5
+    parent: 34
+    type: Transform
+- uid: 11943
+  type: PosterLegitShoukou
+  components:
+  - pos: 4.5,-46.5
+    parent: 34
+    type: Transform
+- uid: 11944
+  type: PottedPlantRandom
+  components:
+  - pos: -3.5,-29.5
     parent: 34
     type: Transform
 - uid: 11945
@@ -91746,6 +91764,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 11949
+  type: PottedPlantRandom
+  components:
+  - pos: -3.5,-40.5
+    parent: 34
+    type: Transform
 - uid: 11950
   type: APCBasic
   components:
@@ -92193,6 +92217,44 @@ entities:
   type: FirelockGlass
   components:
   - pos: -8.5,1.5
+    parent: 34
+    type: Transform
+- uid: 12017
+  type: DrinkBeer
+  components:
+  - pos: 9.709113,17.787828
+    parent: 34
+    type: Transform
+- uid: 12018
+  type: ClothingKimonoPink
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -50.416443,6.983393
+    parent: 34
+    type: Transform
+- uid: 12019
+  type: ClothingKimonoBlue
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -57.478943,5.1592097
+    parent: 34
+    type: Transform
+- uid: 12020
+  type: ClothingShoesWizard
+  components:
+  - desc: How about you "geta" real shoe??
+    name: geta
+    type: MetaData
+  - pos: -47.218323,-9.130675
+    parent: 34
+    type: Transform
+- uid: 12021
+  type: ClothingShoesWizard
+  components:
+  - desc: How about you "geta" real shoe??
+    name: geta
+    type: MetaData
+  - pos: -47.072487,-9.339152
     parent: 34
     type: Transform
 ...
