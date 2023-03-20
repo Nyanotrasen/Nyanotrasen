@@ -22,6 +22,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Content.Shared.DoAfter;
+using Content.Server.Emp;
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -64,6 +65,8 @@ namespace Content.Server.Light.EntitySystems
             SubscribeLocalEvent<PoweredLightComponent, PowerChangedEvent>(OnPowerChanged);
 
             SubscribeLocalEvent<PoweredLightComponent, DoAfterEvent>(OnDoAfter);
+
+            SubscribeLocalEvent<PoweredLightComponent, EmpPulseEvent>(OnEmpPulse);
         }
 
         private void OnInit(EntityUid uid, PoweredLightComponent light, ComponentInit args)
@@ -431,6 +434,12 @@ namespace Content.Server.Light.EntitySystems
             EjectBulb(args.Args.Target.Value, args.Args.User, component);
 
             args.Handled = true;
+        }
+
+        private void OnEmpPulse(EntityUid uid, PoweredLightComponent component, ref EmpPulseEvent args)
+        {
+            args.Affected = true;
+            TryDestroyBulb(uid, component);  
         }
     }
 }

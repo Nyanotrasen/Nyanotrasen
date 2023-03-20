@@ -2,7 +2,6 @@ using Content.Server.Access;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction;
-using Content.Server.Doors.Components;
 using Content.Server.Tools.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -16,8 +15,6 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Tools;
@@ -34,7 +31,6 @@ public sealed class DoorSystem : SharedDoorSystem
     [Dependency] private readonly ConstructionSystem _constructionSystem = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -151,15 +147,9 @@ public sealed class DoorSystem : SharedDoorSystem
     private void OnWeldChanged(EntityUid uid, DoorComponent component, WeldableChangedEvent args)
     {
         if (component.State == DoorState.Closed)
-        {
             SetState(uid, DoorState.Welded, component);
-            AdjustLayer(uid, true);
-        }
         else if (component.State == DoorState.Welded)
-        {
             SetState(uid, DoorState.Closed, component);
-            AdjustLayer(uid, false);
-        }
     }
 
     private void OnDoorAltVerb(EntityUid uid, DoorComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -286,31 +276,6 @@ public sealed class DoorSystem : SharedDoorSystem
                 SetState(uid, DoorState.Emagging, door);
                 PlaySound(uid, door.SparkSound, AudioParams.Default.WithVolume(8), args.UserUid, false);
                 args.Handled = true;
-            }
-        }
-    }
-
-    private void AdjustLayer(EntityUid uid, bool weld, LayerChangeOnWeldComponent? component = null, FixturesComponent? fixtures = null)
-    {
-        if (!Resolve(uid, ref component, false))
-            return;
-
-        if (!Resolve(uid, ref fixtures, false))
-            return;
-
-        if (weld)
-        {
-            foreach (var fixture in fixtures.Fixtures.Values)
-            {
-                if (fixture.CollisionLayer == (int) component.UnweldedLayer)
-                    _physics.SetCollisionLayer(uid, fixture, (int) component.WeldedLayer);
-            }
-        } else
-        {
-            foreach (var fixture in fixtures.Fixtures.Values)
-            {
-                if (fixture.CollisionLayer == (int) component.WeldedLayer)
-                    _physics.SetCollisionLayer(uid, fixture, (int) component.UnweldedLayer);
             }
         }
     }
