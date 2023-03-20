@@ -15,3 +15,24 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          groups:
+           Caustic: 0.5
+      - !type:Electrocute
+        conditions:
+        - !type:ReagentThreshold
+          min: 35
+        probability: 0.1
+    Medicine:
+      effects:
+      - !type:ChemVomit
+        conditions:
+          - !type:ReagentThreshold
+            min: 60
+        probability: 0.2
