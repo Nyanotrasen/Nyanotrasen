@@ -48,7 +48,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         LoadProfile(uid, startingSet.Profile, humanoid);
-        
+
     }
 
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
@@ -104,17 +104,17 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             ? profile.Appearance.SkinColor.WithAlpha(hairAlpha) : profile.Appearance.HairColor;
         var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
             ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha) : profile.Appearance.FacialHairColor;
-        
+
         if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype) &&
             _markingManager.CanBeApplied(profile.Species, hairPrototype, _prototypeManager))
         {
             AddMarking(uid, profile.Appearance.HairStyleId, hairColor, false);
         }
-        
+
         if (_markingManager.Markings.TryGetValue(profile.Appearance.FacialHairStyleId, out var facialHairPrototype) &&
             _markingManager.CanBeApplied(profile.Species, facialHairPrototype, _prototypeManager))
         {
-            AddMarking(uid, profile.Appearance.FacialHairStyleId, facialHairColor, false); 
+            AddMarking(uid, profile.Appearance.FacialHairStyleId, facialHairColor, false);
         }
 
         humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);
@@ -130,7 +130,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             );
             AddMarking(uid, marking.MarkingId, markingColors, false);
         }
-        
+
         EnsureDefaultMarkings(uid, humanoid);
 
         humanoid.Gender = profile.Gender;
@@ -186,8 +186,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         newAppearance = newAppearance.WithMarkings(humanoid.MarkingSet.GetForwardEnumerator().ToList());
 
-        profile = HumanoidCharacterProfile.Default()
-            .WithSpecies(humanoid.Species)
+        profile = HumanoidCharacterProfile.DefaultWithSpecies(humanoid.Species)
             .WithAge(humanoid.Age)
             .WithSex(humanoid.Sex)
             .WithGender(humanoid.Gender)
