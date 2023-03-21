@@ -603,6 +603,9 @@
     - id: PlushieMoffbar
       prob: 0.5
       orGroup: Plushie
+    - id: PlushieV1
+      prob: 0.25
+      orGroup: Plushie
 
 - type: entity
   noSpawn: true

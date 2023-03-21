@@ -355,6 +355,30 @@
   - type: Sprite
     state: plushie_atmosian
 
+- type: entity
+  parent: BasePlushie
+  id: PlushieV1
+  name: blue robot plushie
+  description: A plushie resembling a blue robot with yellow wings. It looks like it's been through hell and back.
+  components:
+  - type: Sprite
+    state: plushie_v1
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/v1plush_activate.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/v1plush_land.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/v1plush_activate.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/v1plush_activate.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Items/Toys/v1plush_melee.ogg
+
 ## Figurines
 
 - type: entity
@@ -654,7 +678,7 @@
       revolver-ammo: !type:Container
 
 - type: entity
-  parent: RevolverCapGun 
+  parent: RevolverCapGun
   id: RevolverCapGunFake
   name: cap gun
   description: Looks almost like the real thing! Ages 8 and up.
