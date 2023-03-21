@@ -28,3 +28,9 @@
     outputs:
       On: []
       Off: []
+  - type: ActivatableUI
+    key: enum.SignalTimerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      - key: enum.SignalTimerUiKey.Key
+        type: SignalTimerBoundUserInterface

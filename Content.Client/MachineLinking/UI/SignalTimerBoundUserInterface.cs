@@ -1,4 +1,3 @@
-using Content.Shared.Labels;
 using Content.Shared.MachineLinking;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameObjects;
@@ -32,9 +31,9 @@ namespace Content.Client.MachineLinking.UI
 
         }
 
-        private void OnTimeChanged(string newTime)
+        private void OnTimeChanged(float newTime)
         {
-
+            SendMessage(new SignalTimerLengthChangedMessage(newTime));
         }
 
         /// <summary>

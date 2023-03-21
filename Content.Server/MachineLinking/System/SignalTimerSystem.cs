@@ -43,19 +43,8 @@ namespace Content.Server.MachineLinking.System
         {
             if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
                 return;
-
-            var ui = component.Owner.GetUIOrNull(SignalTimerUiKey.Key);
-            if (ui == null)
-            {
-                Logger.Debug($"UI not found for entity with UID {uid}");
-            }
-            else
-            {
-                Logger.Debug($"Open UI {ui} for UID {uid}");
-                ui.Open(actor.PlayerSession);
-            }
-
-            // component.Owner.GetUIOrNull(SignalTimerUiKey.Key)?.Open(actor.PlayerSession);
+            
+            uid.GetUIOrNull(SignalTimerUiKey.Key)?.Open(actor.PlayerSession);
             args.Handled = true;
         }
 
