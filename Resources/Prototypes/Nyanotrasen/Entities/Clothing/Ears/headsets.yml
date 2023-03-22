@@ -8,6 +8,7 @@
     containers:
       key_slots:
       - EncryptionKeyScience
+      - EncryptionKeyCommon
   - type: Sprite
     sprite: Clothing/Ears/Headsets/science.rsi
   - type: Clothing
@@ -22,7 +23,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
+      - EncryptionKeyScience
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
@@ -38,7 +39,7 @@
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyEngineering
+      - EncryptionKeyScience
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
