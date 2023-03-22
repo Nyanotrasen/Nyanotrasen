@@ -142,7 +142,7 @@ namespace Content.Server.Psionics
             var bonus = false;
             foreach (var stam in args.HitList)
             {
-                if (HasComp<PsionicComponent>(stam.Owner))
+                if (HasComp<PsionicComponent>(stam.Entity))
                     bonus = true;
             }
 
