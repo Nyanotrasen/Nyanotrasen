@@ -9,14 +9,21 @@ namespace Content.Client.MachineLinking.UI
     [GenerateTypedNameReferences]
     public sealed partial class SignalTimerWindow : DefaultWindow
     {
+        private SignalTimerBoundUserInterface _bui;
+
         public event Action<float>? OnTimeEntered;
 
 
-        public SignalTimerWindow()
+        public SignalTimerWindow(SignalTimerBoundUserInterface boundUserInterface)
         {
+            _bui = boundUserInterface;
+
             RobustXamlLoader.Load(this);
 
-            TimeLabelEdit.OnTextEntered += e => OnTimeEntered?.Invoke(float.Parse(e.Text));
+            SecondsLabelEdit.OnTextEntered += e => OnTimeEntered?.Invoke(float.Parse(e.Text));
+
+            ButtonStart.OnPressed += _ => _bui.OnStart();
+            ButtonStop.OnPressed += _ => _bui.OnStop();
         }
 
         public void SetCurrentStatus(string label)
@@ -26,7 +33,7 @@ namespace Content.Client.MachineLinking.UI
 
         public void SetCurrentTime(string label)
         {
-            TimeLabelEdit.Text = label;
+            SecondsLabelEdit.Text = label;
         }
     }
 }

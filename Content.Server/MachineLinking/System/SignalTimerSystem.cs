@@ -32,6 +32,7 @@ namespace Content.Server.MachineLinking.System
             // Bound UI subscriptions
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerLengthChangedMessage>(OnSignalTimerLengthChanged);
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartedMessage>(OnStart);
+            SubscribeLocalEvent<SignalTimerComponent, SignalTimerStoppedMessage>(OnStop);
         }
 
         private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)
@@ -43,7 +44,7 @@ namespace Content.Server.MachineLinking.System
         {
             if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
                 return;
-            
+
             uid.GetUIOrNull(SignalTimerUiKey.Key)?.Open(actor.PlayerSession);
             args.Handled = true;
         }
@@ -61,6 +62,21 @@ namespace Content.Server.MachineLinking.System
             }
         }
 
+        private void OnStop(EntityUid uid, SignalTimerComponent component, SignalTimerStoppedMessage args)
+        {
+            {
+                if (component.State)
+                {
+                    _signalSystem.InvokePort(uid, component.OffPort);
+                    component.State = !component.State;
+                }
+
+                component.TimeRemaining = component.Length;
+
+                SoundSystem.Play(component.ClickSound.GetSound(), Filter.Pvs(component.Owner), component.Owner,
+                    AudioHelpers.WithVariation(0.125f).WithVolume(8f));
+            }
+        }
 
         // adapted from MicrowaveSystem
         public override void Update(float frameTime)

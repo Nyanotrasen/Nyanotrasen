@@ -20,7 +20,7 @@ namespace Content.Client.MachineLinking.UI
         {
             base.Open();
 
-            _window = new SignalTimerWindow();
+            _window = new SignalTimerWindow(this);
             if (State != null)
                 UpdateState(State);
 
@@ -48,6 +48,16 @@ namespace Content.Client.MachineLinking.UI
 
             _window.SetCurrentStatus(cast.State.ToString());
             _window.SetCurrentTime(cast.Length.ToString());
+        }
+
+        public void OnStart()
+        {
+            SendMessage(new SignalTimerStartedMessage());
+        }
+
+        public void OnStop()
+        {
+            SendMessage(new SignalTimerStoppedMessage());
         }
 
         protected override void Dispose(bool disposing)

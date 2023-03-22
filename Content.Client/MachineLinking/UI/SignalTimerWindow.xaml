@@ -2,9 +2,9 @@
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
         <Label Name="CurrentStatusLabel" Text="{Loc 'signal-timer-window-status'}" />
         <LineEdit Name="StatusLabelEdit" />
-        <Label Name="TimeLabel" Text="{Loc 'signal-timer-window-time'}" />
-        <LineEdit Name="TimeLabelEdit" />
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+        <Label Name="SecondsLabel" Text="{Loc 'signal-timer-window-seconds'}" />
+        <LineEdit Name="SecondsLabelEdit" />
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Button Name="ButtonStart" Text="{Loc signal-timer-window-start}"/>
             <Button Name="ButtonStop" Text="{Loc signal-timer-window-stop}"/>
         </BoxContainer>
