@@ -45,15 +45,10 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 250
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          path: /Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg
-    - trigger:
-        !type:DamageTrigger
         damage: 450
       behaviors:
+      - !type:PlaySoundBehavior
+        sound: /Audio/Effects/metalbreak.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel:
