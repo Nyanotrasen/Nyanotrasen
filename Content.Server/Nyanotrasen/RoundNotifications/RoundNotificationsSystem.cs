@@ -76,7 +76,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
         var text = Loc.GetString("discord-round-end",
             ("id", e.RoundId),
-            ("hours", e.RoundDuration.Hours),
+            ("hours", Math.Truncate(e.RoundDuration.TotalHours)),
             ("minutes", e.RoundDuration.Minutes),
             ("seconds", e.RoundDuration.Seconds));
 
