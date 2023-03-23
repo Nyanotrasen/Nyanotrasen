@@ -26,7 +26,15 @@
   id: RecipeMoldyBread
   name: moldy bread recipe
   result: FoodBreadMoldy
-  time: 15
+  time: 20
   solids:
     FoodBreadPlain: 1
     FoodFlyAmanita: 3
+
+- type: microwaveMealRecipe
+  id: RecipeCheeseCurds
+  name: cheese curds recipe
+  result: FoodCheeseCurds
+  time: 5
+  solids:
+    FoodCurdCheese: 1

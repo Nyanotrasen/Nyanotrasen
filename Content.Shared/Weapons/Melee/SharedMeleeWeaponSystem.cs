@@ -388,6 +388,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             {
                 Audio.PlayPredicted(hitEvent.HitSoundOverride, component.Owner, user);
             }
+            else if (component.Damage.Total.Equals(FixedPoint2.Zero) && component.HitSound != null)
+            {
+                Audio.PlayPredicted(component.HitSound, component.Owner, user);
+            }
             else
             {
                 Audio.PlayPredicted(component.NoDamageSound, component.Owner, user);

@@ -1,0 +1,188 @@
+<Document>
+#Waffles and Pancakes
+<Box Orientation="Vertical">
+	[color=#a4885c]Pancake[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u milk
+- 1 egg
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBakedPancake" Caption=""/>
+<GuideEntityEmbed Entity="FoodBakedPancakeCc" Caption="Alt."/>
+</Box>
+- Add a chocolate bar to make a [color=#a4885c]Chocolate-Chip Pancake[/color]!
+- Pancakes can be stacked together!
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Waffle[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u milk (or soy milk)
+</Box>
+<Box Orientation="Vertical">
+- 1 egg
+- 5u soda water
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodBakedWaffle" Caption=""/>
+</Box>
+
+# Cookies
+<Box Orientation="Vertical">
+	[color=#a4885c]Cookie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u sugar
+</Box>
+<Box Orientation="Vertical">
+- Stick of butter
+- Chocolate bar
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBakedCookie" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Sugar Cookie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 10u sugar
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBakedCookieSugar" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Raisin Cookie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u sugar
+- Raisins
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBakedCookieRaisin" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Oatmeal Cookie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u oatmeal
+- 5u sugar
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodBakedCookieOatmeal" Caption=""/>
+</Box>
+
+# Pies
+- All pies require a [color=#a4885c]pie tin[/color] along with the other ingredients in the microwave! The tin is retrieved when the pie is eaten, [color=#fcdf03]but when the pie is thrown, the tin is lost[/color].
+- All pies are made with [color=#a4885c]pie dough[/color].
+- Some pies can be sliced.
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Pie Dough[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u flour
+- 2 eggs
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="LargeBeaker" Caption="Mix"/>
+<GuideEntityEmbed Entity="FoodDoughPie" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Apple Pie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Pie dough
+- 3x apple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodPieApple" Caption=""/>
+</Box>
+- Analogically, other pies are made by using three pieces of a different ingredient [color=#888084](examine to learn more about them)[/color]!
+
+<Box>
+<GuideEntityEmbed Entity="FoodMeat" Caption="V"/>
+<GuideEntityEmbed Entity="FoodMeatXeno" Caption="V"/>
+<GuideEntityEmbed Entity="FoodBanana" Caption="V"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodPieMeat" Caption=""/>
+<GuideEntityEmbed Entity="FoodPieXeno" Caption=""/>
+<GuideEntityEmbed Entity="FoodPieBananaCream" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Amanita Pie[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Pie dough
+- 1 Fly Amanita
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodPieAmanita" Caption=""/>
+</Box>
+
+#Others
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheesecake Balls[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u sugar
+- 5u flour
+- Curd Cheese
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothCheesecakeBalls" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mothmallow[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u sugar
+- 5u rum
+</Box>
+<Box Orientation="Vertical">
+- 5u soymilk
+- Soy Beans
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothMothmallow" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Moffin[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u flour
+- 5u milk
+</Box>
+<Box Orientation="Vertical">
+- Egg
+- Cloth
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMothMoffin" Caption=""/>
+</Box>
+
+</Document>

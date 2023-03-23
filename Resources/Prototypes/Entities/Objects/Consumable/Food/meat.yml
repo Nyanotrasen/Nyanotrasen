@@ -476,13 +476,22 @@
   id: FoodMeatSalami
   description: A large tube of salami. Best not to ask what went into it.
   components:
-  - type: Tag
-    tags:
-    - Raw
   - type: Sprite
     state: salami
   - type: SliceableFood
+    count: 6
     slice: FoodMeatSalamiSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12
+        - ReagentId: Protein
+          Quantity: 12
+        - ReagentId: TableSalt
+          Quantity: 6
 
 - type: entity
   name: meat clown
@@ -513,6 +522,26 @@
     - Raw
   - type: Sprite
     state: meatball
+
+- type: entity
+  name: meat patty
+  parent: FoodMeatBase
+  id: FoodMeatPatty
+  description: Flippin'.
+  components:
+  - type: Tag
+    tags:
+    - Raw
+  - type: Sprite
+    state: patty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 9
+        - ReagentId: TableSalt
+          Quantity: 3
 
 - type: entity
   name: slimeball
@@ -1029,17 +1058,19 @@
   components:
   - type: Tag
     tags:
-    - Raw
     - Cutlet
   - type: Sprite
     state: salami-slice
   - type: SolutionContainerManager
     solutions:
       food:
+        maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 1
+          Quantity: 2
         - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: TableSalt
           Quantity: 1
 
 # Cooked

@@ -6,25 +6,29 @@ using Content.Shared.Tabletop.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Players;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Tabletop
 {
-    public abstract class SharedTabletopSystem : EntitySystem
+    public abstract partial class SharedTabletopSystem : EntitySystem
     {
         [Dependency] protected readonly ActionBlockerSystem ActionBlockerSystem = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedTransformSystem _transforms = default!;
         [Dependency] private readonly IMapManager _mapMan = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         public override void Initialize()
         {
             SubscribeLocalEvent<TabletopDraggableComponent, ComponentGetState>(GetDraggableState);
             SubscribeAllEvent<TabletopDraggingPlayerChangedEvent>(OnDraggingPlayerChanged);
             SubscribeAllEvent<TabletopMoveEvent>(OnTabletopMove);
+
+            InitializeShogi();
         }
 
         /// <summary>

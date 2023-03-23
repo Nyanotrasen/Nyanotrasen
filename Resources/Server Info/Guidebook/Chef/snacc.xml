@@ -1,0 +1,265 @@
+<Document>
+# Snacks
+<Box Orientation="Vertical">
+	[color=#a4885c]Chicken Nuggets[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 18u cooked protein
+- 2 eggs
+- 18u flour
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodBoxNugget" Caption=""/>
+</Box>
+- Makes 6 nuggets per box.
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Fish and Chips[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- Potato
+- Fish meat
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealFishChips" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Sashimi[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2x fish meat
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealSashimi" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Potato[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Potato
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealPotatoLoaded" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Space Fries[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Potato
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealFries" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheesy Fries[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u salt
+- Potato
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealFriesCheesy" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Carrot Fries[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Carrot
+- 5u salt
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealFriesCarrot" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Popcorn[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCorn" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodSnackPopcorn" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Queso[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- 2x cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealQueso" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Enchiladas[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2x chili pepper
+- Meat cutlet
+- Ear of corn
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMealEnchiladas" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Cheese Curds[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCurdCheese" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodCheeseCurds" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Herby Cheese[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Curd Cheese
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMothHerbyCheese" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Squeaking Stir Fry[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u olive oil
+- Tofu slice
+- Onion slice
+</Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Carrot
+- Cheese curds
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothSqueakingFry" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Toasted Seeds[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u olive oil
+- Wheat seeds
+</Box>
+<Box Orientation="Vertical">
+- Carrot seeds
+- Poppy seeds
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothToastedSeeds" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Sweet Chili Cabbage Wrap[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 5u sugar
+- Cheese wedge
+- Mothic Salad
+</Box>
+<Box Orientation="Vertical">
+- Chili pepeper
+- Cabbage
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothChiliCabbageWrap" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Cheese[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCheese" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothBakedCheese" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Cheese Platter[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Baked Cheese
+- 3x slices of bread
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMothBakedCheesePlatter" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Corn[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodCorn" Caption=""/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothBakedCorn" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Buttered Baked Corn[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Baked Corn
+- 5u butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMothButteredBakedCorn" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mozzarella Sticks[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Mozzarella
+- 2 Tomatoes
+- Slice of bread
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothMozzarellaSticks" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mac Balls[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Donk pocket
+- 2 Tomatoes
+- Corn
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothMacBalls" Caption=""/>
+</Box>
+
+</Document>

@@ -8,16 +8,20 @@ using Content.Server.Light.Components;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Content.Server.Chat.Systems;
+using Content.Shared.Doors.Components;
+using Content.Shared.Doors.Systems;
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class SolarFlare : StationEventSystem
 {
     [Dependency] private readonly PoweredLightSystem _poweredLight = default!;
+    [Dependency] private readonly SharedDoorSystem _door = default!;
 
     public override string Prototype => "SolarFlare";
 
     private SolarFlareEventRuleConfiguration _event = default!;
+    private float _effectTimer = 0;
 
     public override void Initialize()
     {
@@ -36,30 +40,29 @@ public sealed class SolarFlare : StationEventSystem
         _event.EndAfter = RobustRandom.Next(ev.MinEndAfter, ev.MaxEndAfter);
     }
 
-    public override void Started()
-    {
-        base.Started();
-        MessLights();
-    }
-
-    private void MessLights()
-    {
-        foreach (var comp in EntityQuery<PoweredLightComponent>())
-        {
-            if (RobustRandom.Prob(_event.LightBreakChance))
-            {
-                var uid = comp.Owner;
-                _poweredLight.TryDestroyBulb(uid, comp);
-            }
-        }
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
         if (!RuleStarted)
             return;
+
+        _effectTimer -= frameTime;
+        if (_effectTimer < 0)
+        {
+            _effectTimer += 1;
+            foreach (var comp in EntityQuery<PoweredLightComponent>())
+            {
+                if (RobustRandom.Prob(_event.LightBreakChancePerSecond))
+                    _poweredLight.TryDestroyBulb(comp.Owner, comp);
+            }
+
+            foreach (var comp in EntityQuery<DoorComponent>())
+            {
+                if (RobustRandom.Prob(_event.DoorToggleChancePerSecond))
+                    _door.TryToggleDoor(comp.Owner, comp);
+            }
+        }
 
         if (Elapsed > _event.EndAfter)
         {

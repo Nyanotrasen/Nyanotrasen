@@ -2690,15 +2690,18 @@ Entries:
   changes:
   - {message: Holy water now works against wisps and revenants when sprayed., type: Add}
   - {message: Holy water spray damage increased., type: Tweak}
-  - {message: 'Revenant no longer scales infinitely, but has a reasonable essence cap.', type: Tweak}
+  - {message: 'Revenant no longer scales infinitely, but has a reasonable essence
+      cap.', type: Tweak}
   - {message: Revenant's essence loss now is in line with its new resistances., type: Tweak}
   id: 423
   time: '2023-02-16T00:15:08.0000000+00:00'
 - author: Rane
   changes:
   - {message: You can no longer print normality crystals., type: Remove}
-  - {message: Passive glimmer values have been changed so the average round will have 2000 less glimmer., type: Tweak}
-  - {message: 'Spacetime technology has been split into one for teleportation, and one for bluespace.', type: Tweak}
+  - {message: Passive glimmer values have been changed so the average round will have
+      2000 less glimmer., type: Tweak}
+  - {message: 'Spacetime technology has been split into one for teleportation, and
+      one for bluespace.', type: Tweak}
   id: 424
   time: '2023-02-17T00:15:08.0000000+00:00'
 - author: Colin-Tel
@@ -2739,7 +2742,7 @@ Entries:
 - author: Rane
   changes:
   - {message: Buckets won't try to equip when you drink from them., type: Fix}
-  - {message: Fixed issue with mind swapping nukies, fugis, etc., type: Fix}
+  - {etc.: null, fugis: null, message: Fixed issue with mind swapping nukies, type: Fix}
   - {message: Fixed error spam issue with health overlay bars., type: Fix}
   - {message: Bluespace crystals can stack to 5., type: Tweak}
   id: 432
@@ -2784,7 +2787,8 @@ Entries:
   time: '2023-02-24T00:15:08.0000000+00:00'
 - author: FloofiestFloof
   changes:
-  - {message: Moth sprites have been re-ported from /tg/station and should render as intended., type: Fix}
+  - {message: Moth sprites have been re-ported from /tg/station and should render
+      as intended., type: Fix}
   id: 440
   time: '2023-02-24T00:15:08.0000000+00:00'
 - author: FloofiestFloof
@@ -2794,7 +2798,8 @@ Entries:
   time: '2023-02-28T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-  - {message: The game will keep trying to start the default gamemode in subsequent rounds where it fails to start due to pop., type: Add}
+  - {message: The game will keep trying to start the default gamemode in subsequent
+      rounds where it fails to start due to pop., type: Add}
   - {message: Building switches requires cables too., type: Tweak}
   - {message: Small bots use the robot typing indicator sprite.., type: Fix}
   - {message: Oracle will no longer request hand teleporters., type: Fix}
@@ -2807,7 +2812,8 @@ Entries:
   time: '2023-03-01T00:15:08.0000000+00:00'
 - author: Leander
   changes:
-  - {message: Burning yourself on lightbulbs now has a cooldown and deals less damage., type: Tweak}
+  - {message: Burning yourself on lightbulbs now has a cooldown and deals less damage.,
+    type: Tweak}
   id: 444
   time: '2023-03-02T00:15:08.0000000+00:00'
 - author: Rane
@@ -2822,7 +2828,8 @@ Entries:
   time: '2023-03-03T00:15:08.0000000+00:00'
 - author: Colin-Tel
   changes:
-  - {message: Added 3 new asteroid salvages experimenting with further randomization., type: Add}
+  - {message: Added 3 new asteroid salvages experimenting with further randomization.,
+    type: Add}
   - {message: Totally designed Shoukou's medical department layout., type: Add}
   id: 447
   time: '2023-03-03T00:15:08.0000000+00:00'
@@ -2833,87 +2840,230 @@ Entries:
   time: '2023-03-03T00:15:08.0000000+00:00'
 - author: Velcroboy
   changes:
-  - {message: 'Shuttle walls and windows are constructible. This means you can repair meteor damage to the cargo shuttle, etc.', type: Add}
+  - {message: 'Shuttle walls and windows are constructible. This means you can repair
+      meteor damage to the cargo shuttle, etc.', type: Add}
   id: 449
   time: '2023-03-04T00:15:08.0000000+00:00'
 - author: Dorragon
   changes:
-  - {message: 'Added a new vending machine to contain all of the pride items.', type: Add}
+  - {message: Added a new vending machine to contain all of the pride items., type: Add}
   id: 450
   time: '2023-03-04T00:15:08.0000000+00:00'
 - author: Vordenburg
   changes:
   - {message: Added a seal for the forensic mantis documentation work., type: Add}
   - {message: Changed the mystagogue's stamp to a signet ring., type: Tweak}
-  - {message: 'Forensic pads now only take up 1 space instead of 3.', type: Tweak}
-  - {message: The forensic mantis' satchel and duffel starting gear now properly match the backpacks., type: Fix}
+  - {message: Forensic pads now only take up 1 space instead of 3., type: Tweak}
+  - {message: The forensic mantis' satchel and duffel starting gear now properly match
+      the backpacks., type: Fix}
   id: 451
   time: '2023-03-05T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-  - {message: 'Merged a huge refactor of doafters (progress bars for delayed actions.) It took me like 6 hours. The upstream one has needed 5 bugfix PRs and counting. Please report any bugs with our progress bars.', type: Add}
-  - {message: 'Merged a bunch of other stuff. A highlight, by request, is some new traits.', type: Add}
+  - {message: Merged a huge refactor of doafters (progress bars for delayed actions.)
+      It took me like 6 hours. The upstream one has needed 5 bugfix PRs and counting.
+      Please report any bugs with our progress bars., type: Add}
+  - {message: 'Merged a bunch of other stuff. A highlight, by request, is some new
+      traits.', type: Add}
   id: 452
   time: '2023-03-07T00:15:08.0000000+00:00'
 - author: PowerfulAtom111
   changes:
-    - {message: 'Added a chemistry guidebook.', type: Add}
+  - {message: Added a chemistry guidebook., type: Add}
   id: 453
   time: '2023-03-07T00:15:08.0000000+00:00'
 - author: Vordenburg
   changes:
-    - {message: 'Enhanced intrusion defenses have been deployed in electrical systems.', type: Add}
+  - {message: Enhanced intrusion defenses have been deployed in electrical systems.,
+    type: Add}
   id: 454
   time: '2023-03-07T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-    - {message: 'Fixed several bugs with felinids and cardboard boxes.', type: Fix}
-    - {message: 'Telegnostic projections can no longer spill drinks.', type: Fix}
+  - {message: Fixed several bugs with felinids and cardboard boxes., type: Fix}
+  - {message: Telegnostic projections can no longer spill drinks., type: Fix}
   id: 455
   time: '2023-03-09T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-    - {message: 'Merged all currently available upstream doafter fixes.', type: Fix}
+  - {message: Merged all currently available upstream doafter fixes., type: Fix}
   id: 456
   time: '2023-03-10T00:15:08.0000000+00:00'
 - author: Rane and Hyenh
   changes:
-    - {message: 'The juggernaut suit can be reverse engineered.', type: Add}
+  - {message: The juggernaut suit can be reverse engineered., type: Add}
   id: 457
   time: '2023-03-10T00:15:08.0000000+00:00'
 - author: Finket
   changes:
-    - {message: 'Added ambient sounds for probers.', type: Add}
+  - {message: Added ambient sounds for probers., type: Add}
   id: 458
   time: '2023-03-10T00:15:08.0000000+00:00'
 - author: Colin-Tel
   changes:
-    - {message: 'Added dojo equipment.', type: Add}
+  - {message: Added dojo equipment., type: Add}
   id: 459
   time: '2023-03-11T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-    - {message: 'Fixed a critical bug that could break ALL of your doafters.', type: Fix}
+  - {message: Fixed a critical bug that could break ALL of your doafters., type: Fix}
   id: 460
   time: '2023-03-11T00:15:08.0000000+00:00'
 - author: Hyenh
   changes:
-    - {message: 'Resprited the comfy sweater.', type: Add}
+  - {message: Resprited the comfy sweater., type: Add}
   id: 461
   time: '2023-03-13T00:15:08.0000000+00:00'
 - author: Colin-Tel
   changes:
-    - {message: 'Updated Shoukou with dojo equipment.', type: Add}
-    - {message: 'Reenabled valet.', type: Add}
+  - {message: Updated Shoukou with dojo equipment., type: Add}
+  - {message: Reenabled valet., type: Add}
   id: 462
   time: '2023-03-13T00:15:08.0000000+00:00'
 - author: Rane
   changes:
-    - {message: 'Made it so valet can actually spawn.', type: Fix}
+  - {message: Made it so valet can actually spawn., type: Fix}
   id: 463
   time: '2023-03-13T00:15:08.0000000+00:00'
 - author: Vordenburg
   changes:
-    - {message: 'You will no longer get mailed real wizard clothes.', type: Fix}
+  - {message: You will no longer get mailed real wizard clothes., type: Fix}
   id: 464
   time: '2023-03-13T00:15:08.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: Mimes will no longer get the objective to become psionic., type: Fix}
+  id: 465
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Steal objectives are now more common., type: Tweak}
+  - {message: Objectives relating to psionics are less common., type: Tweak}
+  id: 466
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Added a guidebook for chef., type: Add}
+  id: 467
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: tomasalves8
+  changes:
+  - {message: Round durations above 24 hours will display properly., type: Fix}
+  id: 468
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Faye
+  changes:
+  - {message: Reduced bloodletter values on most slashing weapons., type: Tweak}
+  - {message: Pierce damage type is less common., type: Tweak}
+  - {message: Captain's sabre is harder to disarm., type: Tweak}
+  - {message: Scythe range increased from 1.5 to 1.85., type: Tweak}
+  id: 469
+  time: '2023-03-14T00:15:08.0000000+00:00'
+- author: Daemon
+  changes:
+  - {message: Added fun!, type: Add}
+  - {message: Removed fun!, type: Remove}
+  id: 470
+  time: '2023-03-14T16:53:49.0000000+00:00'
+- author: Torun
+  changes:
+  - {message: Meat patties are now used to make burgers., type: Add}
+  - {message: Various food recipes have been tweaked., type: Tweak}
+  id: 471
+  time: '2023-03-14T21:01:53.0000000+00:00'
+- author: Guess-My-Name
+  changes:
+  - {message: Eating pills will display their name correctly again., type: Fix}
+  id: 472
+  time: '2023-03-15T16:00:06.0000000+00:00'
+- author: Ephememory
+  changes:
+  - {message: Made the guidebook less overwhelming and more user-friendly., type: Tweak}
+  id: 473
+  time: '2023-03-15T16:23:02.0000000+00:00'
+- author: Leander-0
+  changes:
+  - {message: Add red and blue galaxy suits., type: Add}
+  id: 474
+  time: '2023-03-15T16:23:59.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Merged upstream, including all the latest doafter bugfixes.', type: Add}
+  id: 475
+  time: '2023-03-15T16:32:29.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: 'Added the board game of Japanese chess, Shogi.', type: Add}
+  id: 476
+  time: '2023-03-15T16:32:44.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: 'Reenabled the mass mind swap event, as no new mind swap bugs have been
+      reported in a while.', type: Add}
+  id: 477
+  time: '2023-03-15T16:33:57.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: 'Added Mothic Cuisine with 3 new cheese, 3 new sauces and 41 recipes.',
+    type: Add}
+  id: 478
+  time: '2023-03-16T20:43:11.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: 'Added the NTES "Right" shuttle, replacing the NTES "Kaeri" as Angle''s
+      evacuation shuttle.', type: Add}
+  id: 479
+  time: '2023-03-17T18:08:34.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Changes the QM job icon to no longer use command colors., type: Tweak}
+  id: 480
+  time: '2023-03-18T17:23:44.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Added 15 new moth plushes., type: Add}
+  id: 481
+  time: '2023-03-18T17:23:54.0000000+00:00'
+- author: ZeroDayDaemon
+  changes:
+  - {message: Added fun!, type: Add}
+  - {message: Removed fun!, type: Remove}
+  id: 482
+  time: '2023-03-19T14:42:32.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: Added blue and pink kimono., type: Add}
+  id: 483
+  time: '2023-03-20T19:40:53.0000000+00:00'
+- author: LEANder
+  changes:
+  - {message: Lean is craftable once again and has been enhanced., type: Tweak}
+  id: 484
+  time: '2023-03-20T19:41:23.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Added another week of upstream changes. Be sure to report any new bugs!,
+    type: Add}
+  id: 485
+  time: '2023-03-20T19:48:41.0000000+00:00'
+- author: Kromabae
+  changes:
+  - {message: TComm server for Pebble, type: Add}
+  id: 486
+  time: '2023-03-21T07:56:59.0000000+00:00'
+- author: Hyenh and Leander
+  changes:
+  - {message: New standard armory hammer weapon for security to force its way into
+      departments., type: Add}
+  id: 487
+  time: '2023-03-21T18:19:14.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Epi headsets have common again., type: Fix}
+  id: 488
+  time: '2023-03-22T00:04:13.0000000+00:00'
+- author: Finket
+  changes:
+  - {message: Skubstep Lobby Song (FAN SONG!!!), type: Add}
+  id: 489
+  time: '2023-03-23T06:20:14.0000000+00:00'

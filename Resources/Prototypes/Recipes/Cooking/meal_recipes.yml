@@ -14,7 +14,7 @@
   time: 5
   solids:
     FoodBreadBun: 1
-    FoodMeat: 1
+    FoodMeatPatty: 1
     FoodCheeseSlice: 1
 
 - type: microwaveMealRecipe
@@ -24,7 +24,7 @@
   time: 5
   solids:
     FoodBreadBun: 1
-    FoodMeat: 1
+    FoodMeatPatty: 1
     FoodChili: 3
 
 - type: microwaveMealRecipe
@@ -34,7 +34,7 @@
   time: 15
   solids:
     FoodBreadBun: 1
-    FoodMeat: 2
+    FoodMeatPatty: 2
     FoodCheeseSlice: 1
     FoodTomato: 1
     FoodOnionSlice: 2
@@ -43,7 +43,7 @@
   id: RecipeChickenSandwich
   name: chicken sandwich recipe
   result: FoodBurgerChicken
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodMeatChicken: 1
@@ -53,7 +53,7 @@
   id: RecipeDuckBurger
   name: duck sandwich recipe
   result: FoodBurgerDuck
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodMeatDuck: 1
@@ -107,15 +107,14 @@
     FoodBreadBun: 1
     ClothingHeadHatBeret: 1
 
-# - type: microwaveMealRecipe
-#   id: RecipeTofuBurger
-#   name: tofu burger recipe
-#   result: FoodBurgerTofu
-#   time: 5
-#   reagents:
-#     Flour: 15
-#   solids:
-#     FoodTofu: 1
+- type: microwaveMealRecipe
+  id: RecipeTofuBurger
+  name: tofu burger recipe
+  result: FoodBurgerTofu
+  time: 5
+  solids:
+    FoodBreadBun: 1
+    FoodTofuSlice: 1
 
 - type: microwaveMealRecipe
   id: RecipeXenoburger
@@ -153,7 +152,7 @@
     TableSalt: 5
   solids:
     FoodBreadBun: 1
-    FoodMeat: 3
+    FoodMeatPatty: 3
     FoodCheeseSlice: 3
     FoodTomato: 3
     FoodEgg: 2
@@ -180,7 +179,7 @@
   id: RecipeBurgerMcguffin
   name: mcguffin recipe
   result: FoodBurgerMcguffin
-  time: 5
+  time: 10
   solids:
     FoodBreadBun: 1
     FoodCheeseSlice: 1
@@ -199,7 +198,7 @@
   id: RecipeBaguette
   name: baguette recipe
   result: FoodBreadBaguette
-  time: 10
+  time: 15
   reagents:
     TableSalt: 5
   solids:
@@ -263,7 +262,7 @@
   id: RecipeBananaBread
   name: banana bread recipe
   result: FoodBreadBanana
-  time: 25
+  time: 20
   solids:
     FoodDough: 1
     FoodBanana: 1
@@ -277,6 +276,24 @@
     FoodBreadPlainSlice: 1
     FoodFlyAmanita: 1
 
+- type: microwaveMealRecipe
+  id: RecipeTofuBread
+  name: tofu bread recipe
+  result: FoodBreadTofu
+  time: 20
+  solids:
+    FoodDough: 1
+    FoodTofu: 1
+
+- type: microwaveMealRecipe
+  id: RecipeGarlicBread
+  name: garlic bread slice recipe
+  result: FoodBreadGarlicSlice
+  time: 5
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodGarlic: 1
+
 #Pizzas
 - type: microwaveMealRecipe
   id: RecipeMargheritaPizza
@@ -285,14 +302,14 @@
   time: 30
   solids:
     FoodDough: 1
-    FoodCheeseSlice: 1
-    FoodTomato: 4
+    FoodMozzarella: 2
+    FoodTomato: 3
 
 - type: microwaveMealRecipe
   id: RecipeMushroomPizza
   name: mushroom pizza recipe
   result: FoodPizzaMushroom
-  time: 25
+  time: 30
   solids:
     FoodDough: 1
     FoodMushroom: 5
@@ -304,7 +321,7 @@
   time: 30
   solids:
     FoodDough: 1
-    FoodMeat: 3
+    FoodMeat: 2
     FoodCheeseSlice: 1
     FoodTomato: 1
 
@@ -357,7 +374,7 @@
   id: RecipeBoiledSpaghetti
   name: boiled spaghetti recipe
   result: FoodNoodlesBoiled
-  time: 15
+  time: 10
   reagents:
     Flour: 15
     Egg: 6
@@ -545,19 +562,29 @@
   id: RecipeChickenNuggetBox
   name: chicken nugget box recipe
   result: FoodBoxNugget
-  time: 10
+  time: 15
   reagents:
     Protein: 18
     Egg: 12
     Flour: 18
 
 - type: microwaveMealRecipe
+  id: RecipeSalami
+  name: salami recipe
+  result: FoodMeatSalami
+  time: 15
+  reagents:
+    Protein: 18
+    TableSalt: 10
+    Water: 5
+
+- type: microwaveMealRecipe
   id: RecipeCubanCarp
   name: cuban carp recipe
   result: FoodMealCubancarp
-  time: 15
+  time: 10
   solids:
-    FoodDough: 1
+    FoodBreadPlainSlice: 2
     FoodCheeseSlice: 2
     FoodChili: 1
     FoodMeatFish: 2
@@ -791,20 +818,18 @@
   name: orange cake recipe
   result: FoodCakeOrange
   time: 5
-  reagents:
-    JuiceOrange: 30
   solids:
     FoodCakePlain: 1
+    FoodOrange: 3
 
 - type: microwaveMealRecipe
   id: RecipeLimeCake
   name: lime cake recipe
   result: FoodCakeLime
   time: 5
-  reagents:
-    JuiceLime: 30
   solids:
     FoodCakePlain: 1
+    FoodLime: 3
 
 - type: microwaveMealRecipe
   id: RecipeCheeseCake
@@ -886,7 +911,7 @@
   id: RecipeSlimeCake
   name: slime cake recipe
   result: FoodCakeSlime
-  time: 5
+  time: 15
   reagents:
     Slime: 15
   solids:
@@ -961,7 +986,7 @@
   id: RecipeHotChili
   name: hot chili recipe
   result: FoodSoupChiliHot
-  time: 20
+  time: 10
   solids:
     FoodBowlBig: 1
     FoodChili: 1
@@ -1019,7 +1044,7 @@
   id: RecipeEnchiladas
   name: enchiladas recipe
   result: FoodMealEnchiladas
-  time: 20
+  time: 15
   solids:
     FoodChili: 2
     FoodMeatCutlet: 1
@@ -1053,8 +1078,7 @@
   result: FoodSaladColeslaw
   time: 5
   reagents:
-    Vinegar: 5
-    OilOlive: 5
+    Vinaigrette: 5
   solids:
     FoodBowlBig: 1
     FoodOnionRed: 1
@@ -1071,8 +1095,19 @@
     FoodBowlBig: 1
     FoodOnionRedSlice: 1
     FoodBreadPlainSlice: 1
-    FoodCheeseSlice: 1
+    FoodMozzarella: 1
     FoodCabbage: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCitrusSalad
+  name: citrus salad recipe
+  result: FoodSaladCitrus
+  time: 5
+  solids:
+    FoodBowlBig: 1
+    FoodOrange: 1
+    FoodLemon: 1
+    FoodLime: 1
 
 - type: microwaveMealRecipe
   id: RecipeKimchiSalad
@@ -1085,6 +1120,7 @@
     FoodBowlBig: 1
     FoodCarrot: 1
     FoodCabbage: 1
+    FoodGarlic: 1
 
 # NOT ACTUAL FOOD
 
@@ -1180,7 +1216,7 @@
   id: RecipeHumanKebab
   name: human kebab recipe
   result: FoodMeatHumanKebab
-  time: 15
+  time: 10
   solids:
     TorsoHuman: 1
     FoodKebabSkewer: 1
@@ -1192,4 +1228,4 @@
   time: 15
   solids:
     FoodMeatLizard: 1
-    FoodKebabSkewer: 1   
+    FoodKebabSkewer: 1

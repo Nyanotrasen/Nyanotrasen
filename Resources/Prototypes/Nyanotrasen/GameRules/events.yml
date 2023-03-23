@@ -54,14 +54,14 @@
     glimmerBurnLower: 18
     glimmerBurnUpper: 40
 
-# - type: gameRule
-#   id: MassMindSwap
-#   config:
-#     !type:GlimmerEventRuleConfiguration
-#     id: MassMindSwap
-#     minimumGlimmer: 900
-#     glimmerBurnLower: 50
-#     glimmerBurnUpper: 110
+- type: gameRule
+  id: MassMindSwap
+  config:
+    !type:GlimmerEventRuleConfiguration
+    id: MassMindSwap
+    minimumGlimmer: 900
+    glimmerBurnLower: 50
+    glimmerBurnUpper: 110
 
 - type: gameRule
   id: GlimmerWispSpawn
