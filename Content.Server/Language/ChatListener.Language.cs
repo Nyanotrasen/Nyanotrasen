@@ -39,11 +39,9 @@ namespace Content.Server.Language
 
         public override void Initialize()
         {
+            ListenBefore = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(RadioListenerSystem) };
+
             base.Initialize();
-
-            Before = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(RadioListenerSystem) };
-
-            InitializeListeners();
 
             _sawmill = Logger.GetSawmill("chat.language");
         }

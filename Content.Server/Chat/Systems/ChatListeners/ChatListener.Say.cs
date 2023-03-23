@@ -74,8 +74,6 @@ namespace Content.Server.Chat.Systems
         {
             base.Initialize();
 
-            InitializeListeners();
-
             _sawmill = Logger.GetSawmill("chat.say");
         }
 

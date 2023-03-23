@@ -15,11 +15,9 @@ namespace Content.Server.Chat.Systems
 
         public override void Initialize()
         {
+            ListenBefore = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(EmoteListenerSystem), typeof(RadioListenerSystem) };
+
             base.Initialize();
-
-            Before = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(EmoteListenerSystem), typeof(RadioListenerSystem) };
-
-            InitializeListeners();
 
             _sawmill = Logger.GetSawmill("chat.ghost");
         }

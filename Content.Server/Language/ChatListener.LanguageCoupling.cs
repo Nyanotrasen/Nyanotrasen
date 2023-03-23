@@ -19,11 +19,9 @@ namespace Content.Server.Language
 
         public override void Initialize()
         {
+            ListenAfter = new Type[] { typeof(LanguageListener) };
+
             base.Initialize();
-
-            After = new Type[] { typeof(LanguageListener) };
-
-            InitializeListeners();
 
             _sawmill = Logger.GetSawmill("chat.language.coupling");
         }

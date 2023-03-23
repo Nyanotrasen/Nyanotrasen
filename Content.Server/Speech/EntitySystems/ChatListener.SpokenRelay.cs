@@ -18,8 +18,6 @@ namespace Content.Server.Speech.EntitySystems
         {
             base.Initialize();
 
-            InitializeListeners();
-
             _sawmill = Logger.GetSawmill("chat.spoken");
         }
 

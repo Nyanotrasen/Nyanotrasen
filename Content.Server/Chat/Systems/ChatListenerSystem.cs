@@ -6,19 +6,21 @@ namespace Content.Server.Chat.Systems
     {
         [Dependency] protected readonly IChatManager _chatManager = default!;
 
-        protected Type[]? Before;
-        protected Type[]? After;
+        protected Type[]? ListenBefore;
+        protected Type[]? ListenAfter;
 
-        protected void InitializeListeners()
+        public override void Initialize()
         {
-            SubscribeLocalEvent<EntityChatParseEvent>(OnParseChat, before: Before, after: After);
-            SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: Before, after: After);
-            SubscribeLocalEvent<EntityChatGetRecipientsEvent>(OnGetRecipients, before: Before, after: After);
-            SubscribeLocalEvent<EntityChatTransformEvent>(OnTransformChat, before: Before, after: After);
-            SubscribeLocalEvent<EntityChatAfterTransformEvent>(AfterTransform, before: Before, after: After);
-            SubscribeLocalEvent<BeforeEntityChatEvent>(BeforeChat, before: Before, after: After);
-            SubscribeLocalEvent<GotEntityChatTransformEvent>(OnRecipientTransformChat, before: Before, after: After);
-            SubscribeLocalEvent<GotEntityChatEvent>(OnChat, before: Before, after: After);
+            base.Initialize();
+
+            SubscribeLocalEvent<EntityChatParseEvent>(OnParseChat, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<EntityChatGetRecipientsEvent>(OnGetRecipients, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<EntityChatTransformEvent>(OnTransformChat, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<EntityChatAfterTransformEvent>(AfterTransform, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<BeforeEntityChatEvent>(BeforeChat, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<GotEntityChatTransformEvent>(OnRecipientTransformChat, before: ListenBefore, after: ListenAfter);
+            SubscribeLocalEvent<GotEntityChatEvent>(OnChat, before: ListenBefore, after: ListenAfter);
         }
 
         public virtual void OnParseChat(ref EntityChatParseEvent args) { }

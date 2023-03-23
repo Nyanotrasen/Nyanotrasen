@@ -83,11 +83,9 @@ namespace Content.Server.Chat.Systems
 
         public override void Initialize()
         {
+            ListenBefore = new Type[] { typeof(SayListenerSystem) };
+
             base.Initialize();
-
-            Before = new Type[] { typeof(SayListenerSystem) };
-
-            InitializeListeners();
 
             _sawmill = Logger.GetSawmill("chat.radio");
         }
