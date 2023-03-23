@@ -502,7 +502,7 @@
   name: corncob crust pizza
   parent: FoodPizzaBase
   id: FoodPizzaCorncob
-  description: Best served with a beaker of butter. A large one.
+  description: Cobbled together as a sick joke. Best served with liquid butter.
   components:
   - type: FlavorProfile
     flavors:
@@ -527,7 +527,7 @@
   name: slice of corncob crust pizza
   parent: FoodPizzaSliceBase
   id: FoodPizzaCorncobSlice
-  description: Best served with a beaker of butter.
+  description: Cobbled together as a sick joke. Best served with liquid butter.
   components:
   - type: FlavorProfile
     flavors:
