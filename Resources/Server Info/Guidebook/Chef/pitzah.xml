@@ -171,4 +171,21 @@
 <GuideEntityEmbed Entity="FoodMothPizzaCotton" Caption=""/>
 </Box>
 
+<Box Orientation="Vertical">
+	[color=#a4885c]Corncob Crust Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- Cheese wedge
+- 6 ears of corn
+</Box>
+<Box Orientation="Vertical">
+- Tomato
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaCorncob" Caption=""/>
+</Box>
+
 </Document>

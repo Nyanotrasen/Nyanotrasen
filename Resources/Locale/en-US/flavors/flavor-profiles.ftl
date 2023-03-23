@@ -197,3 +197,4 @@ flavor-complex-pinkdrink = overwhelmingly like pink
 flavor-complex-sapopicante = like tomatoes and spices
 flavor-complex-graveyard = like a strong cold brew
 flavor-complex-bubbletea = like creamy sweetness
+flavor-complex-corncob = like a sick joke
