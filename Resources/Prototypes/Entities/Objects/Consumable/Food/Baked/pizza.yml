@@ -515,10 +515,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50
+        maxVol: 100
         reagents:
         - ReagentId: Nutriment
-          Quantity: 45
+          Quantity: 36
+        - ReagentId: Nausium
+          Quantity: 33
 
 
 - type: entity
@@ -536,7 +538,9 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25
+        maxVol: 30
         reagents:
         - ReagentId: Nutriment
-          Quantity: 7.5
+          Quantity: 6
+        - ReagentId: Nausium
+          Quantity: 5.5
