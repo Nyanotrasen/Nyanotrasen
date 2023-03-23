@@ -85,10 +85,6 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
     private async void SendDiscordMessage(string text)
     {
-        var allowedMentions = new Dictionary<string, string[]>
-        {
-            { "roles", new[] { _roleId } }
-        };
 
         // Limit server name to 1500 characters, in case someone tries to be a little funny
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
@@ -112,8 +108,9 @@ public sealed class RoundNotificationsSystem : EntitySystem
                     },
                 },
             },
-            AllowedMentions = allowedMentions,
         };
+        if (!String.IsNullOrEmpty(_roleId))
+            payload.AllowedMentions = new Dictionary<string, string[]> {{ "roles", new []{ _roleId } }};
 
         var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
             new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
