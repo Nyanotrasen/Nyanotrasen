@@ -518,9 +518,7 @@
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 36
-        - ReagentId: Ipecac
-          Quantity: 9
+          Quantity: 45
 
 
 - type: entity
@@ -541,6 +539,4 @@
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 6
-        - ReagentId: Ipecac
-          Quantity: 1.5
+          Quantity: 7.5
