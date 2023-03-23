@@ -52,7 +52,7 @@
           path: /Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg
     - trigger:
         !type:DamageTrigger
-        damage: 350
+        damage: 450
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
