@@ -132,10 +132,19 @@
   description: uplink-c4-desc
   productEntity: C4
   cost:
-    Telecrystal: 2
+    Telecrystal: 4
   categories:
   - UplinkExplosives
 
+- type: listing
+  id: UplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkExplosives
 
 - type: listing
   id: UplinkEmpGrenade
@@ -400,16 +409,6 @@
         blacklist:
           components:
             - SurplusBundle
-
-- type: listing
-  id: UplinkC4Bundle
-  name: uplink-c4-bundle-name
-  description: uplink-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkBundles
 
 - type: listing
   id: UplinkBulldogBundle
