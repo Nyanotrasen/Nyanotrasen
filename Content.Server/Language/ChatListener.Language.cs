@@ -92,12 +92,6 @@ namespace Content.Server.Language
                 return;
             }
 
-            if (language.Distorter == null)
-            {
-                _sawmill.Error($"Needed to distort a message for language {language.ID} but it has no distorter set.");
-                return;
-            }
-
             if (!args.Chat.TryGetData<string>(ChatDataLanguage.DistortedMessage, out var distortedMessage))
             {
                 // The distorted version of this message has yet to be

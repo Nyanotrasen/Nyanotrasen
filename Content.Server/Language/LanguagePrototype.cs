@@ -18,7 +18,7 @@ namespace Content.Server.Language
         /// for distortion, obfuscation, et cetera.
         /// </summary>
         [ViewVariables]
-        [DataField("distorter")]
-        public UnknownLanguageDistorter? Distorter { get; private set; }
+        [DataField("distorter", required: true)]
+        public UnknownLanguageDistorter Distorter { get; } = default!;
     }
 }
