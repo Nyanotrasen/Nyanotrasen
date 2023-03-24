@@ -54,13 +54,7 @@ namespace Content.Server.Language
 
             foreach (var languageId in component.CanSpeak)
             {
-                if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var candidate))
-                {
-                    _sawmill.Error($"{ToPrettyString(uid)} has an invalid speakable language: {languageId}");
-                    continue;
-                }
-
-                language = candidate;
+                language = _prototypeManager.Index<LanguagePrototype>(languageId);
                 return true;
             }
 
@@ -154,44 +148,30 @@ namespace Content.Server.Language
                 return;
             }
 
-            var list = component.CanSpeak.ToList();
-            list.Sort();
-            var orderedLanguages = list.ToArray();
+            var languages = from item in component.CanSpeak select _prototypeManager.Index<LanguagePrototype>(item);
+            var orderedLanguages = languages.OrderBy(item => Loc.GetString(item.Name)).ToArray();
 
-            string languageId = default!;
+            LanguagePrototype? language;
 
             if (component.ChosenLanguage == null)
             {
                 _sawmill.Warning($"{ToPrettyString(uid)} has null ChosenLanguage when changing languages. Taking the first available one.");
 
-                languageId = orderedLanguages.First();
+                language = orderedLanguages.First();
             }
             else
             {
-                var next = 0;
+                var next = 1 + Array.IndexOf(orderedLanguages, component.ChosenLanguage);
 
-                for (int i = 0; i < orderedLanguages.Length; ++i)
-                {
-                    if (component.ChosenLanguage.ID == orderedLanguages[i])
-                        if (1 + i != orderedLanguages.Length)
-                        {
-                            next = 1 + i;
-                            break;
-                        }
-                }
+                if (next == orderedLanguages.Length)
+                    next = 0;
 
-                languageId = orderedLanguages[next];
-            }
-
-            if (!_prototypeManager.TryIndex<LanguagePrototype>(languageId, out var language))
-            {
-                _sawmill.Error($"{ToPrettyString(uid)} has an invalid speakable language: {languageId}");
-                return;
+                language = orderedLanguages[next];
             }
 
             component.ChosenLanguage = language;
 
-            _popupSystem.PopupEntity($"You begin speaking {component.ChosenLanguage.Name}.", uid, uid, PopupType.Medium);
+            _popupSystem.PopupEntity($"You begin speaking {Loc.GetString(component.ChosenLanguage.Name)}.", uid, uid, PopupType.Medium);
         }
 
         private void OnExtraLanguages(EntityUid uid, ExtraLanguagesComponent component, ComponentStartup args)
