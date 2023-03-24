@@ -5,7 +5,6 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared.Shipyard;
 using Content.Server.Shipyard.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.GameTicking;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
@@ -13,7 +12,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
-using Content.Server.Cargo.Components;
+using Robust.Shared.Random;
 
 namespace Content.Server.Shipyard.Systems
 {
@@ -27,6 +26,7 @@ namespace Content.Server.Shipyard.Systems
         [Dependency] private readonly StationSystem _station = default!;
         [Dependency] private readonly MapLoaderSystem _map = default!;
         [Dependency] private readonly ShipyardConsoleSystem _shipyardConsole = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         public MapId? ShipyardMap { get; private set; }
         private float _shuttleIndex;
@@ -99,7 +99,9 @@ namespace Content.Server.Shipyard.Systems
             var price = _pricing.AppraiseGrid(shuttle.Owner, null);
 
             //can do TryFTLDock later instead if we need to keep the shipyard map paused
-            _shuttle.FTLTravel(shuttle, targetGrid.Value, 0f, 30f, true);
+            _shuttle.FTLTravel(shuttle.Owner, shuttle, new EntityCoordinates(
+                                _mapManager.GetMapEntityId(Transform(targetGrid.Value).MapID),
+                                _random.NextVector2(1000f)));
             vessel = shuttle;
             _sawmill.Info($"Shuttle {shuttlePath} was purchased at {targetGrid} for {price}");
         }
