@@ -23,12 +23,12 @@ namespace Content.Server.Cargo.Systems;
 /// </summary>
 public sealed partial class PricingSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _factory = default!;
     [Dependency] private readonly IConsoleHost _consoleHost = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -39,10 +39,7 @@ public sealed partial class PricingSystem : EntitySystem
 
         InitializeSupplyDemand();
 
-        SubscribeLocalEvent<StaticPriceComponent, PriceCalculationEvent>(CalculateStaticPrice);
-        SubscribeLocalEvent<StackPriceComponent, PriceCalculationEvent>(CalculateStackPrice);
         SubscribeLocalEvent<MobPriceComponent, PriceCalculationEvent>(CalculateMobPrice);
-        SubscribeLocalEvent<SolutionContainerManagerComponent, PriceCalculationEvent>(CalculateSolutionPrice);
 
         _consoleHost.RegisterCommand("appraisegrid",
             "Calculates the total value of the given grids.",
@@ -93,6 +90,7 @@ public sealed partial class PricingSystem : EntitySystem
 
     private void CalculateMobPrice(EntityUid uid, MobPriceComponent component, ref PriceCalculationEvent args)
     {
+        // TODO: Estimated pricing.
         if (args.Handled)
             return;
 
@@ -112,34 +110,9 @@ public sealed partial class PricingSystem : EntitySystem
         args.Price += (component.Price - partPenalty) * (_mobStateSystem.IsAlive(uid, state) ? 1.0 : component.DeathPenalty);
     }
 
-    private void CalculateStackPrice(EntityUid uid, StackPriceComponent component, ref PriceCalculationEvent args)
+    private double GetSolutionPrice(SolutionContainerManagerComponent component, bool sale = false)
     {
-        if (args.Handled)
-            return;
-
-        if (!TryComp<StackComponent>(uid, out var stack))
-        {
-            Logger.ErrorS("pricing", $"Tried to get the stack price of {ToPrettyString(uid)}, which has no {nameof(StackComponent)}.");
-            return;
-        }
-
-        var supply = GetStackSupply(stack);
-        var demand = GetStackDemand(component, stack);
-
-        // Selling a stack of 30 is more profitable than selling 30 stacks of
-        // 1, but that's fine.
-        args.Price += GetSupplyDemandPrice(stack.Count * component.Price, component.HalfPriceSurplus, supply, demand);
-
-        if (args.Sale)
-            AddStackSupply(stack, stack.Count);
-    }
-
-    private void CalculateSolutionPrice(EntityUid uid, SolutionContainerManagerComponent component, ref PriceCalculationEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        double price = 0f;
+        var price = 0.0;
 
         foreach (var solution in component.Solutions.Values)
         {
@@ -153,58 +126,15 @@ public sealed partial class PricingSystem : EntitySystem
 
                 price += GetSupplyDemandPrice((float) reagent.Quantity * reagentProto.PricePerUnit, reagentProto.HalfPriceSurplus, supply, demand);
 
-                if (args.Sale)
+                if (sale)
                     AddReagentSupply(reagentProto, reagent.Quantity);
             }
-        }
-
-        args.Price += price;
-    }
-
-    private void CalculateStaticPrice(EntityUid uid, StaticPriceComponent component, ref PriceCalculationEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        args.Price += component.Price;
-    }
-
-    /// <summary>
-    /// Get a rough price for an entityprototype. Does not consider contained entities.
-    /// </summary>
-    public double GetEstimatedPrice(EntityPrototype prototype, IComponentFactory? factory = null)
-    {
-        IoCManager.Resolve(ref factory);
-        var price = 0.0;
-
-        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(StaticPriceComponent)),
-                out var staticPriceProto))
-        {
-            var staticComp = (StaticPriceComponent) staticPriceProto.Component;
-
-            price += staticComp.Price;
-        }
-
-        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(DynamicPriceComponent)),
-                out var dynamicPriceProto))
-        {
-            var dynamicComp = (DynamicPriceComponent) dynamicPriceProto.Component;
-
-            price += dynamicComp.Price;
-        }
-
-        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackPriceComponent)), out var stackpriceProto) &&
-            prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackComponent)), out var stackProto))
-        {
-            var stackPrice = (StackPriceComponent) stackpriceProto.Component;
-            var stack = (StackComponent) stackProto.Component;
-            price += stack.Count * stackPrice.Price;
         }
 
         return price;
     }
 
-    public double GetMaterialPrice(MaterialComponent component)
+    private double GetMaterialPrice(MaterialComponent component)
     {
         double price = 0;
         foreach (var (id, quantity) in component.Materials)
@@ -215,7 +145,33 @@ public sealed partial class PricingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Appraises an entity, returning its price.
+    /// Get a rough price for an entityprototype. Does not consider contained entities.
+    /// </summary>
+    public double GetEstimatedPrice(EntityPrototype prototype)
+    {
+        var ev = new EstimatedPriceCalculationEvent()
+        {
+            Prototype = prototype,
+        };
+
+        RaiseLocalEvent(ref ev);
+
+        if (ev.Handled)
+            return ev.Price;
+
+        var price = ev.Price;
+        price += GetMaterialsPrice(prototype);
+        price += GetSolutionsPrice(prototype);
+        price += GetStackPrice(prototype);
+        price += GetStaticPrice(prototype);
+
+        // TODO: Proper container support.
+
+        return price;
+    }
+
+    /// <summary>
+    /// Appraises an entity, returning it's price.
     /// </summary>
     /// <param name="uid">The entity to appraise.</param>
     /// <param name="sale">Should this price calculation affect the market?</param>
@@ -229,35 +185,146 @@ public sealed partial class PricingSystem : EntitySystem
     /// </remarks>
     public double GetPrice(EntityUid uid, bool sale = false)
     {
-        var ev = new PriceCalculationEvent(sale);
+        var ev = new PriceCalculationEvent() { Sale = sale };
         RaiseLocalEvent(uid, ref ev);
 
         if (ev.Handled)
             return ev.Price;
 
+        var price = ev.Price;
         //TODO: Add an OpaqueToAppraisal component or similar for blocking the recursive descent into containers, or preventing material pricing.
+        // DO NOT FORGET TO UPDATE ESTIMATED PRICING
+        price += GetMaterialsPrice(uid);
+        price += GetSolutionsPrice(uid);
+        price += GetStackPrice(uid);
+        price += GetStaticPrice(uid);
 
-        if (TryComp<MaterialComponent>(uid, out var material) && !HasComp<StackPriceComponent>(uid))
+        if (TryComp<ContainerManagerComponent>(uid, out var containers))
+        {
+            foreach (var container in containers.Containers.Values)
+            {
+                foreach (var ent in container.ContainedEntities)
+                {
+                    price += GetPrice(ent);
+                }
+            }
+        }
+
+        return price;
+    }
+
+    private double GetMaterialsPrice(EntityUid uid)
+    {
+        double price = 0;
+
+        if (TryComp<MaterialComponent>(uid, out var material))
         {
             var matPrice = GetMaterialPrice(material);
             if (TryComp<StackComponent>(uid, out var stack))
                 matPrice *= stack.Count;
 
-            ev.Price += matPrice;
+            price += matPrice;
         }
 
-        if (TryComp<ContainerManagerComponent>(uid, out var containers))
+        return price;
+    }
+
+    private double GetMaterialsPrice(EntityPrototype prototype)
+    {
+        double price = 0;
+
+        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(MaterialComponent)), out var materials))
         {
-            foreach (var container in containers.Containers)
+            var materialsComp = (MaterialComponent) materials.Component;
+            var matPrice = GetMaterialPrice(materialsComp);
+
+            if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackComponent)), out var stackProto))
             {
-                foreach (var ent in container.Value.ContainedEntities)
-                {
-                    ev.Price += GetPrice(ent, sale);
-                }
+                matPrice *= ((StackComponent) stackProto.Component).Count;
             }
+
+            price += matPrice;
         }
 
-        return ev.Price;
+        return price;
+    }
+
+    private double GetSolutionsPrice(EntityUid uid)
+    {
+        var price = 0.0;
+
+        if (TryComp<SolutionContainerManagerComponent>(uid, out var solComp))
+        {
+            price += GetSolutionPrice(solComp);
+        }
+
+        return price;
+    }
+
+    private double GetSolutionsPrice(EntityPrototype prototype)
+    {
+        var price = 0.0;
+
+        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(SolutionContainerManagerComponent)), out var solManager))
+        {
+            var solComp = (SolutionContainerManagerComponent) solManager.Component;
+            price += GetSolutionPrice(solComp);
+        }
+
+        return price;
+    }
+
+    private double GetStackPrice(EntityUid uid)
+    {
+        var price = 0.0;
+
+        if (TryComp<StackPriceComponent>(uid, out var stackPrice) &&
+            TryComp<StackComponent>(uid, out var stack))
+        {
+            price += stack.Count * stackPrice.Price;
+        }
+
+        return price;
+    }
+
+    private double GetStackPrice(EntityPrototype prototype)
+    {
+        var price = 0.0;
+
+        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackPriceComponent)), out var stackpriceProto) &&
+            prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StackComponent)), out var stackProto))
+        {
+            var stackPrice = (StackPriceComponent) stackpriceProto.Component;
+            var stack = (StackComponent) stackProto.Component;
+            price += stack.Count * stackPrice.Price;
+        }
+
+        return price;
+    }
+
+    private double GetStaticPrice(EntityUid uid)
+    {
+        var price = 0.0;
+
+        if (TryComp<StaticPriceComponent>(uid, out var staticPrice))
+        {
+            price += staticPrice.Price;
+        }
+
+        return price;
+    }
+
+    private double GetStaticPrice(EntityPrototype prototype)
+    {
+        var price = 0.0;
+
+        if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(StaticPriceComponent)), out var staticProto))
+        {
+            var staticPrice = (StaticPriceComponent) staticProto.Component;
+            price += staticPrice.Price;
+        }
+
+        return price;
     }
 
     /// <summary>
@@ -290,7 +357,7 @@ public sealed partial class PricingSystem : EntitySystem
 /// A directed by-ref event fired on an entity when something needs to know it's price. This value is not cached.
 /// </summary>
 [ByRefEvent]
-public struct PriceCalculationEvent
+public record struct PriceCalculationEvent()
 {
     /// <summary>
     /// The total price of the entity.
@@ -309,17 +376,29 @@ public struct PriceCalculationEvent
     /// every entity sold. It's not unheard of for players to sell hundreds of
     /// entities at a time. Refactor if needed.
     /// </remarks>
-    public readonly bool Sale = false;
-
-    public PriceCalculationEvent(bool sale = false)
-    {
-        Sale = sale;
-    }
+    public bool Sale { get; init; } = false;
 
     /// <summary>
     /// Whether this event was already handled.
     /// </summary>
     public bool Handled = false;
+}
 
-    public PriceCalculationEvent() { }
+/// <summary>
+/// Raised broadcast for an entity prototype to determine its estimated price.
+/// </summary>
+[ByRefEvent]
+public record struct EstimatedPriceCalculationEvent()
+{
+    public EntityPrototype Prototype;
+
+    /// <summary>
+    /// The total price of the entity.
+    /// </summary>
+    public double Price = 0;
+
+    /// <summary>
+    /// Whether this event was already handled.
+    /// </summary>
+    public bool Handled = false;
 }
