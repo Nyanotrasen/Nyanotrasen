@@ -100,7 +100,7 @@ namespace Content.Server.AME.Components
                 {
                     if (_warningCD == 0)
                     {
-                        _entities.EntitySysManager.GetEntitySystem<RadioSystem>().SendRadioMessage(this.Owner, Loc.GetString("ame-controller-warning", ("percentage", Math.Round(fuelRatio * 100f))), _prototypeManager.Index<RadioChannelPrototype>("Engineering"));
+                        _entities.EntitySysManager.GetEntitySystem<RadioSystem>().SendRadioMessage(this.Owner, Loc.GetString("ame-controller-warning", ("percentage", Math.Round(fuelRatio * 100f))), _prototypeManager.Index<RadioChannelPrototype>("Engineering"), this.Owner);
                         _warningCD = 3;
                     } else
                     {
