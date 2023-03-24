@@ -1,7 +1,6 @@
 using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
-using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Chat.Systems
 {
