@@ -127,9 +127,7 @@ namespace Content.Server.Chat.Systems
             Chat = chat;
         }
 
-        public bool Cancelled { get; private set; }
-        public void Cancel() => Cancelled = true;
-        public void Uncancel() => Cancelled = false;
+        public bool Cancelled;
     }
 
     [ByRefEvent]
@@ -181,9 +179,7 @@ namespace Content.Server.Chat.Systems
             Chat = chat;
         }
 
-        public bool Cancelled { get; private set; }
-        public void Cancel() => Cancelled = true;
-        public void Uncancel() => Cancelled = false;
+        public bool Cancelled;
     }
 
     [ByRefEvent]
