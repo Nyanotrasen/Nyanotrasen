@@ -667,6 +667,9 @@
   - type: IconSmooth
     key: walls
     base: state
+  - type: Appearance
+    visuals:
+      - type: ReinforcedShuttleWallVisualizer
 
 - type: entity
   parent: WallSolid
