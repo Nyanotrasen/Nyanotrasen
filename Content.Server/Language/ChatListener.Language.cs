@@ -98,9 +98,7 @@ namespace Content.Server.Language
                 return;
             }
 
-            string distortedMessage;
-
-            if (!args.Chat.TryGetData<string>(ChatDataLanguage.DistortedMessage, out distortedMessage))
+            if (!args.Chat.TryGetData<string>(ChatDataLanguage.DistortedMessage, out var distortedMessage))
             {
                 // The distorted version of this message has yet to be
                 // generated. It's created only when necessary to save on
