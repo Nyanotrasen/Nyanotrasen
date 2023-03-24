@@ -180,6 +180,13 @@
       variation: 0.125
 
 - type: emoteSounds
+  id: Cerberus
+  sound:
+    path: /Audio/Animals/cerberus.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
   id: Kangaroo
   sound:
     path: /Audio/Animals/kangaroo_grunt.ogg
