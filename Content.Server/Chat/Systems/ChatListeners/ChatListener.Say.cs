@@ -5,7 +5,7 @@ using Content.Shared.Chat;
 
 namespace Content.Server.Chat.Systems
 {
-    public enum ChatDataSay
+    public enum ChatDataSay : int
     {
         /// <summary>
         /// The speaker behind this message.
@@ -31,7 +31,7 @@ namespace Content.Server.Chat.Systems
         Identity,
     }
 
-    public enum ChatRecipientDataSay
+    public enum ChatRecipientDataSay : int
     {
         /// <summary>
         /// A recipient-specific override message.

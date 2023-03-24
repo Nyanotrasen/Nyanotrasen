@@ -10,7 +10,7 @@ using Content.Shared.Radio;
 
 namespace Content.Server.Chat.Systems
 {
-    enum ChatDataRadio
+    public enum ChatDataRadio : int
     {
         /// <summary>
         /// An array of RadioChannelPrototypes that the message is broadcast upon.
@@ -23,7 +23,7 @@ namespace Content.Server.Chat.Systems
         RadioSource,
     }
 
-    enum ChatRecipientDataRadio
+    public enum ChatRecipientDataRadio : int
     {
         /// <summary>
         /// If the recipient has been cleared to hear the message through the proper radio channel.

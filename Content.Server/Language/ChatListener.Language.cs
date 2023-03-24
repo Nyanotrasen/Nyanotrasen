@@ -5,7 +5,7 @@ using Content.Shared.Radio;
 
 namespace Content.Server.Language
 {
-    enum ChatDataLanguage
+    public enum ChatDataLanguage : int
     {
         /// <summary>
         /// The language being used for this chat.
@@ -18,7 +18,7 @@ namespace Content.Server.Language
         DistortedMessage,
     }
 
-    enum ChatRecipientDataLanguage
+    public enum ChatRecipientDataLanguage : int
     {
         /// <summary>
         /// The recipient understands the language used.
