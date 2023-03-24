@@ -105,7 +105,7 @@ namespace Content.Server.Chat.Systems
     // GotEntityChat            - finally, show the user the message
 
     [ByRefEvent]
-    public struct EntityChatParseEvent
+    public record struct EntityChatParseEvent
     {
         public EntityChat Chat;
 
@@ -118,7 +118,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct EntityChatAttemptEvent
+    public record struct EntityChatAttemptEvent
     {
         public EntityChat Chat;
 
@@ -131,7 +131,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct EntityChatGetRecipientsEvent
+    public record struct EntityChatGetRecipientsEvent
     {
         public readonly EntityChat Chat;
 
@@ -144,7 +144,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct EntityChatTransformEvent
+    public record struct EntityChatTransformEvent
     {
         public EntityChat Chat;
 
@@ -157,7 +157,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct EntityChatAfterTransformEvent
+    public record struct EntityChatAfterTransformEvent
     {
         public readonly EntityChat Chat;
 
@@ -168,7 +168,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct BeforeEntityChatEvent
+    public record struct BeforeEntityChatEvent
     {
         public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
@@ -183,7 +183,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct GotEntityChatTransformEvent
+    public record struct GotEntityChatTransformEvent
     {
         public readonly EntityUid Recipient;
         public EntityChat Chat;
@@ -200,7 +200,7 @@ namespace Content.Server.Chat.Systems
     }
 
     [ByRefEvent]
-    public struct GotEntityChatEvent
+    public record struct GotEntityChatEvent
     {
         public readonly EntityUid Recipient;
         public readonly EntityChat Chat;
