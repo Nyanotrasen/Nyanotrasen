@@ -50,7 +50,7 @@ namespace Content.Server.Chat.Systems
         }
     }
 
-    public class EntityChat : EntityChatData
+    sealed public class EntityChat : EntityChatData
     {
         /// <summary>
         /// The origin of the chat message.
