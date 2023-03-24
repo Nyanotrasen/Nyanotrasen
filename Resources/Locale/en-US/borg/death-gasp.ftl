@@ -1,1 +1,0 @@
-death-gasp-borg = shudders violently for a moment before falling still, its eyes slowly darkening.

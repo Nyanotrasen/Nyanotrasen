@@ -1,15 +1,21 @@
 using Content.Server.Chat.Systems;
-using Content.Shared.Mobs;
-using Content.Shared.Tag;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Server.Mind.Components;
+using Content.Shared.Mobs;
+using Content.Server.Mind;
+using Content.Shared.Popups;
+using Content.Server.Repairable;
+using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
 {
     public sealed class CyborgDeath : EntitySystem
     {
-        [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
-        [Dependency] private readonly SharedAudioSystem _audio = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly RepairableSystem _repairSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -21,17 +27,17 @@ namespace Content.Server.Borgs
             if (args.NewMobState == MobState.Dead){
                 string message = Loc.GetString("death-gasp-borg", ("ent", Identity.Entity(uid, EntityManager)));
 
-                //Plays death sound and prints death message/popup
-                _audio.PlayPvs("/Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg", uid);
-                _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
+                // Plays death sound and prints death message/popup
+                _audioSystem.PlayPvs("/Audio/Nyanotrasen/Mobs/Borg/borg_deathsound.ogg", uid);
+                _chatSystem.TrySendInGameICMessage(uid, message, InGameICChatType.Emote, false, force:true);
 
-                //Stop dead borg from being movable AA cards by removing their ability to bump doors.
+                // Stop dead borg from being movable AA cards by removing their ability to bump doors.
                 _tagSystem.RemoveTag(uid, "DoorBumpOpener");
             
             }
             else if(args.NewMobState == MobState.Alive && args.OldMobState == MobState.Dead)
             {
-                //Gives back Borg ability to bump doors when they are alive again
+                // Gives back Borg ability to bump doors when they are alive again
                 _tagSystem.AddTag(uid, "DoorBumpOpener");
             }
             else
