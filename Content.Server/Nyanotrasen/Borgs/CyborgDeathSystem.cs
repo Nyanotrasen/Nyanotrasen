@@ -1,11 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction;
-using Content.Server.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Server.Mind;
-using Content.Shared.Popups;
-using Content.Server.Repairable;
 using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
@@ -15,7 +10,6 @@ namespace Content.Server.Borgs
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly RepairableSystem _repairSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
