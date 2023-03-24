@@ -18,11 +18,11 @@ chat-manager-server-wrap-message = SERVER: {$message}
 chat-manager-sender-announcement-wrap-message = {$sender} Announcement:
                                                 {$message}
 chat-manager-entity-say-wrap-message = {$entityName} says, "{$message}"
-chat-manager-entity-say-language-wrap-message = {$entityName} says in {$language}, "{$message}"
+chat-manager-entity-say-language-wrap-message = {$entityName} says in {LOC($language)}, "{$message}"
 chat-manager-entity-whisper-wrap-message = {$entityName} whispers, "{$message}"
-chat-manager-entity-whisper-language-wrap-message = {$entityName} whispers in {$language}, "{$message}"
+chat-manager-entity-whisper-language-wrap-message = {$entityName} whispers in {LOC($language)}, "{$message}"
 chat-manager-entity-radio-wrap-message = {$entityName} radios, "{$message}"
-chat-manager-entity-radio-language-wrap-message = {$entityName} radios in {$language}, "{$message}"
+chat-manager-entity-radio-language-wrap-message = {$entityName} radios in {LOC($language)}, "{$message}"
 chat-manager-entity-me-wrap-message = {$entityName} {$message}
 chat-manager-entity-looc-wrap-message = LOOC: {$entityName}: {$message}
 chat-manager-send-ooc-wrap-message = OOC: {$playerName}: {$message}

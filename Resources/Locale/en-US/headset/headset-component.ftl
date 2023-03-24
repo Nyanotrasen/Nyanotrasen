@@ -1,6 +1,6 @@
 # Chat window radio wrap (prefix and postfix)
 chat-radio-message-wrap = [color={$color}]{$channel} {$name} says, "{$message}"[/color]
-chat-radio-language-message-wrap = [color={$color}]{$channel} {$name} says in {$language}, "{$message}"[/color]
+chat-radio-language-message-wrap = [color={$color}]{$channel} {$name} says in {LOC($language)}, "{$message}"[/color]
 
 examine-headset-default-channel = Use {$prefix} for the default channel ([color={$color}]{$channel}[/color]).
 

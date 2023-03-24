@@ -13,9 +13,12 @@ namespace Content.Server.Language
     /// distort based on distance (what used to look like whispering),
     /// then LanguageCoupler to decide any extra wrapping that needs to be done.
     /// </summary>
+
     public sealed class LanguageCouplingListener : ChatListenerSystem
     {
         private ISawmill _sawmill = default!;
+
+        private const string _unknownLanguage = "chat-manager-unknown-language";
 
         public override void Initialize()
         {
@@ -91,21 +94,19 @@ namespace Content.Server.Language
                 return;
             }
 
-            var unknownLanguage = Loc.GetString("chat-manager-unknown-language");
-
             if (args.Chat.ClaimedBy == typeof(SayListenerSystem))
             {
                 args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-say-language-wrap-message",
                     ("entityName", name),
                     ("message", message),
-                    ("language", unknownLanguage)));
+                    ("language", _unknownLanguage)));
             }
             else if (args.Chat.ClaimedBy == typeof(WhisperListenerSystem))
             {
                 args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-whisper-language-wrap-message",
                     ("entityName", name),
                     ("message", message),
-                    ("language", unknownLanguage)));
+                    ("language", _unknownLanguage)));
             }
             else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
             {
@@ -117,7 +118,7 @@ namespace Content.Server.Language
                     args.RecipientData.SetData(ChatRecipientDataSay.WrappedMessage, Loc.GetString("chat-manager-entity-radio-language-wrap-message",
                         ("entityName", name),
                         ("message", message),
-                        ("language", unknownLanguage)));
+                        ("language", _unknownLanguage)));
                 }
                 else
                 {
@@ -126,7 +127,7 @@ namespace Content.Server.Language
                         ("channel", $"\\[{channel.LocalizedName}\\]"),
                         ("name", name),
                         ("message", message),
-                        ("language", unknownLanguage)));
+                        ("language", _unknownLanguage)));
                 }
             }
         }
