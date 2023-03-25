@@ -5,7 +5,7 @@ using Content.Shared.Tag;
 
 namespace Content.Server.Borgs
 {
-    public sealed class CyborgDeath : EntitySystem
+    public sealed class Cyborg : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
@@ -13,10 +13,10 @@ namespace Content.Server.Borgs
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<CyborgDeathComponent, MobStateChangedEvent>(OnChangeState);
+            SubscribeLocalEvent<CyborgComponent, MobStateChangedEvent>(OnChangeState);
         }
         
-        private void OnChangeState(EntityUid uid, CyborgDeathComponent component, MobStateChangedEvent args)
+        private void OnChangeState(EntityUid uid, CyborgComponent component, MobStateChangedEvent args)
         {
             if (args.NewMobState == MobState.Dead){
                 string message = Loc.GetString("death-gasp-borg", ("ent", Identity.Entity(uid, EntityManager)));

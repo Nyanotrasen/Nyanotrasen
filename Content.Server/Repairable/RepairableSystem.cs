@@ -54,7 +54,7 @@ namespace Content.Server.Repairable
                 return;
 
             // Don't repair if it's a cyborg with no soul
-            if (!EntityManager.TryGetComponent(uid, out MindComponent? mindComponent) || mindComponent.Mind == null || !EntityManager.TryGetComponent(uid, out CyborgDeathComponent? cyborgComponent)){
+            if (!EntityManager.TryGetComponent(uid, out MindComponent? mindComponent) || mindComponent.Mind == null || !EntityManager.TryGetComponent(uid, out CyborgComponent? cyborgComponent)){
                 uid.PopupMessage(args.User, Loc.GetString("borg-nosoul"));
                 return;
             }
