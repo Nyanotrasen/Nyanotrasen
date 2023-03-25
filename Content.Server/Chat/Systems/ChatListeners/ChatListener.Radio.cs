@@ -140,10 +140,11 @@ namespace Content.Server.Chat.Systems
             var transformSource = xforms.GetComponent(args.Chat.Source);
             var sourceCoords = transformSource.Coordinates;
 
-            foreach (var radio in EntityQuery<ActiveRadioComponent>())
+            var enumerator = EntityQueryEnumerator<ActiveRadioComponent>();
+
+            while (enumerator.MoveNext(out EntityUid radioEntity, out var radio))
             {
                 // TODO map/station/range checks?
-                var radioEntity = radio.Owner;
 
                 var transformEntity = xforms.GetComponent(radioEntity);
 
