@@ -5,6 +5,7 @@ using Content.Shared.Actions;
 namespace Content.Server.Language
 {
     [RegisterComponent]
+    [Access(typeof(LanguageSystem), typeof(LanguageListener))]
     public sealed class LinguisticComponent : Component
     {
         /// <summary>
@@ -66,6 +67,7 @@ namespace Content.Server.Language
     /// This is for adding extra languages to a job via AddComponentSpecial.
     /// </summary>
     [RegisterComponent]
+    [Access(typeof(LanguageSystem))]
     public sealed class ExtraLanguagesComponent : Component
     {
         [DataField("canUnderstand", customTypeSerializer: typeof(PrototypeIdHashSetSerializer<LanguagePrototype>))]
