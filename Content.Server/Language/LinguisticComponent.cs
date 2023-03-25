@@ -52,6 +52,12 @@ namespace Content.Server.Language
         // WYCI:
         /* public List<string> CanRead = new(); */
         /* public List<string> CanWrite = new(); */
+
+        /// <summary>
+        /// This flag tracks if the component has run its initial setup logic yet.
+        /// </summary>
+        [ViewVariables]
+        public bool Started = false;
     }
 
     public sealed class ChangeLanguageActionEvent : InstantActionEvent { };

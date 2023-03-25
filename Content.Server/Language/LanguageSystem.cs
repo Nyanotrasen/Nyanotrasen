@@ -22,7 +22,7 @@ namespace Content.Server.Language
 
             _sawmill = Logger.GetSawmill("chat.language");
 
-            SubscribeLocalEvent<LinguisticComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<LinguisticComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<LinguisticComponent, ChangeLanguageActionEvent>(OnChangeLanguage);
 
             SubscribeLocalEvent<ExtraLanguagesComponent, ComponentStartup>(OnExtraLanguages);
@@ -114,8 +114,11 @@ namespace Content.Server.Language
             }
         }
 
-        private void OnInit(EntityUid uid, LinguisticComponent component, ComponentInit args)
+        private void OnStartup(EntityUid uid, LinguisticComponent component, ComponentStartup args)
         {
+            if (component.Started)
+                return;
+
             if (component.Default != null)
             {
                 if (component.CanSpeak.Contains(component.Default))
@@ -138,6 +141,8 @@ namespace Content.Server.Language
                 var action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ChangeLanguage"));
                 _actionsSystem.AddAction(uid, action, null);
             }
+
+            component.Started = true;
         }
 
         private void OnChangeLanguage(EntityUid uid, LinguisticComponent component, ChangeLanguageActionEvent args)
