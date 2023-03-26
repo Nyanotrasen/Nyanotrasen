@@ -5,11 +5,11 @@
   minTemp: 370
   reactants:
     THC:
-      amount: 1
+      amount: 2
     OilOlive:
       amount: 1
   products:
-    THCOil: 2
+    THCOil: 3
 
 - type: reaction
   id: THCOilCorn
@@ -17,8 +17,8 @@
   minTemp: 370
   reactants:
     THC:
-      amount: 1
+      amount: 2
     OilCorn:
       amount: 1
   products:
-    THCOil: 2
+    THCOil: 3
