@@ -123,7 +123,9 @@ namespace Content.Server.Chat.Systems
             {
                 // No radio channels were supplied. The user does not have access to the channels.
                 // Just inform everyone around of the attempt using the new "<Player> radios, <message>" wrapper.
-                foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, VoiceRange))
+                var playerEnumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+
+                while (playerEnumerator.MoveNext(out var playerEntity, out var distance))
                 {
                     var recipientData = new EntityChatData();
                     recipientData.SetData(ChatRecipientDataSay.Distance, distance);
@@ -140,9 +142,9 @@ namespace Content.Server.Chat.Systems
             var transformSource = xforms.GetComponent(args.Chat.Source);
             var sourceCoords = transformSource.Coordinates;
 
-            var enumerator = EntityQueryEnumerator<ActiveRadioComponent>();
+            var radioEnumerator = EntityQueryEnumerator<ActiveRadioComponent>();
 
-            while (enumerator.MoveNext(out EntityUid radioEntity, out var radio))
+            while (radioEnumerator.MoveNext(out EntityUid radioEntity, out var radio))
             {
                 // TODO map/station/range checks?
 

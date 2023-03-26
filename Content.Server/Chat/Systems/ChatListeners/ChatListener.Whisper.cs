@@ -1,4 +1,5 @@
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
 
@@ -12,6 +13,7 @@ namespace Content.Server.Chat.Systems
         private ISawmill _sawmill = default!;
 
         [Dependency] private readonly ChatSystem _chatSystem = default!;
+        [Dependency] private readonly IPlayerManager _playerManager = default!;
 
         public readonly static int ObfuscatedRange = 3;
 
@@ -29,7 +31,9 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, SayListenerSystem.VoiceRange))
+            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+
+            while (enumerator.MoveNext(out var playerEntity, out var distance))
             {
                 var recipientData = new EntityChatData();
                 recipientData.SetData(ChatRecipientDataSay.Distance, distance);

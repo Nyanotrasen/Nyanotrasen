@@ -1,5 +1,7 @@
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.Map;
+using Robust.Shared.Players;
 using Content.Server.Ghost.Components;
 using Content.Shared.CCVar;
 using Content.Shared.IdentityManagement;
@@ -121,31 +123,6 @@ namespace Content.Server.Chat.Systems
         }
 
         /// <summary>
-        /// Returns an enumerable of tuples containing player EntityUids and the distance from the source.
-        /// </summary>
-        public IEnumerable<(EntityUid, float)> GetPlayerEntitiesInRange(EntityUid source, float range)
-        {
-            var xforms = GetEntityQuery<TransformComponent>();
-
-            var transformSource = xforms.GetComponent(source);
-            var sourceCoords = transformSource.Coordinates;
-
-            foreach (var player in _playerManager.Sessions)
-            {
-                if (player.AttachedEntity is not {Valid: true} playerEntity)
-                    continue;
-
-                var transformEntity = xforms.GetComponent(playerEntity);
-
-                if (sourceCoords.TryDistance(EntityManager, transformEntity.Coordinates, out var distance) &&
-                    distance <= range)
-                {
-                    yield return (playerEntity, distance);
-                }
-            }
-        }
-
-        /// <summary>
         /// Try to send an unparsed chat message from an entity.
         /// </summary>
         public bool TrySendChatUnparsed(EntityUid source, string message)
@@ -216,6 +193,64 @@ namespace Content.Server.Chat.Systems
             }
 
             return true;
+        }
+    }
+
+    /// <summary>
+    /// Returns player EntityUids in range with their distance from the source.
+    /// </summary>
+    public struct PlayerEntityInRangeEnumerator : IDisposable
+    {
+        private IEntityManager _entityManager;
+        private IPlayerManager _playerManager;
+        private float _range;
+
+        private EntityQuery<TransformComponent> _transforms;
+        private EntityCoordinates _sourceCoordinates;
+        private IEnumerator<ICommonSession> _playerEnumerator;
+
+        public PlayerEntityInRangeEnumerator(IEntityManager entityManager, IPlayerManager playerManager, EntityUid source, float range)
+        {
+            _entityManager = entityManager;
+            _playerManager = playerManager;
+            _range = range;
+
+            _transforms = _entityManager.GetEntityQuery<TransformComponent>();
+            _sourceCoordinates = _transforms.GetComponent(source).Coordinates;
+            _playerEnumerator = _playerManager.Sessions.GetEnumerator();
+        }
+
+        public bool MoveNext(out EntityUid uid, out float distance)
+        {
+            while (true)
+            {
+                if (!_playerEnumerator.MoveNext())
+                {
+                    uid = default;
+                    distance = 0f;
+                    return false;
+                }
+
+                var player = _playerEnumerator.Current;
+
+                if (player.AttachedEntity is not {Valid: true} playerEntity)
+                    continue;
+
+                var transformEntity = _transforms.GetComponent(playerEntity);
+
+                if (_sourceCoordinates.TryDistance(_entityManager, transformEntity.Coordinates, out var _distance) &&
+                    _distance <= _range)
+                {
+                    uid = playerEntity;
+                    distance = _distance;
+                    return true;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            _playerEnumerator.Dispose();
         }
     }
 }

@@ -93,7 +93,9 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            foreach (var (playerEntity, distance) in _chatSystem.GetPlayerEntitiesInRange(args.Chat.Source, VoiceRange))
+            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+
+            while (enumerator.MoveNext(out var playerEntity, out var distance))
             {
                 var recipientData = new EntityChatData();
                 recipientData.SetData(ChatRecipientDataSay.Distance, distance);
