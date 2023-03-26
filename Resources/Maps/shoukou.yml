@@ -49440,11 +49440,13 @@ entities:
     parent: 34
     type: Transform
 - uid: 7232
-  type: KitchenReagentGrinder
+  type: GasPipeStraight
   components:
-  - pos: -8.5,-3.5
+  - pos: -28.5,-11.5
     parent: 34
     type: Transform
+  - color: '#F84000FF'
+    type: AtmosPipeColor
 - uid: 7233
   type: PoweredSmallLight
   components:
@@ -54095,13 +54097,11 @@ entities:
   - color: '#F84000FF'
     type: AtmosPipeColor
 - uid: 7986
-  type: GasPipeStraight
+  type: ClothingEyesGlasses
   components:
-  - pos: -28.5,-11.5
+  - pos: -8.591147,-22.271915
     parent: 34
     type: Transform
-  - color: '#F84000FF'
-    type: AtmosPipeColor
 - uid: 7987
   type: GasVentScrubber
   components:
@@ -56406,11 +56406,14 @@ entities:
     parent: 34
     type: Transform
 - uid: 8327
-  type: ClothingEyesGlasses
+  type: GasPipeTJunction
   components:
-  - pos: -8.591147,-22.271915
+  - rot: 3.141592653589793 rad
+    pos: -29.5,-1.5
     parent: 34
     type: Transform
+  - color: '#0088F8FF'
+    type: AtmosPipeColor
 - uid: 8328
   type: Brutepack
   components:
@@ -59279,7 +59282,7 @@ entities:
   type: GasPipeTJunction
   components:
   - rot: 3.141592653589793 rad
-    pos: -29.5,-1.5
+    pos: -27.5,-14.5
     parent: 34
     type: Transform
   - color: '#0088F8FF'
@@ -63596,8 +63599,7 @@ entities:
 - uid: 9187
   type: GasPipeTJunction
   components:
-  - rot: 3.141592653589793 rad
-    pos: -27.5,-14.5
+  - pos: -30.5,-1.5
     parent: 34
     type: Transform
   - color: '#0088F8FF'
@@ -63976,9 +63978,9 @@ entities:
   - color: '#0088F8FF'
     type: AtmosPipeColor
 - uid: 9232
-  type: GasPipeTJunction
+  type: GasPipeBend
   components:
-  - pos: -30.5,-1.5
+  - pos: -27.5,-10.5
     parent: 34
     type: Transform
   - color: '#0088F8FF'
@@ -64542,13 +64544,11 @@ entities:
   - color: '#0088F8FF'
     type: AtmosPipeColor
 - uid: 9298
-  type: GasPipeBend
+  type: Table
   components:
-  - pos: -27.5,-10.5
+  - pos: -9.5,-3.5
     parent: 34
     type: Transform
-  - color: '#0088F8FF'
-    type: AtmosPipeColor
 - uid: 9299
   type: GasPipeStraight
   components:
@@ -64577,6 +64577,12 @@ entities:
   - color: '#0088F8FF'
     type: AtmosPipeColor
 - uid: 9302
+  type: KitchenReagentGrinder
+  components:
+  - pos: -9.5,-3.5
+    parent: 34
+    type: Transform
+- uid: 9303
   type: GasPipeStraight
   components:
   - rot: -1.5707963267948966 rad
@@ -64585,7 +64591,7 @@ entities:
     type: Transform
   - color: '#0088F8FF'
     type: AtmosPipeColor
-- uid: 9303
+- uid: 9304
   type: GasPipeTJunction
   components:
   - pos: -29.5,-10.5
@@ -64593,14 +64599,14 @@ entities:
     type: Transform
   - color: '#0088F8FF'
     type: AtmosPipeColor
-- uid: 9304
+- uid: 9305
   type: GasPipeTJunction
   components:
   - rot: 3.141592653589793 rad
     pos: -30.5,-0.5
     parent: 34
     type: Transform
-- uid: 9305
+- uid: 9306
   type: GasPipeStraight
   components:
   - rot: 3.141592653589793 rad
@@ -64608,14 +64614,6 @@ entities:
     parent: 34
     type: Transform
   - color: '#0088F8FF'
-    type: AtmosPipeColor
-- uid: 9306
-  type: GasPipeStraight
-  components:
-  - pos: -28.5,-12.5
-    parent: 34
-    type: Transform
-  - color: '#F84000FF'
     type: AtmosPipeColor
 - uid: 9307
   type: GasVentPump
@@ -68423,7 +68421,7 @@ entities:
 - uid: 9755
   type: GasPipeStraight
   components:
-  - pos: -28.5,-13.5
+  - pos: -28.5,-12.5
     parent: 34
     type: Transform
   - color: '#F84000FF'
@@ -68431,7 +68429,7 @@ entities:
 - uid: 9756
   type: GasPipeStraight
   components:
-  - pos: -28.5,-14.5
+  - pos: -28.5,-13.5
     parent: 34
     type: Transform
   - color: '#F84000FF'
@@ -68439,7 +68437,7 @@ entities:
 - uid: 9757
   type: GasPipeStraight
   components:
-  - pos: -28.5,-15.5
+  - pos: -28.5,-14.5
     parent: 34
     type: Transform
   - color: '#F84000FF'
@@ -68447,7 +68445,7 @@ entities:
 - uid: 9758
   type: GasPipeStraight
   components:
-  - pos: -28.5,-16.5
+  - pos: -28.5,-15.5
     parent: 34
     type: Transform
   - color: '#F84000FF'
@@ -68455,12 +68453,20 @@ entities:
 - uid: 9759
   type: GasPipeStraight
   components:
-  - pos: -28.5,-17.5
+  - pos: -28.5,-16.5
     parent: 34
     type: Transform
   - color: '#F84000FF'
     type: AtmosPipeColor
 - uid: 9760
+  type: GasPipeStraight
+  components:
+  - pos: -28.5,-17.5
+    parent: 34
+    type: Transform
+  - color: '#F84000FF'
+    type: AtmosPipeColor
+- uid: 9761
   type: GasPipeTJunction
   components:
   - pos: -30.5,-9.5
@@ -68468,7 +68474,7 @@ entities:
     type: Transform
   - color: '#F84000FF'
     type: AtmosPipeColor
-- uid: 9761
+- uid: 9762
   type: GasPipeStraight
   components:
   - pos: -28.5,-10.5
@@ -68476,12 +68482,6 @@ entities:
     type: Transform
   - color: '#F84000FF'
     type: AtmosPipeColor
-- uid: 9762
-  type: ToySpawner
-  components:
-  - pos: -14.5,-19.5
-    parent: 34
-    type: Transform
 - uid: 9763
   type: GasPipeStraight
   components:
@@ -68537,9 +68537,9 @@ entities:
   - color: '#F84000FF'
     type: AtmosPipeColor
 - uid: 9769
-  type: HatSpawner
+  type: ToySpawner
   components:
-  - pos: -14.5,-15.5
+  - pos: -14.5,-19.5
     parent: 34
     type: Transform
 - uid: 9770
@@ -78814,16 +78814,11 @@ entities:
     parent: 34
     type: Transform
 - uid: 11099
-  type: PoweredSmallLight
+  type: HatSpawner
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -23.5,-5.5
+  - pos: -14.5,-15.5
     parent: 34
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 11100
   type: ClothingHandsGlovesFingerless
   components:
@@ -79058,7 +79053,7 @@ entities:
   type: PoweredSmallLight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 7.5,-12.5
+    pos: -23.5,-5.5
     parent: 34
     type: Transform
   - enabled: False
@@ -79066,12 +79061,16 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 11138
-  type: MedkitFilled
+  type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: -1.6496706,-30.515379
+  - rot: 1.5707963267948966 rad
+    pos: 7.5,-12.5
     parent: 34
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 11139
   type: CigaretteSpent
   components:
@@ -86118,13 +86117,12 @@ entities:
     parent: 34
     type: Transform
 - uid: 12176
-  type: GasPipeBend
+  type: MedkitFilled
   components:
-  - pos: -28.5,-9.5
+  - rot: 3.141592653589793 rad
+    pos: -1.6496706,-30.515379
     parent: 34
     type: Transform
-  - color: '#F84000FF'
-    type: AtmosPipeColor
 - uid: 12177
   type: Katana
   components:
@@ -86149,6 +86147,14 @@ entities:
     parent: 34
     type: Transform
 - uid: 12180
+  type: GasPipeBend
+  components:
+  - pos: -28.5,-9.5
+    parent: 34
+    type: Transform
+  - color: '#F84000FF'
+    type: AtmosPipeColor
+- uid: 12181
   type: GasPipeStraight
   components:
   - rot: -1.5707963267948966 rad
