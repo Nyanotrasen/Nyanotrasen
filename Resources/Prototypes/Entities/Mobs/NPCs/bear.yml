@@ -4,8 +4,6 @@
   parent: SimpleSpaceMobBase
   description: It looks friendly. Why don't you give it a hug?
   components:
-  - type: InputMover
-  - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
     blackboard:
@@ -42,15 +40,6 @@
       - MobMask
       layer:
       - MobLayer
-  - type: PointLight
-    radius: 1.2
-    energy: 2
-    color: "#4faffb"
-  - type: MovementAlwaysTouching
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -58,7 +47,6 @@
       150: Dead
   - type: Stamina
     excess: 150
-  - type: Appearance
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bear
@@ -79,7 +67,8 @@
       amount: 1
       prob: 0.3
   - type: Bloodstream
-    bloodMaxVolume: 500
+    bloodMaxVolume: 300
+    bloodReagent: Cryoxadone
   - type: CombatMode
   - type: Temperature
     heatDamageThreshold: 500
@@ -95,6 +84,12 @@
       types:
         Blunt: 10
         Slash: 5
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Puller
+    needsHands: false
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Vocal
