@@ -53,7 +53,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
         var text = Loc.GetString("discord-round-new");
 
-        SendDiscordMessage(text, true);
+        SendDiscordMessage(text, true, 0x91B2C7);
     }
 
     private void OnRoundStarted(RoundStartedEvent e)
