@@ -101,6 +101,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
             {
                 new()
                 {
+                    Title = Loc.GetString("discord-round-title"),
                     Description = text,
                     Color = color,
                     Footer = new EmbedFooter
@@ -151,7 +152,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 // https://discord.com/developers/docs/resources/channel#embed-object-embed-structure
     private struct Embed
     {
-        [JsonPropertyName("title")] public string Title { get; set; } = "Round Notification";
+        [JsonPropertyName("title")] public string Title { get; set; } = "";
 
         [JsonPropertyName("description")] public string Description { get; set; } = "";
 
