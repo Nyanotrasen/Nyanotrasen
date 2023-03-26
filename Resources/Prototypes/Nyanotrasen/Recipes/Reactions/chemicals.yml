@@ -1,0 +1,24 @@
+# Is it the proper way to make actual THC Oil? Nope.
+- type: reaction
+  id: THCOilOlive
+  impact: Medium
+  minTemp: 370
+  reactants:
+    THC:
+      amount: 1
+    OilOlive:
+      amount: 1
+  products:
+    THCOil: 2
+
+- type: reaction
+  id: THCOilCorn
+  impact: Medium
+  minTemp: 370
+  reactants:
+    THC:
+      amount: 1
+    OilCorn:
+      amount: 1
+  products:
+    THCOil: 2
