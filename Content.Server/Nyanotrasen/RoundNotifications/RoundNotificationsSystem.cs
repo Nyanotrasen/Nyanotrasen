@@ -53,7 +53,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
         var text = Loc.GetString("discord-round-new");
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, true, 0x91B2C7);
     }
 
     private void OnRoundStarted(RoundStartedEvent e)
@@ -67,7 +67,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
             ("id", e.RoundId),
             ("map", mapName));
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, false);
     }
 
     private void OnRoundEnded(RoundEndedEvent e)
@@ -81,16 +81,16 @@ public sealed class RoundNotificationsSystem : EntitySystem
             ("minutes", e.RoundDuration.Minutes),
             ("seconds", e.RoundDuration.Seconds));
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, false, 0xB22B27);
     }
 
-    private async void SendDiscordMessage(string text)
+    private async void SendDiscordMessage(string text, bool ping = false, int color = 0x41F097)
     {
 
         // Limit server name to 1500 characters, in case someone tries to be a little funny
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
         var message = "";
-        if (!String.IsNullOrEmpty(_roleId))
+        if (!String.IsNullOrEmpty(_roleId) && ping)
             message = $"<@&{_roleId}>";
 
         // Build the embed
@@ -101,8 +101,9 @@ public sealed class RoundNotificationsSystem : EntitySystem
             {
                 new()
                 {
+                    Title = Loc.GetString("discord-round-title"),
                     Description = text,
-                    Color = 0x41F097,
+                    Color = color,
                     Footer = new EmbedFooter
                     {
                         Text = $"{serverName}"
@@ -110,7 +111,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
                 },
             },
         };
-        if (!String.IsNullOrEmpty(_roleId))
+        if (!String.IsNullOrEmpty(_roleId) && ping)
             payload.AllowedMentions = new Dictionary<string, string[]> {{ "roles", new []{ _roleId } }};
 
         var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
@@ -151,7 +152,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 // https://discord.com/developers/docs/resources/channel#embed-object-embed-structure
     private struct Embed
     {
-        [JsonPropertyName("title")] public string Title { get; set; } = "Round Notification";
+        [JsonPropertyName("title")] public string Title { get; set; } = "";
 
         [JsonPropertyName("description")] public string Description { get; set; } = "";
 
