@@ -53,7 +53,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
 
         var text = Loc.GetString("discord-round-new");
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, true);
     }
 
     private void OnRoundStarted(RoundStartedEvent e)
@@ -67,7 +67,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
             ("id", e.RoundId),
             ("map", mapName));
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, false);
     }
 
     private void OnRoundEnded(RoundEndedEvent e)
@@ -81,16 +81,16 @@ public sealed class RoundNotificationsSystem : EntitySystem
             ("minutes", e.RoundDuration.Minutes),
             ("seconds", e.RoundDuration.Seconds));
 
-        SendDiscordMessage(text);
+        SendDiscordMessage(text, false);
     }
 
-    private async void SendDiscordMessage(string text)
+    private async void SendDiscordMessage(string text, bool ping = false)
     {
 
         // Limit server name to 1500 characters, in case someone tries to be a little funny
         var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
         var message = "";
-        if (!String.IsNullOrEmpty(_roleId))
+        if (!String.IsNullOrEmpty(_roleId) && ping)
             message = $"<@&{_roleId}>";
 
         // Build the embed
@@ -110,7 +110,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
                 },
             },
         };
-        if (!String.IsNullOrEmpty(_roleId))
+        if (!String.IsNullOrEmpty(_roleId) && ping)
             payload.AllowedMentions = new Dictionary<string, string[]> {{ "roles", new []{ _roleId } }};
 
         var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
