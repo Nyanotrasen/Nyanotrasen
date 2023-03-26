@@ -81,10 +81,10 @@ public sealed class RoundNotificationsSystem : EntitySystem
             ("minutes", e.RoundDuration.Minutes),
             ("seconds", e.RoundDuration.Seconds));
 
-        SendDiscordMessage(text, false);
+        SendDiscordMessage(text, false, 0xB22B27);
     }
 
-    private async void SendDiscordMessage(string text, bool ping = false)
+    private async void SendDiscordMessage(string text, bool ping = false, int color = 0x41F097)
     {
 
         // Limit server name to 1500 characters, in case someone tries to be a little funny
@@ -102,7 +102,7 @@ public sealed class RoundNotificationsSystem : EntitySystem
                 new()
                 {
                     Description = text,
-                    Color = 0x41F097,
+                    Color = color,
                     Footer = new EmbedFooter
                     {
                         Text = $"{serverName}"
