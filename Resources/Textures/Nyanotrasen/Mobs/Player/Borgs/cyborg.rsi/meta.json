@@ -5,10 +5,14 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/53d1f1477d22a11a99c6c6924977cd431075761b",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc",
   "states": [
     {
       "name": "robot",
+      "directions": 4
+    },
+    {
+      "name": "robot-dead",
       "directions": 4
     },
     {
