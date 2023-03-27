@@ -83,9 +83,9 @@ namespace Content.Server.Chemistry.EntitySystems
 
             string? msgFormat = null;
 
-            if (!component.PierceArmor && _entMan.TryGetComponent<TagComponent>(target, out var tag))
+            if (!component.PierceArmor && _inventorySystem.TryGetSlotEntity(target.Value, "outerClothing", out var suit))
             {
-                if (tag.Tags.Contains("HardsuitOn"))
+                if (TryComp<TagComponent>(suit, out var tag) && tag.Tags.Contains("Hardsuit"))
                 {
                     if (target == null) return false;
                     var taget = (EntityUid) target;
