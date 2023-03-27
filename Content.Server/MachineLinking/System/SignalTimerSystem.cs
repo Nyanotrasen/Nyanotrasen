@@ -7,6 +7,7 @@ using Content.Shared.MachineLinking;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 
 namespace Content.Server.MachineLinking.System
@@ -22,6 +23,7 @@ namespace Content.Server.MachineLinking.System
     {
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
 
         public override void Initialize()
         {
@@ -52,7 +54,7 @@ namespace Content.Server.MachineLinking.System
         {
             {
                 if (!component.State)
-                    component.TimeRemaining = component.Length;
+                    component.TargetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Length);
 
                 component.State = !component.State;
                 _signalSystem.InvokePort(uid, component.State ? component.OnPort : component.OffPort);
@@ -70,15 +72,13 @@ namespace Content.Server.MachineLinking.System
             {
                 if (component.State)
                 {
-                    // check if there's still time left
-                    component.TimeRemaining -= frameTime;
-                    if (component.TimeRemaining > 0)
+                    // check if TargetTime is reached
+                    if (_gameTiming.CurTime < component.TargetTime)
                         continue;
 
                     // open door and reset state, as the timer is done
                     component.State = !component.State;
                     _signalSystem.InvokePort(component.Owner, component.State ? component.OnPort : component.OffPort);
-                    component.TimeRemaining = component.Length;
                 }
             }
         }
@@ -88,9 +88,8 @@ namespace Content.Server.MachineLinking.System
             if (args.Session.AttachedEntity is not {Valid: true} player)
                 return;
 
-            // update component.Length AND component.TimeRemaining when UI entry is made?
+            // update component.Length when UI entry is made, and TargetTime only on start.
             component.Length = args.Length;
-            component.TimeRemaining = args.Length;
             DirtyUI(uid, component);
         }
 

@@ -14,6 +14,9 @@ namespace Content.Server.MachineLinking.Components
         [DataField("length")]
         public float Length;
 
+        [DataField("targetTime")]
+        public TimeSpan TargetTime;
+
         /// <summary>
         ///     The port that gets signaled when the switch turns on.
         /// </summary>
@@ -31,8 +34,5 @@ namespace Content.Server.MachineLinking.Components
 
         [DataField("clickSound")]
         public SoundSpecifier ClickSound { get; set; } = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
-
-        [ViewVariables(VVAccess.ReadWrite)]
-        public float TimeRemaining;
     }
 }
