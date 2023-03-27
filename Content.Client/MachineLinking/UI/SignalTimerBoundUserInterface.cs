@@ -54,11 +54,6 @@ namespace Content.Client.MachineLinking.UI
             SendMessage(new SignalTimerStartedMessage());
         }
 
-        public void OnStop()
-        {
-            SendMessage(new SignalTimerStoppedMessage());
-        }
-
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);

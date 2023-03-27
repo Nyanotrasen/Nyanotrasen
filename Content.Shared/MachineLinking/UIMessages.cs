@@ -77,9 +77,4 @@ namespace Content.Shared.MachineLinking
     public sealed class SignalTimerStartedMessage : BoundUserInterfaceMessage
     {
     }
-
-    [Serializable, NetSerializable]
-    public sealed class SignalTimerStoppedMessage : BoundUserInterfaceMessage
-    {
-    }
 }

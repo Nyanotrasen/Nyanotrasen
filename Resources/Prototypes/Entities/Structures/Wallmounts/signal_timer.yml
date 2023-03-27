@@ -1,7 +1,7 @@
 - type: entity
   id: SignalTimer
   name: signal timer
-  description: Automate your jail sentencing.
+  description: Automate toggling power to things.
   placement:
     mode: SnapgridCenter
     snap:
@@ -15,15 +15,15 @@
     canCollide: false
   - type: Sprite
     sprite: Structures/Wallmounts/switch.rsi
-    state: dead
+    state: on
   - type: SignalTimer
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
     length: 20
   - type: Rotatable
   - type: Construction
-    graph: LightSwitchGraph
-    node: LightSwitchNode
+    graph: SignalTimerGraph
+    node: SignalTimerNode
   - type: SignalTransmitter
     outputs:
       On: []

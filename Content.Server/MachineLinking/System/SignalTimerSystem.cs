@@ -32,7 +32,6 @@ namespace Content.Server.MachineLinking.System
             // Bound UI subscriptions
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerLengthChangedMessage>(OnSignalTimerLengthChanged);
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartedMessage>(OnStart);
-            SubscribeLocalEvent<SignalTimerComponent, SignalTimerStoppedMessage>(OnStop);
         }
 
         private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)
@@ -57,22 +56,6 @@ namespace Content.Server.MachineLinking.System
 
                 component.State = !component.State;
                 _signalSystem.InvokePort(uid, component.State ? component.OnPort : component.OffPort);
-                SoundSystem.Play(component.ClickSound.GetSound(), Filter.Pvs(component.Owner), component.Owner,
-                    AudioHelpers.WithVariation(0.125f).WithVolume(8f));
-            }
-        }
-
-        private void OnStop(EntityUid uid, SignalTimerComponent component, SignalTimerStoppedMessage args)
-        {
-            {
-                if (component.State)
-                {
-                    _signalSystem.InvokePort(uid, component.OffPort);
-                    component.State = !component.State;
-                }
-
-                component.TimeRemaining = component.Length;
-
                 SoundSystem.Play(component.ClickSound.GetSound(), Filter.Pvs(component.Owner), component.Owner,
                     AudioHelpers.WithVariation(0.125f).WithVolume(8f));
             }
