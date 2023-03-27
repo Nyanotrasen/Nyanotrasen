@@ -138,7 +138,7 @@ namespace Content.Server.Language
 
             if (component.CanSpeak.Count > 1)
             {
-                var action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>("ChangeLanguage"));
+                var action = new InstantAction(_prototypeManager.Index<InstantActionPrototype>(component.ChangeLanguageAction));
                 _actionsSystem.AddAction(uid, action, null);
             }
 

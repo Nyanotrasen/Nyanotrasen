@@ -142,6 +142,7 @@
     - RegalRatNameTitle
   - type: PotentialPsionic
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Basic
     - Bestial
@@ -334,6 +335,7 @@
     - id: FoodMeatRat
       amount: 1
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:

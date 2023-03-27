@@ -52,6 +52,7 @@
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -204,6 +205,7 @@
     eggSpawn:
     - id: FoodEgg
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -259,6 +261,7 @@
     eggSpawn:
     - id: FoodEgg
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -761,6 +764,7 @@
     - id: FoodMeatRat
       amount: 1
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -1273,6 +1277,7 @@
       autoPopulate: false
       name: action-name-disarm
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -1521,6 +1526,7 @@
     - id: FoodMeat
       amount: 2
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -1698,6 +1704,7 @@
     - id: FoodMeat
       amount: 3
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -1988,6 +1995,7 @@
     - id: FoodMeat
       amount: 1
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:
@@ -2098,6 +2106,7 @@
     interactSuccessSound:
       path: /Audio/Animals/pig_oink.ogg
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:

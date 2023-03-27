@@ -1,6 +1,7 @@
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
 using Content.Shared.Actions;
+using Content.Shared.Actions.ActionTypes;
 
 namespace Content.Server.Language
 {
@@ -53,6 +54,10 @@ namespace Content.Server.Language
         // WYCI:
         /* public List<string> CanRead = new(); */
         /* public List<string> CanWrite = new(); */
+
+        [ViewVariables]
+        [DataField("changeLanguageAction", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<InstantActionPrototype>))]
+        public string ChangeLanguageAction = default!;
 
         /// <summary>
         /// This flag tracks if the component has run its initial setup logic yet.

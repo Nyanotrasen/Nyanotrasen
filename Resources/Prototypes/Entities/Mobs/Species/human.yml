@@ -10,6 +10,7 @@
   - type: Carriable
   - type: Perishable
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Basic
     canSpeak:

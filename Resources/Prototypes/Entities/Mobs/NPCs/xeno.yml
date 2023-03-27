@@ -117,6 +117,7 @@
   - type: Psionic
     removable: false
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Xenomorphic
     canSpeak:

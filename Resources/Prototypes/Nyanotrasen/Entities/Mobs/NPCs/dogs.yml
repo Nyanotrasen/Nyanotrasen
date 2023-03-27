@@ -56,6 +56,7 @@
     - id: FoodMeat
       amount: 3
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Bestial
     canSpeak:

@@ -189,6 +189,7 @@
           True: { visible: true }
           False: { visible: false }
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canUnderstand:
     - Basic
     - Binary

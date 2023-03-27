@@ -57,6 +57,7 @@
     baseWalkSpeed: 5
   - type: MovementIgnoreGravity
   - type: Linguistic
+    changeLanguageAction: ChangeLanguage
     canSpeak:
     - Basic
     canUnderstand:
