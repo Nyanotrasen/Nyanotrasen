@@ -320,10 +320,6 @@
       state: cpu_command
     - type: ComputerBoard
       prototype: ComputerIFF
-    - type: ReverseEngineering
-      difficulty: 3
-      recipes:
-        - ComputerIFFCircuitboard
 
 - type: entity
   parent: BaseComputerCircuitboard
