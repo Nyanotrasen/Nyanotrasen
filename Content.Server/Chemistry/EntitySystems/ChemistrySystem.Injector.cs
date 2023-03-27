@@ -20,7 +20,6 @@ namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed partial class ChemistrySystem
 {
-
     /// <summary>
     ///     Default transfer amounts for the set-transfer verb.
     /// </summary>
@@ -70,9 +69,10 @@ public sealed partial class ChemistrySystem
 
     private void UseInjector(EntityUid target, EntityUid user, EntityUid injector, InjectorComponent component)
     {
-        if (_entMan.TryGetComponent<TagComponent>(target, out var tag))
+
+        if (_inventorySystem.TryGetSlotEntity(target, "outerClothing", out var suit))
         {
-            if (tag.Tags.Contains("HardsuitOn"))
+            if (TryComp<TagComponent>(suit, out var tag) && tag.Tags.Contains("Hardsuit"))
             {
                 _popup.PopupEntity(Loc.GetString("injector-component-failure-hardsuit"), target, user, PopupType.MediumCaution);
                 return;

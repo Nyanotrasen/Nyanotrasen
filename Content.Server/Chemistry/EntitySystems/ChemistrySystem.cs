@@ -5,12 +5,14 @@ using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Shared.CombatMode;
 using Content.Shared.Chemistry;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed partial class ChemistrySystem : EntitySystem
 {
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
