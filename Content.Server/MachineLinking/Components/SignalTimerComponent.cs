@@ -12,7 +12,7 @@ namespace Content.Server.MachineLinking.Components
     public sealed class SignalTimerComponent : Component
     {
         [DataField("length")]
-        public float Length { get; set; } = 20f;
+        public float Length;
 
         /// <summary>
         ///     The port that gets signaled when the switch turns on.

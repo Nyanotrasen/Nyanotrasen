@@ -5,7 +5,6 @@
         <Label Text="{Loc 'signal-timer-window-press-enter-to-confirm'}"/><Label Text=""/>
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Button Name="ButtonStart" Text="{Loc signal-timer-window-start}"/>
-            <Button Name="ButtonCancel" Text="{Loc signal-timer-window-cancel}"/>
         </BoxContainer>
     </BoxContainer>
 </DefaultWindow>

@@ -19,7 +19,6 @@
   - type: SignalTimer
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
-    length: 20
   - type: Rotatable
   - type: Construction
     graph: SignalTimerGraph

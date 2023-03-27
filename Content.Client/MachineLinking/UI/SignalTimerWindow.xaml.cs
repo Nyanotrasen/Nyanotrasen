@@ -13,16 +13,22 @@ namespace Content.Client.MachineLinking.UI
 
         public event Action<float>? OnTimeEntered;
 
-
         public SignalTimerWindow(SignalTimerBoundUserInterface boundUserInterface)
         {
             _bui = boundUserInterface;
 
             RobustXamlLoader.Load(this);
 
-            SecondsLabelEdit.OnTextEntered += e => OnTimeEntered?.Invoke(float.Parse(e.Text));
+            SecondsLabelEdit.OnTextEntered += HandleTextEntered;
 
             ButtonStart.OnPressed += _ => _bui.OnStart();
+        }
+
+        private void HandleTextEntered(LineEdit.LineEditEventArgs e)
+        {
+            if (OnTimeEntered != null)
+                if (float.TryParse(e.Text, out float length))
+                    OnTimeEntered(length);
         }
 
         public void SetCurrentTime(string label)
