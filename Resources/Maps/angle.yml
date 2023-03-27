@@ -125,7 +125,7 @@ entities:
   components:
   - type: MetaData
   - type: Transform
-  - index: 5
+  - index: 6
     type: Map
   - type: PhysicsMap
   - type: Broadphase
@@ -178,7 +178,7 @@ entities:
         tiles: WwAAAFsAAABbAAAANwAAADcAAAA3AAAAWwAAAEsAAABLAAAAWwAAACUAAAAlAAAAJQAAACUAAABbAAAALwAAAFoAAABaAAAAWwAAADcAAAA3AAAANwAAAFsAAABLAAAASwAAAFsAAAAlAAAAJQAAACUAAAAlAAAAWwAAAC8AAABaAAAAWgAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAWwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABLAAAASwAAAEsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAFoAAABbAAAAWgAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAABbAAAAKAAAACgAAAAoAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWwAAACgAAAAoAAAAKAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAAoAAAAKAAAACgAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       0,0:
         ind: 0,0
-        tiles: LwAAAC8AAAAvAAAALwAAAC8AAAAvAAAASwAAAAwAAAAmAAAADAAAAyYAAAAMAAACJgAAAAwAAAEmAAAADAAAAi8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAMAAABDAAAAiYAAAAMAAAAJgAAAAwAAAEmAAAADAAAASYAAABbAAAAWwAAAEsAAABbAAAAWwAAAFsAAABbAAAADAAAAwwAAAEMAAAADAAAAAwAAAEMAAACDAAAAQwAAAEMAAABSwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAwAAAMMAAAADAAAAwwAAAAMAAADDAAAAAwAAAMMAAABDAAAAksAAABLAAAASwAAAEsAAABLAAAAWwAAAFsAAABYAAACWAAAAVgAAAFYAAABWAAAA1gAAAFYAAACDAAAAgwAAANbAAAAWwAAAEsAAABbAAAASwAAAEsAAABLAAAAWAAAAVgAAANYAAAAWAAAA1gAAAFYAAAAWAAAAAwAAAEMAAABSwAAAEsAAABLAAAAWwAAAEsAAABLAAAAWwAAAFgAAABYAAACWAAAA1gAAAFYAAACWAAAAVgAAAMMAAADDAAAAVsAAABLAAAASwAAAFsAAABLAAAASwAAAFsAAAAMAAAADAAAAQwAAAMMAAAASwAAAAwAAAEMAAABDAAAAUsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWAAAAVgAAAJYAAADWAAAA1sAAABLAAAAWwAAAAAAAAAAAAAAWwAAAEsAAABbAAAAWwAAAE0AAAJNAAADWwAAAFgAAANYAAADWAAAA1gAAANLAAAASwAAAFoAAAAAAAAAAAAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABYAAADWAAAA1gAAANYAAABWwAAAEsAAABaAAAAAAAAAAAAAABbAAAASwAAAEsAAABNAAABTQAAA00AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWgAAAFoAAABaAAAAWwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABbAAAASwAAAFoAAAAAAAAAAAAAAFsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABaAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAWgAAAA==
+        tiles: LwAAAC8AAAAvAAAALwAAAC8AAAAvAAAASwAAAAwAAAAmAAAADAAAAyYAAAAMAAACJgAAAAwAAAEmAAAADAAAAi8AAAAvAAAALwAAAC8AAAAvAAAALwAAAC8AAAAMAAABDAAAAiYAAAAMAAAAJgAAAAwAAAEmAAAADAAAASYAAABbAAAAWwAAAEsAAABbAAAAWwAAAFsAAABbAAAADAAAAwwAAAEMAAAADAAAAAwAAAEMAAACDAAAAQwAAAEMAAABSwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAwAAAMMAAAADAAAAwwAAAAMAAADDAAAAAwAAAMMAAABDAAAAksAAABLAAAASwAAAEsAAABLAAAAWwAAAFsAAABYAAACWAAAAVgAAAFYAAABWAAAA1gAAAFYAAACDAAAAgwAAANbAAAAWwAAAEsAAABbAAAASwAAAEsAAABLAAAAWAAAAVgAAANYAAAAWAAAA1gAAAFYAAAAWAAAAAwAAAEMAAABSwAAAEsAAABLAAAAWwAAAEsAAABLAAAAWwAAAEsAAABLAAAASwAAAEsAAABYAAACWAAAAVgAAAMMAAADDAAAAVsAAABLAAAASwAAAFsAAABLAAAASwAAAFsAAAAMAAAADAAAAQwAAAMMAAAASwAAAAwAAAEMAAABDAAAAUsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWAAAAVgAAAJYAAADWAAAA1sAAABLAAAAWwAAAAAAAAAAAAAAWwAAAEsAAABbAAAAWwAAAE0AAAJNAAADWwAAAFgAAANYAAADWAAAA1gAAANLAAAASwAAAFoAAAAAAAAAAAAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABYAAADWAAAA1gAAANYAAABWwAAAEsAAABaAAAAAAAAAAAAAABbAAAASwAAAEsAAABNAAABTQAAA00AAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWgAAAFoAAABaAAAAWwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABbAAAASwAAAFoAAAAAAAAAAAAAAFsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABaAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAWgAAAA==
       1,0:
         ind: 1,0
         tiles: JgAAAAwAAAJbAAAAWAAAAVgAAABYAAAAWAAAA1gAAAFYAAADWwAAADkAAAA5AAAAMgAAABEAAAARAAADEQAAAAwAAAIMAAACWwAAAFsAAABYAAABWwAAAFsAAABbAAAAWwAAAFsAAAA5AAAAOQAAADIAAAARAAABEQAAAhEAAAIMAAACDAAAAVsAAABYAAADWAAAA1sAAAAiAAAAIgAAACIAAABbAAAAOQAAADkAAAAyAAAAEQAAABEAAAIRAAAADAAAAQwAAABbAAAAWAAAAlgAAANbAAAAIgAAACIAAAAiAAAAWwAAADkAAAA5AAAAMgAAABEAAAMRAAAAEQAAAAwAAAIMAAAAWwAAAFgAAAJYAAACSwAAACIAAAAiAAAAIgAAAFsAAAA5AAAAOQAAADIAAAAyAAAAMgAAADIAAAAMAAACDAAAAVsAAABYAAACWAAAA1sAAABbAAAAWwAAAFsAAABbAAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAADAAAAQwAAAJbAAAAWAAAA1gAAAJbAAAAEgAAABIAAAASAAAAWwAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAAAwAAAMMAAADWwAAAFgAAANYAAAASwAAABIAAAASAAAAEgAAAFsAAABLAAAAWwAAAFsAAABBAAACQQAAAkEAAABbAAAATQAAAlsAAABYAAAAWAAAAFsAAAASAAAAEgAAABIAAABbAAAASwAAAEsAAABbAAAAQQAAAkEAAAJBAAACWwAAAE0AAANbAAAAWAAAAlgAAAJbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWwAAAEEAAABBAAACQQAAA1sAAABLAAAAWwAAAFgAAAJYAAAASwAAADMAAAAzAAAAMwAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABbAAAASwAAAFsAAAAzAAAAMwAAADMAAABbAAAAWwAAAEsAAABLAAAASwAAAEsAAABLAAAAWwAAAEsAAABLAAAASwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABLAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFgAAABYAAAAWAAAAA==
@@ -277,7 +277,7 @@ entities:
         tiles: AAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAWwAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAFoAAABaAAAAAAAAAFoAAAAAAAAAAAAAAFoAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAADcAAAA3AAAANwAAADcAAAA3AAAAWwAAAAAAAAAAAAAAWwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAFsAAAA3AAAANwAAADcAAAA3AAAANwAAAFsAAAAAAAAAAAAAAFsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABLAAAANwAAADcAAAA3AAAANwAAADcAAABbAAAAAAAAAAAAAABbAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAADcAAAA3AAAANwAAADcAAAA3AAAAWwAAAAAAAAAAAAAAWwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAFsAAAA3AAAANwAAADcAAAA3AAAANwAAAFsAAABaAAAAWgAAAFsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABbAAAAWwAAAFsAAABLAAAANgAAABcAAAMXAAABNgAAABcAAAEXAAACNgAAABcAAAMXAAACNgAAABcAAAEXAAADNgAAABcAAAIXAAABNgAAAA==
       2,-5:
         ind: 2,-5
-        tiles: NgAAABcAAAEXAAAANgAAABcAAAIXAAACNgAAABcAAAMXAAADNgAAABcAAAAXAAABNgAAABcAAAEXAAAANgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABbAAAAWwAAAEsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAABcAAAIXAAABCwAAAAsAAAALAAAACwAAAEsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAFsAAAAXAAABNgAAAAsAAAALAAAACwAAAFsAAABbAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABbAAAAFwAAAzYAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAABcAAAIXAAACWwAAAFsAAABbAAAAWwAAAAsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAAsAAAALAAAACwAAAFsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABbAAAANwAAAEsAAABbAAAAWwAAAFsAAABbAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAADcAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAA3AAAASwAAAEsAAABLAAAAWwAAAAAAAABaAAAAWwAAAEsAAABLAAAAWwAAAFoAAABaAAAAWgAAAFoAAABbAAAANwAAAEsAAABbAAAASwAAAFsAAAAAAAAAWgAAAFsAAABbAAAASwAAAFsAAABaAAAAAAAAAAAAAABaAAAAWwAAADcAAABLAAAAMgAAADIAAABbAAAAWgAAAFoAAABbAAAAWwAAAEsAAABbAAAAWgAAAAAAAAAAAAAAWgAAAFsAAAA3AAAASwAAAFsAAABbAAAAWwAAAAAAAABaAAAAWwAAAFsAAABLAAAAWwAAAFoAAABaAAAAWgAAAFoAAABbAAAANwAAADcAAABYAAACWAAAAVsAAAAAAAAAWgAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAADcAAABLAAAAWAAAAlgAAAFbAAAAWgAAAFoAAABbAAAAWwAAAEsAAABbAAAASwAAAEsAAABLAAAASwAAAFsAAAA3AAAAWwAAAA==
+        tiles: NgAAABcAAAEXAAAANgAAABcAAAIXAAACNgAAABcAAAMXAAADNgAAABcAAAAXAAABNgAAABcAAAEXAAAANgAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABbAAAAWwAAAEsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAABcAAAIXAAABCwAAAAsAAAALAAAACwAAAEsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAFsAAAAXAAABNgAAAAsAAAALAAAACwAAAFsAAABbAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABbAAAAFwAAAzYAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAABcAAAIXAAACWwAAAFsAAABbAAAAWwAAAAsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAAsAAAALAAAACwAAAFsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAABbAAAANwAAAEsAAABbAAAAWwAAAFsAAABbAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAACwAAAAsAAAALAAAAWwAAADcAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAAA3AAAASwAAAEsAAABLAAAAWwAAAAAAAABaAAAAWwAAAEsAAABLAAAAWwAAAFoAAABaAAAAWgAAAFoAAABbAAAANwAAAEsAAABbAAAASwAAAFsAAAAAAAAAWgAAAFsAAABbAAAASwAAAFsAAABaAAAAAAAAAAAAAABaAAAAWwAAADcAAABLAAAAMgAAADIAAABbAAAAWgAAAFoAAABbAAAAWwAAAEsAAABbAAAAWgAAAAAAAAAAAAAAWgAAAFsAAAA3AAAASwAAAFsAAABbAAAAWwAAAFoAAABaAAAAWwAAAFsAAABLAAAAWwAAAFoAAABaAAAAWgAAAFoAAABbAAAANwAAADcAAABYAAACWAAAAVsAAAAAAAAAWgAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAADcAAABLAAAAWAAAAlgAAAFbAAAAWgAAAFoAAABbAAAAWwAAAEsAAABbAAAASwAAAEsAAABLAAAASwAAAFsAAAA3AAAAWwAAAA==
       3,-6:
         ind: 3,-6
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFoAAABaAAAAWgAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAABbAAAANwAAADcAAAAQAAAAEAAAABAAAAA3AAAANwAAAFsAAAAAAAAACwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAADcAAAA3AAAAEAAAABAAAAAQAAAANwAAADcAAABbAAAAAAAAAAsAAABbAAAASwAAAEsAAABLAAAASwAAAFsAAAA3AAAANwAAABAAAAAQAAAAEAAAADcAAAA3AAAAWwAAAFoAAAALAAAAWwAAAEsAAAA3AAAANwAAAEsAAABbAAAANwAAACwAAAA3AAAALAAAADcAAAAsAAAANwAAAFsAAAAAAAAACwAAAFsAAABLAAAANwAAADcAAABLAAAAWwAAADcAAAAsAAAALAAAACwAAAAsAAAALAAAADcAAABbAAAAAAAAAAsAAABbAAAASwAAAEsAAABLAAAASwAAAFsAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAAWwAAAFoAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABbAAAAFwAAAhcAAAE2AAAAFwAAABcAAAE2AAAAFwAAARcAAAE2AAAAFwAAABcAAAE2AAAAFwAAAhcAAABbAAAAFwAAAQ==
@@ -295,7 +295,7 @@ entities:
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWgAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAADFwAAABcAAAMXAAABSwAAAEsAAABLAAAASwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAADYAAAAXAAACFwAAAUsAAABLAAAASwAAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       2,-4:
         ind: 2,-4
-        tiles: WAAAAlgAAABbAAAAAAAAAFoAAABbAAAAWwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAEsAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABbAAAASwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAAXAAAAMgAAADIAAAAyAAAAWwAAAFsAAABLAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAJgAAADIAAAAyAAAAMgAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABaAAAAAAAAAAAAAAAAAAAAJgAAABcAAAAXAAAAJgAAABcAAABbAAAAWwAAAEsAAABbAAAANwAAADcAAABbAAAAWgAAAAAAAAAAAAAAAAAAABcAAAAXAAAAJgAAABcAAAAXAAAAWwAAAFsAAABLAAAASwAAADcAAAA3AAAASwAAAFoAAAAAAAAAAAAAAAAAAAAcAAAAMgAAABwAAAAcAAAAHAAAAFsAAABbAAAASwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFoAAABaAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABbAAAASwAAAEsAAABbAAAATAAAAEwAAABMAAAATAAAAEwAAABMAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: WAAAAlgAAABbAAAAAAAAAFoAAABbAAAAWwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAEsAAAA3AAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAANwAAADcAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABbAAAASwAAAFsAAABaAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABbAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsAAAAXAAAAMgAAADIAAAAyAAAAWwAAAFsAAABLAAAAWwAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAJgAAADIAAAAyAAAAMgAAAFsAAABbAAAASwAAAFsAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAJgAAABcAAAAXAAAAJgAAABcAAABbAAAAWwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWgAAAAAAAAAAAAAAAAAAABcAAAAXAAAAJgAAABcAAAAXAAAAWwAAAFsAAABLAAAASwAAADcAAAA3AAAASwAAAFoAAAAAAAAAAAAAAAAAAAAcAAAAMgAAABwAAAAcAAAAHAAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABaAAAAWgAAAFoAAABaAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAEsAAABLAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAASwAAAEsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABLAAAASwAAAEsAAABLAAAASwAAAEsAAABbAAAASwAAAEsAAABbAAAATAAAAEwAAABMAAAATAAAAEwAAABMAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAFoAAABaAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       -2,-1:
         ind: -2,-1
         tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABbAAAAWgAAAFsAAABMAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAFoAAABbAAAATAAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAABaAAAAWwAAAEwAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAFsAAABbAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAABaAAAAWwAAAEwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAWgAAAFsAAABMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAWgAAAFoAAABbAAAATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAFoAAABaAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAABaAAAAWgAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAWgAAAFoAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAFoAAABaAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFoAAABaAAAAWgAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAAAAAAAAAAABaAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAAAAAAAAAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAWgAAAFoAAABbAAAAWwAAAA==
@@ -954,6 +954,10 @@ entities:
           978: 29,15
           979: 30,15
           980: 31,15
+          1052: 7,5
+          1053: 8,5
+          1054: 9,5
+          1055: 10,5
       - node:
           color: '#FFFFFFFF'
           id: bushsnowb1
@@ -1684,6 +1688,7 @@ entities:
           984: 33,16
           995: 23,-35
           998: 23,-34
+          1051: 11,6
       - node:
           color: '#FFFFFFFF'
           id: DirtHeavy
@@ -1710,6 +1715,7 @@ entities:
           id: WoodTrimThinInnerNw
         decals:
           982: 32,15
+          1056: 11,5
       - node:
           color: '#FFFFFFFF'
           id: WoodTrimThinCornerSw
@@ -2209,14 +2215,16 @@ entities:
       tiles:
         -1,-1:
           0: 52428
-          1: 13107
+          1: 4915
+          2: 8192
         0,-1:
           0: 65535
         1,-1:
           0: 65535
         -1,0:
           0: 65484
-          1: 51
+          1: 35
+          2: 16
         0,0:
           0: 65535
         1,0:
@@ -2241,15 +2249,18 @@ entities:
         0,-4:
           0: 65535
         0,-3:
-          0: 65535
+          0: 49151
+          3: 16384
         0,-2:
-          0: 65535
+          0: 32767
+          3: 32768
         1,-4:
           0: 65535
         1,-3:
           0: 65535
         1,-2:
-          0: 65535
+          0: 61439
+          3: 4096
         2,-3:
           0: 65535
         2,-2:
@@ -2442,9 +2453,11 @@ entities:
         7,-1:
           0: 65535
         0,-8:
-          0: 65535
+          3: 7
+          0: 65528
         0,-7:
-          0: 65535
+          0: 32767
+          3: 32768
         0,-6:
           0: 65535
         0,-5:
@@ -2452,7 +2465,8 @@ entities:
         0,-10:
           0: 65535
         0,-9:
-          0: 65535
+          0: 57343
+          3: 8192
         1,-10:
           0: 65535
         1,-11:
@@ -2472,13 +2486,15 @@ entities:
         -4,-5:
           0: 65535
         -3,-8:
-          0: 65535
+          3: 5
+          0: 65530
         -3,-7:
           0: 65535
         -3,-6:
           0: 65535
         -3,-5:
-          0: 65535
+          3: 1
+          0: 65534
         -2,-8:
           0: 65535
         -2,-7:
@@ -2488,7 +2504,8 @@ entities:
         -2,-5:
           0: 65535
         -1,-8:
-          0: 65535
+          0: 65527
+          3: 8
         -1,-7:
           0: 65535
         -1,-6:
@@ -2498,7 +2515,8 @@ entities:
         -3,-9:
           0: 65535
         -3,-10:
-          0: 65535
+          0: 65503
+          3: 32
         -2,-10:
           0: 65535
         -2,-9:
@@ -2506,7 +2524,8 @@ entities:
         -1,-10:
           0: 65535
         -1,-9:
-          0: 65535
+          0: 32767
+          3: 32768
         8,-3:
           0: 65535
         8,-2:
@@ -2536,7 +2555,8 @@ entities:
         5,-10:
           0: 65535
         5,-9:
-          0: 65535
+          0: 65407
+          3: 128
         6,-9:
           0: 65535
         0,-12:
@@ -2564,9 +2584,11 @@ entities:
         -2,-11:
           0: 65535
         -1,-12:
-          0: 65535
+          0: 65503
+          3: 32
         -1,-11:
-          0: 65535
+          0: 65533
+          3: 2
         0,-16:
           0: 65535
         0,-15:
@@ -2594,7 +2616,8 @@ entities:
         3,-16:
           0: 65535
         3,-15:
-          0: 65535
+          3: 1
+          0: 65534
         3,-14:
           0: 65535
         3,-13:
@@ -2676,7 +2699,8 @@ entities:
         1,-19:
           0: 65518
         1,-18:
-          0: 65535
+          0: 61439
+          3: 4096
         1,-17:
           0: 65535
         2,-20:
@@ -2690,7 +2714,8 @@ entities:
         3,-17:
           0: 65535
         1,-21:
-          0: 65535
+          0: 65023
+          3: 512
         2,-21:
           0: 65535
         8,-4:
@@ -2824,7 +2849,8 @@ entities:
         13,-7:
           0: 65535
         13,-6:
-          0: 65535
+          0: 65471
+          3: 64
         13,-5:
           0: 65535
         14,-7:
@@ -2834,7 +2860,8 @@ entities:
         4,-12:
           0: 65535
         5,-12:
-          0: 65535
+          0: 64511
+          3: 1024
         4,-13:
           0: 65535
         5,-13:
@@ -2892,11 +2919,13 @@ entities:
         19,-2:
           0: 65535
         19,-1:
-          0: 65535
+          0: 65519
+          3: 16
         12,0:
           0: 65535
         12,1:
-          0: 65535
+          0: 65407
+          3: 128
         12,2:
           0: 65535
         12,3:
@@ -2948,11 +2977,13 @@ entities:
         19,3:
           0: 65535
         20,-3:
-          0: 65535
+          0: 65495
+          3: 40
         20,-2:
           0: 65535
         20,-1:
-          0: 65535
+          0: 65503
+          3: 32
         21,-3:
           0: 65331
         21,-2:
@@ -3004,7 +3035,8 @@ entities:
         14,-5:
           0: 65535
         15,-6:
-          0: 65535
+          0: 65279
+          3: 256
         15,-5:
           0: 65535
         4,-16:
@@ -3054,7 +3086,8 @@ entities:
         7,-21:
           0: 65535
         4,-20:
-          0: 65535
+          0: 61167
+          3: 4368
         4,-19:
           0: 65535
         4,-18:
@@ -3066,7 +3099,8 @@ entities:
         5,-19:
           0: 65535
         5,-18:
-          0: 65535
+          0: 30719
+          3: 34816
         5,-17:
           0: 65535
         6,-20:
@@ -3074,7 +3108,8 @@ entities:
         6,-19:
           0: 65535
         6,-18:
-          0: 65535
+          0: 57343
+          3: 8192
         6,-17:
           0: 65535
         7,-20:
@@ -3097,10 +3132,13 @@ entities:
           0: 65535
         8,-17:
           0: 63359
+          4: 128
         9,-20:
-          0: 65535
+          0: 62463
+          3: 3072
         10,-20:
-          0: 65535
+          0: 65279
+          3: 256
         11,-20:
           0: 65535
         12,-21:
@@ -3126,7 +3164,8 @@ entities:
         18,-21:
           0: 65535
         19,-21:
-          0: 65535
+          0: 63999
+          3: 1536
         16,-20:
           0: 65535
         17,-20:
@@ -3154,9 +3193,11 @@ entities:
         -4,-1:
           0: 65535
         -4,0:
-          0: 20479
+          0: 20471
+          3: 8
         -4,-10:
-          0: 65535
+          3: 1
+          0: 65534
         7,-12:
           0: 65535
         -5,-10:
@@ -3224,7 +3265,8 @@ entities:
         10,-22:
           0: 61166
         11,-22:
-          0: 65535
+          0: 65519
+          3: 16
         12,-22:
           0: 65523
         12,-19:
@@ -3254,7 +3296,8 @@ entities:
         15,-17:
           0: 1907
         11,-16:
-          0: 3839
+          0: 3775
+          3: 64
         12,-16:
           0: 2047
         13,-16:
@@ -3278,7 +3321,8 @@ entities:
         13,-22:
           0: 65532
         19,-19:
-          0: 65535
+          0: 24575
+          3: 40960
         20,-19:
           0: 65535
         20,-17:
@@ -3318,7 +3362,7 @@ entities:
         4,-23:
           0: 65535
         5,-24:
-          2: 15
+          4: 15
           0: 65520
         5,-23:
           0: 65535
@@ -3328,12 +3372,12 @@ entities:
           0: 65535
         4,-26:
           0: 44799
-          2: 4352
-          3: 16384
+          4: 4352
+          5: 16384
         4,-25:
-          2: 1
+          4: 1
           0: 65530
-          3: 4
+          5: 4
         5,-28:
           0: 13072
         5,-27:
@@ -3342,12 +3386,12 @@ entities:
           0: 4383
         5,-25:
           0: 255
-          2: 65280
+          4: 65280
         0,-27:
           0: 34952
         0,-26:
           0: 22015
-          2: 43520
+          4: 43520
         1,-27:
           0: 65535
         1,-26:
@@ -3362,19 +3406,19 @@ entities:
           0: 65535
         2,-26:
           0: 13311
-          2: 52224
+          4: 52224
         2,-25:
           0: 65523
-          2: 12
+          4: 12
         3,-28:
           0: 65535
         3,-27:
           0: 65535
         3,-26:
           0: 8959
-          2: 56576
+          4: 56576
         3,-25:
-          2: 13
+          4: 13
           0: 65522
         2,-29:
           0: 57344
@@ -3512,7 +3556,7 @@ entities:
           0: 65535
         6,-23:
           0: 62259
-          2: 3276
+          4: 3276
         7,-23:
           0: 13119
         8,-23:
@@ -3549,28 +3593,28 @@ entities:
           0: 65535
         0,-22:
           0: 21855
-          4: 8736
-          5: 34944
+          6: 8736
+          7: 34944
         6,-24:
-          2: 52239
+          4: 52239
           0: 13296
         7,-24:
-          2: 1
+          4: 1
           0: 30582
         8,-24:
           0: 8738
         0,-25:
           0: 65525
-          2: 10
+          4: 10
         6,-26:
           0: 57903
         6,-25:
-          2: 65280
+          4: 65280
           0: 243
         7,-26:
           0: 61455
         7,-25:
-          2: 4352
+          4: 4352
           0: 61112
         -1,-26:
           0: 52431
@@ -3626,8 +3670,11 @@ entities:
           0: 65535
         10,-16:
           0: 4607
+          4: 8704
         10,-15:
-          0: 65521
+          0: 49137
+          8: 16384
+          4: 2
         10,-14:
           0: 65535
         16,-6:
@@ -3649,7 +3696,8 @@ entities:
         21,-15:
           0: 39321
         21,-14:
-          0: 65531
+          0: 65467
+          3: 64
         21,-13:
           0: 39323
         20,-12:
@@ -3751,19 +3799,22 @@ entities:
         17,-14:
           0: 65535
         17,-13:
-          0: 65535
+          0: 65407
+          3: 128
         18,-14:
           0: 65535
         18,-13:
           0: 16383
         19,-14:
-          0: 65535
+          0: 65407
+          3: 128
         19,-13:
           0: 4095
         18,-17:
           0: 34952
         19,-18:
-          0: 4095
+          0: 4063
+          3: 32
         19,-17:
           0: 4113
         11,-15:
@@ -3785,7 +3836,8 @@ entities:
         23,-15:
           0: 61422
         23,-13:
-          0: 65535
+          0: 64511
+          3: 1024
         22,-12:
           0: 3758
         16,-15:
@@ -3799,11 +3851,13 @@ entities:
         19,-15:
           0: 61455
         -2,-18:
-          0: 65535
+          0: 57343
+          3: 8192
         -2,-17:
           0: 65535
         -4,-9:
-          0: 65535
+          0: 64511
+          3: 1024
         -7,-12:
           0: 17604
         -7,-11:
@@ -3927,7 +3981,8 @@ entities:
         18,-7:
           0: 13183
         19,-8:
-          0: 30583
+          0: 30071
+          3: 512
         16,-12:
           0: 65535
         16,-11:
@@ -3935,7 +3990,8 @@ entities:
         16,-10:
           0: 65535
         17,-12:
-          0: 65535
+          0: 65503
+          3: 32
         17,-11:
           0: 65535
         17,-10:
@@ -3996,6 +4052,36 @@ entities:
         - 0
         - 0
       - volume: 2500
+        temperature: 235
+        moles:
+        - 20.04244
+        - 75.39776
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 20.04244
+        - 75.39776
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
         temperature: 293.15
         moles:
         - 0
@@ -4045,6 +4131,21 @@ entities:
         moles:
         - 6666.982
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 19.481253
+        - 73.28662
         - 0
         - 0
         - 0
@@ -10840,11 +10941,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 1082
-  type: SpawnPointMedicalDoctor
+  type: PoweredSmallLight
   components:
-  - pos: 2.5,-23.5
+  - rot: 3.141592653589793 rad
+    pos: -7.5,-11.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 1083
   type: SpawnPointMedicalDoctor
   components:
@@ -12069,11 +12175,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 1281
-  type: SpawnPointMedicalDoctor
+  type: PoweredSmallLight
   components:
-  - pos: 4.5,-35.5
+  - rot: 1.5707963267948966 rad
+    pos: -13.5,-9.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 1282
   type: SpawnPointMedicalDoctor
   components:
@@ -29076,11 +29187,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 3924
-  type: Grille
+  type: PoweredSmallLight
   components:
-  - pos: 43.5,-51.5
+  - rot: 1.5707963267948966 rad
+    pos: 34.5,10.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 3925
   type: WallReinforced
   components:
@@ -29230,16 +29346,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 3947
-  type: PoweredSmallLight
+  type: SinkWide
   components:
-  - rot: 3.141592653589793 rad
-    pos: -12.5,-10.5
+  - pos: 12.5,6.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 3948
   type: WallSolid
   components:
@@ -31229,7 +31340,7 @@ entities:
 - uid: 4250
   type: PoweredSmallLight
   components:
-  - pos: -2.5,-10.5
+  - pos: 14.5,-30.5
     parent: 9
     type: Transform
   - enabled: False
@@ -31239,8 +31350,8 @@ entities:
 - uid: 4251
   type: PoweredSmallLight
   components:
-  - rot: -1.5707963267948966 rad
-    pos: -7.5,-8.5
+  - rot: 3.141592653589793 rad
+    pos: 23.5,-72.5
     parent: 9
     type: Transform
   - enabled: False
@@ -31321,10 +31432,10 @@ entities:
   - inputs:
       Open:
       - port: On
-        uid: 13446
+        uid: 11077
       Close:
       - port: Off
-        uid: 13446
+        uid: 11077
       Toggle: []
     type: SignalReceiver
 - uid: 4263
@@ -31336,10 +31447,10 @@ entities:
   - inputs:
       Open:
       - port: On
-        uid: 13446
+        uid: 11077
       Close:
       - port: Off
-        uid: 13446
+        uid: 11077
       Toggle: []
     type: SignalReceiver
 - uid: 4264
@@ -31514,7 +31625,7 @@ entities:
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 4290
-  type: Grille
+  type: WallReinforced
   components:
   - pos: 42.5,-51.5
     parent: 9
@@ -32164,6 +32275,8 @@ entities:
     type: Transform
   - charge: 100
     type: GravityGenerator
+  - radius: 175.75
+    type: PointLight
 - uid: 4393
   type: WallReinforced
   components:
@@ -50190,7 +50303,7 @@ entities:
   type: PoweredSmallLight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 25.5,-51.5
+    pos: 27.5,-62.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50221,8 +50334,7 @@ entities:
 - uid: 7340
   type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 26.5,-72.5
+  - pos: 46.5,-22.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50232,8 +50344,8 @@ entities:
 - uid: 7341
   type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 20.5,-72.5
+  - rot: 1.5707963267948966 rad
+    pos: 55.5,-21.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50286,7 +50398,8 @@ entities:
 - uid: 7347
   type: PoweredSmallLight
   components:
-  - pos: 47.5,-22.5
+  - rot: -1.5707963267948966 rad
+    pos: 30.5,-14.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50296,7 +50409,8 @@ entities:
 - uid: 7348
   type: PoweredSmallLight
   components:
-  - pos: 43.5,-22.5
+  - rot: 1.5707963267948966 rad
+    pos: -17.5,-23.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50326,7 +50440,7 @@ entities:
   type: PoweredSmallLight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 29.5,-11.5
+    pos: 26.5,10.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50336,7 +50450,8 @@ entities:
 - uid: 7352
   type: PoweredSmallLight
   components:
-  - pos: 34.5,12.5
+  - rot: 3.141592653589793 rad
+    pos: 16.5,8.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50346,8 +50461,8 @@ entities:
 - uid: 7353
   type: PoweredSmallLight
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 26.5,11.5
+  - rot: 3.141592653589793 rad
+    pos: 4.5,3.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50358,7 +50473,7 @@ entities:
   type: PoweredSmallLight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 15.5,11.5
+    pos: -8.5,1.5
     parent: 9
     type: Transform
   - enabled: False
@@ -50366,15 +50481,11 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 7355
-  type: PoweredSmallLight
+  type: Catwalk
   components:
-  - pos: 7.5,13.5
+  - pos: 45.5,-2.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 7356
   type: PoweredSmallLight
   components:
@@ -56526,27 +56637,17 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 8236
-  type: PoweredSmallLight
+  type: MedkitFilled
   components:
-  - rot: 3.141592653589793 rad
-    pos: -5.5,3.5
+  - pos: 4.326747,-63.260235
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8237
-  type: PoweredSmallLight
+  type: ClothingHeadHatParamedicsoftFlipped
   components:
-  - rot: 3.141592653589793 rad
-    pos: 0.5,3.5
+  - pos: 2.3498063,-36.70403
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8238
   type: PoweredlightBlueInterior
   components:
@@ -57634,7 +57735,6 @@ entities:
     - invalid
     - 9861
     - 12827
-    - invalid
     - 585
     type: DeviceList
 - uid: 8396
@@ -60064,16 +60164,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 8728
-  type: PoweredSmallLight
+  type: Catwalk
   components:
-  - rot: 3.141592653589793 rad
-    pos: 30.5,-17.5
+  - pos: 32.5,-68.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 8729
   type: GasPipeStraight
   components:
@@ -63795,13 +63890,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 9187
-  type: VendingMachineWallMedical
+  type: PoweredSmallLight
   components:
-  - flags: SessionSpecific
-    type: MetaData
-  - pos: 4.5,-62.5
+  - rot: 1.5707963267948966 rad
+    pos: 70.5,-10.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 9188
   type: GasPipeTJunction
   components:
@@ -79632,15 +79730,26 @@ entities:
     parent: 9
     type: Transform
 - uid: 11077
-  type: PoweredSmallLight
+  type: SignalSwitchDirectional
   components:
-  - pos: 16.5,-30.5
+  - rot: 1.5707963267948966 rad
+    pos: -13.5,-2.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
+  - outputs:
+      On:
+      - port: Open
+        uid: 4262
+      - port: Open
+        uid: 4263
+      Off:
+      - port: Close
+        uid: 4262
+      - port: Close
+        uid: 4263
+    type: SignalTransmitter
+  - fixtures: []
+    type: Fixtures
 - uid: 11078
   type: RandomPosterAny
   components:
@@ -80354,9 +80463,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 11152
-  type: ClothingHeadNurseHat
+  type: VendingMachineMedical
   components:
-  - pos: 2.3586264,-36.693977
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 3.5,-63.5
     parent: 9
     type: Transform
 - uid: 11153
@@ -81237,11 +81348,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 11290
-  type: MaterialBiomass
+  type: PoweredSmallLight
   components:
-  - pos: -1.638374,-30.546194
+  - pos: 73.5,-51.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 11291
   type: Catwalk
   components:
@@ -82887,7 +83002,7 @@ entities:
   type: PoweredSmallLight
   components:
   - rot: 1.5707963267948966 rad
-    pos: 32.5,-22.5
+    pos: 70.5,-35.5
     parent: 9
     type: Transform
   - enabled: False
@@ -88008,15 +88123,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 12322
-  type: PoweredSmallLight
+  type: Grille
   components:
-  - pos: 57.5,-21.5
+  - pos: 40.5,-59.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 12323
   type: Chair
   components:
@@ -88024,27 +88135,17 @@ entities:
     parent: 9
     type: Transform
 - uid: 12324
-  type: PoweredSmallLight
+  type: Grille
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 62.5,-18.5
+  - pos: 40.5,-60.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 12325
-  type: PoweredSmallLight
+  type: CableApcExtension
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 61.5,-10.5
+  - pos: 33.5,-68.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 12326
   type: Window
   components:
@@ -92946,16 +93047,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 12959
-  type: PoweredSmallLight
+  type: WallReinforced
   components:
-  - rot: 1.5707963267948966 rad
-    pos: 70.5,-10.5
+  - pos: 40.5,-57.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 12960
   type: ReinforcedWindow
   components:
@@ -96174,26 +96270,11 @@ entities:
   - color: '#FFFF00FF'
     type: AtmosPipeColor
 - uid: 13446
-  type: SignalSwitch
+  type: Firelock
   components:
-  - rot: 1.5707963267948966 rad
-    pos: -13.5,-2.5
+  - pos: 39.5,-55.5
     parent: 9
     type: Transform
-  - outputs:
-      On:
-      - port: Open
-        uid: 4262
-      - port: Open
-        uid: 4263
-      Off:
-      - port: Close
-        uid: 4262
-      - port: Close
-        uid: 4263
-    type: SignalTransmitter
-  - fixtures: []
-    type: Fixtures
 - uid: 13447
   type: GasPipeStraight
   components:
@@ -97482,15 +97563,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 13636
-  type: Table
+  type: ClosetEmergencyFilledRandom
   components:
-  - pos: 3.5,-63.5
+  - pos: 29.5,-52.5
     parent: 9
     type: Transform
 - uid: 13637
-  type: MedkitFilled
+  type: Firelock
   components:
-  - pos: 3.3950014,-63.244316
+  - pos: 38.5,-55.5
     parent: 9
     type: Transform
 - uid: 13638
@@ -97512,9 +97593,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 13641
-  type: MedkitFilled
+  type: CableApcExtension
   components:
-  - pos: 3.655418,-63.431946
+  - pos: 46.5,-66.5
     parent: 9
     type: Transform
 - uid: 13642
@@ -98608,9 +98689,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 13791
-  type: Catwalk
+  type: WallReinforced
   components:
-  - pos: 32.5,-68.5
+  - pos: 43.5,-51.5
     parent: 9
     type: Transform
 - uid: 13792
@@ -99302,9 +99383,10 @@ entities:
     parent: 9
     type: Transform
 - uid: 13903
-  type: Poweredlight
+  type: PoweredlightExterior
   components:
-  - pos: 65.5,-52.5
+  - rot: 1.5707963267948966 rad
+    pos: 35.5,-66.5
     parent: 9
     type: Transform
   - powerLoad: 0
@@ -101740,15 +101822,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 14288
-  type: PoweredSmallLight
+  type: Grille
   components:
-  - pos: 75.5,-19.5
+  - pos: 41.5,-57.5
     parent: 9
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14289
   type: PoweredSmallLight
   components:
@@ -103964,9 +104042,9 @@ entities:
   - color: '#FF0000FF'
     type: AtmosPipeColor
 - uid: 14653
-  type: WallReinforced
+  type: Grille
   components:
-  - pos: 40.5,-59.5
+  - pos: 42.5,-57.5
     parent: 9
     type: Transform
 - uid: 14654
@@ -104030,12 +104108,14 @@ entities:
     parent: 9
     type: Transform
 - uid: 14664
-  type: Poweredlight
+  type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 27.5,-54.5
+  - rot: 1.5707963267948966 rad
+    pos: 63.5,-51.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14665
@@ -104174,11 +104254,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 14687
-  type: WallReinforced
+  type: PoweredSmallLight
   components:
-  - pos: 40.5,-60.5
+  - rot: 1.5707963267948966 rad
+    pos: 42.5,-52.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 14688
   type: WallReinforced
   components:
@@ -104867,17 +104952,23 @@ entities:
     parent: 9
     type: Transform
 - uid: 14797
-  type: ReinforcedWindow
+  type: PoweredSmallLight
   components:
-  - pos: 42.5,-51.5
+  - rot: 1.5707963267948966 rad
+    pos: 61.5,-9.5
     parent: 9
     type: Transform
 - uid: 14798
-  type: ReinforcedWindow
+  type: PoweredSmallLight
   components:
-  - pos: 43.5,-51.5
+  - rot: 1.5707963267948966 rad
+    pos: 74.5,-40.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 14799
   type: PoweredlightExterior
   components:
@@ -105509,15 +105600,16 @@ entities:
     parent: 9
     type: Transform
 - uid: 14894
-  type: Grille
+  type: WallReinforced
   components:
-  - pos: 40.5,-57.5
+  - pos: 42.5,-55.5
     parent: 9
     type: Transform
 - uid: 14895
-  type: ReinforcedWindow
+  type: SecBreachingHammer
   components:
-  - pos: 40.5,-57.5
+  - rot: 1.5707963267948966 rad
+    pos: 26.405182,-11.527075
     parent: 9
     type: Transform
 - uid: 14896
@@ -105533,9 +105625,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 14898
-  type: Catwalk
+  type: WallReinforced
   components:
-  - pos: 38.5,-55.5
+  - pos: 43.5,-57.5
     parent: 9
     type: Transform
 - uid: 14899
@@ -105653,13 +105745,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 14917
-  type: Poweredlight
+  type: ReinforcedWindow
   components:
-  - pos: 41.5,-56.5
+  - pos: 40.5,-59.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14918
   type: Grille
   components:
@@ -105974,14 +106064,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 14967
-  type: Poweredlight
+  type: SignSpace
   components:
-  - rot: 3.141592653589793 rad
-    pos: 75.5,-53.5
+  - pos: 43.5,-57.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14968
   type: Catwalk
   components:
@@ -105989,39 +106076,31 @@ entities:
     parent: 9
     type: Transform
 - uid: 14969
-  type: Poweredlight
+  type: ClosetWallEmergencyFilledRandom
   components:
-  - rot: -1.5707963267948966 rad
-    pos: 40.5,-52.5
+  - pos: 42.5,-55.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14970
-  type: Poweredlight
+  type: ReinforcedWindow
   components:
-  - rot: 3.141592653589793 rad
-    pos: 36.5,-53.5
+  - pos: 40.5,-60.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14971
-  type: Poweredlight
+  type: ReinforcedWindow
   components:
-  - rot: 3.141592653589793 rad
-    pos: 33.5,-53.5
+  - pos: 42.5,-57.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14972
-  type: Poweredlight
+  type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 30.5,-53.5
+  - pos: 30.5,-52.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14973
@@ -106096,23 +106175,22 @@ entities:
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14981
-  type: Poweredlight
+  type: PoweredSmallLight
   components:
   - rot: 3.141592653589793 rad
-    pos: 44.5,-53.5
+    pos: 27.5,-54.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14982
-  type: Poweredlight
+  type: CableApcExtension
   components:
-  - rot: 3.141592653589793 rad
-    pos: 55.5,-53.5
+  - pos: 47.5,-66.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14983
   type: Window
   components:
@@ -106126,14 +106204,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 14985
-  type: Poweredlight
+  type: EmergencyRollerBed
   components:
-  - rot: 3.141592653589793 rad
-    pos: 67.5,-53.5
+  - pos: 1.5,-64.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 14986
   type: CableApcExtension
   components:
@@ -106141,12 +106216,14 @@ entities:
     parent: 9
     type: Transform
 - uid: 14987
-  type: Poweredlight
+  type: PoweredSmallLight
   components:
-  - rot: 3.141592653589793 rad
-    pos: 50.5,-53.5
+  - rot: 1.5707963267948966 rad
+    pos: -16.5,-25.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 14988
@@ -106343,9 +106420,9 @@ entities:
     parent: 9
     type: Transform
 - uid: 15019
-  type: WallReinforced
+  type: ClothingOuterCoatParamedicWB
   components:
-  - pos: 42.5,-55.5
+  - pos: 2.2560563,-37.204376
     parent: 9
     type: Transform
 - uid: 15020
@@ -106355,47 +106432,71 @@ entities:
     parent: 9
     type: Transform
 - uid: 15021
-  type: Grille
+  type: PoweredSmallLight
   components:
-  - pos: 41.5,-58.5
+  - rot: 3.141592653589793 rad
+    pos: 2.5,-71.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15022
-  type: Grille
+  type: PoweredSmallLight
   components:
-  - pos: 42.5,-58.5
+  - rot: 1.5707963267948966 rad
+    pos: 25.5,-33.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15023
-  type: Grille
+  type: PoweredSmallLight
   components:
-  - pos: 43.5,-57.5
+  - pos: 69.5,-43.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15024
-  type: WallReinforced
+  type: ReinforcedWindow
   components:
-  - pos: 43.5,-58.5
+  - pos: 41.5,-57.5
     parent: 9
     type: Transform
 - uid: 15025
-  type: ReinforcedWindow
+  type: PoweredSmallLight
   components:
-  - pos: 43.5,-57.5
+  - rot: 1.5707963267948966 rad
+    pos: 71.5,-25.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15026
-  type: ReinforcedWindow
+  type: MedkitFilled
   components:
-  - pos: 42.5,-58.5
+  - pos: 4.6288304,-63.45829
     parent: 9
     type: Transform
 - uid: 15027
-  type: ReinforcedWindow
+  type: PoweredSmallLight
   components:
-  - pos: 41.5,-58.5
+  - rot: -1.5707963267948966 rad
+    pos: 40.5,-52.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15028
   type: AirlockExternalGlassLocked
   components:
@@ -106415,17 +106516,26 @@ entities:
     parent: 9
     type: Transform
 - uid: 15031
-  type: ClosetWallEmergencyFilledRandom
+  type: PoweredSmallLight
   components:
-  - pos: 42.5,-55.5
+  - pos: 5.5,-70.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15032
-  type: SignSpace
+  type: PoweredSmallLight
   components:
-  - pos: 43.5,-58.5
+  - rot: -1.5707963267948966 rad
+    pos: 62.5,-21.5
     parent: 9
     type: Transform
+  - enabled: False
+    type: AmbientSound
+  - powerLoad: 0
+    type: ApcPowerReceiver
 - uid: 15033
   type: SignSpace
   components:
@@ -107256,13 +107366,11 @@ entities:
     parent: 9
     type: Transform
 - uid: 15165
-  type: Poweredlight
+  type: CableApcExtension
   components:
-  - pos: 60.5,-52.5
+  - pos: 33.5,-64.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 15166
   type: Window
   components:
@@ -108116,42 +108224,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 15300
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 38.5,-69.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 15301
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 39.5,-65.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 15302
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 39.5,-61.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 15303
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 39.5,-55.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 15304
   type: CrowbarRed
   components:
@@ -108601,22 +108673,10 @@ entities:
   - pos: 2.5,-68.5
     parent: 9
     type: Transform
-- uid: 15365
-  type: RollerBedSpawnFolded
-  components:
-  - pos: 1.4836147,-64.14253
-    parent: 9
-    type: Transform
 - uid: 15366
   type: SpawnPointMedicalDoctor
   components:
   - pos: 4.5,-68.5
-    parent: 9
-    type: Transform
-- uid: 15367
-  type: RollerBedSpawnFolded
-  components:
-  - pos: 1.6566086,-64.53864
     parent: 9
     type: Transform
 - uid: 15368
@@ -110045,12 +110105,6 @@ entities:
     type: Transform
   - color: '#FF0000FF'
     type: AtmosPipeColor
-- uid: 15553
-  type: Sink
-  components:
-  - pos: 12.5,6.5
-    parent: 9
-    type: Transform
 - uid: 15554
   type: RandomPosterAny
   components:
@@ -111056,16 +111110,6 @@ entities:
     nameSet: True
     id: Security Outpost
     type: SurveillanceCamera
-- uid: 15700
-  type: PoweredSmallLight
-  components:
-  - pos: 69.5,-19.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 15701
   type: ReinforcedWindow
   components:
@@ -112163,28 +112207,6 @@ entities:
   components:
   - rot: -1.5707963267948966 rad
     pos: -15.5,-13.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 15871
-  type: PoweredSmallLight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -17.5,-21.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 15872
-  type: PoweredSmallLight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -15.5,-28.5
     parent: 9
     type: Transform
   - enabled: False
@@ -116641,17 +116663,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-- uid: 16572
-  type: PoweredSmallLight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 35.5,-28.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 16573
   type: PoweredSmallLight
   components:
@@ -117447,12 +117458,6 @@ entities:
     type: Transform
   - tag: salvage
     type: MailingUnit
-- uid: 16681
-  type: ClothingUniformJumpskirtNurse
-  components:
-  - pos: 2.3065429,-37.183903
-    parent: 9
-    type: Transform
 - uid: 16682
   type: ClothingUniformJumpskirtNurse
   components:
@@ -119330,39 +119335,6 @@ entities:
   - pos: -0.27450895,-71.24439
     parent: 9
     type: Transform
-- uid: 16968
-  type: PoweredSmallLight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -0.5,-66.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 16969
-  type: PoweredSmallLight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 4.5,-71.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 16970
-  type: PoweredSmallLight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: -1.5,-69.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 16971
   type: WindowDirectional
   components:
@@ -119457,27 +119429,6 @@ entities:
   - pos: -5.5,-70.5
     parent: 9
     type: Transform
-- uid: 16986
-  type: PoweredSmallLight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 22.5,-31.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 16987
-  type: PoweredSmallLight
-  components:
-  - pos: 27.5,-32.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 16988
   type: ClothingBackpackDuffel
   components:
@@ -119708,17 +119659,6 @@ entities:
     pos: -26.5,-83.5
     parent: 9
     type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 17022
-  type: PoweredSmallLight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: -7.5,-2.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
   - powerLoad: 0
     type: ApcPowerReceiver
 - uid: 17023
@@ -121483,15 +121423,6 @@ entities:
   - pos: 74.5,-39.5
     parent: 9
     type: Transform
-- uid: 17309
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 74.5,-40.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 17310
   type: ReinforcedWindow
   components:
@@ -123669,42 +123600,6 @@ entities:
   - pos: 72.5,-52.5
     parent: 9
     type: Transform
-- uid: 17627
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 71.5,-49.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 17628
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 72.5,-43.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 17629
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 63.5,-44.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 17630
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 70.5,-36.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 17631
   type: SignBar
   components:
@@ -124367,24 +124262,6 @@ entities:
   - pos: 70.5,-26.5
     parent: 9
     type: Transform
-- uid: 17707
-  type: Poweredlight
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 71.5,-28.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 17708
-  type: Poweredlight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 71.5,-22.5
-    parent: 9
-    type: Transform
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 17709
   type: ClosetEmergencyFilledRandom
   components:
@@ -125404,17 +125281,6 @@ entities:
   - pos: 74.819305,-52.133553
     parent: 9
     type: Transform
-- uid: 17848
-  type: PoweredSmallLight
-  components:
-  - rot: 3.141592653589793 rad
-    pos: 73.5,-13.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 17849
   type: TwoWayLever
   components:
@@ -126721,27 +126587,6 @@ entities:
   - pos: 34.51783,-55.637966
     parent: 9
     type: Transform
-- uid: 18034
-  type: PoweredSmallLight
-  components:
-  - rot: 1.5707963267948966 rad
-    pos: 27.5,-67.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
-- uid: 18035
-  type: PoweredSmallLight
-  components:
-  - pos: 29.5,-60.5
-    parent: 9
-    type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 0
-    type: ApcPowerReceiver
 - uid: 18036
   type: APCBasic
   components:

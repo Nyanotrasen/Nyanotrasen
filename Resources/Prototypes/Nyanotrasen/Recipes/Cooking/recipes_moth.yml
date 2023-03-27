@@ -22,12 +22,24 @@
     FoodTomato: 1
 
 - type: microwaveMealRecipe
-  id: RecipeMothTomatoSauce
-  name: pesto recipe
+  id: RecipeMothTomatoSauceOlive
+  name: tomato sauce recipe
   result: FoodMothTomatoSauce
   time: 5
   reagents:
     OilOlive: 5
+    TableSalt: 5
+  solids:
+    FoodTomato: 1
+    #Herbs: 1
+
+- type: microwaveMealRecipe
+  id: RecipeMothTomatoSauceCorn
+  name: tomato sauce recipe
+  result: FoodMothTomatoSauce
+  time: 5
+  reagents:
+    OilCorn: 5
     TableSalt: 5
   solids:
     FoodTomato: 1

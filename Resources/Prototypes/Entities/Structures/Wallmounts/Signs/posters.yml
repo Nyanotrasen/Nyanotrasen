@@ -999,3 +999,12 @@
   components:
   - type: Sprite
     state: originmap
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCornzza
+  name: "Corncob Crust!"
+  description: "NEW Cornzza! Corn pizza, with a corncob crust that'll make you say 'why does this exist?'."
+  components:
+  - type: Sprite
+    state: cornzza-poster

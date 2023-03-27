@@ -1,0 +1,69 @@
+<Document>
+  # Cargo
+  The Quartermaster is responsible for managing the station's cargo bay, ensuring that cargo is bought and unnecessary items are sold. They are also responsible for managing the cargo bank account and shuttle.
+
+  ##Your Equipment
+  <Box>
+  <GuideEntityEmbed Entity="AppraisalTool"/>
+  </Box>
+  As a Quartermaster, your equipment is very basic, although you do come equipped with an [color=#a4885c]appraisal tool[/color] in your pocket. This appraisal tool allows you to scan items about the station and determine their value. This will allow you to determine some starting items to sell to raise your money.
+
+  ##Your responsibilities
+  As a Quartermaster, your primary responsibilities include:
+
+  - Taking the station's cargo orders
+  - Piloting the Cargo Shuttle
+  - Unloading and selling cargo
+
+  ##Taking Orders
+  <Box>
+  <GuideEntityEmbed Entity="ComputerCargoOrders"/>
+  </Box>
+  The only job that matters to the schmucks that arrive at your desk is taking orders. All stations give you a cargo counter where [color=#888084](on a good day)[/color] crew members will line up at to order items. Here, you'll find a [color=#a4885c]cargo request computer[/color] which you can use to order items from CentCom. To make an order, search for the item you [color=#888084](or others)[/color] want to order and fill out a report form [color=#888084](or not if you feel lazy.)[/color] It'll generate a request which you can approve and ta-da! Your order is sent!
+
+  When fulfilling orders, try to prioritize important requests [color=#888084](engineers requiring building materials)[/color] over trivial ones [color=#888084](clown wanting 10 crates of monkey cubes.)[/color] Bear in mind that items like the [color=#a4885c]Antimatter containment jar crate[/color] and [color=#a4885c]lasers crate[/color] can only be opened by authorized crew members, so they shouldn't be sold to your average assistant [color=#888084](lest they spend 10 minutes smashing it open with a crowbar.)[/color]
+
+  ##Piloting the Cargo Shuttle
+
+  <Box>
+  <GuideEntityEmbed Entity="ComputerCargoShuttle"/>
+  </Box>
+  Now that you've made an order, it's up to you to fly this order to your station. First, however, you'll need to use the uniquely named [color=#a4885c]cargo shuttle computer[/color] [color=#888084](not to be confused with the cargo shuttle console)[/color] to call the shuttle. If you've done that or if the shuttle has been called by your other quartermasters, you can finally get to piloting.
+  <Box>
+  <GuideEntityEmbed Entity="ComputerShuttleCargo"/>
+  </Box>
+  The [color=#a4885c]cargo shuttle console[/color] allows you to pilot the shuttle. Use [color=#a4885c]WASD[/color] to move the shuttle towards the station. Docking ports will show up as purple dots on the station, and it will be your job to find out which port belongs to cargo. Once you've found the correct port, it's time to carefully align yourself. Hold [color=#a4885c]spacebar[/color] to stabilize the shuttle and use your movement keys to slowly inch towards the docking port. Click on one of your docks on the left of the console GUI to get a closer view. Bear in mind, your docking ports will not dock unless you've selected them in the console.
+
+  Assuming you've docked both of your ports without hitting any unsuspecting salvage members in space, your shuttle should be ready at the cargo bay. When you need to leave, just reverse the procedure. Undock, fly away, and hit the recall button on the Cargo Shuttle Computer.
+
+  ##Unloading the shuttle and selling
+  <Box>
+  <Box>
+  <GuideEntityEmbed Entity="CrateGeneric"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="CrateEngineering"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="CrateSecgear"/>
+  </Box>
+  </Box>
+  When the shuttle is docked, it's time to unload. Drag the boxes out and make sure to deliver them to their respective department. Each box will have a label attached to it that can be removed by right clicking and selecting [color=#a4885c]remove label[/color] [color=#888084](or leaving it on there if you are lazy, as most are.)[/color]
+
+  After unloading the shuttle, now is the time to put anything you want to sell in the shuttle. A good tip is to load all of your junk into one crate so its easier to transport. These items will be sold when the shuttle is recalled.
+
+  ##How to Start the Shift
+  <Box>
+  <Box>
+  <GuideEntityEmbed Entity="AMEJar"/>
+  </Box>
+  <Box>
+  <GuideEntityEmbed Entity="JetpackBlue"/>
+  </Box>
+  </Box>
+  The two most common orders for cargo are AME fuel jars [color=#888084](the stuff used to power the station)[/color] and jetpacks [color=#888084](the stuff salvage uses to... well, salvage.)[/color] It's best to start by ordering one of each and delivering them to their respective department.
+
+  Afterwards, you should consider selling spare crates and materials. Most stations begin with strewn around crates. You can safely sell all of these and reorder them if they're needed later. Alternatively, arcade games around the station can offer a decent boost in money. Vending machines will not sell for revenue.
+  
+
+</Document>

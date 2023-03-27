@@ -23,6 +23,10 @@
         amount: 1
       - id: BoxMouthSwab
         amount: 1
+# > REVERT THIS COMMIT WHEN BIOMASS RECLAIMER DOAFTER WORKS AGAIN <
+      - id: MaterialBiomass
+        amount: 2
+# > <
 
 - type: entity
   id: CrateChemistrySupplies

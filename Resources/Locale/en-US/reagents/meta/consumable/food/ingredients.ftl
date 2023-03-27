@@ -36,3 +36,6 @@ reagent-desc-motor-oil = Keeps machines from squeaking.
 
 reagent-name-capsaicin-oil = Capsaicin Oil
 reagent-desc-capsaicin-oil = Capsaicin Oil is the ingredient found in different types of hot peppers.
+
+reagent-name-nausium = nausium
+reagent-desc-nausium = Sickening.

@@ -7,7 +7,7 @@
 <Box>
 <Box Orientation="Vertical">
 - Dough
-- 2 Mozzarella
+- 2 Mozzarella cheese
 - 3 tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
@@ -127,8 +127,8 @@
 <Box>
 <Box Orientation="Vertical">
 - Dough
-- 2 Tomatoes
-- Mozzarella
+- 10u tomato sauce
+- Mozzarella cheese
 </Box>
 <Box Orientation="Vertical">
 - Cheese Wedge
@@ -148,7 +148,7 @@
 - 10u pesto
 </Box>
 <Box Orientation="Vertical">
-- 2 Mozzarella
+- 2 Mozzarella cheese
 - 2 Tomatoes
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
@@ -161,7 +161,7 @@
 <Box>
 <Box Orientation="Vertical">
 - 5u corn oil
-- Mozzarella
+- Mozzarella cheese
 </Box>
 <Box Orientation="Vertical">
 - Curd Cheese
@@ -169,6 +169,23 @@
 </Box>
 <GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
 <GuideEntityEmbed Entity="FoodMothPizzaCotton" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Corncob Crust Pizza[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Dough
+- Cheese wedge
+- 6 ears of corn
+</Box>
+<Box Orientation="Vertical">
+- Tomato
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="30 sec"/>
+<GuideEntityEmbed Entity="FoodPizzaCorncob" Caption=""/>
 </Box>
 
 </Document>
