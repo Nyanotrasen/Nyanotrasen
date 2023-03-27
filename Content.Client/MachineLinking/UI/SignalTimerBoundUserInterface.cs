@@ -46,7 +46,6 @@ namespace Content.Client.MachineLinking.UI
             if (_window == null || state is not SignalTimerState cast)
                 return;
 
-            _window.SetCurrentStatus(cast.State.ToString());
             _window.SetCurrentTime(cast.Length.ToString());
         }
 

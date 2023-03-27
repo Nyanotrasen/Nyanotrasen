@@ -23,12 +23,7 @@ namespace Content.Client.MachineLinking.UI
             SecondsLabelEdit.OnTextEntered += e => OnTimeEntered?.Invoke(float.Parse(e.Text));
 
             ButtonStart.OnPressed += _ => _bui.OnStart();
-            ButtonStop.OnPressed += _ => _bui.OnStop();
-        }
-
-        public void SetCurrentStatus(string label)
-        {
-            StatusLabelEdit.Text = label;
+            ButtonCancel.OnPressed += _ => _bui.OnStop();
         }
 
         public void SetCurrentTime(string label)
