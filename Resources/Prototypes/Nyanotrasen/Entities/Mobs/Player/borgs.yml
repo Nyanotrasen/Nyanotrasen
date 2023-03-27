@@ -9,11 +9,18 @@
     netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
     layers:
-    - state: robot
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: robot
     - state: robot-flashlight
       shader: unshaded
       visible: false
       map: [ "enum.ToggleVisuals.Layer" ]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: robot
+      Dead:
+        Base: robot-dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 4
@@ -21,25 +28,34 @@
     needsHands: false
   - type: Speech
     speechSounds: Bass
+  - type: Mind
+    showExamineInfo: true
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.8
-      120: 0.6
-      180: 0.4
-      240: 0.2
+      50: 0.8
+      100: 0.6
+      150: 0.4
+      200: 0.2
   - type: MobState
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      250: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 450
       behaviors:
+      - !type:PlaySoundBehavior
+        sound: /Audio/Effects/metalbreak.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel:
+            min: 3
+            max: 5
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts: [ "Destruction" ]  
   - type: NoSlip
   - type: Fixtures
     fixtures:
@@ -54,6 +70,7 @@
   - type: Repairable
     fuelcost: 60
     doAfterDelay: 32
+  - type: Cyborg
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -171,6 +188,7 @@
         enum.ToggleVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
+
 - type: entity
   parent: PlayerCyborgBase
   id: PlayerCyborgStandard
@@ -239,11 +257,18 @@
     netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
     layers:
-    - state: robot
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: robot
     - state: robot-flashlight
       shader: unshaded
       visible: false
       map: [ "enum.ToggleVisuals.Layer" ]
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: robot
+      Dead:
+        Base: robot-dead
   - type: InnateTool
     tools:
       - id: HyposprayBorgMedical

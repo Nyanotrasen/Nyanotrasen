@@ -1,7 +1,9 @@
 using Content.Server.Administration.Logs;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Server.Borgs;
 using Content.Shared.Interaction;
+using Content.Server.Mind.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
@@ -50,6 +52,12 @@ namespace Content.Server.Repairable
             // Only try repair the target if it is damaged
             if (!EntityManager.TryGetComponent(uid, out DamageableComponent? damageable) || damageable.TotalDamage == 0)
                 return;
+
+            // Don't repair if it's a cyborg with no soul
+            if (EntityManager.TryGetComponent(uid, out CyborgComponent? cyborgComponent) && (!EntityManager.TryGetComponent(uid, out MindComponent? mindComponent) || mindComponent.Mind == null)){
+                uid.PopupMessage(args.User, Loc.GetString("borg-nosoul"));
+                return;
+            }
 
             float delay = component.DoAfterDelay;
 
