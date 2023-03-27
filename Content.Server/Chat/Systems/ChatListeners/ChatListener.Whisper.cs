@@ -2,9 +2,18 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
+using Content.Shared.Speech;
 
 namespace Content.Server.Chat.Systems
 {
+    public enum ChatDataWhisper : int
+    {
+        /// <summary>
+        /// The maximum range that this message will clearly reach.
+        /// </summary>
+        RangeObfuscated,
+    }
+
     /// <summary>
     /// This system handles who hears whispers and how whispers are obfuscated.
     /// </summary>
@@ -15,7 +24,8 @@ namespace Content.Server.Chat.Systems
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
-        public readonly static int ObfuscatedRange = 3;
+        public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
+        public readonly static int DefaultRangeObfuscated = 3;
 
         public override void Initialize()
         {
@@ -31,7 +41,19 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+            var range = DefaultRange;
+            var rangeObfuscated = DefaultRangeObfuscated;
+
+            if (TryComp<SpeechComponent>(args.Chat.Source, out var speechComponent))
+            {
+                range = speechComponent.SpeechRange;
+                rangeObfuscated = speechComponent.SpeechRangeObfuscated;
+            }
+
+            args.Chat.SetData(ChatDataSay.Range, range);
+            args.Chat.SetData(ChatDataWhisper.RangeObfuscated, rangeObfuscated);
+
+            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, range);
 
             while (enumerator.MoveNext(out var playerEntity, out var distance))
             {
@@ -48,8 +70,10 @@ namespace Content.Server.Chat.Systems
             if (args.Chat.ClaimedBy != this.GetType())
                 return;
 
+            var rangeObfuscated = args.Chat.GetData<int>(ChatDataWhisper.RangeObfuscated);
+
             if (args.RecipientData.TryGetData<float>(ChatRecipientDataSay.Distance, out var distance) &&
-                distance <= ObfuscatedRange)
+                distance <= rangeObfuscated)
             {
                 // Whispers will clue you in if the person isn't who they
                 // really seem to be, only if you're close enough to hear them

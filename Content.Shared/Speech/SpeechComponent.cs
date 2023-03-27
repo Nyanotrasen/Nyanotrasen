@@ -28,5 +28,19 @@ namespace Content.Shared.Speech
         public float SoundCooldownTime { get; set; } = 0.5f;
 
         public TimeSpan LastTimeSoundPlayed = TimeSpan.Zero;
+
+        /// <summary>
+        /// This is the limit to which someone else can hear the speaker.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("speechRange")]
+        public int SpeechRange = 10;
+
+        /// <summary>
+        /// Beyond this range, speech is obfuscated, like for whispers.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("speechRangeObfuscated")]
+        public int SpeechRangeObfuscated = 3;
     }
 }

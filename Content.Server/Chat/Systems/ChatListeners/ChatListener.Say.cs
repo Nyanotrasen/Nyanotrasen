@@ -2,6 +2,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
+using Content.Shared.Speech;
 
 namespace Content.Server.Chat.Systems
 {
@@ -29,6 +30,11 @@ namespace Content.Server.Chat.Systems
         /// The string of how the sender is perceived by default.
         /// </summary>
         Identity,
+
+        /// <summary>
+        /// The maximum range for this message.
+        /// </summary>
+        Range,
     }
 
     public enum ChatRecipientDataSay : int
@@ -67,7 +73,7 @@ namespace Content.Server.Chat.Systems
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-        public readonly static int VoiceRange = 10;
+        public readonly static int DefaultRange = 10;
 
         public override void Initialize()
         {
@@ -93,7 +99,14 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+            var range = DefaultRange;
+
+            if (TryComp<SpeechComponent>(args.Chat.Source, out var speechComponent))
+                range = speechComponent.SpeechRange;
+
+            args.Chat.SetData(ChatDataSay.Range, range);
+
+            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, range);
 
             while (enumerator.MoveNext(out var playerEntity, out var distance))
             {

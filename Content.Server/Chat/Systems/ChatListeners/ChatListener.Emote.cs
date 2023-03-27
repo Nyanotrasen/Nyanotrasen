@@ -2,6 +2,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
+using Content.Shared.Emoting;
 
 namespace Content.Server.Chat.Systems
 {
@@ -14,7 +15,7 @@ namespace Content.Server.Chat.Systems
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
 
-        public readonly static int EmoteRange = SayListenerSystem.VoiceRange;
+        public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
 
         public override void Initialize()
         {
@@ -30,7 +31,12 @@ namespace Content.Server.Chat.Systems
             if (args.Handled || args.Chat.ClaimedBy != this.GetType())
                 return;
 
-            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+            var range = DefaultRange;
+
+            if (TryComp<EmotingComponent>(args.Chat.Source, out var emotingComponent))
+                range = emotingComponent.EmoteRange;
+
+            var enumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, range);
 
             while (enumerator.MoveNext(out var playerEntity, out var distance))
             {

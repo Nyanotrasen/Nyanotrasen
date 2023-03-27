@@ -7,6 +7,7 @@ using Content.Server.Radio;
 using Content.Server.Radio.Components;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
+using Content.Shared.Speech;
 
 namespace Content.Server.Chat.Systems
 {
@@ -78,8 +79,8 @@ namespace Content.Server.Chat.Systems
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
-        public readonly static int ObfuscatedRange = WhisperListenerSystem.ObfuscatedRange;
-        public readonly static int VoiceRange = SayListenerSystem.VoiceRange;
+        public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
+        public readonly static int DefaultRangeObfuscated = WhisperListenerSystem.DefaultRangeObfuscated;
 
         public override void Initialize()
         {
@@ -119,11 +120,23 @@ namespace Content.Server.Chat.Systems
             if (args.Chat.ClaimedBy != this.GetType())
                 return;
 
+            var range = DefaultRange;
+            var rangeObfuscated = DefaultRangeObfuscated;
+
+            if (TryComp<SpeechComponent>(args.Chat.Source, out var speechComponent))
+            {
+                range = speechComponent.SpeechRange;
+                rangeObfuscated = speechComponent.SpeechRangeObfuscated;
+            }
+
+            args.Chat.SetData(ChatDataSay.Range, range);
+            args.Chat.SetData(ChatDataWhisper.RangeObfuscated, rangeObfuscated);
+
             if (!args.Chat.TryGetData<RadioChannelPrototype[]>(ChatDataRadio.RadioChannels, out var radioChannels))
             {
                 // No radio channels were supplied. The user does not have access to the channels.
                 // Just inform everyone around of the attempt using the new "<Player> radios, <message>" wrapper.
-                var playerEnumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, SayListenerSystem.VoiceRange);
+                var playerEnumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, range);
 
                 while (playerEnumerator.MoveNext(out var playerEntity, out var distance))
                 {
@@ -199,7 +212,7 @@ namespace Content.Server.Chat.Systems
                     recipientData.SetData(ChatRecipientDataRadio.WillHearRadio, true);
                     recipientData.SetData(ChatRecipientDataRadio.SharedRadioChannel, sharedChannel);
                 }
-                else if (distance > VoiceRange)
+                else if (distance > range)
                 {
                     // Candidate won't hear the radio or even the whisper.
                     continue;
@@ -217,6 +230,9 @@ namespace Content.Server.Chat.Systems
             if (args.Chat.ClaimedBy != this.GetType())
                 return;
 
+            var range = args.Chat.GetData<int>(ChatDataSay.Range);
+            var rangeObfuscated = args.Chat.GetData<int>(ChatDataWhisper.RangeObfuscated);
+
             var distance = args.RecipientData.GetData<float>(ChatRecipientDataSay.Distance);
             var willHearRadio = args.RecipientData.GetData<bool>(ChatRecipientDataRadio.WillHearRadio);
 
@@ -228,7 +244,7 @@ namespace Content.Server.Chat.Systems
             // as easily unless they're close enough to get extra details.
             if (willHearRadio)
             {
-                if (distance > VoiceRange || args.Recipient == args.Chat.Source)
+                if (distance > range || args.Recipient == args.Chat.Source)
                 {
                     // The recipient is out of voice range and cannot
                     // correlate what the source is saying on the radio, so
@@ -250,7 +266,7 @@ namespace Content.Server.Chat.Systems
             }
             else
             {
-                if (distance <= ObfuscatedRange)
+                if (distance <= rangeObfuscated)
                 {
                     // Can't hear the radio, but can hear the person talking,
                     // so give them a better idea of who this is.
