@@ -44,6 +44,8 @@
   - type: PlaceableSurface
     placeCentered: true
     isPlaceable: false
+  - type: EntityStorage
+    airtight: false
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
