@@ -2,6 +2,7 @@ using Content.Server.MachineLinking.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
+using Content.Shared.Examine;
 using Content.Server.Popups;
 using Content.Server.UserInterface;
 using Robust.Server.GameObjects;
@@ -25,6 +26,7 @@ namespace Content.Server.MachineLinking.System
             base.Initialize();
 
             SubscribeLocalEvent<SignalTimerComponent, ComponentInit>(OnInit);
+            SubscribeLocalEvent<SignalTimerComponent, ExaminedEvent>(OnExamined);
             // Bound UI subscriptions
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerLengthChangedMessage>(OnSignalTimerLengthChanged);
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartedMessage>(OnStart);
@@ -36,6 +38,16 @@ namespace Content.Server.MachineLinking.System
             _signalSystem.EnsureTransmitterPorts(uid, component.OnPort, component.OffPort);
         }
 
+        private void OnExamined(EntityUid uid, SignalTimerComponent component, ExaminedEvent args)
+        {
+            if (!args.IsInDetailsRange)
+                return;
+
+            if (!component.TimerOn)
+                return;
+
+            args.PushMarkup(Loc.GetString("signal-timer-examined", ("sec", (int) (component.TargetTime - _gameTiming.CurTime).TotalSeconds)));
+        }
         private void OnStart(EntityUid uid, SignalTimerComponent component, SignalTimerStartedMessage args)
         {
             if (args.Session.AttachedEntity is not {Valid: true} player)
