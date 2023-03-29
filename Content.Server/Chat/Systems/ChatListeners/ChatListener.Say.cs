@@ -77,6 +77,8 @@ namespace Content.Server.Chat.Systems
 
         public override void Initialize()
         {
+            EnabledListeners = EnabledListener.ParseChat | EnabledListener.GetRecipients | EnabledListener.RecipientTransformChat | EnabledListener.Chat;
+
             base.Initialize();
 
             _sawmill = Logger.GetSawmill("chat.say");

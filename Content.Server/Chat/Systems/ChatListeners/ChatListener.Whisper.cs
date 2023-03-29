@@ -30,6 +30,7 @@ namespace Content.Server.Chat.Systems
         public override void Initialize()
         {
             ListenBefore = new Type[] { typeof(SayListenerSystem) };
+            EnabledListeners = EnabledListener.GetRecipients | EnabledListener.RecipientTransformChat | EnabledListener.Chat;
 
             base.Initialize();
 

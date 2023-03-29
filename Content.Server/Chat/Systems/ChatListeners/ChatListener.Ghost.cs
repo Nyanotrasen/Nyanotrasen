@@ -16,6 +16,7 @@ namespace Content.Server.Chat.Systems
         public override void Initialize()
         {
             ListenBefore = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(EmoteListenerSystem), typeof(RadioListenerSystem) };
+            EnabledListeners = EnabledListener.GetRecipients;
 
             base.Initialize();
 

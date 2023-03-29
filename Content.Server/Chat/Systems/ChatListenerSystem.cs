@@ -6,6 +6,25 @@ namespace Content.Server.Chat.Systems
     {
         [Dependency] protected readonly IChatManager _chatManager = default!;
 
+        [Flags]
+        public enum EnabledListener : int
+        {
+            None = 0,
+            ParseChat = 1 << 0,
+            AttemptChat = 1 << 1,
+            GetRecipients = 1 << 2,
+            TransformChat = 1 << 3,
+            AfterTransform = 1 << 4,
+            BeforeChat = 1 << 5,
+            RecipientTransformChat = 1 << 6,
+            Chat = 1 << 7,
+        }
+
+        /// <summary>
+        /// This flag determines which event subscriptions are made, to avoid subscribing to irrelevant events.
+        /// </summary>
+        protected EnabledListener EnabledListeners;
+
         protected Type[]? ListenBefore;
         protected Type[]? ListenAfter;
 
@@ -13,14 +32,29 @@ namespace Content.Server.Chat.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<EntityChatParseEvent>(OnParseChat, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<EntityChatGetRecipientsEvent>(OnGetRecipients, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<EntityChatTransformEvent>(OnTransformChat, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<EntityChatAfterTransformEvent>(AfterTransform, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<BeforeEntityChatEvent>(BeforeChat, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<GotEntityChatTransformEvent>(OnRecipientTransformChat, before: ListenBefore, after: ListenAfter);
-            SubscribeLocalEvent<GotEntityChatEvent>(OnChat, before: ListenBefore, after: ListenAfter);
+            if (EnabledListeners.HasFlag(EnabledListener.ParseChat))
+                SubscribeLocalEvent<EntityChatParseEvent>(OnParseChat, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.AttemptChat))
+                SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.GetRecipients))
+                SubscribeLocalEvent<EntityChatGetRecipientsEvent>(OnGetRecipients, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.TransformChat))
+                SubscribeLocalEvent<EntityChatTransformEvent>(OnTransformChat, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.AfterTransform))
+                SubscribeLocalEvent<EntityChatAfterTransformEvent>(AfterTransform, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.BeforeChat))
+                SubscribeLocalEvent<BeforeEntityChatEvent>(BeforeChat, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.RecipientTransformChat))
+                SubscribeLocalEvent<GotEntityChatTransformEvent>(OnRecipientTransformChat, before: ListenBefore, after: ListenAfter);
+
+            if (EnabledListeners.HasFlag(EnabledListener.Chat))
+                SubscribeLocalEvent<GotEntityChatEvent>(OnChat, before: ListenBefore, after: ListenAfter);
         }
 
         public virtual void OnParseChat(ref EntityChatParseEvent args) { }

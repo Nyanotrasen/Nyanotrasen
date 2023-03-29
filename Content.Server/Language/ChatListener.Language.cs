@@ -40,6 +40,7 @@ namespace Content.Server.Language
         public override void Initialize()
         {
             ListenBefore = new Type[] { typeof(SayListenerSystem), typeof(WhisperListenerSystem), typeof(RadioListenerSystem) };
+            EnabledListeners = EnabledListener.TransformChat | EnabledListener.RecipientTransformChat;
 
             base.Initialize();
 

@@ -16,6 +16,8 @@ namespace Content.Server.Speech.EntitySystems
 
         public override void Initialize()
         {
+            EnabledListeners = EnabledListener.AfterTransform;
+
             base.Initialize();
 
             _sawmill = Logger.GetSawmill("chat.spoken");

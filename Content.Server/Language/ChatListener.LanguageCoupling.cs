@@ -23,6 +23,7 @@ namespace Content.Server.Language
         public override void Initialize()
         {
             ListenAfter = new Type[] { typeof(LanguageListener) };
+            EnabledListeners = EnabledListener.RecipientTransformChat;
 
             base.Initialize();
 
