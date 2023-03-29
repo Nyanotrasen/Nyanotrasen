@@ -48,8 +48,12 @@ namespace Content.Server.MachineLinking.System
 
             args.PushMarkup(Loc.GetString("signal-timer-examined", ("sec", (int) (component.TargetTime - _gameTiming.CurTime).TotalSeconds)));
         }
+
         private void OnStart(EntityUid uid, SignalTimerComponent component, SignalTimerStartedMessage args)
         {
+            if (component.TimerOn)
+                return;
+
             if (args.Session.AttachedEntity is not {Valid: true} player)
                 return;
 
