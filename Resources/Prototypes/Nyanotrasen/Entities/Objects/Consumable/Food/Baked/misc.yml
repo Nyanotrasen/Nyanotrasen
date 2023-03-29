@@ -74,3 +74,33 @@
           Quantity: 20
         - ReagentId: Mold
           Quantity: 28
+
+- type: entity
+  name: borito pie
+  parent: FoodMealBase
+  id: FoodBoritoPie
+  description: TBD
+  components:
+  #- type: FlavorProfile
+  #  flavors:
+  #    - sweet
+  #    - magical
+  #    - chocolate
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/snacks.rsi
+    state: borito-pie
+  - type: Food
+    trash: FoodPacketBoritosTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 13
+        - ReagentId: CapsaicinOil
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Protein
+          Quantity: 4

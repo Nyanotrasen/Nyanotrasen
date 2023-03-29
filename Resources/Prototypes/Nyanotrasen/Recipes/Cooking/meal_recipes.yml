@@ -38,3 +38,14 @@
   time: 5
   solids:
     FoodCurdCheese: 1
+
+- type: microwaveMealRecipe
+  id: RecipeBoritoPie
+  name: borito pie recipe
+  result: FoodBoritoPie
+  time: 15
+  solids:
+    FoodSnackBoritos: 1
+    FoodCheeseSlice: 1
+    FoodChili: 1
+    FoodMeatMeatball: 1
