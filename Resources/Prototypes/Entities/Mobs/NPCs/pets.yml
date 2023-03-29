@@ -13,7 +13,10 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: ian
+    - map: [ "head" ] #temp????
   - type: Appearance
+  - type: Inventory
+    templateId: ian  
   - type: DamageStateVisuals
     states:
       Alive:
@@ -44,6 +47,8 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: old_ian
   - type: Appearance
+  - type: Inventory
+    templateId: ian  
   - type: DamageStateVisuals
     states:
       Alive:

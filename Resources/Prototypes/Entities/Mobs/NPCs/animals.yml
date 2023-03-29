@@ -438,6 +438,9 @@
       layer:
       - MobLayer
   - type: Appearance
+  - type: Inventory
+    templateId: crab
+  - type: Strippable    
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1071,6 +1074,9 @@
       layer:
       - MobLayer
   - type: Appearance
+  - type: Inventory
+    templateId: penguin
+  - type: Strippable    
   - type: DamageStateVisuals
     states:
       Alive:
