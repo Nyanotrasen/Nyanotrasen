@@ -47,6 +47,7 @@ namespace Content.Client.MachineLinking.UI
                 return;
 
             _window.SetCurrentTime(cast.Length.ToString());
+            _window.HandleState(cast.State, cast.Remaining);
         }
 
         public void OnStart()

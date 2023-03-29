@@ -12,7 +12,7 @@ namespace Content.Server.MachineLinking.Components
     public sealed class SignalTimerComponent : Component
     {
         [DataField("length")]
-        public float Length;
+        public float Length = 10f;
 
         [DataField("targetTime")]
         public TimeSpan TargetTime;

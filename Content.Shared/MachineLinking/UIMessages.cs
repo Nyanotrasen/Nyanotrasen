@@ -54,11 +54,13 @@ namespace Content.Shared.MachineLinking
     {
         public bool State { get; }
         public float Length { get; }
+        public float Remaining { get; }
 
-        public SignalTimerState(bool state, float length)
+        public SignalTimerState(bool state, float length, float remaining)
         {
             State = state;
             Length = length;
+            Remaining = remaining;
         }
     }
 
