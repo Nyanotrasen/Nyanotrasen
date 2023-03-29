@@ -170,6 +170,28 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
+  id: ClothingKimonoPurple
+  name: purple kimono
+  description: You definitely won't look like a maroon in this.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-purple.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-purple.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingKimonoSky
+  name: sky blue kimono
+  description: Reminds you of natsu matsuri.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-sky.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-sky.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
   id: ClothingCostumeArcDress
   name: white shirt and purple skirt
   description: You feel a supernatural urge to put these on. It must be fate.
