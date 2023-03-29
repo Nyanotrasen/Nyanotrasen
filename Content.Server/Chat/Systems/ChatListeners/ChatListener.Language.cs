@@ -1,9 +1,8 @@
-using Content.Server.Chat.Systems;
 using Content.Server.Language;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 
-namespace Content.Server.Language
+namespace Content.Server.Chat.Systems
 {
     public enum ChatDataLanguage : int
     {
@@ -106,10 +105,7 @@ namespace Content.Server.Language
             args.RecipientData.SetData(ChatRecipientDataSay.Message, distortedMessage);
         }
     }
-}
 
-namespace Content.Server.Chat.Systems
-{
     public sealed partial class ChatSystem
     {
         /// <summary>

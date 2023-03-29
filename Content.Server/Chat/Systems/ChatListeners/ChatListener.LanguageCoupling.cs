@@ -1,7 +1,7 @@
-using Content.Server.Chat.Systems;
+using Content.Server.Language;
 using Content.Shared.Radio;
 
-namespace Content.Server.Language
+namespace Content.Server.Chat.Systems
 {
     /// <summary>
     /// This listener takes care of any wrapping after the language listener,
