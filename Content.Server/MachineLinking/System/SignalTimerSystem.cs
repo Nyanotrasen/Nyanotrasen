@@ -12,13 +12,6 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.MachineLinking.System
 {
-    /// <remarks>
-    ///     TODO:
-    ///     - Pressing the timer opens its UI instead of just activating it
-    ///     - UI needs an entry field for Length and a cancel button?
-    ///     - Ability to change component.Length from within the UI.
-    ///     - The UI start button should be what activates the timer
-    /// </remarks>
     public sealed class SignalTimerSystem : EntitySystem
     {
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
@@ -53,11 +46,11 @@ namespace Content.Server.MachineLinking.System
         private void OnStart(EntityUid uid, SignalTimerComponent component, SignalTimerStartedMessage args)
         {
             {
-                if (!component.State)
+                if (!component.TimerOn)
                     component.TargetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Length);
 
-                component.State = !component.State;
-                _signalSystem.InvokePort(uid, component.State ? component.OnPort : component.OffPort);
+                component.TimerOn = !component.TimerOn;
+                _signalSystem.InvokePort(uid, component.TimerOn ? component.OnPort : component.OffPort);
                 SoundSystem.Play(component.ClickSound.GetSound(), Filter.Pvs(component.Owner), component.Owner,
                     AudioHelpers.WithVariation(0.125f).WithVolume(8f));
             }
@@ -70,15 +63,15 @@ namespace Content.Server.MachineLinking.System
 
             foreach (var component in EntityManager.EntityQuery<SignalTimerComponent>())
             {
-                if (component.State)
+                if (component.TimerOn)
                 {
                     // check if TargetTime is reached
                     if (_gameTiming.CurTime < component.TargetTime)
                         continue;
 
                     // open door and reset state, as the timer is done
-                    component.State = !component.State;
-                    _signalSystem.InvokePort(component.Owner, component.State ? component.OnPort : component.OffPort);
+                    component.TimerOn = !component.TimerOn;
+                    _signalSystem.InvokePort(component.Owner, component.TimerOn ? component.OnPort : component.OffPort);
                 }
             }
         }
@@ -99,7 +92,7 @@ namespace Content.Server.MachineLinking.System
                 return;
 
             _userInterfaceSystem.TrySetUiState(uid, SignalTimerUiKey.Key,
-                new SignalTimerState(component.State, component.Length));
+                new SignalTimerState(component.TimerOn, component.Length));
         }
     }
 }

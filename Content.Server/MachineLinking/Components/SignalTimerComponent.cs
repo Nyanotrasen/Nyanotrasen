@@ -29,8 +29,8 @@ namespace Content.Server.MachineLinking.Components
         [DataField("offPort", customTypeSerializer: typeof(PrototypeIdSerializer<TransmitterPortPrototype>))]
         public string OffPort = "Off";
 
-        [DataField("state")]
-        public bool State;
+        [DataField("timerOn")]
+        public bool TimerOn;
 
         [DataField("clickSound")]
         public SoundSpecifier ClickSound { get; set; } = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
