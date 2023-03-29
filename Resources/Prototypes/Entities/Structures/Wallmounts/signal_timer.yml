@@ -33,3 +33,12 @@
     interfaces:
       - key: enum.SignalTimerUiKey.Key
         type: SignalTimerBoundUserInterface
+
+- type: entity
+  parent: SignalTimer
+  id: SignalTimerBrig
+  name: brig timer
+  description: A timer for cell doors.
+  components:
+    - type: AccessReader
+      access: [["Security"]]

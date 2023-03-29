@@ -35,5 +35,16 @@ namespace Content.Client.MachineLinking.UI
         {
             SecondsLabelEdit.Text = label;
         }
+
+        public void HandleState(bool TimerOn, float remaining)
+        {
+            ButtonStart.Disabled = TimerOn;
+            TimeRemainingLabel.Visible = TimerOn;
+
+            if (TimerOn)
+            {
+                TimeRemainingLabel.Text = (Loc.GetString("signal-timer-window-time-remaining", ("sec", (int) remaining)));
+            }
+        }
     }
 }

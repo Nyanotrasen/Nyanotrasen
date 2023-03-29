@@ -3,6 +3,7 @@
         <Label Name="SecondsLabel" Text="{Loc 'signal-timer-window-seconds'}" />
         <LineEdit Name="SecondsLabelEdit" />
         <Label Text="{Loc 'signal-timer-window-press-enter-to-confirm'}"/><Label Text=""/>
+        <Label Name="TimeRemainingLabel"/><Label Text=""/>
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Button Name="ButtonStart" Text="{Loc signal-timer-window-start}"/>
         </BoxContainer>

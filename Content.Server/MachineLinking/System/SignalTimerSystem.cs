@@ -1,14 +1,12 @@
 using Content.Server.MachineLinking.Components;
-using Content.Server.UserInterface;
-using Content.Shared.Audio;
-using Content.Shared.Interaction;
-using Content.Shared.Labels;
+using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
+using Content.Server.Popups;
+using Content.Server.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
-
 
 namespace Content.Server.MachineLinking.System
 {
@@ -17,16 +15,20 @@ namespace Content.Server.MachineLinking.System
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
         [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
+        [Dependency] private readonly PopupSystem _popup = default!;
+        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
 
             SubscribeLocalEvent<SignalTimerComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<SignalTimerComponent, ActivateInWorldEvent>(OnActivated);
             // Bound UI subscriptions
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerLengthChangedMessage>(OnSignalTimerLengthChanged);
             SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartedMessage>(OnStart);
+            SubscribeLocalEvent<SignalTimerComponent, BeforeActivatableUIOpenEvent>((e,c,_) => DirtyUI(e,c));
         }
 
         private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)
@@ -34,29 +36,29 @@ namespace Content.Server.MachineLinking.System
             _signalSystem.EnsureTransmitterPorts(uid, component.OnPort, component.OffPort);
         }
 
-        private void OnActivated(EntityUid uid, SignalTimerComponent component, ActivateInWorldEvent args)
-        {
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
-                return;
-
-            uid.GetUIOrNull(SignalTimerUiKey.Key)?.Open(actor.PlayerSession);
-            args.Handled = true;
-        }
-
         private void OnStart(EntityUid uid, SignalTimerComponent component, SignalTimerStartedMessage args)
         {
-            {
-                if (!component.TimerOn)
-                    component.TargetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Length);
+            if (args.Session.AttachedEntity is not {Valid: true} player)
+                return;
 
-                component.TimerOn = !component.TimerOn;
-                _signalSystem.InvokePort(uid, component.TimerOn ? component.OnPort : component.OffPort);
-                SoundSystem.Play(component.ClickSound.GetSound(), Filter.Pvs(component.Owner), component.Owner,
-                    AudioHelpers.WithVariation(0.125f).WithVolume(8f));
+            if (TryComp<AccessReaderComponent>(uid, out var access))
+            {
+                if (!_accessSystem.IsAllowed(player, uid, access))
+                {
+                    _popup.PopupEntity(Loc.GetString("door-remote-denied"), player, Shared.Popups.PopupType.SmallCaution);
+                    return;
+                }
             }
+
+            if (!component.TimerOn)
+                component.TargetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Length);
+
+            component.TimerOn = !component.TimerOn;
+            _signalSystem.InvokePort(uid, component.TimerOn ? component.OnPort : component.OffPort);
+            _audioSystem.PlayPvs(_audioSystem.GetSound(component.ClickSound), uid, AudioParams.Default.WithVariation(0.25f));
+            DirtyUI(uid, component);
         }
 
-        // adapted from MicrowaveSystem
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -72,6 +74,7 @@ namespace Content.Server.MachineLinking.System
                     // open door and reset state, as the timer is done
                     component.TimerOn = !component.TimerOn;
                     _signalSystem.InvokePort(component.Owner, component.TimerOn ? component.OnPort : component.OffPort);
+                    DirtyUI(component.Owner, component);
                 }
             }
         }
@@ -81,8 +84,17 @@ namespace Content.Server.MachineLinking.System
             if (args.Session.AttachedEntity is not {Valid: true} player)
                 return;
 
+            if (TryComp<AccessReaderComponent>(uid, out var access))
+            {
+                if (!_accessSystem.IsAllowed(player, uid, access))
+                {
+                    _popup.PopupEntity(Loc.GetString("door-remote-denied"), player, Shared.Popups.PopupType.SmallCaution);
+                    return;
+                }
+            }
+
             // update component.Length when UI entry is made, and TargetTime only on start.
-            component.Length = args.Length;
+            component.Length = Math.Clamp(args.Length, 10f, 1200f);
             DirtyUI(uid, component);
         }
 
@@ -92,7 +104,7 @@ namespace Content.Server.MachineLinking.System
                 return;
 
             _userInterfaceSystem.TrySetUiState(uid, SignalTimerUiKey.Key,
-                new SignalTimerState(component.TimerOn, component.Length));
+                new SignalTimerState(component.TimerOn, component.Length, (float) (component.TargetTime - _gameTiming.CurTime).TotalSeconds));
         }
     }
 }
