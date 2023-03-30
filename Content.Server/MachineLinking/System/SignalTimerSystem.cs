@@ -78,9 +78,6 @@ namespace Content.Server.MachineLinking.System
 
         private void OnExamined(EntityUid uid, SignalTimerComponent component, ExaminedEvent args)
         {
-            if (!args.IsInDetailsRange)
-                return;
-
             if (!component.TimerOn)
                 return;
 
