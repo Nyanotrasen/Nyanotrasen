@@ -46,11 +46,6 @@ namespace Content.Server.Chat.Systems
         Message,
 
         /// <summary>
-        /// A recipient-specific override message, wrapped for the chat log.
-        /// </summary>
-        WrappedMessage,
-
-        /// <summary>
         /// The distance from the source.
         /// </summary>
         Distance,

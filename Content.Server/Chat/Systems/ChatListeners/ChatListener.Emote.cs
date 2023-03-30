@@ -61,7 +61,7 @@ namespace Content.Server.Chat.Systems
 
             var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
             var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-            var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-me-wrap-message",
+            var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
                 ("entityName", identity),
                 ("message", FormattedMessage.EscapeText(message)));
 
