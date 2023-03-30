@@ -42,3 +42,5 @@
   components:
     - type: AccessReader
       access: [["Security"]]
+    - type: SignalTimer
+      endAlertChannel: Security
