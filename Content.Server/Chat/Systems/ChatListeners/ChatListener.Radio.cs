@@ -3,6 +3,7 @@ using System.Linq;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
+using Content.Server.Language;
 using Content.Server.Radio;
 using Content.Server.Radio.Components;
 using Content.Shared.Chat;
@@ -303,18 +304,57 @@ namespace Content.Server.Chat.Systems
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))
                 return;
 
+            var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
+            var message = FormattedMessage.EscapeText(args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message);
+
+            string? wrappedMessage;
+
             if (willHearRadio)
             {
                 if (!args.RecipientData.TryGetData<RadioChannelPrototype>(ChatRecipientDataRadio.SharedRadioChannel, out var channel))
                     return;
 
-                var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
-                var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-                var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-radio-message-wrap",
-                    ("color", channel.Color),
-                    ("channel", $"\\[{channel.LocalizedName}\\]"),
-                    ("name", identity),
-                    ("message", FormattedMessage.EscapeText(message)));
+                if (!args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
+                {
+                    // No language provided, so display it as-is.
+                    wrappedMessage = Loc.GetString("chat-radio-message-wrap",
+                        ("color", channel.Color),
+                        ("channel", $"\\[{channel.LocalizedName}\\]"),
+                        ("name", identity),
+                        ("message", message));
+                }
+                else if(args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsUnderstood))
+                {
+                    if (args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsSpeakingSameLanguage))
+                    {
+                        // We're speaking the same language.
+                        wrappedMessage = Loc.GetString("chat-radio-message-wrap",
+                            ("color", channel.Color),
+                            ("channel", $"\\[{channel.LocalizedName}\\]"),
+                            ("name", identity),
+                            ("message", message));
+                    }
+                    else
+                    {
+                        // Different language, but it's understood.
+                        wrappedMessage = Loc.GetString("chat-radio-language-message-wrap",
+                            ("color", channel.Color),
+                            ("channel", $"\\[{channel.LocalizedName}\\]"),
+                            ("name", identity),
+                            ("message", message),
+                            ("language", language.Name));
+                    }
+                }
+                else
+                {
+                    // Unknown language.
+                    wrappedMessage = Loc.GetString("chat-radio-language-message-wrap",
+                        ("color", channel.Color),
+                        ("channel", $"\\[{channel.LocalizedName}\\]"),
+                        ("name", identity),
+                        ("message", message),
+                        ("language", LanguageSystem.UnknownLanguage));
+                }
 
                 _chatManager.ChatMessageToOne(ChatChannel.Radio,
                     message,
@@ -325,11 +365,39 @@ namespace Content.Server.Chat.Systems
             }
             else
             {
-                var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
-                var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-                var wrappedMessage = Loc.GetString("chat-manager-entity-radio-wrap-message",
-                    ("entityName", identity),
-                    ("message", message));
+                if (!args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
+                {
+                    // No language provided, so display it as-is.
+                    wrappedMessage = Loc.GetString("chat-manager-entity-radio-wrap-message",
+                        ("entityName", identity),
+                        ("message", message));
+                }
+                else if(args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsUnderstood))
+                {
+                    if (args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsSpeakingSameLanguage))
+                    {
+                        // We're speaking the same language.
+                        wrappedMessage = Loc.GetString("chat-manager-entity-radio-wrap-message",
+                            ("entityName", identity),
+                            ("message", message));
+                    }
+                    else
+                    {
+                        // Different language, but it's understood.
+                        wrappedMessage = Loc.GetString("chat-manager-entity-radio-language-wrap-message",
+                            ("entityName", identity),
+                            ("message", message),
+                            ("language", language.Name));
+                    }
+                }
+                else
+                {
+                    // Unknown language.
+                    wrappedMessage = Loc.GetString("chat-manager-entity-radio-language-wrap-message",
+                        ("entityName", identity),
+                        ("message", message),
+                        ("language", LanguageSystem.UnknownLanguage));
+                }
 
                 _chatManager.ChatMessageToOne(ChatChannel.Radio,
                     message,
@@ -337,7 +405,7 @@ namespace Content.Server.Chat.Systems
                     args.Chat.Source,
                     false, // hideChat,
                     actorComponent.PlayerSession.ConnectedClient,
-                    Color.DarkGray);
+                    Color.DarkGray); // Override the color to make it look like a whisper.
             }
         }
 

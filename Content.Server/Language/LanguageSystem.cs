@@ -16,6 +16,8 @@ namespace Content.Server.Language
 
         private ISawmill _sawmill = default!;
 
+        public static string UnknownLanguage = "chat-manager-unknown-language";
+
         public override void Initialize()
         {
             base.Initialize();

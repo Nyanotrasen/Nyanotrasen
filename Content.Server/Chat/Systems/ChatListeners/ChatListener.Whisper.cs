@@ -1,6 +1,7 @@
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
+using Content.Server.Language;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
 
@@ -101,10 +102,43 @@ namespace Content.Server.Chat.Systems
                 return;
 
             var identity = _chatSystem.GetIdentity(args.Chat, args.RecipientData, args.Recipient);
-            var message = args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message;
-            var wrappedMessage = args.RecipientData.GetData<string>(ChatRecipientDataSay.WrappedMessage) ?? Loc.GetString("chat-manager-entity-whisper-wrap-message",
-                ("entityName", identity),
-                ("message", FormattedMessage.EscapeText(message)));
+            var message = FormattedMessage.EscapeText(args.RecipientData.GetData<string>(ChatRecipientDataSay.Message) ?? args.Chat.Message);
+
+            string? wrappedMessage;
+
+            if (!args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
+            {
+                // No language provided, so display it as-is.
+                wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+                    ("entityName", identity),
+                    ("message", message));
+            }
+            else if(args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsUnderstood))
+            {
+                if (args.RecipientData.GetData<bool>(ChatRecipientDataLanguage.IsSpeakingSameLanguage))
+                {
+                    // We're speaking the same language.
+                    wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+                        ("entityName", identity),
+                        ("message", message));
+                }
+                else
+                {
+                    // Different language, but it's understood.
+                    wrappedMessage = Loc.GetString("chat-manager-entity-whisper-language-wrap-message",
+                        ("entityName", identity),
+                        ("message", message),
+                        ("language", language.Name));
+                }
+            }
+            else
+            {
+                // Unknown language.
+                wrappedMessage = Loc.GetString("chat-manager-entity-whisper-language-wrap-message",
+                    ("entityName", identity),
+                    ("message", message),
+                    ("language", LanguageSystem.UnknownLanguage));
+            }
 
             _chatManager.ChatMessageToOne(args.Chat.Channel,
                 message,
