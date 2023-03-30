@@ -1,13 +1,16 @@
 using Content.Server.MachineLinking.Components;
+using Content.Server.Popups;
+using Content.Server.UserInterface;
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
 using Content.Shared.Examine;
-using Content.Server.Popups;
-using Content.Server.UserInterface;
+using Content.Shared.Radio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.MachineLinking.System
 {
@@ -19,6 +22,8 @@ namespace Content.Server.MachineLinking.System
         [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly RadioSystem _radio = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         /// I want to send UI updates every second
         /// idc about pausing so an acc should be OK
@@ -42,6 +47,9 @@ namespace Content.Server.MachineLinking.System
                     // check if TargetTime is reached
                     if (_gameTiming.CurTime < component.TargetTime)
                         continue;
+
+                    if (component.EndAlertChannel != null && _prototypeManager.TryIndex<RadioChannelPrototype>(component.EndAlertChannel, out var channel))
+                        _radio.SendRadioMessage(component.Owner, Loc.GetString(component.EndAlertMessage), channel);
 
                     ToggleTimer(component.Owner, component);
                 }
@@ -70,9 +78,6 @@ namespace Content.Server.MachineLinking.System
 
         private void OnExamined(EntityUid uid, SignalTimerComponent component, ExaminedEvent args)
         {
-            if (!args.IsInDetailsRange)
-                return;
-
             if (!component.TimerOn)
                 return;
 

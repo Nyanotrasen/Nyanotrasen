@@ -1,6 +1,7 @@
 using Content.Shared.MachineLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Content.Shared.Radio;
 
 namespace Content.Server.MachineLinking.Components
 {
@@ -34,5 +35,11 @@ namespace Content.Server.MachineLinking.Components
 
         [DataField("clickSound")]
         public SoundSpecifier ClickSound { get; set; } = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
+
+        [DataField("endAlertChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+        public string? EndAlertChannel;
+
+        [DataField("endAlertMessage")]
+        public string EndAlertMessage = "signal-timer-component-end-alert-default";
     }
 }

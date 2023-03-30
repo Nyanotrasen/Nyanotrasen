@@ -8,7 +8,7 @@
     - Wallmount
   components:
   - type: WallMount
-    arc: 360
+    arc: 180
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -16,6 +16,7 @@
   - type: Sprite
     sprite: Structures/Wallmounts/switch.rsi
     state: on
+    offset: 0,-0.25
   - type: SignalTimer
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
@@ -42,3 +43,5 @@
   components:
     - type: AccessReader
       access: [["Security"]]
+    - type: SignalTimer
+      endAlertChannel: Security
