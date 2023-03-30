@@ -14,9 +14,20 @@
   - type: Physics
     canCollide: false
   - type: Sprite
+    netsync: false
     sprite: Structures/Wallmounts/timer.rsi
-    state: dead
+    drawdepth: WallMountedItems
     offset: 0,-0.15
+    layers:
+    - map: ["TimerOn"]
+      state: "activated"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        TimerOn:
+          True: { state: "activated" }
+          False: { state: "complete" }
   - type: SignalTimer
   - type: UseDelay
     delay: 0.5 # prevent light-toggling auto-clickers.
