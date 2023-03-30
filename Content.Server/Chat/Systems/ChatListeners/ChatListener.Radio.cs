@@ -224,6 +224,20 @@ namespace Content.Server.Chat.Systems
                 args.Chat.Recipients.TryAdd(recipient, recipientData);
             }
 
+            // There could be players around that don't have radios.
+            // Add them so they hear the radio usage.
+            var otherPlayerEnumerator = new PlayerEntityInRangeEnumerator(EntityManager, _playerManager, args.Chat.Source, range);
+            while (otherPlayerEnumerator.MoveNext(out var playerEntity, out var distance))
+            {
+                if (args.Chat.Recipients.ContainsKey(playerEntity))
+                    // Skip the ones that were added already.
+                    continue;
+
+                var recipientData = new EntityChatData();
+                recipientData.SetData(ChatRecipientDataSay.Distance, distance);
+                args.Chat.Recipients.TryAdd(playerEntity, recipientData);
+            }
+
             args.Handled = true;
         }
 
