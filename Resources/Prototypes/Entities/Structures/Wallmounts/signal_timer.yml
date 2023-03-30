@@ -15,7 +15,7 @@
     canCollide: false
   - type: Sprite
     sprite: Structures/Wallmounts/timer.rsi
-    state: on
+    state: dead
     offset: 0,-0.15
   - type: SignalTimer
   - type: UseDelay

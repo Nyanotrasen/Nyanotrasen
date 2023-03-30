@@ -8,7 +8,7 @@
   "copyright": "Adapted from CEV-Eris at commit 15748b71a1e6d2c547588c653d7c42f18011f7c5 by Finket",
   "states": [
     {
-      "name": "on",
+      "name": "activated",
       "directions": 4,
       "delays": [
         [
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "name": "off",
+      "name": "complete",
       "directions": 4,
       "delays": [
         [
