@@ -22,6 +22,7 @@ namespace Content.Client.MachineLinking.UI
             SecondsLabelEdit.OnTextEntered += HandleTextEntered;
 
             ButtonStart.OnPressed += _ => _bui.OnStart();
+            CancelButton.OnPressed += _ => _bui.OnCancel();
         }
 
         private void HandleTextEntered(LineEdit.LineEditEventArgs e)
@@ -38,8 +39,8 @@ namespace Content.Client.MachineLinking.UI
 
         public void HandleState(bool TimerOn, float remaining)
         {
-            ButtonStart.Disabled = TimerOn;
-            TimeRemainingLabel.Visible = TimerOn;
+            StartBox.Visible = !TimerOn;
+            EndBox.Visible = TimerOn;
 
             if (TimerOn)
             {

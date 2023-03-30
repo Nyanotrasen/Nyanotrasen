@@ -25,8 +25,8 @@
     node: SignalTimerNode
   - type: SignalTransmitter
     outputs:
-      On: []
-      Off: []
+      TimerOn: []
+      TimerOff: []
   - type: ActivatableUI
     key: enum.SignalTimerUiKey.Key
   - type: UserInterface

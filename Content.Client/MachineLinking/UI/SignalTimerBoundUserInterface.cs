@@ -55,6 +55,11 @@ namespace Content.Client.MachineLinking.UI
             SendMessage(new SignalTimerStartedMessage());
         }
 
+        public void OnCancel()
+        {
+            SendMessage(new SignalTimerCancelledMessage());
+        }
+
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
