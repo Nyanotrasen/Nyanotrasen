@@ -79,13 +79,13 @@
   name: borito pie
   parent: FoodMealBase
   id: FoodBoritoPie
-  description: TBD
+  description: Peak jail food for when you are bored of normal meals.
   components:
-  #- type: FlavorProfile
-  #  flavors:
-  #    - sweet
-  #    - magical
-  #    - chocolate
+  - type: FlavorProfile
+    flavors:
+      - boritos
+      - cheesy
+      - spicy
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/snacks.rsi
     state: borito-pie
