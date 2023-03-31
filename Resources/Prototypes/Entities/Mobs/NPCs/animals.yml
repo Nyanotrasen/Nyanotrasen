@@ -1262,8 +1262,12 @@
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
     interactFailureString: petting-failure-generic
-  - type: Puller
   - type: Arachne
+  - type: Puller
+    needsHands: false
+  - type: BloodSucker
+    unitsToSucc: 15
+    webRequired: true
   - type: MeleeWeapon
     hidden: true
     angle: 0
