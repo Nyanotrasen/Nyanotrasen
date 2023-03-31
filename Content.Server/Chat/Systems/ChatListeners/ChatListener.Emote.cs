@@ -20,7 +20,7 @@ namespace Content.Server.Chat.Systems
         public override void Initialize()
         {
             ListenBefore = new Type[] { typeof(SayListenerSystem) };
-            EnabledListeners = EnabledListener.GetRecipients | EnabledListener.Chat;
+            EnabledListeners = EnabledListener.GetRecipients | EnabledListener.AfterTransform | EnabledListener.Chat;
 
             base.Initialize();
 
@@ -47,6 +47,11 @@ namespace Content.Server.Chat.Systems
             }
 
             args.Handled = true;
+        }
+
+        public override void AfterTransform(ref EntityChatAfterTransformEvent args)
+        {
+            _chatSystem.TryEmoteChatInput(args.Chat.Source, args.Chat.Message);
         }
 
         public override void OnChat(ref GotEntityChatEvent args)
