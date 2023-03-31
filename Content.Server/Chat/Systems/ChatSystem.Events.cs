@@ -55,7 +55,7 @@ namespace Content.Server.Chat.Systems
         /// <summary>
         /// The origin of the chat message.
         /// </summary>
-        public EntityUid Source;
+        public readonly EntityUid Source;
 
         /// <summary>
         /// The chat message.
