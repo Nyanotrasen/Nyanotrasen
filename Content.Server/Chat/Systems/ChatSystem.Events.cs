@@ -66,6 +66,11 @@ namespace Content.Server.Chat.Systems
         public string Message;
 
         /// <summary>
+        /// The original chat message.
+        /// </summary>
+        public readonly string OriginalMessage;
+
+        /// <summary>
         /// A dictionary of recipients to objects containing arbitrary data.
         /// </summary>
         /// <remarks>
@@ -90,6 +95,7 @@ namespace Content.Server.Chat.Systems
         {
             Source = source;
             Message = message;
+            OriginalMessage = message;
         }
     }
 
