@@ -20,7 +20,7 @@
 
 - type: technology
   name: technologies-cleaning-technology
-  id: MopBucket
+  id: CleaningTechnology
   description: technologies-cleaning-technology-description
   icon:
     sprite: Objects/Specific/Janitorial/janitorial.rsi
@@ -31,7 +31,7 @@
   unlockedRecipes:
   - Bucket
   - MopItem
-  - MopAdvanced
+  - AdvMopItem
   - MopBucket
   - SprayBottle
   - BodyBag
