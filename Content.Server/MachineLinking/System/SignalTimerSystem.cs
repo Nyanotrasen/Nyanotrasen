@@ -6,6 +6,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.MachineLinking;
 using Content.Shared.Examine;
+using Content.Shared.Power;
 using Content.Shared.Radio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -24,6 +25,7 @@ namespace Content.Server.MachineLinking.System
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly RadioSystem _radio = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
 
         /// I want to send UI updates every second
         /// idc about pausing so an acc should be OK
@@ -161,6 +163,7 @@ namespace Content.Server.MachineLinking.System
             _signalSystem.InvokePort(uid, component.TimerOn ? component.OnPort : component.OffPort);
             _audioSystem.PlayPvs(_audioSystem.GetSound(component.ClickSound), uid, AudioParams.Default.WithVariation(0.25f));
             DirtyUI(uid, component);
+            _appearanceSystem.SetData(uid, PowerDeviceVisuals.VisualState, component.TimerOn);
         }
 
     }
