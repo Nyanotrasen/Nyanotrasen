@@ -139,7 +139,7 @@ public partial class ChatSystem
         return true;
     }
 
-    private void TryEmoteChatInput(EntityUid uid, string textInput)
+    public void TryEmoteChatInput(EntityUid uid, string textInput)
     {
         var actionLower = textInput.ToLower();
         if (!_wordEmoteDict.TryGetValue(actionLower, out var emote))
