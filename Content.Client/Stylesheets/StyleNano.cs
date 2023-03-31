@@ -410,6 +410,15 @@ namespace Content.Client.Stylesheets
             radioBox.SetPatchMargin(StyleBox.Margin.All, 2);
             radioBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
 
+            // LOOC box
+            var loocTexture = resCache.GetTexture("/Textures/Interface/Nano/looc.png");
+            var loocBox = new StyleBoxTexture
+            {
+                Texture = loocTexture,
+            };
+            loocBox.SetPatchMargin(StyleBox.Margin.All, 4);
+            loocBox.SetContentMarginOverride(StyleBox.Margin.Horizontal, 7);
+
             // Placeholder
             var placeholderTexture = resCache.GetTexture("/Textures/Interface/Nano/placeholder.png");
             var placeholder = new StyleBoxTexture {Texture = placeholderTexture};
@@ -926,6 +935,11 @@ namespace Content.Client.Stylesheets
                 new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "radioBox"}, null, null), new[]
                 {
                     new StyleProperty(PanelContainer.StylePropertyPanel, radioBox)
+                }),
+
+                new StyleRule(new SelectorElement(typeof(PanelContainer), new[] {"speechBox", "loocBox"}, null, null), new[]
+                {
+                    new StyleProperty(PanelContainer.StylePropertyPanel, loocBox)
                 }),
 
                 // alert tooltip

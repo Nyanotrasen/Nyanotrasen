@@ -13,7 +13,8 @@ namespace Content.Client.Chat.UI
             Emote,
             Say,
             Whisper,
-            Radio
+            Radio,
+            LOOC
         }
 
         /// <summary>
@@ -62,6 +63,9 @@ namespace Content.Client.Chat.UI
 
                 case SpeechType.Radio:
                     return new TextSpeechBubble(text, senderEntity, eyeManager, chatManager, entityManager, "radioBox");
+
+                case SpeechType.LOOC:
+                    return new TextSpeechBubble(text, senderEntity, eyeManager, chatManager, entityManager, "loocBox");
 
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -813,6 +813,10 @@ public sealed class ChatUIController : UIController
             case ChatChannel.Radio:
                 AddSpeechBubble(msg, SpeechBubble.SpeechType.Radio);
                 break;
+
+            case ChatChannel.LOOC:
+                AddSpeechBubble(msg, SpeechBubble.SpeechType.LOOC);
+                break;
         }
     }
 
