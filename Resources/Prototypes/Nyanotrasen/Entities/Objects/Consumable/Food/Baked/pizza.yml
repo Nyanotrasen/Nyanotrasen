@@ -1,4 +1,50 @@
 - type: entity
+  name: corncob crust pizza
+  parent: FoodPizzaBase
+  id: FoodPizzaCorncob
+  description: Cobbled together as a sick joke. Best served with liquid butter.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corncob
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
+    state: corncob
+  - type: SliceableFood
+    slice: FoodPizzaCorncobSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 100
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 36
+        - ReagentId: Nausium
+          Quantity: 33
+
+- type: entity
+  name: slice of corncob crust pizza
+  parent: FoodPizzaSliceBase
+  id: FoodPizzaCorncobSlice
+  description: Cobbled together as a sick joke. Best served with liquid butter.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - corncob
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/Baked/pizza.rsi
+    state: corncob-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Nausium
+          Quantity: 5.5
+
+- type: entity
   name: firecracker pizza
   parent: FoodPizzaBase
   id: FoodMothPizzaFirecracker

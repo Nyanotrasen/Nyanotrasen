@@ -512,6 +512,18 @@
     FoodCurdCheese: 1
     MaterialCotton1: 1
 
+- type: microwaveMealRecipe
+  id: RecipeCorncobPizza
+  name: corncob crust pizza recipe
+  result: FoodPizzaCorncob
+  time: 30
+  solids:
+    FoodDough: 1
+    FoodCorn: 6
+    FoodCheeseSlice: 1
+    FoodTomato: 1
+    FoodButter: 1
+
 # Sweets: Get them out of microwave when proper oven.
 
 - type: microwaveMealRecipe
