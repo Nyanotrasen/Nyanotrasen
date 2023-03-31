@@ -11,7 +11,7 @@ namespace Content.Server.Chat.Systems
         {
             None = 0,
             ParseChat = 1 << 0,
-            AttemptChat = 1 << 1,
+            ChatAttempt = 1 << 1,
             GetRecipients = 1 << 2,
             TransformChat = 1 << 3,
             AfterTransform = 1 << 4,
@@ -35,7 +35,7 @@ namespace Content.Server.Chat.Systems
             if (EnabledListeners.HasFlag(EnabledListener.ParseChat))
                 SubscribeLocalEvent<EntityChatParseEvent>(OnParseChat, before: ListenBefore, after: ListenAfter);
 
-            if (EnabledListeners.HasFlag(EnabledListener.AttemptChat))
+            if (EnabledListeners.HasFlag(EnabledListener.ChatAttempt))
                 SubscribeLocalEvent<EntityChatAttemptEvent>(OnChatAttempt, before: ListenBefore, after: ListenAfter);
 
             if (EnabledListeners.HasFlag(EnabledListener.GetRecipients))
