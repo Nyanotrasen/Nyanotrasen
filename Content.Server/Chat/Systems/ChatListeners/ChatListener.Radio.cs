@@ -23,6 +23,14 @@ namespace Content.Server.Chat.Systems
         /// This is the entity responsible for actually transmitting the message.
         /// </summary>
         RadioSource,
+
+        /// <summary>
+        /// This is the message after parsing out any radio prefixes.
+        /// </summary>
+        /// <remarks>
+        /// The intent is to have an OriginalMessage that is meaningful for radio messages, for later use in logging.
+        /// </remarks>
+        OriginalRadioMessage,
     }
 
     public enum ChatRecipientDataRadio : int
@@ -109,6 +117,7 @@ namespace Content.Server.Chat.Systems
             args.Chat.Channel = ChatChannel.Radio;
             args.Chat.ClaimedBy = this.GetType();
             args.Chat.Message = parsedMessage;
+            args.Chat.SetData(ChatDataRadio.OriginalRadioMessage, parsedMessage);
             args.Chat.SetData(ChatDataSay.IsSpoken, true);
 
             if (canTransmitEvent.CanTransmit)
