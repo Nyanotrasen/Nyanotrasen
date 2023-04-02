@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.Language;
 using Content.Server.Radio;
@@ -86,6 +87,7 @@ namespace Content.Server.Chat.Systems
         private ISawmill _sawmill = default!;
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IReplayRecordingManager _replay = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
@@ -421,6 +423,8 @@ namespace Content.Server.Chat.Systems
                         ("message", message),
                         ("language", LanguageSystem.UnknownLanguage));
                 }
+
+                _replay.QueueReplayMessage(new ChatMessage(args.Chat.Channel, message, wrappedMessage, args.Chat.Source, false));
 
                 _chatManager.ChatMessageToOne(ChatChannel.Radio,
                     message,

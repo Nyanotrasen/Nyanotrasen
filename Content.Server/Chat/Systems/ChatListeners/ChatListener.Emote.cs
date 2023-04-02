@@ -1,5 +1,6 @@
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Shared.Chat;
 using Content.Shared.Emoting;
@@ -12,8 +13,9 @@ namespace Content.Server.Chat.Systems
     {
         private ISawmill _sawmill = default!;
 
-        [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IReplayRecordingManager _replay = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
 
@@ -69,6 +71,8 @@ namespace Content.Server.Chat.Systems
             var wrappedMessage = Loc.GetString("chat-manager-entity-me-wrap-message",
                 ("entityName", identity),
                 ("message", FormattedMessage.EscapeText(message)));
+
+            _replay.QueueReplayMessage(new ChatMessage(args.Chat.Channel, message, wrappedMessage, args.Chat.Source, false));
 
             _chatManager.ChatMessageToOne(args.Chat.Channel,
                 message,
