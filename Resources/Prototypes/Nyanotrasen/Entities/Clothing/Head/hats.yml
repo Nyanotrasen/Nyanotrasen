@@ -162,6 +162,7 @@
         Blunt: 0.80
         Slash: 0.95
         Piercing: 0.95
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCap
@@ -172,6 +173,7 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCentcomm
@@ -182,6 +184,7 @@
     sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretMysta
