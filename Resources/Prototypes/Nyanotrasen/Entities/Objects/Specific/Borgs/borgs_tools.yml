@@ -139,6 +139,7 @@
 - type: entity
   parent: PartRodMetal
   id: PartRodMetalInfinite
+  suffix: Infinite
   components:
   - type: Stack
     unlimited: true
