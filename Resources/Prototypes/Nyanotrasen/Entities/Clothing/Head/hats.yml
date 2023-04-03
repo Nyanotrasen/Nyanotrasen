@@ -169,9 +169,9 @@
   description: A blue beret with a captain's rank emblem. For captains that are more inclined towards style than safety.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_cap.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_cap.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCentcomm
@@ -179,9 +179,9 @@
   description: A green beret with an admiral's rank emblem.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_cent.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_cent.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretMysta
@@ -189,6 +189,6 @@
   description: A purple beret with a blue epistemics emblem. Mystical and stylish.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_mysta.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_mysta.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_mysta.rsi
+    sprite: Nyanotrasen/Clothing/Head/Hats/beret_mysta.rsi
