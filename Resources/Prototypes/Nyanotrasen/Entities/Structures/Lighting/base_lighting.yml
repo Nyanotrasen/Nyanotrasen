@@ -9,3 +9,15 @@
     damage:
       types:
         Heat: 0.2
+
+- type: entity
+  parent: AlwaysPoweredWallLight
+  id: AlwaysPoweredlightBlueInterior
+  suffix: Always Powered, Blue Interior
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  components:
+  - type: PointLight
+    radius: 12
+    energy: 3
+    softness: 0.5
+    color: "#B4FCF0"

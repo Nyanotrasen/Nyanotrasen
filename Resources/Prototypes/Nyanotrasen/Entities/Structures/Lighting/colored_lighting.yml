@@ -13,6 +13,18 @@
         Heat: 0.2
 
 - type: entity
+  id: AlwaysPoweredlightColoredRed
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Always Powered, Red
+  parent: AlwaysPoweredWallLight
+  components:
+  - type: PointLight
+    radius: 10
+    energy: 0.8
+    softness: 0.5
+    color: "#FF6666"
+
+- type: entity
   id: PoweredlightColoredFrostyBlue
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: Frosty
@@ -25,6 +37,18 @@
         Heat: 0.2
 
 - type: entity
+  id: AlwaysPoweredlightColoredFrostyBlue
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Always Powered, Frosty
+  parent: AlwaysPoweredWallLight
+  components:
+  - type: PointLight
+    radius: 10
+    energy: 0.8
+    softness: 1
+    color: "#00FFFF"
+
+- type: entity
   id: PoweredlightColoredBlack
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: Black
@@ -35,6 +59,18 @@
     damage:
       types:
         Heat: 0.2
+
+- type: entity
+  id: AlwaysPoweredlightColoredBlack
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Always Powered, Black
+  parent: AlwaysPoweredWallLight
+  components:
+  - type: PointLight
+    radius: 10
+    energy: 0.8
+    softness: 1
+    color: "#5D0CED"
 
 - type: entity
   id: PoweredLightPostSmallRed
@@ -52,3 +88,23 @@
     damage:
       types:
         Heat: 2
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  id: AlwaysPoweredLightPostSmallRed
+  name: post light
+  description: "A light fixture. Draws power and produces light when equipped with a light tube."
+  suffix: Always Powered, Red
+  parent: LightPostSmall
+  components:
+  - type: Sprite
+    layers:
+    - state: off
+      map: [ "enum.PoweredLightLayers.Base" ]
+  - type: PointLight
+    radius: 10
+    energy: 0.8
+    softness: 1
+    offset: "0, -0.5"
+    color: "#FF6666"
