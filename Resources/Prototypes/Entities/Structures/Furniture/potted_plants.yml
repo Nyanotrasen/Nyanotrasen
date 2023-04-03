@@ -25,6 +25,11 @@
     noRot: true
   - type: PottedPlantHide
   - type: SecretStash
+  - type: Storage
+    capacity: 300
+    whitelist:
+      components:
+        - Felinid
     secretPartName: secret-stash-part-plant
   - type: ContainerContainer
     containers:
