@@ -1,7 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Disease.Components;
-using Content.Server.DoAfter;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Clothing.Components;
@@ -37,6 +36,7 @@ namespace Content.Server.Disease
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ISerializationManager _serializationManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
@@ -54,6 +54,8 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<DiseaseProtectionComponent, GotUnequippedEvent>(OnUnequipped);
             // Handling stuff from other systems
             SubscribeLocalEvent<DiseaseCarrierComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
+            // Private events stuff
+            SubscribeLocalEvent<DiseaseVaccineComponent, VaccineDoAfterEvent>(OnDoAfter);
         }
 
         private Queue<EntityUid> AddQueue = new();
@@ -265,6 +267,50 @@ namespace Content.Server.Disease
             }
         }
 
+        /// <summary>
+        /// Called when a vaccine is used on someone
+        /// to handle the vaccination doafter
+        /// </summary>
+        private void OnAfterInteract(EntityUid uid, DiseaseVaccineComponent vaxx, AfterInteractEvent args)
+        {
+            if (args.Target == null || !args.CanReach || args.Handled)
+                return;
+
+            args.Handled = true;
+
+            if (vaxx.Used)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("vaxx-already-used"), args.User, args.User);
+                return;
+            }
+
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(args.User, vaxx.InjectDelay, new VaccineDoAfterEvent(), uid, target: args.Target, used: uid)
+            {
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                NeedHand = true
+            });
+        }
+
+        /// <summary>
+        /// Called when a vaccine is examined.
+        /// Currently doesn't do much because
+        /// vaccines don't have unique art with a seperate
+        /// state visualizer.
+        /// </summary>
+        private void OnExamined(EntityUid uid, DiseaseVaccineComponent vaxx, ExaminedEvent args)
+        {
+            if (args.IsInDetailsRange)
+            {
+                if (vaxx.Used)
+                    args.PushMarkup(Loc.GetString("vaxx-used"));
+                else
+                    args.PushMarkup(Loc.GetString("vaxx-unused"));
+            }
+        }
+
+
+>>>>>>> 19277a2276 (More DoAfter Changes (#14609))
     private void OnApplyMetabolicMultiplier(EntityUid uid, DiseaseCarrierComponent component, ApplyMetabolicMultiplierEvent args)
     {
         if (args.Apply)
