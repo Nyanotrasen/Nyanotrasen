@@ -1116,6 +1116,10 @@
   id: FloorAsteroidCoarseSand2
   target: FloorAsteroidCoarseSand0
 
+- type: tileAlias
+  id: FloorBedrock
+  target: FloorBasalt
+
 - type: tile
   id: FloorAsteroidCoarseSandDug
   name: tiles-asteroid-dug-coarse-sand
