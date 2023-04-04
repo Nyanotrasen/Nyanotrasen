@@ -90,6 +90,7 @@ public sealed partial class RevenantSystem
         var searchDoAfter = new DoAfterArgs(uid, revenant.SoulSearchDuration, new SoulEvent(), uid, target: target)
         {
             BreakOnUserMove = true,
+            BreakOnDamage = true,
             DistanceThreshold = 2
         };
 
@@ -144,6 +145,7 @@ public sealed partial class RevenantSystem
         {
             DistanceThreshold = 2,
             BreakOnUserMove = true,
+            BreakOnDamage = true,
             RequireCanInteract = false, // stuns itself
         };
 
