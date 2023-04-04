@@ -65,29 +65,14 @@
 
 - type: entity
   parent: ClothingHeadset
-  id: ClothingHeadsetTrader
-  name: trader's headset
-  description: A headset used mostly by traders and independent contractors aboard their ships.
+  id: ClothingHeadsetCivilian
+  name: civilian headset
+  description: A headset used mostly by civilians and independent contractors aboard their ships.
   components:
   - type: ContainerFill
     containers:
       key_slots:
-      - EncryptionKeyTrader
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/base.rsi
-  - type: Clothing
-    sprite: Clothing/Ears/Headsets/base.rsi
-
-- type: entity
-  parent: ClothingHeadset
-  id: ClothingHeadsetSpecial
-  name: rusty headset
-  description: A standard headset. A bit rusted upon closer inspection.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - EncryptionKeySpecial
+      - EncryptionKeyCivilian
   - type: Sprite
     sprite: Clothing/Ears/Headsets/base.rsi
   - type: Clothing

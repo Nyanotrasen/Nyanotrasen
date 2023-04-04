@@ -1,28 +1,14 @@
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyTrader
-  name: trader encryption key
-  description: An encryption key used mostly by traders and independent contractors aboard their ships.
+  id: EncryptionKeyCivilian
+  name: civilian encryption key
+  description: An encryption key used mostly by civilians and independent contractors aboard their ships.
   components:
   - type: EncryptionKey
     channels:
-    - Trader
-    defaultChannel: Trader
+    - Civilian
+    defaultChannel: Civilian
   - type: Sprite
     layers:
     - state: crypt_silver
-    - state: miner_label
 
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeySpecial
-  name: rusted encryption key
-  description: A rusted encryption key, the label is scratched, channel name is not readable anymore.
-  components:
-  - type: EncryptionKey
-    channels:
-    - Special
-    defaultChannel: Special
-  - type: Sprite
-    layers:
-    - state: crypt_rusted

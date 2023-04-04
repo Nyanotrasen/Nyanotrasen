@@ -15,5 +15,4 @@ chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
 chat-radio-binary = Binary
 
-chat-radio-trader = Trader
-chat-radio-special = Unknown
+chat-radio-civilian = Civilian

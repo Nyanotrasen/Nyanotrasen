@@ -1,13 +1,6 @@
 - type: radioChannel
-  id: Trader
-  name: chat-radio-trader
+  id: Civilian
+  name: chat-radio-civilian
   keycode: 'z'
   frequency: 1255
-  color: "#00ffff" 
-
-- type: radioChannel
-  id: Special
-  name: chat-radio-special
-  keycode: 'x'
-  frequency: 1277
-  color: "#808080"
+  color: "#00ffff"
