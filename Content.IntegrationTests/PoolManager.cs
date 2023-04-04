@@ -54,6 +54,7 @@ public static class PoolManager
         (CCVars.GameRoleTimers.Name,          "false"),
         (CCVars.CargoShuttles.Name,           "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
+        (CCVars.ProcgenPreload.Name,          "false"),
         // @formatter:on
     };
 
