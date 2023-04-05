@@ -124,7 +124,7 @@
   name: action-name-psychokinesis
   description: action-description-psychokinesis
   icon: { sprite: Objects/Misc/guardian_info.rsi, state: icon}
-  useDelay: 5
+  useDelay: 20
   itemIconStyle: BigAction
   checkCanAccess: false
   range: 30

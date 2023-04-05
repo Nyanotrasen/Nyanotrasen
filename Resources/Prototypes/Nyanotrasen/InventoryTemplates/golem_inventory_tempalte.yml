@@ -134,3 +134,12 @@
 - type: inventoryTemplate
   id: golem_silver
   slots:
+    - name: id
+      slotTexture: id
+      slotFlags: IDCARD
+      slotGroup: SecondHotbar
+      stripTime: 6
+      uiWindowPos: 2,1
+      strippingWindowPos: 2,4
+      displayName: ID
+      #kinda irrelavant considering it can TELEPORT but its so it doesnt error for being null.
