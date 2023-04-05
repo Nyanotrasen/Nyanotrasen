@@ -162,7 +162,7 @@ public sealed partial class CargoSystem
             new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
-        GetPalletGoods(gridUid, out var toSell, out var amount);
+        GetPalletGoods(gridUid, out var toSell, out var amount, false);
         _uiSystem.SetUiState(bui,
             new CargoPalletConsoleInterfaceState((int) amount, toSell.Count, true));
     }
@@ -366,7 +366,7 @@ public sealed partial class CargoSystem
 
     private void SellPallets(EntityUid gridUid, out double amount)
     {
-        GetPalletGoods(gridUid, out var toSell, out amount);
+        GetPalletGoods(gridUid, out var toSell, out amount, true);
 
         _sawmill.Debug($"Cargo sold {toSell.Count} entities for {amount}");
 
@@ -376,7 +376,7 @@ public sealed partial class CargoSystem
         }
     }
 
-    private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount)
+    private void GetPalletGoods(EntityUid gridUid, out HashSet<EntityUid> toSell, out double amount, bool sale = false)
     {
         amount = 0;
         var xformQuery = GetEntityQuery<TransformComponent>();
@@ -398,7 +398,7 @@ public sealed partial class CargoSystem
                 if (blacklistQuery.HasComponent(ent))
                     continue;
 
-                var price = _pricing.GetPrice(ent, true);
+                var price = _pricing.GetPrice(ent, sale);
                 if (price == 0)
                     continue;
                 toSell.Add(ent);
