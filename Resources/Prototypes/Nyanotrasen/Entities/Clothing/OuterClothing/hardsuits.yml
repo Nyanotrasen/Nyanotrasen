@@ -32,11 +32,11 @@
 - type: entity
   parent: ClothingOuterHardsuitERTLeader
   id: ClothingOuterHardsuitERTCentcomm
-  name: Centcomm's hardsuit
+  name: centcomm hardsuit
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm
