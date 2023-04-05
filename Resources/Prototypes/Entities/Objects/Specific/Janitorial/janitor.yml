@@ -178,6 +178,12 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
+            damage: 400
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
             damage: 200
           behaviors:
             - !type:EmptyAllContainersBehaviour
@@ -280,6 +286,12 @@
       damageModifierSet: Metallic
     - type: Destructible
       thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
             damage: 100
