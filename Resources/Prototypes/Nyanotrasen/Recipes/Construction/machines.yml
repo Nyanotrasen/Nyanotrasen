@@ -65,3 +65,20 @@
   canBuildInImpassable: False
   conditions:
     - !type:TileNotBlocked
+
+- type: construction
+  id: GolemSilver
+  name: silver golem
+  description: Your very own personal servant! Requires a soul crystal to activate.
+  graph: GolemSilver
+  startNode: start
+  targetNode: golem
+  category: construction-category-machines
+  icon:
+      sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
+      state: full
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: False
+  conditions:
+    - !type:TileNotBlocked

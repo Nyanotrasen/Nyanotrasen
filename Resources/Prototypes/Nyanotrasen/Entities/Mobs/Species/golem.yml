@@ -380,3 +380,87 @@
   - type: Construction
     graph: GolemWood
     node: golem
+
+- type: entity
+  parent: MobGolemBase
+  name: silver golem
+  id: MobGolemSilver
+  description: A fusion between soul and quantum machine, the epitome of epistemics.
+  components:
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 5.5
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+    - type: RandomSprite
+      available:
+        - enum.DamageStateVisualLayers.Base:
+            silver_base: ""
+          enum.ToggleVisuals.Layer:
+            lights: Sixteen
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
+      netsync: false
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: silver_base
+        - map: [ "enum.ToggleVisuals.Layer" ]
+          sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
+          state: lights
+          color: "#40a7d7"
+          shader: unshaded
+          visible: false
+    - type: Icon
+      sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
+      state: full
+    - type: Fixtures
+      fixtures:
+        - shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 200
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+    - type: HeatResistance
+    - type: Internals
+    - type: Examiner
+    - type: Speech
+    - type: TypingIndicator
+      proto: robot
+    - type: Pullable
+    - type: MeleeWeapon
+      hidden: true
+      angle: 30
+      animation: WeaponArcFist
+      soundHit:
+        path: /Audio/Nyanotrasen/Mobs/SilverGolem/sonic_jackhammer.ogg
+      attackRate: 1.5
+      damage:
+        types:
+          Blunt: 10
+          Holy: 8
+    - type: Actions
+    - type: Inventory
+      templateId: golem_silver
+    - type: PsychokinesisPower
+    - type: Construction
+      graph: GolemSilver
+      node: golem
+    - type: MovementIgnoreGravity
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection:
+            MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection:
+            MetalLaserImpact
+
