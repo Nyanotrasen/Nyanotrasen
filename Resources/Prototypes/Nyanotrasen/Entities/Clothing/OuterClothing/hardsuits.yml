@@ -28,3 +28,15 @@
     clothingPrototype: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
   - type: ReverseEngineering
     newItem: null
+
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitERTCentcomm
+  name: CentCom hardsuit
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm
