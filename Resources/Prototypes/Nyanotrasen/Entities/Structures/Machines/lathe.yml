@@ -25,6 +25,7 @@
     runningState: icon
     dynamicRecipes:
       - QSI
+      - CoreSilver
       - HandTeleporter
       - BluespaceBeaker
       - Decloner
@@ -62,6 +63,8 @@
         - Ingot
     materialWhiteList:
     - Bluespace
+    - Silver
+    - Uranium
     - Glass
     - Plastic
     - Steel

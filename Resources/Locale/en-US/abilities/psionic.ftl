@@ -66,5 +66,8 @@ action-name-pyrokinesis = Pyrokinesis
 action-description-pyrokinesis = Light a flammable target on fire.
 pyrokinesis-power-used = A wisp of flame engulfs {THE($target)}, igniting {OBJECT($target)}!
 
+action-name-psychokinesis = Psychokinesis
+action-description-psychokinesis = Bend the fabric of space to instantly move across it.
+
 action-name-rf-sensitivity = Toggle RF Sensitivity
 action-desc-rf-sensitivity = Toggle your ability to interpret radio waves on and off.
