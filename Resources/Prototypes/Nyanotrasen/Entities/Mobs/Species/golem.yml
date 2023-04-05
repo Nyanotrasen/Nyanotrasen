@@ -445,29 +445,22 @@
       damage:
         types:
           Blunt: 10
-          Holy: 20
+          Holy: 8
     - type: Actions
     - type: Inventory
       templateId: golem_silver
-    - type: IntrinsicRadioReceiver
-      channels:
-       - Common
-       - Engineering
-       - Medical
-       - Science
-       - Service
-       - Binary
-    - type: ActiveRadio
-      channels:
-      - Common
-      - Engineering
-      - Medical
-      - Science
-      - Service
-      - Binary
     - type: PsychokinesisPower
     - type: Construction
       graph: GolemSilver
       node: golem
     - type: MovementIgnoreGravity
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection:
+            MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection:
+            MetalLaserImpact
 

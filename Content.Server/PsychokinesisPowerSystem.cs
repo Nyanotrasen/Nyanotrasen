@@ -52,7 +52,6 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid ,PsychokinesisPowerComponent comp, PsychokinesisPowerActionEvent args)
         {
-
             var transform = Transform(args.Performer);
 
             if (transform.MapID != args.Target.GetMapId(EntityManager)) return;
