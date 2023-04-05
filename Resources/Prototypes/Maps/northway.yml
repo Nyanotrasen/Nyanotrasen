@@ -3,7 +3,7 @@
   mapName: 'Northway'
   mapPath: /Maps/northway.yml
   minPlayers: 0
-  maxPlayers: 30
+  maxPlayers: 25
   stations:
     Northway:
       mapNameTemplate: '{0} Northway Spaceship {1}'
@@ -14,38 +14,37 @@
       overflowJobs:
         - Passenger
       availableJobs:
-        AtmosphericTechnician: [ 2, 3 ]
-        Bartender: [ 2, 2 ]
-        Botanist: [ 3, 3 ]
-        Boxer: [ 2, 2 ]
+        AtmosphericTechnician: [ 1, 2 ]
+        Bartender: [ 1, 2 ]
+        Botanist: [ 1, 2 ]
+        Boxer: [ 1, 2 ]
         Captain: [ 1, 1 ]
         Cataloguer: [ 1, 1 ]
         Chaplain: [ 1, 1 ]
-        Chef: [ 2, 2 ]
+        Chef: [ 1, 2 ]
         ChiefEngineer: [ 1, 1 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         Clown: [ 1, 1 ]
-        Cyborg: [ 2, 2 ]
-        Epistemologist: [ 3, 6 ]
+        Cyborg: [ 1, 2 ]
+        Epistemologist: [ 2, 4 ]
         ForensicMantis: [ 1, 1 ]
         HeadOfPersonnel: [ 1, 1 ]
         HeadOfSecurity: [ 1, 1 ]
-        Janitor: [ 2, 4 ]
-        Lawyer: [ 2, 2 ]
-        MailCarrier: [ 2, 2 ]
-        MartialArtist: [ 2, 3 ]
-        MedicalCyborg: [ 2, 2 ]
-        MedicalDoctor: [ 3, 6 ]
+        Janitor: [ 1, 2 ]
+        Lawyer: [ 1, 2 ]
+        MailCarrier: [ 1, 1 ]
+        MartialArtist: [ 1, 2 ]
+        MedicalCyborg: [ 1, 2 ]
+        MedicalDoctor: [ 2, 3 ]
         Mime: [ 1, 1 ]
-        Musician: [ 2, 2 ]
+        Musician: [ 1, 2 ]
         Mystagogue: [ 1, 1 ]
-        Paramedic: [ 2, 2 ]
+        Paramedic: [ 1, 2 ]
         Passenger: [ -1, -1 ]
-        Prisoner: [ 1, 1 ]
-        Quartermaster: [ 3, 3 ]
+        Quartermaster: [ 2, 2 ]
         Reporter: [ 1, 1 ]
-        SalvageTechnician: [ 6, 8 ]
+        SalvageTechnician: [ 3, 5 ]
         SecurityOfficer: [ 3, 4 ]
-        StationEngineer: [ 3, 5 ]
+        StationEngineer: [ 2, 4 ]
         Valet: [ 1, 1 ]
         Warden: [ 1, 1 ]
