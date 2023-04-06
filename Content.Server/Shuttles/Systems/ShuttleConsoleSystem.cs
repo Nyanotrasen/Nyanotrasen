@@ -273,7 +273,7 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         // Mass too large
         if (entity != null && shuttleGridUid != null &&
-            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || shuttleBody.Mass < 1000f))
+            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || shuttleBody.Mass < 1250f)) //Equals to roughly 2510 tiles
         {
             var metaQuery = GetEntityQuery<MetaDataComponent>();
 
