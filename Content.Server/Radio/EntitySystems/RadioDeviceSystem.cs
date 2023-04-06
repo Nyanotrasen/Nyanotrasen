@@ -213,7 +213,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         }
     }
 
-    private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, RadioReceiveEvent args)
+    private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
         if (args.Chat.TryGetData<LanguagePrototype>(ChatDataLanguage.Language, out var language))
             _chat.TrySendSayWithLanguage(uid, args.Chat.Message, language, args.Chat.Source);

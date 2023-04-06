@@ -28,6 +28,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     private const string MeleeLungeKey = "melee-lunge";
 

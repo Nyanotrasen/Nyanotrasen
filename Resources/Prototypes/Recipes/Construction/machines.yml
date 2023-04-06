@@ -96,7 +96,26 @@
   canBuildInImpassable: true
   conditions:
     - !type:WallmountCondition
-    
+
+# Disabled until the timers themselves are all fixed up and
+# access can be added during building
+# - type: construction
+#   name: signal timer
+#   id: SignalTimerRecipe
+#   graph: SignalTimerGraph
+#   startNode: start
+#   targetNode: SignalTimerNode
+#   category: construction-category-machines
+#   description: It's a switch that automates toggling power to things.
+#   icon:
+#     sprite: Structures/Wallmounts/switch.rsi
+#     state: on
+#   objectType: Structure
+#   placementMode: SnapgridCenter
+#   canRotate: true
+#   canBuildInImpassable: true
+#   conditions:
+#     - !type:WallmountCondition
 
 - type: construction
   name: directional light switch

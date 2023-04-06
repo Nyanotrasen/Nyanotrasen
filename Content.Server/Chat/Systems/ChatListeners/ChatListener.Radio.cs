@@ -161,8 +161,6 @@ namespace Content.Server.Chat.Systems
                 return;
             }
 
-            var attemptEvent = new RadioReceiveAttemptEvent(args.Chat);
-
             var xforms = GetEntityQuery<TransformComponent>();
 
             var transformSource = xforms.GetComponent(args.Chat.Source);
@@ -181,10 +179,12 @@ namespace Content.Server.Chat.Systems
                     continue;
 
                 // Support the RadioReceive events for now.
-                RaiseLocalEvent(radioEntity, attemptEvent);
+                var attemptEvent = new RadioReceiveAttemptEvent(args.Chat, radioEntity);
+
+                RaiseLocalEvent(radioEntity, ref attemptEvent);
                 if (attemptEvent.Cancelled)
                 {
-                    attemptEvent.Uncancel();
+                    attemptEvent.Cancelled = false;
                     continue;
                 }
 
@@ -323,7 +323,7 @@ namespace Content.Server.Chat.Systems
             {
                 // Support the RadioReceive events for now.
                 var radioEvent = new RadioReceiveEvent(args.Chat, args.RecipientData);
-                RaiseLocalEvent(args.Recipient, radioEvent);
+                RaiseLocalEvent(args.Recipient, ref radioEvent);
             }
 
             if (!TryComp<ActorComponent>(args.Recipient, out var actorComponent))

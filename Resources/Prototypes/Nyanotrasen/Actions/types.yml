@@ -120,6 +120,17 @@
   serverEvent: !type:PyrokinesisPowerActionEvent
 
 - type: worldTargetAction
+  id: Psychokinesis
+  name: action-name-psychokinesis
+  description: action-description-psychokinesis
+  icon: { sprite: Objects/Misc/guardian_info.rsi, state: icon}
+  useDelay: 20
+  itemIconStyle: BigAction
+  checkCanAccess: false
+  range: 30
+  serverEvent: !type:PsychokinesisPowerActionEvent
+
+- type: worldTargetAction
   id: SpinWeb
   name: action-name-spin-web
   description: action-desc-spin-web

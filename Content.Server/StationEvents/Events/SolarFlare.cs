@@ -26,7 +26,7 @@ public sealed class SolarFlare : StationEventSystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ActiveRadioComponent, RadioReceiveAttemptEvent>(OnRadioSendAttempt);
+        SubscribeLocalEvent<RadioReceiveAttemptEvent>(OnRadioSendAttempt);
     }
 
     public override void Added()
@@ -51,16 +51,17 @@ public sealed class SolarFlare : StationEventSystem
         if (_effectTimer < 0)
         {
             _effectTimer += 1;
-            foreach (var comp in EntityQuery<PoweredLightComponent>())
+            var lightQuery = EntityQueryEnumerator<PoweredLightComponent>();
+            while (lightQuery.MoveNext(out var uid, out var light))
             {
                 if (RobustRandom.Prob(_event.LightBreakChancePerSecond))
-                    _poweredLight.TryDestroyBulb(comp.Owner, comp);
+                    _poweredLight.TryDestroyBulb(uid, light);
             }
-
-            foreach (var comp in EntityQuery<DoorComponent>())
+            var airlockQuery = EntityQueryEnumerator<AirlockComponent, DoorComponent>();
+            while (airlockQuery.MoveNext(out var uid, out var airlock, out var door))
             {
-                if (RobustRandom.Prob(_event.DoorToggleChancePerSecond))
-                    _door.TryToggleDoor(comp.Owner, comp);
+                if (airlock.AutoClose && RobustRandom.Prob(_event.DoorToggleChancePerSecond))
+                    _door.TryToggleDoor(uid, door);
             }
         }
 
@@ -71,7 +72,7 @@ public sealed class SolarFlare : StationEventSystem
         }
     }
 
-    private void OnRadioSendAttempt(EntityUid uid, ActiveRadioComponent component, RadioReceiveAttemptEvent args)
+    private void OnRadioSendAttempt(ref RadioReceiveAttemptEvent args)
     {
         if (RuleStarted &&
             args.Chat.TryGetData<RadioChannelPrototype[]>(ChatDataRadio.RadioChannels, out var radioChannels))
@@ -80,8 +81,8 @@ public sealed class SolarFlare : StationEventSystem
             EntityUid? radioSource = args.Chat.GetData<EntityUid>(ChatDataRadio.RadioSource);
 
             if (_event.AffectedChannels.IsSupersetOf(stringRadioChannels))
-                if (!_event.OnlyJamHeadsets || (HasComp<HeadsetComponent>(uid) || HasComp<HeadsetComponent>(radioSource)))
-                    args.Cancel();
+                if (!_event.OnlyJamHeadsets || (HasComp<HeadsetComponent>(args.RadioReceiver) || HasComp<HeadsetComponent>(radioSource)))
+                    args.Cancelled = true;
         }
     }
 }

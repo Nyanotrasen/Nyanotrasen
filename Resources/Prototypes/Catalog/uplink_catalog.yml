@@ -132,10 +132,19 @@
   description: uplink-c4-desc
   productEntity: C4
   cost:
-    Telecrystal: 2
+    Telecrystal: 4
   categories:
   - UplinkExplosives
 
+- type: listing
+  id: UplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkExplosives
 
 - type: listing
   id: UplinkEmpGrenade
@@ -144,6 +153,16 @@
   productEntity: EmpGrenade
   cost:
     Telecrystal: 4
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkExplodingPen
+  name: uplink-exploding-pen-name
+  description: uplink-exploding-pen-desc
+  productEntity: PenExploding
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkExplosives
 
@@ -392,16 +411,6 @@
             - SurplusBundle
 
 - type: listing
-  id: UplinkC4Bundle
-  name: uplink-c4-bundle-name
-  description: uplink-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkBundles
-
-- type: listing
   id: UplinkBulldogBundle
   name: uplink-buldog-bundle-name
   description: uplink-buldog-bundle-desc
@@ -511,7 +520,7 @@
   description: uplink-toolbox-desc
   productEntity: ToolboxSyndicateFilled
   cost:
-    Telecrystal: 2
+    Telecrystal: 4
   categories:
   - UplinkTools
 
@@ -607,6 +616,20 @@
   - !type:BuyerJobCondition
     whitelist:
     - Mime
+    - Clown
+
+- type: listing
+  id: uplinkBananaPeelExplosive
+  name: uplink-banana-peel-explosive-name
+  description: uplink-banana-peel-explosive-desc
+  productEntity: TrashBananaPeelExplosive
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
     - Clown
 
 # Armor
@@ -791,7 +814,7 @@
     Telecrystal: 8
   categories:
   - UplinkMisc
-  
+
 - type: listing
   id: UplinkStimkit
   name: uplink-stimkit-name
@@ -801,7 +824,7 @@
     Telecrystal: 12
   categories:
   - UplinkMisc
-  
+
 - type: listing
   id: UplinkStimpackExperimental
   name: uplink-experimental-stimpack-name

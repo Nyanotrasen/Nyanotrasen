@@ -37,8 +37,6 @@
       - MachineMask
       layer:
       - MachineLayer
-  - type: EntityStorage
-    airtight: false
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
@@ -46,6 +44,8 @@
   - type: PlaceableSurface
     placeCentered: true
     isPlaceable: false
+  - type: EntityStorage
+    airtight: false
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -103,6 +103,7 @@
       map: ["enum.WeldableLayers.BaseWelded"]
   - type: EntityStorage
     isCollidableWhenOpen: true
+    airtight: false
     enteringOffset: 0, -0.75
     closeSound:
       path: /Audio/Items/deconstruct.ogg

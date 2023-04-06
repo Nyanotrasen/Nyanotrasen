@@ -2,7 +2,8 @@ using Content.Server.Chat.Systems;
 
 namespace Content.Server.Radio;
 
-public sealed class RadioReceiveEvent : EntityEventArgs
+[ByRefEvent]
+public struct RadioReceiveEvent
 {
     public readonly EntityChat Chat;
     public readonly EntityChatData RecipientData;
@@ -14,12 +15,20 @@ public sealed class RadioReceiveEvent : EntityEventArgs
     }
 }
 
-public sealed class RadioReceiveAttemptEvent : CancellableEntityEventArgs
+/// <summary>
+/// Use this event to cancel sending messages by doing various checks (e.g. range)
+/// </summary>
+[ByRefEvent]
+public struct RadioReceiveAttemptEvent
 {
     public readonly EntityChat Chat;
+    public readonly EntityUid RadioReceiver;
 
-    public RadioReceiveAttemptEvent(EntityChat chat)
+    public bool Cancelled;
+
+    public RadioReceiveAttemptEvent(EntityChat chat, EntityUid radioReceiver)
     {
         Chat = chat;
+        RadioReceiver = radioReceiver;
     }
 }

@@ -2,7 +2,10 @@ using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.Radio.Components;
 using Content.Server.Popups;
+using Content.Server.Power.Components;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Replays;
 
@@ -50,9 +53,9 @@ public sealed class RadioSystem : EntitySystem
         if (!_messages.Add(message))
             return;
 
-        var name = TryComp(source, out VoiceMaskComponent? mask) && mask.Enabled
+        var name = TryComp(messageSource, out VoiceMaskComponent? mask) && mask.Enabled
             ? mask.VoiceName
-            : MetaData(source).EntityName;
+            : MetaData(messageSource).EntityName;
 
         name = FormattedMessage.EscapeText(name);
 
@@ -63,38 +66,64 @@ public sealed class RadioSystem : EntitySystem
             Loc.GetString("chat-radio-message-wrap", ("color", channel.Color), ("channel", $"\\[{channel.LocalizedName}\\]"), ("name", name), ("message", FormattedMessage.EscapeText(message))),
             EntityUid.Invalid);
         var chatMsg = new MsgChatMessage { Message = chat };
+        var ev = new RadioReceiveEvent(message, messageSource, channel, chatMsg);
 
-        var ev = new RadioReceiveEvent(message, source, channel, chatMsg, radioSource);
-        var attemptEv = new RadioReceiveAttemptEvent(message, source, channel, radioSource);
+        var sourceMapId = Transform(radioSource).MapID;
+        var hasActiveServer = HasActiveServer(sourceMapId, channel.ID);
+        var hasMicro = HasComp<RadioMicrophoneComponent>(radioSource);
+
+        var speakerQuery = GetEntityQuery<RadioSpeakerComponent>();
+        var radioQuery = AllEntityQuery<ActiveRadioComponent, TransformComponent>();
         var sentAtLeastOnce = false;
-
-        foreach (var radio in EntityQuery<ActiveRadioComponent>())
+        while (radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {
-            var ent = radio.Owner;
-            // TODO map/station/range checks?
-
             if (!radio.Channels.Contains(channel.ID))
                 continue;
 
-            RaiseLocalEvent(ent, attemptEv);
-            if (attemptEv.Cancelled)
-            {
-                attemptEv.Uncancel();
+            if (!channel.LongRange && transform.MapID != sourceMapId)
                 continue;
-            }
+
+            // don't need telecom server for long range channels or handheld radios and intercoms
+            var needServer = !channel.LongRange && (!hasMicro || !speakerQuery.HasComponent(receiver));
+            if (needServer && !hasActiveServer)
+                continue;
+                
+            // check if message can be sent to specific receiver
+            var attemptEv = new RadioReceiveAttemptEvent(channel, radioSource, receiver);
+            RaiseLocalEvent(ref attemptEv);
+            if (attemptEv.Cancelled)
+                continue;
+
+            // send the message
+            RaiseLocalEvent(receiver, ref ev);
             sentAtLeastOnce = true;
-            RaiseLocalEvent(ent, ev);
         }
         if (!sentAtLeastOnce)
-            _popupSystem.PopupEntity(Loc.GetString("failed-to-send-message"), source, source, PopupType.MediumCaution);
+            _popup.PopupEntity(Loc.GetString("failed-to-send-message"), messageSource, messageSource, PopupType.MediumCaution);
 
-        if (name != Name(source))
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(source):user} as {name} on {channel.LocalizedName}: {message}");
+        if (name != Name(messageSource))
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} as {name} on {channel.LocalizedName}: {message}");
         else
-            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(source):user} on {channel.LocalizedName}: {message}");
+            _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Radio message from {ToPrettyString(messageSource):user} on {channel.LocalizedName}: {message}");
 
         _replay.QueueReplayMessage(chat);
         _messages.Remove(message);
         */
+    }
+
+    /// <inheritdoc cref="TelecomServerComponent"/>
+    private bool HasActiveServer(MapId mapId, string channelId)
+    {
+        var servers = EntityQuery<TelecomServerComponent, EncryptionKeyHolderComponent, ApcPowerReceiverComponent, TransformComponent>();
+        foreach (var (_, keys, power, transform) in servers)
+        {
+            if (transform.MapID == mapId &&
+                power.Powered &&
+                keys.Channels.Contains(channelId))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

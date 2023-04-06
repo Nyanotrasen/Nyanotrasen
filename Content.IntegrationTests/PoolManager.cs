@@ -53,7 +53,9 @@ public static class PoolManager
         (CVars.ThreadParallelCount.Name,      "1"),
         (CCVars.GameRoleTimers.Name,          "false"),
         (CCVars.CargoShuttles.Name,           "false"),
+        (CCVars.ArrivalsShuttles.Name,        "false"),
         (CCVars.EmergencyShuttleEnabled.Name, "false"),
+        (CCVars.ProcgenPreload.Name,          "false"),
         // @formatter:on
     };
 

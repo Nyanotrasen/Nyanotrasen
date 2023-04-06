@@ -646,7 +646,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
         private void OnDestruction(EntityUid uid, DeepFryerComponent component, DestructionEventArgs args)
         {
-            _containerSystem.EmptyContainer(component.Storage, true, Transform(uid).Coordinates, true, EntityManager);
+            _containerSystem.EmptyContainer(component.Storage, true);
         }
 
         private void OnRefreshParts(EntityUid uid, DeepFryerComponent component, RefreshPartsEvent args)
@@ -927,7 +927,7 @@ namespace Content.Server.Kitchen.EntitySystems
             if (component.Storage.ContainedEntities.Count == 0)
                 return;
 
-            _containerSystem.EmptyContainer(component.Storage, false, Transform(uid).Coordinates, true, EntityManager);
+            _containerSystem.EmptyContainer(component.Storage, false);
 
             var user = args.Session.AttachedEntity;
 
