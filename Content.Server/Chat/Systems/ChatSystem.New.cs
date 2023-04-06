@@ -145,9 +145,9 @@ namespace Content.Server.Chat.Systems
         /// <remarks>
         /// This skips the EntityChatParseEvent phase.
         /// </remarks>
-        public bool TrySendChat(EntityUid source, EntityChat chat, bool forced = false)
+        public bool TrySendChat(EntityUid source, EntityChat chat, bool force = false)
         {
-            if (!forced)
+            if (!force)
             {
                 // Allow systems to early cancel chat attempts.
                 var attempt = new EntityChatAttemptEvent(chat);

@@ -198,7 +198,7 @@ namespace Content.Server.Chat.Systems
         /// <summary>
         /// Try to send a say message from an entity.
         /// </summary>
-        public bool TrySendSay(EntityUid source, string message, EntityUid? speaker = null, bool forced = false)
+        public bool TrySendSay(EntityUid source, string message, EntityUid? speaker = null, bool force = false)
         {
             var chat = new EntityChat(source, message)
             {
@@ -211,7 +211,7 @@ namespace Content.Server.Chat.Systems
             if (speaker != null)
                 chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
 
-            return TrySendChat(source, chat, forced: forced);
+            return TrySendChat(source, chat, force: force);
         }
     }
 }
