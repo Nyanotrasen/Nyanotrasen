@@ -461,7 +461,7 @@ namespace Content.Server.Chat.Systems
         /// <summary>
         /// Try to send a radio message from an entity.
         /// </summary>
-        public bool TrySendRadio(EntityUid source, string message, RadioChannelPrototype[] radioChannels, EntityUid? speaker = null)
+        public bool TrySendRadio(EntityUid source, string message, RadioChannelPrototype[] radioChannels, EntityUid? speaker = null, bool forced = false)
         {
             var chat = new EntityChat(source, message)
             {
@@ -475,7 +475,7 @@ namespace Content.Server.Chat.Systems
             if (speaker != null)
                 chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
 
-            return TrySendChat(source, chat);
+            return TrySendChat(source, chat, forced: forced);
         }
     }
 }

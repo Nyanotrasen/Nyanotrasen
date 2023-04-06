@@ -145,14 +145,17 @@ namespace Content.Server.Chat.Systems
         /// <remarks>
         /// This skips the EntityChatParseEvent phase.
         /// </remarks>
-        public bool TrySendChat(EntityUid source, EntityChat chat)
+        public bool TrySendChat(EntityUid source, EntityChat chat, bool forced = false)
         {
-            // Allow systems to early cancel chat attempts.
-            var attempt = new EntityChatAttemptEvent(chat);
-            RaiseLocalEvent(source, ref attempt, true);
+            if (!forced)
+            {
+                // Allow systems to early cancel chat attempts.
+                var attempt = new EntityChatAttemptEvent(chat);
+                RaiseLocalEvent(source, ref attempt, true);
 
-            if (attempt.Cancelled)
-                return false;
+                if (attempt.Cancelled)
+                    return false;
+            }
 
             // Allow systems to select the recipients of the chat message.
             var getRecipients = new EntityChatGetRecipientsEvent(chat);

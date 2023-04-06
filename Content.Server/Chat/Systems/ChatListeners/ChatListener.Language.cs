@@ -111,7 +111,7 @@ namespace Content.Server.Chat.Systems
         /// <summary>
         /// Try to send a say message from an entity, with a specific language.
         /// </summary>
-        public bool TrySendSayWithLanguage(EntityUid source, string message, LanguagePrototype language, EntityUid? speaker = null)
+        public bool TrySendSayWithLanguage(EntityUid source, string message, LanguagePrototype language, EntityUid? speaker = null, bool forced = false)
         {
             var chat = new EntityChat(source, message)
             {
@@ -125,13 +125,13 @@ namespace Content.Server.Chat.Systems
             if (speaker != null)
                 chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
 
-            return TrySendChat(source, chat);
+            return TrySendChat(source, chat, forced: forced);
         }
 
         /// <summary>
         /// Try to send a radio message from an entity, with a specific language.
         /// </summary>
-        public bool TrySendRadioWithLanguage(EntityUid source, string message, RadioChannelPrototype[] radioChannels, LanguagePrototype language, EntityUid? speaker = null)
+        public bool TrySendRadioWithLanguage(EntityUid source, string message, RadioChannelPrototype[] radioChannels, LanguagePrototype language, EntityUid? speaker = null, bool forced = false)
         {
             var chat = new EntityChat(source, message)
             {
@@ -146,7 +146,7 @@ namespace Content.Server.Chat.Systems
             if (speaker != null)
                 chat.SetData(ChatDataSay.RelayedSpeaker, speaker);
 
-            return TrySendChat(source, chat);
+            return TrySendChat(source, chat, forced: forced);
         }
     }
 }
