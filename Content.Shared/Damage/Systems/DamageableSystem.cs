@@ -167,6 +167,12 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
+            var before = new BeforeDamageChangedEvent(damage);
+            RaiseLocalEvent(uid.Value, ref before);
+
+            if (before.Cancelled)
+                return null;
+
             // Apply universal variance
             var multiplier = (1f + Variance) - (_random.NextFloat(0, Variance * 2f));
             damage *= multiplier;
@@ -299,6 +305,12 @@ namespace Content.Shared.Damage
             Variance = variance;
         }
     }
+
+    /// <summary>
+    ///     Raised before damage is done, so stuff can cancel it if necessary.
+    /// </summary>
+    [ByRefEvent]
+    public record struct BeforeDamageChangedEvent(DamageSpecifier Delta, bool Cancelled=false);
 
     /// <summary>
     ///     Raised on an entity when damage is about to be dealt,
