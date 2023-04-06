@@ -160,6 +160,16 @@
 
 - type: entity
   parent: PosterBase
+  id: PosterMapNorthway
+  name: "Northway Map"
+  description: "A map of Northway spaceship."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/Hyenh.rsi
+    state: northwaymap
+
+- type: entity
+  parent: PosterBase
   id: PosterLegitShoukou
   name: "Shōkō poster"
   description: "Funny symbols that can be read as Shōkō or Xiaogang, depending on who you ask."

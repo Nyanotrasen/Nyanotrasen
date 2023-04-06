@@ -1,0 +1,50 @@
+﻿- type: gameMap
+  id: Northway
+  mapName: 'Northway'
+  mapPath: /Maps/northway.yml
+  minPlayers: 0
+  maxPlayers: 25
+  stations:
+    Northway:
+      mapNameTemplate: '{0} Northway Spaceship {1}'
+      emergencyShuttlePath: /Maps/Shuttles/NTES_Kaeri.yml
+      nameGenerator:
+        !type:NanotrasenNameGenerator
+        prefixCreator: '14'
+      overflowJobs:
+        - Passenger
+      availableJobs:
+        AtmosphericTechnician: [ 1, 2 ]
+        Bartender: [ 1, 2 ]
+        Botanist: [ 1, 2 ]
+        Boxer: [ 1, 2 ]
+        Captain: [ 1, 1 ]
+        Cataloguer: [ 1, 1 ]
+        Chaplain: [ 1, 1 ]
+        Chef: [ 1, 2 ]
+        ChiefEngineer: [ 1, 1 ]
+        ChiefMedicalOfficer: [ 1, 1 ]
+        Clown: [ 1, 1 ]
+        Cyborg: [ 1, 2 ]
+        Epistemologist: [ 2, 4 ]
+        ForensicMantis: [ 1, 1 ]
+        HeadOfPersonnel: [ 1, 1 ]
+        HeadOfSecurity: [ 1, 1 ]
+        Janitor: [ 1, 2 ]
+        Lawyer: [ 1, 2 ]
+        MailCarrier: [ 1, 1 ]
+        MartialArtist: [ 1, 2 ]
+        MedicalCyborg: [ 1, 2 ]
+        MedicalDoctor: [ 2, 3 ]
+        Mime: [ 1, 1 ]
+        Musician: [ 1, 2 ]
+        Mystagogue: [ 1, 1 ]
+        Paramedic: [ 1, 2 ]
+        Passenger: [ -1, -1 ]
+        Quartermaster: [ 2, 2 ]
+        Reporter: [ 1, 1 ]
+        SalvageTechnician: [ 3, 5 ]
+        SecurityOfficer: [ 3, 4 ]
+        StationEngineer: [ 2, 4 ]
+        Valet: [ 1, 1 ]
+        Warden: [ 1, 1 ]
