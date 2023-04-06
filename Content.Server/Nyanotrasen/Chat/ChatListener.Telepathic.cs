@@ -1,11 +1,10 @@
 using System.Linq;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Drugs;
 using Content.Shared.Chat;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Popups;
 using Content.Server.Administration.Managers;
+using Content.Server.Psionics;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
