@@ -15,6 +15,7 @@ hud-chatbox-select-channel-Radio = Radio
 hud-chatbox-select-channel-Telepathic = Telepathic
 
 hud-chatbox-channel-Admin = Admin Misc
+hud-chatbox-channel-AdminAlert = Admin Alert
 hud-chatbox-channel-AdminChat = Admin Chat
 hud-chatbox-channel-Dead = Dead
 hud-chatbox-channel-Emotes = Emotes

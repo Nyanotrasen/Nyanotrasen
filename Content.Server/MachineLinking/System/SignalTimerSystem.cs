@@ -51,7 +51,7 @@ namespace Content.Server.MachineLinking.System
                         continue;
 
                     if (component.EndAlertChannel != null && _prototypeManager.TryIndex<RadioChannelPrototype>(component.EndAlertChannel, out var channel))
-                        _radio.SendRadioMessage(component.Owner, Loc.GetString(component.EndAlertMessage), channel);
+                        _radio.SendRadioMessage(component.Owner, Loc.GetString(component.EndAlertMessage), channel, component.Owner);
 
                     ToggleTimer(component.Owner, component);
                 }
