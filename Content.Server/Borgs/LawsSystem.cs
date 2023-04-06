@@ -47,7 +47,7 @@ namespace Content.Server.Borgs
 
             foreach (var law in component.Laws)
             {
-                _chat.TrySendInGameICMessage(uid, law, InGameICChatType.Speak, false);
+                _chat.TrySendSay(uid, law);
             }
         }
 

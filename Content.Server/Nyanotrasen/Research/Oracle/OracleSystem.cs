@@ -118,7 +118,7 @@ namespace Content.Server.Research.Oracle
                 {
                     oracle.BarkAccumulator = 0;
                     string message = Loc.GetString(_random.Pick(DemandMessages), ("item", oracle.DesiredPrototype.Name)).ToUpper();
-                    _chat.TrySendInGameICMessage(oracle.Owner, message, InGameICChatType.Speak, false);
+                    _chat.TrySendSay(oracle.Owner, message);
                 }
 
                 if (oracle.Accumulator >= oracle.ResetTime.TotalSeconds)
@@ -192,7 +192,7 @@ namespace Content.Server.Research.Oracle
             if (!validItem)
             {
                 if (!HasComp<RefillableSolutionComponent>(args.Used))
-                    _chat.TrySendInGameICMessage(uid, _random.Pick(RejectMessages), InGameICChatType.Speak, true);
+                    _chat.TrySendSay(uid, _random.Pick(RejectMessages));
                 return;
             }
 

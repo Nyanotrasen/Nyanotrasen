@@ -55,7 +55,7 @@ namespace Content.Server.Research.SophicScribe
 
             component.StateTime = _timing.CurTime + component.StateCD;
 
-            _chat.TrySendInGameICMessage(uid, Loc.GetString("glimmer-report", ("level", _sharedGlimmerSystem.Glimmer)), InGameICChatType.Speak, true);
+            _chat.TrySendSay(uid, Loc.GetString("glimmer-report", ("level", _sharedGlimmerSystem.Glimmer)));
         }
 
         private void OnGlimmerEventEnded(GlimmerEventEndedEvent args)

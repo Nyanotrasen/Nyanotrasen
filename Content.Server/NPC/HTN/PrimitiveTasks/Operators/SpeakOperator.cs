@@ -19,7 +19,7 @@ public sealed class SpeakOperator : HTNOperator
     {
         var speaker = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        _chat.TrySendInGameICMessage(speaker, Loc.GetString(Speech), InGameICChatType.Speak, false);
+        _chat.TrySendSay(speaker, Loc.GetString(Speech));
         return base.Update(blackboard, frameTime);
     }
 }

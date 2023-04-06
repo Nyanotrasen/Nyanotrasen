@@ -165,7 +165,7 @@ namespace Content.Server.Zombies
             if (_robustRandom.Prob(0.5f)) //this message is never seen by players so it just says this for admins
                 // What? Is this REALLY the best way we have of letting admins know there are zombies in a round?
                 // [automated maintainer groan]
-                _chat.TrySendInGameICMessage(uid, "[automated zombie groan]", InGameICChatType.Speak, false);
+                _chat.TrySendSay(uid, "[automated zombie groan]");
             else
                 _chat.TryEmoteWithoutChat(uid, component.GroanEmoteId);
 

@@ -19,7 +19,7 @@ namespace Content.Server.Actions
 
             if (!string.IsNullOrWhiteSpace(action.Speech))
             {
-                _chat.TrySendInGameICMessage(user, Loc.GetString(action.Speech), InGameICChatType.Speak, false);
+                _chat.TrySendSay(user, Loc.GetString(action.Speech));
                 result = true;
             }
 

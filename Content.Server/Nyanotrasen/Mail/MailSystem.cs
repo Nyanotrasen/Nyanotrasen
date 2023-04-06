@@ -246,7 +246,7 @@ namespace Content.Server.Mail
             if (!component.IsProfitable)
                 return;
 
-            _chatSystem.TrySendInGameICMessage(uid, Loc.GetString(localizationString, ("credits", component.Penalty)), InGameICChatType.Speak, false);
+            _chatSystem.TrySendSay(uid, Loc.GetString(localizationString, ("credits", component.Penalty)));
             _audioSystem.PlayPvs(component.PenaltySound, uid);
 
             component.IsProfitable = false;

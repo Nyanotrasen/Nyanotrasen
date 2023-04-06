@@ -56,7 +56,25 @@ public sealed class OSay : LocalizedCommands
         if (string.IsNullOrEmpty(message))
             return;
 
-        _entityManager.System<ChatSystem>().TrySendInGameICMessage(source, message, chatType, false);
+        switch (chatType)
+        {
+            case InGameICChatType.Speak:
+                _entityManager.System<ChatSystem>().TrySendSay(source, message);
+                break;
+
+            case InGameICChatType.Emote:
+                _entityManager.System<ChatSystem>().TrySendEmote(source, message);
+                break;
+
+            case InGameICChatType.Whisper:
+                _entityManager.System<ChatSystem>().TrySendWhisper(source, message);
+                break;
+
+            case InGameICChatType.Telepathic:
+                _entityManager.System<ChatSystem>().TrySendTelepathicChat(source, message);
+                break;
+      }
+
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{(shell.Player != null ? shell.Player.Name : "An administrator")} forced {_entityManager.ToPrettyString(source)} to {args[1]}: {message}");
     }
 }
