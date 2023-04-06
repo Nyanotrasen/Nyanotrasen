@@ -2,6 +2,7 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.Emoting;
 
@@ -15,6 +16,7 @@ namespace Content.Server.Chat.Systems
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
+        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public readonly static int DefaultRange = SayListenerSystem.DefaultRange;
@@ -22,11 +24,20 @@ namespace Content.Server.Chat.Systems
         public override void Initialize()
         {
             ListenBefore = new Type[] { typeof(SayListenerSystem) };
-            EnabledListeners = EnabledListener.GetRecipients | EnabledListener.AfterTransform | EnabledListener.Chat;
+            EnabledListeners = EnabledListener.ChatAttempt | EnabledListener.GetRecipients | EnabledListener.AfterTransform | EnabledListener.Chat;
 
             base.Initialize();
 
             _sawmill = Logger.GetSawmill("chat.emote");
+        }
+
+        public override void OnChatAttempt(ref EntityChatAttemptEvent args)
+        {
+            if (args.Chat.ClaimedBy == this.GetType() &&
+                !_actionBlocker.CanEmote(args.Chat.Source))
+            {
+                args.Cancelled = true;
+            }
         }
 
         public override void OnGetRecipients(ref EntityChatGetRecipientsEvent args)

@@ -3,6 +3,7 @@ using Robust.Server.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server.Language;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.Speech;
 
@@ -69,13 +70,14 @@ namespace Content.Server.Chat.Systems
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IReplayRecordingManager _replay = default!;
+        [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
 
         public readonly static int DefaultRange = 10;
 
         public override void Initialize()
         {
-            EnabledListeners = EnabledListener.ParseChat | EnabledListener.GetRecipients | EnabledListener.RecipientTransformChat | EnabledListener.Chat;
+            EnabledListeners = EnabledListener.ParseChat | EnabledListener.ChatAttempt | EnabledListener.GetRecipients | EnabledListener.RecipientTransformChat | EnabledListener.Chat;
 
             base.Initialize();
 
@@ -92,6 +94,15 @@ namespace Content.Server.Chat.Systems
             args.Chat.SetData(ChatDataSay.IsSpoken, true);
 
             args.Handled = true;
+        }
+
+        public override void OnChatAttempt(ref EntityChatAttemptEvent args)
+        {
+            if (args.Chat.GetData<bool>(ChatDataSay.IsSpoken) &&
+                !_actionBlocker.CanSpeak(args.Chat.Source))
+            {
+                args.Cancelled = true;
+            }
         }
 
         public override void OnGetRecipients(ref EntityChatGetRecipientsEvent args)
