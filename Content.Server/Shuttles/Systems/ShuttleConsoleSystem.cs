@@ -272,8 +272,9 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         }
 
         // Mass too large
+		// OR is intended to be a Spaceship
         if (entity != null && shuttleGridUid != null &&
-            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || shuttleBody.Mass < 1250f)) //Equals to roughly 2510 tiles
+            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || (HasComp<FTLWhitelistComponent>(shuttleGridUid) || shuttleBody.Mass < 1000f)))
         {
             var metaQuery = GetEntityQuery<MetaDataComponent>();
 
