@@ -38,6 +38,7 @@ chat-manager-admin-channel-name = ADMIN
 
 chat-manager-send-telepathic-chat-wrap-message = {$telepathicChannelName}: {$message}
 chat-manager-send-telepathic-chat-wrap-message-admin = {$source} (Ψ): {$message}
+chat-manager-send-telepathic-chat-failure-insulated-message = Your thoughts echo back to you.
 chat-manager-telepathic-channel-name = TELEPATHIC
 
 chat-manager-unknown-language = an unfamiliar tongue

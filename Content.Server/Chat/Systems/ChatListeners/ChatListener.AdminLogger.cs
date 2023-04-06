@@ -36,7 +36,9 @@ namespace Content.Server.Chat.Systems
             else if (args.Chat.ClaimedBy == typeof(WhisperListenerSystem))
                 logString.AppendLiteral("Whisper");
             else if (args.Chat.ClaimedBy == typeof(RadioListenerSystem))
-                logString.AppendLiteral("Radio");
+                logString.AppendLiteral("Radio message");
+            else if (args.Chat.ClaimedBy == typeof(TelepathicListenerSystem))
+                logString.AppendLiteral("Telepathic chat");
 
             logString.AppendLiteral(" from ");
 

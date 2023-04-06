@@ -116,9 +116,9 @@ namespace Content.Server.Chat.Systems
                 case InGameICChatType.Emote:
                     TrySendEmote(source, message);
                     break;
-                /* case InGameICChatType.Telepathic: */
-                /*     _nyanoChatSystem.SendTelepathicChat(source, message); */
-                /*     break; */
+                case InGameICChatType.Telepathic:
+                    TrySendTelepathicChat(source, message);
+                    break;
             }
         }
 
