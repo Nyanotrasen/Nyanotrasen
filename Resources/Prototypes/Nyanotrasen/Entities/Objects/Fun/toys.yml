@@ -103,9 +103,6 @@
   components:
   - type: Sprite
     state: moffbartender
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Moth/laugh_moth.ogg
 
 - type: entity
   parent: BasePlushieMoff
@@ -117,4 +114,4 @@
     state: moffbotanist
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/squeak_moth.ogg
+      path: /Audio/Voice/Moth/laugh_moth.ogg
