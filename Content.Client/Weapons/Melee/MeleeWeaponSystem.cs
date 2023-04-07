@@ -1,10 +1,10 @@
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
-using Content.Client.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.StatusEffect;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

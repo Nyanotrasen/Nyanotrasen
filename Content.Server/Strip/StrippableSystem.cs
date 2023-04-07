@@ -1,7 +1,12 @@
 using System.Linq;
+using Content.Server.Administration.Logs;
 using Content.Server.Ensnaring;
-using Content.Server.Hands.Components;
 using Content.Shared.CombatMode;
+using Content.Shared.Cuffs;
+using Content.Shared.Cuffs.Components;
+using Content.Shared.Database;
+using Content.Shared.DoAfter;
+using Content.Shared.Ensnaring.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -9,16 +14,10 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
+using Content.Shared.Strip;
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
-using Content.Server.Administration.Logs;
-using Content.Shared.Cuffs;
-using Content.Shared.Cuffs.Components;
-using Content.Shared.Database;
-using Content.Shared.DoAfter;
-using Content.Shared.Ensnaring.Components;
-using Content.Shared.Strip;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Strip
@@ -88,8 +87,7 @@ namespace Content.Server.Strip
 
         private void StripHand(EntityUid target, EntityUid user, string handId, StrippableComponent component, HandsComponent userHands)
         {
-            if (!TryComp<HandsComponent>(target, out var targetHands)
-                || !targetHands.Hands.TryGetValue(handId, out var hand))
+            if (!_handsSystem.TryGetHand(target, handId, out var hand))
                 return;
 
             // is the target a handcuff?
@@ -273,7 +271,7 @@ namespace Content.Server.Strip
                     return false;
                 }
 
-                if (!hands.Hands.TryGetValue(handName, out var hand)
+                if (!_handsSystem.TryGetHand(target, handName, out var hand, hands)
                     || !_handsSystem.CanPickupToHand(target, userHands.ActiveHandEntity.Value, hand, checkActionBlocker: false, hands))
                 {
                     _popup.PopupCursor(Loc.GetString("strippable-component-cannot-put-message",("owner", target)), user);
@@ -396,7 +394,7 @@ namespace Content.Server.Strip
 
             bool Check()
             {
-                if (!hands.Hands.TryGetValue(handName, out var hand) || hand.HeldEntity != item)
+                if (!_handsSystem.TryGetHand(target, handName, out var hand, hands) || hand.HeldEntity != item)
                 {
                     _popup.PopupCursor(Loc.GetString("strippable-component-item-slot-free-message",("owner", target)), user);
                     return false;
@@ -431,7 +429,7 @@ namespace Content.Server.Strip
                 DuplicateCondition = DuplicateConditions.SameTool
             };
 
-            if (Check() && hands.Hands.TryGetValue(handName, out var handSlot) && handSlot.HeldEntity != null)
+            if (Check() && _handsSystem.TryGetHand(target, handName, out var handSlot, hands) && handSlot.HeldEntity != null)
             {
                 _popup.PopupEntity(
                     Loc.GetString("strippable-component-alert-owner",
