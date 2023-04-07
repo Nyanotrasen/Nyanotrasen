@@ -96,7 +96,7 @@ public abstract partial class InventorySystem
             return;
 
         if (!_gameTiming.IsFirstTimePredicted && !_gameTiming.ApplyingState)
-             return;
+            return;
 
         var equippedEvent = new DidEquipEvent(uid, args.Entity, slotDef);
         RaiseLocalEvent(uid, equippedEvent, true);
