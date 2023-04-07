@@ -85,9 +85,21 @@
 
 - type: entity
   parent: BasePlushieMoff
+  id: PlushieMoffhos
+  name: moth security plushie
+  description: A plushie depicting an adorable mothperson wearing a head of security outfit. It smells like justice.
+  components:
+  - type: Sprite
+    state: moffhos
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+
+- type: entity
+  parent: BasePlushieMoff
   id: PlushieMoffbar
   name: moth bartender plushie
-  description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest.
+  description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest. It smells like cigarettes.
   components:
   - type: Sprite
     state: moffbar
