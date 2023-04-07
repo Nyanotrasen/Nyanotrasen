@@ -80,7 +80,7 @@ public abstract partial class InventorySystem
         if(!TryGetSlot(uid, args.Container.ID, out var slotDef, inventory: component))
             return;
 
-        if (!_gameTiming.IsFirstTimePredicted)
+        if (!_gameTiming.IsFirstTimePredicted && !_gameTiming.ApplyingState)
             return;
 
         var unequippedEvent = new DidUnequipEvent(uid, args.Entity, slotDef);
@@ -95,8 +95,8 @@ public abstract partial class InventorySystem
         if(!TryGetSlot(uid, args.Container.ID, out var slotDef, inventory: component))
             return;
 
-        if (!_gameTiming.IsFirstTimePredicted)
-            return;
+        if (!_gameTiming.IsFirstTimePredicted && !_gameTiming.ApplyingState)
+             return;
 
         var equippedEvent = new DidEquipEvent(uid, args.Entity, slotDef);
         RaiseLocalEvent(uid, equippedEvent, true);
