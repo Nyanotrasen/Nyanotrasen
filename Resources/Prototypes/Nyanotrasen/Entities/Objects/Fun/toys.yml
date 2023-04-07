@@ -81,7 +81,7 @@
   description: A plushie depicting an adorable mothperson with a tiny synthesizer and tiny glasses.
   components:
   - type: Sprite
-    state: moffsician
+    state: moffmusician
 
 - type: entity
   parent: BasePlushieMoff
@@ -102,7 +102,19 @@
   description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest. It smells like cigarettes.
   components:
   - type: Sprite
-    state: moffbar
+    state: moffbartender
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Voice/Moth/laugh_moth.ogg
+
+- type: entity
+  parent: BasePlushieMoff
+  id: PlushieMoffbota
+  name: moth botanist plushie
+  description: A plushie depicting an adorable cream coloured mothperson wearing a tiny botany apron. Is it beeping?
+  components:
+  - type: Sprite
+    state: moffbotanist
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
