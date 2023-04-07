@@ -92039,6 +92039,12 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
+- uid: 11925
+  type: WetFloorSign
+  components:
+  - pos: 4.345566,-19.175034
+    parent: 34
+    type: Transform
 - uid: 11926
   type: CheapRollerBed
   components:
@@ -92090,6 +92096,12 @@ entities:
   type: DrinkEnergyDrinkCan
   components:
   - pos: -1.4162182,6.109795
+    parent: 34
+    type: Transform
+- uid: 11934
+  type: WetFloorSign
+  components:
+  - pos: 4.480983,-19.341816
     parent: 34
     type: Transform
 - uid: 11936

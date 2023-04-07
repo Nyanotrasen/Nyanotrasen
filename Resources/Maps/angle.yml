@@ -128617,6 +128617,36 @@ entities:
     type: Transform
   - bodyType: Static
     type: Physics
+- uid: 16661
+  type: SpawnPointQuartermaster
+  components:
+  - pos: 65.5,3.5
+    parent: 9
+    type: Transform
+- uid: 16662
+  type: SpawnPointQuartermaster
+  components:
+  - pos: 65.5,4.5
+    parent: 9
+    type: Transform
+- uid: 16663
+  type: SpawnPointQuartermaster
+  components:
+  - pos: 68.5,4.5
+    parent: 9
+    type: Transform
+- uid: 16664
+  type: SpawnPointQuartermaster
+  components:
+  - pos: 68.5,5.5
+    parent: 9
+    type: Transform
+- uid: 16665
+  type: WetFloorSign
+  components:
+  - pos: 33.209442,-11.622808
+    parent: 9
+    type: Transform
 - uid: 16666
   type: DisposalBend
   components:
@@ -128728,6 +128758,12 @@ entities:
     type: Transform
   - tag: salvage
     type: MailingUnit
+- uid: 16681
+  type: WetFloorSign
+  components:
+  - pos: 33.37611,-11.476873
+    parent: 9
+    type: Transform
 - uid: 16682
   type: ClothingUniformJumpskirtNurse
   components:
