@@ -447,17 +447,17 @@ public sealed partial class CargoSystem
         }
 
         var station = _station.GetOwningStation(uid);
-        if (station != null)
-        {
-            SellPallets(gridUid, out var price);
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
-            {
-                if (_station.GetOwningStation(account.Owner) != _station.GetOwningStation(uid))
-                        continue;
+        if (station == null)
+            return;
 
-                UpdateBankAccount(account, (int) price);
-                return;
-            }
+        SellPallets(gridUid, out var price);
+        foreach (var account in EntityQuery<StationBankAccountComponent>())
+        {
+            if (_station.GetOwningStation(account.Owner) != _station.GetOwningStation(uid))
+                    continue;
+
+            UpdateBankAccount(account, (int) price);
+            return;
         }
 
         UpdatePalletConsoleInterface(uid, component);
