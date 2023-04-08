@@ -81,10 +81,6 @@
   - type: Bloodstream
     bloodMaxVolume: 500
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 0
