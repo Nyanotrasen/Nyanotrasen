@@ -36,3 +36,16 @@
   icon:
     sprite: Mobs/Silicon/Bots/medibot.rsi
     state: medibot
+
+- type: construction
+  name: Svetlana
+  id: Svetlana
+  graph: svetlana
+  startNode: start
+  targetNode: bot
+  category: construction-category-utilities
+  objectType: Item
+  description: This bot can protect you.
+  icon:
+    sprite:
+    state:

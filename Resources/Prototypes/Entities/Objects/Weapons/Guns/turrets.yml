@@ -107,29 +107,42 @@
 
 - type: entity
   parent: BaseStructure
-  id: svetlanaturret
-  name: Svetlana Turret
+  id: Svetlanaturret-parent
+  name: Svetlana
   abstract: true
   components:
     - type: Clickable
     - type: InteractionOutline
     - type: Actions
-    - type: ContainerContainer
-      containers:
-        ballistic-ammo: !type:Container
+    - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      200: Dead
+    - type: Puller
+     needsHands: false
+    - type: GhostTakeoverAvailable
+     name: Svetlana Turret
+     description: You are a miltary grade combat drone, serve your creator and protect them.
+     rules: You are a borg, harm only if your creator tells you.
+    - type: Tag
+    tags:
+      - CannotSuicide
+      - FootstepSound
+    makeSentient: true
     - type: Sprite
       netsync: false
-      sprite: Objects/Weapons/Guns/turrets.rsi
+      sprite: Resources\Textures\Objects\Weapons\Guns\
       drawdepth: WallMountedItems
       layers:
         - state: syndie_lethal
     - type: InteractionPopup
-      interactDelay: 0.2
-      successChance: 0.8
+      interactDelay: 0.1
+      successChance: 0.5
       interactSuccessString: petting-success-generic
       interactFailureString: petting-failure-generic
       interactSuccessSound:
-        path: /Audio/Effects/double_beep.ogg
+        path: /Resources\Audio\Effects\Cargo\buzz_sigh.ogg
     - type: CombatMode
       combatToggleAction:
         enabled: false
@@ -141,8 +154,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 75
-          # TODO: Construction graph
+            damage: 7
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
@@ -155,15 +167,14 @@
                   min: 3
                   max: 5
     - type: Gun
-      fireRate: 2
+      fireRate: 1
       selectedMode: FullAuto
       availableModes:
         - FullAuto
-      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
-    # TODO: Power ammo provider?
+      soundGunshot: Resources\Audio\Weapons\Guns\Gunshots\silenced.ogg #sounds nice
     - type: BallisticAmmoProvider
       proto: CartridgeCaselessRifle
-      capacity: 250
+      capacity: 125
     - type: HTN
       rootTask: TurretCompound
       blackboard:
