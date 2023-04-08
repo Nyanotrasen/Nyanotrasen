@@ -59,9 +59,6 @@
   - type: DiseaseCarrier
   - type: CombatMode
     canDisarm: true
-  - type: Tag
-    tags:
-    - GunsDisabled
   - type: Cuffable
   - type: MeleeWeapon
     hidden: true

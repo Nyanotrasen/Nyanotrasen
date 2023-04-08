@@ -5,7 +5,15 @@
     slotTexture: head
     slotFlags: HEAD
     slotGroup: MainHotbar
-    uiWindowPos: 0,0
-    strippingWindowPos: 0,0
+    uiWindowPos: 0,1
+    strippingWindowPos: 0,1
     displayName: Head
     offset: 0, -0.1
+  - name: id
+    slotTexture: id
+    slotFlags: IDCARD
+    slotGroup: MainHotbar
+    stripTime: 6
+    uiWindowPos: 0,0
+    strippingWindowPos: 0,0
+    displayName: ID
