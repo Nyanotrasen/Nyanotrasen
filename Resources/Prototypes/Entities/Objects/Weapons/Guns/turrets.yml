@@ -104,3 +104,68 @@
   - type: Faction
     factions:
     - SimpleHostile
+
+- type: entity
+  parent: BaseStructure
+  id: svetlanaturret
+  name: Svetlana Turret
+  abstract: true
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Actions
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: Sprite
+      netsync: false
+      sprite: Objects/Weapons/Guns/turrets.rsi
+      drawdepth: WallMountedItems
+      layers:
+        - state: syndie_lethal
+    - type: InteractionPopup
+      interactDelay: 0.2
+      successChance: 0.8
+      interactSuccessString: petting-success-generic
+      interactFailureString: petting-failure-generic
+      interactSuccessSound:
+        path: /Audio/Effects/double_beep.ogg
+    - type: CombatMode
+      combatToggleAction:
+        enabled: false
+        autoPopulate: false
+        name: action-name-combat
+    - type: Damageable
+      damageContainer: Inorganic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 75
+          # TODO: Construction graph
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                path: /Audio/Effects/metalbreak.ogg
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                SheetSteel1:
+                  min: 3
+                  max: 5
+    - type: Gun
+      fireRate: 2
+      selectedMode: FullAuto
+      availableModes:
+        - FullAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+    # TODO: Power ammo provider?
+    - type: BallisticAmmoProvider
+      proto: CartridgeCaselessRifle
+      capacity: 250
+    - type: HTN
+      rootTask: TurretCompound
+      blackboard:
+        SoundTargetInLOS: !type:SoundPathSpecifier
+          path: /Audio/Effects/double_beep.ogg
