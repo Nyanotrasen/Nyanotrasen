@@ -3,10 +3,12 @@ using System.Threading.Tasks;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.CCVar;
 using NUnit.Framework;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Map;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.IntegrationTests.Tests.Damageable
@@ -81,6 +83,7 @@ namespace Content.IntegrationTests.Tests.Damageable
             var sMapManager = server.ResolveDependency<IMapManager>();
             var sPrototypeManager = server.ResolveDependency<IPrototypeManager>();
             var sEntitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var sConfigManager = server.ResolveDependency<IConfigurationManager>();
 
             EntityUid sDamageableEntity = default;
             DamageableComponent sDamageableComponent = null;
@@ -118,6 +121,8 @@ namespace Content.IntegrationTests.Tests.Damageable
                 type3a = sPrototypeManager.Index<DamageTypePrototype>("TestDamage3a");
                 type3b = sPrototypeManager.Index<DamageTypePrototype>("TestDamage3b");
                 type3c = sPrototypeManager.Index<DamageTypePrototype>("TestDamage3c");
+
+                sConfigManager.SetCVar(CCVars.DamageVariance, 0f);
             });
 
             await server.WaitRunTicks(5);
@@ -193,9 +198,9 @@ namespace Content.IntegrationTests.Tests.Damageable
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
 
                 // Test SetAll function
-                sDamageableSystem.SetAllDamage(sDamageableComponent, 10);
+                sDamageableSystem.SetAllDamage(sDamageableEntity, sDamageableComponent, 10);
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.New(10 * sDamageableComponent.Damage.DamageDict.Count())));
-                sDamageableSystem.SetAllDamage(sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage(sDamageableEntity, sDamageableComponent, 0);
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));
 
                 // Test 'wasted' healing

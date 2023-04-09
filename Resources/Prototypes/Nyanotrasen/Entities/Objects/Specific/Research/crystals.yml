@@ -27,3 +27,12 @@
   - type: Speech
   - type: Psionic
   - type: SoulCrystal
+  - type: SolutionContainerManager
+    solutions:
+      ectoplasm:
+        maxvol: 50
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 50
+  - type: Extractable
+    grindableSolutionName: ectoplasm

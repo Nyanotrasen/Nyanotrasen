@@ -8,3 +8,7 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Devices/QSI.rsi
     state: icon
+  - type: ReverseEngineering
+    difficulty: 4
+    recipes:
+      - QSI

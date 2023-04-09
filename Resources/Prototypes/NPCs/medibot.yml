@@ -11,16 +11,20 @@
   branches:
     - tasks:
         - id: PickNearbyInjectablePrimitive
-        - id: MedibotSpeakPrimitive
         - id: MoveToAccessiblePrimitive
-        - id: SetIdleTimePrimitive
-        - id: WaitIdleTimePrimitive
+        # - id: MedibotSpeakPrimitive // TODO: some sort of CD?
         - id: MedibotInjectPrimitive
+        # - id: MedibotSpeakFinishPrimitive
 
 - type: htnPrimitive
   id: MedibotSpeakPrimitive
   operator: !type:SpeakOperator
     speech: medibot-start-inject
+
+- type: htnPrimitive
+  id: MedibotSpeakFinishPrimitive
+  operator: !type:SpeakOperator
+    speech: medibot-finish-inject
 
 - type: htnPrimitive
   id: PickNearbyInjectablePrimitive
@@ -31,4 +35,4 @@
 - type: htnPrimitive
   id: MedibotInjectPrimitive
   operator: !type:MedibotInjectOperator
-    targetKey: InjectTarget
+    injectKey: InjectTarget

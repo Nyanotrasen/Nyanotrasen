@@ -6,6 +6,7 @@
   stations:
     arena:
       mapNameTemplate: '{0} Arena Station {1}'
+      emergencyShuttlePath: /Maps/Shuttles/UCLB_grid.yml
       nameGenerator:
         !type:NanotrasenNameGenerator
         prefixCreator: 'TG'
@@ -45,4 +46,6 @@
         ForensicMantis: [ 1, 1 ]
         Reporter: [ 2, 2 ]
         Valet: [ 2, 3 ]
+        Psychologist: [ 1, 1 ]
         Prisoner: [ 1, 2 ]
+        PrisonGuard: [ 1, 1 ]  

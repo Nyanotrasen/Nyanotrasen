@@ -171,6 +171,9 @@
   id: FoodBakedNugget
   description: A "chicken" nugget vaguely shaped into an object. # Should change depending on name.
   components:
+  - type: FlavorProfile
+    flavors:
+      - nuggie
   - type: Tag
     tags:
       - Nugget

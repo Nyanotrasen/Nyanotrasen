@@ -1,0 +1,195 @@
+<Document>
+# Pasta
+<Box Orientation="Vertical">
+	[color=#a4885c]Boiled Noodles[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u flour
+- 1 egg
+</Box>
+<Box Orientation="Vertical">
+- Large plate
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesBoiled" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Spaghetti[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled noodles
+- 2 tomatoes
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodles" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Spaghetti & Meatballs[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 2 meatballs
+- Boiled noodles
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesMeatball" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Butter Noodles[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled noodles
+- Stick of butter
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesButter" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Chow Mein[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled noodles
+- Eggplant
+- Carrot
+</Box>
+<Box Orientation="Vertical">
+- Ear of corn
+- 1 egg
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesChowmein" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Copypasta[/color]
+</Box>
+<Box>
+<GuideEntityEmbed Entity="FoodNoodles" Caption="2x"/>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodNoodlesCopy" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Green Lasagne[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 10u bechamel
+- 10u pesto
+</Box>
+<Box Orientation="Vertical">
+- Boiled noodles
+- Cheese wedge
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="20 sec"/>
+<GuideEntityEmbed Entity="FoodMothGreenLasagne" Caption=""/>
+</Box>
+
+# Rice
+<Box Orientation="Vertical">
+	[color=#a4885c]Rice Pudding[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 15u rice
+- 10u milk
+</Box>
+<Box Orientation="Vertical">
+- 5u sugar
+- Bowl
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRicePudding" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Boiled Rice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Bowl
+- 15u rice
+- 10u water
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceBoiled" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Rice and Pork[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 3x meat cutlet
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRicePork" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Black-Eyed Gumbo[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 3x meat cutlet
+- 2x chili pepper
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceGumbo" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Egg-Fried Rice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- Egg
+- Carrot
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodRiceEgg" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Baked Rice[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 2x Potato
+- Cabbage
+</Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Ambrosia Vulgaris
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="15 sec"/>
+<GuideEntityEmbed Entity="FoodMothBakedRice" Caption=""/>
+</Box>
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Mulan Congee[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Boiled rice
+- 2x Fried eggs
+- Meat cutlet
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMothHuaMulanCongee" Caption=""/>
+</Box>
+
+</Document>

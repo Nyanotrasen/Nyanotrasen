@@ -1,4 +1,3 @@
-using Content.Server.Fugitive;
 using Content.Server.StationEvents.Components;
 using Robust.Shared.Random;
 using System.Linq;

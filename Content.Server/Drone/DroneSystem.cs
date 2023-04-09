@@ -26,6 +26,7 @@ namespace Content.Server.Drone
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly InnateToolSystem _innateToolSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -98,7 +99,7 @@ namespace Content.Server.Drone
         {
             if (TryComp<AppearanceComponent>(uid, out var appearance))
             {
-                appearance.SetData(DroneVisuals.Status, status);
+                _appearance.SetData(uid, DroneVisuals.Status, status, appearance);
             }
         }
     }

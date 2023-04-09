@@ -2,7 +2,7 @@
 - type: weightedRandom
   id: TraitorObjectiveGroups
   weights:
-    TraitorObjectiveGroupSteal: 1
+    TraitorObjectiveGroupSteal: 2.5
     TraitorObjectiveGroupKill: 1
     TraitorObjectiveGroupState: 1 #As in, something about your character. Alive, dead, arrested, gained an ability...
     TraitorObjectiveGroupSocial: 1 #Involves helping/harming others without killing them or stealing their stuff
@@ -18,10 +18,8 @@
     MagbootsStealObjective: 1
     SupplyConsoleBoardStealObjective: 1
     MantisKnifeStealObjective: 1
-    PonderingOrbTelepathicHOSStealObjective: 0.5
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
-    HandTeleporterStealObjective: 0.5
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -32,14 +30,14 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    BecomePsionicObjective: 1
-    BecomeGolemObjective: 0.67
+    BecomePsionicObjective: 0.5
+    BecomeGolemObjective: 0.25
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
-    RaiseGlimmerObjective: 1
+    RaiseGlimmerObjective: 0.5
 
 #Changeling, crew, wizard, when you code it...

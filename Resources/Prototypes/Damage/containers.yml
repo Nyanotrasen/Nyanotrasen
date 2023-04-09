@@ -31,3 +31,16 @@
     - Toxin
   supportedTypes:
     - Shock
+
+- type: damageContainer
+  id: Spirit
+  supportedGroups:
+    - Burn
+    - Immaterial
+
+- type: damageContainer
+  id: CorporealSpirit
+  supportedGroups:
+    - Burn
+    - Brute
+    - Immaterial

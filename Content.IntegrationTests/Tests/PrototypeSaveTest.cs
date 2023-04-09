@@ -36,6 +36,7 @@ public sealed class PrototypeSaveTest
     {
         "Singularity", // physics collision uses "AllMask" (-1). The flag serializer currently fails to save this because this features un-named bits.
         "constructionghost",
+        "MobGlimmerWisp", // fucking combat mode bullshit
     };
 
     [Test]

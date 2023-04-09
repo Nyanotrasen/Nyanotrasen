@@ -28,7 +28,7 @@ public sealed class DoorBoltWireAction : ComponentWireAction<AirlockComponent>
 
     public override bool Mend(EntityUid user, Wire wire, AirlockComponent door)
     {
-        EntityManager.System<SharedAirlockSystem>().SetBoltWireCut(door, true);
+        EntityManager.System<SharedAirlockSystem>().SetBoltWireCut(door, false);
         return true;
     }
 

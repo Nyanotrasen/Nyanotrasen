@@ -1,6 +1,7 @@
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.ReverseEngineering;
 using Content.Shared.Audio;
+using Content.Shared.Examine;
 using Content.Server.Research.TechnologyDisk.Components;
 using Content.Server.UserInterface;
 using Content.Server.Power.Components;
@@ -11,25 +12,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using System.Threading;
-using Content.Shared.Disease;
-using Content.Shared.Disease.Components;
-using Content.Shared.Materials;
-using Content.Shared.Research.Components;
-using Content.Shared.Examine;
-using Content.Shared.Interaction;
-using Content.Shared.Tag;
-using Content.Shared.Toggleable;
-using Content.Server.Disease.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Server.DoAfter;
-using Content.Server.Research.Systems;
-using Content.Server.UserInterface;
-using Content.Server.Construction;
-using Content.Server.Popups;
-using Robust.Shared.Prototypes;
-using Robust.Server.GameObjects;
-using Robust.Server.Player;
 
 namespace Content.Server.ReverseEngineering;
 
@@ -64,7 +46,10 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, PowerChangedEvent>(OnPowerChanged);
 
+        SubscribeLocalEvent<ReverseEngineeringComponent, ExaminedEvent>(OnExamined);
+
         SubscribeLocalEvent<ReverseEngineeringMachineComponent, BeforeActivatableUIOpenEvent>((e,c,_) => UpdateUserInterface(e,c));
+
     }
 
     public override void Update(float frameTime)
@@ -172,6 +157,13 @@ public sealed class ReverseEngineeringSystem : EntitySystem
     {
         if (!args.Powered)
             CancelProbe(uid, component);
+    }
+
+    private void OnExamined(EntityUid uid, ReverseEngineeringComponent component, ExaminedEvent args)
+    {
+        // TODO: Eventually this should probably get shoved into a contextual examine somewhere like health or machine upgrading.
+        // And this can be predicted I guess if difficulty becomes read only.
+        args.PushMarkup(Loc.GetString("reverse-engineering-examine", ("diff", component.Difficulty)));
     }
 
     private void OnStopButtonPressed(EntityUid uid, ReverseEngineeringMachineComponent component, ReverseEngineeringMachineStopButtonPressedMessage args)

@@ -1,7 +1,7 @@
 - type: listing
   id: UplinkKanabou
-  name: Kanabou
-  description: A weapon for those who wish to forgo subtlety. Particularly suited to oni.
+  name: uplink-kanabou-name
+  description: uplink-kanabou-desc
   productEntity: Kanabou
   cost:
     Telecrystal: 10
@@ -14,8 +14,8 @@
 
 - type: listing
   id: InjectorBloodsuckerNocturine
-  name: nocturine gland injector
-  description: Makes your fangs inject nocturine whenever you suck blood.
+  name: uplink-nocturine-gland-injector-name
+  description: uplink-nocturine-gland-injector-desc
   productEntity: InjectorBloodsuckerNocturine
   cost:
     Telecrystal: 8
@@ -32,8 +32,8 @@
 
 - type: listing
   id: UplinkRickenbacker
-  name: Rickenbacker 4001
-  description: When it comes down to it, there are very few people who will swing the bat.
+  name: uplink-rickenbacker4001-name
+  description: uplink-rickenbacker4001-desc
   productEntity: Rickenbacker4001Instrument
   cost:
     Telecrystal: 10

@@ -193,6 +193,18 @@
     sprite: Clothing/OuterClothing/Misc/wizard.rsi
 
 - type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterWizardFake
+  name: wizard robes
+  suffix: fake
+  description: A set of blue robes.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/wizard.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Misc/wizard.rsi
+
+- type: entity
   parent: ClothingOuterEVASuitBase
   id: ClothingOuterWizardRed
   name: red wizard robes

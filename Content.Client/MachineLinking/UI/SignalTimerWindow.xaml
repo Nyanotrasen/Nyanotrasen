@@ -1,0 +1,14 @@
+<DefaultWindow xmlns="https://spacestation14.io" Title="{Loc signal-timer-window-title}" MinSize="200 100">
+    <BoxContainer Name="StartBox" Orientation="Vertical" VerticalExpand="True">
+        <Label Name="SecondsLabel" Text="{Loc 'signal-timer-window-seconds'}" />
+        <LineEdit Name="SecondsLabelEdit" />
+        <Label Text="{Loc 'signal-timer-window-press-enter-to-confirm'}"/><Label Text=""/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Button Name="ButtonStart" Text="{Loc signal-timer-window-start}"/>
+        </BoxContainer>
+    </BoxContainer>
+    <BoxContainer Name="EndBox" Orientation="Vertical" VerticalExpand="True" Visible="False">
+        <Label Name="TimeRemainingLabel"/><Label Text=""/>
+        <Button Name="CancelButton" Text="{Loc 'signal-timer-window-cancel-timer'}"/>
+    </BoxContainer>
+</DefaultWindow>

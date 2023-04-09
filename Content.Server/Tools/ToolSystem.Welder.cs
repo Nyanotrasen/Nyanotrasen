@@ -8,6 +8,7 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Popups;
 using Content.Shared.Temperature;
 using Content.Shared.Toggleable;
 using Content.Shared.Tools.Components;
@@ -15,7 +16,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Player;
 
 namespace Content.Server.Tools
 {
@@ -118,6 +118,9 @@ namespace Content.Server.Tools
             var ev = new WelderToggledEvent(true);
             RaiseLocalEvent(welder.Owner, ev, false);
 
+            var hotEvent = new IsHotEvent() {IsHot = true};
+            RaiseLocalEvent(uid, hotEvent);
+
             _appearanceSystem.SetData(uid, WelderVisuals.Lit, true);
             _appearanceSystem.SetData(uid, ToggleableLightVisuals.Enabled, true);
 
@@ -129,7 +132,7 @@ namespace Content.Server.Tools
             if (transform.GridUid is {} gridUid)
             {
                 var position = _transformSystem.GetGridOrMapTilePosition(uid, transform);
-                _atmosphereSystem.HotspotExpose(gridUid, position, 700, 50, true);
+                _atmosphereSystem.HotspotExpose(gridUid, position, 700, 50, uid, true);
             }
 
             _entityManager.Dirty(welder);
@@ -222,8 +225,6 @@ namespace Content.Server.Tools
             args.Handled = TryToggleWelder(uid, args.User, welder);
             if (args.Handled)
                 args.WasLogged = true;
-            var hotEvent = new IsHotEvent() {IsHot = true};
-            RaiseLocalEvent(uid, hotEvent);
         }
 
         private void OnWelderAfterInteract(EntityUid uid, WelderComponent welder, AfterInteractEvent args)
@@ -234,30 +235,7 @@ namespace Content.Server.Tools
             if (args.Target is not {Valid: true} target || !args.CanReach)
                 return;
 
-            // TODO: Clean up this inherited oldcode.
-
-            if (EntityManager.TryGetComponent(target, out ReagentTankComponent? tank)
-                && tank.TankType == ReagentTankType.Fuel
-                && _solutionContainerSystem.TryGetDrainableSolution(target, out var targetSolution)
-                && _solutionContainerSystem.TryGetSolution(uid, welder.FuelSolution, out var welderSolution))
-            {
-                var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
-                if (trans > 0)
-                {
-                    var drained = _solutionContainerSystem.Drain(target, targetSolution,  trans);
-                    _solutionContainerSystem.TryAddSolution(uid, welderSolution, drained);
-                    _audioSystem.PlayPvs(welder.WelderRefill, uid);
-                    _popupSystem.PopupEntity(Loc.GetString("welder-component-after-interact-refueled-message"), uid, args.User);
-                }
-                else if (welderSolution.AvailableVolume <= 0)
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("welder-component-already-full"), uid, args.User);
-                }
-                else
-                {
-                    _popupSystem.PopupEntity(Loc.GetString("welder-component-no-fuel-in-tank", ("owner", args.Target)), uid, args.User);
-                }
-            }
+            TryRefilling(args.User, uid, target, welder);
 
             args.Handled = true;
         }
@@ -269,7 +247,7 @@ namespace Content.Server.Tools
 
             if (!welder.Lit)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-welder-not-lit-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
                 args.Cancel();
                 return;
             }
@@ -278,7 +256,7 @@ namespace Content.Server.Tools
 
             if (FixedPoint2.New(args.Fuel) > fuel)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-cannot-weld-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-cannot-weld-message"), args.User);
                 args.Cancel();
             }
         }
@@ -290,7 +268,7 @@ namespace Content.Server.Tools
 
             if (!welder.Lit)
             {
-                _popupSystem.PopupEntity(Loc.GetString("welder-component-welder-not-lit-message"), uid, args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
                 args.Cancel();
                 return;
             }
@@ -301,6 +279,7 @@ namespace Content.Server.Tools
 
             if (neededFuel > fuel)
             {
+                _popupSystem.PopupEntity(Loc.GetString("welder-component-cannot-weld-message"), uid, args.User);
                 args.Cancel();
             }
 
@@ -353,6 +332,44 @@ namespace Content.Server.Tools
             }
 
             _welderTimer -= WelderUpdateTimer;
+        }
+
+        private void TryRefilling(EntityUid user, EntityUid welderUid, EntityUid target, WelderComponent welder)
+        {
+            if (!EntityManager.TryGetComponent(target, out ReagentTankComponent? tank))
+                return;
+
+            if (tank.TankType != ReagentTankType.Fuel)
+                return;
+
+            if (!_solutionContainerSystem.TryGetDrainableSolution(target, out var targetSolution))
+                return;
+
+            if (!_solutionContainerSystem.TryGetSolution(welderUid, welder.FuelSolution, out var welderSolution))
+                return;
+
+            if (welder.Lit)
+            {
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-cant-refill-when-lit"), user, PopupType.MediumCaution);
+                return;
+            }
+
+            var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
+            if (trans > 0)
+            {
+                var drained = _solutionContainerSystem.Drain(target, targetSolution,  trans);
+                _solutionContainerSystem.TryAddSolution(welderUid, welderSolution, drained);
+                _audioSystem.PlayPvs(welder.WelderRefill, welderUid);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-after-interact-refueled-message"), user);
+            }
+            else if (welderSolution.AvailableVolume <= 0)
+            {
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-already-full"), user);
+            }
+            else
+            {
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-no-fuel-in-tank", ("owner", target)), user);
+            }
         }
     }
 

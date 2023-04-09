@@ -13,19 +13,17 @@
     - tasks:
         - id: PickPuddlePrimitive
         - id: MoveToAccessiblePrimitive
-        - id: SetIdleTimePrimitive
-        - id: WaitIdleTimePrimitive
-
+        - id: CleanPuddlePrimitive
 
 - type: htnPrimitive
   id: PickPuddlePrimitive
   operator: !type:PickAccessibleComponentOperator
     rangeKey: BufferRange
-    targetKey: MovementTarget
+    targetKey: CleanTarget
+    targetMoveKey: MovementTarget
     component: Puddle
 
 - type: htnPrimitive
-  id: SetIdleTimePrimitive
-  operator: !type:SetFloatOperator
-    targetKey: IdleTime
-    amount: 3
+  id: CleanPuddlePrimitive
+  operator: !type:CleanBotCleanOperator
+    cleanKey: CleanTarget

@@ -1,0 +1,64 @@
+<Document>
+# Kebab
+[color=#fcdf03]Each and every kind of kebab requires a skewer![/color] Don't worry, you'll get them back! [color=#888084]Hopefully.[/color] Just place them in the microwave with everything else.
+
+<Box Orientation="Vertical">
+	[color=#a4885c]Meat Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- 3 meat cutlets
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Hawaiian Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Meat cutlet
+- Slice of pineapple
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatHawaiianKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Fiesta Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Chili pepper
+- Ear of corn
+</Box>
+<Box Orientation="Vertical">
+- Meat cutlet
+- Tomato
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="5 sec"/>
+<GuideEntityEmbed Entity="FoodMeatFiestaKebab" Caption=""/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Rat Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Rat (or two)
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 (20) sec"/>
+<GuideEntityEmbed Entity="FoodMeatRatKebab" Caption=""/>
+<GuideEntityEmbed Entity="FoodMeatRatdoubleKebab" Caption="Alt."/>
+</Box>
+<Box Orientation="Vertical">
+	[color=#a4885c]Human Kebab[/color]
+</Box>
+<Box>
+<Box Orientation="Vertical">
+- Human torso
+</Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption="10 sec"/>
+<GuideEntityEmbed Entity="FoodMeatHumanKebab" Caption=""/>
+</Box>
+
+</Document>

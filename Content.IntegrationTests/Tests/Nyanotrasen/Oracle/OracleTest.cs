@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Server.Research.Oracle;
-using Content.Server.Chemistry.Components;
+using Content.Shared.Chemistry.Components;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;

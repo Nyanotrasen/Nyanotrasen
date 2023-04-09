@@ -61,10 +61,18 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             EntryContainer.AddChild(whitelistButton);
         }
 
-        public void SetRedirect(bool enabled)
+        public void SetRedirect()
         {
+            NoRolesMessage.Visible = false;
+
+            var message = "ghost-roles-window-redirect-label";
+            if (EntryContainer.ChildCount == 0)
+            {
+                message = "ghost-roles-window-redirect-label-empty";
+            }
+
             var textLabel = new RichTextLabel();
-            textLabel.SetMessage(Loc.GetString("ghost-roles-window-redirect-label"));
+            textLabel.SetMessage(Loc.GetString(message));
             EntryContainer.AddChild(textLabel);
 
             var redirectButton = new Button();

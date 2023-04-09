@@ -34,6 +34,6 @@ namespace Content.Server.Weapons.Melee
         /// Stamina cost modifier for heavy attack.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("heavyStaminaCostModifier")]
-        public float HeavyStaminaCostModifier = 3f;
+        public float HeavyStaminaCostModifier = 2f;
     }
 }

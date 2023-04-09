@@ -38,6 +38,17 @@
 
 - type: entity
   noSpawn: true
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelParamedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxSurvivalMedical
+      - id: CheapRollerBedSpawnFolded
+      - id: BodyBag_Folded
+
+- type: entity
+  noSpawn: true
   parent: ClothingBackpackDuffelCaptain
   id: ClothingBackpackDuffelCaptainFilled
   components:
@@ -101,7 +112,7 @@
   - type: StorageFill
     contents:
       - id: BoxSurvival
-      - id: Bible
+      - id: BoxHolyWater
       - id: RubberStampChaplain
 
 - type: entity

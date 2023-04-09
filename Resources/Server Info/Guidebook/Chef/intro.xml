@@ -1,0 +1,40 @@
+<Document>
+# Chef
+
+As a Chef, it is your job to spare the crew from the junk food in the vending machines and to provide food when the junk food inevitably runs out.
+
+## Tools of the Trade
+<Box>
+<GuideEntityEmbed Entity="VendingMachineChefvend" />
+<GuideEntityEmbed Entity="VendingMachineDinnerware" Caption="Dinnerware"/>
+<GuideEntityEmbed Entity="VendingMachineCondiments" />
+</Box>
+In many stations, you will have the [color=#a4885c]ChefVend[/color] at your disposal which contains a variety of base ingredients to get you started, a [color=#a4885c]Dinnerware[/color] which contains dishware and utensils, and a [color=#a4885c]Condiment Station[/color], available for the patron's enjoyment, but also for some of your own cooking where things like salt are required.
+<Box>
+<GuideEntityEmbed Entity="KitchenReagentGrinder" Caption=""/>
+<GuideEntityEmbed Entity="LargeBeaker" Caption=""/>
+</Box>
+The [color=#a4885c]grinder[/color] is used to juice or grind stuff placed into it. Mostly used to grind grains into usable powders like wheat into flour, to mince meat, extract oil and more.
+
+A lot of times, Cooking is like Chemistry, and so to make things like dough, meatballs, dairy, you will be mixing liquid and powdered ingredients in vessels. This can be a [color=#a4885c]beaker[/color], but also [color=#a4885c]bowls[/color], even [color=#a4885c]cups[/color].
+<Box>
+<GuideEntityEmbed Entity="KitchenMicrowave" Caption=""/>
+</Box>
+[color=#a4885c]The Microwave[/color] is the primary cooking utensil of the Chef. Insert items inside as per recipe, set the [color=#a4885c]cooking time[/color] accordingly, and run it.
+
+If the cooking time's too low, or the ingredients inside don't combine into any food, they are simply ejected at the end of the cooking cycle. If the cooking time is too high, the food may come out ruined. If you insert incorrect ingredients or miss some, the microwave might still produce different food than you expected, in which case there's nothing to do but eat what you got instead.
+
+If the recipe requires any liquid or powder ingredient, any vessel may be used for them and will be emptied and returned unless the recipe specifically calls for it like bowls for soup, pie tins for pie etc.
+<Box>
+<GuideEntityEmbed Entity="KitchenDeepFryer" Caption=""/>
+</Box>
+Upon pouring enough oil into the [color=#a4885c]deep fryer[/color], any item can be placed (or even thrown) inside to become crispy and eventually deep-fried or even burned. Not all deep-fried items are edible, though.
+
+Using the deep fryer deposits [color=#a4885c]slag[/color] into the vat, and too much of it will prevent the fryer from working, so it has to be scooped out into any vessel for liquids. The oil itself can also be scooped back out any time.
+<Box>
+<GuideEntityEmbed Entity="hydroponicsTray" Caption=""/>
+<GuideEntityEmbed Entity="CrateNPCCow" Caption=""/>
+<GuideEntityEmbed Entity="MobMouse" Caption=""/>
+</Box>
+The ChefVend will run dry soon and lacks many ingredients, so it will be important to find sources of food you can use. [color=#a4885c]The Botanist[/color] should be able to supply you with fresh produce like [color=#a4885c]grains, fruits and vegetables[/color]. [color=#a4885c]Restocks[/color] and more exotic ingredients may be available through [color=#a4885c]Cargo[/color]. The critters that find their way on the station can be a food source as well.
+</Document>

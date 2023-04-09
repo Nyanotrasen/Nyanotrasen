@@ -2,6 +2,7 @@ using System.Threading;
 using Content.Server.NPC.Pathfinding;
 using Content.Shared.NPC;
 using Robust.Shared.Map;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.NPC.Components;
 
@@ -26,6 +27,15 @@ public sealed class NPCSteeringComponent : Component
     public float Radius = 0.35f;
 
     [ViewVariables]
+    public EntityCoordinates LastCoordinates = default!;
+
+    [ViewVariables]
+    public TimeSpan LastTimeMoved = default!;
+
+    [ViewVariables]
+    public TimeSpan TimeOutTime = TimeSpan.FromSeconds(4f);
+
+    [ViewVariables]
     public readonly float[] Interest = new float[SharedNPCSteeringSystem.InterestDirections];
 
     [ViewVariables]
@@ -35,6 +45,28 @@ public sealed class NPCSteeringComponent : Component
     public readonly List<Vector2> DangerPoints = new();
 
     #endregion
+
+    /// <summary>
+    /// Next time we can change our steering direction.
+    /// </summary>
+    [DataField("nextSteer", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    public TimeSpan NextSteer = TimeSpan.Zero;
+
+    [DataField("lastSteerDirection")]
+    public Vector2 LastSteerDirection = Vector2.Zero;
+
+    public const int SteeringFrequency = 10;
+
+    /// <summary>
+    /// Last position we considered for being stuck.
+    /// </summary>
+    [DataField("lastStuckCoordinates")]
+    public EntityCoordinates LastStuckCoordinates;
+
+    [DataField("lastStuckTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    public TimeSpan LastStuckTime;
+
+    public const float StuckDistance = 1f;
 
     /// <summary>
     /// Have we currently requested a path.

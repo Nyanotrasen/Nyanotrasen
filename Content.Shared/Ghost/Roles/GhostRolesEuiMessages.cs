@@ -23,7 +23,7 @@ namespace Content.Shared.Ghost.Roles
         public GhostRolesEuiState(GhostRoleInfo[] ghostRoles, bool enableRedirect)
         {
             GhostRoles = ghostRoles;
-            enableRedirect = EnableRedirect;
+            EnableRedirect = enableRedirect;
         }
     }
 

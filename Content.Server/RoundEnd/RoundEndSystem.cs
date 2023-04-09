@@ -34,7 +34,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
-        [Dependency] private readonly ShuttleSystem _shuttle = default!;
+        [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
@@ -42,7 +42,7 @@ namespace Content.Server.RoundEnd
         /// <summary>
         /// Countdown to use where there is no station alert countdown to be found.
         /// </summary>
-        public TimeSpan DefaultCountdownDuration { get; set; } = TimeSpan.FromMinutes(4);
+        public TimeSpan DefaultCountdownDuration { get; set; } = TimeSpan.FromMinutes(10);
         public TimeSpan DefaultRestartRoundDuration { get; set; } = TimeSpan.FromMinutes(1);
 
         private CancellationTokenSource? _countdownTokenSource = null;

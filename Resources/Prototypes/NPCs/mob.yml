@@ -16,3 +16,11 @@
         - id: FollowCompound
     - tasks:
         - id: IdleCompound
+
+- type: htnCompound
+  id: SimpleRangedCompound
+  branches:
+    - tasks:
+      - id: RangedCombatCompound
+    - tasks:
+      - id: IdleCompound

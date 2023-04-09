@@ -254,9 +254,8 @@
     bluntStaminaDamageFactor: 3.0
     damage:
       types:
-        Blunt: 3.5
-        Slash: 4.5
-        Piercing: 2
+        Blunt: 4.5
+        Slash: 5.5
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: MeleeBloodletter
@@ -287,9 +286,8 @@
     bluntStaminaDamageFactor: 5.0
     damage:
       types:
-        Blunt: 3.5
-        Slash: 6.5
-        Piercing: 2
+        Blunt: 4.5
+        Slash: 7.5
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: MeleeBloodletter

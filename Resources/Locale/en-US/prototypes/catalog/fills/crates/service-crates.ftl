@@ -7,6 +7,9 @@ ent-CrateServiceReplacementLights = Replacement lights crate
 ent-CrateMousetrapBoxes = Mousetraps crate
     .desc = Mousetraps, for when all of service is being haunted by an entire horde of rats. Use sparingly... or not.
 
+ent-CrateHolyWaterKit = DIY holy water crate
+    .desc = For when undeads or vampires becomes a real problem and you'd rather keep them at bay.
+
 ent-CrateServiceSmokeables = Smokeables crate
     .desc = Tired of a quick death on the station? Order this crate and chain-smoke your way to a coughy demise!
 
@@ -18,3 +21,6 @@ ent-CrateServiceBureaucracy = Bureaucracy crate
 
 ent-CrateServicePersonnel = Personnel crate
     .desc = Contains a box of blank ID cards and PDAs.
+
+ent-CrateJanitorBiosuit = Janitor bio suit crate
+    .desc = Contains 2 biohazard suits to ensure that no disease will distract you from cleaning.

@@ -1,0 +1,23 @@
+﻿- type: guideEntry
+  id: SpaceLaw
+  name: guide-entry-space-law
+  text: "/Server Info/Guidebook/Law/SL.xml"
+  children:
+  - Jurisdiction
+  - Trials
+  - Charges
+
+- type: guideEntry
+  id: Jurisdiction
+  name: guide-entry-jurisdiction
+  text: "/Server Info/Guidebook/Law/Juris.xml"
+
+- type: guideEntry
+  id: Trials
+  name: guide-entry-trial-prodedure
+  text: "/Server Info/Guidebook/Law/Trials.xml"
+
+- type: guideEntry
+  id: Charges
+  name: guide-entry-charges-and-times
+  text: "/Server Info/Guidebook/Law/Charges.xml"

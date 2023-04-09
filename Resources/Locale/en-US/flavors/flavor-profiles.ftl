@@ -40,6 +40,7 @@ flavor-base-fizzy = fizzy
 flavor-base-shocking = shocking
 flavor-base-cheap = cheap
 flavor-base-piquant = piquant
+flavor-base-sharp = sharp
 
 # lmao
 flavor-base-terrible = terrible
@@ -85,6 +86,7 @@ flavor-complex-pineapple = like pineapple
 flavor-complex-onion = like onion
 flavor-complex-eggplant = like eggplant
 flavor-complex-carrot = like carrots
+flavor-complex-cabbage = like cabbages
 flavor-complex-potatoes = like potatoes
 flavor-complex-mushroom = like mushrooms
 flavor-complex-tomato = like tomatoes
@@ -95,6 +97,9 @@ flavor-complex-bungo = like bungo
 flavor-complex-raisins = like dried grapes
 flavor-complex-orange = like oranges
 flavor-complex-watermelon = like watermelon
+flavor-complex-nuggie = like "chicken"
+flavor-complex-garlic = like garlic
+flavor-complex-grape = like grapes
 
 ## Complex foodstuffs (cooked foods, joke flavors, etc)
 
@@ -134,7 +139,6 @@ flavor-complex-cola = like cola
 flavor-complex-vodka = like fermented grain
 flavor-complex-tequila = like fermented death
 flavor-complex-sake = like sweet, alcoholic rice
-flavor-complex-soju = like bold, alcoholic rice
 flavor-complex-rum = like fermented sugar
 flavor-complex-coffee-liquor = like strong, bitter coffee
 flavor-complex-whiskey = like molasses
@@ -175,6 +179,23 @@ flavor-complex-medicine = like medicine
 flavor-complex-carpet = like a handful of fur
 flavor-complex-bee = unbeelievable
 flavor-complex-sax = like jazz
+flavor-complex-bottledlightning = like lightning in a bottle
 
 ## Nyano???
 flavor-complex-enthralling = enthralling
+flavor-complex-sublime = sublime
+flavor-complex-holy = heavenly
+flavor-base-seeds = seeds
+flavor-complex-cotton = like cotton
+flavor-complex-vanilla = like vanilla
+flavor-complex-soju = like bold, alcoholic rice
+flavor-complex-orangecreamcicle = like creamy, alcoholic orange juice
+flavor-complex-silverjack = like a rockstars dream
+flavor-complex-brainbomb = like liver damage
+flavor-complex-atomicpunch = like bittersweet radiation
+flavor-complex-circusjuice = extremely funny
+flavor-complex-pinkdrink = overwhelmingly like pink
+flavor-complex-sapopicante = like tomatoes and spices
+flavor-complex-graveyard = like a strong cold brew
+flavor-complex-bubbletea = like creamy sweetness
+flavor-complex-corncob = like a sick joke

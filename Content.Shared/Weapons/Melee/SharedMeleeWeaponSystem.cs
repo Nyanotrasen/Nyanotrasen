@@ -388,6 +388,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             {
                 Audio.PlayPredicted(hitEvent.HitSoundOverride, component.Owner, user);
             }
+            else if (component.Damage.Total.Equals(FixedPoint2.Zero) && component.HitSound != null)
+            {
+                Audio.PlayPredicted(component.HitSound, component.Owner, user);
+            }
             else
             {
                 Audio.PlayPredicted(component.NoDamageSound, component.Owner, user);
@@ -605,6 +609,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 // Unfortunately heat returns caustic group so can't just use the damagegroup in that instance.
                 case "Burn":
                 case "Heat":
+                case "Holy":
                 case "Cold":
                     Audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target, user, AudioParams.Default.WithVariation(DamagePitchVariation));
                     break;

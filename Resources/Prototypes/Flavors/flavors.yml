@@ -159,6 +159,11 @@
   description: flavor-base-terrible
 
 - type: flavor
+  id: sharp
+  flavorType: Base
+  description: flavor-base-sharp
+
+- type: flavor
   id: nothing
   flavorType: Complex
   description: flavor-complex-nothing
@@ -297,6 +302,11 @@
   id: carrot
   flavorType: Complex
   description: flavor-complex-carrot
+
+- type: flavor
+  id: cabbage
+  flavorType: Complex
+  description: flavor-complex-cabbage
 
 - type: flavor
   id: potatoes
@@ -494,11 +504,6 @@
   description: flavor-complex-sake
 
 - type: flavor
-  id: soju
-  flavorType: Complex
-  description: flavor-complex-soju
-
-- type: flavor
   id: rum
   flavorType: Complex
   description: flavor-complex-rum
@@ -657,3 +662,23 @@
   id: watermelon
   flavorType: Complex
   description: flavor-complex-watermelon
+
+- type: flavor
+  id: nuggie
+  flavorType: Complex
+  description: flavor-complex-nuggie
+
+- type: flavor
+  id: grape
+  flavorType: Complex
+  description: flavor-complex-grape
+
+- type: flavor
+  id: garlic
+  flavorType: Complex
+  description: flavor-complex-garlic
+
+- type: flavor
+  id: bottledlightning
+  flavorType: Complex
+  description: flavor-complex-bottledlightning

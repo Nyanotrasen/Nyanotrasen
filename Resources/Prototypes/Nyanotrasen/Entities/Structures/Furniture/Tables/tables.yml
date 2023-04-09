@@ -34,11 +34,11 @@
         acts: [ "Destruction" ]
   - type: Construction
     graph: Table
-    node: TableWoodReinforced 
+    node: TableWoodReinforced
   - type: Tag
     tags:
     - Wooden
-  - type: Climbable
+  - type: Bonkable
     # Reinforced tables are extra tough
     bonkDamage:
       types:
