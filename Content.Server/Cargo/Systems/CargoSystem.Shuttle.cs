@@ -1,13 +1,11 @@
 using System.Linq;
 using Content.Server.Cargo.Components;
-using Content.Server.Labels.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.UserInterface;
-using Content.Server.Paper;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Stack;
+using Content.Server.Mind.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.BUI;
@@ -18,15 +16,14 @@ using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Whitelist;
+using Content.Shared.Coordinates;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes;
-using Content.Shared.Coordinates;
-using Content.Shared.Mobs.Components;
-using Robust.Shared.Map.Components;
+
 
 namespace Content.Server.Cargo.Systems;
 
@@ -388,6 +385,8 @@ public sealed partial class CargoSystem
         amount = 0;
         var xformQuery = GetEntityQuery<TransformComponent>();
         var blacklistQuery = GetEntityQuery<CargoSellBlacklistComponent>();
+        var mindQuery = GetEntityQuery<MindComponent>(); // for pallets especially, we don't want to risk instagibbing any players.
+
         toSell = new HashSet<EntityUid>();
         foreach (var pallet in GetCargoPallets(gridUid))
         {
@@ -403,6 +402,9 @@ public sealed partial class CargoSystem
                     continue;
 
                 if (blacklistQuery.HasComponent(ent))
+                    continue;
+
+                if (mindQuery.HasComponent(ent))
                     continue;
 
                 var price = _pricing.GetPrice(ent, sale);
@@ -444,9 +446,20 @@ public sealed partial class CargoSystem
             return;
         }
 
+        var station = _station.GetOwningStation(uid);
+        if (station == null)
+            return;
+
         SellPallets(gridUid, out var price);
-        var stackPrototype = _prototypeManager.Index<StackPrototype>(component.CashType);
-        _stack.Spawn((int)price, stackPrototype, uid.ToCoordinates());
+        foreach (var account in EntityQuery<StationBankAccountComponent>())
+        {
+            if (_station.GetOwningStation(account.Owner) != _station.GetOwningStation(uid))
+                    continue;
+
+            UpdateBankAccount(account, (int) price);
+            return;
+        }
+
         UpdatePalletConsoleInterface(uid, component);
     }
 

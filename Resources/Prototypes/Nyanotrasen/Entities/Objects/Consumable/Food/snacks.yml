@@ -136,7 +136,9 @@
   components:
   - type: FlavorProfile
     flavors:
-      - jail
+      - meaty
+      - cheesy
+      - boritos
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Snacks/boritopie.rsi
     state: borito-pie
