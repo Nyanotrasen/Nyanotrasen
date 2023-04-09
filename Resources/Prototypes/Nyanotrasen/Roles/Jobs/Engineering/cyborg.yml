@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement
       time: 24000
   icon: "Unknown"
-  supervisors: "all humanoids"
+  supervisors: job-supervisors-human
   canBeAntag: false
   whitelistRequired: true
   jobEntity: PlayerCyborgStandard
