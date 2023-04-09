@@ -8,7 +8,7 @@
     - !type:OverallPlaytimeRequirement
       time: 24000
   icon: "Unknown"
-  supervisors: "all crew"
+  supervisors: job-supervisors-human
   canBeAntag: false
   jobEntity: PlayerCyborgMedical
   startingGear: CyborgGear # for char preview only
