@@ -133,19 +133,15 @@
       - "enum.HumanoidVisualLayers.RArm"
   - type: MovedByPressure
     pressureResistance: 4
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 0.05 #per second, scales with pressure and other constants. Reduced Damage. This allows medicine to heal faster than damage.
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 3.0
+    baseSprintSpeed : 5.0
   - type: Perishable
-  - type: ThermalRegulator
-    metabolismHeat: 800
-    radiatedHeat: 100
-    implicitHeatRegulation: 500
-    sweatHeatRegulation: 500
-    shiveringHeatRegulation: 500
-    normalBodyTemperature: 310.15
-    thermalRegulationTemperatureThreshold: 25
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
