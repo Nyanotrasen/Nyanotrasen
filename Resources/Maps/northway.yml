@@ -212,6 +212,14 @@ entities:
           60: -16,-41
       - node:
           cleanable: True
+          color: '#EFB34196'
+          id: DeliveryGreyscale
+        decals:
+          416: -15,-41
+          417: -15,-39
+          418: -15,-40
+      - node:
+          cleanable: True
           color: '#FFFFFFFF'
           id: DirtHeavy
         decals:
@@ -353,6 +361,15 @@ entities:
           233: -11,10
           234: -6,8
           235: -5,10
+          404: -12,-11
+          405: -12,-9
+          406: -12,-6
+          407: -12,-17
+          411: -8,3
+          412: -2,2
+          413: -14,-16
+          414: -14,-23
+          415: -24,-13
       - node:
           cleanable: True
           color: '#FFFFFFFF'
@@ -399,6 +416,9 @@ entities:
           236: -9,10
           237: -5,9
           238: -11,8
+          408: -3,2
+          409: -12,-3
+          410: -12,-2
       - node:
           color: '#FFFFFFFF'
           id: LoadingAreaGreyscale
@@ -469,11 +489,6 @@ entities:
         decals:
           385: -28,-22
       - node:
-          color: '#A4610696'
-          id: MiniTileWhiteInnerNe
-        decals:
-          337: -12,-24
-      - node:
           color: '#334E6DC8'
           id: MiniTileWhiteInnerNe
         decals:
@@ -485,6 +500,11 @@ entities:
           361: -14,-16
           364: -22,-17
           374: -12,-21
+      - node:
+          color: '#A4610696'
+          id: MiniTileWhiteInnerNe
+        decals:
+          337: -12,-24
       - node:
           color: '#9FED5896'
           id: MiniTileWhiteInnerNe
@@ -559,11 +579,11 @@ entities:
         decals:
           402: -17,1
       - node:
-          color: '#EFB34196'
+          color: '#52B4E996'
           id: MiniTileWhiteInnerSw
         decals:
-          345: -16,-27
-          346: -17,-27
+          335: -24,-15
+          352: -24,-5
       - node:
           color: '#D381C996'
           id: MiniTileWhiteInnerSw
@@ -583,11 +603,11 @@ entities:
           320: -22,-15
           366: -14,-17
       - node:
-          color: '#52B4E996'
+          color: '#EFB34196'
           id: MiniTileWhiteInnerSw
         decals:
-          335: -24,-15
-          352: -24,-5
+          345: -16,-27
+          346: -17,-27
       - node:
           color: '#334E6DC8'
           id: MiniTileWhiteLineE
@@ -612,15 +632,6 @@ entities:
         decals:
           343: -12,-26
       - node:
-          color: '#334E6DC8'
-          id: MiniTileWhiteLineN
-        decals:
-          277: -20,-24
-          279: -19,-24
-          280: -18,-24
-          281: -17,-24
-          282: -16,-24
-      - node:
           color: '#9FED5896'
           id: MiniTileWhiteLineN
         decals:
@@ -631,11 +642,25 @@ entities:
           398: -19,-4
           399: -18,-4
       - node:
+          color: '#334E6DC8'
+          id: MiniTileWhiteLineN
+        decals:
+          277: -20,-24
+          279: -19,-24
+          280: -18,-24
+          281: -17,-24
+          282: -16,-24
+      - node:
           color: '#52B4E996'
           id: MiniTileWhiteLineN
         decals:
           331: -26,-16
           348: -27,-16
+      - node:
+          color: '#9FED5896'
+          id: MiniTileWhiteLineS
+        decals:
+          403: -18,1
       - node:
           color: '#334E6DC8'
           id: MiniTileWhiteLineS
@@ -648,6 +673,13 @@ entities:
           307: -16,-9
           308: -15,-9
       - node:
+          color: '#D381C996'
+          id: MiniTileWhiteLineS
+        decals:
+          386: -27,-22
+          387: -26,-22
+          388: -25,-22
+      - node:
           color: '#EFB34196'
           id: MiniTileWhiteLineS
         decals:
@@ -657,16 +689,23 @@ entities:
           344: -18,-27
       - node:
           color: '#9FED5896'
-          id: MiniTileWhiteLineS
+          id: MiniTileWhiteLineW
         decals:
-          403: -18,1
+          401: -17,0
       - node:
-          color: '#D381C996'
-          id: MiniTileWhiteLineS
+          color: '#52B4E996'
+          id: MiniTileWhiteLineW
         decals:
-          386: -27,-22
-          387: -26,-22
-          388: -25,-22
+          323: -24,-14
+          324: -24,-13
+          325: -24,-12
+          326: -24,-11
+          327: -24,-10
+          328: -24,-9
+          329: -24,-8
+          330: -24,-7
+          349: -24,-4
+          350: -24,-6
       - node:
           color: '#D381C996'
           id: MiniTileWhiteLineW
@@ -692,25 +731,6 @@ entities:
           297: -13,-11
           367: -14,-18
           370: -14,-16
-      - node:
-          color: '#52B4E996'
-          id: MiniTileWhiteLineW
-        decals:
-          323: -24,-14
-          324: -24,-13
-          325: -24,-12
-          326: -24,-11
-          327: -24,-10
-          328: -24,-9
-          329: -24,-8
-          330: -24,-7
-          349: -24,-4
-          350: -24,-6
-      - node:
-          color: '#9FED5896'
-          id: MiniTileWhiteLineW
-        decals:
-          401: -17,0
       - node:
           color: '#FFFFFFFF'
           id: WarnBox
@@ -1923,9 +1943,9 @@ entities:
     parent: 0
     type: Transform
 - uid: 114
-  type: SpawnPointReporter
+  type: UniformPrinterMachineCircuitboard
   components:
-  - pos: -22.5,-5.5
+  - pos: -20.560656,-32.43845
     parent: 0
     type: Transform
 - uid: 115
@@ -9497,13 +9517,14 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 4742
-        - 4509
-        - 4510
-        - 4511
+        - 4816
         - 4513
-        - 4508
+        - 4511
+        - 4510
+        - 4509
         - 4514
+        - 4742
+        - 4508
     type: ContainerContainer
 - uid: 1092
   type: WallShuttle
@@ -10045,18 +10066,19 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 4752
-        - 4751
         - 4750
-        - 4749
-        - 4748
-        - 4747
-        - 4529
-        - 4528
-        - 4527
-        - 4526
-        - 4525
+        - 4751
+        - 4752
+        - 4817
         - 4524
+        - 4525
+        - 4526
+        - 4527
+        - 4528
+        - 4529
+        - 4747
+        - 4748
+        - 4749
     type: ContainerContainer
 - uid: 1163
   type: AirlockAtmosphericsGlassLocked
@@ -10788,6 +10810,10 @@ entities:
         showEnts: False
         occludes: True
         ents:
+        - 4818
+        - 4819
+        - 4820
+        - 4821
         - 4532
     type: ContainerContainer
 - uid: 1250
@@ -33330,22 +33356,25 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 4416
-        - 4373
-        - 4285
-        - 1116
-        - 1067
-        - 1061
-        - 4497
-        - 4498
-        - 4499
-        - 1317
-        - 1327
-        - 1394
-        - 3674
-        - 3675
         - 3681
+        - 3675
+        - 3674
+        - 1394
+        - 1327
+        - 1317
+        - 4499
+        - 4498
+        - 4497
+        - 1061
+        - 1067
+        - 1116
+        - 4357
+        - 4814
+        - 4815
+        - 4416
         - 4507
+        - 4285
+        - 4373
     type: ContainerContainer
 - uid: 3957
   type: FirelockEdge
@@ -36184,11 +36213,15 @@ entities:
     parent: 0
     type: Transform
 - uid: 4357
-  type: SpawnPointMailCarrier
+  type: ClothingShoesBootsMag
   components:
-  - pos: -7.5,-27.5
-    parent: 0
+  - flags: InContainer
+    type: MetaData
+  - parent: 3956
     type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
 - uid: 4358
   type: SpawnPointMartialArtist
   components:
@@ -36364,19 +36397,20 @@ entities:
         showEnts: False
         occludes: True
         ents:
-        - 4805
-        - 4804
-        - 4803
-        - 4802
-        - 4597
-        - 4594
-        - 4455
-        - 4454
-        - 4434
-        - 4806
-        - 4807
-        - 4808
+        - 4823
         - 4809
+        - 4808
+        - 4807
+        - 4806
+        - 4434
+        - 4454
+        - 4455
+        - 4594
+        - 4597
+        - 4802
+        - 4803
+        - 4804
+        - 4805
     type: ContainerContainer
 - uid: 4377
   type: SpawnPointMusician
@@ -39924,6 +39958,436 @@ entities:
   type: SpawnPointLatejoin
   components:
   - pos: -6.5,9.5
+    parent: 0
+    type: Transform
+- uid: 4814
+  type: ClothingShoesBootsMag
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 3956
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4815
+  type: ClothingShoesBootsMag
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 3956
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4816
+  type: CriminalRecordsComputerCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1091
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4817
+  type: CryoPodMachineCircuitboard
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1162
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4818
+  type: SprayBottleSpaceCleaner
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1249
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4819
+  type: SprayBottleSpaceCleaner
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1249
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4820
+  type: MopItem
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1249
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4821
+  type: MopItem
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 1249
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4822
+  type: DrinkVodkaBottleFull
+  components:
+  - pos: -15.609423,8.752748
+    parent: 0
+    type: Transform
+- uid: 4823
+  type: CrowbarRed
+  components:
+  - flags: InContainer
+    type: MetaData
+  - parent: 4376
+    type: Transform
+  - canCollide: False
+    type: Physics
+  - type: InsideEntityStorage
+- uid: 4824
+  type: FoodMealCubancarp
+  components:
+  - pos: -18.399967,4.05966
+    parent: 0
+    type: Transform
+- uid: 4825
+  type: FoodMealCubancarp
+  components:
+  - pos: -18.306217,3.65341
+    parent: 0
+    type: Transform
+- uid: 4826
+  type: ReagentContainerSugar
+  components:
+  - pos: -9.561197,-15.852787
+    parent: 0
+    type: Transform
+- uid: 4827
+  type: FoodSnackSus
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -8.488385,2.5021958
+    parent: 0
+    type: Transform
+- uid: 4828
+  type: FoodSnackSus
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -7.550885,2.5178208
+    parent: 0
+    type: Transform
+- uid: 4829
+  type: FoodSnackSus
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -8.300885,2.5334458
+    parent: 0
+    type: Transform
+- uid: 4830
+  type: FoodSnackSus
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -7.832135,2.5021958
+    parent: 0
+    type: Transform
+- uid: 4831
+  type: FoodMothBakedCheesePlatter
+  components:
+  - pos: -18.50518,1.4569616
+    parent: 0
+    type: Transform
+- uid: 4832
+  type: FoodPieBananaCream
+  components:
+  - pos: -18.59893,1.9257116
+    parent: 0
+    type: Transform
+- uid: 4833
+  type: FoodPieBananaCream
+  components:
+  - pos: -18.333305,2.1132116
+    parent: 0
+    type: Transform
+- uid: 4834
+  type: FoodPieBananaCream
+  components:
+  - pos: -18.614555,2.3944616
+    parent: 0
+    type: Transform
+- uid: 4835
+  type: FoodMothVegetarianChili
+  components:
+  - pos: -18.59893,2.8163366
+    parent: 0
+    type: Transform
+- uid: 4836
+  type: FoodSoupVegetable
+  components:
+  - pos: -18.458305,3.1444616
+    parent: 0
+    type: Transform
+- uid: 4837
+  type: FoodCakeVanilla
+  components:
+  - pos: -17.494965,-0.34846777
+    parent: 0
+    type: Transform
+- uid: 4838
+  type: FoodSnackSyndi
+  components:
+  - pos: -17.51059,-1.4890928
+    parent: 0
+    type: Transform
+- uid: 4839
+  type: WheatBushel
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -26.498432,3.2874737
+    parent: 0
+    type: Transform
+- uid: 4840
+  type: WheatBushel
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -26.482807,3.4280987
+    parent: 0
+    type: Transform
+- uid: 4841
+  type: WheatBushel
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -26.482807,3.5687237
+    parent: 0
+    type: Transform
+- uid: 4842
+  type: CrowbarRed
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -4.3798876,-6.551338
+    parent: 0
+    type: Transform
+- uid: 4843
+  type: CrowbarRed
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -33.429054,-0.955567
+    parent: 0
+    type: Transform
+- uid: 4844
+  type: CrowbarRed
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -15.487946,-27.344238
+    parent: 0
+    type: Transform
+- uid: 4845
+  type: AppraisalTool
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -10.526717,-23.427546
+    parent: 0
+    type: Transform
+- uid: 4846
+  type: DrinkWaterBottleFull
+  components:
+  - pos: -12.386411,-39.441696
+    parent: 0
+    type: Transform
+- uid: 4847
+  type: DrinkWaterBottleFull
+  components:
+  - pos: -12.230161,-39.441696
+    parent: 0
+    type: Transform
+- uid: 4848
+  type: DrinkWaterBottleFull
+  components:
+  - pos: -13.449785,-5.9023857
+    parent: 0
+    type: Transform
+- uid: 4849
+  type: DrinkWaterBottleFull
+  components:
+  - pos: -13.34041,-3.886761
+    parent: 0
+    type: Transform
+- uid: 4850
+  type: FoodFrozenSandwich
+  components:
+  - pos: -13.512285,-6.5742607
+    parent: 0
+    type: Transform
+- uid: 4851
+  type: FoodFrozenSandwich
+  components:
+  - pos: -13.49666,-3.527386
+    parent: 0
+    type: Transform
+- uid: 4852
+  type: FoodCakeApple
+  components:
+  - pos: -10.533468,-24.097904
+    parent: 0
+    type: Transform
+- uid: 4853
+  type: FoodMothBeanStew
+  components:
+  - pos: -15.080343,-27.36353
+    parent: 0
+    type: Transform
+- uid: 4854
+  type: FoodBurgerBear
+  components:
+  - pos: -5.7411394,-39.224377
+    parent: 0
+    type: Transform
+- uid: 4855
+  type: SubstationMachineCircuitboard
+  components:
+  - pos: -20.538633,-32.459763
+    parent: 0
+    type: Transform
+- uid: 4856
+  type: SpawnPointReporter
+  components:
+  - pos: -21.5,-3.5
+    parent: 0
+    type: Transform
+- uid: 4857
+  type: SMESMachineCircuitboard
+  components:
+  - pos: -20.476133,-32.537888
+    parent: 0
+    type: Transform
+- uid: 4858
+  type: EmitterCircuitboard
+  components:
+  - pos: -20.476133,-32.537888
+    parent: 0
+    type: Transform
+- uid: 4859
+  type: OreProcessorMachineCircuitboard
+  components:
+  - pos: -20.413633,-32.553513
+    parent: 0
+    type: Transform
+- uid: 4860
+  type: DeepFryerMachineCircuitboard
+  components:
+  - pos: -20.460508,-32.506638
+    parent: 0
+    type: Transform
+- uid: 4861
+  type: SubstationMachineCircuitboard
+  components:
+  - pos: -20.507383,-32.537888
+    parent: 0
+    type: Transform
+- uid: 4862
+  type: GeneratorPlasmaMachineCircuitboard
+  components:
+  - pos: -20.460508,-32.491013
+    parent: 0
+    type: Transform
+- uid: 4863
+  type: MicrowaveMachineCircuitboard
+  components:
+  - pos: -20.538633,-32.459763
+    parent: 0
+    type: Transform
+- uid: 4864
+  type: FoodCondimentPacketSalt
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -9.233072,-15.696537
+    parent: 0
+    type: Transform
+- uid: 4865
+  type: FoodCondimentPacketSalt
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -9.217447,-15.946537
+    parent: 0
+    type: Transform
+- uid: 4866
+  type: FoodContainerEgg
+  components:
+  - pos: -9.449761,-15.659271
+    parent: 0
+    type: Transform
+- uid: 4867
+  type: HotplateMachineCircuitboard
+  components:
+  - pos: -20.381468,-32.609978
+    parent: 0
+    type: Transform
+- uid: 4868
+  type: ReagentGrinderMachineCircuitboard
+  components:
+  - pos: -20.365843,-32.625603
+    parent: 0
+    type: Transform
+- uid: 4869
+  type: ComputerTelevisionCircuitboard
+  components:
+  - pos: -20.443968,-32.563103
+    parent: 0
+    type: Transform
+- uid: 4870
+  type: FoodGalaxythistle
+  components:
+  - rot: 3.141592653589793 rad
+    pos: -32.762344,0.54106414
+    parent: 0
+    type: Transform
+- uid: 4871
+  type: FoodAloe
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: -32.262344,0.55668914
+    parent: 0
+    type: Transform
+- uid: 4872
+  type: PillIron
+  components:
+  - pos: -30.445356,-1.4508324
+    parent: 0
+    type: Transform
+- uid: 4873
+  type: PaperOffice
+  components:
+  - rot: 1.5707963267948966 rad
+    pos: -30.492231,-3.4664574
+    parent: 0
+    type: Transform
+- uid: 4874
+  type: DrinkShaker
+  components:
+  - pos: -20.512878,5.641628
+    parent: 0
+    type: Transform
+- uid: 4875
+  type: LargeBeaker
+  components:
+  - pos: -20.652903,5.583764
+    parent: 0
+    type: Transform
+- uid: 4876
+  type: ReagentContainerFlour
+  components:
+  - pos: -9.717447,-15.805912
     parent: 0
     type: Transform
 ...
