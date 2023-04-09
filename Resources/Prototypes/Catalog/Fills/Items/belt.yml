@@ -111,3 +111,13 @@
     - id: WeaponWandFireball
     - id: WeaponWandDeath
     - id: WeaponWandPolymorphDoor
+
+- type: entity
+  id: ClothingBeltKatanaSheathFilled
+  parent: ClothingBeltKatanaSheath
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Katana
+      - id: Wakizashi
