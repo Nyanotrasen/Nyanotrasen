@@ -724,7 +724,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.2
-      density: 100
+      density: 5
       mask:
       - SmallMobMask
       layer:
@@ -1293,8 +1293,12 @@
     successChance: 0.5
     interactSuccessString: petting-success-tarantula
     interactFailureString: petting-failure-generic
-  - type: Puller
   - type: Arachne
+  - type: Puller
+    needsHands: false
+  - type: BloodSucker
+    unitsToSucc: 15
+    webRequired: true
   - type: MeleeWeapon
     hidden: true
     angle: 0
@@ -1584,9 +1588,12 @@
         Slash: 5
   - type: InputMover
   - type: MobMover
+  - type: Psionic
+    removable: false
   - type: Faction
     factions:
     - SimpleHostile
+    - PsionicInterloper
   - type: InteractionPopup
     successChance: 0 # Override the automatic success that would normally be inherited from MobCorgi.
     interactSuccessString: petting-success-corrupted-corgi # Normally impossible but added an easter egg just in case.
@@ -1605,7 +1612,7 @@
         Bloodloss:
           -0.25
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: CorporealSpirit
     damageModifierSet: Infernal
   - type: Temperature
     heatDamageThreshold: 4000 #They come from hell, so...

@@ -153,3 +153,27 @@
     layers:
       - state: green
       - state: passenger
+
+- type: entity
+  id: SpawnPointPrisonGuard
+  parent: SpawnPointJobBase
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prisonguard
+
+- type: entity
+  id: SpawnPointMartialArtist
+  parent: SpawnPointJobBase
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: boxer

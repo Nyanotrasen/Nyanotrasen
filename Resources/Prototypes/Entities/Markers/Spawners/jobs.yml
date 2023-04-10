@@ -55,7 +55,7 @@
 - type: entity
   id: SpawnPointAssistant # TODO rename, but requires map changes.
   parent: SpawnPointJobBase
-  name: passenger
+  name: assistant
   components:
   - type: SpawnPoint
     job_id: Passenger

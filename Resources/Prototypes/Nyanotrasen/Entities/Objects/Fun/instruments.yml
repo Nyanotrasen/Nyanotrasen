@@ -25,6 +25,8 @@
     tags:
     - StringInstrument
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
     damage:
       types:
         Blunt: 7
@@ -58,6 +60,8 @@
     swing: 10
     wieldCoefficient: 0.40
   - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
     bluntStaminaDamageFactor: 4.5
     attackRate: 1.25
     range: 1.85

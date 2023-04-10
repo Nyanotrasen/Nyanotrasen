@@ -87,6 +87,20 @@
     - !type:CreateEntityReactionEffect
       entity: FoodCakeBatter
 
+- type: reaction
+  id: CreateTofu
+  impact: Low
+  quantized: true
+  reactants:
+    MilkSoy:
+      amount: 30
+    Enzyme:
+      amount: 5
+      catalyst: true
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodTofu
+
 # Condiments
 
 - type: reaction
@@ -168,19 +182,54 @@
     Vinegar: 10
 
 - type: reaction
+  id: CookingSoysauce
+  reactants:
+    MilkSoy:
+      amount: 10
+    SulfuricAcid:
+      amount: 5
+  products:
+    Soysauce: 15
+
+- type: reaction
+  id: CookingVinaigrette
+  reactants:
+    Vinegar:
+      amount: 5
+    OilOlive:
+      amount: 5
+    Blackpepper:
+      amount: 5
+  products:
+    Vinaigrette: 15
+
+- type: reaction
   id: CreateMeatball
   impact: Low
   quantized: true
   reactants:
     UncookedAnimalProteins:
-      amount: 5
+      amount: 3
     Flour:
       amount: 5
     Egg:
-      amount: 6
+      amount: 2
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodMeatMeatball
+
+- type: reaction
+  id: CreateMeatPatty
+  impact: Low
+  quantized: true
+  reactants:
+    UncookedAnimalProteins:
+      amount: 9
+    TableSalt:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMeatPatty
 
 - type: reaction
   id: Ghee

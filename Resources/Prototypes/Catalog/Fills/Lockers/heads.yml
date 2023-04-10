@@ -52,6 +52,7 @@
       - id: RubberStampCaptain
       - id: WeaponAntiqueLaser
       - id: JetpackCaptainFilled
+      - id: ClothingHeadHatBeretCap
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -79,6 +80,8 @@
       - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
+      - id: BoxEncryptionKeyPassenger
+      - id: BoxEncryptionKeyService
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -102,6 +105,7 @@
       - id: JetpackVoidFilled
       - id: ClothingHeadsetAltEngineering
       - id: RPED
+      - id: BoxEncryptionKeyEngineering
 
 - type: entity
   id: LockerChiefMedicalOfficerFilled
@@ -126,6 +130,7 @@
       - id: RubberStampCMO
       - id: MaterialBiomass
         amount: 3
+      - id: BoxEncryptionKeyMedical
 
 - type: entity
   id: LockerResearchDirectorFilled
@@ -137,12 +142,13 @@
       - id: ClothingNeckCloakRd
       - id: ClothingHeadsetMedicalScience
       - id: ClothingOuterHardsuitRd
-      - id: HandTeleporter
       - id: PlushieSlime
         prob: 0.1
       - id: DoorRemoteResearch
       - id: RubberStampRd
       - id: ClothingHeadsetAltScience
+      - id: BoxEncryptionKeyScience
+      - id: BoxEncryptionKeyRobo
 
 - type: entity
   id: LockerHeadOfSecurityFilled
@@ -182,4 +188,4 @@
       - id: RubberStampHos
       - id: JetpackSecurityFilled
       - id: HyperlinkBookSpaceLaw
-      - id: PonderingOrbTelepathicHOS
+      - id: BoxEncryptionKeySecurity

@@ -8,7 +8,8 @@
                 Title="{Loc 'guidebook-window-title'}">
     <SplitContainer Orientation="Horizontal" HorizontalExpand="True" Name="Split">
         <!-- Guide select -->
-        <BoxContainer Orientation="Horizontal" Name="TreeBox">
+        <BoxContainer Orientation="Vertical" Name="TreeBox">
+            <Button Name="CollapseToggle" ToggleMode="True" Text="{Loc 'guidebook-expand-all'}"></Button>
             <fancyTree:FancyTree Name="Tree" VerticalExpand="True" HorizontalExpand="True"/>
             <cc:VSeparator StyleClasses="LowDivider" Margin="0 -2"/>
         </BoxContainer>

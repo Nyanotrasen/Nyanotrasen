@@ -58,7 +58,7 @@ public sealed class MeleeWeaponComponent : Component
     /// Heavy attacks get multiplied by this over the base <see cref="Damage"/> value.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("heavyDamageModifier")]
-    public FixedPoint2 HeavyDamageModifier = FixedPoint2.New(2);
+    public FixedPoint2 HeavyDamageModifier = FixedPoint2.New(1.1);
 
     /// <summary>
     /// Minimum stamina % for heavy attack.

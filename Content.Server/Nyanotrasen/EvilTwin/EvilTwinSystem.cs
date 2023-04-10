@@ -64,6 +64,11 @@ namespace Content.Server.EvilTwin
             if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
                 return;
 
+            if (component.FirstMindAdded)
+                return;
+
+            component.FirstMindAdded = true;
+
             var mind = mindComponent.Mind;
 
             mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(EvilTwinRole)));

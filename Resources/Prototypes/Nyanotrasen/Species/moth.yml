@@ -7,7 +7,7 @@
   defaultSkinTone: "#ffda93"
   markingLimits: MobMothMarkingLimits
   dollPrototype: MobMothDummy
-  skinColoration: Hues
+  skinColoration: None
   maleFirstNames: names_moth_male
   femaleFirstNames: names_moth_female
   lastNames: names_moth_last
@@ -50,16 +50,25 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ MothWingsDefault ]
+      defaultMarkings: [ MothWingsPlain ]
     Snout:
-      points: 1
-      required: true
-      defaultMarkings: [ MothAntennasDefault ]
+      points: 0
+      required: false
     HeadTop:
       points: 1
-      required: false
-    HeadSide:
+      required: true
+      defaultMarkings: [ MothAntennasPlain ]
+    Head:
       points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
       required: false
 
 - type: humanoidBaseSprite

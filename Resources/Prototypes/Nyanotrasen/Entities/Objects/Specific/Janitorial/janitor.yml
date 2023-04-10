@@ -11,8 +11,8 @@
     size: 15
     sprite: Nyanotrasen/Objects/Specific/Janitorial/advmop.rsi
   - type: Absorbent
-    mopSpeed: 0.5
-    pickupAmount: 20
+    speed: 60
+    pickupAmount: 30
   - type: SolutionContainerManager
     solutions:
       absorbed:

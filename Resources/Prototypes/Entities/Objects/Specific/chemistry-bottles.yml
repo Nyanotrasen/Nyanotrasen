@@ -38,6 +38,7 @@
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
   - type: Item
+    size: 3
     sprite: Objects/Specific/Chemistry/beaker.rsi
   - type: Spillable
     solution: drink
@@ -125,6 +126,22 @@
         maxVol: 30
         reagents:
         - ReagentId: Epinephrine
+          Quantity: 30
+  - type: Tag
+    tags:
+    - Bottle
+
+- type: entity
+  id: MercuryChemistryBottle
+  name: mercury bottle
+  parent: BaseChemistryEmptyBottle
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Mercury
           Quantity: 30
   - type: Tag
     tags:

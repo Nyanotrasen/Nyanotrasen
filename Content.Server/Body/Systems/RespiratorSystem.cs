@@ -4,6 +4,7 @@ using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
+using Content.Shared.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Abilities;
 using Content.Shared.Alert;
@@ -53,8 +54,7 @@ namespace Content.Server.Body.Systems
             // We want to process lung reagents before we inhale new reagents.
             UpdatesAfter.Add(typeof(MetabolizerSystem));
             SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            SubscribeLocalEvent<CPRSuccessfulEvent>(OnCPRSuccess);
-            SubscribeLocalEvent<CPRCancelledEvent>(OnCPRCancelled);
+            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent<CPRData>>(OnDoAfter);
         }
 
         public override void Update(float frameTime)
@@ -233,40 +233,32 @@ namespace Content.Server.Body.Systems
                 component.AccumulatedFrametime = component.CycleDelay;
         }
 
-        private void OnCPRCancelled(CPRCancelledEvent ev)
+        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent<CPRData> args)
         {
-            if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
+            component.CPRPlayingStream?.Stop();
+            component.IsReceivingCPR = false;
+
+            if (args.Handled || args.Cancelled)
                 return;
 
-            respirator.CPRPlayingStream?.Stop();
-            respirator.CancelToken = null;
-        }
+            component.BreatheInCritCounter = component.BreatheInCritCounter + 3;
 
-        private void OnCPRSuccess(CPRSuccessfulEvent ev)
-        {
-            if (!TryComp<RespiratorComponent>(ev.Patient, out var respirator))
-                return;
-
-            respirator.CancelToken = null;
-            respirator.BreatheInCritCounter = respirator.BreatheInCritCounter + 3;
-            respirator.CPRPlayingStream?.Stop();
-
-            if (!HasComp<MedicalTrainingComponent>(ev.Performer) && TryComp<PhysicsComponent>(ev.Patient, out var patientPhysics) && TryComp<PhysicsComponent>(ev.Performer, out var perfPhysics))
+            if (!HasComp<MedicalTrainingComponent>(args.Args.User) && TryComp<PhysicsComponent>(args.Args.Target, out var patientPhysics) && TryComp<PhysicsComponent>(args.Args.User, out var perfPhysics))
             {
                 if (perfPhysics.FixturesMass >= patientPhysics.FixturesMass && _random.Prob(0.15f * perfPhysics.FixturesMass / patientPhysics.FixturesMass))
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs-crack", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.MediumCaution);
+                    _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs-crack", ("user", args.Args.User), ("target", uid)), uid, Shared.Popups.PopupType.MediumCaution);
 
                     var damage = 3f * (perfPhysics.FixturesMass / patientPhysics.FixturesMass);
                     DamageSpecifier dict = new();
                     dict.DamageDict.Add("Blunt", damage);
 
-                    _damageableSys.TryChangeDamage(ev.Patient, dict);
+                    _damageableSys.TryChangeDamage(uid, dict);
                     return;
                 }
             }
-            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", ev.Performer), ("target", ev.Patient)), ev.Patient, Shared.Popups.PopupType.Medium);
-
+            _popupSystem.PopupEntity(Loc.GetString("cpr-end-pvs", ("user", args.Args.User), ("target", uid)), uid, Shared.Popups.PopupType.Medium);
+            args.Handled = true;
         }
 
         /// <summary>
@@ -276,10 +268,10 @@ namespace Content.Server.Body.Systems
         /// </summary>
         public void AttemptCPR(EntityUid uid, RespiratorComponent component, EntityUid user)
         {
-            if (component.CancelToken != null)
+            if (!_blocker.CanInteract(user, uid))
                 return;
 
-            if (!_blocker.CanInteract(user, uid))
+            if (component.IsReceivingCPR)
                 return;
 
             if (_inventory.TryGetSlotEntity(uid, "outerClothing", out var outer))
@@ -297,41 +289,37 @@ namespace Content.Server.Body.Systems
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", Identity.Entity(uid, EntityManager))), uid, user, Shared.Popups.PopupType.Medium);
             _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", Identity.Entity(user, EntityManager))), uid, uid, Shared.Popups.PopupType.Medium);
 
-            component.CancelToken = new CancellationTokenSource();
+            component.IsReceivingCPR = true;
             component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
-            _doAfter.DoAfter(new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), component.CancelToken.Token, uid)
+
+            var data = new CPRData();
+            var args = new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), target:uid)
             {
-                BroadcastFinishedEvent = new CPRSuccessfulEvent(user, uid),
-                BroadcastCancelledEvent = new CPRCancelledEvent(uid),
+                RaiseOnUser = false,
+                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnDamage = true,
                 BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfter.DoAfter(args, data);
         }
 
-
-        private sealed class CPRCancelledEvent : EntityEventArgs
+        /// <summary>
+        /// Used mostly to prevent doafter conflicts on entities with a metric fuckton of doafters.
+        /// </summary>
+        public bool IsReceivingCPR(EntityUid uid, RespiratorComponent? component = null)
         {
-            public EntityUid Patient;
+            if (!Resolve(uid, ref component, false))
+                return false;
 
-            public CPRCancelledEvent(EntityUid patient)
-            {
-                Patient = patient;
-            }
+            return component.IsReceivingCPR;
         }
 
-        private sealed class CPRSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Performer;
-            public EntityUid Patient;
-            public CPRSuccessfulEvent(EntityUid performer, EntityUid patient)
-            {
-                Performer = performer;
-                Patient = patient;
-            }
-        }
+        private record struct CPRData()
+        {}
     }
 }
 

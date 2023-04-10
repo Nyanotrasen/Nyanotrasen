@@ -3,7 +3,8 @@
   config:
     !type:StationEventRuleConfiguration
     id: AnomalySpawn
-    weight: 10
+    weight: 7
+    minimumPlayers: 12
     startAfter: 30
     endAfter: 35
 
@@ -110,6 +111,7 @@
   config:
     !type:StationEventRuleConfiguration
     id: KudzuGrowth
+    startAnnouncement: station-event-kudzu-growth-start-announcement
     startAudio:
       path: /Audio/Announcements/kudzu.ogg
     earliestStart: 15
@@ -167,6 +169,24 @@
 #     endAfter: 1
 #     startAudio:
 #       path: /Audio/Announcements/attention.ogg
+
+- type: gameRule
+  id: SolarFlare
+  config: !type:SolarFlareEventRuleConfiguration
+    id: SolarFlare
+    weight: 10
+    startAnnouncement: station-event-solar-flare-start-announcement
+    endAnnouncement: station-event-solar-flare-end-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    minEndAfter: 120
+    maxEndAfter: 240
+    onlyJamHeadsets: true
+    affectedChannels:
+    - Common
+    - Service
+    lightBreakChancePerSecond: 0.0003
+    doorToggleChancePerSecond: 0.001
 
 - type: gameRule
   id: VentClog

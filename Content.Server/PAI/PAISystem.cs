@@ -16,6 +16,7 @@ namespace Content.Server.PAI
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         public override void Initialize()
         {
@@ -127,7 +128,7 @@ namespace Content.Server.PAI
         {
             if (EntityManager.TryGetComponent<AppearanceComponent>(uid, out var appearance))
             {
-                appearance.SetData(PAIVisuals.Status, status);
+                _appearance.SetData(uid, PAIVisuals.Status, status, appearance);
             }
         }
 

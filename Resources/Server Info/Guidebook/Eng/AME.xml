@@ -1,7 +1,7 @@
 <Document>
 # Antimatter Engine (AME)
 
-The AME is one of the simplest engines available. You put together the multi-tile structure, stick some fuel into it, and you're all set. This doesn't mean it isn't potentially dangerous with overheating though.
+The [color=#a4885c]AME[/color] is one of the simplest engines available. You put together the multi-tile structure, stick some fuel into it, and you're all set. This doesn't mean it isn't potentially dangerous with overheating though.
 
 ## Construction
 <Box>Required parts:</Box>
@@ -13,5 +13,7 @@ The AME is one of the simplest engines available. You put together the multi-til
 
 To assemble an AME, start by wrenching down the controller on the far end of a HV wire. On most stations, there's catwalks to assist with this. From there, start putting down a 3x3 or larger square of AME parts in preparation for construction, making sure to maximize the number of "center" pieces that are surrounded on all 8 sides.
 
-Once this is done, you can use a multitool to convert each AME part into shielding, which should form a finished AME configuration. From there, insert a fuel jar, set the fuel rate to [color=#a4885c]twice the core count or less[/color], and turn on injection.
+Once this is done, you can use a multitool to convert each AME part into shielding, which should form a finished AME configuration. From there, insert a fuel jar, set the fuel rate to twice the core count or less, and turn on injection.
+
+The AME has its power efficiency fall rapidly when not engaged at the maximum possible injection rate. If reducing the power output is required, consider removing some of the AME parts to reduce the core count [color=#fcdf03]and the injection rate also[/color]. To dismantle AME shielding, use a welder on the AME [color=#fcdf03]while it is deactivated.[/color]
 </Document>

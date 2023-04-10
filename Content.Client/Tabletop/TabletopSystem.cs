@@ -1,5 +1,7 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.Tabletop.UI;
 using Content.Client.Viewport;
+using Content.Shared.Input;
 using Content.Shared.Tabletop;
 using Content.Shared.Tabletop.Components;
 using Content.Shared.Tabletop.Events;
@@ -26,6 +28,8 @@ namespace Content.Client.Tabletop
         [Dependency] private readonly IUserInterfaceManager _uiManger = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+        [Dependency] private readonly AppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
 
         // Time in seconds to wait until sending the location of a dragged entity to the server again
         private const float Delay = 1f / 10; // 10 Hz
@@ -43,11 +47,14 @@ namespace Content.Client.Tabletop
 
             CommandBinds.Builder
                         .Bind(EngineKeyFunctions.Use, new PointerInputCmdHandler(OnUse, false, true))
+                        .Bind(EngineKeyFunctions.UseSecondary, new PointerInputCmdHandler(OnUseSecondary, false, true))
+                        .Bind(ContentKeyFunctions.ActivateItemInWorld, new PointerInputCmdHandler(OnActivateInWorld, false, true))
                         .Register<TabletopSystem>();
 
             SubscribeNetworkEvent<TabletopPlayEvent>(OnTabletopPlay);
             SubscribeLocalEvent<TabletopDraggableComponent, ComponentHandleState>(HandleComponentState);
             SubscribeLocalEvent<TabletopDraggableComponent, ComponentRemove>(HandleDraggableRemoved);
+            SubscribeLocalEvent<TabletopDraggableComponent, AppearanceChangeEvent>(OnAppearanceChange);
         }
 
         private void HandleDraggableRemoved(EntityUid uid, TabletopDraggableComponent component, ComponentRemove args)
@@ -97,7 +104,7 @@ namespace Content.Client.Tabletop
             if (clampedCoords.Equals(MapCoordinates.Nullspace)) return;
 
             // Move the entity locally every update
-            EntityManager.GetComponent<TransformComponent>(_draggedEntity.Value).WorldPosition = clampedCoords.Position;
+            _transform.SetWorldPosition(_draggedEntity.Value, clampedCoords.Position);
 
             // Increment total time passed
             _timePassed += frameTime;
@@ -175,8 +182,10 @@ namespace Content.Client.Tabletop
             };
         }
 
-        private bool OnMouseDown(in PointerInputCmdArgs args)
+        private bool PointerInputCmdPreamble(PointerInputCmdArgs args, [NotNullWhen(true)] out ScalingViewport? viewport)
         {
+            viewport = null;
+
             // Return if no player entity
             if (_playerManager.LocalPlayer is not {ControlledEntity: { } playerEntity})
                 return false;
@@ -188,10 +197,20 @@ namespace Content.Client.Tabletop
             }
 
             // Try to get the viewport under the cursor
-            if (_uiManger.MouseGetControl(args.ScreenCoordinates) as ScalingViewport is not { } viewport)
+            if (_uiManger.MouseGetControl(args.ScreenCoordinates) as ScalingViewport is not { } validViewport)
             {
                 return false;
             }
+
+            viewport = validViewport;
+
+            return true;
+        }
+
+        private bool OnMouseDown(in PointerInputCmdArgs args)
+        {
+            if (!PointerInputCmdPreamble(args, out var viewport))
+                return false;
 
             StartDragging(args.EntityUid, viewport);
             return true;
@@ -201,6 +220,66 @@ namespace Content.Client.Tabletop
         {
             StopDragging();
             return false;
+        }
+
+        private bool OnUseSecondary(in PointerInputCmdArgs args)
+        {
+            if (!_gameTiming.IsFirstTimePredicted)
+                return false;
+
+            return args.State switch
+            {
+                BoundKeyState.Up => OnMouseUpSecondary(args),
+                _ => false
+            };
+        }
+
+        private bool OnMouseUpSecondary(in PointerInputCmdArgs args)
+        {
+            if (!PointerInputCmdPreamble(args, out var _))
+                return false;
+
+            RaisePredictiveEvent(new TabletopUseSecondaryEvent(args.EntityUid));
+            return true;
+        }
+
+        private bool OnActivateInWorld(in PointerInputCmdArgs args)
+        {
+            if (!_gameTiming.IsFirstTimePredicted)
+                return false;
+
+            return args.State switch
+            {
+                BoundKeyState.Up => OnActivateInWorldUp(args),
+                _ => false
+            };
+        }
+
+        private bool OnActivateInWorldUp(in PointerInputCmdArgs args)
+        {
+            if (!PointerInputCmdPreamble(args, out var _))
+                return false;
+
+            RaisePredictiveEvent(new TabletopActivateInWorldEvent(args.EntityUid));
+            return true;
+        }
+
+        private void OnAppearanceChange(EntityUid uid, TabletopDraggableComponent comp, ref AppearanceChangeEvent args)
+        {
+            if (args.Sprite == null)
+                return;
+
+            // TODO: maybe this can work more nicely, by maybe only having to set the item to "being dragged", and have
+            //  the appearance handle the rest
+            if (_appearance.TryGetData<Vector2>(uid, TabletopItemVisuals.Scale, out var scale, args.Component))
+            {
+                args.Sprite.Scale = scale;
+            }
+
+            if (_appearance.TryGetData<int>(uid, TabletopItemVisuals.DrawDepth, out var drawDepth, args.Component))
+            {
+                args.Sprite.DrawDepth = drawDepth;
+            }
         }
 
         #endregion

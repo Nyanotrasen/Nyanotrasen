@@ -894,7 +894,7 @@
   parent: PosterBase
   id: PosterLegitSecWatch
   name: "Sec is Watching You"
-  description: A poster reminding you that security is watching your every move.'
+  description: A poster reminding you that security is watching your every move.
   components:
   - type: Sprite
     state: poster39_legit
@@ -999,3 +999,12 @@
   components:
   - type: Sprite
     state: originmap
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCornzza
+  name: "Corncob Crust!"
+  description: "NEW Cornzza! Corn pizza, with a corncob crust that'll make you say 'why does this exist?'."
+  components:
+  - type: Sprite
+    state: cornzza-poster

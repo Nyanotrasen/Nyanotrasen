@@ -32,6 +32,20 @@ namespace Content.Server.NPC.Systems
             SubscribeLocalEvent<NPCEngagerComponent, ComponentShutdown>(OnShutdown);
         }
 
+        public void StartHostility(EntityUid offended, EntityUid offender)
+        {
+            if (Deleted(offended) || Deleted(offender))
+                return;
+
+            var engaged = EnsureComp<NPCCombatTargetComponent>(offended);
+            engaged.EngagingEnemies.Add(offender);
+
+            var engager = EnsureComp<NPCEngagerComponent>(offender);
+            engager.EngagedEnemies.Add(offended);
+
+            engager.RemoveWhen = _timing.CurTime + engager.Decay;
+        }
+
         private void OnDamageChanged(EntityUid uid, NPCComponent component, DamageChangedEvent args)
         {
             if (!args.DamageIncreased)
@@ -43,13 +57,7 @@ namespace Content.Server.NPC.Systems
             if (!HasComp<MobStateComponent>(args.Origin) && !HasComp<DestructibleComponent>(args.Origin))
                 return;
 
-            var engaged = EnsureComp<NPCCombatTargetComponent>(uid);
-            engaged.EngagingEnemies.Add(args.Origin.Value);
-
-            var engager = EnsureComp<NPCEngagerComponent>(args.Origin.Value);
-            engager.EngagedEnemies.Add(uid);
-
-            engager.RemoveWhen = _timing.CurTime + engager.Decay;
+            StartHostility(uid, args.Origin.Value);
         }
 
         private void OnAddHostiles(EntityUid uid, NPCCombatTargetComponent component, ref GetNearbyHostilesEvent args)

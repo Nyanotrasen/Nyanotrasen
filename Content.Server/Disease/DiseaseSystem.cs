@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Disease.Components;
@@ -9,6 +8,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Disease;
 using Content.Shared.Disease.Components;
 using Content.Shared.Disease.Events;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -20,7 +20,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
@@ -284,7 +283,6 @@ namespace Content.Server.Disease
         }
     }
 
-
         ///
         /// Helper functions
         ///
@@ -410,12 +408,12 @@ namespace Content.Server.Disease
         }
     }
 
-        /// <summary>
-        /// This event is fired by chems
-        /// and other brute-force rather than
-        /// specific cures. It will roll the dice to attempt
-        /// to cure each disease on the target
-        /// </summary>
+    /// <summary>
+    /// This event is fired by chems
+    /// and other brute-force rather than
+    /// specific cures. It will roll the dice to attempt
+    /// to cure each disease on the target
+    /// </summary>
     public sealed class CureDiseaseAttemptEvent : EntityEventArgs
     {
         public float CureChance { get; }

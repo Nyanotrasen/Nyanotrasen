@@ -54,6 +54,8 @@
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: Mime
   conditions:
     - !type:BecomePsionicCondition
 
@@ -107,20 +109,6 @@
     - !type:StealCondition
       prototype: ClothingOuterHardsuitRd
       owner: job-name-mystagogue
-
-- type: objective
-  id: HandTeleporterStealObjective
-  issuer: syndicate
-  difficultyOverride: 2.75
-  requirements:
-  - !type:TraitorRequirement {}
-  - !type:IncompatibleConditionsRequirement
-    conditions:
-    - DieCondition
-  conditions:
-  - !type:StealCondition
-    prototype: HandTeleporter
-    owner: job-name-rd
 
 - type: objective
   id: NukeDiskStealObjective
@@ -238,21 +226,6 @@
     - !type:StealCondition
       prototype: AntiPsychicKnife
       owner: job-name-mantis
-
-- type: objective
-  id: PonderingOrbTelepathicHOSStealObjective
-  issuer: syndicate
-  requirements:
-    - !type:TraitorRequirement {}
-    - !type:IncompatibleConditionsRequirement
-      conditions:
-        - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfSecurity
-  conditions:
-    - !type:StealCondition
-      prototype: PonderingOrbTelepathicHOS
-      owner: job-name-hos
 
 - type: objective
   id: EscapeShuttleObjective

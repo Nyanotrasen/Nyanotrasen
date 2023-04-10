@@ -25,6 +25,8 @@
     runningState: icon
     dynamicRecipes:
       - QSI
+      - CoreSilver
+      - HandTeleporter
       - BluespaceBeaker
       - Decloner
       - CryostasisBeaker
@@ -33,7 +35,6 @@
       - BackpackOfHolding
       - SatchelOfHolding
       - DuffelbagOfHolding
-      - NormalityCrystal
       - AnomalyScanner
       - ChemicalPayload #Below = shared
       - FlashlightLantern
@@ -62,6 +63,7 @@
         - Ingot
     materialWhiteList:
     - Bluespace
+    - Silver
     - Glass
     - Plastic
     - Steel
@@ -205,6 +207,7 @@
       - RPED
       - PowerDrill
       - MiningDrill
+      - ClothingEyesHudDiagnostic
       - RCDAmmo # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

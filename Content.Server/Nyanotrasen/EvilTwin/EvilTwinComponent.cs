@@ -6,5 +6,8 @@ namespace Content.Server.EvilTwin
     public sealed class EvilTwinComponent : Component
     {
         public Mind.Mind? TwinMind;
+
+        [DataField("firstMindAdded")]
+        public bool FirstMindAdded = false;
     }
 }

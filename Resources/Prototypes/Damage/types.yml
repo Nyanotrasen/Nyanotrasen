@@ -18,7 +18,7 @@
   id: Blunt
   armorCoefficientPrice: 2
   armorFlatPrice: 10
-  
+
 - type: damageType
   id: Cellular
   armorCoefficientPrice: 5
@@ -66,3 +66,9 @@
   id: Structural
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+
+# Only affects magical beings.
+- type: damageType
+  id: Holy
+  armorCoefficientPrice: 25
+  armorFlatPrice: 150

@@ -7,11 +7,12 @@ using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.CCVar;
 using NUnit.Framework;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Configuration;
 using static Content.IntegrationTests.Tests.Destructible.DestructibleTestPrototypes;
 
 namespace Content.IntegrationTests.Tests.Destructible
@@ -30,6 +31,8 @@ namespace Content.IntegrationTests.Tests.Destructible
             var sEntityManager = server.ResolveDependency<IEntityManager>();
             var sPrototypeManager = server.ResolveDependency<IPrototypeManager>();
             var sEntitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var sConfigManager = server.ResolveDependency<IConfigurationManager>();
+            var audio = sEntitySystemManager.GetEntitySystem<SharedAudioSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
@@ -44,13 +47,15 @@ namespace Content.IntegrationTests.Tests.Destructible
                 var coordinates = testMap.GridCoords;
 
                 sDestructibleEntity = sEntityManager.SpawnEntity(DestructibleEntityId, coordinates);
-                sDamageableComponent = IoCManager.Resolve<IEntityManager>().GetComponent<DamageableComponent>(sDestructibleEntity);
-                sDestructibleComponent = IoCManager.Resolve<IEntityManager>().GetComponent<DestructibleComponent>(sDestructibleEntity);
+                sDamageableComponent = sEntityManager.GetComponent<DamageableComponent>(sDestructibleEntity);
+                sDestructibleComponent = sEntityManager.GetComponent<DestructibleComponent>(sDestructibleEntity);
 
                 sTestThresholdListenerSystem = sEntitySystemManager.GetEntitySystem<TestDestructibleListenerSystem>();
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 sDamageableSystem = sEntitySystemManager.GetEntitySystem<DamageableSystem>();
+
+                sConfigManager.SetCVar(CCVars.DamageVariance, 0f);
             });
 
             await server.WaitRunTicks(5);
@@ -102,9 +107,9 @@ namespace Content.IntegrationTests.Tests.Destructible
                 var actsThreshold = (DoActsBehavior) threshold.Behaviors[2];
 
                 Assert.That(actsThreshold.Acts, Is.EqualTo(ThresholdActs.Breakage));
-                Assert.That(soundThreshold.Sound.GetSound(), Is.EqualTo("/Audio/Effects/woodhit.ogg"));
+                Assert.That(audio.GetSound(soundThreshold.Sound), Is.EqualTo("/Audio/Effects/woodhit.ogg"));
                 Assert.That(spawnThreshold.Spawn, Is.Not.Null);
-                Assert.That(spawnThreshold.Spawn.Count, Is.EqualTo(1));
+                Assert.That(spawnThreshold.Spawn, Has.Count.EqualTo(1));
                 Assert.That(spawnThreshold.Spawn.Single().Key, Is.EqualTo(SpawnedEntityId));
                 Assert.That(spawnThreshold.Spawn.Single().Value.Min, Is.EqualTo(1));
                 Assert.That(spawnThreshold.Spawn.Single().Value.Max, Is.EqualTo(1));
@@ -120,7 +125,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 Assert.IsEmpty(sTestThresholdListenerSystem.ThresholdsReached);
 
                 // Set damage to 0
-                sDamageableSystem.SetAllDamage(sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
 
                 // Damage for 100, up to 100
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage*10, true);
@@ -166,7 +171,7 @@ namespace Content.IntegrationTests.Tests.Destructible
 
                 // Check that it matches the YAML prototype
                 Assert.That(actsThreshold.Acts, Is.EqualTo(ThresholdActs.Breakage));
-                Assert.That(soundThreshold.Sound.GetSound(), Is.EqualTo("/Audio/Effects/woodhit.ogg"));
+                Assert.That(audio.GetSound(soundThreshold.Sound), Is.EqualTo("/Audio/Effects/woodhit.ogg"));
                 Assert.That(spawnThreshold.Spawn, Is.Not.Null);
                 Assert.That(spawnThreshold.Spawn.Count, Is.EqualTo(1));
                 Assert.That(spawnThreshold.Spawn.Single().Key, Is.EqualTo(SpawnedEntityId));
@@ -179,7 +184,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal all damage
-                sDamageableSystem.SetAllDamage(sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
 
                 // Damage up to 50
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage*5, true);
@@ -219,7 +224,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 Assert.That(actsThreshold.Acts, Is.EqualTo(ThresholdActs.Breakage));
                 Assert.That(soundThreshold.Sound.GetSound(), Is.EqualTo("/Audio/Effects/woodhit.ogg"));
                 Assert.That(spawnThreshold.Spawn, Is.Not.Null);
-                Assert.That(spawnThreshold.Spawn.Count, Is.EqualTo(1));
+                Assert.That(spawnThreshold.Spawn, Has.Count.EqualTo(1));
                 Assert.That(spawnThreshold.Spawn.Single().Key, Is.EqualTo(SpawnedEntityId));
                 Assert.That(spawnThreshold.Spawn.Single().Value.Min, Is.EqualTo(1));
                 Assert.That(spawnThreshold.Spawn.Single().Value.Max, Is.EqualTo(1));
@@ -230,7 +235,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal the entity completely
-                sDamageableSystem.SetAllDamage(sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
 
                 // Check that the entity has 0 damage
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));

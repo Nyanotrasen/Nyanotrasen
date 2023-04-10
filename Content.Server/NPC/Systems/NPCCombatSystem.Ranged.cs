@@ -1,8 +1,12 @@
 using Content.Server.NPC.Components;
+using Content.Server.NPC.Events;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
+using Content.Shared.Examine;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using static Content.Shared.Examine.ExamineSystemShared;
+using Content.Shared.NPC;
 
 namespace Content.Server.NPC.Systems;
 
@@ -20,9 +24,44 @@ public sealed partial class NPCCombatSystem
 
     private void InitializeRanged()
     {
+        SubscribeLocalEvent<NPCRangedCombatComponent, NPCSteeringEvent>(OnRangedSteering);
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentStartup>(OnRangedStartup);
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentShutdown>(OnRangedShutdown);
     }
+
+    private void OnRangedSteering(EntityUid uid, NPCRangedCombatComponent component, ref NPCSteeringEvent args)
+    {
+        args.Steering.CanSeek = true;
+
+        if (!_physics.TryGetNearestPoints(uid, component.Target, out _, out var pointB))
+            return;
+
+        var idealDistance = 4f;
+        var obstacleDirection = pointB - args.WorldPosition;
+        var obstacleDistance = obstacleDirection.Length;
+
+        if (obstacleDistance > idealDistance || obstacleDistance < 1f)
+        {
+            return;
+        }
+
+        args.Steering.CanSeek = false;
+        obstacleDirection = args.OffsetRotation.RotateVec(obstacleDirection);
+        var norm = obstacleDirection.Normalized;
+
+        var weight = (idealDistance - obstacleDistance) / idealDistance;
+
+        for (var i = 0; i < SharedNPCSteeringSystem.InterestDirections; i++)
+        {
+            var result = -Vector2.Dot(norm, NPCSteeringSystem.Directions[i]) * weight;
+
+            if (result < 0f)
+                continue;
+
+            args.Interest[i] = MathF.Max(args.Interest[i], result);
+        }
+    }
+
 
     private void OnRangedStartup(EntityUid uid, NPCRangedCombatComponent component, ComponentStartup args)
     {
@@ -42,6 +81,8 @@ public sealed partial class NPCCombatSystem
         {
             combat.IsInCombatMode = false;
         }
+
+        _steering.Unregister(component.Owner);
     }
 
     private void UpdateRanged(float frameTime)
@@ -49,8 +90,9 @@ public sealed partial class NPCCombatSystem
         var bodyQuery = GetEntityQuery<PhysicsComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         var combatQuery = GetEntityQuery<SharedCombatModeComponent>();
+        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent>();
 
-        foreach (var (comp, xform) in EntityQuery<NPCRangedCombatComponent, TransformComponent>())
+        while (query.MoveNext(out var uid, out var comp, out var xform))
         {
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
@@ -70,14 +112,12 @@ public sealed partial class NPCCombatSystem
                 continue;
             }
 
-            if (combatQuery.TryGetComponent(comp.Owner, out var combatMode))
+            if (combatQuery.TryGetComponent(uid, out var combatMode))
             {
                 combatMode.IsInCombatMode = true;
             }
 
-            var gun = _gun.GetGun(comp.Owner);
-
-            if (gun == null)
+            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
             {
                 comp.Status = CombatStatus.NoWeapon;
                 comp.ShootAccumulator = 0f;
@@ -98,19 +138,26 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                comp.TargetInLOS = _interaction.InRangeUnobstructed(comp.Owner, comp.Target, distance + 0.1f);
+                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f);
             }
 
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
-                comp.Status = CombatStatus.TargetUnreachable;
-                continue;
+                if (!comp.CanMove || distance >= 9f)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    continue;
+                }
+                else
+                {
+                    comp.Status = CombatStatus.NotInSight;
+                }
             }
 
             if (!oldInLos && comp.SoundTargetInLOS != null)
             {
-                _audio.PlayPvs(comp.SoundTargetInLOS, comp.Owner);
+                _audio.PlayPvs(comp.SoundTargetInLOS, uid);
             }
 
             comp.ShootAccumulator += frameTime;
@@ -127,9 +174,26 @@ public sealed partial class NPCCombatSystem
             var goalRotation = (targetSpot - worldPos).ToWorldAngle();
             var rotationSpeed = comp.RotationSpeed;
 
-            if (!_rotate.TryRotateTo(comp.Owner, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
+            if (!_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
                 continue;
+            }
+
+
+            if (comp.CanMove)
+            {
+                if (TryComp<NPCSteeringComponent>(comp.Owner, out var steering) &&
+                    steering.Status == SteeringStatus.NoPath)
+                {
+                    comp.Status = CombatStatus.TargetUnreachable;
+                    return;
+                }
+
+                steering = EnsureComp<NPCSteeringComponent>(comp.Owner);
+                steering.Range = 3.5f;
+
+                // Gets unregistered on component shutdown.
+                _steering.TryRegister(comp.Owner, new EntityCoordinates(comp.Target, Vector2.Zero), steering);
             }
 
             // TODO: LOS
@@ -154,7 +218,7 @@ public sealed partial class NPCCombatSystem
                 targetCordinates = new EntityCoordinates(xform.MapUid!.Value, targetSpot);
             }
 
-            _gun.AttemptShoot(comp.Owner, gun, targetCordinates);
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
         }
     }
 }

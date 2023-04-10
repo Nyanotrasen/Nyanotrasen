@@ -20,6 +20,7 @@
     size: 100
   - type: Clothing
     sprite: Objects/Tools/bucket.rsi
+    quickEquip: false
     slots:
     - HEAD
   - type: SolutionContainerManager

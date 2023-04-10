@@ -42,7 +42,7 @@
       layer:
       - AirlockLayer
   - type: LayerChangeOnWeld
-    unweldedLayer: AirlockLayer
+    unWeldedLayer: AirlockLayer
     weldedLayer: WallLayer
   - type: ContainerFill
     containers:
@@ -83,6 +83,7 @@
       Open: []
       Close: []
       Toggle: []
+      AutoClose: []
   - type: UserInterface
     interfaces:
     - key: enum.WiresUiKey.Key
@@ -116,5 +117,6 @@
     group: Standard
   - type: DynamicPrice
     price: 150
+  - type: AccessReader
   placement:
     mode: SnapgridCenter

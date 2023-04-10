@@ -287,6 +287,12 @@ namespace Content.Shared.CCVar
 #endif
 
         /*
+         * Damage
+         */
+        public static readonly CVarDef<float> DamageVariance =
+            CVarDef.Create("damage.variance", 0.15f, CVar.SERVER | CVar.REPLICATED);
+
+        /*
          * Discord
          */
 
@@ -309,6 +315,24 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> DiscordAHelpAvatar =
             CVarDef.Create("discord.ahelp_avatar", string.Empty, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     URL of the Discord webhook which will send round status notifications.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordRoundWebhook =
+            CVarDef.Create("discord.round_webhook", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Discord ID of role which will be pinged on new round start message.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordRoundRoleId =
+            CVarDef.Create("discord.round_roleid", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Send notifications only about a new round begins.
+        /// </summary>
+        public static readonly CVarDef<bool> DiscordRoundStartOnly =
+            CVarDef.Create("discord.round_start_only", false, CVar.SERVERONLY);
+
         /*
          * Suspicion
          */
@@ -327,6 +351,16 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<int> SuspicionMaxTimeSeconds =
             CVarDef.Create("suspicion.max_time_seconds", 300);
+
+
+        /*
+         * Survival
+         */
+        /// <summary>
+        /// Survival mode goal, in minutes.
+        /// </summary>
+        public static readonly CVarDef<int>
+            SurvivalGoal = CVarDef.Create("survival.goal_time", 120, CVar.ARCHIVE | CVar.SERVERONLY);
 
         /*
          * Traitor
@@ -1021,6 +1055,16 @@ namespace Content.Shared.CCVar
             CVarDef.Create("ban.hardware_ids", true, CVar.SERVERONLY);
 
         /*
+         * Procgen
+         */
+
+        /// <summary>
+        /// Should we pre-load all of the procgen atlasses.
+        /// </summary>
+        public static readonly CVarDef<bool> ProcgenPreload =
+            CVarDef.Create("procgen.preload", true, CVar.SERVERONLY);
+
+        /*
          * Shuttles
          */
 
@@ -1035,10 +1079,40 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.camera_rotation_locked", false, CVar.REPLICATED);
 
         /// <summary>
+        /// Whether the arrivals shuttle is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> ArrivalsShuttles =
+            CVarDef.Create("shuttle.arrivals", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// The map to use for the arrivals station.
+        /// </summary>
+        public static readonly CVarDef<ResourcePath> ArrivalsMap =
+            CVarDef.Create("shuttle.arrivals_map", new ResourcePath("/Maps/Misc/terminal.yml"), CVar.SERVERONLY);
+
+        /// <summary>
+        /// Cooldown between arrivals departures. This should be longer than the FTL time or it will double cycle.
+        /// </summary>
+        public static readonly CVarDef<float> ArrivalsCooldown =
+            CVarDef.Create("shuttle.arrivals_cooldown", 90f, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Are players allowed to return on the arrivals shuttle.
+        /// </summary>
+        public static readonly CVarDef<bool> ArrivalsReturns =
+            CVarDef.Create("shuttle.arrivals_returns", false, CVar.SERVERONLY);
+
+        /// <summary>
         /// Whether cargo shuttles are enabled.
         /// </summary>
         public static readonly CVarDef<bool> CargoShuttles =
             CVarDef.Create("shuttle.cargo", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Whether the Shipyard is enabled.
+        /// </summary>
+        public static readonly CVarDef<bool> Shipyard =
+            CVarDef.Create("shuttle.shipyard", true, CVar.SERVERONLY);
 
         /*
          * Emergency
@@ -1188,6 +1262,11 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<string> UILayout =
             CVarDef.Create("nyanotrasen.ui.layout", "Separated", CVar.CLIENTONLY | CVar.ARCHIVE);
 
+        public static readonly CVarDef<string> DefaultScreenChatSize =
+            CVarDef.Create("ui.default_chat_size", "", CVar.CLIENTONLY | CVar.ARCHIVE);
+
+        public static readonly CVarDef<string> SeparatedScreenChatSize =
+            CVarDef.Create("ui.separated_chat_size", "0.6,0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
 
         /*
@@ -1202,6 +1281,15 @@ namespace Content.Shared.CCVar
 
         public static readonly CVarDef<bool> ChatShowTypingIndicator =
             CVarDef.Create("chat.show_typing_indicator", true, CVar.CLIENTONLY);
+
+        /// <summary>
+        /// A message broadcast to each player that joins the lobby.
+        /// May be changed by admins ingame through use of the "set-motd" command.
+        /// In this case the new value, if not empty, is broadcast to all connected players and saved between rounds.
+        /// May be requested by any player through use of the "get-motd" command.
+        /// </summary>
+        public static readonly CVarDef<string> MOTD =
+            CVarDef.Create("chat.motd", "", CVar.SERVER | CVar.SERVERONLY | CVar.ARCHIVE, "A message broadcast to each player that joins the lobby.");
 
         /*
          * AFK

@@ -1,3 +1,5 @@
+using Content.Server.MachineLinking.Events;
+using Content.Server.MachineLinking.System;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Tools.Components;
@@ -7,6 +9,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
+using Content.Shared.Wires;
 
 namespace Content.Server.Doors.Systems
 {
@@ -14,6 +17,7 @@ namespace Content.Server.Doors.Systems
     {
         [Dependency] private readonly WiresSystem _wiresSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _power = default!;
+        [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
 
         public override void Initialize()
         {
@@ -27,6 +31,7 @@ namespace Content.Server.Doors.Systems
             SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new [] {typeof(DoorSystem)});
             SubscribeLocalEvent<AirlockComponent, DoorGetPryTimeModifierEvent>(OnGetPryMod);
             SubscribeLocalEvent<AirlockComponent, BeforeDoorPryEvent>(OnDoorPry);
+            SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
         }
 
         private void OnAirlockInit(EntityUid uid, AirlockComponent component, ComponentInit args)
@@ -71,11 +76,9 @@ namespace Content.Server.Doors.Systems
             // means that sometimes the panels & bolt lights may be visible despite a door being completely open.
 
             // Only show the maintenance panel if the airlock is closed
-            if (TryComp<WiresComponent>(uid, out var wiresComponent))
+            if (TryComp<WiresPanelComponent>(uid, out var wiresPanel))
             {
-                wiresComponent.IsPanelVisible =
-                    component.OpenPanelVisible
-                    ||  args.State != DoorState.Open;
+                _wiresSystem.ChangePanelVisibility(uid, wiresPanel, component.OpenPanelVisible || args.State != DoorState.Open);
             }
             // If the door is closed, we should look if the bolt was locked while closing
             UpdateBoltLightStatus(uid, component);
@@ -144,8 +147,8 @@ namespace Content.Server.Doors.Systems
 
         private void OnActivate(EntityUid uid, AirlockComponent component, ActivateInWorldEvent args)
         {
-            if (TryComp<WiresComponent>(uid, out var wiresComponent) && wiresComponent.IsPanelOpen &&
-                EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open &&
+                TryComp<ActorComponent>(args.User, out var actor))
             {
                 _wiresSystem.OpenUserInterface(uid, actor.PlayerSession);
                 args.Handled = true;
@@ -230,6 +233,14 @@ namespace Content.Server.Doors.Systems
 
             component.BoltsDown = value;
             UpdateBoltLightStatus(uid, component);
+        }
+
+        private void OnSignalReceived(EntityUid uid, AirlockComponent component, SignalReceivedEvent args)
+        {
+            if (args.Port == component.AutoClosePort)
+            {
+                component.AutoClose = false;
+            }
         }
     }
 }

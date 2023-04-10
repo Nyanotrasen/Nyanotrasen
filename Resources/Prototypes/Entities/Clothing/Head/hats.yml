@@ -87,6 +87,8 @@
     sprite: Clothing/Head/Hats/cardborg_h.rsi
   - type: TypingIndicatorClothing
     proto: robot
+  - type: IdentityBlocker
+  - type: IngestionBlocker
 
 - type: entity
   parent: ClothingHeadBase
@@ -387,7 +389,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWizardFake
-  name: fake wizard hat
+  name: wizard hat
+  suffix: fake
   description: It has WIZZARD written across it in sequins. Comes with a cool beard.
   components:
   - type: Sprite
@@ -445,8 +448,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateBlack
-  name: syndicate black pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: black pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
@@ -456,8 +459,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicatePink
-  name: syndicate pink pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: pink pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
@@ -467,8 +470,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateRed
-  name: syndicate red pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: red pyjama hat
+  description: For keeping that head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi

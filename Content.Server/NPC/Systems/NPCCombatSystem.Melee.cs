@@ -32,10 +32,10 @@ public sealed partial class NPCCombatSystem
             if (cdRemaining < TimeSpan.FromSeconds(1f / weapon.AttackRate) * 0.5f)
                 return;
 
-            if (!_physics.TryGetNearestPoints(uid, component.Target, out _, out var pointB))
+            if (!_physics.TryGetNearestPoints(uid, component.Target, out var pointA, out var pointB))
                 return;
 
-            var idealDistance = weapon.Range * 1.25f;
+            var idealDistance = weapon.Range * 1.5f;
             var obstacleDirection = pointB - args.WorldPosition;
             var obstacleDistance = obstacleDirection.Length;
 
@@ -117,6 +117,13 @@ public sealed partial class NPCCombatSystem
 
         if (!xformQuery.TryGetComponent(component.Owner, out var xform) ||
             !xformQuery.TryGetComponent(component.Target, out var targetXform))
+        {
+            component.Status = CombatStatus.TargetUnreachable;
+            return;
+        }
+
+        // Players cannot attack entities inside containers since melee context menu was removed, so mirror this for NPCs.
+        if (_containers.IsEntityInContainer(component.Target))
         {
             component.Status = CombatStatus.TargetUnreachable;
             return;

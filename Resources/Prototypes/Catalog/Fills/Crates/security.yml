@@ -30,6 +30,8 @@
         amount: 1
       - id: Flash
         amount: 3
+      - id: Bola
+        amount: 2
 #      - Pepperspray
 #      - GrenadeTeargas
 
@@ -43,7 +45,7 @@
         amount: 2
       - id: ClothingHeadHelmetRiot
         amount: 2
-      - id: WeaponShotgunEnforcer
+      - id: WeaponShotgunEnforcerNonLethal
         amount: 2
       - id: BoxBeanbag
         amount: 2
@@ -76,5 +78,17 @@
       - id: BoxZiptie
         amount: 2
 
+- type: entity
+  id: CrateSecurityBiosuit
+  parent: CrateSecgear
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterBioSecurity
+        amount: 2
+      - id: ClothingHeadHatHoodBioSecurity
+        amount: 2
+      - id: ClothingMaskSterile
+        amount: 2
 
 # Cosmetic Crates

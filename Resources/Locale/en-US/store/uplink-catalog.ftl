@@ -1,6 +1,6 @@
 # Weapons
-uplink-pistol-viper-name = Viper
-uplink-pistol-viper-desc = A small, easily concealable, but somewhat underpowered gun. Use pistol magazines (.35 auto).
+uplink-pistol-mk58-name = Mk58
+uplink-pistol-mk58-desc = A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
 
 uplink-revolver-python-name = Python
 uplink-revolver-python-desc = A loud and deadly revolver. Uses .45 Magnum.
@@ -20,6 +20,12 @@ uplink-edagger-desc = A small energy blade conveniently disguised in the form of
 uplink-fire-axe-flaming-name = Fire Axe
 uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire.
 
+uplink-kanabou-name = Kanabou
+uplink-kanabou-desc = A weapon for those who wish to forgo subtlety. Particularly suited to oni.
+
+uplink-rickenbacker4001-name = Rickenbacker 4001
+uplink-rickenbacker4001-desc = When it comes down to it, there are very few people who will swing the bat.
+
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
 uplink-explosive-grenade-desc = Grenade that creates a small but devastating explosion.
@@ -37,7 +43,13 @@ uplink-c4-name = C-4
 uplink-c4-desc = Use it to breach walls, airlocks or sabotage equipment. It can be attached to almost all objects and has a modifiable timer with a minimum setting of 10 seconds.
 
 uplink-c4-bundle-name = C-4 bundle
-uplink-c4-bundle-desc = Because sometimes quantity is quality. Contains 8 C-4 plastic explosives.
+uplink-c4-bundle-desc = Because sometimes quantity is quality. Contains 7 C-4 plastic explosives.
+
+uplink-emp-grenade-name = Emp Grenade
+uplink-emp-grenade-desc = Releases electromagnetic pulses that disrupt or damage many electronic devices or drain power cells.
+
+uplink-exploding-pen-name = Exploding pen
+uplink-exploding-pen-desc = A class IV explosive device contained within a standard pen. Comes with a 4 second fuse.
 
 # Ammo
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
@@ -85,7 +97,7 @@ uplink-hypopen-name = Hypopen
 uplink-hypopen-desc = A chemical hypospray disguised as a pen, capable of instantly injecting up to 15u of reagents. Starts empty.
 
 uplink-voice-mask-name = Voice Mask
-uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of.
+uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever you can think of. Also utilizes cutting-edge chameleon technology.
 
 # Implants
 uplink-storage-implanter-name = Storage Implanter
@@ -114,14 +126,14 @@ uplink-zombie-bundle-name = Syndicate Zombie Bundle
 uplink-zombie-bundle-desc = An all-in-one kit for unleashing the undead upon a station.
 
 uplink-surplus-bundle-name = Surplus Crate
-uplink-surplus-bundle-desc = Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+uplink-surplus-bundle-desc = Contains 60 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
 
-uplink-super-surplus-bundle-name = Super Surplus Crate
-uplink-super-surplus-bundle-desc = Contains 125 telecrystals worth of completely random Syndicate items.
+uplink-super-surplus-bundle-name = Mystery Box
+uplink-super-surplus-bundle-desc = Contains 25 telecrystals worth of completely random Syndicate items.
 
 # Tools
 uplink-toolbox-name = Toolbox
-uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves, syndicate gas mask and a shoulder holster.
+uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves, syndicate gas mask and a utility belt.
 
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
@@ -141,6 +153,12 @@ uplink-gatfruit-seeds-desc = And who says guns don't grow on trees?
 
 uplink-necronomicon-name = Necronomicon
 uplink-necronomicon-desc = An unholy book capable of summoning a demonic familiar.
+
+uplink-revolver-cap-gun-fake-name = Fake Cap Gun
+uplink-revolver-cap-gun-fake-desc = Fool your enemy! It can use both cap and magnum bullets. Comes loaded with magnum bullets.
+
+uplink-banana-peel-explosive-name = Explosive Banana Peel
+uplink-banana-peel-explosive-desc = They will burst into laughter when they slip on it!
 
 # Armor
 uplink-chameleon-name = Chameleon Kit
@@ -180,14 +198,26 @@ uplink-cigarettes-desc = Elite cigarettes for elite agents. Infused with medicin
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.
 
-uplink-ultrabright-lantern-name = Extra-Bright Lantern
-uplink-ultrabright-lantern-desc = Blinding.
+uplink-ultrabright-lantern-name = Lantern
+uplink-ultrabright-lantern-desc = The holy light shall blind you!
 
 uplink-nocturine-chemistry-bottle-name = Nocturine Bottle
 uplink-nocturine-chemistry-bottle-desc = A chemical that makes it very hard for your target to stand up.
 
+uplink-stimpack-name = Stimpack
+uplink-stimpack-desc = The legendary chemical produced by Donk Co. for the Syndicate. Injecting yourself with this will increase your run speed and let you recover from stuns faster for 5 minutes.
+
+uplink-stimkit-name = Stimkit
+uplink-stimkit-desc = A medkit containing 6 stimulant microinjectors, which each inject you with enough stimulants to last for a minute.
+
+uplink-experimental-stimpack-name = Experimental Stimpack
+uplink-experimental-stimpack-desc = A prototype version of the Stimpack pulled from the market due to extreme side effects. Effects include virtual immunity to stuns, massively increased movement speed, and rapid tissue regeneration, but the chemical will constantly poison you while in your bloodstream.
+
 uplink-syndicate-segway-crate-name = Syndicate Segway
 uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
+
+uplink-nocturine-gland-injector-name = Nocturine Injector Gland
+uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine whenever you suck blood.
 
 # Pointless
 uplink-revolver-cap-gun-name = Cap Gun
@@ -202,8 +232,8 @@ uplink-cat-ears-desc = UwU
 uplink-outlaw-hat-name = Outlaw Hat
 uplink-outlaw-hat-desc = A hat that makes you look like you carry a notched pistol, numbered one and nineteen more.
 
-uplink-costume-pyjama-name = Syndicate Pyjama Duffel Bag
-uplink-costume-pyjama-desc = Contains 3 pairs of syndicate pyjamas and 3 plushies for the ultimate sleepover.
+uplink-costume-pyjama-name = Pyjama Duffel Bag
+uplink-costume-pyjama-desc = Contains 3 pairs of pyjamas and 3 plushies for the ultimate sleepover.
 
 uplink-costume-clown-name = Clown Costume Duffel Bag
 uplink-costume-clown-desc = Contains a complete Clown outfit. Includes PDA and service radio.
@@ -216,4 +246,3 @@ uplink-operative-skirt-desc = A skirt given to our nuclear operatives with fine 
 
 uplink-balloon-name = Syndie Balloon
 uplink-balloon-desc = Handed out to the bravest souls who survived the "atomic twister" ride at Syndieland.
-

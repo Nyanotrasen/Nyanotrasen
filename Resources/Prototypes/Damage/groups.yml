@@ -40,3 +40,8 @@
   damageTypes:
   - Heat
   - Poison
+
+- type: damageGroup
+  id: Immaterial
+  damageTypes:
+  - Holy

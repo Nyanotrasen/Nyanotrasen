@@ -58,3 +58,9 @@ jobs:
         key: ${{ secrets.BUILDS_PUSH_KEY }}
         port: ${{ secrets.PUBLISH_SSH_PORT }}
         script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}
+
+    - name: Publish changelog
+      run: Tools/actions_changelogs_since_last_run.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}

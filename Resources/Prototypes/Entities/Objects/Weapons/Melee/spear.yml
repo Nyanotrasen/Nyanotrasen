@@ -16,13 +16,15 @@
     range: 2.0
     damage:
       types:
-        Piercing: 7
+        Slash: 6
+        Blunt: 3
     angle: 0
     animation: WeaponArcThrust
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Slash: 11
+        Blunt: 3
   - type: Item
     size: 40
   - type: Clothing
@@ -49,7 +51,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Piercing: 7
+        Slash: 4
+        Blunt: 2
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
