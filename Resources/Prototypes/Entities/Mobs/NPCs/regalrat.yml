@@ -300,6 +300,7 @@
     tags:
       - CannotSuicide
       - FootstepSound
+      - Recyclable
   - type: NoSlip
   - type: MobPrice
     price: 100 # rat wealth
@@ -308,7 +309,6 @@
   - type: FelinidFood
   - type: Bloodstream
     bloodMaxVolume: 70
-  - type: Recyclable
   - type: CanEscapeInventory
   - type: Extractable
     grindableSolutionName: food

@@ -314,11 +314,11 @@
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound
+      - Recyclable
   - type: NoSlip
   - type: MobPrice
     price: 100 # rat wealth
   - type: FelinidFood
-  - type: Recyclable
   - type: CanEscapeInventory
   - type: Extractable
     grindableSolutionName: food

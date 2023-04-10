@@ -19,10 +19,13 @@
     solution: hypospray
   - type: Hypospray
     pierceArmor: true
-  - type: DynamicPrice
-    price: 750
   - type: UseDelay
     delay: 0.5
+  - type: DynamicPrice
+    price: 750
+  - type: Tag
+    tags:
+    - HighRiskItem
 
 - type: entity
   name: gorlex hypospray
@@ -80,7 +83,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: Recyclable
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
   - type: SpaceGarbage
   - type: DynamicPrice
     price: 75 # These are limited supply items.

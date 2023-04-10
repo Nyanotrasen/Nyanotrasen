@@ -135,16 +135,14 @@
   - type: IngestionBlocker
   - type: DiseaseProtection
     protection: 0.05
-  - type: Recyclable
   - type: Tag
     tags:
     - PetWearable
     - WhitelistChameleon
-# MERGE NOTE: Uncomment when material reclaimer is merged.
-#  - type: PhysicalComposition
-#    materialComposition:
-#      Steel: 50
-#      Plastic: 100
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 100
 
 - type: entity
   parent: ClothingMaskBase
