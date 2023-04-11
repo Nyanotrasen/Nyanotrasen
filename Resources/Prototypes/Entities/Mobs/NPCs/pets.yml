@@ -43,7 +43,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: old_ian
-  - type: Appearance
+  - type: Appearance 
   - type: DamageStateVisuals
     states:
       Alive:

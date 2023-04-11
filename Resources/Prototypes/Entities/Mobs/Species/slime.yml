@@ -19,6 +19,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
+  - type: Inventory
+    templateId: ian
   - type: Bloodstream
     bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
     bloodlossDamage:

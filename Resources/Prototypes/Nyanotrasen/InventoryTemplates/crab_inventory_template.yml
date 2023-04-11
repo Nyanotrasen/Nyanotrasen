@@ -1,0 +1,12 @@
+- type: inventoryTemplate
+  id: crab
+  slots:
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    slotGroup: MainHotbar
+    stripTime: 2
+    uiWindowPos: 0,0
+    strippingWindowPos: 0,0
+    displayName: Head
+    offset: 0.01, -0.2
