@@ -202,7 +202,7 @@ public sealed class TraitorDeathMatchRuleSystem : GameRuleSystem
 
     public override void Started()
     {
-        _restarter.RoundMaxTime = TimeSpan.FromMinutes(30);
+        _restarter.RoundMaxTime = TimeSpan.FromMinutes(120);
         _restarter.RestartTimer();
         _safeToEndRound = true;
     }
