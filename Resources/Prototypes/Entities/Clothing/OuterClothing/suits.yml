@@ -21,6 +21,9 @@
     tags:
       - FullBodyOuter
   - type: GroupExamine
+  - type: Tag
+    tags:
+    - Hardsuit
 
 - type: entity
   parent: ClothingOuterEVASuitBase
