@@ -256,7 +256,23 @@
   - type: Tag
     tags:
     - Write
-  - type: DynamicPrice
-    price: 75
   - type: UseDelay
     delay: 0.5
+  - type: DynamicPrice
+    price: 75
+
+- type: entity
+  parent: BaseItem
+  id: HypopenBox
+  name: hypopen box
+  description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/penbox.rsi
+    state: hypopen
+    netsync: false
+  - type: SpawnItemsOnUse
+    items:
+    - id: Hypopen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
