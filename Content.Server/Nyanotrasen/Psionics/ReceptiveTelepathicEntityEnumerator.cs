@@ -15,6 +15,11 @@ namespace Content.Server.Psionics
         private EntityQuery<PsionicsDisabledComponent> _disabled;
         private EntityQuery<PsionicInsulationComponent> _insulated;
 
+        /// <summary>
+        /// This is to prevent returning duplicates of entities who are both psionic and dreamers.
+        /// </summary>
+        private HashSet<EntityUid> _seen;
+
         private bool _getDreamers;
 
         public ReceptiveTelepathicEntityEnumerator(IEntityManager entityManager, bool getDreamers)
@@ -28,6 +33,8 @@ namespace Content.Server.Psionics
 
             _disabled = _entityManager.GetEntityQuery<PsionicsDisabledComponent>();
             _insulated = _entityManager.GetEntityQuery<PsionicInsulationComponent>();
+
+            _seen = new();
         }
 
         public bool MoveNext(out EntityUid uid, out bool isDreamer)
@@ -53,10 +60,15 @@ namespace Content.Server.Psionics
                     return false;
                 }
 
-                if (_disabled.HasComponent(entity) || _insulated.HasComponent(entity))
+                if (_seen.Contains(entity) ||
+                    _disabled.HasComponent(entity) ||
+                    _insulated.HasComponent(entity))
+                {
                     continue;
+                }
 
                 uid = entity;
+                _seen.Add(uid);
                 return true;
             }
         }
