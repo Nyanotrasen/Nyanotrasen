@@ -1,3 +1,4 @@
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.Dataset;
 using Content.Shared.Bed.Sleep;
 using Content.Server.Chat.Systems;
@@ -34,10 +35,16 @@ namespace Content.Server.Psionics.Dreams
             _accumulator -= _updateRate;
             _updateRate = _random.NextFloat(10f, 30f);
 
-            foreach (var sleeper in EntityQuery<SleepingComponent>())
+            var sleepers = EntityQueryEnumerator<SleepingComponent>();
+
+            while (sleepers.MoveNext(out EntityUid sleeper, out var _))
             {
-                if (!TryComp<ActorComponent>(sleeper.Owner, out var actor))
+                if (!TryComp<ActorComponent>(sleeper, out var actor) ||
+                    HasComp<PsionicsDisabledComponent>(sleeper) ||
+                    HasComp<PsionicInsulationComponent>(sleeper))
+                {
                     continue;
+                }
 
                 var setName = _random.Pick(DreamSetPrototypes);
 
@@ -50,7 +57,7 @@ namespace Content.Server.Psionics.Dreams
                     ("telepathicChannelName", Loc.GetString("chat-manager-telepathic-channel-name")), ("message", msg));
 
                 _chatManager.ChatMessageToOne(Shared.Chat.ChatChannel.Telepathic,
-                msg, messageWrap, sleeper.Owner, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
+                msg, messageWrap, sleeper, false, actor.PlayerSession.ConnectedClient, Color.PaleVioletRed);
             }
         }
     }
