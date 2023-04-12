@@ -135,11 +135,12 @@
   - type: Construction
     graph: HonkBot
     node: bot
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     whitelistRequired: false
     name: honkbot
     description: An artificial being of pure evil.
+  - type: GhostTakeoverAvailable
   - type: InteractionPopup
     interactSuccessString: petting-success-honkbot
     interactFailureString: petting-failure-honkbot
@@ -184,13 +185,14 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: false
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-cleanbot-name
     description: ghost-role-information-cleanbot-description
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent: MobSiliconBase
@@ -217,10 +219,11 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ShowHealthBars
     damageContainer: Biological
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-medibot-name
     description: ghost-role-information-medibot-description
+  - type: GhostTakeoverAvailable

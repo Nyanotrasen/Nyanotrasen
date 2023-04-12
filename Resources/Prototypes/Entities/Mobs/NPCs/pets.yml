@@ -422,13 +422,14 @@
   id: MobHamsterHamlet
   description: A grumpy, cute and fluffy hamster.
   components:
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-hamlet-name
     description: ghost-role-information-hamlet-description
+  - type: GhostTakeoverAvailable
   - type: InteractionPopup
     successChance: 1
   - type: Puller

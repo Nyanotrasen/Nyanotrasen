@@ -1,9 +1,10 @@
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Speech.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Server.StationEvents.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Psionics;
-using Content.Shared.Chemistry.Reagent;
 
 namespace Content.Server.Chemistry.ReagentEffects;
 
@@ -26,12 +27,20 @@ public sealed class MakeSentient : ReagentEffect
             return;
 
         entityManager.EnsureComponent<PotentialPsionicComponent>(uid);
+        // No idea what anything past this point does
+        if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole) ||
+            entityManager.TryGetComponent(uid, out GhostTakeoverAvailableComponent? takeOver))
+        {
+            return;
+        }
 
-        var takeOver = entityManager.AddComponent<GhostTakeoverAvailableComponent>(uid);
+        ghostRole = entityManager.AddComponent<GhostRoleComponent>(uid);
+        entityManager.AddComponent<GhostTakeoverAvailableComponent>(uid);
+
         var entityData = entityManager.GetComponent<MetaDataComponent>(uid);
 
         entityData.EntityName = Loc.GetString("glimmer-event-awakened-prefix", ("entity", uid));
-        takeOver.RoleName = entityData.EntityName;
-        takeOver.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
+        ghostRole.RoleName = entityData.EntityName;
+        ghostRole.RoleDescription = Loc.GetString("ghost-role-information-cognizine-description");
     }
 }

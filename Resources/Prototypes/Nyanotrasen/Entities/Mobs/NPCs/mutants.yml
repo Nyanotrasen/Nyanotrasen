@@ -201,10 +201,11 @@
     - type: MobMover
     - type: HTN
       rootTask: SimpleHostileCompound
-    - type: GhostTakeoverAvailable
+    - type: GhostRole
       makeSentient: true
       name: ghost-role-information-giant-spider-vampire-name
       description: ghost-role-information-giant-spider-vampire-description
+    - type: GhostTakeoverAvailable
 
 - type: entity
   parent: SimpleMobBase
@@ -236,10 +237,11 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: CancerMouse
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     name: ghost-role-information-cancer-mouse-name
     description: ghost-role-information-cancer-mouse-description
+  - type: GhostTakeoverAvailable
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
