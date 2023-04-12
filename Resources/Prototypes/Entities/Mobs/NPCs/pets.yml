@@ -184,6 +184,7 @@
   - type: Inventory
     speciesId: cat
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -244,6 +245,7 @@
   - type: Inventory
     speciesId: puppy
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
