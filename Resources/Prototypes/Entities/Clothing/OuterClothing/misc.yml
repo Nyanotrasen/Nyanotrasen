@@ -109,7 +109,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingOuterBase
@@ -144,7 +144,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/poncho.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    coefficient: 0.2
 
 - type: entity
   parent: ClothingOuterBase
