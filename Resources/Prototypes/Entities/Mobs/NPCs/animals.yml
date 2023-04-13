@@ -1063,9 +1063,6 @@
   - type: HTN
     rootTask: IdleEvadeCompound
 
-
-
-
 - type: entity
   name: penguin
   id: MobPenguin
@@ -1097,12 +1094,12 @@
       state: penguin
       sprite: Mobs/Animals/penguin.rsi
   - type: Hands
-  - type: Body #this is a filthy, FILTHY hack to make crab hands work
+  - type: Body #this is a filthy, FILTHY hack to make penguin hands work
     prototype: Primate
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: crab
+        Base: penguin
       Critical:
         Base: penguin_dead
       Dead:
@@ -1120,11 +1117,10 @@
     interactSuccessString: petting-success-bird
     interactFailureString: petting-failure-generic
   - type: Temperature
-    coldDamageThreshold: 235
+    coldDamageThreshold: 210
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants
-
 
 - type: entity
   name: grenade penguin
