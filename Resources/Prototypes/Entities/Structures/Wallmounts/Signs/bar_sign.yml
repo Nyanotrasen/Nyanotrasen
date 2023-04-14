@@ -245,3 +245,13 @@
   components:
   - type: BarSign
     current: Emprah
+
+# Nyano specific sign
+- type: entity
+  parent: BaseBarSign
+  id: BarSignWhiskeyEcho
+  name: Whiskey Echoes
+  description: WHISKEY ECHO WHISKEY. LIMA ALPHA DELTA. BRAVO ALPHA ROMEO.
+  components:
+  - type: BarSign
+    current: WhiskeyEcho

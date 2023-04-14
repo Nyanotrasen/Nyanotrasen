@@ -95,3 +95,8 @@ barsign-prototype-description-empbarsign = Something has gone very wrong.
 
 ## SignOff
 barsign-prototype-description-sign-off = This sign doesn't seem to be on.
+
+#Nyano specific sign
+## Whiskey Echoes
+barsign-prototype-name-whiskeyecho = Whiskey Echoes
+barsign-prototype-description-whiskeyecho = WHISKEY ECHO WHISKEY. LIMA ALPHA DELTA. BRAVO ALPHA ROMEO.
