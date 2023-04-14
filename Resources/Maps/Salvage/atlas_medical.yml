@@ -1556,32 +1556,7 @@ entities:
     pos: 0.5,-10.5
     parent: 0
     type: Transform
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 151
     type: ContainerContainer
-- uid: 151
-  type: FoodBakedWaffleRoffle
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 150
-    type: Transform
-  - solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - Quantity: 8
-          ReagentId: Nutriment
-        - Quantity: 2
-          ReagentId: Vitamin
-        - Quantity: 5
-          ReagentId: Lexorin
-    type: SolutionContainerManager
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 152
   type: SpawnMobRaccoonMorticia
   components:
