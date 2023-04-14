@@ -11,6 +11,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Spawners.Components;
@@ -139,6 +140,7 @@ public sealed class ArrivalsSystem : EntitySystem
                     }
 
                     RemCompDeferred<PendingClockInComponent>(uid);
+                    RemCompDeferred<PacifiedComponent>(uid);
                     shell.WriteLine(Loc.GetString("cmd-arrivals-forced", ("uid", ToPrettyString(uid))));
                 }
                 break;
@@ -176,6 +178,7 @@ public sealed class ArrivalsSystem : EntitySystem
                 continue;
 
             RemCompDeferred<PendingClockInComponent>(pUid);
+            RemCompDeferred<PacifiedComponent>(pUid);
         }
     }
 
@@ -238,6 +241,7 @@ public sealed class ArrivalsSystem : EntitySystem
                     ev.Station);
 
                 EnsureComp<PendingClockInComponent>(ev.SpawnResult.Value);
+                EnsureComp<PacifiedComponent>(ev.SpawnResult.Value);
                 return;
             }
         }
@@ -293,6 +297,7 @@ public sealed class ArrivalsSystem : EntitySystem
                 {
                     if (arrivals.IsValid())
                         _shuttles.FTLTravel(uid, shuttle, arrivals, dock: true);
+
                 }
                 // Go to station
                 else
