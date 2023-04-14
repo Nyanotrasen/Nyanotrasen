@@ -297,7 +297,6 @@ public sealed class ArrivalsSystem : EntitySystem
                 {
                     if (arrivals.IsValid())
                         _shuttles.FTLTravel(uid, shuttle, arrivals, dock: true);
-
                 }
                 // Go to station
                 else
