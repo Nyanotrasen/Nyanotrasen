@@ -35,9 +35,14 @@
     job: Mystagogue
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: IDCardStandard
   id: SalvageTechIDCard
+  name: salvage technician ID card
   components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idshaftminer
   - type: PresetIdCard
     job: SalvageTechnician
 
@@ -107,7 +112,7 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idscientist
+    - state: idcurator
   - type: PresetIdCard
     job: Cataloguer
 
