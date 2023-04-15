@@ -153,11 +153,19 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterHoS
   name: head of security's winter coat
+  description: A sturdy, red winter coat designed for the head of security. It is extra comfortable.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6 #slightly less bulletproof than hos normal coat
+        Heat: 0.7
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -263,11 +271,21 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterSec
   name: security winter coat
+  description: A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.6 #slightly less bulletproof than a normal kevlar vest
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
 
 - type: entity
   parent: ClothingOuterWinterCoat
