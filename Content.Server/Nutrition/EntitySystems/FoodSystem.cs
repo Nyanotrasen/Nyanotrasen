@@ -130,7 +130,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(target):target} is eating {ToPrettyString(food):food} {SolutionContainerSystem.ToPrettyString(foodSolution)}");
             }
 
-            var doAfterEventArgs = new DoAfterArgs(
+            var doAfterArgs = new DoAfterArgs(
                 user,
                 forceFeed ? foodComp.ForceFeedDelay : foodComp.Delay,
                 new ConsumeDoAfterEvent(foodSolution.Name, flavors),
@@ -146,10 +146,11 @@ namespace Content.Server.Nutrition.EntitySystems
                 // Mice and the like can eat without hands.
                 // TODO maybe set this based on some CanEatWithoutHands event or component?
                 NeedHand = forceFeed,
+                //Works better with cancel duplicate on because you can just use again to stop
                 CancelDuplicate = false,
             };
 
-            _doAfterSystem.TryStartDoAfter(doAfterEventArgs);
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
             return true;
         }
 
@@ -229,7 +230,12 @@ namespace Content.Server.Nutrition.EntitySystems
             }
 
             if (component.UsesRemaining > 0)
+            {
+                if (!forceFeed)
+                    args.Repeat = true;
+
                 return;
+            }
 
             if (string.IsNullOrEmpty(component.TrashPrototype))
                 EntityManager.QueueDeleteEntity(uid);

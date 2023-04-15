@@ -315,7 +315,9 @@ namespace Content.Server.Nutrition.EntitySystems
             var drained = _solutionContainerSystem.Drain(uid, solution, transferAmount);
             var forceDrink = args.User != args.Target;
 
-            //var forceDrink = args.Args.Target.Value != args.Args.User;
+            args.Handled = true;
+            if (transferAmount <= 0)
+                return;
 
             if (!_bodySystem.TryGetBodyOrganComponents<StomachComponent>(args.Target.Value, out var stomachs, body))
             {
@@ -324,7 +326,6 @@ namespace Content.Server.Nutrition.EntitySystems
                 if (HasComp<RefillableSolutionComponent>(args.Target.Value))
                 {
                     _puddleSystem.TrySpillAt(args.Args.User, drained, out _);
-                    args.Handled = true;
                     return;
                 }
 
@@ -347,7 +348,6 @@ namespace Content.Server.Nutrition.EntitySystems
                 else
                     _solutionContainerSystem.TryAddSolution(uid, solution, drained);
 
-                args.Handled = true;
                 return;
             }
 
@@ -384,11 +384,13 @@ namespace Content.Server.Nutrition.EntitySystems
             _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
             //TODO: Grab the stomach UIDs somehow without using Owner
             _stomachSystem.TryTransferSolution(firstStomach.Value.Comp.Owner, drained, firstStomach.Value.Comp);
-            args.Handled = true;
 
             var comp = EnsureComp<ForensicsComponent>(uid);
             if (TryComp<DnaComponent>(args.Target, out var dna))
                 comp.DNAs.Add(dna.DNA);
+
+            if (!forceDrink && solution.Volume > 0)
+                args.Repeat = true;
         }
 
         private void AddDrinkVerb(EntityUid uid, DrinkComponent component, GetVerbsEvent<AlternativeVerb> ev)
