@@ -165,7 +165,7 @@
         Blunt: 0.7
         Slash: 0.7
         Piercing: 0.6 #slightly less bulletproof than hos normal coat
-        Heat: 0.7
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -283,7 +283,7 @@
         Blunt: 0.9
         Slash: 0.9
         Piercing: 0.6 #slightly less bulletproof than a normal kevlar vest
-        Heat: 0.85
+        Heat: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.95
 
