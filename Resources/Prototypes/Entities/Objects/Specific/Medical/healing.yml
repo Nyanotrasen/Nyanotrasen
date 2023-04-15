@@ -70,6 +70,7 @@
 - type: entity
   name: roll of gauze
   description: Some sterile gauze to wrap around bloody stumps.
+  suffix: Full
   parent: BaseHealingItem
   id: Gauze
   components:
@@ -99,6 +100,7 @@
     price: 10
 
 - type: entity
+  suffix: Single
   id: Gauze1
   parent: Gauze
   components:
