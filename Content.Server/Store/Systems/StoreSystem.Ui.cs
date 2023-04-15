@@ -5,9 +5,11 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Store;
+using Content.Shared.Popups;
 using Content.Shared.Database;
 using Robust.Server.GameObjects;
 using System.Linq;
+using Content.Server.Shuttles.Components;
 using Content.Server.Stack;
 using Content.Server.UserInterface;
 
@@ -124,6 +126,13 @@ public sealed partial class StoreSystem
 
             if (!conditionsMet)
                 return;
+        }
+
+        //check that we're not trying to buy before clocking in
+        if (HasComp<PendingClockInComponent>(buyer))
+        {
+            _popup.PopupEntity(Loc.GetString("store-error-arrivals"), uid, buyer);
+            return;
         }
 
         //check that we have enough money

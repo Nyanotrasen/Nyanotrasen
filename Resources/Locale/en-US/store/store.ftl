@@ -4,3 +4,5 @@ store-ui-balance-display = {$currency}: {$amount}
 store-ui-price-display = {$amount} {$currency}
 
 store-withdraw-button-ui = Withdraw {$currency}
+
+store-error-arrivals = Unable to complete purchase, out of range!
