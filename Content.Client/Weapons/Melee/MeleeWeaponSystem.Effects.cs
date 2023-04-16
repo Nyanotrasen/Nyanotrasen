@@ -15,7 +15,6 @@ public sealed partial class MeleeWeaponSystem
     /// </summary>
     private const float DamageAnimationLength = 0.30f;
 
-    private const string AnimationKey = "melee-animation";
     private const string DamageAnimationKey = "damage-effect";
     private const string FadeAnimationKey = "melee-fade";
     private const string SlashAnimationKey = "melee-slash";

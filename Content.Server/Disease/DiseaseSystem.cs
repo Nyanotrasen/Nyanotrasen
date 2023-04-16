@@ -1,7 +1,6 @@
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Disease.Components;
-using Content.Server.DoAfter;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Clothing.Components;
@@ -33,15 +32,16 @@ namespace Content.Server.Disease
     /// </summary>
     public sealed class DiseaseSystem : EntitySystem
     {
-        [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ISerializationManager _serializationManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+        [Dependency] private readonly ChatSystem _chatSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -261,9 +261,55 @@ namespace Content.Server.Disease
         {
             if (TryComp<DiseaseCarrierComponent>(uid, out var carrier))
             {
-                SneezeCough(uid, _random.Pick(carrier.Diseases), string.Empty, null);
+                SneezeCough(uid, _random.Pick(carrier.Diseases), string.Empty);
             }
         }
+
+        /// <summary>
+        /// Called when a vaccine is used on someone
+        /// to handle the vaccination doafter
+        /// </summary>
+        private void OnAfterInteract(EntityUid uid, DiseaseVaccineComponent vaxx, AfterInteractEvent args)
+        {
+            if (args.Target == null || !args.CanReach || args.Handled)
+                return;
+
+            args.Handled = true;
+
+            if (vaxx.Used)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("vaxx-already-used"), args.User, args.User);
+                return;
+            }
+
+            var ev = new VaccineDoAfterEvent();
+            var doAfterArgs = new DoAfterArgs(args.User, vaxx.InjectDelay, ev, uid, target: args.Target, used: uid)
+            {
+                BreakOnTargetMove = true,
+                BreakOnUserMove = true,
+                NeedHand = true
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        }
+
+        /// <summary>
+        /// Called when a vaccine is examined.
+        /// Currently doesn't do much because
+        /// vaccines don't have unique art with a seperate
+        /// state visualizer.
+        /// </summary>
+        private void OnExamined(EntityUid uid, DiseaseVaccineComponent vaxx, ExaminedEvent args)
+        {
+            if (args.IsInDetailsRange)
+            {
+                if (vaxx.Used)
+                    args.PushMarkup(Loc.GetString("vaxx-used"));
+                else
+                    args.PushMarkup(Loc.GetString("vaxx-unused"));
+            }
+        }
+
 
     private void OnApplyMetabolicMultiplier(EntityUid uid, DiseaseCarrierComponent component, ApplyMetabolicMultiplierEvent args)
     {
@@ -371,21 +417,17 @@ namespace Content.Server.Disease
         /// and then tries to infect anyone in range
         /// if the snougher is not wearing a mask.
         /// </summary>
-        public bool SneezeCough(EntityUid uid, DiseasePrototype? disease, string snoughMessage, SoundSpecifier? snoughSound, bool airTransmit = true, TransformComponent? xform = null)
+        public bool SneezeCough(EntityUid uid, DiseasePrototype? disease, string emoteId, bool airTransmit = true, TransformComponent? xform = null)
         {
             if (!Resolve(uid, ref xform)) return false;
 
             if (_mobStateSystem.IsDead(uid)) return false;
 
-            var attemptSneezeCoughEvent = new AttemptSneezeCoughEvent(uid, snoughMessage, snoughSound);
+            var attemptSneezeCoughEvent = new AttemptSneezeCoughEvent(uid, emoteId);
             RaiseLocalEvent(uid, ref attemptSneezeCoughEvent);
             if (attemptSneezeCoughEvent.Cancelled) return false;
 
-            if (!string.IsNullOrEmpty(snoughMessage))
-                _popupSystem.PopupEntity(Loc.GetString(snoughMessage, ("person", Identity.Entity(uid, EntityManager))), uid);
-
-            if (snoughSound != null)
-                _audioSystem.PlayPvs(snoughSound, uid);
+            _chatSystem.TryEmoteWithChat(uid, emoteId);
 
             if (disease is not { Infectious: true } || !airTransmit)
                 return true;

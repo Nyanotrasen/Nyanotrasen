@@ -6,7 +6,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
-using Content.Shared.FixedPoint;
+using Content.Shared.Silicons;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.NPC.Components;
@@ -31,7 +31,7 @@ namespace Content.Server.Silicons.Bots
         {
             base.Initialize();
             SubscribeLocalEvent<MedibotComponent, InteractNoHandEvent>(PlayerInject);
-            SubscribeLocalEvent<MedibotComponent, DoAfterEvent<MedibotInjectData>>(OnDoAfter);
+            SubscribeLocalEvent<MedibotComponent, MedibotInjectDoAfterEvent>(OnDoAfter);
         }
 
         private void PlayerInject(EntityUid uid, MedibotComponent component, InteractNoHandEvent args)
@@ -48,7 +48,7 @@ namespace Content.Server.Silicons.Bots
             TryStartInject(uid, component, args.Target.Value, injectable);
         }
 
-        private void OnDoAfter(EntityUid uid, MedibotComponent component, DoAfterEvent<MedibotInjectData> args)
+        private void OnDoAfter(EntityUid uid, MedibotComponent component, MedibotInjectDoAfterEvent args)
         {
             component.IsInjecting = false;
 
@@ -56,7 +56,7 @@ namespace Content.Server.Silicons.Bots
                 return;
 
             _audioSystem.PlayPvs(component.InjectFinishSound, args.Args.Target.Value);
-            _solution.TryAddReagent(args.Args.Target.Value, args.AdditionalData.Solution, args.AdditionalData.Drug, args.AdditionalData.Amount, out var acceptedQuantity);
+            _solution.TryAddReagent(args.Args.Target.Value, args.Solution, args.Drug, args.Amount, out var acceptedQuantity);
             _popups.PopupEntity(Loc.GetString("hypospray-component-feel-prick-message"), args.Args.Target.Value, args.Args.Target.Value);
             EnsureComp<NPCRecentlyInjectedComponent>(args.Args.Target.Value);
             args.Handled = true;
@@ -99,17 +99,16 @@ namespace Content.Server.Silicons.Bots
             _popups.PopupEntity(Loc.GetString("medibot-inject-receiver", ("bot", performer)), target, target, PopupType.Medium);
             _popups.PopupEntity(Loc.GetString("medibot-inject-actor", ("target", target)), performer, performer, PopupType.Medium);
 
-            var data = new MedibotInjectData(injectable, drug, injectAmount);
-            var args = new DoAfterEventArgs(performer, component.InjectDelay, target: target)
+            var ev = new MedibotInjectDoAfterEvent(injectable, drug, injectAmount);
+            var args = new DoAfterArgs(performer, component.InjectDelay, ev, performer, target: target)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = false
             };
 
             component.IsInjecting = true;
-            _doAfter.DoAfter(args, data);
+            _doAfter.TryStartDoAfter(args);
 
             return true;
         }
@@ -156,13 +155,6 @@ namespace Content.Server.Silicons.Bots
             }
 
             return false;
-        }
-
-        private record struct MedibotInjectData(Solution Solution, string Drug, FixedPoint2 Amount)
-        {
-            public Solution Solution = Solution;
-            public string Drug = Drug;
-            public FixedPoint2 Amount = Amount;
         }
     }
 }
