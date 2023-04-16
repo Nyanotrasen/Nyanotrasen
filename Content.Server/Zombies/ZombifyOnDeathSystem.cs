@@ -91,7 +91,7 @@ namespace Content.Server.Zombies
                 return;
             
             //Don't zombify cyborg
-            if (EntityManager.TryGetComponent(target, out CyborgComponent? cyborgComponent))
+            if (HasComp<CyborgComponent>(target))
                 return;
 
             //you're a real zombie now, son.
