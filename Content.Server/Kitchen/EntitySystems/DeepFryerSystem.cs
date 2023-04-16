@@ -816,7 +816,7 @@ namespace Content.Server.Kitchen.EntitySystems
             var user = args.Session.AttachedEntity;
 
             if (user == null ||
-                !TryComp<SharedHandsComponent>(user, out var handsComponent) ||
+                !TryComp<HandsComponent>(user, out var handsComponent) ||
                 handsComponent.ActiveHandEntity == null)
             {
                 return;
@@ -840,7 +840,7 @@ namespace Content.Server.Kitchen.EntitySystems
             solution = null;
             transferAmount = FixedPoint2.Zero;
 
-            if (!TryComp<SharedHandsComponent>(user, out var handsComponent))
+            if (!TryComp<HandsComponent>(user, out var handsComponent))
                 return false;
 
             heldItem = handsComponent.ActiveHandEntity;

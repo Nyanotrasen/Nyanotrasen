@@ -2,7 +2,6 @@ using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Hands.Components;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Contests;
