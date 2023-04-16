@@ -95,14 +95,3 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/prisonguard.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/prisonguard.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtTurtleneckYukon
-  name: Yukon officer's turtleneck
-  description: Standard uniform for Yukon officers.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/yukonturtle.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/yukonturtle.rsi
