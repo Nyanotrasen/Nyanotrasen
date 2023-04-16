@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.Arachne;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
@@ -18,6 +17,8 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -43,6 +44,7 @@ namespace Content.Server.Arachne
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly HungerSystem _hungerSystem = default!;
         [Dependency] private readonly ThirstSystem _thirstSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
@@ -256,7 +258,7 @@ namespace Content.Server.Arachne
 
             if (hunger != null && thirst != null)
             {
-                if (hunger.CurrentHungerThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
+                if (hunger.CurrentThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("spin-web-action-hungry"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                     return;
@@ -335,8 +337,7 @@ namespace Content.Server.Arachne
             if (args.Handled || args.Cancelled)
                 return;
 
-            if (TryComp<HungerComponent>(uid, out var hunger))
-                hunger.UpdateFood(-8);
+            _hungerSystem.ModifyHunger(uid, -8);
             if (TryComp<ThirstComponent>(uid, out var thirst))
                 _thirstSystem.UpdateThirst(thirst, -20);
 
