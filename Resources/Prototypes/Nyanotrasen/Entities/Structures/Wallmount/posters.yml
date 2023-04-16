@@ -130,6 +130,17 @@
 
 - type: entity
   parent: PosterBase
+  id: PosterLegitChknDnnr
+  name: "Winner Winner Chicken Dinner"
+  description: "An advertisement for crispy fried chicken."
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/Posters/CerebralError.rsi
+    state: poster_ChknDnnr
+
+# Station Maps
+- type: entity
+  parent: PosterBase
   id: PosterMapArena
   name: "Arena Map"
   description: "A map of Arena station."

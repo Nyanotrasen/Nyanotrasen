@@ -6,7 +6,6 @@
   playTimeTracker: JobParamedic
   icon: "Paramedic"
   supervisors: job-supervisors-cmo
-  antagAdvantage: 5
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical

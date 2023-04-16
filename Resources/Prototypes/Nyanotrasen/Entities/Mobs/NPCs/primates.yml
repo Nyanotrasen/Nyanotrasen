@@ -59,11 +59,10 @@
   - type: DiseaseCarrier
   - type: CombatMode
     canDisarm: true
-  - type: Tag
-    tags:
-    - GunsDisabled
+  - type: Cuffable
   # These require a cuffable layer to be added to the sprite now...?
   # - type: Cuffable
+
   - type: MeleeWeapon
     hidden: true
     angle: 0

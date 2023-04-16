@@ -19,7 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Server.Access.Systems;
 using Content.Server.Cargo.Components;
 using Content.Shared.Emag.Systems;
-using Content.Server.Hands.Components;
+using Content.Shared.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
 using Content.Server.Mind;

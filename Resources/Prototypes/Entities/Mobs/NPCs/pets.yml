@@ -30,6 +30,9 @@
     spawned:
     - id: FoodMeatCorgi
       amount: 2
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Old Ian
@@ -43,7 +46,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: old_ian
-  - type: Appearance
+  - type: Appearance 
   - type: DamageStateVisuals
     states:
       Alive:
@@ -56,6 +59,9 @@
     attributes:
       proper: true
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Lisa
@@ -82,6 +88,9 @@
     attributes:
       proper: true
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Runtime
@@ -92,6 +101,9 @@
   - type: Grammar
     attributes:
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Exception
@@ -102,6 +114,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Floppa
@@ -122,6 +137,9 @@
   - type: Grammar
     attributes:
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Bandito
@@ -135,6 +153,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: bingus
@@ -192,6 +213,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: McGriff
@@ -253,6 +277,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Paperwork
@@ -290,6 +317,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Walter
@@ -303,6 +333,9 @@
       gender: male
   - type: RandomMetadata
     nameSegments: null
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Morty
@@ -319,6 +352,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Morticia
@@ -335,6 +371,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Alexander
@@ -348,6 +387,9 @@
   - type: Faction
     factions:
     - Pet
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Renault
@@ -367,6 +409,9 @@
     attributes:
       proper: true
       gender: female
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 
 - type: entity
@@ -394,3 +439,7 @@
     attributes:
       proper: true
       gender: male
+  - type: Tag
+    tags:
+    - CannotSuicide
+

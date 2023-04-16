@@ -414,19 +414,15 @@
   - type: Perishable
     molsPerSecondPerUnitMass: 0.0015
 
+
 - type: entity
   name: crab
-  parent: SimpleMobBase
   id: MobCrab
+  parent: SimpleMobBase
   description: A folk legend goes around that his claw snaps spacemen out of existence over distasteful remarks. Be polite and tolerant for your own safety.
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: crab
-      sprite: Mobs/Animals/crab.rsi
-  - type: Physics
+  - type: Inventory
+    templateId: crab
   - type: Fixtures
     fixtures:
     - shape:
@@ -437,7 +433,21 @@
       - MobMask
       layer:
       - MobLayer
-  - type: Appearance
+  - type: Strippable
+  - type: Stripping
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: crab
+      sprite: Mobs/Animals/crab.rsi
+  - type: Hands
+  - type: Body #this is a filthy, FILTHY hack to make crab hands work
+    prototype: Primate
   - type: DamageStateVisuals
     states:
       Alive:
@@ -446,16 +456,22 @@
         Base: dead
       Dead:
         Base: dead
+  - type: Appearance
   - type: Butcherable
     spawned:
     - id: FoodMeatCrab
       amount: 2
+  - type: Puller
+  - type: CombatMode
+    canDisarm: true
+  - type: Cuffable
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-crab
     interactFailureString: petting-failure-crab
   - type: Bloodstream
     bloodMaxVolume: 50
+
 
 - type: entity
   name: goat
@@ -1049,17 +1065,12 @@
 
 - type: entity
   name: penguin
-  parent: SimpleMobBase
   id: MobPenguin
+  parent: SimpleMobBase
   description: Their lives are constant pain due to their inner-body knees.
   components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: penguin
-      sprite: Mobs/Animals/penguin.rsi
-  - type: Physics
+  - type: Inventory
+    templateId: penguin
   - type: Fixtures
     fixtures:
     - shape:
@@ -1070,7 +1081,21 @@
       - MobMask
       layer:
       - MobLayer
-  - type: Appearance
+  - type: Strippable
+  - type: Stripping
+  - type: UserInterface
+    interfaces:
+    - key: enum.StrippingUiKey.Key
+      type: StrippableBoundUserInterface
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: penguin
+      sprite: Mobs/Animals/penguin.rsi
+  - type: Hands
+  - type: Body #this is a filthy, FILTHY hack to make penguin hands work
+    prototype: Primate
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1079,18 +1104,20 @@
         Base: penguin_dead
       Dead:
         Base: penguin_dead
+  - type: Appearance
   - type: Butcherable
     spawned:
     - id: FoodMeatPenguin
       amount: 3
+  - type: CombatMode
+    canDisarm: true
+  - type: Cuffable
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-bird
     interactFailureString: petting-failure-generic
-    interactSuccessSound:
-      path: /Audio/Animals/penguin_squawk.ogg
   - type: Temperature
-    coldDamageThreshold: 235
+    coldDamageThreshold: 210
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants
