@@ -5,6 +5,7 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Vampiric;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
@@ -38,7 +39,7 @@ namespace Content.Server.Vampiric
             SubscribeLocalEvent<BloodSuckerComponent, GetVerbsEvent<InnateVerb>>(AddSuccVerb);
             SubscribeLocalEvent<BloodSuckedComponent, HealthBeingExaminedEvent>(OnHealthExamined);
             SubscribeLocalEvent<BloodSuckedComponent, DamageChangedEvent>(OnDamageChanged);
-            SubscribeLocalEvent<BloodSuckerComponent, DoAfterEvent<BloodSuckData>>(OnDoAfter);
+            SubscribeLocalEvent<BloodSuckerComponent, BloodSuckDoAfterEvent>(OnDoAfter);
         }
 
         private void AddSuccVerb(EntityUid uid, BloodSuckerComponent component, GetVerbsEvent<InnateVerb> args)
@@ -84,7 +85,7 @@ namespace Content.Server.Vampiric
             }
         }
 
-        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, DoAfterEvent<BloodSuckData> args)
+        private void OnDoAfter(EntityUid uid, BloodSuckerComponent component, BloodSuckDoAfterEvent args)
         {
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
@@ -141,19 +142,16 @@ namespace Content.Server.Vampiric
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start-victim", ("sucker", bloodsucker)), victim, victim, Shared.Popups.PopupType.LargeCaution);
             _popups.PopupEntity(Loc.GetString("bloodsucker-doafter-start", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
 
-            var data = new BloodSuckData();
-            var args = new DoAfterEventArgs(bloodsucker, bloodSuckerComponent.SuccDelay, target: victim)
+            var ev = new BloodSuckDoAfterEvent();
+            var args = new DoAfterArgs(bloodsucker, bloodSuckerComponent.SuccDelay, ev, bloodsucker, target: victim)
             {
-                RaiseOnTarget = false,
-                RaiseOnUser = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
                 DistanceThreshold = 2f,
-                BreakOnStun = true,
                 NeedHand = false
             };
 
-            _doAfter.DoAfter(args, data);
+            _doAfter.TryStartDoAfter(args);
         }
 
         public bool TrySucc(EntityUid bloodsucker, EntityUid victim, BloodSuckerComponent? bloodsuckerComp = null, BloodstreamComponent? bloodstream = null)

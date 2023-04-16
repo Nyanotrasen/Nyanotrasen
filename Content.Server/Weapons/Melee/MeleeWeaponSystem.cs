@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Actions.Events;
-using Content.Server.Administration.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
@@ -9,18 +8,21 @@ using Content.Server.CombatMode;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Contests;
 using Content.Server.Examine;
-using Content.Server.Hands.Components;
 using Content.Server.Movement.Systems;
 using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
+using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
+using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.StatusEffect;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -37,8 +39,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly LagCompensationSystem _lag = default!;
     [Dependency] private readonly SolutionContainerSystem _solutions = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -98,9 +102,9 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             PopupSystem.PopupEntity(message, uid.Value, Filter.PvsExcept(user.Value, entityManager: EntityManager), true);
     }
 
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, MeleeWeaponComponent component, ICommonSession? session)
+    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!base.DoDisarm(user, ev, component, session))
+        if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||
@@ -237,7 +241,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
         }
 
-        var hitBloodstreams = new List<BloodstreamComponent>();
+        var hitBloodstreams = new List<(EntityUid Entity, BloodstreamComponent Component)>();
         var bloodQuery = GetEntityQuery<BloodstreamComponent>();
 
         foreach (var entity in args.HitEntities)
@@ -245,8 +249,15 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (Deleted(entity))
                 continue;
 
+            // prevent deathnettles injecting through hardsuits
+            if (!comp.PierceArmor && _inventory.TryGetSlotEntity(entity, "outerClothing", out var suit) && _tag.HasTag(suit.Value, "Hardsuit"))
+            {
+                PopupSystem.PopupEntity(Loc.GetString("melee-inject-failed-hardsuit", ("weapon", owner)), args.User, args.User, PopupType.SmallCaution);
+                continue;
+            }
+
             if (bloodQuery.TryGetComponent(entity, out var bloodstream))
-                hitBloodstreams.Add(bloodstream);
+                hitBloodstreams.Add((entity, bloodstream));
         }
 
         if (!hitBloodstreams.Any())
@@ -257,10 +268,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var solutionToInject = removedSolution.SplitSolution(removedVol * comp.TransferEfficiency);
         var volPerBloodstream = solutionToInject.Volume * (1 / hitBloodstreams.Count);
 
-        foreach (var bloodstream in hitBloodstreams)
+        foreach (var (ent, bloodstream) in hitBloodstreams)
         {
             var individualInjection = solutionToInject.SplitSolution(volPerBloodstream);
-            _bloodstream.TryAddToChemicals((bloodstream).Owner, individualInjection, bloodstream);
+            _bloodstream.TryAddToChemicals(ent, individualInjection, bloodstream);
         }
     }
 }
