@@ -4,6 +4,7 @@ using Content.Shared.Item;
 using Content.Shared.Hands;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item.PseudoItem;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.DoAfter;
@@ -24,7 +25,7 @@ namespace Content.Server.Item.PseudoItem
             SubscribeLocalEvent<PseudoItemComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
             SubscribeLocalEvent<PseudoItemComponent, GettingPickedUpAttemptEvent>(OnGettingPickedUpAttempt);
             SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
-            SubscribeLocalEvent<PseudoItemComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertDoAfterEvent>(OnDoAfter);
         }
 
         private void AddInsertVerb(EntityUid uid, PseudoItemComponent component, GetVerbsEvent<InnateVerb> args)
@@ -141,16 +142,15 @@ namespace Content.Server.Item.PseudoItem
             if (!Resolve(toInsert, ref pseudoItem))
                 return;
 
-            _doAfter.DoAfter(new DoAfterEventArgs(inserter, 5f, target: toInsert, used: storageEntity)
+            var ev = new PseudoItemInsertDoAfterEvent();
+            var args = new DoAfterArgs(inserter, 5f, ev, toInsert, target: toInsert, used: storageEntity)
             {
-                RaiseOnTarget = true,
-                RaiseOnUser = false,
-                RaiseOnUsed = false,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfter.TryStartDoAfter(args);
         }
     }
 }

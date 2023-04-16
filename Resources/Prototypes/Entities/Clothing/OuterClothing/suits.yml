@@ -17,10 +17,11 @@
         Heat: 0.75
   - type: ExplosionResistance
     damageCoefficient: 0.65
+  - type: GroupExamine
   - type: Tag
     tags:
-      - FullBodyOuter
-  - type: GroupExamine
+    - FullBodyOuter
+    - Hardsuit
 
 - type: entity
   parent: ClothingOuterEVASuitBase

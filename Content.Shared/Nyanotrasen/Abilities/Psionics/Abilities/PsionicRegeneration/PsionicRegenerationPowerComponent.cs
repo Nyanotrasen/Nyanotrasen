@@ -1,5 +1,5 @@
-using System.Threading;
 using Robust.Shared.Audio;
+using Content.Shared.DoAfter;
 using Content.Shared.Actions.ActionTypes;
 
 namespace Content.Shared.Abilities.Psionics
@@ -7,7 +7,8 @@ namespace Content.Shared.Abilities.Psionics
     [RegisterComponent]
     public sealed class PsionicRegenerationPowerComponent : Component
     {
-        public CancellationTokenSource? CancelToken;
+        [DataField("doAfter")]
+        public DoAfterId? DoAfter;
 
         [DataField("essence")]
         public float EssenceAmount = 20;

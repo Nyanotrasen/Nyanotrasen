@@ -228,7 +228,7 @@
     state: drill_screw
   - type: Item
     sprite: Objects/Tools/drill.rsi
-    size: 20
+    size: 10
   - type: Tool
     qualities:
       - Screwing
@@ -254,7 +254,7 @@
         changeSound:
           path: /Audio/Items/change_drill.ogg
   - type: DynamicPrice
-    price: 60
+    price: 100
   - type: ReverseEngineering
     difficulty: 2
     recipes:

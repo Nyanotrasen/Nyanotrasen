@@ -1,4 +1,3 @@
-using System.Threading;
 using Robust.Shared.Map;
 using Content.Server.Tools.Components;
 using Content.Shared.Interaction;
@@ -12,21 +11,14 @@ public sealed partial class ToolSystem
     private void InitializeEarthDigging()
     {
         SubscribeLocalEvent<EarthDiggingComponent, AfterInteractEvent>(OnEarthDiggingAfterInteract);
-        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCompleteEvent>(OnEarthDigComplete);
-        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingCancelledEvent>(OnEarthDigCancelled);
+        SubscribeLocalEvent<EarthDiggingComponent, EarthDiggingDoAfterEvent>(OnEarthDigComplete);
     }
 
-    private void OnEarthDigCancelled(EntityUid uid, EarthDiggingComponent component, EarthDiggingCancelledEvent args)
+    private void OnEarthDigComplete(EntityUid uid, EarthDiggingComponent component, EarthDiggingDoAfterEvent args)
     {
-        if (component.CancelToken != null)
-        {
-            component.CancelToken.Cancel();
-            component.CancelToken = null;
-        }
-    }
+        if (args.Cancelled)
+            return;
 
-    private void OnEarthDigComplete(EntityUid uid, EarthDiggingComponent component, EarthDiggingCompleteEvent args)
-    {
         var gridUid = args.Coordinates.GetGridUid(EntityManager);
         if (gridUid == null)
             return;
@@ -80,30 +72,8 @@ public sealed partial class ToolSystem
             return false;
         }
 
-        var token = new CancellationTokenSource();
+        var ev = new EarthDiggingDoAfterEvent(clickLocation);
 
-        var toolEvData = new ToolEventData(new EarthDiggingCompleteEvent(clickLocation, shovel), cancelledEv:new EarthDiggingCancelledEvent() ,targetEntity:shovel);
-
-        if (!UseTool(shovel, user, null, component.Delay, new[] { component.QualityNeeded }, toolEvData, toolComponent: tool, cancelToken: component.CancelToken))
-            return false;
-
-        return true;
-    }
-
-    private sealed class EarthDiggingCompleteEvent : EntityEventArgs
-    {
-        public EntityCoordinates Coordinates { get; set; }
-        public EntityUid Shovel;
-
-        public EarthDiggingCompleteEvent(EntityCoordinates coordinates, EntityUid shovel)
-        {
-            Coordinates = coordinates;
-            Shovel = shovel;
-        }
-    }
-
-    private sealed class EarthDiggingCancelledEvent : EntityEventArgs
-    {
-        public EntityUid Shovel;
+        return UseTool(shovel, user, shovel, component.Delay, component.QualityNeeded, ev, toolComponent: tool);
     }
 }
