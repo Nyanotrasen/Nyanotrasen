@@ -275,7 +275,7 @@ namespace Content.Shared.CCVar
         /// Make people bonk when trying to climb certain objects like tables.
         /// </summary>
         public static readonly CVarDef<bool> GameTableBonk =
-            CVarDef.Create("game.table_bonk", false, CVar.SERVERONLY);
+            CVarDef.Create("game.table_bonk", false, CVar.REPLICATED);
 
 #if EXCEPTION_TOLERANCE
         /// <summary>
