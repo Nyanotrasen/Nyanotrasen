@@ -34,7 +34,7 @@ namespace Content.Server.Silicons.Bots
         public float EmergencyMedInjectAmount = 15f;
 
         [DataField("injectDelay")]
-        public float InjectDelay = 3f;
+        public TimeSpan InjectDelay = TimeSpan.FromSeconds(3);
 
         [DataField("injectFinishSound")]
         public SoundSpecifier InjectFinishSound = new SoundPathSpecifier("/Audio/Items/hypospray.ogg");

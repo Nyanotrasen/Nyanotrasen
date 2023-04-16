@@ -2,7 +2,6 @@ using System.Threading;
 using Content.Server.DoAfter;
 using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Hands.Components;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Contests;
@@ -60,7 +59,7 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
             SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
-            SubscribeLocalEvent<CarriableComponent, DoAfterEvent<CarryData>>(OnDoAfter);
+            SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         }
 
 
@@ -194,7 +193,7 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnDoAfter(EntityUid uid, CarriableComponent component, DoAfterEvent<CarryData> args)
+        private void OnDoAfter(EntityUid uid, CarriableComponent component, CarryDoAfterEvent args)
         {
             component.CancelToken = null;
             if (args.Handled || args.Cancelled)
@@ -208,14 +207,14 @@ namespace Content.Server.Carrying
         }
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
-            float length = 3f;
+            TimeSpan length = TimeSpan.FromSeconds(3);
 
             var mod = _contests.MassContest(carrier, carried);
 
             if (mod != 0)
                 length /= mod;
 
-            if (length >= 9)
+            if (length >= TimeSpan.FromSeconds(9))
             {
                 _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, carrier, Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -226,18 +225,15 @@ namespace Content.Server.Carrying
 
             component.CancelToken = new CancellationTokenSource();
 
-            var data = new CarryData();
-            var args = new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
+            var ev = new CarryDoAfterEvent();
+            var args = new DoAfterArgs(carrier, length, ev, carried, target: carried)
             {
-                RaiseOnUser = false,
-                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
 
-            _doAfterSystem.DoAfter(args, data);
+            _doAfterSystem.TryStartDoAfter(args);
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)
@@ -314,8 +310,5 @@ namespace Content.Server.Carrying
 
             return true;
         }
-
-        private record struct CarryData()
-        {}
     }
 }
