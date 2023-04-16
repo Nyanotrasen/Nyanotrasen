@@ -17,6 +17,7 @@ using Content.Server.Hands.Components;
 using Content.Server.Mind.Commands;
 using Content.Server.Temperature.Components;
 using Content.Shared.Movement.Components;
+using Content.Server.Borgs;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles;
 using Content.Server.Traitor;
@@ -87,6 +88,10 @@ namespace Content.Server.Zombies
         {
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
+                return;
+            
+            //Don't zombify cyborg
+            if (EntityManager.TryGetComponent(target, out CyborgComponent? cyborgComponent))
                 return;
 
             //you're a real zombie now, son.
