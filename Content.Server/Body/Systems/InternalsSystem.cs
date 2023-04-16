@@ -9,6 +9,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Verbs;
 using Content.Server.Popups;
+using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
 using Content.Shared.Internals;
 using Robust.Shared.Utility;

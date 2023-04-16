@@ -5,6 +5,7 @@ using Content.Server.Popups;
 using Content.Shared.CombatMode;
 using Content.Shared.Chemistry;
 using Content.Shared.DoAfter;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.Chemistry.EntitySystems;
