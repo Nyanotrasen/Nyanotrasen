@@ -22,6 +22,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Players;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Weapons.Melee;
@@ -29,6 +30,7 @@ namespace Content.Shared.Weapons.Melee;
 public abstract class SharedMeleeWeaponSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoManager = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
@@ -283,6 +285,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // Attack confirmed
         string animation;
+        bool lunge = true;
 
         switch (attack)
         {
@@ -297,14 +300,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 animation = weapon.ClickAnimation;
                 break;
             case HeavyAttackEvent heavy:
-                DoHeavyAttack(user, heavy, weaponUid, weapon, session);
+                DoHeavyAttack(user, heavy, weaponUid, weapon, session, out var playLunge);
+                lunge = playLunge;
                 animation = weapon.WideAnimation;
                 break;
             default:
                 throw new NotImplementedException();
         }
 
-        DoLungeAnimation(user, weapon.Angle, attack.Coordinates.ToMap(EntityManager, _transform), weapon.Range, animation);
+        if (lunge)
+            DoLungeAnimation(user, weapon.Angle, attack.Coordinates.ToMap(EntityManager, _transform), weapon.Range, animation);
         weapon.Attacking = true;
         Dirty(weapon);
     }
@@ -417,9 +422,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     protected abstract void DoDamageEffect(List<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);
 
-    protected virtual void DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
+    protected virtual void DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session, out bool playLunge)
     {
         // TODO: This is copy-paste as fuck with DoPreciseAttack
+        playLunge = true;
         if (!TryComp<TransformComponent>(user, out var userXform))
         {
             return;
@@ -427,7 +433,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         if (_stamina.GetFreeStaminaPercentage(user) < component.HeavyMinStamina)
         {
-            if (Timing.IsFirstTimePredicted)
+            playLunge = false;
+            if (_netManager.IsClient && Timing.IsFirstTimePredicted)
                 PopupSystem.PopupEntity(Loc.GetString("stamina-tired-heavy"), user, user, PopupType.MediumCaution);
             return;
         }
