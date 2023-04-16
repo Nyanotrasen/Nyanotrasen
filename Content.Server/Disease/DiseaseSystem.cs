@@ -54,8 +54,6 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<DiseaseProtectionComponent, GotUnequippedEvent>(OnUnequipped);
             // Handling stuff from other systems
             SubscribeLocalEvent<DiseaseCarrierComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            // Private events stuff
-            SubscribeLocalEvent<DiseaseVaccineComponent, VaccineDoAfterEvent>(OnDoAfter);
         }
 
         private Queue<EntityUid> AddQueue = new();
@@ -284,12 +282,15 @@ namespace Content.Server.Disease
                 return;
             }
 
-            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(args.User, vaxx.InjectDelay, new VaccineDoAfterEvent(), uid, target: args.Target, used: uid)
+            var ev = new VaccineDoAfterEvent();
+            var doAfterArgs = new DoAfterArgs(args.User, vaxx.InjectDelay, ev, uid, target: args.Target, used: uid)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
         }
 
         /// <summary>
@@ -310,7 +311,6 @@ namespace Content.Server.Disease
         }
 
 
->>>>>>> 19277a2276 (More DoAfter Changes (#14609))
     private void OnApplyMetabolicMultiplier(EntityUid uid, DiseaseCarrierComponent component, ApplyMetabolicMultiplierEvent args)
     {
         if (args.Apply)

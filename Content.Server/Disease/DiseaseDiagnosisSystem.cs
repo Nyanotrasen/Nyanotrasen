@@ -45,7 +45,6 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<DiseaseMachineComponent, PowerChangedEvent>(OnPowerChanged);
             // Private Events
             SubscribeLocalEvent<DiseaseDiagnoserComponent, DiseaseMachineFinishedEvent>(OnDiagnoserFinished);
-            SubscribeLocalEvent<DiseaseVaccineCreatorComponent, DiseaseMachineFinishedEvent>(OnVaccinatorFinished);
             SubscribeLocalEvent<DiseaseSwabComponent, DiseaseSwabDoAfterEvent>(OnSwabDoAfter);
         }
 

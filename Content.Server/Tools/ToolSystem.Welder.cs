@@ -27,6 +27,7 @@ namespace Content.Server.Tools
 
         [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
 
         private readonly HashSet<EntityUid> _activeWelders = new();
 
@@ -249,7 +250,7 @@ namespace Content.Server.Tools
 
             if (!welder.Lit)
             {
-                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.DoAfter.Args.User);
                 args.Cancel();
                 return;
             }
@@ -258,7 +259,7 @@ namespace Content.Server.Tools
 
             if (FixedPoint2.New(args.Event.Fuel) > fuel)
             {
-                _popupSystem.PopupCursor(Loc.GetString("welder-component-cannot-weld-message"), args.User);
+                _popupSystem.PopupCursor(Loc.GetString("welder-component-cannot-weld-message"), args.DoAfter.Args.User);
                 args.Cancel();
             }
         }
@@ -271,7 +272,7 @@ namespace Content.Server.Tools
             if (!welder.Lit)
             {
                 _popupSystem.PopupCursor(Loc.GetString("welder-component-welder-not-lit-message"), args.User);
-                args.Cancel();
+                _doAfterSystem.Cancel(args.DoAfter.Id);
                 return;
             }
 
@@ -282,7 +283,8 @@ namespace Content.Server.Tools
             if (neededFuel > fuel)
             {
                 _popupSystem.PopupEntity(Loc.GetString("welder-component-cannot-weld-message"), uid, args.User);
-                args.Cancel();
+                _doAfterSystem.Cancel(args.DoAfter.Id);
+                return;
             }
 
             if (!_solutionContainerSystem.TryGetSolution(uid, welder.FuelSolution, out var solution))

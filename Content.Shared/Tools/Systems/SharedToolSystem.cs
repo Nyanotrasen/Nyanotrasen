@@ -275,6 +275,24 @@ public abstract partial class SharedToolSystem : EntitySystem
 
         public override DoAfterEvent Clone() => this;
     }
+
+    [Serializable, NetSerializable]
+    protected sealed class EarthDiggingDoAfterEvent : DoAfterEvent
+    {
+        [DataField("coordinates", required: true)]
+        public readonly EntityCoordinates Coordinates;
+
+        private EarthDiggingDoAfterEvent()
+        {
+        }
+
+        public EarthDiggingDoAfterEvent(EntityCoordinates coordinates)
+        {
+            Coordinates = coordinates;
+        }
+
+        public override DoAfterEvent Clone() => this;
+    }
 }
 
 [Serializable, NetSerializable]

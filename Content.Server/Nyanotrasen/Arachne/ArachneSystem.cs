@@ -73,8 +73,8 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
-            SubscribeLocalEvent<ArachneComponent, DoAfterEvent<WebData>>(OnWebDoAfter);
-            SubscribeLocalEvent<ArachneComponent, DoAfterEvent<CocoonData>>(OnCocoonDoAfter);
+            SubscribeLocalEvent<ArachneComponent, ArachneWebDoAfterEvent>(OnWebDoAfter);
+            SubscribeLocalEvent<ArachneComponent, ArachneCocoonDoAfterEvent>(OnCocoonDoAfter);
         }
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
@@ -293,14 +293,13 @@ namespace Content.Server.Arachne
             Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, args.Performer, Shared.Popups.PopupType.Medium);
 
-            var data = new WebData(coords);
-            var doAfterArgs = new DoAfterEventArgs(args.Performer, arachne.WebDelay)
+            var ev = new ArachneWebDoAfterEvent(coords);
+            var doAfterArgs = new DoAfterArgs(args.Performer, arachne.WebDelay, ev, args.Performer)
             {
                 BreakOnUserMove = true,
-                BreakOnStun = true,
             };
 
-            _doAfter.DoAfter(doAfterArgs, data);
+            _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
         private void StartCocooning(EntityUid uid, ArachneComponent component, EntityUid target)
@@ -320,19 +319,18 @@ namespace Content.Server.Arachne
 
             // Is it good practice to use empty data just to disambiguate doafters
             // Who knows, there's no docs!
-            var data = new CocoonData();
+            var ev = new ArachneCocoonDoAfterEvent();
 
-            var args = new DoAfterEventArgs(uid, delay, target:target)
+            var args = new DoAfterArgs(uid, delay, ev, uid, target: target)
             {
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
-                BreakOnStun = true,
             };
 
-            _doAfter.DoAfter(args, data);
+            _doAfter.TryStartDoAfter(args);
         }
 
-        private void OnWebDoAfter(EntityUid uid, ArachneComponent component, DoAfterEvent<WebData> args)
+        private void OnWebDoAfter(EntityUid uid, ArachneComponent component, ArachneWebDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled)
                 return;
@@ -342,7 +340,7 @@ namespace Content.Server.Arachne
             if (TryComp<ThirstComponent>(uid, out var thirst))
                 _thirstSystem.UpdateThirst(thirst, -20);
 
-            Spawn("ArachneWeb", args.AdditionalData.Coords.SnapToGrid());
+            Spawn("ArachneWeb", args.Coords.SnapToGrid());
             _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(uid, EntityManager))), uid,
             Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
             true,
@@ -351,7 +349,7 @@ namespace Content.Server.Arachne
             args.Handled = true;
         }
 
-        private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, DoAfterEvent<CocoonData> args)
+        private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, ArachneCocoonDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || args.Args.Target == null)
                 return;
@@ -385,17 +383,7 @@ namespace Content.Server.Arachne
             _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(args.Args.User):player} cocooned {ToPrettyString(args.Args.Target.Value):target}");
             args.Handled = true;
         }
-
-        private record struct WebData(EntityCoordinates Coords)
-        {
-            public EntityCoordinates Coords = Coords;
-        }
-
-        /// <summary>
-        /// Experimenting if we can disambiguate like this...
-        /// </summary>
-        private record struct CocoonData()
-        {}
     }
+
     public sealed class SpinWebActionEvent : WorldTargetActionEvent {}
 }
