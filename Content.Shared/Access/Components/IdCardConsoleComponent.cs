@@ -51,6 +51,7 @@ public sealed class IdCardConsoleComponent : Component
         "Detective",
         "Captain",
         "Cargo",
+        "Mail",
         "Chapel",
         "Chemistry",
         "ChiefEngineer",
