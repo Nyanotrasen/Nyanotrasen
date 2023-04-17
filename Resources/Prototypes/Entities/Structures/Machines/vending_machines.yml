@@ -553,6 +553,16 @@
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
       shader: unshaded
+  - type: Fixtures
+    fixtures:
+    - shape:
+        !type:PhysShapeAabb
+        bounds: "-0.3,-0.16,0.3,0.40"
+      mask:
+      - MachineMask
+      layer:
+      - MachineLayer
+      density: 190
   - type: Advertise
     pack: CondimentVendAds
   - type: Speech
