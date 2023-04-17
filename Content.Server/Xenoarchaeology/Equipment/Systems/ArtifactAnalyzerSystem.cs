@@ -360,19 +360,23 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var pointValue = _artifact.GetResearchPointValue(artifact.Value);
 
+        if (pointValue == 0)
+            return;
 
+        _research.AddPointsToServer(server.Value, pointValue, serverComponent);
+        _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
+
+        // Begin Nyano-code: tie artifacts to glimmer.
         if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
             analyzer != null)
         {
-            _glimmerSystem.Glimmer += (int) pointValue / analyzer.SacrificeRatio;
+            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
         }
-
-        _research.AddPointsToServer(server.Value, pointValue, serverComponent);
-        EntityManager.DeleteEntity(artifact.Value);
+        // End Nyano-code.
 
         _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
 
-        _popup.PopupEntity(Loc.GetString("analyzer-artifact-destroy-popup"),
+        _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"),
             component.AnalyzerEntity.Value, PopupType.Large);
 
         UpdateUserInterface(uid, component);
@@ -447,15 +451,17 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
 
-        var sacrificeRating = args.PartRatings[component.MachinePartSacrificeRatio];
+        // Begin Nyano-code: tie artifacts to glimmer.
+        var extractRating = args.PartRatings[component.MachinePartExtractRatio];
 
-        component.SacrificeRatio = (400 + (int) (sacrificeRating * component.PartRatingSacrificeRatioMultiplier));
+        component.ExtractRatio = (400 + (int) (extractRating * component.PartRatingExtractRatioMultiplier));
+        // End Nyano-code.
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
     {
         args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
-        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.SacrificeRatio - 550);
+        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.ExtractRatio - 550);
     }
 
     private void OnCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref StartCollideEvent args)

@@ -61,7 +61,6 @@ public sealed class AnalysisConsoleBoundUserInterface : BoundUserInterface
 
         if (!disposing)
             return;
-        _consoleMenu?.AnalysisDestroyWindow?.Close();
         _consoleMenu?.Dispose();
     }
 }

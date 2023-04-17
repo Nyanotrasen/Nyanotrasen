@@ -72,8 +72,20 @@ public sealed partial class ArtifactSystem : EntitySystem
 
         var sumValue = component.NodeTree.Sum(n => GetNodePointValue(n, component, getMaxPrice));
         var fullyExploredBonus = component.NodeTree.All(x => x.Triggered) || getMaxPrice ? 1.25f : 1;
+        sumValue -= component.ConsumedPoints;
 
         return (int) (sumValue * fullyExploredBonus);
+    }
+
+    /// <summary>
+    /// Adjusts how many points on the artifact have been consumed
+    /// </summary>
+    public void AdjustConsumedPoints(EntityUid uid, int amount, ArtifactComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.ConsumedPoints += amount;
     }
 
     /// <summary>

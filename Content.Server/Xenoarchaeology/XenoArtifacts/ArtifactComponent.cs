@@ -66,6 +66,12 @@ public sealed class ArtifactComponent : Component
     public int PointsPerNode = 5000;
 
     /// <summary>
+    /// Research points which have been "consumed" from the theoretical max value of the artifact.
+    /// </summary>
+    [DataField("consumedPoints"), ViewVariables(VVAccess.ReadWrite)]
+    public int ConsumedPoints;
+
+    /// <summary>
     /// A multiplier that is raised to the power of the average depth of a node.
     /// Used for calculating the research point value of an artifact node.
     /// </summary>
