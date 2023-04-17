@@ -4,6 +4,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Verbs;
+using Content.Shared.Psionics.Events;
 using Content.Shared.Rejuvenate;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Pulling.Components;
@@ -29,7 +30,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
         {
             base.Initialize();
             SubscribeLocalEvent<GlimmerWispComponent, GetVerbsEvent<InnateVerb>>(AddDrainVerb);
-            SubscribeLocalEvent<GlimmerWispComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<GlimmerWispComponent, GlimmerWispDrainDoAfterEvent>(OnDrain);
         }
 
         private void AddDrainVerb(EntityUid uid, GlimmerWispComponent component, GetVerbsEvent<InnateVerb> args)
@@ -56,7 +57,7 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
             args.Verbs.Add(verb);
         }
 
-        private void OnDoAfter(EntityUid uid, GlimmerWispComponent component, DoAfterEvent args)
+        private void OnDrain(EntityUid uid, GlimmerWispComponent component, GlimmerWispDrainDoAfterEvent args)
         {
             component.IsDraining = false;
             if (args.Handled || args.Args.Target == null)
@@ -116,16 +117,17 @@ namespace Content.Server.Psionics.NPC.GlimmerWisp
 
             component.DrainStingStream = _audioSystem.PlayPvs(component.DrainSoundPath, target);
             component.IsDraining = true;
-            _doAfter.DoAfter(new DoAfterEventArgs(uid, component.DrainDelay, target: target)
+
+            var ev = new GlimmerWispDrainDoAfterEvent();
+            var args = new DoAfterArgs(uid, component.DrainDelay, ev, uid, target: target)
             {
-                RaiseOnUser = true,
-                RaiseOnTarget = false,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = false,
                 DistanceThreshold = 2f,
-                BreakOnStun = true,
                 NeedHand = false
-            });
+            };
+
+            _doAfter.TryStartDoAfter(args);
         }
     }
 }

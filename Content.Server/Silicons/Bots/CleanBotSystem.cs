@@ -2,6 +2,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 using Content.Shared.DoAfter;
+using Content.Shared.Silicons;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.Fluids.Components;
@@ -25,7 +26,7 @@ namespace Content.Server.Silicons.Bots
         {
             base.Initialize();
             SubscribeLocalEvent<CleanBotComponent, InteractNoHandEvent>(PlayerClean);
-            SubscribeLocalEvent<CleanBotComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<CleanBotComponent, CleanBotCleanDoAfterEvent>(OnDoAfter);
         }
 
         private void PlayerClean(EntityUid uid, CleanBotComponent component, InteractNoHandEvent args)
@@ -70,14 +71,16 @@ namespace Content.Server.Silicons.Bots
 
             component.CleanTarget = target;
             component.IsMopping = true;
-            _doAfter.DoAfter(new DoAfterEventArgs(performer, component.CleanDelay, target: target)
+
+            var ev = new CleanBotCleanDoAfterEvent();
+            var args = new DoAfterArgs(performer, component.CleanDelay, ev, performer, target: target)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = false
-            });
+            };
 
+            _doAfter.TryStartDoAfter(args);
             return true;
         }
     }
