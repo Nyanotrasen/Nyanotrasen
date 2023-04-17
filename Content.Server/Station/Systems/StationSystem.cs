@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Server.GameTicking;
+using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Station;
@@ -25,6 +26,7 @@ namespace Content.Server.Station.Systems;
 public sealed class StationSystem : EntitySystem
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -492,6 +494,12 @@ public sealed class StationSystem : EntitySystem
         {
             // We are the station, just check ourselves.
             return CompOrNull<StationMemberComponent>(entity)?.Station;
+        }
+
+        if (TryComp<ArrivalsSourceComponent>(xform.GridUid, out _))
+        {
+            // We are an arrivals source, return an actual station
+            return Stations.ToList()[0]; // Is it hacky? Sure, but does it work? Yeah!
         }
 
         if (xform.GridUid == EntityUid.Invalid)
