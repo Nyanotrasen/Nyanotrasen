@@ -62,3 +62,26 @@
     - type: PsionicBonusChance
       multiplier: 7
       warn: false
+
+- type: entity
+  noSpawn: true
+  parent: MobHuman
+  id: MobHumanLoneNuclearOperative
+  name: Lone Operative
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: NukeOperative
+    - type: Loadout
+      prototype: SyndicateOperativeGearFull
+      prototypes: [SyndicateOperativeGearFull]
+    - type: RandomMetadata
+      nameSegments:
+      - SyndicateNamesPrefix
+      - SyndicateNamesNormal
+    - type: Faction
+      factions:
+      - Syndicate
+    - type: PsionicBonusChance
+      multiplier: 7
+      warn: false
