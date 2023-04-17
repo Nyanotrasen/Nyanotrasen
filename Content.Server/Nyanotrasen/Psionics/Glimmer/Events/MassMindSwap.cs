@@ -36,7 +36,12 @@ public sealed class MassMindSwap : GlimmerEventSystem
 
         for (int i = 0; i < psionicList.Count; i += 2)
         {
-            _mindSwap.Swap(psionicList[i].Owner, psionicList[i+1].Owner);
+            var performer = psionicList[i].Owner;
+            var target = psionicList[i+1].Owner;
+
+            _mindSwap.Swap(performer, target);
+            _mindSwap.GetTrapped(performer);
+            _mindSwap.GetTrapped(target);
         }
     }
 }
