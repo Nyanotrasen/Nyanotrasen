@@ -271,8 +271,9 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             ftlTime = _timing.CurTime + TimeSpan.FromSeconds(shuttleFtl.Accumulator);
         }
 
-        // Mass too large
-		// OR is intended to be a Spaceship
+        // Is Mass of grid too large?
+        // OR is intended to be a Spaceship
+        // The 1000 mass limit exists as abstract divide between which grid "is a shuttle" and which "is a station"
         if (entity != null && shuttleGridUid != null &&
             (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || (HasComp<FTLWhitelistComponent>(shuttleGridUid) || shuttleBody.Mass < 1000f)))
         {
