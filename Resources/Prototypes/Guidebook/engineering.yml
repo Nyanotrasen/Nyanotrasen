@@ -37,7 +37,8 @@
   text: "/Server Info/Guidebook/Eng/Power.xml"
   children:
   - AME
-
+  - Singularity
+  
 - type: guideEntry
   id: AME
   name: guide-entry-ame
@@ -47,3 +48,8 @@
   id: MachineUpgrading
   name: guide-entry-machine-upgrading
   text: "/Server Info/Guidebook/Eng/MachineUpgrading.xml"
+  
+- type: guideEntry
+  id: Singularity
+  name: Singularity
+  text: "/Server Info/Guidebook/Singularity.xml"

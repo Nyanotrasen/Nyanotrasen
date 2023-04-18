@@ -1,10 +1,10 @@
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
-using Content.Client.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.StatusEffect;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -58,9 +58,8 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
 
         var entity = entityNull.Value;
-        var weapon = GetWeapon(entity);
 
-        if (weapon == null)
+        if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;
 
         if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity))
@@ -97,7 +96,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
 
             // If it's an unarmed attack then do a disarm
-            if (weapon.Owner == entity)
+            if (weaponUid == entity)
             {
                 EntityUid? target = null;
 
@@ -138,11 +137,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
             if (MapManager.TryFindGridAt(mousePos, out var grid))
             {
-                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, EntityManager);
+                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, _transform, EntityManager);
             }
             else
             {
-                coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
+                coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, _transform, EntityManager);
             }
 
             EntityUid? target = null;
@@ -153,13 +152,13 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 target = screen.GetClickedEntity(mousePos);
             }
 
-            RaisePredictiveEvent(new LightAttackEvent(target, weapon.Owner, coordinates));
+            RaisePredictiveEvent(new LightAttackEvent(target, weaponUid, coordinates));
             return;
         }
 
         if (weapon.Attacking)
         {
-            RaisePredictiveEvent(new StopAttackEvent(weapon.Owner));
+            RaisePredictiveEvent(new StopAttackEvent(weaponUid));
         }
     }
 
@@ -179,9 +178,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             RaiseLocalEvent(new DamageEffectEvent(Color.Red, targets));
     }
 
-    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, MeleeWeaponComponent component, ICommonSession? session)
+    protected override bool DoDisarm(EntityUid user, DisarmAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session)
     {
-        if (!base.DoDisarm(user, ev, component, session))
+        if (!base.DoDisarm(user, ev, meleeUid, component, session))
             return false;
 
         if (!TryComp<CombatModeComponent>(user, out var combatMode) ||

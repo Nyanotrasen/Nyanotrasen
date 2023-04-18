@@ -103,7 +103,7 @@ public sealed partial class NPCSteeringSystem
         // This is to avoid popping it too early
         else if (steering.CurrentPath.TryPeek(out var node) && node.Data.IsFreeSpace)
         {
-            arrivalDistance = MathF.Min(node.Box.Width, node.Box.Height) - 0.01f;
+            arrivalDistance = MathF.Min(node.Box.Width / 2f, node.Box.Height / 2f) - 0.01f;
         }
         // Try getting into blocked range I guess?
         // TODO: Consider melee range or the likes.
@@ -137,7 +137,7 @@ public sealed partial class NPCSteeringSystem
                 // Breaking behaviours and the likes.
                 lock (_obstacles)
                 {
-                    status = TryHandleFlags(steering, node, bodyQuery);
+                    status = TryHandleFlags(uid, steering, node, bodyQuery);
                 }
 
                 // TODO: Need to handle re-pathing in case the target moves around.

@@ -1,4 +1,3 @@
-using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -11,9 +10,10 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
-using Content.Shared.DoAfter;
+using Content.Shared.Psionics.Events;
 using Content.Shared.Tag;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
@@ -43,7 +43,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationPowerActionEvent>(OnPowerUsed);
 
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, DispelledEvent>(OnDispelled);
-            SubscribeLocalEvent<PsionicRegenerationPowerComponent, DoAfterEvent<PsionicRegenerationData>>(OnDoAfter);
+            SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationDoAfterEvent>(OnDoAfter);
         }
 
         private void OnInit(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentInit args)
@@ -62,12 +62,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationPowerActionEvent args)
         {
-            component.CancelToken = new CancellationTokenSource();
+            var ev = new PsionicRegenerationDoAfterEvent(_gameTiming.CurTime);
+            var doAfterArgs = new DoAfterArgs(uid, component.UseDelay, ev, uid);
 
-            var data = new PsionicRegenerationData(_gameTiming.CurTime);
-            var doAfterArgs = new DoAfterEventArgs(uid, component.UseDelay, component.CancelToken.Token);
+            _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
 
-            _doAfterSystem.DoAfter(doAfterArgs, data);
+            component.DoAfter = doAfterId;
 
             _popupSystem.PopupEntity(Loc.GetString("psionic-regeneration-begin", ("entity", uid)),
                 uid,
@@ -89,33 +89,31 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnDispelled(EntityUid uid, PsionicRegenerationPowerComponent component, DispelledEvent args)
         {
-            if (component.CancelToken != null)
-                component.CancelToken.Cancel();
+            if (component.DoAfter == null)
+                return;
+
+            _doAfterSystem.Cancel(component.DoAfter);
+            component.DoAfter = null;
 
             args.Handled = true;
         }
 
-        private void OnDoAfter(EntityUid uid, PsionicRegenerationPowerComponent component, DoAfterEvent<PsionicRegenerationData> args)
+        private void OnDoAfter(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationDoAfterEvent args)
         {
+            component.DoAfter = null;
+
             if (!TryComp<BloodstreamComponent>(uid, out var stream))
                 return;
 
-            component.CancelToken?.Cancel();
-            component.CancelToken = null;
             // DoAfter has no way to run a callback during the process to give
             // small doses of the reagent, so we wait until either the action
             // is cancelled (by being dispelled) or complete to give the
             // appropriate dose. A timestamp delta is used to accomplish this.
-            var percentageComplete = Math.Min(1f, (_gameTiming.CurTime - args.AdditionalData.StartedAt).TotalSeconds / component.UseDelay);
+            var percentageComplete = Math.Min(1f, (_gameTiming.CurTime - args.StartedAt).TotalSeconds / component.UseDelay);
 
             var solution = new Solution();
             solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
             _bloodstreamSystem.TryAddToChemicals(uid, solution, stream);
-        }
-
-        private record struct PsionicRegenerationData(TimeSpan StartedAt)
-        {
-            public TimeSpan StartedAt = StartedAt;
         }
     }
 

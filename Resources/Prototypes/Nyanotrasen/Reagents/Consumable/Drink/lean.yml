@@ -22,7 +22,7 @@
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
+          types:
            Caustic: 0.5
       - !type:Electrocute
         conditions:

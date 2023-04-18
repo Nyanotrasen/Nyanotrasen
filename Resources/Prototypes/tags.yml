@@ -186,6 +186,9 @@
   id: Dice
 
 - type: Tag
+  id: Directional
+
+- type: Tag
   id: DiscreteHealthAnalyzer #So construction recipes don't eat medical PDAs
 
 - type: Tag
@@ -309,7 +312,7 @@
   id: HandLabeler
 
 - type: Tag
-  id: Hardsuit
+  id: Hardsuit # Prevent melee injectors that can't penetrate hardsuits from injecting the wearer (nettles)
 
 - type: Tag
   id: Head

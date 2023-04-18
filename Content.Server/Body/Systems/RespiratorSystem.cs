@@ -10,6 +10,7 @@ using Content.Server.Abilities;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Inventory;
+using Content.Shared.Body;
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -54,7 +55,7 @@ namespace Content.Server.Body.Systems
             // We want to process lung reagents before we inhale new reagents.
             UpdatesAfter.Add(typeof(MetabolizerSystem));
             SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
-            SubscribeLocalEvent<RespiratorComponent, DoAfterEvent<CPRData>>(OnDoAfter);
+            SubscribeLocalEvent<RespiratorComponent, CPRDoAfterEvent>(OnDoAfter);
         }
 
         public override void Update(float frameTime)
@@ -233,7 +234,7 @@ namespace Content.Server.Body.Systems
                 component.AccumulatedFrametime = component.CycleDelay;
         }
 
-        private void OnDoAfter(EntityUid uid, RespiratorComponent component, DoAfterEvent<CPRData> args)
+        private void OnDoAfter(EntityUid uid, RespiratorComponent component, CPRDoAfterEvent args)
         {
             component.CPRPlayingStream?.Stop();
             component.IsReceivingCPR = false;
@@ -292,19 +293,16 @@ namespace Content.Server.Body.Systems
             component.IsReceivingCPR = true;
             component.CPRPlayingStream = _audio.PlayPvs(component.CPRSound, uid, audioParams: AudioParams.Default.WithVolume(-3f));
 
-            var data = new CPRData();
-            var args = new DoAfterEventArgs(user, Math.Min(component.CycleDelay * 2, 6f), target:uid)
+            var ev = new CPRDoAfterEvent();
+            var args = new DoAfterArgs(user, Math.Min(component.CycleDelay * 2, 6f), ev, uid, target: uid)
             {
-                RaiseOnUser = false,
-                RaiseOnTarget = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnDamage = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
 
-            _doAfter.DoAfter(args, data);
+            _doAfter.TryStartDoAfter(args);
         }
 
         /// <summary>
@@ -317,9 +315,6 @@ namespace Content.Server.Body.Systems
 
             return component.IsReceivingCPR;
         }
-
-        private record struct CPRData()
-        {}
     }
 }
 

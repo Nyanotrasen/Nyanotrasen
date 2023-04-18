@@ -31,6 +31,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 40
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
         damage: 20
       behaviors:
       - !type:PlaySoundBehavior
@@ -116,7 +122,6 @@
     - AtmosDrobeInventory
     - BarDrobeInventory
     - CargoDrobeInventory
-    - CentDrobeInventory
     - ChefDrobeInventory
     - ChemDrobeInventory
     - DetDrobeInventory
