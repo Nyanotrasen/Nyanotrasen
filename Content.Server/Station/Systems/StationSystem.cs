@@ -496,10 +496,10 @@ public sealed class StationSystem : EntitySystem
             return CompOrNull<StationMemberComponent>(entity)?.Station;
         }
 
-        if (TryComp<ArrivalsSourceComponent>(xform.GridUid, out _) && Stations.ToList()[0] != null)
+        if (TryComp<ArrivalsSourceComponent>(xform.GridUid, out _) && Stations.Any())
         {
             // We are an arrivals source, return an actual station
-            return Stations.ToList()[0]; // Is it hacky? Sure, but does it work? Yeah!
+            return Stations.First();
         }
 
         if (xform.GridUid == EntityUid.Invalid)
