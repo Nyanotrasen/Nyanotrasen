@@ -101,8 +101,10 @@
   - type: HitscanBatteryAmmoProvider
     proto: WispLash
     fireCost: 1
-    infinite: true
     examinable: false
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 100
   - type: HTN
     rootTask: GlimmerWispCompound
   - type: Faction
