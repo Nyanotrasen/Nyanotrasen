@@ -558,6 +558,8 @@
       - ClothingUniformJumpskirtHoP
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
+      - ClothingUniformJumpsuitHoSAlt
+      - ClothingUniformJumpskirtHoSAlt
       - ClothingUniformJumpsuitHydroponics
       - ClothingUniformJumpskirtHydroponics
       - ClothingUniformJumpsuitJanitor
@@ -576,6 +578,8 @@
       - ClothingUniformJumpskirtQM
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+      # - ClothingUniformJumpsuitBrigmedic
+      # - ClothingUniformJumpskirtBrigmedic
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
       - ClothingOuterWinterCap
@@ -592,6 +596,23 @@
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
+      - ClothingOuterWinterCoat
+      - ClothingOuterWinterJani
+      - ClothingOuterWinterBar
+      - ClothingOuterWinterChef
+      - ClothingOuterWinterHydro
+      - ClothingOuterWinterAtmos
+      - ClothingOuterWinterEngi
+      - ClothingOuterWinterCargo
+      - ClothingOuterWinterMiner
+      - ClothingOuterWinterMed
+      - ClothingOuterWinterPara
+      - ClothingOuterWinterChem
+      - ClothingOuterWinterGen
+      - ClothingOuterWinterViro
+      - ClothingOuterWinterSci
+      - ClothingOuterWinterRobo
+      - ClothingOuterWinterSec
   - type: MaterialStorage
     whitelist:
       tags:
