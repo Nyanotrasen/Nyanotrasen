@@ -61,10 +61,7 @@
       size: 15
       sprite: Objects/Specific/Janitorial/advmop.rsi
     - type: Absorbent
-      maxEntities: 3
       pickupAmount: 30
-      speed: 60
-      pickupAmount: 100
     - type: UseDelay
       delay: 1.0
     - type: SolutionContainerManager
