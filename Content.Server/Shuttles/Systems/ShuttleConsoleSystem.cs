@@ -275,7 +275,7 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         // OR is intended to be a Spaceship
         // The 1000 mass limit exists as abstract divide between which grid "is a shuttle" and which "is a station"
         if (entity != null && shuttleGridUid != null &&
-            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || (HasComp<FTLWhitelistComponent>(shuttleGridUid) || shuttleBody.Mass < 1000f)))
+            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || HasComp<FTLWhitelistComponent>(shuttleGridUid) || shuttleBody.Mass < 1000f))
         {
             var metaQuery = GetEntityQuery<MetaDataComponent>();
 
