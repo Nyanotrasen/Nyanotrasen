@@ -113,7 +113,11 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
         content.write(f"**{name}** updated:\n")
         for entry in group:
             for change in entry["changes"]:
-                emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
+                try:
+                    emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
+                except KeyError:
+                    # Changelog entry without a type field?
+                    emoji = "❓"
                 message = change['message']
                 content.write(f"{emoji} {message}\n")
 

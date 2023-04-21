@@ -65,6 +65,25 @@
   - type: GuideHelp
     guides:
     - Psionics
+  - type: AmbientSound
+    range: 6
+    volume: -6
+    sound: /Audio/Ambience/Objects/prober_hum_low.ogg
+  - type: AmbientOnPowered
+  - type: GlimmerSound
+    glimmerTier:
+      Minimal:
+        path: /Audio/Ambience/Objects/prober_hum_low.ogg
+      Low:
+        path: /Audio/Ambience/Objects/prober_hum_low.ogg
+      Moderate:
+        path: /Audio/Ambience/Objects/prober_hum_moderate.ogg
+      High:
+        path: /Audio/Ambience/Objects/prober_hum_high.ogg
+      Dangerous:
+        path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
+      Critical:
+        path: /Audio/Ambience/Objects/prober_hum_dangerous.ogg
 
 - type: entity
   parent: BaseMachinePowered

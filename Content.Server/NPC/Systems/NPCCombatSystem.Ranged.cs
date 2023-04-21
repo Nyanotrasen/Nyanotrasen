@@ -90,8 +90,9 @@ public sealed partial class NPCCombatSystem
         var bodyQuery = GetEntityQuery<PhysicsComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         var combatQuery = GetEntityQuery<SharedCombatModeComponent>();
+        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent>();
 
-        foreach (var (comp, xform) in EntityQuery<NPCRangedCombatComponent, TransformComponent>())
+        while (query.MoveNext(out var uid, out var comp, out var xform))
         {
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
@@ -111,14 +112,12 @@ public sealed partial class NPCCombatSystem
                 continue;
             }
 
-            if (combatQuery.TryGetComponent(comp.Owner, out var combatMode))
+            if (combatQuery.TryGetComponent(uid, out var combatMode))
             {
                 combatMode.IsInCombatMode = true;
             }
 
-            var gun = _gun.GetGun(comp.Owner);
-
-            if (gun == null)
+            if (!_gun.TryGetGun(uid, out var gunUid, out var gun))
             {
                 comp.Status = CombatStatus.NoWeapon;
                 comp.ShootAccumulator = 0f;
@@ -139,7 +138,7 @@ public sealed partial class NPCCombatSystem
             if (comp.LOSAccumulator < 0f)
             {
                 comp.LOSAccumulator += UnoccludedCooldown;
-                comp.TargetInLOS = ExamineSystemShared.InRangeUnOccluded(comp.Owner, comp.Target, distance + 0.1f, null);
+                comp.TargetInLOS = _interaction.InRangeUnobstructed(uid, comp.Target, distance + 0.1f);
             }
 
             if (!comp.TargetInLOS)
@@ -158,7 +157,7 @@ public sealed partial class NPCCombatSystem
 
             if (!oldInLos && comp.SoundTargetInLOS != null)
             {
-                _audio.PlayPvs(comp.SoundTargetInLOS, comp.Owner);
+                _audio.PlayPvs(comp.SoundTargetInLOS, uid);
             }
 
             comp.ShootAccumulator += frameTime;
@@ -175,7 +174,7 @@ public sealed partial class NPCCombatSystem
             var goalRotation = (targetSpot - worldPos).ToWorldAngle();
             var rotationSpeed = comp.RotationSpeed;
 
-            if (!_rotate.TryRotateTo(comp.Owner, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
+            if (!_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
             {
                 continue;
             }
@@ -219,7 +218,7 @@ public sealed partial class NPCCombatSystem
                 targetCordinates = new EntityCoordinates(xform.MapUid!.Value, targetSpot);
             }
 
-            _gun.AttemptShoot(comp.Owner, gun, targetCordinates);
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
         }
     }
 }

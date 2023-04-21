@@ -62,10 +62,15 @@
   - type: PDA
     id: ParamedicIDCard
     state: pda-genetics
+  - type: PDABorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#447987"
   - type: Icon
     state: pda-genetics
   - type: HealthAnalyzer
     scanDelay: 1.2
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
   parent: BasePDA
@@ -123,3 +128,12 @@
     state: pda-security
   - type: Icon
     state: pda-guard
+
+- type: entity
+  parent: BoxerPDA
+  id: MartialArtistPDA
+  name: martial artist PDA
+  components:
+  - type: PDA
+    id: MartialArtistIDCard
+    state: pda-boxer

@@ -103,14 +103,6 @@
         Heat: 0.95
 
 - type: entity
-  parent: ClothingMaskGas
-  id: ClothingMaskGasVoiceMasker
-  name: gas mask
-  suffix: Voice Mask
-  components:
-    - type: VoiceMasker
-
-- type: entity
   parent: ClothingMaskPullableBase
   id: ClothingMaskBreathMedical
   name: medical mask
@@ -127,6 +119,7 @@
   - type: Tag
     tags:
     - PetWearable
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -142,10 +135,16 @@
   - type: IngestionBlocker
   - type: DiseaseProtection
     protection: 0.05
+  - type: Recyclable
   - type: Tag
     tags:
     - PetWearable
-  - type: Recyclable
+    - WhitelistChameleon
+# MERGE NOTE: Uncomment when material reclaimer is merged.
+#  - type: PhysicalComposition
+#    materialComposition:
+#      Steel: 50
+#      Plastic: 100
 
 - type: entity
   parent: ClothingMaskBase

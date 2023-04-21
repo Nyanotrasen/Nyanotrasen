@@ -532,7 +532,7 @@
   parent: PosterBase
   id: PosterContrabandRise
   name: "Rise Up"
-  description: "A poster depicting a grey shirted man holding a crowbar with the words Rise written above it."
+  description: "A poster depicting a grey shirted man holding a crowbar with the word Rise written below it."
   components:
   - type: Sprite
     state: poster55_contraband
@@ -999,3 +999,12 @@
   components:
   - type: Sprite
     state: originmap
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitCornzza
+  name: "Corncob Crust!"
+  description: "NEW Cornzza! Corn pizza, with a corncob crust that'll make you say 'why does this exist?'."
+  components:
+  - type: Sprite
+    state: cornzza-poster

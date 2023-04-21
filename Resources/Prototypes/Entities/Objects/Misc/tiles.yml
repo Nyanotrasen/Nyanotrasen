@@ -24,6 +24,12 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
+        damage: 40
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
         damage: 20
       behaviors:
       - !type:PlaySoundBehavior
@@ -755,21 +761,6 @@
       - FloorDirt
   - type: Stack
     stackType: FloorTileDirt
-
-- type: entity
-  name: bedrock tile
-  parent: FloorTileItemBase
-  id: FloorTileItemBedrock
-  components:
-  - type: Sprite
-    state: bedrock
-  - type: Item
-    heldPrefix: bedrock
-  - type: FloorTile
-    outputs:
-      - FloorBedrock
-  - type: Stack
-    stackType: FloorTileBedrock
 
 # Et cetera
 - type: entity

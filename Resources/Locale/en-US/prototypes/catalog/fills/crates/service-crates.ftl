@@ -21,3 +21,6 @@ ent-CrateServiceBureaucracy = Bureaucracy crate
 
 ent-CrateServicePersonnel = Personnel crate
     .desc = Contains a box of blank ID cards and PDAs.
+
+ent-CrateJanitorBiosuit = Janitor bio suit crate
+    .desc = Contains 2 biohazard suits to ensure that no disease will distract you from cleaning.

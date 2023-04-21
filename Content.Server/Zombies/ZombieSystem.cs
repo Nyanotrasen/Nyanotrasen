@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Body.Systems;
+using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
@@ -17,6 +18,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Zombies
 {
@@ -27,6 +29,8 @@ namespace Content.Server.Zombies
         [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
         [Dependency] private readonly ServerInventorySystem _inv = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
+        [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
+        [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
@@ -43,7 +47,6 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ActiveZombieComponent, DamageChangedEvent>(OnDamage);
             SubscribeLocalEvent<ActiveZombieComponent, AttemptSneezeCoughEvent>(OnSneeze);
             SubscribeLocalEvent<ActiveZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
-
         }
 
         private void OnSleepAttempt(EntityUid uid, ActiveZombieComponent component, ref TryingToSleepEvent args)
@@ -68,16 +71,30 @@ namespace Content.Server.Zombies
 
         private void OnMobState(EntityUid uid, ZombieComponent component, MobStateChangedEvent args)
         {
+            //BUG: this won't work when an entity becomes a zombie some other way, such as admin smite
             if (args.NewMobState == MobState.Alive)
+            {
+                // Groaning when damaged
                 EnsureComp<ActiveZombieComponent>(uid);
+
+                // Random groaning
+                EnsureComp<AutoEmoteComponent>(uid);
+                _autoEmote.AddEmote(uid, "ZombieGroan");
+            }
             else
+            {
+                // Stop groaning when damaged
                 RemComp<ActiveZombieComponent>(uid);
+
+                // Stop random groaning
+                _autoEmote.RemoveEmote(uid, "ZombieGroan");
+            }
         }
 
         private void OnDamage(EntityUid uid, ActiveZombieComponent component, DamageChangedEvent args)
         {
             if (args.DamageIncreased)
-                DoGroan(uid, component);
+                AttemptDamageGroan(uid, component);
         }
 
         private void OnSneeze(EntityUid uid, ActiveZombieComponent component, ref AttemptSneezeCoughEvent args)
@@ -157,40 +174,16 @@ namespace Content.Server.Zombies
             }
         }
 
-        private void DoGroan(EntityUid uid, ActiveZombieComponent component)
+        private void AttemptDamageGroan(EntityUid uid, ActiveZombieComponent component)
         {
-            if (component.LastDamageGroanCooldown > 0)
+            if (component.LastDamageGroan + component.DamageGroanCooldown > _gameTiming.CurTime)
                 return;
 
-            if (_robustRandom.Prob(0.5f)) //this message is never seen by players so it just says this for admins
-                // What? Is this REALLY the best way we have of letting admins know there are zombies in a round?
-                // [automated maintainer groan]
-                _chat.TrySendInGameICMessage(uid, "[automated zombie groan]", InGameICChatType.Speak, false);
-            else
-                _chat.TryEmoteWithoutChat(uid, component.GroanEmoteId);
+            if (_robustRandom.Prob(component.DamageGroanChance))
+                return;
 
-            component.LastDamageGroanCooldown = component.GroanCooldown;
-        }
-
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            foreach (var zombiecomp in EntityQuery<ActiveZombieComponent>())
-            {
-                zombiecomp.Accumulator += frameTime;
-                zombiecomp.LastDamageGroanCooldown -= frameTime;
-
-                if (zombiecomp.Accumulator < zombiecomp.RandomGroanAttempt)
-                    continue;
-                zombiecomp.Accumulator -= zombiecomp.RandomGroanAttempt;
-
-                if (!_robustRandom.Prob(zombiecomp.GroanChance))
-                    continue;
-
-                //either do a random accent line or scream
-                DoGroan(zombiecomp.Owner, zombiecomp);
-            }
+            _chat.TryEmoteWithoutChat(uid, component.GroanEmoteId);
+            component.LastDamageGroan = _gameTiming.CurTime;
         }
     }
 }

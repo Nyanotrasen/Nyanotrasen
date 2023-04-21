@@ -16,8 +16,6 @@ public sealed class ClothingGrantingSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<ClothingGrantComponentComponent, GotEquippedEvent>(OnCompEquip);
         SubscribeLocalEvent<ClothingGrantComponentComponent, GotUnequippedEvent>(OnCompUnequip);
-        SubscribeLocalEvent<ClothingGrantTagComponent, GotEquippedEvent>(OnTagEquip);
-        SubscribeLocalEvent<ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
     }
 
     private void OnCompEquip(EntityUid uid, ClothingGrantComponentComponent component, GotEquippedEvent args)
@@ -59,27 +57,6 @@ public sealed class ClothingGrantingSystem : EntitySystem
 
             RemComp(args.Equipee, newComp.GetType());
         }
-
-        component.IsActive = false;
-    }
-
-    private void OnTagEquip(EntityUid uid, ClothingGrantTagComponent component, GotEquippedEvent args)
-    {
-        if (!TryComp<ClothingComponent>(uid, out var clothing)) return;
-
-        if (!clothing.Slots.HasFlag(args.SlotFlags)) return;
-
-        EnsureComp<TagComponent>(args.Equipee);
-        _tagSystem.AddTag(args.Equipee, component.Tag);
-
-        component.IsActive = true;
-    }
-
-    private void OnTagUnequip(EntityUid uid, ClothingGrantTagComponent component, GotUnequippedEvent args)
-    {
-        if (!component.IsActive) return;
-
-        _tagSystem.RemoveTag(args.Equipee, component.Tag);
 
         component.IsActive = false;
     }

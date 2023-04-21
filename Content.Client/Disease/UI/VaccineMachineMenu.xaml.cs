@@ -107,7 +107,7 @@ namespace Content.Client.Disease.UI
             ServerSyncButton.Disabled = !hasServer;
         }
 
-        private void HandleAmountChanged(object? sender, ValueChangedEventArgs args)
+        private void HandleAmountChanged(ValueChangedEventArgs args)
         {
             UpdateCost(CostPer);
         }

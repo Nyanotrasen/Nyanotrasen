@@ -107,6 +107,32 @@
             - !type:DeleteEntity {}
 
 - type: constructionGraph
+  id: SignalTimerGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: SignalTimerNode
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 2.0
+            - material: Cable
+              amount: 1
+    - node: SignalTimerNode
+      entity: SignalTimer
+      edges:
+        - to: start
+          steps:
+            - tool: Screwing
+              doAfter: 2.0
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 1
+            - !type:DeleteEntity {}
+
+- type: constructionGraph
   id: LightSwitchDirectionalGraph
   start: start
   graph:

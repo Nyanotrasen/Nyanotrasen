@@ -30075,24 +30075,6 @@ entities:
   - pos: -0.5,-19.5
     parent: 67
     type: Transform
-- uid: 3530
-  type: JetpackBlackFilled
-  components:
-  - pos: 4.5,-41.5
-    parent: 67
-    type: Transform
-- uid: 3531
-  type: JetpackBlackFilled
-  components:
-  - pos: 4.5,-42.5
-    parent: 67
-    type: Transform
-- uid: 3532
-  type: JetpackBlackFilled
-  components:
-  - pos: 4.5,-43.5
-    parent: 67
-    type: Transform
 - uid: 3533
   type: Firelock
   components:
@@ -30175,17 +30157,6 @@ entities:
   - pos: 5.4468555,-10.722143
     parent: 67
     type: Transform
-- uid: 3543
-  type: WeaponSniperMosin
-  components:
-  - desc: A weapon for hunting, or endless trench warfare. Belonging to admiral Joshua Mower.
-    name: Admiral's mosin
-    type: MetaData
-  - pos: 44.564636,-27.414768
-    parent: 67
-    type: Transform
-  - nextFire: 348.165278
-    type: Gun
 - uid: 3544
   type: ToolboxGoldFilled
   components:
@@ -35546,13 +35517,6 @@ entities:
   - content: >
       What happend in august 3rd?
     type: Paper
-- uid: 4339
-  type: CyberPen
-  components:
-  - rot: -1.5707963267948966 rad
-    pos: 5.852812,-5.3089333
-    parent: 67
-    type: Transform
 - uid: 4340
   type: ToySkeleton
   components:

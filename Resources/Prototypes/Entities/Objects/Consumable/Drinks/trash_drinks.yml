@@ -17,6 +17,13 @@
     maxTransferAmount: 5
   - type: Drink
     isOpen: true
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    bluntStaminaDamageFactor: 2.0
+    damage:
+      types:
+        Blunt: 7.5
   - type: Spillable
     solution: drink
   - type: FitsInDispenser
@@ -31,11 +38,6 @@
     interfaces:
     - key: enum.TransferAmountUiKey.Key
       type: TransferAmountBoundUserInterface
-  - type: MeleeWeapon
-    bluntStaminaDamageFactor: 2.0
-    damage:
-      types:
-        Blunt: 7.5
   - type: DamageOnLand
     damage:
       types:
@@ -65,6 +67,7 @@
           BrokenBottle:
             min: 1
             max: 1
+        transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag

@@ -2,8 +2,6 @@ using Content.Server.Access;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction;
-using Content.Server.Doors.Components;
-using Content.Server.Tools;
 using Content.Server.Tools.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
@@ -17,12 +15,12 @@ using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Tools;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
+using Content.Shared.DoAfter;
 
 namespace Content.Server.Doors.Systems;
 
@@ -32,9 +30,8 @@ public sealed class DoorSystem : SharedDoorSystem
     [Dependency] private readonly AirlockSystem _airlock = default!;
     [Dependency] private readonly AirtightSystem _airtightSystem = default!;
     [Dependency] private readonly ConstructionSystem _constructionSystem = default!;
-    [Dependency] private readonly ToolSystem _toolSystem = default!;
+    [Dependency] private readonly SharedToolSystem _toolSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -45,8 +42,7 @@ public sealed class DoorSystem : SharedDoorSystem
         // Mob prying doors
         SubscribeLocalEvent<DoorComponent, GetVerbsEvent<AlternativeVerb>>(OnDoorAltVerb);
 
-        SubscribeLocalEvent<DoorComponent, PryFinishedEvent>(OnPryFinished);
-        SubscribeLocalEvent<DoorComponent, PryCancelledEvent>(OnPryCancelled);
+        SubscribeLocalEvent<DoorComponent, DoorPryDoAfterEvent>(OnPryFinished);
         SubscribeLocalEvent<DoorComponent, WeldableAttemptEvent>(OnWeldAttempt);
         SubscribeLocalEvent<DoorComponent, WeldableChangedEvent>(OnWeldChanged);
         SubscribeLocalEvent<DoorComponent, GotEmaggedEvent>(OnEmagged);
@@ -151,15 +147,9 @@ public sealed class DoorSystem : SharedDoorSystem
     private void OnWeldChanged(EntityUid uid, DoorComponent component, WeldableChangedEvent args)
     {
         if (component.State == DoorState.Closed)
-        {
             SetState(uid, DoorState.Welded, component);
-            AdjustLayer(uid, true);
-        }
         else if (component.State == DoorState.Welded)
-        {
             SetState(uid, DoorState.Closed, component);
-            AdjustLayer(uid, false);
-        }
     }
 
     private void OnDoorAltVerb(EntityUid uid, DoorComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -184,9 +174,6 @@ public sealed class DoorSystem : SharedDoorSystem
     /// </summary>
     public bool TryPryDoor(EntityUid target, EntityUid tool, EntityUid user, DoorComponent door, bool force = false)
     {
-        if (door.BeingPried)
-            return false;
-
         if (door.State == DoorState.Welded)
             return false;
 
@@ -204,21 +191,14 @@ public sealed class DoorSystem : SharedDoorSystem
         var modEv = new DoorGetPryTimeModifierEvent(user);
         RaiseLocalEvent(target, modEv, false);
 
-        door.BeingPried = true;
-        _toolSystem.UseTool(tool, user, target, 0f, modEv.PryTimeModifier * door.PryTime, door.PryingQuality,
-                new PryFinishedEvent(), new PryCancelledEvent(), target);
-
+        _toolSystem.UseTool(tool, user, target, modEv.PryTimeModifier * door.PryTime, door.PryingQuality, new DoorPryDoAfterEvent());
         return true; // we might not actually succeeded, but a do-after has started
     }
 
-    private void OnPryCancelled(EntityUid uid, DoorComponent door, PryCancelledEvent args)
+    private void OnPryFinished(EntityUid uid, DoorComponent door, DoAfterEvent args)
     {
-        door.BeingPried = false;
-    }
-
-    private void OnPryFinished(EntityUid uid, DoorComponent door, PryFinishedEvent args)
-    {
-        door.BeingPried = false;
+        if (args.Cancelled)
+            return;
 
         if (door.State == DoorState.Closed)
             StartOpening(uid, door);
@@ -291,31 +271,6 @@ public sealed class DoorSystem : SharedDoorSystem
         }
     }
 
-    private void AdjustLayer(EntityUid uid, bool weld, LayerChangeOnWeldComponent? component = null, FixturesComponent? fixtures = null)
-    {
-        if (!Resolve(uid, ref component, false))
-            return;
-
-        if (!Resolve(uid, ref fixtures, false))
-            return;
-
-        if (weld)
-        {
-            foreach (var fixture in fixtures.Fixtures.Values)
-            {
-                if (fixture.CollisionLayer == (int) component.UnweldedLayer)
-                    _physics.SetCollisionLayer(uid, fixture, (int) component.WeldedLayer);
-            }
-        } else
-        {
-            foreach (var fixture in fixtures.Fixtures.Values)
-            {
-                if (fixture.CollisionLayer == (int) component.WeldedLayer)
-                    _physics.SetCollisionLayer(uid, fixture, (int) component.UnweldedLayer);
-            }
-        }
-    }
-
     public override void StartOpening(EntityUid uid, DoorComponent? door = null, EntityUid? user = null, bool predicted = false)
     {
         if (!Resolve(uid, ref door))
@@ -344,7 +299,4 @@ public sealed class DoorSystem : SharedDoorSystem
         }
     }
 }
-
-public sealed class PryFinishedEvent : EntityEventArgs { }
-public sealed class PryCancelledEvent : EntityEventArgs { }
 

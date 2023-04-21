@@ -1,12 +1,13 @@
 using System.Threading;
 using Content.Server.DoAfter;
+using Content.Server.Body.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Hands.Components;
 using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Contests;
 using Content.Server.Climbing;
 using Content.Shared.Mobs;
+using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands;
@@ -40,6 +41,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+        [Dependency] private readonly RespiratorSystem _respirator = default!;
 
         public override void Initialize()
         {
@@ -57,20 +59,13 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
             SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
-            SubscribeLocalEvent<CarrySuccessfulEvent>(OnCarrySuccess);
-            SubscribeLocalEvent<CarryCancelledEvent>(OnCarryCancelled);
+            SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         }
 
 
         private void AddCarryVerb(EntityUid uid, CarriableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
             if (!args.CanInteract || !args.CanAccess)
-                return;
-
-            if (component.CancelToken != null)
-                return;
-
-            if (TryComp<CarriableComponent>(args.User, out var userCarry) && userCarry.CancelToken != null)
                 return;
 
             if (!CanCarry(args.User, uid, component))
@@ -87,7 +82,6 @@ namespace Content.Server.Carrying
 
             if (args.User == args.Target)
                 return;
-
 
             AlternativeVerb verb = new()
             {
@@ -159,7 +153,7 @@ namespace Content.Server.Carrying
         /// </summary>
         private void OnMoveInput(EntityUid uid, BeingCarriedComponent component, ref MoveInputEvent args)
         {
-            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape) || escape.CancelToken != null)
+            if (!TryComp<CanEscapeInventoryComponent>(uid, out var escape))
                 return;
 
             if (_actionBlockerSystem.CanInteract(uid, component.Carrier))
@@ -199,41 +193,28 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnCarrySuccess(CarrySuccessfulEvent ev)
+        private void OnDoAfter(EntityUid uid, CarriableComponent component, CarryDoAfterEvent args)
         {
-            if (!CanCarry(ev.Carrier, ev.Carried, ev.Component))
-            {
-                ev.Component.CancelToken = null;
-                return;
-            }
-
-            Carry(ev.Carrier, ev.Carried);
-        }
-
-        private void OnCarryCancelled(CarryCancelledEvent ev)
-        {
-            if (ev.Component == null)
+            component.CancelToken = null;
+            if (args.Handled || args.Cancelled)
                 return;
 
-            ev.Component.CancelToken = null;
-        }
+            if (!CanCarry(args.Args.User, uid, component))
+                return;
 
+            Carry(args.Args.User, uid);
+            args.Handled = true;
+        }
         private void StartCarryDoAfter(EntityUid carrier, EntityUid carried, CarriableComponent component)
         {
-            if (component.CancelToken != null)
-            {
-                component.CancelToken.Cancel();
-                component.CancelToken = null;
-            }
-
-            float length = 3f;
+            TimeSpan length = TimeSpan.FromSeconds(3);
 
             var mod = _contests.MassContest(carrier, carried);
 
             if (mod != 0)
                 length /= mod;
 
-            if (length >= 9)
+            if (length >= TimeSpan.FromSeconds(9))
             {
                 _popupSystem.PopupEntity(Loc.GetString("carry-too-heavy"), carried, carrier, Shared.Popups.PopupType.SmallCaution);
                 return;
@@ -243,15 +224,16 @@ namespace Content.Server.Carrying
                 length *= 2f;
 
             component.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(carrier, length, component.CancelToken.Token, target: carried)
+
+            var ev = new CarryDoAfterEvent();
+            var args = new DoAfterArgs(carrier, length, ev, carried, target: carried)
             {
-                BroadcastFinishedEvent = new CarrySuccessfulEvent(carrier, carried, component),
-                BroadcastCancelledEvent = new CarryCancelledEvent(carrier, component),
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfterSystem.TryStartDoAfter(args);
         }
 
         private void Carry(EntityUid carrier, EntityUid carried)
@@ -287,12 +269,6 @@ namespace Content.Server.Carrying
             Transform(carried).AttachToGridOrMap();
             _standingState.Stand(carried);
             _movementSpeed.RefreshMovementSpeedModifiers(carrier);
-
-            if (TryComp<CarriableComponent>(carrier, out var carrierA))
-                carrierA.CancelToken = null;
-
-            if (TryComp<CarriableComponent>(carried, out var carriedA))
-                carriedA.CancelToken = null;
         }
 
         private void ApplyCarrySlowdown(EntityUid carrier, EntityUid carried)
@@ -311,13 +287,19 @@ namespace Content.Server.Carrying
 
         public bool CanCarry(EntityUid carrier, EntityUid carried, CarriableComponent? carriedComp = null)
         {
-            if (!Resolve(carried, ref carriedComp))
+            if (!Resolve(carried, ref carriedComp, false))
+                return false;
+
+            if (carriedComp.CancelToken != null)
                 return false;
 
             if (!HasComp<MapGridComponent>(Transform(carrier).ParentUid))
                 return false;
 
-            if (HasComp<BeingCarriedComponent>(carrier))
+            if (HasComp<BeingCarriedComponent>(carrier) || HasComp<BeingCarriedComponent>(carried))
+                return false;
+
+            if (_respirator.IsReceivingCPR(carried))
                 return false;
 
             if (!TryComp<HandsComponent>(carrier, out var hands))
@@ -327,35 +309,6 @@ namespace Content.Server.Carrying
                 return false;
 
             return true;
-        }
-
-        private sealed class CarryCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Uid;
-
-            public CarriableComponent Component;
-
-            public CarryCancelledEvent(EntityUid uid, CarriableComponent component)
-            {
-                Uid = uid;
-                Component = component;
-            }
-        }
-
-        private sealed class CarrySuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Carrier;
-
-            public EntityUid Carried;
-
-            public CarriableComponent Component;
-
-            public CarrySuccessfulEvent(EntityUid carrier, EntityUid carried, CarriableComponent component)
-            {
-                Carrier = carrier;
-                Carried = carried;
-                Component = component;
-            }
         }
     }
 }

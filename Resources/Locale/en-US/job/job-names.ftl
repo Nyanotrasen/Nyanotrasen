@@ -24,7 +24,7 @@ job-name-lawyer = lawyer
 job-name-mime = mime
 job-name-ce = chief engineer
 job-name-janitor = janitor
-job-name-chaplain = golemancer
+job-name-chaplain = chaplain
 job-name-botanist = botanist
 job-name-bartender = bartender
 job-name-passenger = assistant
@@ -57,6 +57,7 @@ job-name-prisoner = prisoner
 job-name-valet = valet
 job-name-paramedic = paramedic
 job-name-guard = prison guard
+job-name-martialartist =  martial artist
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = atmospheric technician
@@ -65,7 +66,7 @@ JobBotanist = botanist
 JobCaptain = captain
 JobCargoTechnician = cargo technician
 JobCentralCommandOfficial = central command official
-JobChaplain = golemancer
+JobChaplain = chaplain
 JobChef = chef
 JobChemist = chemist
 JobChiefEngineer = chief engineer

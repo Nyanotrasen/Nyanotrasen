@@ -54,6 +54,8 @@
       roleId: ForensicMantis
     - !type:NotRoleRequirement
       roleId: Mystagogue
+    - !type:NotRoleRequirement
+      roleId: Mime
   conditions:
     - !type:BecomePsionicCondition
 

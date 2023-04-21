@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Shared.Arachne;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
@@ -6,6 +5,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Maps;
+using Content.Shared.DoAfter;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
 using Content.Shared.Eye.Blinding;
@@ -17,6 +17,8 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Buckle.Systems;
 using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
@@ -31,6 +33,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
 using Robust.Server.Console;
 using static Content.Shared.Examine.ExamineSystemShared;
@@ -41,6 +44,7 @@ namespace Content.Server.Arachne
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly HungerSystem _hungerSystem = default!;
         [Dependency] private readonly ThirstSystem _thirstSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
@@ -71,10 +75,8 @@ namespace Content.Server.Arachne
             SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
-            SubscribeLocalEvent<WebSuccessfulEvent>(OnWebSuccessful);
-            SubscribeLocalEvent<WebCancelledEvent>(OnWebCancelled);
-            SubscribeLocalEvent<CocoonSuccessfulEvent>(OnCocoonSuccessful);
-            SubscribeLocalEvent<CocoonCancelledEvent>(OnCocoonCancelled);
+            SubscribeLocalEvent<ArachneComponent, ArachneWebDoAfterEvent>(OnWebDoAfter);
+            SubscribeLocalEvent<ArachneComponent, ArachneCocoonDoAfterEvent>(OnCocoonDoAfter);
         }
 
         private void OnInit(EntityUid uid, ArachneComponent component, ComponentInit args)
@@ -86,9 +88,6 @@ namespace Content.Server.Arachne
         private void AddCocoonVerb(EntityUid uid, ArachneComponent component, GetVerbsEvent<InnateVerb> args)
         {
             if (!args.CanAccess || !args.CanInteract)
-                return;
-
-            if (component.CancelToken != null)
                 return;
 
             if (args.Target == uid)
@@ -202,7 +201,7 @@ namespace Content.Server.Arachne
                     _bloodSuckerSystem.StartSuccDoAfter(args.User, victim.Value, sucker, stream, false); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                IconTexture = "/Textures/Nyanotrasen/Icons/verbiconfangs.png",
+                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);
@@ -248,7 +247,7 @@ namespace Content.Server.Arachne
 
         private void OnSpinWeb(SpinWebActionEvent args)
         {
-            if (!TryComp<ArachneComponent>(args.Performer, out var arachne) || arachne.CancelToken != null)
+            if (!TryComp<ArachneComponent>(args.Performer, out var arachne))
                 return;
 
             if (_containerSystem.IsEntityInContainer(args.Performer))
@@ -259,7 +258,7 @@ namespace Content.Server.Arachne
 
             if (hunger != null && thirst != null)
             {
-                if (hunger.CurrentHungerThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
+                if (hunger.CurrentThreshold <= Shared.Nutrition.Components.HungerThreshold.Peckish)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("spin-web-action-hungry"), args.Performer, args.Performer, Shared.Popups.PopupType.MediumCaution);
                     return;
@@ -295,21 +294,18 @@ namespace Content.Server.Arachne
             true,
             Shared.Popups.PopupType.MediumCaution);
             _popupSystem.PopupEntity(Loc.GetString("spin-web-start-second-person"), args.Performer, args.Performer, Shared.Popups.PopupType.Medium);
-            arachne.CancelToken = new CancellationTokenSource();
-            _doAfter.DoAfter(new DoAfterEventArgs(args.Performer, arachne.WebDelay, arachne.CancelToken.Token)
+
+            var ev = new ArachneWebDoAfterEvent(coords);
+            var doAfterArgs = new DoAfterArgs(args.Performer, arachne.WebDelay, ev, args.Performer)
             {
-                BroadcastFinishedEvent = new WebSuccessfulEvent(args.Performer, coords),
-                BroadcastCancelledEvent = new WebCancelledEvent(args.Performer),
                 BreakOnUserMove = true,
-                BreakOnStun = true,
-            });
+            };
+
+            _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
         private void StartCocooning(EntityUid uid, ArachneComponent component, EntityUid target)
         {
-            if (component.CancelToken != null)
-                return;
-
             _popupSystem.PopupEntity(Loc.GetString("cocoon-start-third-person", ("target", Identity.Entity(target, EntityManager)), ("spider", Identity.Entity(uid, EntityManager))), uid,
                 // TODO: We need popup occlusion lmao
                 Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
@@ -323,135 +319,72 @@ namespace Content.Server.Arachne
             if (HasComp<KnockedDownComponent>(target))
                 delay *= component.CocoonKnockdownMultiplier;
 
-            component.CancelToken = new CancellationTokenSource();
-            _doAfter.DoAfter(new DoAfterEventArgs(uid, delay, component.CancelToken.Token, target)
+            // Is it good practice to use empty data just to disambiguate doafters
+            // Who knows, there's no docs!
+            var ev = new ArachneCocoonDoAfterEvent();
+
+            var args = new DoAfterArgs(uid, delay, ev, uid, target: target)
             {
-                BroadcastFinishedEvent = new CocoonSuccessfulEvent(uid, target),
-                BroadcastCancelledEvent = new CocoonCancelledEvent(uid),
                 BreakOnUserMove = true,
                 BreakOnTargetMove = true,
-                BreakOnStun = true,
-            });
+            };
+
+            _doAfter.TryStartDoAfter(args);
         }
 
-        private void OnCocoonSuccessful(CocoonSuccessfulEvent args)
+        private void OnWebDoAfter(EntityUid uid, ArachneComponent component, ArachneWebDoAfterEvent args)
         {
-            if (!EntityManager.TryGetComponent(args.Webber, out ArachneComponent? arachne))
+            if (args.Handled || args.Cancelled)
                 return;
 
-            arachne.CancelToken = null;
+            _hungerSystem.ModifyHunger(uid, -8);
+            if (TryComp<ThirstComponent>(uid, out var thirst))
+                _thirstSystem.UpdateThirst(thirst, -20);
 
-            var spawnProto = HasComp<HumanoidAppearanceComponent>(args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
-            Transform(args.Target).AttachToGridOrMap();
-            var cocoon = Spawn(spawnProto, Transform(args.Target).Coordinates);
+            Spawn("ArachneWeb", args.Coords.SnapToGrid());
+            _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(uid, EntityManager))), uid,
+            Filter.PvsExcept(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)),
+            true,
+            Shared.Popups.PopupType.MediumCaution);
+            _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), uid, uid, Shared.Popups.PopupType.Medium);
+            args.Handled = true;
+        }
+
+        private void OnCocoonDoAfter(EntityUid uid, ArachneComponent component, ArachneCocoonDoAfterEvent args)
+        {
+            if (args.Handled || args.Cancelled || args.Args.Target == null)
+                return;
+
+            var spawnProto = HasComp<HumanoidAppearanceComponent>(args.Args.Target) ? "CocoonedHumanoid" : "CocoonSmall";
+            Transform(args.Args.Target.Value).AttachToGridOrMap();
+            var cocoon = Spawn(spawnProto, Transform(args.Args.Target.Value).Coordinates);
 
             if (!TryComp<ItemSlotsComponent>(cocoon, out var slots))
                 return;
 
             // todo: our species should use scale visuals probably...
-            if (spawnProto == "CocoonedHumanoid" && TryComp<SpriteComponent>(args.Target, out var sprite))
+            if (spawnProto == "CocoonedHumanoid" && TryComp<SpriteComponent>(args.Args.Target.Value, out var sprite))
             {
                 // why the fuck is this only available as a console command.
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
-            } else if (TryComp<PhysicsComponent>(args.Target, out var physics))
+            } else if (TryComp<PhysicsComponent>(args.Args.Target.Value, out var physics))
             {
                 var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.35, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);
             }
 
-            _inventorySystem.TryUnequip(args.Target, "ears", true, true);
+            _inventorySystem.TryUnequip(args.Args.Target.Value, "ears", true, true);
 
             _itemSlots.SetLock(cocoon, BodySlot, false, slots);
-            _itemSlots.TryInsert(cocoon, BodySlot, args.Target, args.Webber);
+            _itemSlots.TryInsert(cocoon, BodySlot, args.Args.Target.Value, args.Args.User);
             _itemSlots.SetLock(cocoon, BodySlot, true, slots);
 
             var impact = (spawnProto == "CocoonedHumanoid") ? LogImpact.High : LogImpact.Medium;
 
-            _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(args.Webber):player} cocooned {ToPrettyString(args.Target):target}");
-
-        }
-
-        private void OnWebCancelled(WebCancelledEvent ev)
-        {
-            if (!EntityManager.TryGetComponent(ev.Webber, out ArachneComponent? arachne))
-                return;
-
-            arachne.CancelToken = null;
-        }
-
-        private void OnCocoonCancelled(CocoonCancelledEvent ev)
-        {
-            if (!EntityManager.TryGetComponent(ev.Webber, out ArachneComponent? arachne))
-                return;
-
-            arachne.CancelToken = null;
-        }
-
-        private void OnWebSuccessful(WebSuccessfulEvent ev)
-        {
-            if (!EntityManager.TryGetComponent(ev.Webber, out ArachneComponent? arachne))
-                return;
-
-            arachne.CancelToken = null;
-
-            if (TryComp<HungerComponent>(ev.Webber, out var hunger))
-                hunger.UpdateFood(-8);
-            if (TryComp<ThirstComponent>(ev.Webber, out var thirst))
-                _thirstSystem.UpdateThirst(thirst, -20);
-
-            Spawn("ArachneWeb", ev.Coords.SnapToGrid());
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-third-person", ("spider", Identity.Entity(ev.Webber, EntityManager))), ev.Webber,
-            Filter.PvsExcept(ev.Webber).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(ev.Webber, entity, ExamineRange, null)),
-            true,
-            Shared.Popups.PopupType.MediumCaution);
-            _popupSystem.PopupEntity(Loc.GetString("spun-web-second-person"), ev.Webber, ev.Webber, Shared.Popups.PopupType.Medium);
-        }
-
-        private sealed class WebCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Webber;
-
-            public WebCancelledEvent(EntityUid webber)
-            {
-                Webber = webber;
-            }
-        }
-
-        private sealed class WebSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Webber;
-
-            public EntityCoordinates Coords;
-
-            public WebSuccessfulEvent(EntityUid webber, EntityCoordinates coords)
-            {
-                Webber = webber;
-                Coords = coords;
-            }
-        }
-
-        private sealed class CocoonCancelledEvent : EntityEventArgs
-        {
-            public EntityUid Webber;
-
-            public CocoonCancelledEvent(EntityUid webber)
-            {
-                Webber = webber;
-            }
-        }
-
-        private sealed class CocoonSuccessfulEvent : EntityEventArgs
-        {
-            public EntityUid Webber;
-
-            public EntityUid Target;
-
-            public CocoonSuccessfulEvent(EntityUid webber, EntityUid target)
-            {
-                Webber = webber;
-                Target = target;
-            }
+            _adminLogger.Add(LogType.Action, impact, $"{ToPrettyString(args.Args.User):player} cocooned {ToPrettyString(args.Args.Target.Value):target}");
+            args.Handled = true;
         }
     }
+
     public sealed class SpinWebActionEvent : WorldTargetActionEvent {}
 }

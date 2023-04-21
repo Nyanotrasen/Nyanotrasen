@@ -1,4 +1,3 @@
-using System.Threading;
 using Robust.Shared.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -11,8 +10,10 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
+using Content.Shared.Psionics.Events;
 using Content.Shared.Tag;
 using Content.Shared.Examine;
 using static Content.Shared.Examine.ExamineSystemShared;
@@ -42,42 +43,7 @@ namespace Content.Server.Abilities.Psionics
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationPowerActionEvent>(OnPowerUsed);
 
             SubscribeLocalEvent<PsionicRegenerationPowerComponent, DispelledEvent>(OnDispelled);
-            SubscribeLocalEvent<PowerSuccessfulEvent>(OnPowerSuccessful);
-            SubscribeLocalEvent<PowerCancelledEvent>(OnPowerCancelled);
-        }
-
-        private void OnPowerSuccessful(PowerSuccessfulEvent ev)
-        {
-            if (!EntityManager.TryGetComponent(ev.User, out PsionicRegenerationPowerComponent? component))
-                return;
-            component.CancelToken = null;
-
-            if (TryComp<BloodstreamComponent>(ev.User, out var bloodstream))
-            {
-                var solution = new Solution();
-                solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount));
-                _bloodstreamSystem.TryAddToChemicals(ev.User, solution, bloodstream);
-            }
-        }
-
-        private void OnPowerCancelled(PowerCancelledEvent ev)
-        {
-            if (!EntityManager.TryGetComponent(ev.User, out PsionicRegenerationPowerComponent? component))
-                return;
-            component.CancelToken = null;
-
-            // DoAfter has no way to run a callback during the process to give
-            // small doses of the reagent, so we wait until either the action
-            // is cancelled (by being dispelled) or complete to give the
-            // appropriate dose. A timestamp delta is used to accomplish this.
-            var percentageComplete = Math.Min(1f, (DateTime.Now - ev.StartedAt).TotalSeconds / component.UseDelay);
-
-            if (TryComp<BloodstreamComponent>(ev.User, out var bloodstream))
-            {
-                var solution = new Solution();
-                solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
-                _bloodstreamSystem.TryAddToChemicals(ev.User, solution, bloodstream);
-            }
+            SubscribeLocalEvent<PsionicRegenerationPowerComponent, PsionicRegenerationDoAfterEvent>(OnDoAfter);
         }
 
         private void OnInit(EntityUid uid, PsionicRegenerationPowerComponent component, ComponentInit args)
@@ -96,12 +62,12 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationPowerActionEvent args)
         {
-            component.CancelToken = new CancellationTokenSource();
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(uid, component.UseDelay, component.CancelToken.Token)
-            {
-                BroadcastFinishedEvent = new PowerSuccessfulEvent(component.Owner),
-                BroadcastCancelledEvent = new PowerCancelledEvent(component.Owner, DateTime.Now),
-            });
+            var ev = new PsionicRegenerationDoAfterEvent(_gameTiming.CurTime);
+            var doAfterArgs = new DoAfterArgs(uid, component.UseDelay, ev, uid);
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs, out var doAfterId);
+
+            component.DoAfter = doAfterId;
 
             _popupSystem.PopupEntity(Loc.GetString("psionic-regeneration-begin", ("entity", uid)),
                 uid,
@@ -123,30 +89,31 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnDispelled(EntityUid uid, PsionicRegenerationPowerComponent component, DispelledEvent args)
         {
-            if (component.CancelToken != null)
-                component.CancelToken.Cancel();
+            if (component.DoAfter == null)
+                return;
+
+            _doAfterSystem.Cancel(component.DoAfter);
+            component.DoAfter = null;
 
             args.Handled = true;
         }
 
-        private sealed class PowerSuccessfulEvent : EntityEventArgs {
-            public EntityUid User;
+        private void OnDoAfter(EntityUid uid, PsionicRegenerationPowerComponent component, PsionicRegenerationDoAfterEvent args)
+        {
+            component.DoAfter = null;
 
-            public PowerSuccessfulEvent(EntityUid user)
-            {
-                User = user;
-            }
-        }
+            if (!TryComp<BloodstreamComponent>(uid, out var stream))
+                return;
 
-        private sealed class PowerCancelledEvent : EntityEventArgs {
-            public EntityUid User;
-            public DateTime StartedAt;
+            // DoAfter has no way to run a callback during the process to give
+            // small doses of the reagent, so we wait until either the action
+            // is cancelled (by being dispelled) or complete to give the
+            // appropriate dose. A timestamp delta is used to accomplish this.
+            var percentageComplete = Math.Min(1f, (_gameTiming.CurTime - args.StartedAt).TotalSeconds / component.UseDelay);
 
-            public PowerCancelledEvent(EntityUid user, DateTime startedAt)
-            {
-                User = user;
-                StartedAt = startedAt;
-            }
+            var solution = new Solution();
+            solution.AddReagent("PsionicRegenerationEssence", FixedPoint2.New(component.EssenceAmount * percentageComplete));
+            _bloodstreamSystem.TryAddToChemicals(uid, solution, stream);
         }
     }
 

@@ -1529,33 +1529,6 @@ entities:
   - pos: -1.5,-4.5
     parent: 0
     type: Transform
-- uid: 149
-  type: LockerSyndicatePersonal
-  components:
-  - pos: -1.5,-3.5
-    parent: 0
-    type: Transform
-  - locked: False
-    type: Lock
-  - fixtures:
-    - shape: !type:PolygonShape
-        vertices:
-        - 0.25,-0.48
-        - 0.25,0.48
-        - -0.25,0.48
-        - -0.25,-0.48
-      mask:
-      - Impassable
-      - MidImpassable
-      - LowImpassable
-      layer:
-      - BulletImpassable
-      - Opaque
-      density: 145
-    type: Fixtures
-  - open: True
-    removedMasks: 20
-    type: EntityStorage
 - uid: 150
   type: Rack
   components:
@@ -1648,12 +1621,6 @@ entities:
     pos: -1.5,-4.5
     parent: 0
     type: Transform
-- uid: 164
-  type: JetpackBlackFilled
-  components:
-  - pos: 0.5798898,-3.4711018
-    parent: 0
-    type: Transform
 - uid: 165
   type: WeaponTurretSyndicateBroken
   components:
@@ -1694,12 +1661,6 @@ entities:
   type: SalvageMobSpawner75
   components:
   - pos: -4.5,1.5
-    parent: 0
-    type: Transform
-- uid: 172
-  type: ClothingBackpackDuffelSyndicateAmmo
-  components:
-  - pos: -1.6170431,-2.424334
     parent: 0
     type: Transform
 - uid: 173
@@ -1887,53 +1848,6 @@ entities:
   - pos: -5.565689,-1.4874685
     parent: 0
     type: Transform
-- uid: 202
-  type: CrateGenericSteel
-  components:
-  - desc: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
-    name: Syndicate surplus crate
-    type: MetaData
-  - pos: -0.5,0.5
-    parent: 0
-    type: Transform
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 205
-        - 204
-        - 203
-      paper_label: !type:ContainerSlot {}
-    type: ContainerContainer
-- uid: 203
-  type: ClothingShoesBootsMagSyndie
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 202
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 204
-  type: FoodSnackSyndi
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 202
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
-- uid: 205
-  type: CyberPen
-  components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 202
-    type: Transform
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
 - uid: 206
   type: PlasmaReinforcedWindowDirectional
   components:
@@ -1994,30 +1908,6 @@ entities:
   type: trayScanner
   components:
   - pos: -0.48346323,3.4946802
-    parent: 0
-    type: Transform
-- uid: 216
-  type: ClothingUniformJumpsuitOperative
-  components:
-  - pos: -1.5,-3.5
-    parent: 0
-    type: Transform
-- uid: 217
-  type: ClothingUniformJumpskirtOperative
-  components:
-  - pos: -1.5,-3.5
-    parent: 0
-    type: Transform
-- uid: 218
-  type: ClothingMaskGasSyndicate
-  components:
-  - pos: -1.5,-3.5
-    parent: 0
-    type: Transform
-- uid: 219
-  type: ClothingMaskGasSyndicate
-  components:
-  - pos: -1.5,-3.5
     parent: 0
     type: Transform
 - uid: 220

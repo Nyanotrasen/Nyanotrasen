@@ -1,6 +1,6 @@
-using System.Threading;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -44,8 +44,6 @@ namespace Content.Server.Medical.Components
         /// </summary>
         [DataField("selfHealPenaltyMultiplier")]
         public float SelfHealPenaltyMultiplier = 3f;
-
-        public CancellationTokenSource? CancelToken = null;
 
         /// <summary>
         ///     Sound played on healing begin
