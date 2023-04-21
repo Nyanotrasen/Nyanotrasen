@@ -94,6 +94,7 @@ namespace Content.Server.Research.Oracle
             "DrinkGlass",
             "Bucket",
             "SprayBottle",
+            "MegaSprayBottle",
             "ShellTranquilizer",
             "ShellSoulbreaker",
 
