@@ -2,12 +2,14 @@ using System.Collections.Immutable;
 using System.Linq;
 using Content.Server.Database;
 using Content.Server.Chat.Managers;
+using Content.Server.NPC.Systems;
 using Content.Server.Objectives.Interfaces;
+using Content.Server.PDA.Ringer;
 using Content.Server.Players;
+using Content.Server.Roles;
+using Content.Server.Shuttles.Components;
 using Content.Server.Traitor;
 using Content.Server.Traitor.Uplink;
-using Content.Server.NPC.Systems;
-using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Preferences;
@@ -19,8 +21,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -256,14 +258,18 @@ public sealed class TraitorRuleSystem : GameRuleSystem
         if (mind.CurrentJob != null)
             startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
-        if (!_uplink.AddUplink(mind.OwnedEntity!.Value, startingBalance))
+        var pda = _uplink.FindUplinkTarget(mind.OwnedEntity!.Value);
+        if (pda == null || !_uplink.AddUplink(mind.OwnedEntity.Value, startingBalance))
             return;
+
+        // add the ringtone uplink and get its code for greeting
+        var code = AddComp<RingerUplinkComponent>(pda.Value).Code;
 
         var antagPrototype = _prototypeManager.Index<AntagPrototype>(TraitorPrototypeID);
         var traitorRole = new TraitorRole(mind, antagPrototype);
         mind.AddRole(traitorRole);
         Traitors.Add(traitorRole);
-        traitorRole.GreetTraitor(Codewords);
+        traitorRole.GreetTraitor(Codewords, code);
 
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);
         var maxPicks = _cfg.GetCVar(CCVars.TraitorMaxPicks);
@@ -278,8 +284,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem
                 difficulty += objective.Difficulty;
         }
 
-        //give traitors their codewords to keep in their character info menu
-        traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", Codewords)));
+        //give traitors their codewords and uplink code to keep in their character info menu
+        traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", Codewords)))
+            + "\n" + Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("", code)));
 
         _audioSystem.PlayGlobal(_addedSound, Filter.Empty().AddPlayer(traitor), false, AudioParams.Default);
 
