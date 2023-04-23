@@ -64,6 +64,17 @@
       pickupAmount: 30
     - type: UseDelay
       delay: 1.0
+    - type: SolutionRegeneration
+      solution: absorbed
+      generated:
+        reagents:
+        - ReagentId: Water
+          Quantity: 5
+    - type: SolutionPurge
+      solution: absorbed
+      preserve:
+      - Water
+      quantity: 10
     - type: SolutionContainerManager
       solutions:
         absorbed:
