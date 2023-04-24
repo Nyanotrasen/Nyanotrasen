@@ -1292,13 +1292,6 @@
   - type: BloodSucker
     unitsToSucc: 15
     webRequired: true
-  - type: MeleeWeapon
-    hidden: true
-    angle: 0
-    animation: WeaponArcBite
-    damage:
-      types:
-        Piercing: 10
 
 - type: entity
   name: tarantula
