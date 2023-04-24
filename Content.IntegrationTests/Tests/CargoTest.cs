@@ -3,8 +3,10 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.CCVar;
 using Content.Shared.Stacks;
 using NUnit.Framework;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
@@ -62,6 +64,8 @@ public sealed class CargoTest
         var entManager = server.ResolveDependency<IEntityManager>();
         var mapManager = server.ResolveDependency<IMapManager>();
         var protoManager = server.ResolveDependency<IPrototypeManager>();
+        var cfg = server.ResolveDependency<IConfigurationManager>();
+        await server.WaitPost(() => cfg.SetCVar(CCVars.DisableGridFill, true));
 
         await server.WaitAssertion(() =>
         {
@@ -101,6 +105,8 @@ public sealed class CargoTest
             }
             mapManager.DeleteMap(mapId);
         });
+
+        await server.WaitPost(() => cfg.SetCVar(CCVars.DisableGridFill, false));
         await pairTracker.CleanReturnAsync();
     }
 
