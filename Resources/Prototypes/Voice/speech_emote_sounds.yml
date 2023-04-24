@@ -178,3 +178,10 @@
     path: /Audio/Animals/bear.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: Kangaroo
+  sound:
+    path: /Audio/Animals/kangaroo_grunt.ogg
+    params:
+      variation: 0.125
