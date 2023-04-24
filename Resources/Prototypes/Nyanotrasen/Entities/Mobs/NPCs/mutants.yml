@@ -51,10 +51,6 @@
     bloodReagent: DemonsBlood
     bloodMaxVolume: 100
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 200
@@ -109,10 +105,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
