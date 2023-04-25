@@ -514,12 +514,12 @@
   - type: Clothing
     sprite: Clothing/Belt/militarywebbingmed.rsi
   - type: Item
-    size: 60
-  - type: Storage
-    capacity: 60
+    size: 70
   - type: Tag
     tags:
       - BeltSlotNotBelt
+  - type: Storage
+    capacity: 70
 
 - type: entity
   parent: ClothingBeltBase
