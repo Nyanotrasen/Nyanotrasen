@@ -2,6 +2,7 @@
   id: MobGlimmerWisp
   name: glimmer wisp
   description: A strange orb that moves with intent.
+  save: false
   components:
   - type: Sprite
     netsync: false
