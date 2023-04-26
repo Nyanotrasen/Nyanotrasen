@@ -103,9 +103,7 @@ namespace Content.Server.Shipyard.Systems
 
             _sawmill.Info($"Shuttle {shuttlePath} was purchased at {ToPrettyString((EntityUid) stationUid)} for {price:f2}");
             //can do TryFTLDock later instead if we need to keep the shipyard map paused
-            //This is what I have on mine upstream, not sure why nyano isnt up to date
-            //_shuttle.FTLTravel(shuttleGrid.Value, shuttle, targetGrid.Value, 0f, 15f, true);
-            _shuttle.FTLTravel(shuttle, targetGrid.Value, 0f, 15f, true);
+            _shuttle.FTLTravel(shuttleGrid.Value, shuttle, targetGrid.Value, 0f, 15f, true);
             return true;
         }
 
