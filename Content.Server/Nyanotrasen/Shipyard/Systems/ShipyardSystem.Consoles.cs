@@ -154,7 +154,7 @@ namespace Content.Server.Shipyard.Systems
                 return false;
             };
 
-            _shipyard.PurchaseShuttle(stationUid, vessel.ShuttlePath.ToString(), out deed);
+            _shipyard.TryPurchaseShuttle((EntityUid) stationUid, vessel.ShuttlePath.ToString(), out deed);
 
             if (deed == null)
             {
