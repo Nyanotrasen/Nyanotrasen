@@ -188,6 +188,12 @@ namespace Content.Server.RatKing
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;
+
+            if (!_timing.IsFirstTimePredicted)
+                return;
+
+            var msg = component.HostileServants ? "rat-king-toggle-action-popup" : "rat-king-toggle-action-popup-enabled";
+            _popup.PopupEntity(Loc.GetString(msg), args.Performer);
         }
 
 
