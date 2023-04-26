@@ -31,7 +31,7 @@
 - type: entity
   parent: MarkerBase
   id: MobEvilTwinSpawn
-  name: evil twin
+  name: paradox anomaly
   components:
   - type: EvilTwinSpawner
   - type: Sprite
@@ -41,8 +41,8 @@
       - sprite: Mobs/Ghosts/ghost_human.rsi
         state: icon
   - type: GhostTakeoverAvailable
-    name: evil twin
-    description: Replace your other twin.
+    name: paradox anomaly
+    description: Replace your double, or befriend them.
     rules: |
       Try and replace your twin with this funny roleplay antag rather than
-      plasma flooding the station or something.
+      plasma flooding the station or something. You can also just befriend them.

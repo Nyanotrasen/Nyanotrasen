@@ -277,24 +277,6 @@
         refresh: false
 
 - type: reagent
-  id: THCOil
-  name: reagent-name-thc-oil
-  group: Narcotics
-  desc: reagent-desc-thc-oil
-  physicalDesc: reagent-physical-desc-skunky
-  flavor: bitter
-  color: "#DAA520"
-  metabolisms:
-    Narcotic:
-      effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 5
-        refresh: false
-
-- type: reagent
   id: Nicotine
   name: reagent-name-nicotine
   group: Narcotics

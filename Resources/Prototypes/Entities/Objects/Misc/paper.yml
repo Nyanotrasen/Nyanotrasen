@@ -156,8 +156,16 @@
   id: NukeCodePaper
   name: nuclear authentication codes
   components:
-    - type: NukeCodePaper
-    - type: Paper
+  - type: NukeCodePaper
+    allNukesAvailable: true
+  - type: Paper
+
+- type: entity
+  parent: NukeCodePaper
+  id: NukeCodePaperStation
+  suffix: Station Only
+  components:
+  - type: NukeCodePaper
 
 - type: entity
   name: pen
@@ -391,7 +399,7 @@
     state: stamp-cent
 
 - type: entity
-  name: cleric's rubber stamp
+  name: chaplain's rubber stamp
   parent: RubberStampMime
   id: RubberStampChaplain
   components:

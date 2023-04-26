@@ -14,12 +14,10 @@
         reagents:
         - ReagentId: Butter
           Quantity: 10
-        - ReagentId: THCOil
+        - ReagentId: THC
           Quantity: 45
   - type: Extractable
     grindableSolutionName: food
-
-# The following things will probably be made by someone upstream so it's a bit placeholdery
 
 # Curd cheese, substitute for a lot of things
 - type: entity
@@ -87,3 +85,172 @@
           Quantity: 3
         - ReagentId: Cream
           Quantity: 1
+
+- type: entity
+  name: herby cheese
+  parent: FoodBakingBase
+  id: FoodMothHerbyCheese
+  description: As a staple of mothic cuisine, cheese is often augmented with various flavours to keep variety in their diet.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+      - leafy
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
+    state: herbycheese
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Cream
+          Quantity: 1
+#Tastes like cheese, herbs
+
+- type: entity
+  name: mothic salad
+  parent: FoodBowlBase
+  id: FoodMothSaladBase
+  description: A basic salad of cabbage, red onion and tomato.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cabbage
+      - onion
+      - tomato
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
+    state: mothsaladbase
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 6
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 2
+
+# base for our special sauces
+- type: entity
+  parent: BaseItem
+  id: BaseFoodMothSauce
+  name: sauce bowl
+  abstract: true
+  description: A small bowl for condiment. Not reusable.
+  components:
+  - type: Drink
+    solution: food
+    refillable: false
+    isOpen: true
+  - type: DrawableSolution
+    solution: food
+  - type: InjectableSolution
+    solution: food
+  - type: DrainableSolution
+    solution: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+  - type: SolutionTransfer
+    maxTransferAmount: 15
+  - type: Sprite
+    netsync: false
+    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
+    state: condimentbowl
+  - type: Icon
+    sprite: Nyanotrasen/Objects/Consumable/Food/ingredients.rsi
+    state: condimentbowl
+  - type: TrashOnEmpty
+    solution: food
+
+# Tomato Sauce
+- type: entity
+  name: tomato sauce
+  parent: BaseFoodMothSauce
+  id: FoodMothTomatoSauce
+  description: Tomato with salt and herbs.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tomato
+  - type: Sprite
+    layers:
+      - state: condimentbowl
+      - state: tomatosauce-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: TomatoSauce
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: tomatosauce-
+
+# Pesto
+- type: entity
+  name: pesto sauce
+  parent: BaseFoodMothSauce
+  id: FoodMothPesto
+  description: A combination of salt, herbs, garlic, oil, and pine nuts. Frequently used as a sauce for pasta or pizza, or eaten on bread.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - garlic
+      - nutty
+  - type: Sprite
+    layers:
+      - state: condimentbowl
+      - state: pesto-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxvol: 15
+        reagents:
+        - ReagentId: Pesto
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: pesto-
+
+# Bechamel
+- type: entity
+  name: bechamel sauce
+  parent: BaseFoodMothSauce
+  id: FoodMothBechamel
+  description: A classic white sauce common to several European cultures.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - creamy
+  - type: Sprite
+    layers:
+      - state: condimentbowl
+      - state: bechamel-3
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Bechamel
+          Quantity: 15
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: bechamel-

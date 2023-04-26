@@ -504,11 +504,6 @@
   description: flavor-complex-sake
 
 - type: flavor
-  id: soju
-  flavorType: Complex
-  description: flavor-complex-soju
-
-- type: flavor
   id: rum
   flavorType: Complex
   description: flavor-complex-rum
@@ -674,49 +669,9 @@
   description: flavor-complex-nuggie
 
 - type: flavor
-  id: orangecreamcicle
+  id: grape
   flavorType: Complex
-  description: flavor-complex-orangecreamcicle
-
-- type: flavor
-  id: silverjack
-  flavorType: Complex
-  description: flavor-complex-silverjack
-
-- type: flavor
-  id: brainbomb
-  flavorType: Complex
-  description: flavor-complex-brainbomb
-
-- type: flavor
-  id: atomicpunch
-  flavorType: Complex
-  description: flavor-complex-atomicpunch
-
-- type: flavor
-  id: circusjuice
-  flavorType: Complex
-  description: flavor-complex-circusjuice
-
-- type: flavor
-  id: pinkdrink
-  flavorType: Complex
-  description: flavor-complex-pinkdrink
-
-- type: flavor
-  id: sapopicante
-  flavorType: Complex
-  description: flavor-complex-sapopicante
-
-- type: flavor
-  id: graveyard
-  flavorType: Complex
-  description: flavor-complex-graveyard
-
-- type: flavor
-  id: bubbletea
-  flavorType: Complex
-  description: flavor-complex-bubbletea
+  description: flavor-complex-grape
 
 - type: flavor
   id: garlic
@@ -727,8 +682,3 @@
   id: bottledlightning
   flavorType: Complex
   description: flavor-complex-bottledlightning
-
-- type: flavor
-  id: corncob
-  flavorType: Complex
-  description: flavor-complex-corncob

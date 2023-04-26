@@ -3,6 +3,7 @@ using Content.Shared.Verbs;
 using Content.Shared.DoAfter;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Body.Components;
+using Content.Shared.Chapel;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -43,12 +44,12 @@ namespace Content.Server.Chapel
             base.Initialize();
             SubscribeLocalEvent<SacrificialAltarComponent, GetVerbsEvent<AlternativeVerb>>(AddSacrificeVerb);
             SubscribeLocalEvent<SacrificialAltarComponent, BuckleChangeEvent>(OnBuckleChanged);
-            SubscribeLocalEvent<SacrificialAltarComponent, DoAfterEvent<SacrificeData>>(OnDoAfter);
+            SubscribeLocalEvent<SacrificialAltarComponent, SacrificeDoAfterEvent>(OnDoAfter);
         }
 
         private void AddSacrificeVerb(EntityUid uid, SacrificialAltarComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
+            if (!args.CanAccess || !args.CanInteract || component.DoAfter != null)
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -78,15 +79,17 @@ namespace Content.Server.Chapel
 
         private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
         {
-            if (component.CancelToken != null)
-                component.CancelToken.Cancel();
+            if (component.DoAfter != null)
+            {
+                _doAfterSystem.Cancel(component.DoAfter);
+                component.DoAfter = null;
+            }
         }
 
-        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, DoAfterEvent<SacrificeData> args)
+        private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, SacrificeDoAfterEvent args)
         {
             component.SacrificeStingStream?.Stop();
-            component.CancelToken?.Cancel();
-            component.CancelToken = null;
+            component.DoAfter = null;
 
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
@@ -142,7 +145,7 @@ namespace Content.Server.Chapel
             if (!Resolve(altar, ref component))
                 return;
 
-            if (component.CancelToken != null)
+            if (component.DoAfter != null)
                 return;
 
             // can't sacrifice yourself
@@ -196,21 +199,18 @@ namespace Content.Server.Chapel
             _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Shared.Popups.PopupType.LargeCaution);
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
-            component.CancelToken = new CancellationTokenSource();
 
-            var data = new SacrificeData();
-            var args = new DoAfterEventArgs(agent, (float) component.SacrificeTime.TotalSeconds, component.CancelToken.Token, target: patient, used: altar)
+            var ev = new SacrificeDoAfterEvent();
+            var args = new DoAfterArgs(agent, (float) component.SacrificeTime.TotalSeconds, ev, altar, target: patient, used: altar)
             {
+                BreakOnDamage = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             };
 
-            _doAfterSystem.DoAfter(args, data);
+            _doAfterSystem.TryStartDoAfter(args, out var doAfterId);
+            component.DoAfter = doAfterId;
         }
-
-        private record struct SacrificeData()
-        {};
     }
 }

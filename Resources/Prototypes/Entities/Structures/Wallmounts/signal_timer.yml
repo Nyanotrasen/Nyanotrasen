@@ -1,0 +1,60 @@
+- type: entity
+  id: SignalTimer
+  name: signal timer
+  description: Automate toggling power to things.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+    arc: 180
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    canCollide: false
+  - type: Sprite
+    netsync: false
+    sprite: Structures/Wallmounts/timer.rsi
+    drawdepth: WallMountedItems
+    offset: 0,-0.15
+    layers:
+    - map: ["TimerOn"]
+      state: "activated"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.VisualState:
+        TimerOn:
+          True: { state: "activated" }
+          False: { state: "complete" }
+  - type: SignalTimer
+  - type: UseDelay
+    delay: 0.5 # prevent light-toggling auto-clickers.
+  - type: Rotatable
+  - type: Construction
+    graph: SignalTimerGraph
+    node: SignalTimerNode
+  - type: SignalTransmitter
+    outputs:
+      TimerOn: []
+      TimerOff: []
+  - type: ActivatableUI
+    key: enum.SignalTimerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      - key: enum.SignalTimerUiKey.Key
+        type: SignalTimerBoundUserInterface
+
+- type: entity
+  parent: SignalTimer
+  id: SignalTimerBrig
+  name: brig timer
+  description: A timer for cell doors.
+  components:
+    - type: AccessReader
+      access: [["Security"]]
+    - type: SignalTimer
+      endAlertChannel: Security
+    - type: Sprite
+      sprite: Structures/Wallmounts/brig_timer.rsi

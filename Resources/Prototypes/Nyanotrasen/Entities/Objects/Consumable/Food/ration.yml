@@ -12,7 +12,7 @@
 
 - type: entity
   name: prepacked sustenance bar
-  parent: FoodSnackBase
+  parent: BaseItem
   id: FoodPSB
   description: The PSB is a densely packed, nutrient rich, artificially flavored and colored food bar specifically made to accomodate all morphotypes during food shortages.
   components:
@@ -20,6 +20,11 @@
     sprite: Nyanotrasen/Objects/Consumable/Food/ration.rsi
     state: psb
   - type: Item
+    size: 3
+  - type: Recyclable
+  - type: SpaceGarbage
+  - type: DynamicPrice
+    price: 0
   - type: SpawnItemsOnUse
     items:
       - id: FoodPSBTrash
@@ -65,7 +70,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # Too compacted for anything more
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
           Quantity: 15

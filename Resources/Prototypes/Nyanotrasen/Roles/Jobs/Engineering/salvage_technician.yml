@@ -10,7 +10,7 @@
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 14400
-  supervisors: "the chief engineer"
+  supervisors: job-supervisors-ce
   access:
   - Salvage
   - Engineering

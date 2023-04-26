@@ -81,16 +81,13 @@
   description: A plushie depicting an adorable mothperson with a tiny synthesizer and tiny glasses.
   components:
   - type: Sprite
-    state: moffsician
+    state: moffmusician
 
 - type: entity
   parent: BasePlushieMoff
   id: PlushieMoffbar
   name: moth bartender plushie
-  description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest.
+  description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest. It smells like cigarettes.
   components:
   - type: Sprite
-    state: moffbar
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Moth/laugh_moth.ogg
+    state: moffbartender

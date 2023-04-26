@@ -3088,3 +3088,199 @@ Entries:
   - {message: Added Corncob Crust Pizza., type: Add}
   id: 493
   time: '2023-03-24T01:57:02.0000000+00:00'
+- author: Hyenh
+  changes:
+  - {message: Added new kimono patterns., type: Add}
+  id: 494
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: Merged a bunch of new upstream stuff., type: Add}
+  - {message: Added a new lobby song., type: Add}
+  id: 495
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: DebugOK
+  changes:
+  - {message: Round announcements will show up on Discord., type: Add}
+  id: 496
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: Vordenberg
+  changes:
+  - {message: Biomass is temporarily orderable through cargo., type: Add}
+  id: 497
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Renamed golemancer to chaplain., type: Tweak}
+  - {message: Borgs can now be repaired if they die., type: Tweak}
+  - {message: Replaced the piercing damage on felinid melee with more slashing., type: Tweak}
+  - {message: Merged THC and THC Oil into just THC., type: Fix}
+  - {message: Fixed the PSB being edible with the wrapper., type: Fix}
+  id: 498
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: jick
+  changes:
+  - {message: Slipping requires gravity., type: Tweak}
+  id: 499
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: Finket
+  changes:
+  - {message: Added brig timers., type: Add}
+  id: 500
+  time: '2023-03-30T01:57:02.0000000+00:00'
+- author: Colin-Tel, Velcroboy
+  changes:
+  - {message: Updated several maps for brig timers and other things., type: Add}
+  id: 501
+  time: '2023-03-31T01:57:02.0000000+00:00'
+- author: Finket
+  changes:
+  - {message: Added sprites for brig timers and signal timers., type: Add}
+  id: 502
+  time: '2023-03-31T01:57:02.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: Space ticks can no longer go under doors., type: Tweak}
+  - {message: Space tick movement speed reduced slightly., type: Tweak}
+  id: 503
+  time: '2023-04-04T01:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: Updated lawyer uniform sprites., type: Tweak}
+  id: 504
+  time: '2023-04-04T01:57:02.0000000+00:00'
+- author: Kesiath
+  changes:
+  - {message: "Added berets for the mystagogue, captain, and central commander.", type: Add}
+  id: 504
+  time: '2023-04-04T01:57:02.0000000+00:00'
+- author: Kesiath
+  changes:
+  - {message: "Added central command hardsuits.", type: Add}
+  id: 505
+  time: '2023-04-06T01:57:02.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: "Added silver golems; a late-game golem with teleportation powers that is designed to kill revenants and glimmer wisps. Requires Telescience.", type: Add}
+  id: 506
+  time: '2023-04-06T01:57:02.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: "Merged a bunch more upstream stuff, including arrivals, telecomms, and escape pods. Be sure to report any regressions in Discord.", type: Add}
+  id: 507
+  time: '2023-04-07T01:57:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: "Reenabled paramedic on some maps and updated them to current standards.", type: Add}
+  id: 508
+  time: '2023-04-07T01:57:02.0000000+00:00'
+- author: LeonardoDaBepis
+  changes:
+  - {message: "Added new lobby art!", type: Add}
+  id: 509
+  time: '2023-04-08T01:57:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: "Updated Angle and Shoukou for arrivals and cargo pallet!", type: Add}
+  id: 510
+  time: '2023-04-09T01:57:02.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: "Made cargo pallet actually work now that it's been mapped (smiley face)", type: Fix}
+  id: 511
+  time: '2023-04-09T01:57:02.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: "Added paramedic PDA colors.", type: Add}
+  id: 512
+  time: '2023-04-09T01:57:02.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: "Added a white ferret.", type: Add}
+  id: 513
+  time: '2023-04-10T01:57:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: "Gave certain medical roles CPR training where it was lacking.", type: Fix}
+  id: 514
+  time: '2023-04-10T01:57:02.0000000+00:00'
+- author: RichardRahl123
+  changes:
+  - {message: "Arachne now have resistance to the Blunt damage from Barotrauma.", type: Add}
+  id: 515
+  time: '2023-04-10T01:57:02.0000000+00:00'
+- author: Qulibly
+  changes:
+  - {message: "Updated Northway.", type: Add}
+  id: 516
+  time: '2023-04-10T01:57:02.0000000+00:00'
+- author: Timemaster99
+  changes:
+  - {message: "Added PDA UI colors.", type: Add}
+  id: 517
+  time: '2023-04-10T01:57:02.0000000+00:00'
+- author: Mappers
+  changes:
+  - {message: "Several maps have been updated for Tcomms, cargo pallets, or just updated in general.", type: Add}
+  id: 518
+  time: '2023-04-13T01:57:02.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: "Traitor paramedic no longer has a TC penalty.", type: Tweak}
+  id: 518
+  time: '2023-04-13T01:57:02.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: "Added new moth plushies to the space villain arcade game reward pool.", type: Add}
+  id: 519
+  time: '2023-04-13T01:57:02.0000000+00:00'
+- author: CerebralError
+  changes:
+  - {message: "Added a new poster.", type: Add}
+  id: 520
+  time: '2023-04-13T01:57:02.0000000+00:00'
+- author: FloofiestFloof
+  changes:
+  - {message: "Ponchos protect you from the cold.", type: Fix}
+  - {message: "Fixed slime and skeleton inventories.", type: Fix}
+  - {message: "Penguins are cold-resistant.", type: Fix}
+  - {message: "Increased atmos tech playtime requirement for CE.", type: Tweak}
+  - {message: "Renamed evil twin to paradox anomaly.", type: Tweak}
+  - {message: "The moth hood looks more like our moths.", type: Tweak}
+  id: 521
+  time: '2023-04-14T01:57:02.0000000+00:00'
+- author: ChilbroBaggins
+  changes:
+  - {message: "Updated several maps for cargo pallets and telecomms.", type: Add}
+  id: 522
+  time: '2023-04-14T01:57:02.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Merged upstream up to 04-10. Some features have yet to be merged. Report bugs and regressions.", type: Add}
+  id: 523
+  time: '2023-04-16T08:57:02.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Fixed sacrificing on an altar not working.", type: Fix}
+  id: 524
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: "Mass mindswap is now permanent.", type: Tweak}
+  id: 525
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: CerebralError
+  changes:
+  - {message: "Added a new bar sign, the Whiskey Echoes.", type: Add}
+  id: 526
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: "Cyborgs should no longer become zombies.", type: Fix}
+  id: 527
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: "Security winter coats now have a little armor.", type: Tweak}
+  id: 528
+  time: '2023-04-17T08:57:02.0000000+00:00'

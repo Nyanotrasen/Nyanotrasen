@@ -2,7 +2,7 @@
   id: Shoukou
   mapName: 'Shōkō'
   mapPath: /Maps/shoukou.yml
-  minPlayers: 20
+  minPlayers: 0
   maxPlayers: 65
   stations:
     Shoukou:
@@ -30,7 +30,7 @@
         StationEngineer: [ 2, 5 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MailCarrier: [ 1, 2 ]
-        MedicalDoctor: [ 3, 6 ]
+        MedicalDoctor: [ 3, 5 ]
         MedicalCyborg: [ 1, 2 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 2, 4 ]
@@ -42,8 +42,9 @@
         Lawyer: [ 1, 1 ]
         Quartermaster: [ 2, 3 ]
         SalvageTechnician: [ 2, 4 ]
-        Musician: [1, 1]
+        Musician: [ 1, 1]
         AtmosphericTechnician: [ 1, 2 ]
         Valet: [ 0, 2 ]
+        Paramedic: [ 1, 2 ]
         Reporter: [ 1, 1 ]
         Prisoner: [ 2, 3 ]

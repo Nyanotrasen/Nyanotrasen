@@ -1,4 +1,5 @@
 using Content.Shared.Disease;
+using Content.Shared.Disease.Events;
 using Content.Shared.Disease.Components;
 using Content.Shared.Materials;
 using Content.Shared.Research.Components;
@@ -53,7 +54,7 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<DiseaseVaccineComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<DiseaseVaccineComponent, ExaminedEvent>(OnExamined);
 
-            SubscribeLocalEvent<DiseaseVaccineComponent, DoAfterEvent>(OnDoAfter);
+            SubscribeLocalEvent<DiseaseVaccineComponent, VaccineDoAfterEvent>(OnDoAfter);
         }
 
         private void OnResearchRegistrationChanged(EntityUid uid, DiseaseVaccineCreatorComponent component, ref ResearchRegistrationChangedEvent args)
@@ -229,13 +230,15 @@ namespace Content.Server.Disease
                 return;
             }
 
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, vaxx.InjectDelay, target: args.Target, used:uid)
+            var ev = new VaccineDoAfterEvent();
+            var doAfterArgs = new DoAfterArgs(args.User, vaxx.InjectDelay, ev, uid, target: args.Target, used: uid)
             {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
-            });
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
         }
 
         /// <summary>
@@ -270,7 +273,7 @@ namespace Content.Server.Disease
             carrier.PastDiseases.Add(disease);
         }
 
-        private void OnDoAfter(EntityUid uid, DiseaseVaccineComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, DiseaseVaccineComponent component, VaccineDoAfterEvent args)
         {
             if (args.Handled || args.Cancelled || !TryComp<DiseaseCarrierComponent>(args.Args.Target, out var carrier) || component.Disease == null)
                 return;
