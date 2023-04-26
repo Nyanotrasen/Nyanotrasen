@@ -91,11 +91,12 @@
         reagents:
         - ReagentId: Water
           Quantity: 500
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: tank
-    reagents:
-      - Water
-    unitsPerSecond: 0.5
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 0.5
 
 - type: entity
   parent: StorageTank

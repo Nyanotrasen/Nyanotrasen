@@ -124,11 +124,12 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 3.5
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: melee
-    unitsPerSecond: 0.15
-    reagents:
-      - Nocturine
+    generated:
+      reagents:
+        - ReagentId: Nocturine
+          Quantity: 0.15
   - type: BloodSucker
     unitsToSucc: 35
     injectWhenSucc: true
