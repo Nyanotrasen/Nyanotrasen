@@ -15138,10 +15138,10 @@ entities:
     type: Transform
   - inputs:
       Open:
-      - port: TimerOff
+      - port: Timer
         uid: 4415
       Close:
-      - port: TimerOn
+      - port: Start
         uid: 4415
       Toggle: []
     type: SignalReceiver
@@ -36444,17 +36444,17 @@ entities:
     parent: 0
     type: Transform
 - uid: 4415
-  type: SignalTimerBrig
+  type: BrigTimer
   components:
   - rot: 1.5707963267948966 rad
     pos: -10.5,0.5
     parent: 0
     type: Transform
   - outputs:
-      TimerOn:
+      Start:
       - port: Close
         uid: 1820
-      TimerOff:
+      Timer:
       - port: Open
         uid: 1820
     type: SignalTransmitter

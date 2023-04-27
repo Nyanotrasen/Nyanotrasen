@@ -175750,7 +175750,7 @@ entities:
     - 23683
     type: DeviceList
 - uid: 22073
-  type: SignalTimer
+  type: BrigTimer
   components:
   - name: cell 1 timer
     type: MetaData
@@ -175759,14 +175759,14 @@ entities:
     parent: 0
     type: Transform
   - outputs:
-      On:
-      - port: Open
-        uid: 2714
-      Off:
+      Start:
       - port: Close
         uid: 2714
-      TimerOn: []
-      TimerOff: []
+      Timer:
+      - port: Open
+        uid: 2714
+      - port: AutoClose
+        uid: 2714
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
@@ -191165,7 +191165,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 24081
-  type: SignalTimer
+  type: BrigTimer
   components:
   - name: cell 3 timer
     type: MetaData
@@ -191174,20 +191174,20 @@ entities:
     parent: 0
     type: Transform
   - outputs:
-      On:
-      - port: Open
-        uid: 2712
-      Off:
+      Start:
       - port: Close
         uid: 2712
-      TimerOn: []
-      TimerOff: []
+      Timer:
+      - port: Open
+        uid: 2712
+      - port: AutoClose
+        uid: 2712
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures
   - type: ItemCooldown
 - uid: 24082
-  type: SignalTimer
+  type: BrigTimer
   components:
   - name: cell 2 timer
     type: MetaData
@@ -191196,14 +191196,14 @@ entities:
     parent: 0
     type: Transform
   - outputs:
-      On:
-      - port: Open
-        uid: 2713
-      Off:
+      Start:
       - port: Close
         uid: 2713
-      TimerOn: []
-      TimerOff: []
+      Timer:
+      - port: Open
+        uid: 2713
+      - port: AutoClose
+        uid: 2713
     type: SignalTransmitter
   - fixtures: []
     type: Fixtures

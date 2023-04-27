@@ -9787,14 +9787,14 @@ entities:
     type: Transform
   - inputs:
       Open:
-      - port: TimerOff
+      - port: Timer
         uid: 3514
       Close:
-      - port: TimerOn
+      - port: Start
         uid: 3514
       Toggle: []
       AutoClose:
-      - port: TimerOff
+      - port: Timer
         uid: 3514
     type: SignalReceiver
 - uid: 1000
@@ -26705,14 +26705,14 @@ entities:
     type: Transform
   - inputs:
       Open:
-      - port: TimerOff
+      - port: Timer
         uid: 3514
       Close:
-      - port: TimerOn
+      - port: Start
         uid: 3514
       Toggle: []
       AutoClose:
-      - port: TimerOff
+      - port: Timer
         uid: 3514
     type: SignalReceiver
 - uid: 3392
@@ -27473,18 +27473,18 @@ entities:
     parent: 34
     type: Transform
 - uid: 3514
-  type: SignalTimerBrig
+  type: BrigTimer
   components:
   - pos: 19.5,-8.5
     parent: 34
     type: Transform
   - outputs:
-      TimerOn:
+      Start:
       - port: Close
         uid: 3391
       - port: Close
         uid: 999
-      TimerOff:
+      Timer:
       - port: Open
         uid: 3391
       - port: AutoClose
