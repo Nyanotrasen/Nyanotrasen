@@ -55,7 +55,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!args.CanInteract || !args.CanAccess || component.HideFromExamine)
             return;
 
-        var getDamage = new MeleeHitEvent(new List<EntityUid>(), args.User, component.Damage, false);
+        var getDamage = new MeleeHitEvent(new List<EntityUid>(), args.User, uid, component.Damage, false);
         getDamage.IsHit = false;
         RaiseLocalEvent(uid, getDamage);
 
