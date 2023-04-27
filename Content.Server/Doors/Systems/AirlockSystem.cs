@@ -1,5 +1,3 @@
-using Content.Server.MachineLinking.Events;
-using Content.Server.MachineLinking.System;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Tools.Components;
@@ -17,7 +15,6 @@ namespace Content.Server.Doors.Systems
     {
         [Dependency] private readonly WiresSystem _wiresSystem = default!;
         [Dependency] private readonly PowerReceiverSystem _power = default!;
-        [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
 
         public override void Initialize()
         {
@@ -31,7 +28,6 @@ namespace Content.Server.Doors.Systems
             SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new [] {typeof(DoorSystem)});
             SubscribeLocalEvent<AirlockComponent, DoorGetPryTimeModifierEvent>(OnGetPryMod);
             SubscribeLocalEvent<AirlockComponent, BeforeDoorPryEvent>(OnDoorPry);
-            SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
         }
 
         private void OnAirlockInit(EntityUid uid, AirlockComponent component, ComponentInit args)
@@ -233,14 +229,6 @@ namespace Content.Server.Doors.Systems
 
             component.BoltsDown = value;
             UpdateBoltLightStatus(uid, component);
-        }
-
-        private void OnSignalReceived(EntityUid uid, AirlockComponent component, SignalReceivedEvent args)
-        {
-            if (args.Port == component.AutoClosePort)
-            {
-                component.AutoClose = false;
-            }
         }
     }
 }
