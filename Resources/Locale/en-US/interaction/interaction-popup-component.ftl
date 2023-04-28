@@ -22,6 +22,7 @@ petting-success-tarantula = You pet {THE($target)} on {POSS-ADJ($target)} hairy 
 petting-success-holo = You pet {THE($target)} on {POSS-ADJ($target)} metallic spiky head.
 petting-success-dragon = Dodging teeth, claws, and flames, you pet {THE($target)} on {POSS-ADJ($target)} massive scaled head.
 petting-success-hamster = You pet {THE($target)} on {POSS-ADJ($target)} fluffy little head.
+petting-success-mothroach = You pet {THE($target)} on {POSS-ADJ($target)} fuzzy little head.
 
 petting-failure-generic = You reach out to pet {THE($target)}, but {SUBJECT($target)} {CONJUGATE-BE($target)} aloof towards you.
 
