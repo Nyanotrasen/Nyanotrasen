@@ -25,12 +25,6 @@
     description: ghost-role-information-mothroach-description
   - type: Speech
     speechSounds: Squeak
-  - type: InteractionPopup
-    successChance: 0.5
-    interactSuccessString: petting-success-mothroach
-    interactFailureString: petting-failure-generic
-    interactSuccessSound:
-      path: /Audio/Voice/Moth/squeak_moth.ogg
   - type: Sprite
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Animals/mothroach.rsi
