@@ -24,7 +24,7 @@
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
   - type: Speech
-    speechSounds: Squeak
+    speechSounds: Chitter
   - type: Sprite
     drawdepth: Mobs
     sprite: Nyanotrasen/Mobs/Animals/mothroach.rsi
@@ -100,9 +100,10 @@
   - type: ReplacementAccent
     accent: mouse
   - type: Vocal
-    maleScream: /Audio/Voice/Moth/squeak_moth.ogg
-    femaleScream: /Audio/Voice/Moth/squeak_moth.ogg
-    unsexedScream: /Audio/Voice/Moth/squeak_moth.ogg
+    sounds:
+      Male: Mothroach
+      Female: Mothroach
+      Unsexed: Mothroach
     wilhelmProbability: 0.001
   - type: Tag
     tags:

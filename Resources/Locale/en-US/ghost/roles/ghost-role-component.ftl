@@ -30,4 +30,4 @@ ghost-role-information-cleanbot-name = CleanBot
 ghost-role-information-cleanbot-description = Click puddles to mop them up.
 
 ghost-role-information-mothroach-name = Mothroach
-ghost-role-information-mothroach-description = A relatively cute but mischievous mothroach.
+ghost-role-information-mothroach-description = A cute but mischievous mothroach.
