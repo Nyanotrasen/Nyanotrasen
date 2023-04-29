@@ -231,8 +231,8 @@ namespace Content.Server.Nutrition.EntitySystems
 
             if (component.UsesRemaining > 0)
             {
-                if (!forceFeed)
-                    args.Repeat = true;
+                /* if (!forceFeed) */
+                /*     args.Repeat = true; */
 
                 return;
             }
