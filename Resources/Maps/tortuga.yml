@@ -48884,6 +48884,63 @@ entities:
       type: Transform
 - proto: CapacitorStockPart
   entities:
+  - uid: 17227
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
+  - uid: 17229
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
+  - uid: 17650
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.384852,75.63202
+      parent: 33
+      type: Transform
+  - uid: 17651
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.395268,75.777954
+      parent: 33
+      type: Transform
+  - uid: 17074
+    components:
+    - pos: -59.352512,-20.61787
+      parent: 33
+      type: Transform
+  - uid: 17230
+    components:
+    - pos: 28.23035,-8.453385
+      parent: 33
+      type: Transform
+  - uid: 17231
+    components:
+    - pos: 28.495975,-8.484658
+      parent: 33
+      type: Transform
+  - uid: 17239
+    components:
+    - pos: -79.66635,-5.9289055
+      parent: 33
+      type: Transform
+  - uid: 17652
+    components:
+    - pos: 10.416102,77.695946
+      parent: 33
+      type: Transform
+  - uid: 17653
+    components:
+    - pos: 15.676518,77.42493
+      parent: 33
+      type: Transform
+  - uid: 17654
+    components:
+    - pos: 10.614018,75.55905
+      parent: 33
+      type: Transform
   - uid: 16811
     components:
     - rot: -1.5707963267948966 rad
@@ -126672,30 +126729,6 @@ entities:
       pos: 39.390984,18.32292
       parent: 33
       type: Transform
-- proto: MicroLaserStockPart
-  entities:
-  - uid: 17227
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17229
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17650
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.384852,75.63202
-      parent: 33
-      type: Transform
-  - uid: 17651
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.395268,75.777954
-      parent: 33
-      type: Transform
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 17207
@@ -149281,43 +149314,6 @@ entities:
   - uid: 24477
     components:
     - pos: -47.558975,104.1664
-      parent: 33
-      type: Transform
-- proto: ScanningModuleStockPart
-  entities:
-  - uid: 17074
-    components:
-    - pos: -59.352512,-20.61787
-      parent: 33
-      type: Transform
-  - uid: 17230
-    components:
-    - pos: 28.23035,-8.453385
-      parent: 33
-      type: Transform
-  - uid: 17231
-    components:
-    - pos: 28.495975,-8.484658
-      parent: 33
-      type: Transform
-  - uid: 17239
-    components:
-    - pos: -79.66635,-5.9289055
-      parent: 33
-      type: Transform
-  - uid: 17652
-    components:
-    - pos: 10.416102,77.695946
-      parent: 33
-      type: Transform
-  - uid: 17653
-    components:
-    - pos: 15.676518,77.42493
-      parent: 33
-      type: Transform
-  - uid: 17654
-    components:
-    - pos: 10.614018,75.55905
       parent: 33
       type: Transform
 - proto: SchoolgirlUniformSpawner

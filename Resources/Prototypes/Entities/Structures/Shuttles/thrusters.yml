@@ -49,9 +49,6 @@
   - type: Thruster
   - type: Machine
     board: ThrusterMachineCircuitboard
-  - type: UpgradePowerDraw
-    powerDrawMultiplier: 0.75
-    scaling: Exponential
   - type: Sprite
     sprite: Structures/Shuttles/thruster.rsi
     layers:

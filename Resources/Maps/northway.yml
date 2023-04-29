@@ -31478,17 +31478,6 @@ entities:
     - pos: -9.570753,-21.559225
       parent: 3765
       type: Transform
-    - containers:
-        storagebase: !type:Container
-          showEnts: false
-          occludes: true
-          ents:
-          - 2789
-          - 2790
-          - 3090
-          - 3091
-          - 3094
-      type: ContainerContainer
 - proto: ToolboxMechanicalFilled
   entities:
   - uid: 1330

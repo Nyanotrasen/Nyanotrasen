@@ -164,10 +164,14 @@
       - ChemistryEmptyBottle01
       - Flash
       - MicroManipulatorStockPart
-      - ScanningModuleStockPart
-      - MicroLaserStockPart
       - MatterBinStockPart
       - CapacitorStockPart
+      - AdvancedCapacitorStockPart
+      - AdvancedMatterBinStockPart
+      - NanoManipulatorStockPart
+      - SuperCapacitorStockPart
+      - SuperMatterBinStockPart
+      - PicoManipulatorStockPart
       - FirelockElectronics
       - DoorElectronics
       - APCElectronics
@@ -466,7 +470,6 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    machinePartPrintSpeed: Laser
     dynamicRecipes:
       - Brutepack
       - Ointment

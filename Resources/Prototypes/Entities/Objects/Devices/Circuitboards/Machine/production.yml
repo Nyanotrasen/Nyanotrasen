@@ -137,7 +137,7 @@
     prototype: UniformPrinter
     requirements:
       MatterBin: 1
-      Laser: 2
+      Manipulator: 2
   - type: ReverseEngineering
     difficulty: 2
     recipes:
@@ -176,11 +176,18 @@
     state: medical
   - type: MachineBoard
     prototype: DiseaseDiagnoser
-    requirements:
-      Manipulator: 1
-      Laser: 2
     materialRequirements:
       Cable: 5
+    tagRequirements:
+      GlassBeaker:
+        Amount: 1
+        DefaultPrototype: Beaker
+        ExamineName: Glass Beaker
+    componentRequirements:
+      DiseaseSwab:
+        Amount: 1
+        DefaultPrototype: DiseaseSwab
+        ExamineName: Swab
   - type: ReverseEngineering
     difficulty: 2
     recipes:
@@ -197,8 +204,7 @@
     - type: MachineBoard
       prototype: MachineArtifactAnalyzer
       requirements:
-        ScanningModule: 2
-        Manipulator: 1
+        Manipulator: 3
         Capacitor: 1
       materialRequirements:
         Glass: 5
@@ -218,7 +224,7 @@
     - type: MachineBoard
       prototype: MachineTraversalDistorter
       requirements:
-        ScanningModule: 1
+        Manipulator: 1
         Capacitor: 2
       materialRequirements:
         Steel: 5
@@ -239,7 +245,7 @@
     - type: MachineBoard
       prototype: MachineAnomalyVessel
       requirements:
-        ScanningModule: 5
+        Capacitor: 5
       materialRequirements:
         Cable: 1
         PlasmaGlass: 10
@@ -259,10 +265,10 @@
     - type: MachineBoard
       prototype: MachineAPE
       requirements:
-        Capacitor: 1
-        Laser: 3
+        Capacitor: 2
       materialRequirements:
         Cable: 1
+        Glass: 1
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -279,8 +285,8 @@
   - type: MachineBoard
     prototype: GasThermoMachineFreezer
     requirements:
-      MatterBin: 3
-      Laser: 3
+      MatterBin: 2
+      Manipulator: 2
     materialRequirements:
       Cable: 5
   - type: Construction
@@ -303,8 +309,8 @@
   - type: MachineBoard
     prototype: GasThermoMachineHeater
     requirements:
-      MatterBin: 3
-      Laser: 3
+      MatterBin: 2
+      Manipulator: 2
     materialRequirements:
       Cable: 5
   - type: Construction
@@ -323,7 +329,7 @@
   - type: MachineBoard
     prototype: PortableScrubber
     requirements:
-      MatterBin: 3
+      MatterBin: 1
       Manipulator: 2
     materialRequirements:
       Cable: 5
@@ -343,7 +349,7 @@
     - type: MachineBoard
       prototype: CloningPod
       requirements:
-        ScanningModule: 2
+        MatterBin: 2
         Manipulator: 2
       materialRequirements:
         Glass: 1
@@ -364,7 +370,6 @@
     - type: MachineBoard
       prototype: MedicalScanner
       requirements:
-        ScanningModule: 2
         Capacitor: 1
       materialRequirements:
         Glass: 5
@@ -382,9 +387,6 @@
   components:
     - type: MachineBoard
       prototype: CrewMonitoringServer
-      requirements:
-        Capacitor: 1
-        ScanningModule: 2
       materialRequirements:
         Steel: 1
         Cable: 2
@@ -399,12 +401,8 @@
       state: medical
     - type: MachineBoard
       prototype: CryoPod
-      requirements:
-        ScanningModule: 1
-        Manipulator: 1
-        MatterBin: 2
       materialRequirements:
-        Glass: 1
+        Glass: 5
         Cable: 1
     - type: ReverseEngineering
       difficulty: 3
@@ -422,9 +420,10 @@
     - type: MachineBoard
       prototype: chem_master
       requirements:
-        Manipulator: 1
+        Capacitor: 1
       materialRequirements:
         Glass: 1
+        Cable: 1
       tagRequirements:
         GlassBeaker:
           Amount: 2
@@ -447,10 +446,14 @@
       prototype: ChemDispenser
       requirements:
         Capacitor: 1
-        Manipulator: 1
-        MatterBin: 2
       materialRequirements:
         Glass: 1
+        Steel: 3
+      tagRequirements:
+        GlassBeaker:
+          Amount: 2
+          DefaultPrototype: Beaker
+          ExamineName: Glass Beaker
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -465,7 +468,7 @@
     - type: MachineBoard
       prototype: BiomassReclaimer
       requirements:
-        Laser: 1
+        MatterBin: 2
         Manipulator: 1
       tagRequirements:
         Pipe:
@@ -495,14 +498,10 @@
       state: service
     - type: MachineBoard
       prototype: hydroponicsTray
-      # See: https://github.com/vgstation-coders/vgstation13/blob/e9a806f30b4db0efa2a68b9eb42e3120d2321b6a/code/modules/hydroponics/hydro_tray.dm#L57
-      requirements:
-        MatterBin: 2
-        ScanningModule: 1
-        Capacitor: 1
       materialRequirements:
         # replacing the console screen
-        Glass: 1
+        Glass: 5
+        Cable: 2
       tagRequirements:
         GlassBeaker:
           Amount: 2
@@ -625,11 +624,9 @@
   components:
     - type: MachineBoard
       prototype: DawInstrument
-      requirements:
-        Capacitor: 4
-        ScanningModule: 5
       materialRequirements:
         Glass: 1
+        Cable: 1
       tagRequirements:
 #      One instrument to bring them all and in the darkness bind them...
        KeyedInstrument:
@@ -688,8 +685,7 @@
   - type: MachineBoard
     prototype: Thruster
     requirements:
-      Laser: 4
-      Capacitor: 1
+      Capacitor: 4
     materialRequirements:
       Steel: 5
 
@@ -701,7 +697,7 @@
   - type: MachineBoard
     prototype: Gyroscope
     requirements:
-      ScanningModule: 2
+      Manipulator: 2
       Capacitor: 1
     materialRequirements:
       Glass: 2
@@ -738,7 +734,6 @@
     - type: MachineBoard
       prototype: KitchenReagentGrinder
       requirements:
-        Capacitor: 1
         MatterBin: 2
         Manipulator: 2
       tagRequirements:
@@ -760,9 +755,10 @@
     - type: MachineBoard
       prototype: ChemistryHotplate
       requirements:
-        Laser: 2
+        Capacitor: 2
       materialRequirements:
-        Steel: 2
+        Steel: 1
+        Glass: 1
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -779,12 +775,11 @@
       prototype: StasisBed
       requirements:
         Capacitor: 1
-        Manipulator: 1
       materialRequirements:
         Cable: 3
       tagRequirements:
         Pipe:
-          Amount: 4
+          Amount: 1
           DefaultPrototype: GasPipeStraight
           ExamineName: Pipe
         Cryobeaker:
@@ -822,8 +817,7 @@
       prototype: OreProcessor
       requirements:
         MatterBin: 1
-        Manipulator: 1
-        Laser: 2
+        Manipulator: 3
       materialRequirements:
         Glass: 1
     - type: ReverseEngineering
@@ -841,7 +835,6 @@
       prototype: KitchenMicrowave
       requirements:
         Capacitor: 1
-        Laser: 1
       materialRequirements:
         Glass: 2
         Cable: 2
@@ -860,7 +853,6 @@
       prototype: KitchenDeepFryer
       requirements:
         Capacitor: 1
-        Laser: 1
         MatterBin: 1
       materialRequirements:
         Steel: 4
@@ -880,8 +872,7 @@
     - type: MachineBoard
       prototype: Emitter
       requirements:
-        Capacitor: 1
-        Laser: 1
+        Capacitor: 2
       materialRequirements:
         CableHV: 5
         Glass: 2
@@ -898,6 +889,8 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceCameraRouterConstructed
+      materialRequirements:
+        Cable: 1
       requirements:
         Capacitor: 4
     - type: ReverseEngineering
@@ -913,8 +906,10 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceCameraWirelessRouterConstructed
+      materialRequirements:
+        Cable: 2
+        Glass: 1
       requirements:
-        Laser: 1
         Capacitor: 4
     - type: ReverseEngineering
       difficulty: 2
@@ -929,9 +924,6 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceWirelessCameraMovableConstructed
-      requirements:
-        Laser: 1
-        Capacitor: 4
       materialRequirements:
         Glass: 2
         Cable: 2
@@ -948,12 +940,9 @@
   components:
     - type: MachineBoard
       prototype: SurveillanceWirelessCameraAnchoredConstructed
-      requirements:
-        Laser: 1
-        Capacitor: 4
       materialRequirements:
-        Glass: 2
         Cable: 2
+        Glass: 1
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -968,8 +957,8 @@
   - type: MachineBoard
     prototype: GasRecycler
     requirements:
-      Laser: 2
-      Manipulator: 2
+      Capacitor: 1
+      Manipulator: 1
     materialRequirements:
       Steel: 10
       Plasma: 5
@@ -1043,9 +1032,6 @@
   components:
     - type: MachineBoard
       prototype: TelecomServer
-      requirements:
-        Capacitor: 1
-        ScanningModule: 2
       materialRequirements:
         Steel: 1
         Cable: 2
