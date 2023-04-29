@@ -84,8 +84,7 @@
     attributes:
       proper: true
   - type: MovementIgnoreGravity
-  - type: Blindable
-    blindResistance: 10
+  - type: EyeProtection
   - type: Faction
     factions:
     - PsionicInterloper
