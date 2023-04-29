@@ -8,7 +8,8 @@ on:
 
 jobs:
   yaml-schema-validation:
-    if: github.actor != 'Nyanotrasen-Changelog'
+    name: YAML RGA schema validator
+    if: github.actor != 'DeltaV-Bot' && github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

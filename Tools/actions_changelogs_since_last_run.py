@@ -19,7 +19,7 @@ GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-CHANGELOG_FILE = "Resources/Changelog/NyanotrasenChangelog.yml"
+CHANGELOG_FILE = "Resources/Changelog/DeltaVChangelog.yml"
 
 TYPES_TO_EMOJI = {
     "Fix":    "🐛",
@@ -113,11 +113,7 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
         content.write(f"**{name}** updated:\n")
         for entry in group:
             for change in entry["changes"]:
-                try:
-                    emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
-                except KeyError:
-                    # Changelog entry without a type field?
-                    emoji = "❓"
+                emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
                 message = change['message']
                 content.write(f"{emoji} {message}\n")
 
@@ -135,4 +131,3 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
 
 
 main()
-
