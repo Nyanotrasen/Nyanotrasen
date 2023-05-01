@@ -869,3 +869,28 @@
       collection: ClownRecorder
   - type: UseDelay
     delay: 30.0
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieZombie
+  name: zombie plushie
+  description: A stuffed toy that resembles a zombie. Good for tricking your friends into shooting you.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Fun/Toys/zombieplushie.rsi
+    state: icon
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Voice/Zombie/zombie-1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Voice/Zombie/zombie-2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Voice/Zombie/zombie-1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Zombie/zombie-1.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Voice/Zombie/zombie-3.ogg
