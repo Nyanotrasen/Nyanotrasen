@@ -2,19 +2,21 @@
   id: Paramedic
   name: job-name-paramedic
   description: job-description-paramedic
-  startingGear: ParamedicGear
   playTimeTracker: JobParamedic
-  icon: "Paramedic"
-  supervisors: job-supervisors-cmo
   requirements:
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 14400
+  startingGear: ParamedicGear
+  icon: "Paramedic"
+  supervisors: job-supervisors-cmo
   access:
   - Medical
   - Maintenance
   - Service
   - External
+  extendedAccess:
+  - Chemistry
   special:
   - !type:AddComponentSpecial
     components:
@@ -24,15 +26,11 @@
   id: ParamedicGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
-    back: ClothingBackpackParamedicFilled
+    back: ClothingBackpackMedicalFilled
     shoes: ClothingShoesColorWhite
-    head: ClothingHeadHatParamedicsoft
-    outerClothing: ClothingOuterCoatParamedicWB
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
-    pocket1: HandheldGPSBasic
-    pocket2: HandheldCrewMonitor
+    belt: ClothingBeltParamedicFilled
   innerclothingskirt: ClothingUniformJumpskirtParamedic
-  satchel: ClothingBackpackSatchelParamedicFilled
-  duffelbag: ClothingBackpackDuffelParamedicFilled
+  satchel: ClothingBackpackSatchelMedicalFilled
+  duffelbag: ClothingBackpackDuffelMedicalFilled

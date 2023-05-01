@@ -1,4 +1,4 @@
-﻿job-name-warden = warden
+job-name-warden = warden
 job-name-security = security officer
 job-name-cadet = security cadet
 job-name-hos = head of security
@@ -8,6 +8,7 @@ job-name-rd = research director
 job-name-psychologist = psychologist
 job-name-intern = medical intern
 job-name-doctor = medical doctor
+job-name-paramedic = paramedic
 job-name-cmo = chief medical officer
 job-name-chemist = chemist
 job-name-technical-assistant = technical assistant

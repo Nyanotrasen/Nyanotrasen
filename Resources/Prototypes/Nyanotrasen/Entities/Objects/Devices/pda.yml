@@ -67,25 +67,6 @@
 
 - type: entity
   parent: BasePDA
-  id: ParamedicPDA
-  name: paramedic PDA
-  description: Sweaty. Whoever uses this must be noided. Has a built-in health analyzer.
-  components:
-  - type: Pda
-    id: ParamedicIDCard
-    state: pda-genetics
-  - type: PdaBorderColor
-    borderColor: "#d7d7d0"
-    accentVColor: "#447987"
-  - type: Icon
-    state: pda-genetics
-  - type: HealthAnalyzer
-    scanDelay: 1.2
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
-
-- type: entity
-  parent: BasePDA
   id: PrisonerPDA
   name: prisoner PDA
   description: Clear, so you can make sure there's nothing being smuggled inside.
