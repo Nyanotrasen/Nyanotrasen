@@ -1080,9 +1080,9 @@ entities:
           610: 65,-13
           611: 66,-13
           612: 67,-13
-          1008: 16,-21
-          1009: 15,-21
-          1010: 13,-21
+          1003: 16,-21
+          1004: 15,-21
+          1005: 13,-21
       - node:
           color: '#0E7F1BB4'
           id: HalfTileOverlayGreyscale
@@ -1231,13 +1231,13 @@ entities:
           994: 13,-19
           995: 15,-19
           996: 17,-19
-          1005: 13,-25
-          1006: 14,-25
-          1007: 16,-25
-          1015: 22,-29
-          1016: 21,-29
-          1017: 20,-29
-          1018: 19,-29
+          1000: 13,-25
+          1001: 14,-25
+          1002: 16,-25
+          1010: 22,-29
+          1011: 21,-29
+          1012: 20,-29
+          1013: 19,-29
       - node:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale180
@@ -1349,9 +1349,9 @@ entities:
           992: 24,-30
           993: 24,-32
           997: 32,-16
-          999: 32,-14
-          1019: 18,-28
-          1020: 18,-27
+          998: 32,-14
+          1014: 18,-28
+          1015: 18,-27
       - node:
           color: '#0E7F1BB4'
           id: HalfTileOverlayGreyscale270
@@ -1453,13 +1453,13 @@ entities:
           605: 68,-11
           618: 68,-14
           619: 68,-15
-          1011: 16,-15
-          1012: 16,-14
-          1013: 16,-12
-          1014: 16,-11
-          1023: 31,-29
-          1024: 31,-28
-          1025: 31,-27
+          1006: 16,-15
+          1007: 16,-14
+          1008: 16,-12
+          1009: 16,-11
+          1017: 31,-29
+          1018: 31,-28
+          1019: 31,-27
       - node:
           color: '#9FED5896'
           id: HalfTileOverlayGreyscale90
@@ -1552,7 +1552,7 @@ entities:
           color: '#DE3A3A96'
           id: QuarterTileOverlayGreyscale180
         decals:
-          1000: 11,-9
+          999: 11,-9
       - node:
           color: '#52B4E996'
           id: QuarterTileOverlayGreyscale180
@@ -1750,7 +1750,7 @@ entities:
           id: ThreeQuarterTileOverlayGreyscale270
         decals:
           609: 64,-16
-          1021: 18,-29
+          1016: 18,-29
       - node:
           color: '#DE3A3A96'
           id: ThreeQuarterTileOverlayGreyscale90
@@ -8663,8 +8663,10 @@ entities:
     parent: 9
     type: Transform
 - uid: 723
-  type: LockerSecurityFilled
+  type: VendingMachineSecDrobe
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: 20.5,-28.5
     parent: 9
     type: Transform
@@ -124832,15 +124834,15 @@ entities:
     parent: 9
     type: Transform
 - uid: 16067
-  type: DogBed
+  type: LockerCaptainFilled
   components:
   - pos: 55.5,-28.5
     parent: 9
     type: Transform
 - uid: 16068
-  type: SpawnMobFoxRenault
+  type: DogBed
   components:
-  - pos: 55.5,-28.5
+  - pos: 54.5,-30.5
     parent: 9
     type: Transform
 - uid: 16069
@@ -141217,6 +141219,12 @@ entities:
   type: RandomPainting
   components:
   - pos: 28.5,-48.5
+    parent: 9
+    type: Transform
+- uid: 18266
+  type: SpawnMobFoxRenault
+  components:
+  - pos: 54.5,-30.5
     parent: 9
     type: Transform
 ...
