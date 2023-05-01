@@ -741,6 +741,11 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: Faction
+    factions:
+      - RatPassive
+  - type: HTN
+    rootTask: MouseCompound
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -826,11 +831,6 @@
   - type: MobPrice
     price: 50
   - type: FelinidFood
-  - type: HTN
-    rootTask: IdleEvadeCompound
-  - type: Faction
-    factions:
-    - RatPassive
 
 - type: entity
   parent: MobMouse
@@ -1761,6 +1761,8 @@
       gender: epicene
   - type: MobPrice
     price: 200
+  - type: HTN
+    rootTask: SimpleHostileCompound
   - type: Faction
     factions:
     - Cat

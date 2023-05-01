@@ -107,6 +107,9 @@
   id: MobCatRuntime
   description: Professional mouse hunter. Escape artist.
   components:
+  - type: Faction
+    factions:
+      - Pet
   - type: Grammar
     attributes:
       gender: female
@@ -466,7 +469,7 @@
   components:
   - type: Faction
     factions:
-      - PetsNT
+      - Pet
   - type: Sprite
     drawdepth: Mobs
     layers:
