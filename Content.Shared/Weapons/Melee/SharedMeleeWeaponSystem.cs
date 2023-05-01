@@ -42,7 +42,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] protected readonly SharedInteractionSystem Interaction = default!;
     [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected   readonly SharedTransformSystem _transform = default!;
+    [Dependency] protected readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly StaminaSystem _stamina = default!;
 
     protected ISawmill Sawmill = default!;
@@ -65,8 +65,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         SubscribeLocalEvent<MeleeWeaponComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<MeleeWeaponComponent, HandSelectedEvent>(OnMeleeSelected);
 
-        SubscribeAllEvent<LightAttackEvent>(OnLightAttack);
         SubscribeAllEvent<HeavyAttackEvent>(OnHeavyAttack);
+        SubscribeAllEvent<LightAttackEvent>(OnLightAttack);
         SubscribeAllEvent<DisarmAttackEvent>(OnDisarmAttack);
         SubscribeAllEvent<StopAttackEvent>(OnStopAttack);
 
@@ -439,14 +439,12 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     protected abstract void DoDamageEffect(List<EntityUid> targets, EntityUid? user,  TransformComponent targetXform);
 
-    protected virtual void DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session, out bool playLunge)
+    private void DoHeavyAttack(EntityUid user, HeavyAttackEvent ev, EntityUid meleeUid, MeleeWeaponComponent component, ICommonSession? session, out bool playLunge)
     {
         // TODO: This is copy-paste as fuck with DoPreciseAttack
         playLunge = true;
         if (!TryComp<TransformComponent>(user, out var userXform))
-        {
             return;
-        }
 
         if (_stamina.GetFreeStaminaPercentage(user) < component.HeavyMinStamina)
         {
@@ -459,18 +457,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var targetMap = ev.Coordinates.ToMap(EntityManager, _transform);
 
         if (targetMap.MapId != userXform.MapID)
-        {
             return;
-        }
 
         var userPos = _transform.GetWorldPosition(userXform);
         var direction = targetMap.Position - userPos;
         var distance = Math.Min(component.Range, direction.Length);
 
         var damage = component.Damage * GetModifier(component, false);
-
-        // This should really be improved. GetEntitiesInArc uses pos instead of bounding boxes.
-        var entities = ArcRayCast(userPos, direction.ToWorldAngle(), component.Angle, distance, userXform.MapID, user);
+        var entities = ev.Entities;
 
         if (entities.Count == 0)
         {
@@ -479,6 +473,19 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
             Audio.PlayPredicted(component.SwingSound, meleeUid, user);
             return;
+        }
+
+        // Validate client
+        for (var i = entities.Count - 1; i >= 0; i--)
+        {
+            if (ArcRaySuccessful(entities[i], userPos, direction.ToWorldAngle(), component.Angle, distance,
+                    userXform.MapID, user, session))
+            {
+                continue;
+            }
+
+            // Bad input
+            entities.RemoveAt(i);
         }
 
         var targets = new List<EntityUid>();
@@ -568,7 +575,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
     }
 
-    private HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore)
+    protected HashSet<EntityUid> ArcRayCast(Vector2 position, Angle angle, Angle arcWidth, float range, MapId mapId, EntityUid ignore)
     {
         // TODO: This is pretty sucky.
         var widthRad = arcWidth;
@@ -592,6 +599,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         return resSet;
+    }
+
+    protected virtual bool ArcRaySuccessful(EntityUid targetUid, Vector2 position, Angle angle, Angle arcWidth, float range,
+        MapId mapId, EntityUid ignore, ICommonSession? session)
+    {
+        // Only matters for server.
+        return true;
     }
 
     private void PlayHitSound(EntityUid target, EntityUid? user, string? type, SoundSpecifier? hitSoundOverride, SoundSpecifier? hitSound)
