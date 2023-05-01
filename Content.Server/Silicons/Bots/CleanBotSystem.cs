@@ -34,6 +34,10 @@ namespace Content.Server.Silicons.Bots
             if (!HasComp<PuddleComponent>(args.Target))
                 return;
 
+            if (!HasComp<ActorComponent>(uid))
+                // Not a player, so do whatever you usually do.
+                return;
+
             TryStartClean(uid, component, args.Target.Value);
         }
 
