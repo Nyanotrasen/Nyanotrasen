@@ -108,6 +108,8 @@
   components:
   - type: Sprite
     state: off
+  - type: PointLight
+    enabled: true
   - type: PoweredLight
     hasLampOnSpawn: LightTube
     damage:
@@ -284,7 +286,7 @@
   components:
   - type: Sprite
     state: off
-  - type: AmbientSound
+  - type: PointLight
     enabled: true
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
