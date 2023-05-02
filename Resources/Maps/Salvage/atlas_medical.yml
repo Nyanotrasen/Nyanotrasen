@@ -16,7 +16,7 @@ entities:
   components:
   - type: MetaData
   - pos: 0.55,0.38116685
-    parent: 151
+    parent: invalid
     type: Transform
   - chunks:
       -1,-1:
@@ -1398,14 +1398,6 @@ entities:
       - 0
       - 0
     type: EntityStorage
-- uid: 151
-  components:
-  - type: MetaData
-  - type: Transform
-  - type: Map
-  - type: PhysicsMap
-  - type: Broadphase
-  - type: OccluderTree
 - uid: 152
   type: SpawnMobRaccoonMorticia
   components:
