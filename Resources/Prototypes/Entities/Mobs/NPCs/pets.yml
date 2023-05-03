@@ -110,6 +110,7 @@
   - type: Faction
     factions:
       - Pet
+      - Cat
   - type: Grammar
     attributes:
       gender: female
@@ -123,6 +124,10 @@
   parent: MobCatCalico
   description: Ask nicely, and maybe they'll give you one of their spare lives.
   components:
+  - type: Faction
+    factions:
+      - Pet
+      - Cat
   - type: Grammar
     attributes:
       gender: male
@@ -228,6 +233,7 @@
   - type: Faction
     factions:
     - Pet
+    - Cat
   - type: Tag
     tags:
     - CannotSuicide

@@ -60,7 +60,9 @@
   - type: Cuffable
   # These require a cuffable layer to be added to the sprite now...?
   # - type: Cuffable
-
+  - type: Faction
+    factions:
+    - Passive
   - type: MeleeWeapon
     hidden: true
     angle: 0
