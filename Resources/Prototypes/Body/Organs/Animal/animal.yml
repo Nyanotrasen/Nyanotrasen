@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseAnimalOrgan
   parent: BaseItem
   abstract: true
@@ -43,9 +43,8 @@
   - type: SolutionContainerManager
     solutions:
       stomach:
-        maxVol: 100
+        maxVol: 25
   - type: Stomach
-    maxVolume: 25
   - type: Metabolizer
     maxReagents: 3
     metabolizerTypes: [ Animal ]
