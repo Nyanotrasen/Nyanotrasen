@@ -26,7 +26,7 @@
   - type: Speech
     speechSounds: Chitter
   - type: Sprite
-    drawdepth: Mobs
+    drawdepth: SmallMobs
     sprite: Nyanotrasen/Mobs/Animals/mothroach.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -39,6 +39,15 @@
     equippedPrefix: 0
     slots:
     - HEAD
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Critical:
+        Base: mothroach_dead
+      Dead:
+        Base: mothroach_dead
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -47,9 +56,9 @@
         radius: 0.3
       density: 10
       mask:
-      - MobMask
+      - SmallMobMask
       layer:
-      - MobLayer
+      - SmallMobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -59,12 +68,13 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
     baseSprintSpeed : 5
-  - type: MobPrice
-    price: 60
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Moff # moff
   - type: Respirator
     damage:
       types:
-        Asphyxiation: 1
+        Asphyxiation: 0.5
     damageRecovery:
       types:
         Asphyxiation: -0.5
@@ -78,17 +88,6 @@
       enabled: false
       autoPopulate: false
       name: action-name-disarm
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: mothroach
-      Critical:
-        Base: mothroach_dead
-      Dead:
-        Base: mothroach_dead
-  - type: Hunger
-    baseDecayRate: 0.4 # It hungers for the clothes, eventually.
   - type: Recyclable
   - type: Butcherable
     spawned:
@@ -97,6 +96,18 @@
     - id: HideMothroach # Gotta make the plushies
       amount: 1
       prob: 0.5
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Blood
+          Quantity: 70
+  - type: Bloodstream
+    bloodMaxVolume: 70
   - type: ReplacementAccent
     accent: mothroach
   - type: Vocal
@@ -105,12 +116,12 @@
       Female: Mothroach
       Unsexed: Mothroach
     wilhelmProbability: 0.001
+  - type: MobPrice
+    price: 60
   - type: Tag
     tags:
     - Trash
     - CannotSuicide
-  - type: Bloodstream
-    bloodMaxVolume: 75
   - type: CanEscapeInventory
   - type: HTN
     rootTask: IdleEvadeCompound
