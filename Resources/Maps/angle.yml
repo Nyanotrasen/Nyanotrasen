@@ -141295,4 +141295,28 @@ entities:
     type: Transform
   - enabled: True
     type: AmbientSound
+- uid: 18278
+  type: CableApcExtension
+  components:
+  - pos: -4.5,-60.5
+    parent: 9
+    type: Transform
+- uid: 18279
+  type: CableApcExtension
+  components:
+  - pos: -3.5,-64.5
+    parent: 9
+    type: Transform
+- uid: 18280
+  type: CableApcExtension
+  components:
+  - pos: -4.5,-64.5
+    parent: 9
+    type: Transform
+- uid: 18281
+  type: CableApcExtension
+  components:
+  - pos: -5.5,-64.5
+    parent: 9
+    type: Transform
 ...
