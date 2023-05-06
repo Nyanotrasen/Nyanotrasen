@@ -2,6 +2,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.Miasma;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Borgs;
 using Content.Server.Chat;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -89,6 +90,10 @@ namespace Content.Server.Zombies
         {
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
+                return;
+            
+            //Don't zombify cyborg
+            if (HasComp<CyborgComponent>(target))
                 return;
 
             //you're a real zombie now, son.

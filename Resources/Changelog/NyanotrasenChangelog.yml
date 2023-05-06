@@ -3245,7 +3245,7 @@ Entries:
   - {message: "Fixed slime and skeleton inventories.", type: Fix}
   - {message: "Penguins are cold-resistant.", type: Fix}
   - {message: "Increased atmos tech playtime requirement for CE.", type: Tweak}
-  - {message: "Renamed evil twin to paradox anomaly."}
+  - {message: "Renamed evil twin to paradox anomaly.", type: Tweak}
   - {message: "The moth hood looks more like our moths.", type: Tweak}
   id: 521
   time: '2023-04-14T01:57:02.0000000+00:00'
@@ -3254,3 +3254,63 @@ Entries:
   - {message: "Updated several maps for cargo pallets and telecomms.", type: Add}
   id: 522
   time: '2023-04-14T01:57:02.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Merged upstream up to 04-10. Some features have yet to be merged. Report bugs and regressions.", type: Add}
+  id: 523
+  time: '2023-04-16T08:57:02.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Fixed sacrificing on an altar not working.", type: Fix}
+  id: 524
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: Leander
+  changes:
+  - {message: "Mass mindswap is now permanent.", type: Tweak}
+  id: 525
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: CerebralError
+  changes:
+  - {message: "Added a new bar sign, the Whiskey Echoes.", type: Add}
+  id: 526
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: "Cyborgs should no longer become zombies.", type: Fix}
+  id: 527
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: "Security winter coats now have a little armor.", type: Tweak}
+  id: 528
+  time: '2023-04-17T08:57:02.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - {message: "Fixed martial artist not having a service headset.", type: Fix}
+  id: 529
+  time: '2023-04-29T08:00:00.0000000+00:00'
+- author: checkraze
+  changes:
+  - {message: "Shuttles now dock properly after being purchased.", type: Fix}
+  id: 530
+  time: '2023-04-29T08:00:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+  - {message: "Completely overhauled Angle Station's Security and Bridge.", type: Tweak}
+  id: 531
+  time: '2023-04-29T08:00:00.0000000+00:00'
+- author: Velcroboy
+  changes:
+  - {message: "Updated Hammurabi with Singulo!", type: Add}
+  id: 532
+  time: '2023-04-29T08:00:00.0000000+00:00'
+- author: Rane
+  changes:
+  - {message: "Pebble can be repaired again.", type: Add}
+  id: 533
+  time: '2023-04-29T08:00:00.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Spaceship Northway has been removed from map rotation.", type: Tweak}
+  id: 534
+  time: '2023-04-29T08:00:00.0000000+00:00'

@@ -5,119 +5,35 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  1: FloorArcadeBlue
-  2: FloorArcadeBlue2
-  3: FloorArcadeRed
-  4: FloorAsteroidCoarseSand0
-  5: FloorAsteroidCoarseSandDug
-  6: FloorAsteroidIronsand1
-  7: FloorAsteroidIronsand2
-  8: FloorAsteroidIronsand3
-  9: FloorAsteroidIronsand4
-  10: FloorAsteroidSand
-  11: FloorAsteroidTile
-  12: FloorBar
-  13: FloorBasaslt
-  14: FloorBedrock
-  15: FloorBlue
-  16: FloorBlueCircuit
-  17: FloorBoxing
-  18: FloorCarpetClown
-  19: FloorCarpetOffice
-  20: FloorCave
-  21: FloorCaveDrought
-  22: FloorClown
   23: FloorDark
-  24: FloorDarkDiagonal
-  25: FloorDarkDiagonalMini
-  26: FloorDarkHerringbone
-  27: FloorDarkMini
-  28: FloorDarkMono
-  29: FloorDarkOffset
-  30: FloorDarkPavement
-  31: FloorDarkPavementVertical
-  32: FloorDarkPlastic
-  33: FloorDirt
-  34: FloorEighties
-  35: FloorElevatorShaft
-  36: FloorFreezer
-  37: FloorGlass
-  38: FloorGold
-  39: FloorGrass
-  40: FloorGrassDark
-  41: FloorGrassJungle
-  42: FloorGrassLight
-  43: FloorGreenCircuit
-  44: FloorGym
-  45: FloorHydro
-  46: FloorKitchen
-  47: FloorLaundry
-  48: FloorLino
-  49: FloorMetalDiamond
-  50: FloorMime
-  51: FloorMono
-  52: FloorPlastic
-  53: FloorRGlass
-  54: FloorReinforced
-  55: FloorRockVault
-  56: FloorShowroom
-  57: FloorShuttleBlue
-  58: FloorShuttleOrange
-  59: FloorShuttlePurple
-  60: FloorShuttleRed
-  61: FloorShuttleWhite
-  62: FloorSilver
-  63: FloorSnow
-  64: FloorSteel
-  65: FloorSteelDiagonal
-  66: FloorSteelDiagonalMini
-  67: FloorSteelDirty
-  68: FloorSteelHerringbone
-  69: FloorSteelMini
-  70: FloorSteelMono
-  71: FloorSteelOffset
-  72: FloorSteelPavement
-  73: FloorSteelPavementVertical
-  74: FloorTechMaint
-  75: FloorTechMaint2
-  76: FloorTechMaint3
-  77: FloorWhite
-  78: FloorWhiteDiagonal
-  79: FloorWhiteDiagonalMini
-  80: FloorWhiteHerringbone
-  81: FloorWhiteMini
-  82: FloorWhiteMono
-  83: FloorWhiteOffset
-  84: FloorWhitePavement
-  85: FloorWhitePavementVertical
-  86: FloorWhitePlastic
-  87: FloorWood
-  88: FloorWoodTile
-  89: Lattice
-  90: Plating
+  79: FloorTechMaint
+  82: FloorWhite
+  92: FloorWood
+  94: Lattice
+  95: Plating
 entities:
 - uid: 0
   components:
   - type: MetaData
   - pos: 0.55,0.38116685
-    parent: invalid
+    parent: 151
     type: Transform
   - chunks:
       -1,-1:
         ind: -1,-1
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWgAAAAAAAAAAAAAAAAAAAFoAAABNAAABTQAAAFoAAABNAAAATQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFoAAAAAAAAAAAAAAAAAAABaAAAATQAAAk0AAAJNAAADTQAAAk0AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABaAAAAWQAAAFkAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWgAAAFoAAABaAAAAWgAAAFoAAABKAAAASgAAAEoAAABKAAAASgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFoAAABZAAAAWgAAAFoAAABXAAACVwAAAFcAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAVwAAAlcAAANXAAABWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABaAAAAWgAAAFoAAABXAAACWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWgAAAE0AAAFNAAAATQAAAU0AAABNAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABNAAACTQAAAU0AAAFNAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAFkAAABaAAAAWgAAAFoAAABaAAAAWgAAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAATQAAAk0AAANNAAACWgAAAE0AAABNAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAE0AAABNAAACTQAAAk0AAABNAAADTQAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABNAAABTQAAAk0AAANNAAABTQAAAU0AAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAATQAAA00AAAJNAAADTQAAAU0AAABNAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAE0AAAFNAAACTQAAAFoAAABNAAABTQAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAAAAAAAAAAAAAAAAAF8AAABSAAABUgAAAF8AAABSAAAAUgAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF8AAAAAAAAAAAAAAAAAAABfAAAAUgAAAlIAAAJSAAADUgAAAlIAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABfAAAAXgAAAF4AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXwAAAF8AAABfAAAAXwAAAF8AAABPAAAATwAAAE8AAABPAAAATwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF8AAABeAAAAXwAAAF8AAABcAAACXAAAAFwAAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXAAAAlwAAANcAAABXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABfAAAAXwAAAF8AAABcAAACXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXwAAAFIAAAFSAAAAUgAAAVIAAABSAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABSAAACUgAAAVIAAAFSAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAF4AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAUgAAAlIAAANSAAACXwAAAFIAAABSAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAFIAAABSAAACUgAAAlIAAABSAAADUgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABSAAABUgAAAlIAAANSAAABUgAAAVIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAUgAAA1IAAAJSAAADUgAAAVIAAABSAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAFIAAAFSAAACUgAAAF8AAABSAAABUgAAAA==
       0,-1:
         ind: 0,-1
-        tiles: TQAAAloAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE0AAABNAAADTQAAA1oAAABZAAAAWQAAAFkAAABZAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAE0AAAFaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAhcAAAEXAAACFwAAAFoAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAEXAAABFwAAARcAAAJaAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAADFwAAABcAAAAXAAADWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAhcAAAEXAAADFwAAAVoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAAAXAAACWgAAAFoAAABaAAAAWgAAAFoAAABNAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAAACTQAAAE0AAANNAAABTQAAAloAAABNAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATQAAAE0AAAFNAAACTQAAAE0AAAJNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFoAAABaAAAAWgAAAE0AAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAAAATQAAAU0AAAJNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATQAAAU0AAAJNAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE0AAANNAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: UgAAAl8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFIAAABSAAADUgAAA18AAABeAAAAXgAAAF4AAABeAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAFIAAAFfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAhcAAAEXAAACFwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAEXAAABFwAAARcAAAJfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAADFwAAABcAAAAXAAADXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAAhcAAAEXAAADFwAAAV8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAAAXAAACXwAAAF8AAABfAAAAXwAAAF8AAABSAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSAAACUgAAAFIAAANSAAABUgAAAl8AAABSAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUgAAAFIAAAFSAAACUgAAAFIAAAJSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAFIAAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSAAAAUgAAAVIAAAJSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUgAAAVIAAAJSAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFIAAANSAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       -1,0:
         ind: -1,0
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAE0AAABNAAAATQAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABaAAAATQAAAloAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAAAAAAFkAAAAAAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAFIAAABSAAAAUgAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABfAAAAUgAAAl8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAAAAAAF4AAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       0,-2:
         ind: 0,-2
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaAAAAWgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATQAAAVoAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUgAAAV8AAABeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       -1,-2:
         ind: -1,-2
-        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFkAAABZAAAAWQAAAFkAAABZAAAAWgAAAFoAAABaAAAAWgAAAFoAAABaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZAAAAWgAAAAAAAAAAAAAAAAAAAFoAAABNAAABTQAAAVoAAABNAAADTQAAAg==
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF4AAABeAAAAXgAAAF4AAABeAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABeAAAAXwAAAAAAAAAAAAAAAAAAAF8AAABSAAABUgAAAV8AAABSAAADUgAAAg==
     type: MapGrid
   - type: Broadphase
   - angularDamping: 0.05
@@ -134,484 +50,304 @@ entities:
       path: /Audio/Effects/alert.ogg
     type: Gravity
   - chunkCollection:
-      -1,-1:
-        0:
+      version: 2
+      nodes:
+      - node:
           color: '#9FED5896'
           id: CheckerNWSE
-          coordinates: -5,-15
-        1:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -4,-15
-        2:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -3,-15
-        3:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -2,-15
-        4:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -1,-15
-        8:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -1,-16
-        9:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -2,-16
-        10:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -4,-16
-        11:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -5,-16
-        12:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -5,-17
-        13:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -4,-17
-        14:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -2,-17
-        15:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: -1,-17
-        24:
+        decals:
+          0: -5,-15
+          1: -4,-15
+          2: -3,-15
+          3: -2,-15
+          4: -1,-15
+          5: 0,-15
+          6: 1,-15
+          7: 0,-16
+          8: -1,-16
+          9: -2,-16
+          10: -4,-16
+          11: -5,-16
+          12: -5,-17
+          13: -4,-17
+          14: -2,-17
+          15: -1,-17
+          16: 0,-17
+      - node:
           color: '#52B4E996'
           id: CheckerNWSE
-          coordinates: -5,-7
-        25:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -5,-8
-        26:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -4,-8
-        27:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -4,-7
-        28:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -3,-7
-        29:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -3,-8
-        30:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -2,-8
-        31:
-          color: '#52B4E996'
-          id: CheckerNWSE
-          coordinates: -2,-7
-        45:
+        decals:
+          24: -5,-7
+          25: -5,-8
+          26: -4,-8
+          27: -4,-7
+          28: -3,-7
+          29: -3,-8
+          30: -2,-8
+          31: -2,-7
+      - node:
+          color: '#FFFFFFFF'
+          id: Dirt
+        decals:
+          72: -6,0
+          73: -6,-1
+          74: -6,-2
+          75: -5,0
+          76: -5,-1
+          77: -5,-2
+          78: -6,-1
+          79: -5,-3
+          80: -5,-4
+          81: -4,-2
+          82: -4,-4
+          83: -4,-5
+          84: -2,-3
+          85: -2,-1
+          86: -1,-2
+          87: 1,-3
+          88: 2,-4
+          89: 3,-5
+          90: 5,-7
+          91: 4,-7
+          92: 2,-7
+          93: 4,-8
+          94: 3,-8
+          95: 2,-8
+          96: 1,-8
+          97: 3,-7
+          98: 3,-7
+          99: 1,-8
+          100: 7,-9
+          101: 6,-8
+          102: 6,-8
+          103: -1,-1
+          104: -1,-1
+          105: -1,-1
+          106: 2,-4
+          107: 1,-3
+      - node:
+          color: '#F9801D7F'
+          id: FullTileOverlayGreyscale
+        decals:
+          58: -6,0
+          59: -5,0
+          60: -4,0
+      - node:
           color: '#52B4E996'
           id: FullTileOverlayGreyscale
-          coordinates: -1,-8
-        50:
+        decals:
+          42: 5,-7
+          43: 3,-6
+          44: -1,-8
+      - node:
+          color: '#52B4E996'
+          id: HalfTileOverlayGreyscale
+        decals:
+          37: 0,-7
+          38: 1,-7
+          39: 2,-7
+          40: 3,-7
+          41: 4,-7
+          55: 0,-2
+      - node:
+          color: '#F9801D7F'
+          id: HalfTileOverlayGreyscale180
+        decals:
+          71: -5,-5
+      - node:
           color: '#52B4E996'
           id: HalfTileOverlayGreyscale180
-          coordinates: -1,-5
-        51:
-          color: '#52B4E996'
-          id: ThreeQuarterTileOverlayGreyscale270
-          coordinates: -2,-5
-        52:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -2,-4
-        53:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -2,-3
-        54:
+        decals:
+          45: 3,-5
+          46: 2,-5
+          47: 1,-5
+          48: 0,-5
+          49: -1,-5
+          56: 0,-3
+          57: 1,-3
+      - node:
           color: '#52B4E996'
           id: HalfTileOverlayGreyscale270
-          coordinates: -2,-2
-        55:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -2,-1
-        62:
+        decals:
+          18: 0,-12
+          19: 0,-11
+          20: 0,-10
+          51: -2,-4
+          52: -2,-3
+          53: -2,-2
+          54: -2,-1
+      - node:
           color: '#F9801D7F'
-          id: ThreeQuarterTileOverlayGreyscale90
-          coordinates: -4,-1
-        63:
+          id: HalfTileOverlayGreyscale270
+        decals:
+          65: -6,-4
+          66: -6,-3
+          67: -6,-2
+      - node:
           color: '#F9801D7F'
-          id: ThreeQuarterTileOverlayGreyscale180
-          coordinates: -4,-5
-        64:
-          color: '#F9801D7F'
-          id: ThreeQuarterTileOverlayGreyscale270
-          coordinates: -6,-5
-        65:
+          id: HalfTileOverlayGreyscale90
+        decals:
+          68: -4,-2
+          69: -4,-3
+          70: -4,-4
+      - node:
+          color: '#52B4E996'
+          id: HalfTileOverlayGreyscale90
+        decals:
+          21: 3,-10
+          22: 3,-11
+          23: 3,-12
+      - node:
+          color: '#52B4E996'
+          id: QuarterTileOverlayGreyscale180
+        decals:
+          32: 0,-8
+          33: 1,-8
+          34: 2,-8
+          35: 3,-8
+          36: 4,-8
+      - node:
           color: '#F9801D7F'
           id: ThreeQuarterTileOverlayGreyscale
-          coordinates: -6,-1
-        66:
+        decals:
+          64: -6,-1
+      - node:
           color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -6,-4
-        67:
+          id: ThreeQuarterTileOverlayGreyscale180
+        decals:
+          62: -4,-5
+      - node:
+          color: '#52B4E996'
+          id: ThreeQuarterTileOverlayGreyscale270
+        decals:
+          50: -2,-5
+      - node:
           color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -6,-3
-        68:
+          id: ThreeQuarterTileOverlayGreyscale270
+        decals:
+          63: -6,-5
+      - node:
           color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale270
-          coordinates: -6,-2
-        69:
-          color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale90
-          coordinates: -4,-2
-        70:
-          color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale90
-          coordinates: -4,-3
-        71:
-          color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale90
-          coordinates: -4,-4
-        72:
-          color: '#F9801D7F'
-          id: HalfTileOverlayGreyscale180
-          coordinates: -5,-5
-        74:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -6,-1
-        75:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -6,-2
-        77:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -5,-1
-        78:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -5,-2
-        79:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -6,-1
-        80:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -5,-3
-        81:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -5,-4
-        82:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -4,-2
-        83:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -4,-4
-        84:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -4,-5
-        85:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -2,-3
-        86:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -2,-1
-        87:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -1,-2
-        104:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -1,-1
-        105:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -1,-1
-        106:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -1,-1
-        110:
-          color: '#DE3A3A96'
-          id: splatter
-          coordinates: -6,-13
-      0,-1:
-        5:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: 0,-15
-        6:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: 1,-15
-        7:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: 0,-16
-        16:
-          color: '#9FED5896'
-          id: CheckerNWSE
-          coordinates: 0,-17
-        17:
+          id: ThreeQuarterTileOverlayGreyscale90
+        decals:
+          61: -4,-1
+      - node:
           color: '#FFFFFFFF'
           id: WarnBox
-          coordinates: 2,-15
-        18:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: 0,-12
-        19:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: 0,-11
-        20:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale270
-          coordinates: 0,-10
-        21:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale90
-          coordinates: 3,-10
-        22:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale90
-          coordinates: 3,-11
-        23:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale90
-          coordinates: 3,-12
-        33:
-          color: '#52B4E996'
-          id: QuarterTileOverlayGreyscale180
-          coordinates: 0,-8
-        34:
-          color: '#52B4E996'
-          id: QuarterTileOverlayGreyscale180
-          coordinates: 1,-8
-        35:
-          color: '#52B4E996'
-          id: QuarterTileOverlayGreyscale180
-          coordinates: 2,-8
-        36:
-          color: '#52B4E996'
-          id: QuarterTileOverlayGreyscale180
-          coordinates: 3,-8
-        37:
-          color: '#52B4E996'
-          id: QuarterTileOverlayGreyscale180
-          coordinates: 4,-8
-        38:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 0,-7
-        39:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 1,-7
-        40:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 2,-7
-        41:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 3,-7
-        42:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 4,-7
-        43:
-          color: '#52B4E996'
-          id: FullTileOverlayGreyscale
-          coordinates: 5,-7
-        44:
-          color: '#52B4E996'
-          id: FullTileOverlayGreyscale
-          coordinates: 3,-6
-        46:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 3,-5
-        47:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 2,-5
-        48:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 1,-5
-        49:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 0,-5
-        56:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale
-          coordinates: 0,-2
-        57:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 0,-3
-        58:
-          color: '#52B4E996'
-          id: HalfTileOverlayGreyscale180
-          coordinates: 1,-3
-        88:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 1,-3
-        89:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 2,-4
-        90:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 3,-5
-        91:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 5,-7
-        92:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 4,-7
-        93:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 2,-7
-        94:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 4,-8
-        95:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 3,-8
-        96:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 2,-8
-        97:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 1,-8
-        98:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 3,-7
-        99:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 3,-7
-        100:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 1,-8
-        101:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 7,-9
-        102:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 6,-8
-        103:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 6,-8
-        107:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 2,-4
-        108:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: 1,-3
-        109:
+        decals:
+          17: 2,-15
+      - node:
           color: '#DE3A3A96'
           id: splatter
-          coordinates: 2,-13
-        111:
-          color: '#DE3A3A96'
-          id: splatter
-          coordinates: 1,-4
-        112:
-          color: '#DE3A3A96'
-          id: splatter
-          coordinates: 1,-4
-      -1,0:
-        59:
-          color: '#F9801D7F'
-          id: FullTileOverlayGreyscale
-          coordinates: -6,0
-        60:
-          color: '#F9801D7F'
-          id: FullTileOverlayGreyscale
-          coordinates: -5,0
-        61:
-          color: '#F9801D7F'
-          id: FullTileOverlayGreyscale
-          coordinates: -4,0
-        73:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -6,0
-        76:
-          color: '#FFFFFFFF'
-          id: Dirt
-          coordinates: -5,0
+        decals:
+          108: 2,-13
+          109: -6,-13
+          110: 1,-4
+          111: 1,-4
     type: DecalGrid
-  - tiles:
-      -2,-3: 0
-      -2,-2: 0
-      -2,-1: 0
-      -1,-3: 0
-      -1,-2: 0
-      -1,-1: 0
-      0,-3: 0
-      0,-2: 0
-      1,-3: 0
-    uniqueMixes:
-    - volume: 2500
-      temperature: 293.15
-      moles:
-      - 21.824879
-      - 82.10312
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+  - version: 2
+    data:
+      tiles:
+        -1,-1:
+          0: 52416
+          1: 13119
+        0,-1:
+          0: 304
+          1: 7
+        -3,-4:
+          1: 61028
+        -3,-3:
+          1: 140
+        -2,-4:
+          1: 65484
+        -2,-3:
+          1: 60671
+        -2,-2:
+          1: 61390
+        -2,-1:
+          1: 61166
+        -1,-4:
+          1: 65535
+        -1,-3:
+          1: 65535
+        -1,-2:
+          1: 65535
+        0,-4:
+          1: 65535
+        0,-3:
+          1: 63899
+          2: 1636
+        0,-2:
+          1: 65535
+        1,-4:
+          1: 30704
+        1,-3:
+          1: 65535
+        1,-2:
+          1: 311
+        2,-4:
+          1: 16
+        2,-3:
+          1: 311
+        -2,0:
+          1: 2798
+        -1,0:
+          1: 567
+        0,-5:
+          1: 29440
+        -3,-5:
+          1: 28192
+        -2,-5:
+          1: 52992
+        -1,-5:
+          1: 65280
+      uniqueMixes:
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 21.824879
+        - 82.10312
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 293.15
+        moles:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      - volume: 2500
+        temperature: 147.92499
+        moles:
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      chunkSize: 4
     type: GridAtmosphere
   - type: GasTileOverlay
   - type: RadiationGridResistance
@@ -651,12 +387,16 @@ entities:
   - pos: -6.5,-17.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 7
   type: CableHV
   components:
   - pos: -7.5,-17.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 8
   type: WallReinforced
   components:
@@ -1047,6 +787,8 @@ entities:
   - pos: -8.5,-17.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 73
   type: SolarPanel
   components:
@@ -1083,6 +825,8 @@ entities:
   - pos: -9.5,-17.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 79
   type: SolarPanel
   components:
@@ -1468,8 +1212,28 @@ entities:
     pos: 3.5,-9.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 75.31249
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 143
     type: ContainerContainer
@@ -1490,8 +1254,28 @@ entities:
     pos: 3.5,-10.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 75.31249
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 145
     type: ContainerContainer
@@ -1512,8 +1296,28 @@ entities:
     pos: 3.5,-11.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 75.31249
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 147
     type: ContainerContainer
@@ -1534,8 +1338,28 @@ entities:
     pos: 0.5,-9.5
     parent: 0
     type: Transform
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 75.31249
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
   - containers:
       entity_storage: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 149
     type: ContainerContainer
@@ -1556,32 +1380,32 @@ entities:
     pos: 0.5,-10.5
     parent: 0
     type: Transform
-  - containers:
-      entity_storage: !type:Container
-        ents:
-        - 151
-    type: ContainerContainer
+  - air:
+      volume: 200
+      immutable: False
+      temperature: 75.31249
+      moles:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    type: EntityStorage
 - uid: 151
-  type: FoodBakedWaffleRoffle
   components:
-  - flags: InContainer
-    type: MetaData
-  - parent: 150
-    type: Transform
-  - solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - Quantity: 8
-          ReagentId: Nutriment
-        - Quantity: 2
-          ReagentId: Vitamin
-        - Quantity: 5
-          ReagentId: Corpium
-    type: SolutionContainerManager
-  - canCollide: False
-    type: Physics
-  - type: InsideEntityStorage
+  - type: MetaData
+  - type: Transform
+  - type: Map
+  - type: PhysicsMap
+  - type: Broadphase
+  - type: OccluderTree
 - uid: 152
   type: SpawnMobRaccoonMorticia
   components:
@@ -1624,6 +1448,8 @@ entities:
   - pos: 0.5,-11.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 159
   type: FloorDrain
   components:
@@ -1656,6 +1482,8 @@ entities:
   - pos: 1.5,-6.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 164
   type: SawElectric
   components:
@@ -1668,6 +1496,8 @@ entities:
   - pos: 2.5,-6.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 166
   type: ReinforcedWindow
   components:
@@ -1712,6 +1542,8 @@ entities:
     pos: -1.5,-6.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 173
   type: ComputerBroken
   components:
@@ -1725,6 +1557,8 @@ entities:
   - pos: -4.5,-6.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 175
   type: ChairOfficeLight
   components:
@@ -2002,12 +1836,16 @@ entities:
   - pos: -5.5,-0.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 220
   type: MachineFrameDestroyed
   components:
   - pos: -3.5,0.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 221
   type: LockerChemistryFilled
   components:
@@ -2083,6 +1921,8 @@ entities:
     type: Transform
   - containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 233
     type: ContainerContainer
@@ -2103,6 +1943,8 @@ entities:
     type: Transform
   - containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 235
         - 236
@@ -2163,6 +2005,8 @@ entities:
     type: Transform
   - containers:
       storagebase: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 241
         - 242
@@ -2231,24 +2075,32 @@ entities:
   - pos: -10.5,-17.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 249
   type: CableHV
   components:
   - pos: -10.5,-18.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 250
   type: CableHV
   components:
   - pos: -9.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 251
   type: CableHV
   components:
   - pos: -8.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 252
   type: SalvageLorePaperGamingSpawner
   components:
@@ -2279,30 +2131,40 @@ entities:
   - pos: -7.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 257
   type: CableHV
   components:
   - pos: -6.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 258
   type: CableHV
   components:
   - pos: -5.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 259
   type: CableHV
   components:
   - pos: -8.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 260
   type: CableHV
   components:
   - pos: -5.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 261
   type: CableHV
   components:
@@ -2363,54 +2225,72 @@ entities:
   - pos: 4.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 271
   type: CableHV
   components:
   - pos: 5.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 272
   type: CableHV
   components:
   - pos: 6.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 273
   type: CableHV
   components:
   - pos: 5.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 274
   type: CableHV
   components:
   - pos: 5.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 275
   type: CableHV
   components:
   - pos: 6.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 276
   type: CableHV
   components:
   - pos: 7.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 277
   type: CableHV
   components:
   - pos: 8.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 278
   type: CableHV
   components:
   - pos: 9.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 279
   type: MachineFrame
   components:
@@ -2512,6 +2392,9 @@ entities:
     type: Tag
   - solutions:
       injector:
+        temperature: 293.15
+        canMix: False
+        canReact: True
         maxVol: 15
         reagents:
         - Quantity: 10
@@ -2545,6 +2428,9 @@ entities:
     type: Tag
   - solutions:
       injector:
+        temperature: 293.15
+        canMix: False
+        canReact: True
         maxVol: 15
         reagents:
         - Quantity: 15
@@ -2605,12 +2491,16 @@ entities:
   - pos: 0.5,-16.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 307
   type: MachineFrameDestroyed
   components:
   - pos: 0.5,-15.5
     parent: 0
     type: Transform
+  - bodyType: Static
+    type: Physics
 - uid: 308
   type: ClothingHandsGlovesNitrile
   components:
@@ -2666,6 +2556,8 @@ entities:
     type: Transform
   - containers:
       entity_storage: !type:Container
+        showEnts: False
+        occludes: True
         ents:
         - 315
     type: ContainerContainer
@@ -2883,6 +2775,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 347
   type: GasVentScrubber
   components:
@@ -2892,6 +2786,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 348
   type: GasVentScrubber
   components:
@@ -2901,6 +2797,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 349
   type: GasVentScrubber
   components:
@@ -2909,6 +2807,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 350
   type: GasVentScrubber
   components:
@@ -2918,6 +2818,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 351
   type: DisposalTrunk
   components:
@@ -3046,6 +2948,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 370
   type: GasVentScrubber
   components:
@@ -3054,6 +2958,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 371
   type: GasPassiveVent
   components:
@@ -3063,6 +2969,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 372
   type: GasPipeTJunction
   components:
@@ -3072,6 +2980,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 373
   type: GasPipeBend
   components:
@@ -3081,6 +2991,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 374
   type: GasPipeStraight
   components:
@@ -3090,6 +3002,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 375
   type: GasPipeStraight
   components:
@@ -3099,6 +3013,10 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 376
   type: GasPipeStraight
   components:
@@ -3108,6 +3026,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 377
   type: GasPipeStraight
   components:
@@ -3117,6 +3037,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 378
   type: GasPipeStraight
   components:
@@ -3126,6 +3048,10 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 379
   type: GasPipeBend
   components:
@@ -3135,6 +3061,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 380
   type: GasPipeTJunction
   components:
@@ -3143,6 +3071,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 381
   type: GasPipeTJunction
   components:
@@ -3152,6 +3082,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 382
   type: GasPipeTJunction
   components:
@@ -3161,6 +3093,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 383
   type: GasPipeFourway
   components:
@@ -3169,6 +3103,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 384
   type: GasPipeStraight
   components:
@@ -3178,6 +3114,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 385
   type: GasPipeStraight
   components:
@@ -3187,6 +3125,10 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 386
   type: GasPipeStraight
   components:
@@ -3196,6 +3138,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 387
   type: GasPipeStraight
   components:
@@ -3205,6 +3149,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 388
   type: GasPipeStraight
   components:
@@ -3214,6 +3160,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 389
   type: GasPipeStraight
   components:
@@ -3222,6 +3170,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 390
   type: GasPipeStraight
   components:
@@ -3231,6 +3181,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 391
   type: GasPipeStraight
   components:
@@ -3240,6 +3192,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 392
   type: GasPipeStraight
   components:
@@ -3249,6 +3203,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 393
   type: GasPipeStraight
   components:
@@ -3258,6 +3214,10 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 394
   type: GasPipeStraight
   components:
@@ -3267,6 +3227,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 395
   type: GasPipeStraight
   components:
@@ -3276,6 +3238,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 396
   type: GasPipeStraight
   components:
@@ -3285,6 +3249,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 397
   type: GasPipeStraight
   components:
@@ -3294,6 +3260,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 398
   type: GasPipeStraight
   components:
@@ -3303,6 +3271,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 399
   type: GasPipeStraight
   components:
@@ -3312,6 +3282,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 400
   type: GasPipeStraight
   components:
@@ -3321,6 +3293,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 401
   type: GasPipeStraight
   components:
@@ -3330,6 +3304,8 @@ entities:
     type: Transform
   - color: '#FF1212FF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 402
   type: GasVentPump
   components:
@@ -3338,6 +3314,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 403
   type: GasVentPump
   components:
@@ -3346,6 +3324,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 404
   type: GasVentPump
   components:
@@ -3355,6 +3335,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 405
   type: GasVentPump
   components:
@@ -3364,6 +3346,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 406
   type: GasVentPump
   components:
@@ -3373,6 +3357,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 407
   type: GasVentPump
   components:
@@ -3382,6 +3368,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 408
   type: GasVentPump
   components:
@@ -3391,6 +3379,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 409
   type: GasPipeBend
   components:
@@ -3400,6 +3390,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 410
   type: GasPipeTJunction
   components:
@@ -3408,6 +3400,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 411
   type: GasPipeBend
   components:
@@ -3417,6 +3411,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 412
   type: GasPipeBend
   components:
@@ -3426,6 +3422,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 413
   type: GasPipeBend
   components:
@@ -3435,6 +3433,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 414
   type: GasPipeTJunction
   components:
@@ -3444,6 +3444,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 415
   type: GasPipeTJunction
   components:
@@ -3452,6 +3454,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 416
   type: GasPipeTJunction
   components:
@@ -3461,6 +3465,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 417
   type: GasPipeTJunction
   components:
@@ -3470,6 +3476,10 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 418
   type: GasPipeTJunction
   components:
@@ -3478,6 +3488,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 419
   type: GasPipeTJunction
   components:
@@ -3487,6 +3499,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 420
   type: GasPipeBend
   components:
@@ -3496,6 +3510,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 421
   type: GasPipeBend
   components:
@@ -3505,6 +3521,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 422
   type: GasPipeStraight
   components:
@@ -3514,6 +3532,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 423
   type: GasPipeStraight
   components:
@@ -3523,6 +3543,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 424
   type: GasPipeStraight
   components:
@@ -3532,6 +3554,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 425
   type: GasPipeStraight
   components:
@@ -3541,6 +3565,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 426
   type: GasPipeStraight
   components:
@@ -3550,6 +3576,10 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 427
   type: GasPipeStraight
   components:
@@ -3559,6 +3589,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 428
   type: GasPipeStraight
   components:
@@ -3568,6 +3600,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 429
   type: GasPipeStraight
   components:
@@ -3577,6 +3611,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 430
   type: GasPipeTJunction
   components:
@@ -3585,6 +3621,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 431
   type: GasPipeStraight
   components:
@@ -3593,6 +3631,10 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 432
   type: GasPipeStraight
   components:
@@ -3602,6 +3644,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 433
   type: GasPipeStraight
   components:
@@ -3611,6 +3655,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 434
   type: GasPipeStraight
   components:
@@ -3620,6 +3666,10 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
+  - enabled: True
+    type: AmbientSound
 - uid: 435
   type: GasPipeStraight
   components:
@@ -3629,6 +3679,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 436
   type: GasPipeStraight
   components:
@@ -3638,6 +3690,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 437
   type: GasPipeStraight
   components:
@@ -3647,6 +3701,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 438
   type: GasPipeStraight
   components:
@@ -3656,6 +3712,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 439
   type: GasPipeStraight
   components:
@@ -3665,6 +3723,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 440
   type: GasPipeStraight
   components:
@@ -3674,6 +3734,8 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 441
   type: GasPipeStraight
   components:
@@ -3683,12 +3745,16 @@ entities:
     type: Transform
   - color: '#0335FCFF'
     type: AtmosPipeColor
+  - bodyType: Static
+    type: Physics
 - uid: 442
   type: CableMV
   components:
   - pos: 0.5,-5.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 443
   type: CableMV
   components:
@@ -3701,6 +3767,8 @@ entities:
   - pos: -0.5,-6.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 445
   type: CableMV
   components:
@@ -3743,72 +3811,96 @@ entities:
   - pos: 5.5,-7.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 452
   type: CableMV
   components:
   - pos: 5.5,-8.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 453
   type: CableMV
   components:
   - pos: 5.5,-9.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 454
   type: CableMV
   components:
   - pos: 5.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 455
   type: CableMV
   components:
   - pos: 6.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 456
   type: CableMV
   components:
   - pos: 7.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 457
   type: CableMV
   components:
   - pos: 8.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 458
   type: CableMV
   components:
   - pos: 9.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 459
   type: CableMV
   components:
   - pos: 5.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 460
   type: CableMV
   components:
   - pos: 5.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 461
   type: CableMV
   components:
   - pos: 6.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 462
   type: CableApcExtension
   components:
   - pos: 0.5,-5.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 463
   type: CableApcExtension
   components:
@@ -3936,6 +4028,8 @@ entities:
   - pos: -6.5,-1.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 484
   type: CableApcExtension
   components:
@@ -3966,18 +4060,24 @@ entities:
   - pos: -4.5,2.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 489
   type: CableApcExtension
   components:
   - pos: -2.5,0.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 490
   type: CableApcExtension
   components:
   - pos: -2.5,-0.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 491
   type: CableApcExtension
   components:
@@ -4008,6 +4108,8 @@ entities:
   - pos: -0.5,-6.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 496
   type: CableApcExtension
   components:
@@ -4086,6 +4188,8 @@ entities:
   - pos: 3.5,-8.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 509
   type: CableApcExtension
   components:
@@ -4104,54 +4208,72 @@ entities:
   - pos: 6.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 512
   type: CableApcExtension
   components:
   - pos: 5.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 513
   type: CableApcExtension
   components:
   - pos: 5.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 514
   type: CableApcExtension
   components:
   - pos: 5.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 515
   type: CableApcExtension
   components:
   - pos: 6.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 516
   type: CableApcExtension
   components:
   - pos: 7.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 517
   type: CableApcExtension
   components:
   - pos: 8.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 518
   type: CableApcExtension
   components:
   - pos: 9.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 519
   type: CableApcExtension
   components:
   - pos: 4.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 520
   type: CableApcExtension
   components:
@@ -4212,60 +4334,80 @@ entities:
   - pos: -5.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 530
   type: CableApcExtension
   components:
   - pos: -5.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 531
   type: CableApcExtension
   components:
   - pos: -6.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 532
   type: CableApcExtension
   components:
   - pos: -7.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 533
   type: CableApcExtension
   components:
   - pos: -8.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 534
   type: CableApcExtension
   components:
   - pos: -9.5,-11.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 535
   type: CableApcExtension
   components:
   - pos: -8.5,-10.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 536
   type: CableApcExtension
   components:
   - pos: -10.5,-12.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 537
   type: CableApcExtension
   components:
   - pos: -10.5,-13.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 538
   type: CableApcExtension
   components:
   - pos: -10.5,-14.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 539
   type: CableApcExtension
   components:
@@ -4314,6 +4456,8 @@ entities:
   - pos: -2.5,-15.5
     parent: 0
     type: Transform
+  - enabled: True
+    type: AmbientSound
 - uid: 547
   type: CableApcExtension
   components:

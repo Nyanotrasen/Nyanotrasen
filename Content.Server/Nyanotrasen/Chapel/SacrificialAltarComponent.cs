@@ -1,4 +1,4 @@
-using System.Threading;
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Chapel
@@ -6,7 +6,8 @@ namespace Content.Server.Chapel
     [RegisterComponent]
     public sealed class SacrificialAltarComponent : Component
     {
-        public CancellationTokenSource? CancelToken;
+        [DataField("doAfter")]
+        public DoAfterId? DoAfter;
 
         [DataField("sacrificeTime")]
         public TimeSpan SacrificeTime = TimeSpan.FromSeconds(8.35);

@@ -49,7 +49,7 @@ namespace Content.Server.Chapel
 
         private void AddSacrificeVerb(EntityUid uid, SacrificialAltarComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
-            if (!args.CanAccess || !args.CanInteract || component.CancelToken != null)
+            if (!args.CanAccess || !args.CanInteract || component.DoAfter != null)
                 return;
 
             if (!TryComp<StrapComponent>(uid, out var strap))
@@ -79,15 +79,17 @@ namespace Content.Server.Chapel
 
         private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
         {
-            if (component.CancelToken != null)
-                component.CancelToken.Cancel();
+            if (component.DoAfter != null)
+            {
+                _doAfterSystem.Cancel(component.DoAfter);
+                component.DoAfter = null;
+            }
         }
 
         private void OnDoAfter(EntityUid uid, SacrificialAltarComponent component, SacrificeDoAfterEvent args)
         {
             component.SacrificeStingStream?.Stop();
-            component.CancelToken?.Cancel();
-            component.CancelToken = null;
+            component.DoAfter = null;
 
             if (args.Cancelled || args.Handled || args.Args.Target == null)
                 return;
@@ -143,7 +145,7 @@ namespace Content.Server.Chapel
             if (!Resolve(altar, ref component))
                 return;
 
-            if (component.CancelToken != null)
+            if (component.DoAfter != null)
                 return;
 
             // can't sacrifice yourself
@@ -197,17 +199,18 @@ namespace Content.Server.Chapel
             _popups.PopupEntity(Loc.GetString("altar-popup", ("user", agent), ("target", patient)), altar, Shared.Popups.PopupType.LargeCaution);
 
             component.SacrificeStingStream = _audioSystem.PlayPvs(component.SacrificeSoundPath, altar);
-            component.CancelToken = new CancellationTokenSource();
 
             var ev = new SacrificeDoAfterEvent();
-            var args = new DoAfterArgs(agent, (float) component.SacrificeTime.TotalSeconds, ev, patient, target: patient, used: altar)
+            var args = new DoAfterArgs(agent, (float) component.SacrificeTime.TotalSeconds, ev, altar, target: patient, used: altar)
             {
+                BreakOnDamage = true,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 NeedHand = true
             };
 
-            _doAfterSystem.TryStartDoAfter(args);
+            _doAfterSystem.TryStartDoAfter(args, out var doAfterId);
+            component.DoAfter = doAfterId;
         }
     }
 }
