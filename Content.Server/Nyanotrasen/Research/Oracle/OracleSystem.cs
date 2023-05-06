@@ -98,6 +98,7 @@ namespace Content.Server.Research.Oracle
             "ShellTranquilizer",
             "ShellSoulbreaker",
             "FireExtinguisher",
+            "ClothingBackpackWaterTank",
 
             // Mech non-items and items (mech stuff is all expensive)
             "RipleyHarness",
