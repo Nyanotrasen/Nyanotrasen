@@ -304,6 +304,17 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtRoboticist
+  name: roboticist jumpskirt
+  description: It's a slimming black with reinforced seams; great for industrial work.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSec
   name: security jumpskirt
   description: A jumpskirt made of strong material, providing robust protection.
