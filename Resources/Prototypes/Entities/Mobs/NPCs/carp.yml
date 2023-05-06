@@ -23,7 +23,8 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.40
           density: 80
@@ -115,7 +116,8 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.40
           density: 10

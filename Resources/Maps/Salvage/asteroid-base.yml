@@ -44,8 +44,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
@@ -2439,8 +2437,6 @@ entities:
         - port: Toggle
           uid: 136
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignSecureSmall
   entities:
   - uid: 382

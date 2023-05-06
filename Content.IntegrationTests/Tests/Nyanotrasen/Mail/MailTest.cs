@@ -87,11 +87,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-          bounds: ""-0.45,-0.45,0.45,0.00""
-      mask:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: ""-0.45,-0.45,0.45,0.00""
+        mask:
+        - Impassable
   - type: MailTeleporter
     priorityChance: 0
     fragileBonus: 1
@@ -147,11 +148,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: ""-0.25,-0.25,0.25,0.25""
-      layer:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: ""-0.25,-0.25,0.25,0.25""
+        layer:
+        - Impassable
   - type: Mail
   - type: AccessReader
   - type: Appearance

@@ -44,7 +44,8 @@
   - type: MovementAlwaysTouching
   - type: Fixtures
     fixtures:
-      - shape:
+      fix1:
+        shape:
           !type:PhysShapeCircle
           radius: 0.35
         density: 125 #lower density
