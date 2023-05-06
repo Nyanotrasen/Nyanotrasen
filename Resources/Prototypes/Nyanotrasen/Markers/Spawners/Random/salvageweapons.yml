@@ -1,0 +1,55 @@
+- type: entity
+  parent: MarkerBase
+  id: SalvageWeaponSpawner
+  name: Salvage Weapon Spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+        state: icon
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - WeaponShotgunDoubleBarreled
+      - WeaponShotgunSawn
+      - WeaponFlareGun
+      - WeaponPistolFlintlock
+      - WeaponPistolHandmade
+      - WeaponPistolViper
+      - WeaponPistolMk58
+      - WeaponRevolverPirate
+      - WeaponLaserCarbine
+      - Katana
+      - Spear
+      - BaseBallBat
+      - CombatKnife
+      - Machete
+      - MakeshiftShield
+      - KatanaDulled
+      - ClaymoreDulled
+    chance: 0.15
+
+- type: entity
+  parent: MarkerBase
+  id: SalvageAmmoSpawner
+  name: Salvage Ammo Spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+        state: base
+  - type: RandomSpawner
+    offset: 0
+    prototypes:
+      - BoxBeanbag
+      - BoxLethalshot
+      - BoxShotgunSlug
+      - MagazineBoxPistol
+      - MagazinePistol
+      - SpeedLoaderMagnum
+    chance: 0.20
+    rarePrototypes:
+      - WeaponCapacitorRecharger
+    rareChance: 0.02

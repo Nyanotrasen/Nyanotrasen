@@ -4704,7 +4704,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 632
-  type: RandomItem
+  type: SalvageAmmoSpawner
   components:
   - pos: 7.5,-7.5
     parent: 0
@@ -5034,7 +5034,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 687
-  type: MaintenanceWeaponSpawner
+  type: SalvageWeaponSpawner
   components:
   - pos: 2.5,-2.5
     parent: 0
@@ -5220,7 +5220,7 @@ entities:
     parent: 0
     type: Transform
 - uid: 718
-  type: RandomRockSpawner
+  type: SalvageAmmoSpawner
   components:
   - pos: -4.5,1.5
     parent: 0
