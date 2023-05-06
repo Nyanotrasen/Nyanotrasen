@@ -186,13 +186,104 @@
     FoodEgg: 2
 
 #Breads & Sandwiches
+
+- type: microwaveMealRecipe
+  id: RecipeBananaBread
+  name: banana bread recipe
+  result: FoodBreadBanana
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodBanana: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCornbread
+  name: cornbread recipe
+  result: FoodBreadCorn
+  time: 10
+  solids:
+    FoodDoughCornmeal: 1
+
+- type: microwaveMealRecipe
+  id: RecipeCreamCheeseBread
+  name: cream cheese bread recipe
+  result: FoodBreadCreamcheese
+  time: 15
+  reagents:
+    Milk: 5
+  solids:
+    FoodDough: 1
+    FoodCheeseSlice: 2
+
+- type: microwaveMealRecipe
+  id: RecipeMeatBread
+  name: meat bread recipe
+  result: FoodBreadMeat
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatCutlet: 2
+    FoodCheeseSlice: 2
+
+- type: microwaveMealRecipe
+  id: RecipeMimanaBread
+  name: mimana bread recipe
+  result: FoodBreadMimana
+  time: 15
+  reagents:
+    MilkSoy: 5
+    Nothing: 5 #replace with mimana
+  solids:
+    FoodDough: 1
+    FoodTofu: 1
+
 - type: microwaveMealRecipe
   id: RecipeBread
   name: bread recipe
   result: FoodBreadPlain
+  time: 10
+  solids:
+    FoodDough: 1
+
+- type: microwaveMealRecipe
+  id: RecipeSausageBread
+  name: sausage bread recipe
+  result: FoodBreadSausage
   time: 15
   solids:
     FoodDough: 1
+    FoodMeat: 1 #replace with sausage
+
+- type: microwaveMealRecipe
+  id: RecipeSpiderMeatBread
+  name: spider meat bread recipe
+  result: FoodBreadMeatSpider
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatSpiderCutlet: 2
+    FoodCheeseSlice: 2
+
+- type: microwaveMealRecipe
+  id: RecipeTofuBread
+  name: tofu bread recipe
+  result: FoodBreadTofu
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodTofu: 1
+
+- type: microwaveMealRecipe
+  id: RecipeXenoMeatBread
+  name: xeno meat bread recipe
+  result: FoodBreadMeatXeno
+  time: 15
+  solids:
+    FoodDough: 1
+    FoodMeatXenoCutlet: 2
+    FoodCheeseSlice: 2
+
+#Slices Only
 
 - type: microwaveMealRecipe
   id: RecipeBaguette
@@ -201,71 +292,48 @@
   time: 15
   reagents:
     TableSalt: 5
+    Blackpepper: 5
   solids:
     FoodDough: 1
 
 - type: microwaveMealRecipe
-  id: RecipeBigBread
-  name: big bread recipe
-  result: FoodBigBreadPlain
-  time: 20
+  id: RecipeButteredToast
+  name: buttered toast recipe
+  result: FoodBreadButteredToast
+  time: 5
   solids:
-    FoodDough: 4
-
-# - type: microwaveMealRecipe
-#   id: RecipeSandwich
-#   name: sandwich recipe
-#   result: FoodSandwich
-#   time: 10
-#   solids:
-#     FoodBreadSlice: 2
-#     FoodMeatSteak: 1
-#     FoodCheeseSlice: 1
-
-# - type: microwaveMealRecipe
-#   id: RecipeToastedSandwich
-#   name: toasted sandwich recipe
-#   result: FoodToastedSandwich
-#   time: 5
-#   solids:
-#     FoodSandwich: 1
-
-# - type: microwaveMealRecipe
-#   id: RecipeGrilledCheese
-#   name: grilled cheese recipe
-#   result: FoodGrilledCheese
-#   time: 5
-#   solids:
-#     FoodBreadSlice: 2
-#     FoodCheeseSlice: 1
-
-#- type: microwaveMealRecipe
-#  id: RecipeBaguette
-#  name: baguette recipe
-#  result: FoodBaguette
-#  time: 10
-#  reagents:
-#    Flour: 15
-#    TableSalt: 1
-#    Blackpepper: 1
+    FoodBreadPlainSlice: 1
+    FoodButter: 1
 
 - type: microwaveMealRecipe
-  id: RecipeCreamCheeseBread
-  name: cream cheese bread recipe
-  result: FoodBreadCreamcheese
-  time: 20
+  id: RecipeFrenchToast
+  name: french toast recipe
+  result: FoodBreadFrenchToast
+  time: 5
+  reagents:
+    Milk: 5
+    Egg: 12
   solids:
-    FoodDough: 1
-    FoodCheeseSlice: 2
+    FoodBreadPlainSlice: 1
 
 - type: microwaveMealRecipe
-  id: RecipeBananaBread
-  name: banana bread recipe
-  result: FoodBreadBanana
-  time: 20
+  id: RecipeGarlicBread
+  name: garlic bread slice recipe
+  result: FoodBreadGarlicSlice
+  time: 5
   solids:
-    FoodDough: 1
-    FoodBanana: 1
+    FoodBreadPlainSlice: 1
+    FoodGarlic: 1
+    FoodButter: 1
+
+- type: microwaveMealRecipe
+  id: RecipeJellyToast
+  name: jelly toast recipe
+  result: FoodBreadJellySlice
+  time: 5
+  solids:
+    FoodBreadPlainSlice: 1
+    FoodJellyAmanita: 1 #replace with jelly
 
 - type: microwaveMealRecipe
   id: RecipeMoldyBreadSlice
@@ -277,22 +345,14 @@
     FoodFlyAmanita: 1
 
 - type: microwaveMealRecipe
-  id: RecipeTofuBread
-  name: tofu bread recipe
-  result: FoodBreadTofu
-  time: 20
-  solids:
-    FoodDough: 1
-    FoodTofu: 1
-
-- type: microwaveMealRecipe
-  id: RecipeGarlicBread
-  name: garlic bread slice recipe
-  result: FoodBreadGarlicSlice
+  id: RecipeTwoBreadSlice
+  name: two slice recipe
+  result: FoodBreadTwoSlice
   time: 5
+  reagents:
+    Wine: 5
   solids:
-    FoodBreadPlainSlice: 1
-    FoodGarlic: 1
+    FoodBreadPlainSlice: 2
 
 #Pizzas
 - type: microwaveMealRecipe
@@ -1065,7 +1125,7 @@
     UncookedAnimalProteins: 6
   solids:
     FoodDoughSlice: 3
-    
+
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket
