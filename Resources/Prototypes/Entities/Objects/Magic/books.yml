@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseSpellbook
   name: spellbook
   parent: BaseItem
@@ -12,7 +12,7 @@
     - type: Spellbook
     - type: Tag
       tags:
-      - Book
+      - Spellbook
 
 - type: entity
   id: SpawnSpellbook
