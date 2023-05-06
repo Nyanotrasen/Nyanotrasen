@@ -13,6 +13,11 @@
   - type: Thirst
   - type: Carriable
   - type: Perishable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
 
 - type: entity
   name: Urist McHands
