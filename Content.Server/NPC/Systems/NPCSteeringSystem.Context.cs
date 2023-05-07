@@ -53,6 +53,8 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
+        // Disabling this gets steering working again as of 2023-05-07.
+        /*
         if (xform.Coordinates.TryDistance(EntityManager, steering.LastCoordinates, out var movedDistance) &&
             movedDistance > 1)
         {
@@ -63,6 +65,7 @@ public sealed partial class NPCSteeringSystem
             steering.Status = SteeringStatus.NoPath;
             return false;
         }
+        */
 
         // We've arrived, nothing else matters.
         if (xform.Coordinates.TryDistance(EntityManager, destinationCoordinates, out var distance) &&
