@@ -855,8 +855,6 @@
     available:
       - enum.DamageStateVisualLayers.Base:
           base: Sixteen
-  - type: DynamicPrice
-    price: 3
 
 - type: entity
   parent: BaseItem
