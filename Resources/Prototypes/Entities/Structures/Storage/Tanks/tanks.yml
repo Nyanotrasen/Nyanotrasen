@@ -33,7 +33,7 @@
   id: WeldingFuelTankHighCapacity
   suffix: Full
   components:
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 2500
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi

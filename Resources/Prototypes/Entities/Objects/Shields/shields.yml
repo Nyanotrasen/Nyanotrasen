@@ -48,7 +48,7 @@
                 SheetGlass:
                   min: 2
                   max: 2
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 50
 
 #Security Shields
@@ -129,7 +129,7 @@
                 MaterialWoodPlank:
                   min: 5
                   max: 5
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 150
 
 - type: entity

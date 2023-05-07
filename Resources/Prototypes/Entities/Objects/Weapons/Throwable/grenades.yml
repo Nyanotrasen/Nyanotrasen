@@ -178,7 +178,7 @@
           wiredCase: { state: wired }
           caseWithTrigger: { state: no-payload }
           grenade: { state: complete }
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 25
 
 - type: entity

@@ -77,7 +77,7 @@
       types:
         Piercing: 5
   - type: DeleteOnTrigger
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 0
 
 - type: entity

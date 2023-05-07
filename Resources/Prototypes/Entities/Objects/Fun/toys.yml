@@ -35,7 +35,7 @@
   - type: PhysicalComposition
     materialComposition:
       Cloth: 100
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 5
 
 - type: entity
@@ -380,7 +380,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 10
 
 - type: entity

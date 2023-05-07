@@ -80,7 +80,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 - type: entity
@@ -137,7 +137,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 - type: entity
@@ -189,7 +189,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 50
 
 - type: entity

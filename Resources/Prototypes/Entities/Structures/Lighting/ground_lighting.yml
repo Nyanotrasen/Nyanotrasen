@@ -121,7 +121,7 @@
     damage:
       types:
         Heat: 20
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 25
   - type: AmbientOnPowered
   - type: AmbientSound
