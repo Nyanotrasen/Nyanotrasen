@@ -608,8 +608,10 @@
         - MachineMask
         layer:
         - MachineLayer
-    - type: Recyclable
-    - type: StaticPrice
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 500
+    - type: DynamicPrice
       price: 60
 
 - type: entity

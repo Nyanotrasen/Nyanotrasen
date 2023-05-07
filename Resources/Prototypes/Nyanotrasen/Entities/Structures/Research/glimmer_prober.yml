@@ -108,8 +108,12 @@
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: Appearance
+  - type: GenericVisualizer
     visuals:
-    - type: PowerDeviceVisualizer
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
   - type: PowerSwitch
   - type: CargoSellBlacklist
   - type: GuideHelp

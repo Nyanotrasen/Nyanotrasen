@@ -8,7 +8,7 @@ using Content.Shared.Maps;
 using Content.Shared.DoAfter;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
-using Content.Shared.Eye.Blinding;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Doors.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
@@ -51,9 +51,9 @@ namespace Content.Server.Arachne
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly BuckleSystem _buckleSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
-        [Dependency] private readonly SharedBlindingSystem _blindingSystem = default!;
+        [Dependency] private readonly BlindableSystem _blindableSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-        [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+
         [Dependency] private readonly IServerConsoleHost _host = default!;
         [Dependency] private readonly BloodSuckerSystem _bloodSuckerSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -128,7 +128,7 @@ namespace Content.Server.Arachne
 
         private void OnCocEntInserted(EntityUid uid, CocoonComponent component, EntInsertedIntoContainerMessage args)
         {
-            _blindingSystem.AdjustBlindSources(args.Entity, 1);
+            _blindableSystem.UpdateIsBlind(args.Entity);
             EnsureComp<StunnedComponent>(args.Entity);
 
             if (TryComp<ReplacementAccentComponent>(args.Entity, out var currentAccent))
@@ -155,7 +155,7 @@ namespace Content.Server.Arachne
             }
 
             RemComp<StunnedComponent>(args.Entity);
-            _blindingSystem.AdjustBlindSources(args.Entity, -1);
+            _blindableSystem.UpdateIsBlind(args.Entity);
         }
 
         private void OnDamageChanged(EntityUid uid, CocoonComponent component, DamageChangedEvent args)
@@ -201,7 +201,7 @@ namespace Content.Server.Arachne
                     _bloodSuckerSystem.StartSuccDoAfter(args.User, victim.Value, sucker, stream, false); // start doafter
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
-                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
+                Icon = new SpriteSpecifier.Texture(new ("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
                 Priority = 2
             };
             args.Verbs.Add(verb);
@@ -363,11 +363,12 @@ namespace Content.Server.Arachne
                 return;
 
             // todo: our species should use scale visuals probably...
-            if (spawnProto == "CocoonedHumanoid" && TryComp<SpriteComponent>(args.Args.Target.Value, out var sprite))
-            {
-                // why the fuck is this only available as a console command.
-                _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y);
-            } else if (TryComp<PhysicsComponent>(args.Args.Target.Value, out var physics))
+            // TODO: We need a client-accessible notion of scale influence here.
+            /* if (spawnProto == "CocoonedHumanoid" && TryComp<SpriteComponent>(args.Args.Target.Value, out var sprite)) */
+            /* { */
+            /*     // why the fuck is this only available as a console command. */
+            /*     _host.ExecuteCommand(null, "scale " + cocoon + " " + sprite.Scale.Y); */
+            if (TryComp<PhysicsComponent>(args.Args.Target.Value, out var physics))
             {
                 var scale = Math.Clamp(1 / (35 / physics.FixturesMass), 0.35, 2.5);
                 _host.ExecuteCommand(null, "scale " + cocoon + " " + scale);

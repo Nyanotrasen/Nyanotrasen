@@ -27,7 +27,6 @@
       - id: Stunbaton
         amount: 3
       - id: BoxFlashbang
-        amount: 1
       - id: Flash
         amount: 3
       - id: Bola
@@ -59,9 +58,7 @@
   - type: StorageFill
     contents:
       - id: BoxHandcuff
-        amount: 1
       - id: BoxSechud
-        amount: 1
 #      - SecBelt
 #      - SecGasmask
       - id: HyperlinkBookSpaceLaw
