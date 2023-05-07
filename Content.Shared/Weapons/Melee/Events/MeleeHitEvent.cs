@@ -50,6 +50,10 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </summary>
     public bool? HeavyAttack;
 
+    /// The melee weapon used.
+    /// </summary>
+    public readonly EntityUid Weapon;
+
     /// <summary>
     /// Check if this is true before attempting to do something during a melee attack other than changing/adding bonus damage. <br/>
     /// For example, do not spend charges unless <see cref="IsHit"/> equals true.
@@ -59,10 +63,11 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </remarks>
     public bool IsHit = true;
 
-    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, DamageSpecifier baseDamage, bool heavyAttack)
+    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, bool heavyAttack)
     {
         HitEntities = hitEntities;
         User = user;
+        Weapon = weapon;
         BaseDamage = baseDamage;
         HeavyAttack = heavyAttack;
     }

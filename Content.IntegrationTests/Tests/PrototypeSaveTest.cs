@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Shared.Coordinates;
+using Content.Shared.Sound.Components;
 using NUnit.Framework;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
@@ -18,6 +19,7 @@ using Robust.Shared.Serialization.Markdown.Mapping;
 using Robust.Shared.Serialization.Markdown.Validation;
 using Robust.Shared.Serialization.Markdown.Value;
 using Robust.Shared.Serialization.TypeSerializers.Interfaces;
+using Robust.Shared.Timing;
 
 namespace Content.IntegrationTests.Tests;
 
@@ -37,6 +39,64 @@ public sealed class PrototypeSaveTest
         "Singularity", // physics collision uses "AllMask" (-1). The flag serializer currently fails to save this because this features un-named bits.
         "constructionghost",
         "MobGlimmerWisp", // fucking combat mode bullshit
+
+        // These ones are from the serialization change to alwayswrite.
+        // These should NOT be added to.
+        // 99% of these are going to be changing the physics bodytype (where the entity is anchored)
+        // or some ambientsound change.
+        "GasVentScrubber",
+        "GasPassiveVent",
+        "CableHV",
+        "ParticleAcceleratorFuelChamberUnfinished",
+        "ComfyChair",
+        "PlasticFlapsOpaque",
+        "ParticleAcceleratorEmitterRightUnfinished",
+        "PlasticFlapsAirtightClear",
+        "SignalControlledValve",
+        "SignalControlledValve",
+        "GasPipeTJunction",
+        "GasFilter",
+        "GasOutletInjector",
+        "GasPressurePump",
+        "SurveillanceWirelessCameraAnchoredEntertainment",
+        "GasPort",
+        "Chair",
+        "GasMixer",
+        "ParticleAcceleratorPowerBoxUnfinished",
+        "GasValve",
+        "Thruster",
+        "BoxingBell",
+        "CableApcExtension",
+        "PlasticFlapsClear",
+        "ClothingBackpackChameleon",
+        "AMEControllerUnanchored",
+        "GasPipeFourway",
+        "NuclearBomb",
+        "PlasticFlapsAirtightOpaque",
+        "ParticleAcceleratorControlBoxUnfinished",
+        "GasPipeHalf",
+        "GasVolumePump",
+        "ParticleAcceleratorEmitterLeftUnfinished",
+        "GasMixerFlipped",
+        "ToiletDirtyWater",
+        "GasPipeBend",
+        "ParticleAcceleratorEndCapUnfinished",
+        "GasPipeStraight",
+        "MachineFrameDestroyed",
+        "ChairPilotSeat",
+        "VehiclePussyWagonDestroyed",
+        "Gyroscope",
+        "ParticleAcceleratorEmitterCenterUnfinished",
+        "ToiletEmpty",
+        "GasPassiveGate",
+        "CableMV",
+        "ClothingBackpackChameleonFill",
+        "GasDualPortVentPump",
+        "GasVentPump",
+        "PressureControlledValve",
+        "GasFilterFlipped",
+        "SurveillanceWirelessCameraAnchoredConstructed",
+
     };
 
     [Test]
@@ -109,16 +169,19 @@ public sealed class PrototypeSaveTest
                 foreach (var prototype in prototypes)
                 {
                     uid = entityMan.SpawnEntity(prototype.ID, testLocation);
-                    server.RunTicks(1);
 
                     // get default prototype data
                     Dictionary<string, MappingDataNode> protoData = new();
                     try
                     {
+                        context.WritingReadingPrototypes = true;
+
                         foreach (var (compType, comp) in prototype.Components)
                         {
-                            protoData.Add(compType, seriMan.WriteValueAs<MappingDataNode>(comp.Component.GetType(), comp.Component, context: context));
+                            protoData.Add(compType, seriMan.WriteValueAs<MappingDataNode>(comp.Component.GetType(), comp.Component, alwaysWrite: true, context: context));
                         }
+
+                        context.WritingReadingPrototypes = false;
                     }
                     catch (Exception e)
                     {
@@ -140,7 +203,7 @@ public sealed class PrototypeSaveTest
                         MappingDataNode compMapping;
                         try
                         {
-                            compMapping = seriMan.WriteValueAs<MappingDataNode>(compType, component, context: context);
+                            compMapping = seriMan.WriteValueAs<MappingDataNode>(compType, component, alwaysWrite: true, context: context);
                         }
                         catch (Exception e)
                         {
@@ -182,6 +245,7 @@ public sealed class PrototypeSaveTest
         ITypeSerializer<EntityUid, ValueDataNode>
     {
         public SerializationManager.SerializerProvider SerializerProvider { get; }
+        public bool WritingReadingPrototypes { get; set; }
 
         public TestEntityUidContext()
         {
@@ -199,15 +263,14 @@ public sealed class PrototypeSaveTest
             IDependencyCollection dependencies, bool alwaysWrite = false,
             ISerializationContext? context = null)
         {
-            // EntityUids should be nullable and have no initial value.
-            throw new InvalidOperationException("Serializing prototypes should not attempt to write entity Uids");
+            return new ValueDataNode(value.ToString());
         }
 
         EntityUid ITypeReader<EntityUid, ValueDataNode>.Read(ISerializationManager serializationManager,
             ValueDataNode node,
             IDependencyCollection dependencies,
             SerializationHookContext hookCtx,
-            ISerializationContext? context, ISerializationManager.InstantiationDelegate<EntityUid>? instanceProvider = null)
+            ISerializationContext? context, ISerializationManager.InstantiationDelegate<EntityUid>? instanceProvider)
         {
             return EntityUid.Invalid;
         }

@@ -3314,3 +3314,13 @@ Entries:
   - {message: "Spaceship Northway has been removed from map rotation.", type: Tweak}
   id: 534
   time: '2023-04-29T08:00:00.0000000+00:00'
+- author: Vordenburg
+  changes:
+  - {message: "Merged over 300 changes from Space Station 14. Report any bugs or regressions.", type: Add}
+  id: 535
+  time: '2023-05-07T08:00:00.0000000+00:00'
+- author: jick
+  changes:
+  - {message: "Fixed changelog notifications not working.", type: Fix}
+  id: 536
+  time: '2023-05-07T08:00:00.0000000+00:00'

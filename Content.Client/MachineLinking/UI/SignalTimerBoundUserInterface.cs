@@ -1,71 +1,81 @@
 using Content.Shared.MachineLinking;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameObjects;
+using Robust.Shared.Timing;
 
-namespace Content.Client.MachineLinking.UI
+namespace Content.Client.MachineLinking.UI;
+
+public sealed class SignalTimerBoundUserInterface : BoundUserInterface
 {
-    /// <summary>
-    /// Initializes a <see cref="SignalTimerWindow"/> and updates it when new server messages are received.
-    /// Adapted from HandLabeler code by rolfero and Watermelon914 on GitHub.
-    /// </summary>
-    public sealed class SignalTimerBoundUserInterface : BoundUserInterface
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
+    private SignalTimerWindow? _window;
+
+    public SignalTimerBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
     {
-        private SignalTimerWindow? _window;
-
-        public SignalTimerBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
-        {
-        }
-
-        protected override void Open()
-        {
-            base.Open();
-
-            _window = new SignalTimerWindow(this);
-            if (State != null)
-                UpdateState(State);
-
-            _window.OpenCentered();
-
-            _window.OnClose += Close;
-            _window.OnTimeEntered += OnTimeChanged;
-
-        }
-
-        private void OnTimeChanged(float newTime)
-        {
-            SendMessage(new SignalTimerLengthChangedMessage(newTime));
-        }
-
-        /// <summary>
-        /// Update the UI state based on server-sent info
-        /// </summary>
-        /// <param name="state"></param>
-        protected override void UpdateState(BoundUserInterfaceState state)
-        {
-            base.UpdateState(state);
-            if (_window == null || state is not SignalTimerState cast)
-                return;
-
-            _window.SetCurrentTime(cast.Length.ToString());
-            _window.HandleState(cast.State, cast.Remaining);
-        }
-
-        public void OnStart()
-        {
-            SendMessage(new SignalTimerStartedMessage());
-        }
-
-        public void OnCancel()
-        {
-            SendMessage(new SignalTimerCancelledMessage());
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            if (!disposing) return;
-            _window?.Dispose();
-        }
     }
 
+    protected override void Open()
+    {
+        base.Open();
+
+        _window = new SignalTimerWindow(this);
+
+        if (State != null)
+            UpdateState(State);
+
+        _window.OpenCentered();
+        _window.OnClose += Close;
+        _window.OnCurrentTextChanged += OnTextChanged;
+        _window.OnCurrentDelayMinutesChanged += OnDelayChanged;
+        _window.OnCurrentDelaySecondsChanged += OnDelayChanged;
+    }
+
+    public void OnStartTimer()
+    {
+        SendMessage(new SignalTimerStartMessage());
+    }
+
+    private void OnTextChanged(string newText)
+    {
+        SendMessage(new SignalTimerTextChangedMessage(newText));
+    }
+
+    private void OnDelayChanged(string newDelay)
+    {
+        if (_window == null)
+            return;
+        SendMessage(new SignalTimerDelayChangedMessage(_window.GetDelay()));
+    }
+
+    public TimeSpan GetCurrentTime()
+    {
+        return _gameTiming.CurTime;
+    }
+
+    /// <summary>
+    /// Update the UI state based on server-sent info
+    /// </summary>
+    /// <param name="state"></param>
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+
+        if (_window == null || state is not SignalTimerBoundUserInterfaceState cast)
+            return;
+
+        _window.SetCurrentText(cast.CurrentText);
+        _window.SetCurrentDelayMinutes(cast.CurrentDelayMinutes);
+        _window.SetCurrentDelaySeconds(cast.CurrentDelaySeconds);
+        _window.SetShowText(cast.ShowText);
+        _window.SetTriggerTime(cast.TriggerTime);
+        _window.SetTimerStarted(cast.TimerStarted);
+        _window.SetHasAccess(cast.HasAccess);
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        if (!disposing) return;
+        _window?.Dispose();
+    }
 }

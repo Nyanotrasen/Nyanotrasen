@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: AutolatheMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: autolathe machine board
@@ -430,7 +430,7 @@
     - type: Sprite
       state: medical
     - type: MachineBoard
-      prototype: chem_dispenser
+      prototype: ChemDispenser
       requirements:
         Capacitor: 1
         Manipulator: 1
@@ -554,6 +554,11 @@
     - type: ReverseEngineering
       recipes:
         - SubstationMachineCircuitboard
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -611,6 +616,11 @@
       difficulty: 2
       recipes:
         - GeneratorPlasmaMachineCircuitboard
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
 
 - type: entity
   id: ThrusterMachineCircuitboard
@@ -655,6 +665,11 @@
       difficulty: 2
       recipes:
         - GeneratorUraniumMachineCircuitboard
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
 
 - type: entity
   id: ReagentGrinderMachineCircuitboard
@@ -722,6 +737,21 @@
       difficulty: 3
       recipes:
         - StasisBedMachineCircuitboard
+
+- type: entity
+  id: MaterialReclaimerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: material reclaimer machine board
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: MaterialReclaimer
+      requirements:
+        Manipulator: 2
+      materialRequirements:
+        Steel: 5
+        Plastic: 5
 
 - type: entity
   id: OreProcessorMachineCircuitboard

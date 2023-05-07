@@ -6,7 +6,7 @@
   suffix: Empty
   components:
   - type: DynamicPrice
-    price: 1200
+    price: 750
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
     state: fueltank
@@ -21,8 +21,6 @@
   parent: WeldingFuelTank
   suffix: Full
   components:
-  - type: DynamicPrice
-    price: 1200
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -35,8 +33,8 @@
   id: WeldingFuelTankHighCapacity
   suffix: Full
   components:
-  - type: StaticPrice
-    price: 3000
+  - type: DynamicPrice
+    price: 2500
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
     state: highfueltank
@@ -59,7 +57,7 @@
   suffix: Empty
   components:
   - type: DynamicPrice
-    price: 1200
+    price: 500
   - type: Sprite
     sprite: Structures/Storage/tanks.rsi
     state: watertank
@@ -69,8 +67,6 @@
   id: WaterTankFull
   suffix: Full
   components:
-  - type: DynamicPrice
-    price: 1200
   - type: SolutionContainerManager
     solutions:
       tank:
@@ -91,11 +87,12 @@
         reagents:
         - ReagentId: Water
           Quantity: 500
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: tank
-    reagents:
-      - Water
-    unitsPerSecond: 0.5
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 0.5
 
 - type: entity
   parent: StorageTank

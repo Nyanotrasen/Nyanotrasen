@@ -30,15 +30,11 @@
     sprite: Clothing/OuterClothing/Bio/cmo.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Bio/cmo.rsi
-  - type: DiseaseProtection
-    protection: 0.3
   - type: Tag
     tags:
       - FullBodyOuter
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.5
+  - type: DiseaseProtection
+    protection: 0.5
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -54,10 +50,6 @@
   - type: Tag
     tags:
       - FullBodyOuter
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.5
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -73,10 +65,8 @@
   - type: Tag
     tags:
       - FullBodyOuter
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.5
+  - type: DiseaseProtection
+    protection: 0.3
 
 - type: entity
   parent: ClothingOuterBioGeneral
@@ -92,10 +82,8 @@
   - type: Tag
     tags:
       - FullBodyOuter
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.5
+  - type: DiseaseProtection
+    protection: 0.3
 
 - type: entity
   parent: ClothingOuterBioCmo
@@ -111,7 +99,5 @@
   - type: Tag
     tags:
       - FullBodyOuter
-  - type: Armor
-    modifiers:
-      coefficients:
-        Caustic: 0.5
+  - type: DiseaseProtection
+    protection: 0.5
