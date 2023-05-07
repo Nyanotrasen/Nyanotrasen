@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Body.Systems;
 using Content.Server.Cargo.Components;
@@ -6,6 +6,7 @@ using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Administration;
 using Content.Shared.Body.Components;
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Materials;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -107,7 +108,23 @@ public sealed partial class PricingSystem : EntitySystem
         var partRatio = totalPartsPresent / (double) totalParts;
         var partPenalty = component.Price * (1 - partRatio) * component.MissingBodyPartPenalty;
 
-        args.Price += (component.Price - partPenalty) * (_mobStateSystem.IsAlive(uid, state) ? 1.0 : component.DeathPenalty);
+        var basePrice = (component.Price - partPenalty) * (_mobStateSystem.IsAlive(uid, state) ? 1.0 : component.DeathPenalty);
+
+        if (body.Prototype != null &&
+            _prototypeManager.TryIndex<BodyPrototype>(body.Prototype, out var bodyProto))
+        {
+            var supply = GetMobSupply(bodyProto);
+            var demand = GetMobDemand(bodyProto);
+
+            args.Price += GetSupplyDemandPrice(basePrice, bodyProto.HalfPriceSurplus, supply, demand);
+
+            if (args.Sale)
+                AddMobSupply(bodyProto, 1);
+        }
+        else
+        {
+            args.Price += basePrice;
+        }
     }
 
     private double GetSolutionPrice(SolutionContainerManagerComponent component, bool sale = false)
@@ -134,12 +151,20 @@ public sealed partial class PricingSystem : EntitySystem
         return price;
     }
 
-    private double GetMaterialPrice(PhysicalCompositionComponent component)
+    private double GetMaterialPrice(PhysicalCompositionComponent component, bool sale = false)
     {
         double price = 0;
         foreach (var (id, quantity) in component.MaterialComposition)
         {
-            price += _prototypeManager.Index<MaterialPrototype>(id).Price * quantity;
+            var proto = _prototypeManager.Index<MaterialPrototype>(id);
+
+            var supply = GetMaterialSupply(proto);
+            var demand = GetMaterialDemand(proto);
+
+            price += GetSupplyDemandPrice(quantity * proto.Price, proto.HalfPriceSurplus, supply, demand);
+
+            if (sale)
+                AddMaterialSupply(proto, quantity);
         }
         return price;
     }
@@ -200,12 +225,12 @@ public sealed partial class PricingSystem : EntitySystem
         var price = ev.Price;
         //TODO: Add an OpaqueToAppraisal component or similar for blocking the recursive descent into containers, or preventing material pricing.
         // DO NOT FORGET TO UPDATE ESTIMATED PRICING
-        price += GetMaterialsPrice(uid);
-        price += GetSolutionsPrice(uid);
+        price += GetMaterialsPrice(uid, sale);
+        price += GetSolutionsPrice(uid, sale);
 
         // Can't use static price with stackprice
         var oldPrice = price;
-        price += GetStackPrice(uid);
+        price += GetStackPrice(uid, sale);
 
         if (oldPrice.Equals(price))
         {
@@ -226,14 +251,14 @@ public sealed partial class PricingSystem : EntitySystem
         return price;
     }
 
-    private double GetMaterialsPrice(EntityUid uid)
+    private double GetMaterialsPrice(EntityUid uid, bool sale = false)
     {
         double price = 0;
 
         if (HasComp<MaterialComponent>(uid) &&
             TryComp<PhysicalCompositionComponent>(uid, out var composition))
         {
-            var matPrice = GetMaterialPrice(composition);
+            var matPrice = GetMaterialPrice(composition, sale);
             if (TryComp<StackComponent>(uid, out var stack))
                 matPrice *= stack.Count;
 
@@ -264,32 +289,32 @@ public sealed partial class PricingSystem : EntitySystem
         return price;
     }
 
-    private double GetSolutionsPrice(EntityUid uid)
+    private double GetSolutionsPrice(EntityUid uid, bool sale = false)
     {
         var price = 0.0;
 
         if (TryComp<SolutionContainerManagerComponent>(uid, out var solComp))
         {
-            price += GetSolutionPrice(solComp);
+            price += GetSolutionPrice(solComp, sale);
         }
 
         return price;
     }
 
-    private double GetSolutionsPrice(EntityPrototype prototype)
+    private double GetSolutionsPrice(EntityPrototype prototype, bool sale = false)
     {
         var price = 0.0;
 
         if (prototype.Components.TryGetValue(_factory.GetComponentName(typeof(SolutionContainerManagerComponent)), out var solManager))
         {
             var solComp = (SolutionContainerManagerComponent) solManager.Component;
-            price += GetSolutionPrice(solComp);
+            price += GetSolutionPrice(solComp, sale);
         }
 
         return price;
     }
 
-    private double GetStackPrice(EntityUid uid)
+    private double GetStackPrice(EntityUid uid, bool sale = false)
     {
         var price = 0.0;
 
@@ -297,13 +322,19 @@ public sealed partial class PricingSystem : EntitySystem
             TryComp<StackComponent>(uid, out var stack) &&
             !HasComp<MaterialComponent>(uid)) // don't double count material prices
         {
-            price += stack.Count * stackPrice.Price;
+            var supply = GetStackSupply(stack);
+            var demand = GetStackDemand(stackPrice, stack);
+
+            if (sale)
+                AddStackSupply(stack, stack.Count);
+
+            price += GetSupplyDemandPrice(stack.Count * stackPrice.Price, stackPrice.HalfPriceSurplus, supply, demand);
         }
 
         return price;
     }
 
-    private double GetStackPrice(EntityPrototype prototype)
+    private double GetStackPrice(EntityPrototype prototype, bool sale = false)
     {
         var price = 0.0;
 
@@ -313,7 +344,13 @@ public sealed partial class PricingSystem : EntitySystem
         {
             var stackPrice = (StackPriceComponent) stackpriceProto.Component;
             var stack = (StackComponent) stackProto.Component;
-            price += stack.Count * stackPrice.Price;
+            var supply = GetStackSupply(stack);
+            var demand = GetStackDemand(stackPrice, stack);
+
+            if (sale)
+                AddStackSupply(stack, stack.Count);
+
+            price += GetSupplyDemandPrice(stack.Count * stackPrice.Price, stackPrice.HalfPriceSurplus, supply, demand);
         }
 
         return price;
