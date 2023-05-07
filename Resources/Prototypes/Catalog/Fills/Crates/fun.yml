@@ -5,29 +5,21 @@
   - type: StorageFill
     contents:
       - id: PlushieBee
-        amount: 1
       - id: PlushieNar
-        amount: 1
       - id: PlushieCarp
-        amount: 1
       - id: PlushieNuke
-        amount: 1
       - id: PlushieSlime
-        amount: 1
       - id: PlushieSnake
-        amount: 1
       - id: PlushieVox
-        amount: 1
       - id: PlushieRouny
-        amount: 1
       - id: PlushieRatvar
-        amount: 1
-      - id: PlushieSharkBlue
-        amount: 1
       - id: PlushieMoffRandom
-        amount: 2
+      - id: PlushieSharkBlue
+        orGroup: PlushieShark
+      - id: PlushieSharkGrey
+        orGroup: PlushieShark
       - id: PlushieAtmosian
-        amount: 1
+      - id: PlushieXeno
 
 - type: entity
   id: CrateFunInstrumentsVariety
