@@ -1,45 +1,42 @@
 using Content.Shared.MachineLinking;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Radio;
 
-namespace Content.Server.MachineLinking.Components
+namespace Content.Server.MachineLinking.Components;
+
+[RegisterComponent]
+public sealed class SignalTimerComponent : Component
 {
+    [DataField("delay"), ViewVariables(VVAccess.ReadWrite)]
+    public double Delay = 5;
+
     /// <summary>
-    ///     This is a modified version of the signal switch.
+    ///     This shows the Label: text box in the UI.
     /// </summary>
+    [DataField("canEditLabel"), ViewVariables(VVAccess.ReadWrite)]
+    public bool CanEditLabel = true;
 
-    [RegisterComponent]
-    public sealed class SignalTimerComponent : Component
-    {
-        [DataField("length")]
-        public float Length = 10f;
+    /// <summary>
+    ///     The label, used for TextScreen visuals currently.
+    /// </summary>
+    [DataField("label"), ViewVariables(VVAccess.ReadWrite)]
+    public string Label = "";
 
-        [DataField("targetTime")]
-        public TimeSpan TargetTime;
+    /// <summary>
+    ///     The port that gets signaled when the timer triggers.
+    /// </summary>
+    [DataField("triggerPort", customTypeSerializer: typeof(PrototypeIdSerializer<TransmitterPortPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public string TriggerPort = "Timer";
 
-        /// <summary>
-        ///     The port that gets signaled when the switch turns on.
-        /// </summary>
-        [DataField("onPort", customTypeSerializer: typeof(PrototypeIdSerializer<TransmitterPortPrototype>))]
-        public string OnPort = "TimerOn";
+    /// <summary>
+    ///     The port that gets signaled when the timer starts.
+    /// </summary>
+    [DataField("startPort", customTypeSerializer: typeof(PrototypeIdSerializer<TransmitterPortPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    public string StartPort = "Start";
 
-        /// <summary>
-        ///     The port that gets signaled when the switch turns off.
-        /// </summary>
-        [DataField("offPort", customTypeSerializer: typeof(PrototypeIdSerializer<TransmitterPortPrototype>))]
-        public string OffPort = "TimerOff";
-
-        [DataField("timerOn")]
-        public bool TimerOn;
-
-        [DataField("clickSound")]
-        public SoundSpecifier ClickSound { get; set; } = new SoundPathSpecifier("/Audio/Machines/lightswitch.ogg");
-
-        [DataField("endAlertChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-        public string? EndAlertChannel;
-
-        [DataField("endAlertMessage")]
-        public string EndAlertMessage = "signal-timer-component-end-alert-default";
-    }
+    /// <summary>
+    ///     If not null, this timer will play this sound when done.
+    /// </summary>
+    [DataField("doneSound"), ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier? DoneSound;
 }

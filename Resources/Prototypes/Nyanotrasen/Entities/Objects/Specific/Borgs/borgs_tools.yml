@@ -13,10 +13,12 @@
     solutions:
       hypospray:
         maxVol: 30
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: hypospray
-    reagents:
-      - Epinephrine
+    generated:
+      reagents:
+        - ReagentId: Epinephrine
+          Quantity: 1
   - type: ExaminableSolution
     solution: hypospray
   - type: Hypospray
@@ -32,14 +34,29 @@
     solutions:
       hypospray:
         maxVol: 15
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: hypospray
-    reagents:
-      - Epinephrine
-      - Tricordrazine
-      - Dylovene
-      - Bicaridine
-      - Kelotane
+    generated:
+      reagents:
+        - ReagentId: Epinephrine
+          Quantity: 1
+  - type: SolutionRegenerationSwitcher
+    options:
+      - reagents:
+        - ReagentId: Epinephrine
+          Quantity: 1
+      - reagents:
+        - ReagentId: Tricordrazine
+          Quantity: 1
+      - reagents:
+        - ReagentId: Dylovene
+          Quantity: 1
+      - reagents:
+        - ReagentId: Bicaridine
+          Quantity: 1
+      - reagents:
+        - ReagentId: Kelotane
+          Quantity: 1
 
 - type: entity
   parent: BaseItem

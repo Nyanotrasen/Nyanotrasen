@@ -51,10 +51,6 @@
     bloodReagent: DemonsBlood
     bloodMaxVolume: 100
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 200
@@ -109,10 +105,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -132,11 +124,12 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 3.5
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: melee
-    unitsPerSecond: 0.15
-    reagents:
-      - Nocturine
+    generated:
+      reagents:
+        - ReagentId: Nocturine
+          Quantity: 0.15
   - type: BloodSucker
     unitsToSucc: 35
     injectWhenSucc: true
@@ -201,10 +194,11 @@
     - type: MobMover
     - type: HTN
       rootTask: SimpleHostileCompound
-    - type: GhostTakeoverAvailable
+    - type: GhostRole
       makeSentient: true
       name: ghost-role-information-giant-spider-vampire-name
       description: ghost-role-information-giant-spider-vampire-description
+    - type: GhostTakeoverAvailable
 
 - type: entity
   parent: SimpleMobBase
@@ -236,10 +230,11 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: CancerMouse
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     name: ghost-role-information-cancer-mouse-name
     description: ghost-role-information-cancer-mouse-description
+  - type: GhostTakeoverAvailable
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -314,11 +309,11 @@
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound
+      - Recyclable
   - type: NoSlip
   - type: MobPrice
     price: 100 # rat wealth
   - type: FelinidFood
-  - type: Recyclable
   - type: CanEscapeInventory
   - type: Extractable
     grindableSolutionName: food

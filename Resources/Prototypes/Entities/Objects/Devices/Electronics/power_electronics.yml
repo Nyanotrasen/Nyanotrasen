@@ -13,6 +13,11 @@
     - type: ReverseEngineering
       recipes:
         - APCElectronics
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 50
+      chemicalComposition:
+        Silicon: 20
 
 # Wallmount Substation
 - type: entity

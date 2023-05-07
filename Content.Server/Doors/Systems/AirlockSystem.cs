@@ -1,5 +1,3 @@
-using Content.Server.MachineLinking.Events;
-using Content.Server.MachineLinking.System;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Tools.Components;
@@ -10,6 +8,8 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Content.Shared.Wires;
+using Content.Server.MachineLinking.Events;
+using Content.Server.MachineLinking.System;
 
 namespace Content.Server.Doors.Systems
 {
@@ -24,6 +24,8 @@ namespace Content.Server.Doors.Systems
             base.Initialize();
 
             SubscribeLocalEvent<AirlockComponent, ComponentInit>(OnAirlockInit);
+            SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
+
             SubscribeLocalEvent<AirlockComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<AirlockComponent, DoorStateChangedEvent>(OnStateChanged);
             SubscribeLocalEvent<AirlockComponent, BeforeDoorOpenedEvent>(OnBeforeDoorOpened);
@@ -31,7 +33,7 @@ namespace Content.Server.Doors.Systems
             SubscribeLocalEvent<AirlockComponent, ActivateInWorldEvent>(OnActivate, before: new [] {typeof(DoorSystem)});
             SubscribeLocalEvent<AirlockComponent, DoorGetPryTimeModifierEvent>(OnGetPryMod);
             SubscribeLocalEvent<AirlockComponent, BeforeDoorPryEvent>(OnDoorPry);
-            SubscribeLocalEvent<AirlockComponent, SignalReceivedEvent>(OnSignalReceived);
+
         }
 
         private void OnAirlockInit(EntityUid uid, AirlockComponent component, ComponentInit args)
@@ -39,6 +41,14 @@ namespace Content.Server.Doors.Systems
             if (TryComp<ApcPowerReceiverComponent>(uid, out var receiverComponent))
             {
                 Appearance.SetData(uid, DoorVisuals.Powered, receiverComponent.Powered);
+            }
+        }
+
+        private void OnSignalReceived(EntityUid uid, AirlockComponent component, SignalReceivedEvent args)
+        {
+            if (args.Port == component.AutoClosePort)
+            {
+                component.AutoClose = false;
             }
         }
 
@@ -233,14 +243,6 @@ namespace Content.Server.Doors.Systems
 
             component.BoltsDown = value;
             UpdateBoltLightStatus(uid, component);
-        }
-
-        private void OnSignalReceived(EntityUid uid, AirlockComponent component, SignalReceivedEvent args)
-        {
-            if (args.Port == component.AutoClosePort)
-            {
-                component.AutoClose = false;
-            }
         }
     }
 }
