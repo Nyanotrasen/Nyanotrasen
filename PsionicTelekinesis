@@ -1,0 +1,64 @@
+using System;
+using Content.Server.Nyanotrasen.Abilities.Shared;
+using Content.Server.Nyanotrasen.Abilities.Shared.Extract;
+using Content.Server.Nyanotrasen.Abilities.Shared.Targeting;
+using Content.Server.Nyanotrasen.Interfaces;
+using Robust.Shared.GameObjects;
+
+namespace Content.Server.Nyanotrasen.Abilities.Psionics.Abilities
+{
+    public class PsionicTelekinesis : CooldownAbility, IUseTargetedAbility
+    {
+        public void UseTargetedAbility(AbilityEventArgs eventArgs, IEntity user, IEntity target)
+        {
+            if (OnCooldown())
+            {
+                return;
+            }
+
+            var player = user.GetComponent<PlayerComponent>();
+
+            if (!player.HasTelekinesis)
+            {
+                eventArgs.User.PopupMessage(Loc.GetString("You don't have telekinesis!"));
+                return;
+            }
+
+            if (eventArgs.Target.HasComponent<IgnoreTelekinesisComponent>())
+            {
+                eventArgs.User.PopupMessage(Loc.GetString("You can't move that!"));
+                return;
+            }
+
+            if (eventArgs.Target == user)
+            {
+                eventArgs.User.PopupMessage(Loc.GetString("You can't move yourself!"));
+                return;
+            }
+
+            // Move object off target
+            if (target.HasComponent<HandsComponent>())
+            {
+                target.GetComponent<HandsComponent>().Drop(raiseError: false);
+            }
+            else if (target.TryGetComponent(out HoldingComponent holdingComponent))
+            {
+                holdingComponent.Drop();
+            }
+
+            // Start cooldown
+            SetCooldown();
+
+            eventArgs.User.PopupMessage(Loc.GetString("You move {0:theName} with telekinesis!", target));
+        }
+
+        protected override void OnAddedToContainer()
+        {
+            base.OnAddedToContainer();
+
+            CooldownDuration = TimeSpan.FromSeconds(10);
+            MaxCharges = 1;
+            RechargeDuration = TimeSpan.FromSeconds(30);
+        }
+    }
+}
