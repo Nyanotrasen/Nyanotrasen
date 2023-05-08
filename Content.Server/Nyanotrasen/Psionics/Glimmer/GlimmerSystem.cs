@@ -1,99 +1,41 @@
-using System.Linq;
-using Content.Shared.Psionics.Glimmer;
-using Content.Server.GameTicking.Rules;
 using Robust.Shared.Random;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer
 {
-    public sealed class GlimmerSystem : GameRuleSystem
+    public sealed class GlimmerSystem : EntitySystem
     {
-        public override string Prototype => "GlimmerEventRunner";
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
-        public float DecayAccumulator = 0;
-        public const float SecondsToLoseOneGlimmer = 10f;
-        public const float MinimumGlimmerForEvents = 100;
+        public const float GlimmerLostPerSecond = 0.1f;
 
-        public override void Started() { }
-        public override void Ended() { }
+        public TimeSpan TargetUpdatePeriod = TimeSpan.FromSeconds(6);
+        public TimeSpan NextUpdateTime = default!;
+        public TimeSpan LastUpdateTime = default!;
 
-        public float NextEventAccumulator = 0;
-        public float NextEventTime = 0;
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
-            DecayAccumulator += frameTime;
 
-            if (DecayAccumulator > SecondsToLoseOneGlimmer)
-            {
-                if (_robustRandom.Prob(0.75f))
-                    _sharedGlimmerSystem.Glimmer--;
-                DecayAccumulator -= SecondsToLoseOneGlimmer;
-            }
-            if (_sharedGlimmerSystem.Glimmer > MinimumGlimmerForEvents)
-            {
-                NextEventAccumulator += frameTime;
-                if (NextEventAccumulator > NextEventTime)
-                {
-                    NextEventTime = _robustRandom.NextFloat(300, 900);
-                    NextEventTime -= (float) (_sharedGlimmerSystem.Glimmer / 5);
-                    NextEventAccumulator = 0;
-                    RunGlimmerEvent();
-                }
-            }
-        }
-
-        private void RunGlimmerEvent()
-        {
-            var ev = GetGlimmerEvent();
-
-            if (ev == null || !_prototypeManager.TryIndex<GameRulePrototype>(ev.Id, out var proto))
+            var curTime = _timing.CurTime;
+            if (NextUpdateTime > curTime)
                 return;
 
-            GameTicker.StartGameRule(proto);
-        }
+            var delta = curTime - LastUpdateTime;
+            var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * GlimmerLostPerSecond);
 
-        private GlimmerEventRuleConfiguration? GetGlimmerEvent()
-        {
-            var allEvents = _prototypeManager.EnumeratePrototypes<GameRulePrototype>()
-                .Where(p => p.Configuration is GlimmerEventRuleConfiguration)
-                .Select(p => (GlimmerEventRuleConfiguration) p.Configuration);
+            // It used to be 75% to lose one glimmer per ten seconds, but now it's 50% per six seconds.
+            // The probability is exactly the same over the same span of time. (0.25 ^ 3 == 0.5 ^ 6)
+            // This math is just easier to do for pausing's sake.
+            var actualGlimmerLost = _random.Next(0, 1 + maxGlimmerLost);
 
-            var validEvents = new List<GlimmerEventRuleConfiguration>();
+            _sharedGlimmerSystem.Glimmer -= actualGlimmerLost;
 
-            foreach (var ev in allEvents)
-            {
-                if (ev == null)
-                    continue;
-
-                if (CanRun(ev))
-                    validEvents.Add(ev);
-            }
-
-            if (validEvents.Count == 0)
-                return null;
-
-            return _robustRandom.Pick(validEvents);
-        }
-
-        private bool CanRun(GlimmerEventRuleConfiguration config)
-        {
-            if (_sharedGlimmerSystem.Glimmer < config.MinimumGlimmer)
-                return false;
-
-            if (_sharedGlimmerSystem.Glimmer > config.MaximumGlimmer)
-                return false;
-
-            return true;
-        }
-
-        public override void Initialize()
-        {
-            base.Initialize();
-            NextEventTime = _robustRandom.NextFloat(300, 900);
+            NextUpdateTime = curTime + TargetUpdatePeriod;
+            LastUpdateTime = curTime;
         }
     }
 }

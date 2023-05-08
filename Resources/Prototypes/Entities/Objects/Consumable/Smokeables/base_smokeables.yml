@@ -8,12 +8,10 @@
   - type: Sprite
     netsync: false
   - type: Appearance
-    visuals:
-      - type: BurnStateVisualizer
+  - type: BurnStateVisuals
   - type: Tag
     tags:
     - Trash
-  - type: Recyclable
   - type: SpaceGarbage
   - type: DynamicPrice
     price: 5

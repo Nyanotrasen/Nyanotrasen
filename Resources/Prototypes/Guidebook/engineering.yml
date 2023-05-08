@@ -1,7 +1,7 @@
 ﻿- type: guideEntry
   id: Engineering
   name: guide-entry-engineering
-  text: "/Server Info/Guidebook/Eng/Engineering.xml"
+  text: "/ServerInfo/Guidebook/Eng/Engineering.xml"
   children:
   - Atmospherics
   - Construction
@@ -12,29 +12,29 @@
 - type: guideEntry
   id: Construction
   name: guide-entry-construction
-  text: "/Server Info/Guidebook/Eng/Construction.xml"
+  text: "/ServerInfo/Guidebook/Eng/Construction.xml"
 
 - type: guideEntry
   id: Atmospherics
   name: guide-entry-atmospherics
-  text: "/Server Info/Guidebook/Eng/Atmospherics.xml"
+  text: "/ServerInfo/Guidebook/Eng/Atmospherics.xml"
   children:
   - Fires
 
 - type: guideEntry
   id: Fires
   name: guide-entry-fires
-  text: "/Server Info/Guidebook/Eng/Fires.xml"
+  text: "/ServerInfo/Guidebook/Eng/Fires.xml"
 
 - type: guideEntry
   id: ReverseEngineering
   name: guide-entry-reverse-engineering
-  text: "/Server Info/Guidebook/Eng/ReverseEngineering.xml"
+  text: "/ServerInfo/Guidebook/Eng/ReverseEngineering.xml"
 
 - type: guideEntry
   id: Power
   name: guide-entry-power
-  text: "/Server Info/Guidebook/Eng/Power.xml"
+  text: "/ServerInfo/Guidebook/Eng/Power.xml"
   children:
   - AME
   - Singularity
@@ -42,14 +42,14 @@
 - type: guideEntry
   id: AME
   name: guide-entry-ame
-  text: "/Server Info/Guidebook/Eng/AME.xml"
+  text: "/ServerInfo/Guidebook/Eng/AME.xml"
 
 - type: guideEntry
   id: MachineUpgrading
   name: guide-entry-machine-upgrading
-  text: "/Server Info/Guidebook/Eng/MachineUpgrading.xml"
+  text: "/ServerInfo/Guidebook/Eng/MachineUpgrading.xml"
   
 - type: guideEntry
   id: Singularity
-  name: Singularity
-  text: "/Server Info/Guidebook/Singularity.xml"
+  name: guide-entry-singularity
+  text: "/ServerInfo/Guidebook/Singularity.xml"

@@ -46,11 +46,6 @@
     vital: true
   - type: Input
     context: "ghost"
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 0
-    baseSprintSpeed: 0
-  - type: InputMover
-  - type: GhostOnMove
   - type: Tag
     tags:
       - Head

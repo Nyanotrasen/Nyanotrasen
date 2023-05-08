@@ -78,7 +78,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
-        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+        [Dependency] private readonly PuddleSystem _puddleSystem = default!;
         [Dependency] private readonly TemperatureSystem _temperature = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly AmbientSoundSystem _ambientSoundSystem = default!;
@@ -641,7 +641,7 @@ namespace Content.Server.Kitchen.EntitySystems
         private void OnDeconstruct(EntityUid uid, DeepFryerComponent component, MachineDeconstructedEvent args)
         {
             // The EmptyOnMachineDeconstruct component handles the entity container for us.
-            _spillableSystem.SpillAt(uid, component.Solution, "PuddleSmear");
+            _puddleSystem.TrySpillAt(uid, component.Solution, out var _);
         }
 
         private void OnDestruction(EntityUid uid, DeepFryerComponent component, DestructionEventArgs args)
