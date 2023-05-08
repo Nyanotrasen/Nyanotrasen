@@ -20,14 +20,6 @@
     Piercing: 0.85
 
 - type: damageModifierSet
-  id: Arachne
-  coefficients:
-    Blunt: 1.1
-    Slash: 1.1
-    Piercing: 0.9
-    Poison: 0.9
-
-- type: damageModifierSet
   id: Moff
   coefficients:
     Slash: 1.15
