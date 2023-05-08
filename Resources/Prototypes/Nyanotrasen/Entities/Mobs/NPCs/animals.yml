@@ -16,13 +16,14 @@
   id: MobMothroach
   description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
   components:
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-mothroach-name
     description: ghost-role-information-mothroach-description
+  - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Chitter
   - type: Sprite
@@ -84,11 +85,6 @@
       enabled: false
       autoPopulate: false
       name: action-name-combat
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
-  - type: Recyclable
   - type: Butcherable
     spawned:
     - id: FoodMeatRat
@@ -124,7 +120,7 @@
     - CannotSuicide
   - type: CanEscapeInventory
   - type: HTN
-    rootTask: IdleEvadeCompound
+    rootTask: IdleEvadeCompound # Make eat food/clothes when a thing
   - type: Faction
     factions:
     - RatPassive

@@ -68,7 +68,7 @@ accent-words-pig-2 = Oink?
 accent-words-pig-3 = Oink!
 accent-words-pig-4 = Oink oink!
 
-# Mothroach
+# Nyanotrasen Mothroach
 accent-words-mothroach-1 = Squeak!
 accent-words-mothroach-2 = Chirp!
 accent-words-mothroach-3 = Peep!
