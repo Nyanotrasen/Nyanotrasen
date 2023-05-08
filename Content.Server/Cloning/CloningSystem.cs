@@ -235,6 +235,12 @@ namespace Content.Server.Cloning
                         AddComp<ActiveCloningPodComponent>(uid);
                         return true;
                     }
+                } else
+                {
+                    // Certain player species lack genetics...
+                    if (clonePod.ConnectedConsole != null)
+                        _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-no-genetics", ("units", cloningCost)), InGameICChatType.Speak, false);
+                    return false;
                 }
             }
             // end of genetic damage checks
