@@ -132,7 +132,8 @@ public abstract class SharedAnomalySystem : EntitySystem
         var variation = Random.NextFloat(-component.PulseVariation, component.PulseVariation) + 1;
         component.NextPulseTime = Timing.CurTime + GetPulseLength(component) * variation;
 
-        _sawmill.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
+        if (_net.IsServer)
+            _sawmill.Info($"Performing anomaly pulse. Entity: {ToPrettyString(uid)}");
 
         // if we are above the growth threshold, then grow before the pulse
         if (component.Stability > component.GrowthThreshold)
@@ -167,7 +168,8 @@ public abstract class SharedAnomalySystem : EntitySystem
             return;
 
         Log.Add(LogType.Anomaly, LogImpact.High, $"Anomaly {ToPrettyString(uid)} began to go supercritical.");
-        _sawmill.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
+        if (_net.IsServer)
+            _sawmill.Info($"Anomaly is going supercritical. Entity: {ToPrettyString(uid)}");
 
         var super = EnsureComp<AnomalySupercriticalComponent>(uid);
         super.EndTime = Timing.CurTime + super.SupercriticalDuration;
@@ -192,7 +194,9 @@ public abstract class SharedAnomalySystem : EntitySystem
 
         Audio.PlayPvs(component.SupercriticalSound, uid);
 
-        _sawmill.Info($"Raising supercritical event. Entity: {ToPrettyString(uid)}");
+        if (_net.IsServer)
+            _sawmill.Info($"Raising supercritical event. Entity: {ToPrettyString(uid)}");
+
         var ev = new AnomalySupercriticalEvent();
         _glimmer.Glimmer += 100;
         RaiseLocalEvent(uid, ref ev);
@@ -209,7 +213,8 @@ public abstract class SharedAnomalySystem : EntitySystem
     public void EndAnomaly(EntityUid uid, AnomalyComponent? component = null, bool supercritical = false)
     {
         // Logging before resolve, in case the anomaly has deleted itself.
-        _sawmill.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
+        if (_net.IsServer)
+            _sawmill.Info($"Ending anomaly. Entity: {ToPrettyString(uid)}");
         Log.Add(LogType.Anomaly, LogImpact.Extreme, $"Anomaly {ToPrettyString(uid)} went supercritical.");
 
         if (!Resolve(uid, ref component))
