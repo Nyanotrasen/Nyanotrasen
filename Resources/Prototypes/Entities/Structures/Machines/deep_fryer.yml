@@ -105,14 +105,8 @@
       - OilGhee
       - OilOlive
     unsafeOilVolumeEffects:
-    - !type:SmokeAreaReactionEffect
-      rangeConstant: 0
-      rangeMultiplier: 1.1 #Range formula: rangeConstant + rangeMultiplier*sqrt(ReactionUnits)
-      maxRange: 10
+    - !type:AreaReactionEffect
       duration: 10
-      spreadDelay: 0.2
-      removeDelay: 1.5
-      diluteReagents: true
       prototypeId: Smoke
       sound:
         path: /Audio/Effects/smoke.ogg

@@ -32,6 +32,9 @@
   id: Brutepack
 
 - type: Tag
+  id: Bloodpack
+
+- type: Tag
   id: BodyBag
 
 - type: Tag
@@ -39,6 +42,15 @@
 
 - type: Tag
   id: BorgArm
+
+- type: Tag
+  id: BorgLeg
+
+- type: Tag
+  id: BorgLeftLeg
+
+- type: Tag
+  id: BorgRightLeg
 
 - type: Tag
   id: BotanyHatchet
@@ -86,13 +98,16 @@
   id: Cartridge
 
 - type: Tag
-  id: CartridgeAntiMaterial
+  id: CartridgeAntiMateriel
 
 - type: Tag
   id: CartridgeCap
 
 - type: Tag
   id: CartridgeCaselessRifle
+
+- type: Tag
+  id: CartridgeCHIMP
 
 - type: Tag
   id: CartridgeHeavyRifle
@@ -324,6 +339,9 @@
   id: HidesHair # for headwear.
 
 - type: Tag
+  id: HighRiskItem
+
+- type: Tag
   id: Hoe
 
 - type: Tag
@@ -355,6 +373,9 @@
 
 - type: Tag
   id: Knife
+
+- type: Tag
+  id: LavaBrig
 
 - type: Tag
   id: Machete
@@ -485,9 +506,6 @@
   id: Pickaxe
 
 - type: Tag
-  id: Pill
-
-- type: Tag
   id: PillCanister
 
 - type: Tag
@@ -613,6 +631,9 @@
 
 - type: Tag
   id: SpeedLoaderRifle
+
+- type: Tag
+  id: SpreaderIgnore
 
 - type: Tag
   id: StringInstrument

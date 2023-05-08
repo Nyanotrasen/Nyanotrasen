@@ -66,12 +66,10 @@ public sealed class MindSystem : EntitySystem
     /// </summary>
     public void InternalEjectMind(EntityUid uid, MindComponent? mind = null)
     {
-        if (!Resolve(uid, ref mind))
+        if (!Resolve(uid, ref mind, false))
             return;
 
-        if (!Deleted(uid))
-            RaiseLocalEvent(uid, new MindRemovedMessage(), true);
-
+        RaiseLocalEvent(uid, new MindRemovedMessage(), true);
         mind.Mind = null;
     }
 
@@ -114,6 +112,7 @@ public sealed class MindSystem : EntitySystem
                     }
 
                     // TODO refactor observer spawning.
+                    // please.
                     if (!spawnPosition.IsValid(EntityManager))
                     {
                         // This should be an error, if it didn't cause tests to start erroring when they delete a player.

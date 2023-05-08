@@ -73,10 +73,6 @@
   description: Nice to have, but you can't build a civilization on a foundation of honey alone.
   components:
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: MovementSpeedModifier
     baseWalkSpeed : 7
     baseSprintSpeed : 7
@@ -132,10 +128,6 @@
   description: How nice a bee. Oh no, it looks angry and wants my pizza.
   components:
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: MeleeWeapon
     hidden: true
     angle: 0
@@ -445,6 +437,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crab
       sprite: Mobs/Animals/crab.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Hands
   - type: Body #this is a filthy, FILTHY hack to make crab hands work
     prototype: Primate
@@ -629,7 +626,6 @@
   description: A large marsupial herbivore. It has powerful hind legs and... boxing gloves?
   components:
   - type: CombatMode
-    disarm: null
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -670,7 +666,6 @@
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: kangaroo-judge
         sprite: Mobs/Animals/kangaroo.rsi
-  - type: Appearance
   - type: DamageStateVisuals
     states:
       Alive:
@@ -695,13 +690,14 @@
   id: MobMouse
   description: Squeak!
   components:
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-mouse-name
     description: ghost-role-information-mouse-description
+  - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
   - type: Sprite
@@ -770,7 +766,6 @@
     tags:
     - Trash
     - CannotSuicide
-  - type: Recyclable
   - type: Respirator
     damage:
       types:
@@ -794,10 +789,6 @@
       enabled: false
       autoPopulate: false
       name: action-name-combat
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: DiseaseCarrier #The other class lab animal and disease vector
@@ -854,11 +845,11 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: mouse-1
+        Base: mouse-2
       Critical:
-        Base: dead-1
+        Base: dead-2
       Dead:
-        Base: splat-1
+        Base: splat-2
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: DiseaseCarrier
@@ -1093,6 +1084,11 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: penguin
       sprite: Mobs/Animals/penguin.rsi
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
   - type: Hands
   - type: Body #this is a filthy, FILTHY hack to make penguin hands work
     prototype: Primate
@@ -1279,10 +1275,21 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      90: Critical
+      150: Dead
+  - type: MeleeWeapon
+    hidden: true
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 12
+        Poison: 4
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -1295,13 +1302,6 @@
   - type: BloodSucker
     unitsToSucc: 15
     webRequired: true
-  - type: MeleeWeapon
-    hidden: true
-    angle: 0
-    animation: WeaponArcBite
-    damage:
-      types:
-        Piercing: 10
 
 - type: entity
   name: tarantula
@@ -1314,11 +1314,14 @@
         - Xeno
     - type: InputMover
     - type: MobMover
-    - type: GhostTakeoverAvailable
+    - type: HTN
+      rootTask: SimpleHostileCompound
+    - type: GhostRole
       makeSentient: true
       whitelistRequired: false
       name: ghost-role-information-giant-spider-name
       description: ghost-role-information-giant-spider-description
+    - type: GhostTakeoverAvailable
 
 - type: entity
   name: possum
@@ -1347,6 +1350,7 @@
   - type: Inventory
     speciesId: possum
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1401,6 +1405,7 @@
   - type: Inventory
     speciesId: possum #close enough
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1455,6 +1460,7 @@
   - type: Inventory
     speciesId: fox
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1505,7 +1511,7 @@
     - shape:
         !type:PhysShapeCircle
         radius: 0.35
-      density: 30
+      density: 50
       mask:
       - MobMask
       layer:
@@ -1513,6 +1519,7 @@
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1599,14 +1606,6 @@
       gender: epicene
   - type: Bloodstream
     bloodReagent: DemonsBlood
-    bloodlossDamage:
-      types:
-        Bloodloss:
-          1
-    bloodlossHealDamage:
-      types:
-        Bloodloss:
-          -0.25
   - type: Damageable
     damageContainer: CorporealSpirit
     damageModifierSet: Infernal
@@ -1638,6 +1637,7 @@
   - type: Inventory
     speciesId: puppy
     templateId: pet
+  - type: InventorySlots
   - type: DamageStateVisuals
     states:
       Alive:
@@ -1687,6 +1687,7 @@
   - type: Inventory
     speciesId: cat
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1839,6 +1840,7 @@
   - type: Inventory
     speciesId: sloth
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1893,6 +1895,7 @@
   - type: Inventory
     speciesId: fox #close enough
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:
@@ -1927,13 +1930,14 @@
   id: MobHamster
   description: A cute, fluffy, robust hamster.
   components:
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-hamster-name
     description: ghost-role-information-hamster-description
+  - type: GhostTakeoverAvailable
   - type: Speech
     speechSounds: Squeak
   - type: Sprite
@@ -1996,7 +2000,6 @@
     tags:
     - Trash
     - CannotSuicide
-  - type: Recyclable
   - type: Respirator
     damage:
       types:
@@ -2014,10 +2017,6 @@
     unsexedScream: /Audio/Animals/mouse_squeak.ogg
     wilhelmProbability: 0.001
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: MeleeWeapon
     hidden: true
     soundHit:
@@ -2070,6 +2069,7 @@
   - type: Inventory
     speciesId: pig
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:

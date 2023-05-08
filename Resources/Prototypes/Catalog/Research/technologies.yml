@@ -20,7 +20,7 @@
 
 - type: technology
   name: technologies-cleaning-technology
-  id: MopBucket
+  id: CleaningTechnology
   description: technologies-cleaning-technology-description
   icon:
     sprite: Objects/Specific/Janitorial/janitorial.rsi
@@ -31,9 +31,10 @@
   unlockedRecipes:
   - Bucket
   - MopItem
-  - MopAdvanced
+  - AdvMopItem
   - MopBucket
   - SprayBottle
+  - MegaSprayBottle
   - BodyBag
   - LightReplacer
   - TrashBag
@@ -388,13 +389,14 @@
   requiredTechnologies:
   - IndustrialEngineering
   unlockedRecipes:
-    - SheetSteel
-    - SheetPlastic
-    - SheetPlasteel
-    - SheetPlasma
-    - SheetRGlass
-    - SheetGlass1
-    - BluespaceCrystal
+  - SheetSteel
+  - SheetPlastic
+  - SheetPlasteel
+  - SheetPlasma
+  - SheetRGlass
+  - SheetGlass1
+  - BluespaceCrystal
+  - MaterialReclaimerMachineCircuitboard
 
 # Electromagnetic Theory Technology Tree
 
@@ -404,7 +406,7 @@
   description: technologies-electromagnetic-theory-description
   icon:
     sprite: Structures/Power/apc.rsi
-    state: apc0
+    state: base
   requiredPoints: 10000
   requiredTechnologies:
   - BasicResearch
@@ -455,7 +457,7 @@
   description: technologies-advanced-atmospherics-technology-description
   icon:
     sprite: Structures/Piping/Atmospherics/thermomachine.rsi
-    state: freezer_off
+    state: freezerOff
   requiredPoints: 7500
   requiredTechnologies:
   - ElectricalEngineering
@@ -584,6 +586,8 @@
   - ProximitySensor
   - LeftArmBorg
   - RightArmBorg
+  - LeftLegBorg
+  - RightLegBorg
   - Drone
   - ExosuitFabricatorMachineCircuitboard
   - ClothingEyesHudDiagnostic
@@ -620,6 +624,7 @@
   - TechDiskComputerCircuitboard
   - NodeScanner
   - AnomalyScanner
+  - AnomalyLocator
 
 - type: technology
   name: technologies-anomaly-technology
@@ -634,6 +639,10 @@
   unlockedRecipes:
   - AnomalyVesselCircuitboard
   - APECircuitboard
+  - WeaponPistolCHIMP
+  - CartridgeAnomalousParticleDelta
+  - CartridgeAnomalousParticleEpsilon
+  - CartridgeAnomalousParticleZeta
 
 - type: technology
   name: technologies-archaeology

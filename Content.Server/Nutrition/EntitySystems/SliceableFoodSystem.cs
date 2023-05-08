@@ -6,6 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
+using Content.Shared.Item;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
@@ -81,6 +82,13 @@ namespace Content.Server.Nutrition.EntitySystems
             }
 
             _audioSystem.PlayPvs(component.Sound, uid, AudioParams.Default.WithVolume(-2f));
+
+            // Decrease size of item based on count - Could implement in the future
+            // Bug with this currently is the size in a container is not updated
+            // if (TryComp(uid, out ItemComponent? itemComp) && TryComp(sliceUid, out ItemComponent? sliceComp))
+            // {
+            //     itemComp.Size -= sliceComp.Size;
+            // }
 
             component.Count--;
 

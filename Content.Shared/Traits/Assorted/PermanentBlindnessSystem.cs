@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -13,7 +14,7 @@ namespace Content.Shared.Traits.Assorted;
 public sealed class PermanentBlindnessSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedBlindingSystem _blinding = default!;
+    [Dependency] private readonly BlindableSystem _blinding = default!;
     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
 
     /// <inheritdoc/>
@@ -21,6 +22,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
     {
         SubscribeLocalEvent<PermanentBlindnessComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PermanentBlindnessComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<PermanentBlindnessComponent, CanSeeAttemptEvent>(OnTrySee);
         SubscribeLocalEvent<PermanentBlindnessComponent, ExaminedEvent>(OnExamined);
     }
 
@@ -34,12 +36,12 @@ public sealed class PermanentBlindnessSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, PermanentBlindnessComponent component, ComponentShutdown args)
     {
-        _blinding.AdjustBlindSources(uid, -1);
+        _blinding.UpdateIsBlind(uid);
     }
 
     private void OnStartup(EntityUid uid, PermanentBlindnessComponent component, ComponentStartup args)
     {
-        _blinding.AdjustBlindSources(uid, 1);
+        _blinding.UpdateIsBlind(uid);
 
         // give blind gear (i.e. cane)
         if (!TryComp(uid, out HandsComponent? handsComponent))
@@ -49,5 +51,12 @@ public sealed class PermanentBlindnessSystem : EntitySystem
         var inhandEntity = EntityManager.SpawnEntity(component.BlindGear, coords);
         _sharedHandsSystem.TryPickup(uid, inhandEntity, checkActionBlocker: false,
             handsComp: handsComponent);
+
+    }
+
+    private void OnTrySee(EntityUid uid, PermanentBlindnessComponent component, CanSeeAttemptEvent args)
+    {
+        if (component.LifeStage <= ComponentLifeStage.Running)
+            args.Cancel();
     }
 }

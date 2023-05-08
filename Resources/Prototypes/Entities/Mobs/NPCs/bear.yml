@@ -4,8 +4,6 @@
   parent: SimpleSpaceMobBase
   description: It looks friendly. Why don't you give it a hug?
   components:
-  - type: InputMover
-  - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
     blackboard:
@@ -36,21 +34,12 @@
     fixtures:
     - shape:
         !type:PhysShapeCircle
-        radius: 0.48
-      density: 400
+        radius: 0.40
+      density: 100
       mask:
       - MobMask
       layer:
       - MobLayer
-  - type: PointLight
-    radius: 1.2
-    energy: 2
-    color: "#4faffb"
-  - type: MovementAlwaysTouching
-  - type: MobState
-    allowedStates:
-      - Alive
-      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -58,7 +47,6 @@
       150: Dead
   - type: Stamina
     excess: 150
-  - type: Appearance
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Bear
@@ -79,12 +67,9 @@
       amount: 1
       prob: 0.3
   - type: Bloodstream
-    bloodMaxVolume: 500
+    bloodMaxVolume: 300
+    bloodReagent: Cryoxadone
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 0
@@ -99,17 +84,43 @@
       types:
         Blunt: 10
         Slash: 5
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: Puller
+    needsHands: false
   - type: ReplacementAccent
     accent: genericAggressive
+  - type: Vocal
+    sounds:
+      Unsexed: Bear
+  - type: InteractionPopup
+    successChance: 0.25
+    interactSuccessString: petting-success-bear
+    interactFailureString: petting-failure-bear
+    interactSuccessSound:
+      path: /Audio/Animals/sloth_squeak.ogg
+  - type: PointLight
+    radius: 1.2
+    energy: 2
+    color: "#4faffb"
+  - type: GhostRole
+    prob: 0.25
+    name: space bear
+    description: |
+      You're a bear! Do bear things.
+  - type: GhostTakeoverAvailable
 
 - type: entity
   id: MobBearSpaceSalvage
   parent: MobBearSpace
   suffix: "Salvage Ruleset"
   components:
-  - type: GhostTakeoverAvailable
-    prob: 0.05
+  - type: GhostRole
+    prob: 0.25
     name: space bear on salvage wreck
     description: |
       Defend the loot inside the salvage wreck!
+  - type: GhostTakeoverAvailable
   - type: SalvageMobRestrictions

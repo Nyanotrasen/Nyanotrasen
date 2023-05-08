@@ -48,9 +48,4 @@ namespace Content.Shared.Ghost.Roles
             Identifier = identifier;
         }
     }
-
-    [NetSerializable, Serializable]
-    public sealed class GhostRoleWindowCloseMessage : EuiMessageBase
-    {
-    }
 }
