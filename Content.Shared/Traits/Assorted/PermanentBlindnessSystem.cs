@@ -43,7 +43,7 @@ public sealed class PermanentBlindnessSystem : EntitySystem
     {
         _blinding.UpdateIsBlind(uid);
 
-        // give blind gear (i.e. cane)
+        // give blind gear (i.e. white cane)
         if (!TryComp(uid, out HandsComponent? handsComponent))
             return;
 
