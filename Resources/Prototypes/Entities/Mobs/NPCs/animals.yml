@@ -665,9 +665,8 @@
     - FootstepSound
   - type: GhostRole
     prob: 0.25
-    name: kangaroo
-    description: |
-      You're a kangaroo! Do whatever kangaroos do.
+    name: ghost-role-information-kangaroo-name
+    description: ghost-role-information-kangaroo-description
   # - type: GhostTakeoverAvailable
   - type: Vocal
     sounds:

@@ -140,8 +140,8 @@
   - type: GhostRole
     makeSentient: true
     whitelistRequired: false
-    name: honkbot
-    description: An artificial being of pure evil.
+    name: ghost-role-information-honkbot-name
+    description: ghost-role-information-honkbot-description
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     interactSuccessString: petting-success-honkbot
