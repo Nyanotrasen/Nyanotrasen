@@ -7,10 +7,4 @@ namespace Content.Shared.MachineLinking
     {
         Key
     }
-
-    [Serializable, NetSerializable]
-    public enum SignalTimerUiKey
-    {
-        Key
-    }
 }

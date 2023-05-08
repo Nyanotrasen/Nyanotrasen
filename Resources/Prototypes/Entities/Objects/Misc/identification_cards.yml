@@ -59,6 +59,10 @@
     heldPrefix: gold
   - type: PresetIdCard
     job: Captain
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - HighRiskItem
 
 - type: entity
   parent: IDCardStandard

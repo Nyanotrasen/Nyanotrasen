@@ -32,7 +32,8 @@
   suffix: Full
   components:
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Cardboard: 100
   - type: Stack
     stackType: Cardboard
@@ -62,10 +63,22 @@
   name: cloth
   suffix: Full
   components:
+  - type: Healing
+    damageContainer: Biological
+    damage:
+      types:
+        Slash: -0.5
+        Piercing: -0.5
+    bloodlossModifier: -4
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Cloth
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Cloth: 100
   - type: Extractable
     juiceSolution:
@@ -101,7 +114,8 @@
   - type: Stack
     stackType: Durathread
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Durathread: 100
   - type: Sprite
     state: durathread_3
@@ -133,7 +147,8 @@
   suffix: Full
   components:
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Wood: 100
   - type: Stack
     stackType: WoodPlank
@@ -164,7 +179,8 @@
   suffix: Full
   components:
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Biomass: 1
   - type: Stack
     stackType: Biomass

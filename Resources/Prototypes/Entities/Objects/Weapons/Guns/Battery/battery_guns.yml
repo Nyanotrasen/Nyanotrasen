@@ -368,6 +368,9 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Tag
+    tags:
+    - HighRiskItem
   - type: DynamicPrice
     price: 750
 

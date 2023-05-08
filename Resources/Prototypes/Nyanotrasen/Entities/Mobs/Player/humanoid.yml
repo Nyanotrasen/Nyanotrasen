@@ -40,9 +40,10 @@
       - state: green
       - sprite: Mobs/Ghosts/ghost_human.rsi
         state: icon
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     name: paradox anomaly
     description: Replace your double, or befriend them.
     rules: |
       Try and replace your twin with this funny roleplay antag rather than
       plasma flooding the station or something. You can also just befriend them.
+  - type: GhostTakeoverAvailable

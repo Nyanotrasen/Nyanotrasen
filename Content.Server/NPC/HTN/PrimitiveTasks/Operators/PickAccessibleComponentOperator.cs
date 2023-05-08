@@ -22,8 +22,8 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
     [DataField("targetKey", required: true)]
     public string TargetKey = string.Empty;
 
-    [DataField("targetMoveKey", required: true)]
-    public string TargetMoveKey = string.Empty;
+    [DataField("target")]
+    public string TargetEntity = "Target";
 
     [DataField("component", required: true)]
     public string Component = string.Empty;
@@ -61,7 +61,6 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
 
         var compType = registration.Type;
         var query = _entManager.GetEntityQuery(compType);
-        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
         var targets = new List<EntityUid>();
 
         // TODO: Need to get ones that are accessible.
@@ -80,28 +79,27 @@ public sealed class PickAccessibleComponentOperator : HTNOperator
             return (false, null);
         }
 
-        blackboard.TryGetValue<float>(RangeKey, out var maxRange, _entManager);
-
-        if (maxRange == 0f)
-            maxRange = 7f;
-
         foreach (var target in targets)
         {
-            if (!xformQuery.TryGetComponent(target, out var xform))
-                continue;
+            var path = await _pathfinding.GetPath(
+                owner,
+                target,
+                1f,
+                cancelToken,
+                flags: _pathfinding.GetFlags(blackboard));
 
-            var targetCoords = xform.Coordinates;
-            var path = await _pathfinding.GetPath(owner, target, range, cancelToken);
             if (path.Result != PathResult.Path)
             {
                 continue;
             }
 
+            var xform = _entManager.GetComponent<TransformComponent>(target);
+
             return (true, new Dictionary<string, object>()
             {
-                { TargetKey, target },
-                { TargetMoveKey, targetCoords },
-                { PathfindKey, path}
+                { TargetEntity, target },
+                { TargetKey, xform.Coordinates },
+                { PathfindKey, path }
             });
         }
 
