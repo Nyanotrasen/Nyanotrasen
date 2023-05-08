@@ -39,11 +39,6 @@
   description: signal-port-description-trigger
 
 - type: receiverPort
-  id: AutoClose
-  name: signal-port-name-hold-open
-  description: signal-port-description-hold-open
-
-- type: receiverPort
   id: OrderReceiver
   name: signal-port-name-order-receiver
   description: signal-port-description-order-receiver
@@ -67,6 +62,11 @@
   id: MedicalScannerReceiver
   name: signal-port-name-med-scanner-receiver
   description: signal-port-description-med-scanner-receiver
+
+- type: receiverPort
+  id: AutoClose
+  name: signal-port-name-hold-open
+  description: signal-port-description-hold-open
 
 - type: receiverPort
   id: ArtifactAnalyzerReceiver

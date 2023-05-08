@@ -13,6 +13,11 @@
     clothingVisuals:
       belt2: #there should be a cleaner way to do this tbh
       - state: equipped-BELT
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 50
+  - type: DynamicPrice
+    price: 25
 
 - type: entity
   abstract: true

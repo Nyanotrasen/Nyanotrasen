@@ -288,7 +288,7 @@
           True: { visible: true }
           False: { visible: false }
   - type: WiresVisuals
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 5000
   - type: GuideHelp
     guides:

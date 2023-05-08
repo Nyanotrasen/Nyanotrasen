@@ -230,6 +230,20 @@
     - type: StorageFill
       contents:
         - id: VehicleSyndicateSegway
-          amount: 1
         - id: VehicleKeySyndicateSegway
-          amount: 1
+
+- type: entity
+  id: CrateFunPirate
+  parent: CratePirate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitPirate
+        amount: 2
+      - id: ClothingHeadHatPirate
+      - id: ClothingOuterCoatPirate
+      - id: ClothingShoesBootsLaceup
+        amount: 2
+      - id: HatBandRed
+      - id: FoamCutlass
+        amount: 2

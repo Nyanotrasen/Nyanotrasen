@@ -1,170 +1,162 @@
-using Content.Server.MachineLinking.Components;
-using Content.Server.Popups;
-using Content.Server.UserInterface;
-using Content.Server.Radio.EntitySystems;
-using Content.Shared.Access.Components;
-using Content.Shared.Access.Systems;
-using Content.Shared.MachineLinking;
-using Content.Shared.Examine;
-using Content.Shared.Power;
-using Content.Shared.Radio;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
+using Content.Server.MachineLinking.Components;
+using Content.Shared.TextScreen;
+using Robust.Server.GameObjects;
+using Content.Shared.MachineLinking;
+using Content.Server.UserInterface;
+using Content.Shared.Access.Systems;
+using Content.Server.Interaction;
 
-namespace Content.Server.MachineLinking.System
+namespace Content.Server.MachineLinking.System;
+
+public sealed class SignalTimerSystem : EntitySystem
 {
-    public sealed class SignalTimerSystem : EntitySystem
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly InteractionSystem _interaction = default!;
+
+    public override void Initialize()
     {
-        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly SignalLinkerSystem _signalSystem = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly AccessReaderSystem _accessSystem = default!;
-        [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-        [Dependency] private readonly RadioSystem _radio = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+        base.Initialize();
 
-        /// I want to send UI updates every second
-        /// idc about pausing so an acc should be OK
-        private float UIUpdateAccumulator = 0f;
+        SubscribeLocalEvent<SignalTimerComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SignalTimerComponent, AfterActivatableUIOpenEvent>(OnAfterActivatableUIOpen);
 
-        public override void Update(float frameTime)
+        SubscribeLocalEvent<SignalTimerComponent, SignalTimerTextChangedMessage>(OnTextChangedMessage);
+        SubscribeLocalEvent<SignalTimerComponent, SignalTimerDelayChangedMessage>(OnDelayChangedMessage);
+        SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartMessage>(OnTimerStartMessage);
+    }
+
+    private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)
+    {
+        _appearanceSystem.SetData(uid, TextScreenVisuals.ScreenText, component.Label);
+    }
+
+    private void OnAfterActivatableUIOpen(EntityUid uid, SignalTimerComponent component, AfterActivatableUIOpenEvent args)
+    {
+        var time = TryComp<ActiveSignalTimerComponent>(uid, out var active) ? active.TriggerTime : TimeSpan.Zero;
+
+        if (_ui.TryGetUi(uid, SignalTimerUiKey.Key, out var bui))
         {
-            base.Update(frameTime);
+            _ui.SetUiState(bui, new SignalTimerBoundUserInterfaceState(component.Label,
+                TimeSpan.FromSeconds(component.Delay).Minutes.ToString("D2"),
+                TimeSpan.FromSeconds(component.Delay).Seconds.ToString("D2"),
+                component.CanEditLabel,
+                time,
+                active != null,
+                _accessReader.IsAllowed(args.User, uid)));
+        }
+    }
 
-            UIUpdateAccumulator += frameTime;
+    public void Trigger(EntityUid uid, SignalTimerComponent signalTimer)
+    {
+        RemComp<ActiveSignalTimerComponent>(uid);
 
-            bool update = UIUpdateAccumulator >= 1f;
+        _signalSystem.InvokePort(uid, signalTimer.TriggerPort);
 
-            foreach (var component in EntityManager.EntityQuery<SignalTimerComponent>())
+        _appearanceSystem.SetData(uid, TextScreenVisuals.Mode, TextScreenMode.Text);
+
+        if (_ui.TryGetUi(uid, SignalTimerUiKey.Key, out var bui))
+        {
+            _ui.SetUiState(bui, new SignalTimerBoundUserInterfaceState(signalTimer.Label,
+                TimeSpan.FromSeconds(signalTimer.Delay).Minutes.ToString("D2"),
+                TimeSpan.FromSeconds(signalTimer.Delay).Seconds.ToString("D2"),
+                signalTimer.CanEditLabel,
+                TimeSpan.Zero,
+                false,
+                true));
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        UpdateTimer();
+    }
+
+    private void UpdateTimer()
+    {
+        var query = EntityQueryEnumerator<ActiveSignalTimerComponent, SignalTimerComponent>();
+        while (query.MoveNext(out var uid, out var active, out var timer))
+        {
+            if (active.TriggerTime > _gameTiming.CurTime)
+                continue;
+
+            Trigger(uid, timer);
+
+            if (timer.DoneSound == null)
+                continue;
+            _audio.PlayPvs(timer.DoneSound, uid);
+        }
+    }
+
+    /// <summary>
+    ///     Checks if a UI <paramref name="message"/> is allowed to be sent by the user.
+    /// </summary>
+    /// <param name="uid">The entity that is interacted with.</param>
+    /// <param name="message"></param>
+    private bool IsMessageValid(EntityUid uid, BoundUserInterfaceMessage message)
+    {
+        if (message.Session.AttachedEntity is not { Valid: true } mob)
+            return false;
+
+        if (!_accessReader.IsAllowed(mob, uid))
+            return false;
+
+        return true;
+    }
+
+    private void OnTextChangedMessage(EntityUid uid, SignalTimerComponent component, SignalTimerTextChangedMessage args)
+    {
+        if (!IsMessageValid(uid, args))
+            return;
+
+        component.Label = args.Text[..Math.Min(5,args.Text.Length)];
+        _appearanceSystem.SetData(uid, TextScreenVisuals.ScreenText, component.Label);
+    }
+
+    private void OnDelayChangedMessage(EntityUid uid, SignalTimerComponent component, SignalTimerDelayChangedMessage args)
+    {
+        if (!IsMessageValid(uid, args))
+            return;
+
+        component.Delay = args.Delay.TotalSeconds;
+    }
+
+    private void OnTimerStartMessage(EntityUid uid, SignalTimerComponent component, SignalTimerStartMessage args)
+    {
+        if (!IsMessageValid(uid, args))
+            return;
+
+        TryComp<AppearanceComponent>(uid, out var appearance);
+
+        if (!HasComp<ActiveSignalTimerComponent>(uid))
+        {
+            var activeTimer = EnsureComp<ActiveSignalTimerComponent>(uid);
+            activeTimer.TriggerTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Delay);
+
+            if (appearance != null)
             {
-                if (component.TimerOn)
-                {
-                    if (update)
-                        DirtyUI(component.Owner, component);
-
-                    // check if TargetTime is reached
-                    if (_gameTiming.CurTime < component.TargetTime)
-                        continue;
-
-                    if (component.EndAlertChannel != null && _prototypeManager.TryIndex<RadioChannelPrototype>(component.EndAlertChannel, out var channel))
-                        _radio.SendRadioMessage(component.Owner, Loc.GetString(component.EndAlertMessage), channel, component.Owner);
-
-                    ToggleTimer(component.Owner, component);
-                }
+                _appearanceSystem.SetData(uid, TextScreenVisuals.Mode, TextScreenMode.Timer, appearance);
+                _appearanceSystem.SetData(uid, TextScreenVisuals.TargetTime, activeTimer.TriggerTime, appearance);
+                _appearanceSystem.SetData(uid, TextScreenVisuals.ScreenText, component.Label, appearance);
             }
 
-            if (update)
-                UIUpdateAccumulator -= 1f;
+            _signalSystem.InvokePort(uid, component.StartPort);
         }
-        public override void Initialize()
+        else
         {
-            base.Initialize();
+            RemComp<ActiveSignalTimerComponent>(uid);
 
-            SubscribeLocalEvent<SignalTimerComponent, ComponentInit>(OnInit);
-            SubscribeLocalEvent<SignalTimerComponent, ExaminedEvent>(OnExamined);
-            // Bound UI subscriptions
-            SubscribeLocalEvent<SignalTimerComponent, SignalTimerLengthChangedMessage>(OnSignalTimerLengthChanged);
-            SubscribeLocalEvent<SignalTimerComponent, SignalTimerStartedMessage>(OnStart);
-            SubscribeLocalEvent<SignalTimerComponent, SignalTimerCancelledMessage>(OnCancel);
-            SubscribeLocalEvent<SignalTimerComponent, BeforeActivatableUIOpenEvent>((e,c,_) => DirtyUI(e,c));
-        }
-
-        private void OnInit(EntityUid uid, SignalTimerComponent component, ComponentInit args)
-        {
-            _signalSystem.EnsureTransmitterPorts(uid, component.OnPort, component.OffPort);
-        }
-
-        private void OnExamined(EntityUid uid, SignalTimerComponent component, ExaminedEvent args)
-        {
-            if (!component.TimerOn)
-                return;
-
-            args.PushMarkup(Loc.GetString("signal-timer-examined", ("sec", (int) (component.TargetTime - _gameTiming.CurTime).TotalSeconds)));
-        }
-
-        private void OnStart(EntityUid uid, SignalTimerComponent component, SignalTimerStartedMessage args)
-        {
-            if (component.TimerOn)
-                return;
-
-            if (args.Session.AttachedEntity is not {Valid: true} player)
-                return;
-
-            if (TryComp<AccessReaderComponent>(uid, out var access))
+            if (appearance != null)
             {
-                if (!_accessSystem.IsAllowed(player, uid, access))
-                {
-                    _popup.PopupEntity(Loc.GetString("door-remote-denied"), player, Shared.Popups.PopupType.SmallCaution);
-                    return;
-                }
+                _appearanceSystem.SetData(uid, TextScreenVisuals.Mode, TextScreenMode.Text, appearance);
+                _appearanceSystem.SetData(uid, TextScreenVisuals.ScreenText, component.Label, appearance);
             }
-
-            component.TargetTime = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Length);
-            ToggleTimer(uid, component);
         }
-
-        private void OnCancel(EntityUid uid, SignalTimerComponent component, SignalTimerCancelledMessage args)
-        {
-            if (!component.TimerOn)
-                return;
-
-            if (args.Session.AttachedEntity is not {Valid: true} player)
-                return;
-
-            if (TryComp<AccessReaderComponent>(uid, out var access))
-            {
-                if (!_accessSystem.IsAllowed(player, uid, access))
-                {
-                    _popup.PopupEntity(Loc.GetString("door-remote-denied"), player, Shared.Popups.PopupType.SmallCaution);
-                    return;
-                }
-            }
-
-            ToggleTimer(uid, component);
-        }
-        private void OnSignalTimerLengthChanged(EntityUid uid, SignalTimerComponent component, SignalTimerLengthChangedMessage args)
-        {
-            if (args.Session.AttachedEntity is not {Valid: true} player)
-                return;
-
-            if (TryComp<AccessReaderComponent>(uid, out var access))
-            {
-                if (!_accessSystem.IsAllowed(player, uid, access))
-                {
-                    _popup.PopupEntity(Loc.GetString("door-remote-denied"), player, Shared.Popups.PopupType.SmallCaution);
-                    return;
-                }
-            }
-
-            // update component.Length when UI entry is made, and TargetTime only on start.
-            component.Length = Math.Clamp(args.Length, 10f, 1200f);
-            DirtyUI(uid, component);
-        }
-
-        private void DirtyUI(EntityUid uid, SignalTimerComponent? component = null)
-        {
-            if (!Resolve(uid, ref component))
-                return;
-
-            _userInterfaceSystem.TrySetUiState(uid, SignalTimerUiKey.Key,
-                new SignalTimerState(component.TimerOn, component.Length, (float) (component.TargetTime - _gameTiming.CurTime).TotalSeconds));
-        }
-
-        private void ToggleTimer(EntityUid uid, SignalTimerComponent? component = null)
-        {
-            if (!Resolve(uid, ref component))
-                return;
-
-            component.TimerOn = !component.TimerOn;
-            _signalSystem.InvokePort(uid, component.TimerOn ? component.OnPort : component.OffPort);
-            _audioSystem.PlayPvs(_audioSystem.GetSound(component.ClickSound), uid, AudioParams.Default.WithVariation(0.25f));
-            DirtyUI(uid, component);
-            _appearanceSystem.SetData(uid, PowerDeviceVisuals.VisualState, component.TimerOn);
-        }
-
     }
 }

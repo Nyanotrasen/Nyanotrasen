@@ -16,7 +16,8 @@
       - bluespace_2
       - bluespace_3
   - type: Material
-    materials:
+  - type: PhysicalComposition
+    materialComposition:
       Bluespace: 100
   - type: Tag
     tags:

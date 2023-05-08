@@ -73,7 +73,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: Recyclable
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
   - type: SpaceGarbage
 
 # Containers

@@ -19,7 +19,7 @@ namespace Content.Server.Objectives.Conditions
 
         public string Description => Loc.GetString("objective-condition-become-golem-description");
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Nyanotrasen/Mobs/Species/Golem/cult.rsi"), "full");
+        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ("Nyanotrasen/Mobs/Species/Golem/cult.rsi"), "full");
 
         public float Progress
         {
