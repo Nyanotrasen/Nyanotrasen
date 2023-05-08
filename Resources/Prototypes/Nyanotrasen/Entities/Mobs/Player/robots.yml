@@ -1,7 +1,7 @@
 - type: entity
   parent: PlayerSiliconBase
-  id: PlayerCyborgBase
-  name: cyborg
+  id: PlayerRobotBase
+  name: robot
   noSpawn: True
   components:
   - type: Sprite
@@ -55,7 +55,7 @@
             min: 3
             max: 5
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]  
+        acts: [ "Destruction" ]
   - type: NoSlip
   - type: Fixtures
     fixtures:
@@ -186,9 +186,9 @@
           False: { visible: false }
 
 - type: entity
-  parent: PlayerCyborgBase
-  id: PlayerCyborgStandard
-  name: standard cyborg
+  parent:  PlayerRobotBase
+  id: PlayerRobotStandard
+  name: standard robot
   components:
   - type: InnateTool
     tools:
@@ -244,9 +244,9 @@
     proto: robot
 
 - type: entity
-  parent: PlayerCyborgBase
-  id: PlayerCyborgMedical
-  name: medical cyborg
+  parent:  PlayerRobotBase
+  id: PlayerRobotMedical
+  name: medical robot
   components:
   - type: Sprite
     drawdepth: Mobs

@@ -27,7 +27,7 @@
 - type: entity
   parent: HyposprayBorgStandard
   id: HyposprayBorgMedical
-  name: medical cyborg hypospray
+  name: medical robot hypospray
   description: A hypospray that can switch through several reagents.
   components:
   - type: SolutionContainerManager
