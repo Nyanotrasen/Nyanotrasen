@@ -68,7 +68,7 @@
           unfoldedLayer:
             True: {visible: false}
             False: {visible: true}
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 200
 
 - type: entity

@@ -84,8 +84,7 @@
     attributes:
       proper: true
   - type: MovementIgnoreGravity
-  - type: Blindable
-    blindResistance: 10
+  - type: EyeProtection
   - type: Faction
     factions:
     - PsionicInterloper
@@ -129,10 +128,12 @@
 # similar to EnergySword. will have to go in ToolSystem.Welder.cs
 # for now, just make it sound like it's on fire no matter what because it
 # sounds cooler than the default fizzling noise.
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: Welder
-    reagents:
-      - Phlogiston
+    generated:
+      reagents:
+        - ReagentId: Phlogiston
+          Quantity: 1
   - type: PointLight
     enabled: false
     radius: 2

@@ -52,6 +52,8 @@
     BoardName: "Vending Machine"
     LayoutId: Vending
   - type: Anchorable
+  - type: TypingIndicator
+    proto: robot
   - type: Speech
     speechSounds: Vending
   - type: DoAfter
@@ -67,6 +69,10 @@
     powerLoad: 200
     priority: Low
   - type: Actions
+  # - type: SentienceTarget
+  #   flavorKind: station-event-random-sentience-flavor-mechanical
+  # - type: DynamicPrice
+  #   price: 100
   - type: Appearance
   - type: WiresVisuals
 
@@ -865,7 +871,7 @@
     radius: 1.5
     energy: 1.6
     color: "#c73434"
-    
+
 - type: entity
   parent: VendingMachineSnack
   id: VendingMachineSustenance
@@ -1750,7 +1756,7 @@
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
     access: [["Medical"]]
-   
+
 - type: entity
   parent: VendingMachine
   id: VendingMachineCentDrobe
@@ -1776,7 +1782,7 @@
     radius: 1.5
     energy: 1.6
     color: "#48CF48"
-    
+
 - type: entity
   parent: VendingMachine
   id: VendingMachineHappyHonk

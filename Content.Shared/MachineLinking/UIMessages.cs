@@ -47,41 +47,4 @@ namespace Content.Shared.MachineLinking
 
     [Serializable, NetSerializable]
     public sealed class LinkerLinkDefaultSelected : BoundUserInterfaceMessage { }
-
-
-    [Serializable, NetSerializable]
-    public sealed class SignalTimerState : BoundUserInterfaceState
-    {
-        public bool State { get; }
-        public float Length { get; }
-        public float Remaining { get; }
-
-        public SignalTimerState(bool state, float length, float remaining)
-        {
-            State = state;
-            Length = length;
-            Remaining = remaining;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class SignalTimerLengthChangedMessage : BoundUserInterfaceMessage
-    {
-        public float Length { get; }
-
-        public SignalTimerLengthChangedMessage(float length)
-        {
-            Length = length;
-        }
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class SignalTimerStartedMessage : BoundUserInterfaceMessage
-    {
-    }
-
-    [Serializable, NetSerializable]
-    public sealed class SignalTimerCancelledMessage : BoundUserInterfaceMessage
-    {
-    }
 }
