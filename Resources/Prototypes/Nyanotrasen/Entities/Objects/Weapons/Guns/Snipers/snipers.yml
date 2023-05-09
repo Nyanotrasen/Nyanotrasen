@@ -1,0 +1,49 @@
+- type: entity
+  name: Mark 1 Rifle
+  parent: BaseWeaponSniper
+  id: WeaponSniperGrand
+  description: An ancient semi-automatic rifle that sparks some kind of a deep feeling from within you. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: true
+    capacity: 5
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+
+- type: entity
+  name: Ceremonial Rifle
+  parent: BaseWeaponSniper
+  id: WeaponSniperCeremonial
+  description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/ceremonial_grand.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/ceremonial_grand.rsi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: BallisticAmmoProvider
+    autoCycle: true
+    capacity: 5
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle

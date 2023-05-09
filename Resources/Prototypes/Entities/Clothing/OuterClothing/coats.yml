@@ -229,4 +229,21 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
-    
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRyuzo
+  name: Ryuzo's Coat
+  description: A fancy armored coat worn by legends.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/ryuzocoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/ryuzocoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
