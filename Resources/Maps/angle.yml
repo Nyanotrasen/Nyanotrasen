@@ -1,7 +1,7 @@
 meta:
   format: 4
-  name: DemoStation
-  author: Space-Wizards
+  name: Angle
+  author: Colin_Tel
   postmapinit: false
 tilemap:
   0: Space
@@ -5114,6 +5114,16 @@ entities:
     - pos: 26.5,-33.5
       parent: 9
       type: Transform
+  - uid: 3593
+    components:
+    - pos: 55.5,-16.5
+      parent: 9
+      type: Transform
+  - uid: 3686
+    components:
+    - pos: -12.5,-2.5
+      parent: 9
+      type: Transform
   - uid: 8431
     components:
     - pos: -3.5,3.5
@@ -7363,6 +7373,8 @@ entities:
       type: Transform
   - uid: 2537
     components:
+    - name: cell one
+      type: MetaData
     - pos: 23.5,-12.5
       parent: 9
       type: Transform
@@ -7380,6 +7392,8 @@ entities:
       type: SignalReceiver
   - uid: 2538
     components:
+    - name: cell two
+      type: MetaData
     - pos: 26.5,-12.5
       parent: 9
       type: Transform
@@ -7397,6 +7411,8 @@ entities:
       type: SignalReceiver
   - uid: 2539
     components:
+    - name: cell three
+      type: MetaData
     - pos: 29.5,-12.5
       parent: 9
       type: Transform
@@ -9521,12 +9537,6 @@ entities:
       type: Transform
 - proto: BoxFolderYellow
   entities:
-  - uid: 3437
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 62.356483,-1.8657146
-      parent: 9
-      type: Transform
   - uid: 7923
     components:
     - pos: 70.66855,-81.53448
@@ -9635,6 +9645,8 @@ entities:
     - pos: 25.5,-12.5
       parent: 9
       type: Transform
+    - label: CEL-2
+      type: SignalTimer
     - outputs:
         Start:
         - port: Close
@@ -9652,6 +9664,8 @@ entities:
     - pos: 28.5,-12.5
       parent: 9
       type: Transform
+    - label: CEL-3
+      type: SignalTimer
     - outputs:
         Start:
         - port: Close
@@ -9671,6 +9685,8 @@ entities:
       pos: 22.5,-13.5
       parent: 9
       type: Transform
+    - label: CEL-1
+      type: SignalTimer
     - outputs:
         Start:
         - port: Close
@@ -44587,29 +44603,6 @@ entities:
       type: EntityStorage
 - proto: CrateEngineeringToolbox
   entities:
-  - uid: 8257
-    components:
-    - pos: 16.5,-78.5
-      parent: 9
-      type: Transform
-    - air:
-        volume: 200
-        immutable: False
-        temperature: 293.14957
-        moles:
-        - 3.0785189
-        - 11.581096
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      type: EntityStorage
   - uid: 8258
     components:
     - pos: 16.5,-77.5
@@ -50357,9 +50350,9 @@ entities:
       type: Transform
 - proto: filingCabinetRandom
   entities:
-  - uid: 10883
+  - uid: 3945
     components:
-    - pos: 52.5,-41.5
+    - pos: 55.5,-40.5
       parent: 9
       type: Transform
   - uid: 11033
@@ -83747,11 +83740,13 @@ entities:
       type: Transform
 - proto: GlowstickPurple
   entities:
-  - uid: 18128
+  - uid: 16536
     components:
-    - pos: 15.929415,-55.463646
+    - pos: 15.525711,-55.446316
       parent: 9
       type: Transform
+    - nextSound: 549.1310523
+      type: EmitSoundOnCollide
   - uid: 18129
     components:
     - pos: 15.762747,-55.42195
@@ -91855,6 +91850,22 @@ entities:
     - pos: 59.377098,-13.188359
       parent: 9
       type: Transform
+- proto: MaterialReclaimer
+  entities:
+  - uid: 743
+    components:
+    - pos: 13.5,-26.5
+      parent: 9
+      type: Transform
+    - nextSound: 2659.155282
+      type: MaterialReclaimer
+  - uid: 18283
+    components:
+    - pos: 79.5,-79.5
+      parent: 9
+      type: Transform
+    - nextSound: 2596.7567044
+      type: MaterialReclaimer
 - proto: MedicalBed
   entities:
   - uid: 881
@@ -92379,11 +92390,6 @@ entities:
       type: Transform
 - proto: NitrogenCanister
   entities:
-  - uid: 3593
-    components:
-    - pos: 59.5,-16.5
-      parent: 9
-      type: Transform
   - uid: 13126
     components:
     - pos: 6.5,-86.5
@@ -92440,16 +92446,6 @@ entities:
       type: Transform
 - proto: OxygenCanister
   entities:
-  - uid: 3569
-    components:
-    - pos: 55.5,-16.5
-      parent: 9
-      type: Transform
-  - uid: 3945
-    components:
-    - pos: -12.5,-2.5
-      parent: 9
-      type: Transform
   - uid: 8432
     components:
     - pos: 27.5,9.5
@@ -92662,21 +92658,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 57.439384,14.5761385
-      parent: 9
-      type: Transform
-  - uid: 3321
-    components:
-    - pos: 62.34606,-2.2930954
-      parent: 9
-      type: Transform
-  - uid: 3390
-    components:
-    - pos: 62.34606,-2.2097037
-      parent: 9
-      type: Transform
-  - uid: 3686
-    components:
-    - pos: 62.34606,-2.3869102
       parent: 9
       type: Transform
   - uid: 3976
@@ -92964,11 +92945,13 @@ entities:
     - pos: 81.48289,-12.491879
       parent: 9
       type: Transform
-  - uid: 16536
+  - uid: 18287
     components:
-    - pos: -11.914881,1.5925853
+    - pos: -11.648518,1.6525377
       parent: 9
       type: Transform
+    - nextSound: 407.360113
+      type: EmitSoundOnCollide
 - proto: PartRodMetal1
   entities:
   - uid: 15931
@@ -93722,11 +93705,6 @@ entities:
     - pos: 30.5,9.5
       parent: 9
       type: Transform
-  - uid: 2123
-    components:
-    - pos: 2.5,-26.5
-      parent: 9
-      type: Transform
   - uid: 2124
     components:
     - pos: -1.5,-26.5
@@ -93760,6 +93738,11 @@ entities:
   - uid: 2907
     components:
     - pos: 45.5,6.5
+      parent: 9
+      type: Transform
+  - uid: 10883
+    components:
+    - pos: 3.5,-26.5
       parent: 9
       type: Transform
   - uid: 11817
@@ -93853,9 +93836,29 @@ entities:
     - pos: 81.5,-11.5
       parent: 9
       type: Transform
+  - uid: 2123
+    components:
+    - pos: 59.5,-16.5
+      parent: 9
+      type: Transform
   - uid: 2355
     components:
     - pos: 18.5,-14.5
+      parent: 9
+      type: Transform
+  - uid: 3390
+    components:
+    - pos: 55.5,-37.5
+      parent: 9
+      type: Transform
+  - uid: 3437
+    components:
+    - pos: 16.5,-55.5
+      parent: 9
+      type: Transform
+  - uid: 8257
+    components:
+    - pos: 45.5,-84.5
       parent: 9
       type: Transform
   - uid: 13782
@@ -93863,9 +93866,34 @@ entities:
     - pos: 32.5,-69.5
       parent: 9
       type: Transform
+  - uid: 16535
+    components:
+    - pos: 16.5,-78.5
+      parent: 9
+      type: Transform
   - uid: 16965
     components:
     - pos: -0.5,-71.5
+      parent: 9
+      type: Transform
+  - uid: 18128
+    components:
+    - pos: -12.5,1.5
+      parent: 9
+      type: Transform
+  - uid: 18285
+    components:
+    - pos: 62.5,-2.5
+      parent: 9
+      type: Transform
+  - uid: 18286
+    components:
+    - pos: 81.5,-79.5
+      parent: 9
+      type: Transform
+  - uid: 18288
+    components:
+    - pos: 2.5,-26.5
       parent: 9
       type: Transform
 - proto: PowerCellSmall
@@ -105169,13 +105197,6 @@ entities:
     - pos: 2.3387976,-24.511667
       parent: 9
       type: Transform
-- proto: SheetPlasteel
-  entities:
-  - uid: 8045
-    components:
-    - pos: 45.480877,-84.61312
-      parent: 9
-      type: Transform
 - proto: SheetPlasteel1
   entities:
   - uid: 10950
@@ -105256,11 +105277,6 @@ entities:
     - pos: 50.48344,-82.45764
       parent: 9
       type: Transform
-  - uid: 11952
-    components:
-    - pos: 16.460127,-55.435886
-      parent: 9
-      type: Transform
   - uid: 12943
     components:
     - pos: 50.491493,-82.45539
@@ -105278,16 +105294,18 @@ entities:
       type: Transform
     - count: 15
       type: Stack
-  - uid: 16535
-    components:
-    - pos: -12.541929,1.5003469
-      parent: 9
-      type: Transform
   - uid: 17417
     components:
     - pos: 66.36031,-38.47875
       parent: 9
       type: Transform
+  - uid: 18289
+    components:
+    - pos: 15.702793,-54.66452
+      parent: 9
+      type: Transform
+    - nextSound: 542.1150186
+      type: EmitSoundOnCollide
 - proto: ShogiBoard
   entities:
   - uid: 12657
@@ -108939,9 +108957,9 @@ entities:
       type: Transform
 - proto: SpawnVehiclePussywagon
   entities:
-  - uid: 743
+  - uid: 18284
     components:
-    - pos: 13.5,-26.5
+    - pos: 14.5,-28.5
       parent: 9
       type: Transform
 - proto: SpeedLoaderMagnum
@@ -110561,6 +110579,11 @@ entities:
     - pos: 29.5,-47.5
       parent: 9
       type: Transform
+  - uid: 11952
+    components:
+    - pos: 2.5,-26.5
+      parent: 9
+      type: Transform
   - uid: 12063
     components:
     - pos: 64.5,-10.5
@@ -111042,9 +111065,19 @@ entities:
     - pos: 24.5,-28.5
       parent: 9
       type: Transform
+  - uid: 3321
+    components:
+    - pos: 16.5,-78.5
+      parent: 9
+      type: Transform
   - uid: 3503
     components:
     - pos: 58.5,-10.5
+      parent: 9
+      type: Transform
+  - uid: 3569
+    components:
+    - pos: 59.5,-16.5
       parent: 9
       type: Transform
   - uid: 3883
@@ -111140,6 +111173,11 @@ entities:
   - uid: 8025
     components:
     - pos: 73.5,-81.5
+      parent: 9
+      type: Transform
+  - uid: 8045
+    components:
+    - pos: 55.5,-37.5
       parent: 9
       type: Transform
   - uid: 8047
