@@ -10,6 +10,11 @@ using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+using Content.Server.Chat.Systems;
+using Content.Server.Speech.Components;
+using Content.Shared.Chat.Prototypes;
+using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Muting;
 
 namespace Content.Server.Abilities.Mime
 {
@@ -25,7 +30,6 @@ namespace Content.Server.Abilities.Mime
         {
             base.Initialize();
             SubscribeLocalEvent<MimePowersComponent, ComponentInit>(OnComponentInit);
-            SubscribeLocalEvent<MimePowersComponent, SpeakAttemptEvent>(OnSpeakAttempt);
             SubscribeLocalEvent<MimePowersComponent, InvisibleWallActionEvent>(OnInvisibleWall);
         }
         public override void Update(float frameTime)
@@ -47,21 +51,13 @@ namespace Content.Server.Abilities.Mime
 
         private void OnComponentInit(EntityUid uid, MimePowersComponent component, ComponentInit args)
         {
+            EnsureComp<MutedComponent>(uid);
             _actionsSystem.AddAction(uid, component.InvisibleWallAction, uid);
 
             if (TryComp<PsionicComponent>(uid, out var psionic) && psionic.PsionicAbility == null)
                 psionic.PsionicAbility = component.InvisibleWallAction;
 
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
-        }
-
-        private void OnSpeakAttempt(EntityUid uid, MimePowersComponent component, SpeakAttemptEvent args)
-        {
-            if (!component.Enabled)
-                return;
-
-            _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
-            args.Cancel();
         }
 
         /// <summary>
@@ -113,6 +109,7 @@ namespace Content.Server.Abilities.Mime
             mimePowers.Enabled = false;
             mimePowers.VowBroken = true;
             mimePowers.VowRepentTime = _timing.CurTime + mimePowers.VowCooldown;
+            RemComp<MutedComponent>(uid);
             _alertsSystem.ClearAlert(uid, AlertType.VowOfSilence);
             _alertsSystem.ShowAlert(uid, AlertType.VowBroken);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallAction);
@@ -135,6 +132,7 @@ namespace Content.Server.Abilities.Mime
             mimePowers.Enabled = true;
             mimePowers.ReadyToRepent = false;
             mimePowers.VowBroken = false;
+            AddComp<MutedComponent>(uid);
             _alertsSystem.ClearAlert(uid, AlertType.VowBroken);
             _alertsSystem.ShowAlert(uid, AlertType.VowOfSilence);
             _actionsSystem.AddAction(uid, mimePowers.InvisibleWallAction, uid);

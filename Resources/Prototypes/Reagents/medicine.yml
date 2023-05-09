@@ -349,6 +349,7 @@
       effects:
       - !type:HealthChange
         conditions:
+          # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
         damage:
@@ -779,7 +780,7 @@
         messages: ["ethyloxyephedrine-effect-feeling-awake", "ethyloxyephedrine-effect-clear-mind"]
         type: Local
         probability: 0.1
-        
+
 - type: reagent
   id: Sigynate
   name: reagent-name-sigynate

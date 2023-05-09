@@ -24,3 +24,6 @@ ghost-roles-window-rules-footer = The button will enable after {$time} seconds (
 ghost-roles-window-redirect-label = Or, you can connect to another server.
 ghost-roles-window-redirect-label-empty = You can connect to another server.
 ghost-roles-window-redirect = Connect
+
+ghost-return-to-body-title = Return to Body
+ghost-return-to-body-text = You are being revived! Return to your body?

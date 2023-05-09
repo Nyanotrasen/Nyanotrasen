@@ -2200,3 +2200,19 @@
               Quantity: 30
     - type: Sprite
       sprite: Objects/Consumable/Drinks/kvass.rsi
+
+- type: entity
+  parent: DrinkGlassBase
+  id: DrinkTheMartinez
+  name: The Martinez glass
+  description: The edgerunner legend.  Remembered by a drink, Forgotten by a drunk.
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 30
+          reagents:
+            - ReagentId: TheMartinez
+              Quantity: 30
+    - type: Sprite
+      sprite: Objects/Consumable/Drinks/the_martinez.rsi
