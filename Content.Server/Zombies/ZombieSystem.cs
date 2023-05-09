@@ -11,6 +11,7 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Chemistry.Components;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Damage;
 using Content.Shared.Disease.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
@@ -25,16 +26,17 @@ namespace Content.Server.Zombies
 {
     public sealed class ZombieSystem : SharedZombieSystem
     {
+        [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IPrototypeManager _protoManager = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly DiseaseSystem _disease = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+        [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
         [Dependency] private readonly ServerInventorySystem _inv = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
         [Dependency] private readonly EmoteOnDamageSystem _emoteOnDamage = default!;
-        [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
-        [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
 
         public override void Initialize()
@@ -50,6 +52,24 @@ namespace Content.Server.Zombies
             SubscribeLocalEvent<ZombieComponent, CloningEvent>(OnZombieCloning);
             SubscribeLocalEvent<ZombieComponent, AttemptSneezeCoughEvent>(OnSneeze);
             SubscribeLocalEvent<ZombieComponent, TryingToSleepEvent>(OnSleepAttempt);
+        }
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            var curTime = _timing.CurTime;
+
+            var zomb_query = EntityQueryEnumerator<ZombieComponent>();
+            // Heal the zombified
+            while (zomb_query.MoveNext(out var uid, out var comp))
+            {
+                if (comp.NextTick + TimeSpan.FromSeconds(1) > curTime)
+                    continue;
+
+                comp.NextTick = curTime;
+                _damageable.TryChangeDamage(uid, comp.Damage, true, false);
+            }
         }
 
         private void OnSleepAttempt(EntityUid uid, ZombieComponent component, ref TryingToSleepEvent args)
@@ -150,7 +170,7 @@ namespace Content.Server.Zombies
                 if (!TryComp<MobStateComponent>(entity, out var mobState))
                     continue;
 
-                if (HasComp<DiseaseCarrierComponent>(entity) && _robustRandom.Prob(GetZombieInfectionChance(entity, component)))
+                if (HasComp<DiseaseCarrierComponent>(entity) && _random.Prob(GetZombieInfectionChance(entity, component)))
                     _disease.TryAddDisease(entity, "ActiveZombieVirus");
 
                 if (HasComp<ZombieComponent>(entity))
