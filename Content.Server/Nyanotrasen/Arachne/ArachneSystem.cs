@@ -117,7 +117,7 @@ namespace Content.Server.Arachne
                 _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
-        private void OnBuckleChange(EntityUid uid, WebComponent component, BuckleChangeEvent args)
+        private void OnBuckleChange(EntityUid uid, WebComponent component, ref BuckleChangeEvent args)
         {
             if (!TryComp<StrapComponent>(uid, out var strap))
                 return;
