@@ -1,19 +1,4 @@
 Entries:
-- author: Vordenburg
-  changes:
-  - message: Added sprites for the glimmer machines.
-    type: Add
-  id: 40
-  time: '2022-10-18T19:36:31.0000000+00:00'
-- author: Rane
-  changes:
-  - message: I was going to take today off. But, I merged upstream. If I took that
-      off, you would die. It would be extremely painful. But, I'm a big guy for you.
-      Be sure to report bugs and let the admins know I never got around to fixing
-      the rev spawning.
-    type: Add
-  id: 41
-  time: '2022-10-18T20:53:00.0000000+00:00'
 - author: Rane
   changes:
   - message: Telepathic chat from oracles, dreams, and others work as intended again.
@@ -3087,7 +3072,7 @@ Entries:
     type: Add
   id: 426
   time: '2023-02-18T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Starting rations have much more variety. Trade!
     type: Add
@@ -3149,13 +3134,13 @@ Entries:
     type: Fix
   id: 435
   time: '2023-02-22T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added stack visuals for bluespace crystals.
     type: Add
   id: 436
   time: '2023-02-23T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added several new posters featuring safety moth.
     type: Add
@@ -3179,14 +3164,14 @@ Entries:
     type: Add
   id: 439
   time: '2023-02-24T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Moth sprites have been re-ported from /tg/station and should render as
       intended.
     type: Fix
   id: 440
   time: '2023-02-24T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Fixed guitar hit sounds being too loud.
     type: Fix
@@ -3205,7 +3190,7 @@ Entries:
     type: Fix
   id: 442
   time: '2023-02-28T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added 10 new drinks.
     type: Add
@@ -3237,7 +3222,7 @@ Entries:
     type: Add
   id: 447
   time: '2023-03-03T00:15:08.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added a new painting.
     type: Add
@@ -3675,13 +3660,13 @@ Entries:
     type: Fix
   id: 511
   time: '2023-04-09T01:57:02.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added paramedic PDA colors.
     type: Add
   id: 512
   time: '2023-04-09T01:57:02.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added a white ferret.
     type: Add
@@ -3724,7 +3709,7 @@ Entries:
     type: Tweak
   id: 518
   time: '2023-04-13T01:57:02.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Added new moth plushies to the space villain arcade game reward pool.
     type: Add
@@ -3736,7 +3721,7 @@ Entries:
     type: Add
   id: 520
   time: '2023-04-13T01:57:02.0000000+00:00'
-- author: FloofiestFloof
+- author: FluffiestFloof
   changes:
   - message: Ponchos protect you from the cold.
     type: Fix
@@ -3843,3 +3828,33 @@ Entries:
     type: Fix
   id: 536
   time: '2023-05-07T08:00:00.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Added spare epistemics encryption keys to the Mysta's locker.
+    type: Add
+  - message: Tweaked job and ID card icons to be more in line with their department.
+    type: Tweak
+  - message: Added Cyborg's job icons.
+    type: Add
+  id: 537
+  time: '2023-05-09T15:25:26.989425+00:00'
+- author: Rane
+  changes:
+  - message: Arachne now walk a bit faster.
+    type: Tweak
+  - message: Arachne damage set changed to a milder form of damage other spirits receive.
+      This means they now can receive holy damage, but are immune to genetic and radiation.
+    type: Tweak
+  - message: Arachne lack genetics or DNA. This has interesting consequences for certain
+      devices which rely on those.
+    type: Tweak
+  id: 538
+  time: '2023-05-09T15:27:18.951386+00:00'
+- author: Vordenburg
+  changes:
+  - message: Reduced the intensity of the Solar Flare event.
+    type: Tweak
+  - message: Removed the Bureaucratic Error event.
+    type: Remove
+  id: 539
+  time: '2023-05-09T16:31:44.119524+00:00'
