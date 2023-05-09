@@ -182,6 +182,10 @@
     tags:
       - Oneirophage
   - type: MovementAlwaysTouching
+  - type: PsionicInvisibleContacts
+    whitelist:
+      tags:
+        - ArachneWeb
 
 - type: entity
   name: oneirophage

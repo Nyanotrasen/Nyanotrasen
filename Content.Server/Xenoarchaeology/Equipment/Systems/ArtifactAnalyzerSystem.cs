@@ -460,7 +460,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
     private void OnCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref StartCollideEvent args)
     {
-        var otherEnt = args.OtherFixture.Body.Owner;
+        var otherEnt = args.OtherEntity;
 
         if (!HasComp<ArtifactComponent>(otherEnt))
             return;
@@ -473,7 +473,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
     private void OnEndCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref EndCollideEvent args)
     {
-        var otherEnt = args.OtherFixture.Body.Owner;
+        var otherEnt = args.OtherEntity;
 
         if (!HasComp<ArtifactComponent>(otherEnt))
             return;

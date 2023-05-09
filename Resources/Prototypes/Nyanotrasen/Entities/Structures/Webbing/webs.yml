@@ -91,10 +91,9 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
-  - type: PsionicInvisibleContacts
-    whitelist:
-      tags:
-        - Oneirophage
+  - type: Tag
+    tags:
+      - ArachneWeb
 
 - type: entity
   id: CocoonedHumanoid
