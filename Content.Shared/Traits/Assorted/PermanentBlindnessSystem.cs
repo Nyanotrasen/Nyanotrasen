@@ -1,8 +1,6 @@
 ﻿using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands.Components;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Network;
 
@@ -15,7 +13,6 @@ public sealed class PermanentBlindnessSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly BlindableSystem _blinding = default!;
-    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -42,16 +39,6 @@ public sealed class PermanentBlindnessSystem : EntitySystem
     private void OnStartup(EntityUid uid, PermanentBlindnessComponent component, ComponentStartup args)
     {
         _blinding.UpdateIsBlind(uid);
-
-        // give blind gear (i.e. white cane)
-        if (!TryComp(uid, out HandsComponent? handsComponent))
-            return;
-
-        var coords = EntityManager.GetComponent<TransformComponent>(uid).Coordinates;
-        var inhandEntity = EntityManager.SpawnEntity(component.BlindGear, coords);
-        _sharedHandsSystem.TryPickup(uid, inhandEntity, checkActionBlocker: false,
-            handsComp: handsComponent);
-
     }
 
     private void OnTrySee(EntityUid uid, PermanentBlindnessComponent component, CanSeeAttemptEvent args)
