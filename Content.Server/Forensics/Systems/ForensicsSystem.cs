@@ -27,7 +27,8 @@ namespace Content.Server.Forensics
 
         private void OnDNAInit(EntityUid uid, DnaComponent component, ComponentInit args)
         {
-            component.DNA = GenerateDNA();
+            if (String.IsNullOrEmpty(component.DNA))
+                component.DNA = GenerateDNA();
         }
 
         private string GenerateFingerprint()
