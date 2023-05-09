@@ -40,6 +40,20 @@
   - TrashBag
   - WetFloorSign
 
+- type: technology
+  id: AdvancedSprayTechnology
+  name: technologies-advanced-spray-technology
+  description: technologies-advanced-spray-technology-description
+  icon:
+    sprite: Objects/Weapons/Guns/Basic/spraynozzle.rsi
+    state: icon
+  requiredPoints: 7500
+  requiredTechnologies:
+  - CleaningTechnology
+  unlockedRecipes:
+  - WeaponSprayNozzle
+  - ClothingBackpackWaterTank
+
 # Food/Bev Service Technology Tree
 
 - type: technology
@@ -379,6 +393,7 @@
   - AirAlarmElectronics
   - FireAlarmElectronics
   - MailingUnitElectronics
+  - SignalTimerElectronics
 
 - type: technology
   name: technologies-material-sheet-printing

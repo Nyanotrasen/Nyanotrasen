@@ -90,3 +90,4 @@ reagent-physical-desc-ethereal = ethereal
 reagent-physical-desc-glittery = glittery
 reagent-physical-desc-energizing = energizing
 reagent-physical-desc-exhilarating = exhilarating
+reagent-physical-desc-vibrant = vibrant
