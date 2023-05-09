@@ -1,8 +1,9 @@
-﻿- type: gameMap
+- type: gameMap
   id: Lighthouse
   mapName: 'Lighthouse'
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 30
+  minPlayers: 15
+  maxPlayers: 55
   stations:
     Lighthouse:
       mapNameTemplate: '{0} Lighthouse {1}'
