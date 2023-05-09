@@ -6,7 +6,6 @@ using Content.Server.Borgs;
 using Content.Server.Chat;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.CombatMode;
 using Content.Server.Disease.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
@@ -19,6 +18,7 @@ using Content.Server.Popups;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Traitor;
+using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -52,6 +52,9 @@ namespace Content.Server.Zombies
         [Dependency] private readonly HumanoidAppearanceSystem _sharedHuApp = default!;
         [Dependency] private readonly IdentitySystem _identity = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+        [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
+        [Dependency] private readonly EmoteOnDamageSystem _emoteOnDamage = default!;
+        [Dependency] private readonly SharedCombatModeSystem _combat = default!;
         [Dependency] private readonly IChatManager _chatMan = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
 
@@ -70,7 +73,7 @@ namespace Content.Server.Zombies
             if (args.NewMobState == MobState.Dead ||
                 args.NewMobState == MobState.Critical)
             {
-                ZombifyEntity(uid);
+                ZombifyEntity(uid, args.Component);
             }
         }
 
@@ -86,7 +89,7 @@ namespace Content.Server.Zombies
         ///     rewrite this, but this is how it shall lie eternal. Turn back now.
         ///     -emo
         /// </remarks>
-        public void ZombifyEntity(EntityUid target)
+        public void ZombifyEntity(EntityUid target, MobStateComponent? mobState = null)
         {
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
@@ -94,6 +97,9 @@ namespace Content.Server.Zombies
             
             //Don't zombify cyborg
             if (HasComp<CyborgComponent>(target))
+                return;
+
+            if (!Resolve(target, ref mobState, logMissing: false))
                 return;
 
             //you're a real zombie now, son.
@@ -116,7 +122,7 @@ namespace Content.Server.Zombies
             //in an attempt to make an entity not attack. This is the easiest way to do it.
             RemComp<CombatModeComponent>(target);
             var combat = AddComp<CombatModeComponent>(target);
-            combat.IsInCombatMode = true;
+            _combat.SetInCombatMode(target, true, combat);
 
             //This is the actual damage of the zombie. We assign the visual appearance
             //and range here because of stuff we'll find out later
@@ -126,10 +132,25 @@ namespace Content.Server.Zombies
             melee.Range = 1.5f;
             Dirty(melee);
 
+            if (mobState.CurrentState == MobState.Alive)
+            {
+                // Groaning when damaged
+                EnsureComp<EmoteOnDamageComponent>(target);
+                _emoteOnDamage.AddEmote(target, "Scream");
+
+                // Random groaning
+                EnsureComp<AutoEmoteComponent>(target);
+                _autoEmote.AddEmote(target, "ZombieGroan");
+            }
+
             //We have specific stuff for humanoid zombies because they matter more
             if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp
             {
-                _sharedHuApp.SetSkinColor(target, zombiecomp.SkinColor, humanoid: huApComp);
+                //store some values before changing them in case the humanoid get cloned later
+                zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
+                zombiecomp.BeforeZombifiedCustomBaseLayers = new(huApComp.CustomBaseLayers);
+
+                _sharedHuApp.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
                 _sharedHuApp.SetBaseLayerColor(target, HumanoidVisualLayers.Eyes, zombiecomp.EyeColor, humanoid: huApComp);
 
                 // this might not resync on clone?
@@ -174,6 +195,7 @@ namespace Content.Server.Zombies
 
             //gives it the funny "Zombie ___" name.
             var meta = MetaData(target);
+            zombiecomp.BeforeZombifiedEntityName = meta.EntityName;
             meta.EntityName = Loc.GetString("zombie-name-prefix", ("target", meta.EntityName));
 
             _identity.QueueIdentityUpdate(target);
@@ -191,10 +213,11 @@ namespace Content.Server.Zombies
             if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindcomp.HasMind) //this specific component gives build test trouble so pop off, ig
             {
                 //yet more hardcoding. Visit zombie.ftl for more information.
-                EntityManager.EnsureComponent<GhostTakeoverAvailableComponent>(target, out var ghostcomp);
-                ghostcomp.RoleName = Loc.GetString("zombie-generic");
-                ghostcomp.RoleDescription = Loc.GetString("zombie-role-desc");
-                ghostcomp.RoleRules = Loc.GetString("zombie-role-rules");
+                var ghostRole = EnsureComp<GhostRoleComponent>(target);
+                EnsureComp<GhostTakeoverAvailableComponent>(target);
+                ghostRole.RoleName = Loc.GetString("zombie-generic");
+                ghostRole.RoleDescription = Loc.GetString("zombie-role-desc");
+                ghostRole.RoleRules = Loc.GetString("zombie-role-rules");
             }
 
             //Goes through every hand, drops the items in it, then removes the hand

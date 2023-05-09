@@ -46,18 +46,11 @@ signal-port-description-med-scanner-sender = Medical scanner signal sender
 signal-port-name-med-scanner-receiver = Medical scanner
 signal-port-description-med-scanner-receiver = Medical scanner signal receiver
 
+signal-port-name-hold-open = Hold
+signal-port-description-hold-open = Turns off automatic closing.
+
 signal-port-name-artifact-analyzer-sender = Console
 signal-port-description-artifact-analyzer-sender = Analysis console signal sender
 
 signal-port-name-artifact-analyzer-receiver = Pad
 signal-port-description-artifact-analyzer-receiver = Artifact analyzer signal receiver
-
-signal-port-name-hold-open = Hold
-signal-port-description-hold-open = Turns off automatic closing.
-
-#Nyano
-signal-port-name-timer-off-transmitter = Complete
-signal-port-description-timer-off-transmitter = The timer has completed or been cancelled.
-
-signal-port-name-timer-on-transmitter = Activated
-signal-port-description-timer-on-transmitter = The timer has been activated.

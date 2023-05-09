@@ -49,5 +49,12 @@ namespace Content.Shared.Materials
         /// </summary>
         [DataField("price", required: true)]
         public double Price = 0;
+
+        /// <summary>
+        /// How many surplus units of this material need to be on the market before
+        /// the price reaches half of its default price?
+        /// </summary>
+        [DataField("halfPriceSurplus")]
+        public int HalfPriceSurplus { get; } = 10000;
     }
 }

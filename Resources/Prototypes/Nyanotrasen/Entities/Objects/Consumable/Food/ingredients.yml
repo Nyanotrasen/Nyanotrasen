@@ -129,12 +129,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxvol: 6
+        maxvol: 7
         reagents:
         - ReagentId: Nutriment
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 2
+        - ReagentId: Allicin
+          Quantity: 0.5
 
 # base for our special sauces
 - type: entity

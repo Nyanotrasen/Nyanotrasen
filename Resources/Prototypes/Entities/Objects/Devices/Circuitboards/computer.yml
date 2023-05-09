@@ -13,6 +13,11 @@
         - DroneUsable
     - type: DynamicPrice
       price: 100
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 400
+      chemicalComposition:
+        Silicon: 20
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -71,6 +76,10 @@
       prototype: ComputerCargoOrders
     - type: DynamicPrice
       price: 750
+    - type: Tag
+      tags:
+      - DroneUsable
+      - HighRiskItem
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -82,6 +91,17 @@
       state: cpu_supply
     - type: ComputerBoard
       prototype: ComputerCargoShuttle
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SalvageExpeditionsComputerCircuitboard
+  name: salvage expeditions computer board
+  description: A computer printed circuit board for a salvage expeditions computer.
+  components:
+    - type: Sprite
+      state: cpu_supply
+    - type: ComputerBoard
+      prototype: ComputerSalvageExpedition
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -193,6 +213,10 @@
       prototype: ComputerId
     - type: DynamicPrice
       price: 750
+    - type: Tag
+      tags:
+      - DroneUsable
+      - HighRiskItem
 
 - type: entity
   parent: BaseComputerCircuitboard

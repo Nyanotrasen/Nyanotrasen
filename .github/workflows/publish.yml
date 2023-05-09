@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: "publish"
 
     steps:
     - uses: actions/checkout@v2
@@ -40,24 +41,24 @@ jobs:
         mv release/*.zip "release/${{ github.sha }}"
 
     - name: Upload files to cdn
-      uses: appleboy/scp-action@master
+      uses: marcodallasanta/ssh-scp-deploy@v1.2.0
       with:
-        host: nyanotrasen.moe
-        username: boywife-ralsei
-        key: ${{ secrets.BUILDS_PUSH_KEY }}
-        port: ${{ secrets.PUBLISH_SSH_PORT }}
-        source: "release/${{ github.sha }}"
-        target: "/var/www/builds.nyanotrasen.moe/nyanotrasen/builds/"
-        strip_components: 1
+        host: ${{ secrets.PUBLISH_HOST }}
+        port: ${{ secrets.PUBLISH_PORT }}
+        user: ${{ secrets.PUBLISH_PUSH_USER }}
+        key: ${{ secrets.PUBLISH_PUSH_KEY }}
+        scp_options: -r -o StrictHostKeyChecking=no
+        local: "release/${{ github.sha }}"
+        remote: "builds"
 
     - name: Update manifest JSON
       uses: appleboy/ssh-action@master
       with:
-        host: nyanotrasen.moe
-        username: boywife-ralsei
-        key: ${{ secrets.BUILDS_PUSH_KEY }}
-        port: ${{ secrets.PUBLISH_SSH_PORT }}
-        script: /var/www/builds.nyanotrasen.moe/manifest.py -c nyanotrasen -v ${{ github.sha }}
+        host: ${{ secrets.PUBLISH_HOST }}
+        username: ${{ secrets.PUBLISH_NOTIFY_USER }}
+        key: ${{ secrets.PUBLISH_NOTIFY_KEY }}
+        port: ${{ secrets.PUBLISH_PORT }}
+        script: /home/${{ secrets.PUBLISH_PUSH_USER }}/push.s1 ${{ github.sha }}
 
     - name: Publish changelog
       run: Tools/actions_changelogs_since_last_run.py

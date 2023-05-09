@@ -32,7 +32,6 @@
     - Trash
   - type: Appearance
   - type: PaperVisuals
-  - type: Recyclable
 
 - type: entity
   name: office paper
@@ -183,7 +182,9 @@
     sprite: Objects/Misc/bureaucracy.rsi
     heldPrefix: pen
     size: 2
-  - type: Recyclable
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
 
 - type: entity
   name: Cybersun pen
