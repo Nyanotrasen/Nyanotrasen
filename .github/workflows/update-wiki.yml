@@ -3,7 +3,7 @@ name: Update Wiki
 on:
   workflow_dispatch:
   push:
-    branches: [ master, jsondump ]
+    branches: [ master ]
     paths:
       - '.github/workflows/update-wiki.yml'
       - 'Content.Shared/Chemistry/**.cs'
@@ -18,6 +18,7 @@ jobs:
   update-wiki:
     name: Build and Publish JSON blobs to wiki
     runs-on: ubuntu-latest
+    environment: "update-wiki"
 
     steps:
     - name: Checkout Master
@@ -56,7 +57,7 @@ jobs:
         wiki_text_file: ./bin/Content.Server/data/chem_prototypes.json
         edit_summary: Update chem_prototypes.json via GitHub Actions
         page_name: "${{ secrets.WIKI_PAGE_ROOT }}/chem_prototypes.json"
-        api_url: https://wiki.nyanotrasen.moe/api.php
+        api_url: https://wiki.nyanotrasen.moe/w/api.php
         username: ${{ secrets.WIKI_BOT_USER }}
         password: ${{ secrets.WIKI_BOT_PASS }}
 
@@ -66,7 +67,6 @@ jobs:
         wiki_text_file: ./bin/Content.Server/data/react_prototypes.json
         edit_summary: Update react_prototypes.json via GitHub Actions
         page_name: "${{ secrets.WIKI_PAGE_ROOT }}/react_prototypes.json"
-        api_url: https://wiki.nyanotrasen.moe/api.php
+        api_url: https://wiki.nyanotrasen.moe/w/api.php
         username: ${{ secrets.WIKI_BOT_USER }}
         password: ${{ secrets.WIKI_BOT_PASS }}
-
