@@ -18,6 +18,7 @@ jobs:
   update-wiki:
     name: Build and Publish JSON blobs to wiki
     runs-on: ubuntu-latest
+    environment: "update-wiki"
 
     steps:
     - name: Checkout Master
