@@ -123,7 +123,7 @@
   - type: ConditionalSpawner
     prototypes:
       - MobCatFloppa
-      
+
 - type: entity
   name: Bingus Spawner
   id: SpawnMobCatBingus
@@ -436,3 +436,17 @@
   - type: ConditionalSpawner
     prototypes:
       - MobSlimesPet
+
+- type: entity
+  name: Pun Pun Spawner
+  id: SpawnMobMonkeyPunpun
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMonkeyPunpun
