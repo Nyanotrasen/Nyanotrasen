@@ -55282,15 +55282,6 @@ entities:
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
-  - uid: 12598
-    components:
-    - pos: 22.5,-56.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
   - uid: 13074
     components:
     - pos: 12.5,-89.5
@@ -55766,26 +55757,6 @@ entities:
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
-  - uid: 4059
-    components:
-    - pos: 22.5,-57.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
-  - uid: 4064
-    components:
-    - pos: 22.5,-58.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
-    - bodyType: Static
-      type: Physics
-    - enabled: True
-      type: AmbientSound
   - uid: 4123
     components:
     - rot: 1.5707963267948966 rad
@@ -58390,14 +58361,17 @@ entities:
       type: Physics
   - uid: 9007
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 22.5,-57.5
+    - pos: 22.5,-58.5
       parent: 9
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
+    - enabled: True
+      type: AmbientSound
+    - nextSound: 40.1337857
+      type: EmitSoundOnCollide
   - uid: 9008
     components:
     - rot: -1.5707963267948966 rad
@@ -76889,6 +76863,18 @@ entities:
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
+  - uid: 4059
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 22.5,-56.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+    - bodyType: Static
+      type: Physics
+    - nextSound: 24.3926808
+      type: EmitSoundOnCollide
   - uid: 4061
     components:
     - rot: 1.5707963267948966 rad
@@ -76899,6 +76885,17 @@ entities:
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
+  - uid: 4064
+    components:
+    - pos: 22.5,-57.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+    - bodyType: Static
+      type: Physics
+    - nextSound: 27.2311421
+      type: EmitSoundOnCollide
   - uid: 4221
     components:
     - rot: 3.141592653589793 rad
@@ -80682,7 +80679,7 @@ entities:
       pos: 22.5,-59.5
       parent: 9
       type: Transform
-    - color: '#FF0000FF'
+    - color: '#0000FFFF'
       type: AtmosPipeColor
     - bodyType: Static
       type: Physics
