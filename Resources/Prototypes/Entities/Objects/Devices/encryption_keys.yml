@@ -142,7 +142,7 @@
 - type: entity
   parent: EncryptionKey
   id: EncryptionKeyScience
-  name: epistemic encryption key
+  name: epistemics encryption key
   description: An encryption key used by acolytes. Maybe it is plasmaproof?
   components:
   - type: EncryptionKey
