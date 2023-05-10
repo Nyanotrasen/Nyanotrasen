@@ -78013,7 +78013,7 @@ entities:
     - pos: -2.0024798,34.754864
       parent: 33
       type: Transform
-- proto: FoodCondimentBottleSmallVinegar
+- proto: FoodCondimentBottleVinegar
   entities:
   - uid: 8311
     components:
@@ -78667,13 +78667,6 @@ entities:
   - uid: 9406
     components:
     - pos: -19.46041,80.78899
-      parent: 33
-      type: Transform
-- proto: FoodShakerEmpty
-  entities:
-  - uid: 10867
-    components:
-    - pos: 24.727167,71.50599
       parent: 33
       type: Transform
 - proto: FoodShakerPepper
