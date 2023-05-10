@@ -1,7 +1,7 @@
 - type: job
-  id: Cyborg
-  name: job-name-cyborg
-  description: job-description-cyborg
+  id: Robot
+  name: job-name-robot
+  description: job-description-robot
   playTimeTracker: JobCyborg
   requirements:
     - !type:OverallPlaytimeRequirement
@@ -10,11 +10,11 @@
   supervisors: job-supervisors-human
   canBeAntag: false
   whitelistRequired: true
-  jobEntity: PlayerCyborgStandard
-  startingGear: CyborgGear # for char preview only
+  jobEntity:  PlayerRobotStandard
+  startingGear: RobotGear # for char preview only
 
 - type: startingGear
-  id: CyborgGear
+  id: RobotGear
   equipment:
     head: ClothingHeadHatCardborg
     outerClothing: ClothingOuterCardborg

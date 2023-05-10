@@ -59,7 +59,7 @@
   - ChiefMedicalOfficer
   - MedicalDoctor
   - Psychologist
-  - MedicalCyborg
+  - MedicalRobot
   - Paramedic
 
 - type: department
@@ -89,5 +89,5 @@
   description: department-Silicon-description
   color: "#8D9AAC"
   roles:
-  - Cyborg
-  - MedicalCyborg
+  - Robot
+  - MedicalRobot
