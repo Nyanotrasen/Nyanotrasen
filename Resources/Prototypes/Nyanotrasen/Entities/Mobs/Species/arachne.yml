@@ -99,8 +99,8 @@
     prototype: Arachne
     requiredLegs: 8
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Arachne
+    damageContainer: HalfSpirit
+    damageModifierSet: HalfSpirit
   - type: DiseaseCarrier
     naturalImmunities:
     - BleedersBite
@@ -147,6 +147,8 @@
     normalState: Generic_mob_burning
     alternateState: arachne_standing
     fireStackAlternateState: 3
+  - type: Dna
+    dna: "ABRAXAS"
 
 - type: entity
   save: false

@@ -157,8 +157,8 @@
       coefficients:
         Piercing: 2.25
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Arachne
+    damageContainer: HalfSpirit
+    damageModifierSet: HalfSpirit
   - type: StatusEffects
     allowed:
       - Stun
