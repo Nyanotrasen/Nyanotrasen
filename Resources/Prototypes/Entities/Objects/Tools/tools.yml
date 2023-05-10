@@ -413,7 +413,7 @@
     bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
   - type: Wieldable
   - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
-    attackRate: 1
+    # attackRate: 1
     damage:
       types:
         Blunt: 12

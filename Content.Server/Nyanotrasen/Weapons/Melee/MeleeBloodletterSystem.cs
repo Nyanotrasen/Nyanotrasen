@@ -1,6 +1,6 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Wieldable.Components;
+using Content.Shared.Wieldable.Components;
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 
