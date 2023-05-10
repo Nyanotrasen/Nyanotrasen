@@ -6,7 +6,7 @@ game-ticker-unknown-role = Unknown
 game-ticker-delay-start = Round start has been delayed for {$seconds} seconds.
 game-ticker-pause-start = Round start has been paused.
 game-ticker-pause-start-resumed = Round start countdown is now resumed.
-game-ticker-player-join-game-message = Welcome to Nyanotrasen SS14! If this is your first time playing, be sure to read the game rules, and don't be afraid to ask for help in LOOC (local OOC). You can get whitelisted by joining the Discord from www.nyanotrasen.moe.
+game-ticker-player-join-game-message = Welcome to Delta-v! If this is your first time playing, be sure to read the game rules, and don't be afraid to ask for help in LOOC (local OOC). You can get whitelisted by joining the Discord from www.delta-v.org.
 game-ticker-get-info-text = Hi and welcome to [color=white]Space Station 14![/color]
                             The current round is: [color=white]#{$roundId}[/color]
                             The current player count is: [color=white]{$playerCount}[/color]
