@@ -35,8 +35,8 @@
     sprite: Nyanotrasen/Clothing/Belt/Martial/black.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Belt/Martial/black.rsi
-- type: entity
 
+- type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltKatanaSheath
   name: katana sheaths
@@ -76,7 +76,7 @@
   - type: Item
     size: 60
   - type: Storage
-    capacity: 60
+    capacity: 30
   - type: Tag
     tags:
       - BeltSlotNotBelt
