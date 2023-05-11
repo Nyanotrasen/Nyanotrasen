@@ -72,6 +72,15 @@
       types:
         Slash: 3
         Pierce: 2
+  - type: Clumsy
+    clumsyDamage:
+      types:
+        Blunt: 5
+        Piercing: 4
+      groups:
+        Burn: 3
+    clumsySound:
+      path: /Audio/Animals/monkey_scream.ogg
 
 - type: entity
   name: gorilla
