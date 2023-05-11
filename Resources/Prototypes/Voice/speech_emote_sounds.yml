@@ -24,6 +24,8 @@
       collection: MaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: MaleSigh
 
 - type: emoteSounds
   id: FemaleHuman
@@ -50,6 +52,8 @@
       collection: FemaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: FemaleSigh
 
 - type: emoteSounds
   id: UnisexReptilian
