@@ -33,10 +33,11 @@
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     angle: 30
-    animation: WeaponArcPunch
+    animation: WeaponArcClaw
     damage:
       types:
-        Piercing: 5
+        Blunt: 1
+        Slash: 5
   - type: Temperature
     heatDamageThreshold: 400
     coldDamageThreshold: 285
@@ -49,8 +50,8 @@
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.7
-    baseSprintSpeed : 4.5
+    baseWalkSpeed : 3
+    baseSprintSpeed : 5
   - type: Perishable
   - type: Carriable
 

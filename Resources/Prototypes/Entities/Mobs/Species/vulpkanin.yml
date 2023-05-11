@@ -20,15 +20,21 @@
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     angle: 30
-    animation: WeaponArcPunch
+    animation: WeaponArcClaw
     damage:
       types:
-        Piercing: 5
+        Blunt: 1
+        Slash: 5
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 5
   - type: Perishable
   - type: Carriable
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Thieving
+    stealthy: true
+    stripTimeReduction: 1
 
 - type: entity
   save: false
