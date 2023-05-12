@@ -224,11 +224,11 @@
   bounds: "-2, -18, 19, 5"
 
 # Saved wrong. Someone needs to resave or delete this.
-# - type: salvageMap
-#   id: AtlasMedbay
-#   name: "Atlas Medbay"
-#   mapPath: /Maps/Salvage/atlas_medical.yml
-#   bounds: "-11, -19, 11, 3"
+- type: salvageMap
+  id: AtlasMedbay
+  name: "Atlas Medbay"
+  mapPath: /Maps/Salvage/atlas_medical.yml
+  bounds: "-11, -19, 11, 3"
 
 - type: salvageMap
   id: AtlasService
