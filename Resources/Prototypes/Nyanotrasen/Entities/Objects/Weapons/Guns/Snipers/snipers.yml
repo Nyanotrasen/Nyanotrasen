@@ -1,8 +1,8 @@
 - type: entity
-  name: Mark 1 Rifle
+  name: mark 1 rifle
   parent: BaseWeaponSniper
   id: WeaponSniperGrand
-  description: An ancient semi-automatic rifle that sparks some kind of a deep feeling from within you. Uses .30 rifle ammo.
+  description: A heavy and reliable self-loading rifle, utilising a modified version of a centuries-old design. Uses .30 rifle ammo.
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
@@ -24,7 +24,7 @@
       - CartridgeLightRifle
 
 - type: entity
-  name: Ceremonial Rifle
+  name: ceremonial rifle
   parent: BaseWeaponSniper
   id: WeaponSniperCeremonial
   description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses .30 rifle ammo.
