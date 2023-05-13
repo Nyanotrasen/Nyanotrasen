@@ -181,22 +181,11 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtTurtleneckYukon
-  name: Yukon officer's turtleneck
-  description: Standard uniform for Yukon officers.
+  id: ClothingUniformSkirtdecorskirt
+  name: Decorated turtle skirt
+  description: A turtle skirt with yellow straps and soft fabric.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/yukonturtle.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/yukonturtle.rsi
-
-- type: entity
-  parent: ClothingUniformSkirtBase
-  id: ClothingUniformSkirtspaceYukon
-  name: Yukon spacestation worker's turtleneck
-  description: Standard uniform for Yukon station workers.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Yukonspace.rsi
-  - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Yukonspace.rsi
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
