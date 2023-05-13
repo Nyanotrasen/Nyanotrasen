@@ -113,7 +113,7 @@
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
   - type: Slippery
-    launchForwardsMultiplier: 6.0
+    launchForwardsMultiplier: 2
   - type: StepTrigger
     intersectRatio: 0.2
   - type: Physics
