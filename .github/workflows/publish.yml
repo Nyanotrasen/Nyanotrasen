@@ -60,7 +60,9 @@ jobs:
         script: /var/www/builds.delta-v.org/push.ps1 ${{ github.sha }}
 
     - name: Publish changelog
-      run: Tools/actions_changelogs_since_last_run.py
+      run: |
+        pip install python-dateutil
+        Tools/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}

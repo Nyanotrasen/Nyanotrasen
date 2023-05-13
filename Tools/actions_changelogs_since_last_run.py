@@ -10,6 +10,7 @@ import itertools
 import os
 import requests
 import yaml
+from dateutil import parser
 from typing import Any, Iterable
 
 GITHUB_API_URL    = os.environ.get("GITHUB_API_URL", "https://api.github.com")
@@ -20,6 +21,7 @@ GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
 CHANGELOG_FILE = "Resources/Changelog/DeltaVChangelog.yml"
+CHANGELOG_FILE_UPSTREAM = "Resources/Changelog/Changelog.yml"
 
 TYPES_TO_EMOJI = {
     "Fix":    "🐛",
@@ -44,7 +46,10 @@ def main():
     print(f"Last successsful publish job was {most_recent['id']}: {last_sha}")
     last_changelog = yaml.safe_load(get_last_changelog(session, last_sha))
     with open(CHANGELOG_FILE, "r") as f:
-        cur_changelog = yaml.safe_load(f)
+        cur_changelog_tmp1 = yaml.safe_load(f)
+    with open(CHANGELOG_FILE_UPSTREAM, "r") as f:
+        cur_changelog_tmp2 = yaml.safe_load(f)
+    cur_changelog = merge_changelog(cur_changelog_tmp1["Entries"], cur_changelog_tmp2["Entries"])
 
     diff = diff_changelog(last_changelog, cur_changelog)
     send_to_discord(diff)
@@ -93,8 +98,20 @@ def get_last_changelog(sess: requests.Session, sha: str) -> str:
 
     resp = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE}", headers=headers, params=params)
     resp.raise_for_status()
-    return resp.text
+    resp2 = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE}", headers=headers, params=params)
+    resp2.raise_for_status()
+    merged = merge_changelog(yaml.safe_load(resp),yaml.safe_load(resp2))
+    return merged
 
+def merge_changelog(main: dict[str, Any], upstream: dict[str, Any]) -> Iterable[ChangelogEntry]:
+    """
+    Merge 2 separate changelog files with possible matching IDs and reset the combined IDs by date
+    """
+    combined = upstream["Entries"] + main["Entries"]
+    combined.sort(key=lambda x: parser.parse(x["time"]))
+    for count, entry in enumerate(combined, start=1):
+        entry["id"] = count
+    return {"Entries" : combined}
 
 def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[ChangelogEntry]:
     """
