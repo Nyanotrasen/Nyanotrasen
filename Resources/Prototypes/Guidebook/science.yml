@@ -5,6 +5,7 @@
   children:
   - AnomalousResearch
   - Xenoarchaeology
+  - Robotics
   - MachineUpgrading
 
 - type: guideEntry
@@ -32,6 +33,11 @@
   children:
   - ArtifactReports
   - TraversalDistorter
+
+- type: guideEntry
+  id: Robotics
+  name: guide-entry-robotics
+  text: "/ServerInfo/Guidebook/Science/Robotics.xml"
 
 - type: guideEntry
   id: ArtifactReports

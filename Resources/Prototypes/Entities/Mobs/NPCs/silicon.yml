@@ -97,6 +97,9 @@
   - type: Alerts
   - type: TypingIndicator
     proto: robot
+  - type: GuideHelp
+    guides:
+    - Robotics
 
 - type: entity
   parent: MobSiliconBase
