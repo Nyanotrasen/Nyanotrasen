@@ -27,7 +27,7 @@
 - type: entity
   parent: HyposprayBorgStandard
   id: HyposprayBorgMedical
-  name: medical cyborg hypospray
+  name: medical robot hypospray
   description: A hypospray that can switch through several reagents.
   components:
   - type: SolutionContainerManager
@@ -57,6 +57,30 @@
       - reagents:
         - ReagentId: Kelotane
           Quantity: 1
+
+- type: entity
+  name: medical robot health analyzer
+  parent: BaseItem
+  id: BorgHealthAnalyzer
+  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    netsync: false
+    state: analyzer
+  - type: ActivatableUI
+    key: enum.HealthAnalyzerUiKey.Key
+    closeOnHandDeselect: false
+  - type: UserInterface
+    interfaces:
+      - key: enum.HealthAnalyzerUiKey.Key
+        type: HealthAnalyzerBoundUserInterface
+  - type: HealthAnalyzer
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: Tag
+    tags:
+    - DiscreteHealthAnalyzer
 
 - type: entity
   parent: BaseItem

@@ -20,14 +20,6 @@
     Piercing: 0.85
 
 - type: damageModifierSet
-  id: Arachne
-  coefficients:
-    Blunt: 1.1
-    Slash: 1.1
-    Piercing: 0.9
-    Poison: 0.9
-
-- type: damageModifierSet
   id: Moff
   coefficients:
     Slash: 1.15
@@ -74,6 +66,19 @@
     Piercing: 0.5
     Heat: 1.5
     Holy: 3.0
+
+- type: damageModifierSet
+  id: HalfSpirit
+  coefficients:
+    Cold: 0.5
+    Shock: 0.75
+    Blunt: 0.75
+    Slash: 0.75
+    Piercing: 0.75
+    Heat: 1.25
+    Holy: 1.5
+  flatReductions:
+    Cold: 3
 
 - type: damageModifierSet
   id: CancerMouse

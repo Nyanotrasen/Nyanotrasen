@@ -2,6 +2,7 @@
   id: SmokingPipe
   parent: BaseSmokingPipe
   name: pipe
+  suffix: Empty
   description: Just like grandpappy used to smoke.
   components:
   - type: Sprite
@@ -23,6 +24,7 @@
   id: SmokingPipeFilledTobacco
   parent: SmokingPipe
   name: pipe
+  suffix: Tobacco
   description: Just like grandpappy used to smoke.
   components:
   - type: ContainerContainer
@@ -45,6 +47,7 @@
   id: SmokingPipeFilledCannabis
   parent: SmokingPipe
   name: pipe
+  suffix: Cannabis
   description: Just like grandpappy used to smoke.
   components:
   - type: ContainerContainer

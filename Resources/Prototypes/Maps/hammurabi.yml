@@ -19,7 +19,7 @@
         Boxer: [ 2, 2 ]
         Chef: [ 3, 4 ]
         Clown: [ 1, 1 ]
-        Cyborg: [ 2, 3 ]
+        Robot: [ 2, 3 ]
         ForensicMantis: [ 1, 1 ]
         Janitor: [ 2, 3 ]
         Mime: [ 1, 2 ]
@@ -29,7 +29,7 @@
         StationEngineer: [ 6, 8 ]
         ChiefMedicalOfficer: [ 1, 1 ]
         MedicalDoctor: [ 7, 9 ]
-        MedicalCyborg: [ 1, 2 ]
+        MedicalRobot: [ 1, 2 ]
         Paramedic: [ 2, 3 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 4, 6 ]
@@ -48,5 +48,5 @@
         Reporter: [ 2, 2 ]
         Valet: [ 6, 6 ]
         Psychologist: [ 1, 1 ]
-        Prisoner: [ 4, 6 ] # move back to 10, 12 when ready 
-        PrisonGuard: [ 4, 6 ]  
+        Prisoner: [ 4, 6 ] # move back to 10, 12 when ready
+        PrisonGuard: [ 4, 6 ]
