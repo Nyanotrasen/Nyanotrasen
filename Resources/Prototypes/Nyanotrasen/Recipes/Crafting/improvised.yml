@@ -23,3 +23,16 @@
   icon:
     sprite: Objects/Tools/hand_labeler.rsi
     state: hand_labeler
+
+- type: construction
+  name: moth plushie
+  id: mothplushie
+  graph: MoffPlushie
+  startNode: start
+  targetNode: plush
+  category: construction-category-misc
+  description: A cute little moth plushie.
+  icon:
+    sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
+    state: moff
+  objectType: Item
