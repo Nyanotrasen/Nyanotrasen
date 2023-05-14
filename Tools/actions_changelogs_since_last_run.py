@@ -98,9 +98,9 @@ def get_last_changelog(sess: requests.Session, sha: str) -> str:
 
     resp = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE}", headers=headers, params=params)
     resp.raise_for_status()
+    master = yaml.safe_load(resp.text)
     resp2 = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE_UPSTREAM}", headers=headers, params=params)
     resp2.raise_for_status()
-    master = yaml.safe_load(resp.text)
     upstream = yaml.safe_load(resp2.text)
 
     merged = merge_changelog(master,upstream)
