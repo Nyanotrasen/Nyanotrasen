@@ -7,17 +7,17 @@ using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Administration.Commands.Brief
+namespace Content.Server.Administration.Commands.RBrief
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class BriefCommand : IConsoleCommand
+    public sealed class RBriefCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IEntitySystemManager _entitysys = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-        public string Command => "brief";
-        public string Description => "Makes you a mob of choice until the command is rerun.";
+        public string Command => "rbrief";
+        public string Description => "Makes you a mob of choice until the command is rerun. Restricted to mobs only.";
         public string Help => $"Usage: {Command} <outfit> <name> <entity> <force>";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
@@ -84,6 +84,12 @@ namespace Content.Server.Administration.Commands.Brief
             if (entProto == null)
             {
                 shell.WriteError("Entity prototype is invalid.");
+                return;
+            }
+
+            if (!entName.StartsWith("Mob"))
+            {
+                shell.WriteError("Unable to rbrief as restricted entity.");
                 return;
             }
 
