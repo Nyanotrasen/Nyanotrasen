@@ -44,12 +44,12 @@ def main():
     most_recent = get_most_recent_workflow(session)
     last_sha = most_recent['head_commit']['id']
     print(f"Last successsful publish job was {most_recent['id']}: {last_sha}")
-    last_changelog = yaml.safe_load(get_last_changelog(session, last_sha))
+    last_changelog = get_last_changelog(session, last_sha)
     with open(CHANGELOG_FILE, "r") as f:
         cur_changelog_tmp1 = yaml.safe_load(f)
     with open(CHANGELOG_FILE_UPSTREAM, "r") as f:
         cur_changelog_tmp2 = yaml.safe_load(f)
-    cur_changelog = merge_changelog(cur_changelog_tmp1["Entries"], cur_changelog_tmp2["Entries"])
+    cur_changelog = merge_changelog(cur_changelog_tmp1, cur_changelog_tmp2)
 
     diff = diff_changelog(last_changelog, cur_changelog)
     send_to_discord(diff)
@@ -100,18 +100,21 @@ def get_last_changelog(sess: requests.Session, sha: str) -> str:
     resp.raise_for_status()
     resp2 = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE_UPSTREAM}", headers=headers, params=params)
     resp2.raise_for_status()
-    merged = merge_changelog(yaml.safe_load(resp),yaml.safe_load(resp2))
+    master = yaml.safe_load(resp.text)
+    upstream = yaml.safe_load(resp2.text)
+
+    merged = merge_changelog(master,upstream)
     return merged
 
 def merge_changelog(main: dict[str, Any], upstream: dict[str, Any]) -> Iterable[ChangelogEntry]:
     """
     Merge 2 separate changelog files with possible matching IDs and reset the combined IDs by date
     """
-    combined = upstream["Entries"] + main["Entries"]
-    combined.sort(key=lambda x: parser.parse(x["time"]))
-    for count, entry in enumerate(combined, start=1):
+    combined = {key:[*main[key], *upstream[key]] for key in main}
+    combined["Entries"].sort(key=lambda x: parser.parse(x["time"]))
+    for count, entry in enumerate(combined["Entries"], start=1):
         entry["id"] = count
-    return {"Entries" : combined}
+    return combined
 
 def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[ChangelogEntry]:
     """
