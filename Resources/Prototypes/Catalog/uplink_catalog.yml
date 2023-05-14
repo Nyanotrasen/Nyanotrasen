@@ -704,6 +704,10 @@
   - !type:BuyerJobCondition
     whitelist:
     - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Armor
 
