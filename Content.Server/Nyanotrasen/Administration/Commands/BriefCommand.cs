@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Administration.Commands.Brief
 {
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Spawn)]
     public sealed class BriefCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _entities = default!;
