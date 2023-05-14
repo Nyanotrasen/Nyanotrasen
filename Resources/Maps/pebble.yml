@@ -28801,6 +28801,20 @@ entities:
     - pos: 23.913591,4.2355914
       parent: 7
       type: Transform
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 9963
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -20.5,7.5
+      parent: 7
+      type: Transform
+  - uid: 9964
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -20.5,16.5
+      parent: 7
+      type: Transform
 - proto: DeployableBarrier
   entities:
   - uid: 535
@@ -53245,6 +53259,12 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: 19.5,5.5
+      parent: 7
+      type: Transform
+  - uid: 9965
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -17.5,4.5
       parent: 7
       type: Transform
 - proto: Poweredlight
