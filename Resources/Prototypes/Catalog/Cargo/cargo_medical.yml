@@ -86,3 +86,13 @@
   cost: 800
   category: Medical
   group: market
+
+- type: cargoProduct
+  id: MedicalDefib
+  icon:
+    sprite: Objects/Specific/Medical/defib.rsi
+    state: icon
+  product: CrateMedicalDefib
+  cost: 5000
+  category: Medical
+  group: market

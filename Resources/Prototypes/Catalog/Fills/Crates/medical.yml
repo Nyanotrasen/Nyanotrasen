@@ -3,9 +3,11 @@
   parent: CrateMedical
   components:
   - type: StorageFill
-#    contents:
-#      - id: Defibrillator
-#        amount: 1
+    contents:
+      - id: Defibrillator
+        amount: 1
+      - id: PowerCellMedium
+        amount: 1
 
 - type: entity
   id: CrateMedicalSupplies

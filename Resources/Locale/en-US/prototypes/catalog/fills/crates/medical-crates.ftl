@@ -1,4 +1,5 @@
 ent-CrateMedicalDefib = Defibrillator crate
+    .desc = A defibrillator and a spare power cell.
 
 ent-CrateMedicalSupplies = Medical supplies crate
     .desc = Basic medical supplies.
