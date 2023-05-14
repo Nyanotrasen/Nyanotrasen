@@ -278,7 +278,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 _utensilSystem.TryBreak(utensil, args.User);
             }
 
-            args.Repeat = !forceFeed;
+            /* args.Repeat = !forceFeed; */
 
             if (TryComp<StackComponent>(uid, out var stack))
             {
