@@ -34,6 +34,9 @@ technologies-advanced-life-support-description = The cutting edge of life and de
 technologies-salvage-equipment = Salvage equipment
 technologies-salvage-equipment-description = Newer and faster resource collection.
 
+technologies-salvage-expeditions = Salvage expeditions
+technologies-salvage-expeditions-description = High risk, high reward!
+
 technologies-spacefaring = Spacefaring technology
 technologies-spacefaring-description = Able to bring you into the stars!
 
