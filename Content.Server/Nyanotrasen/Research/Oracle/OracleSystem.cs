@@ -97,6 +97,8 @@ namespace Content.Server.Research.Oracle
             "MegaSprayBottle",
             "ShellTranquilizer",
             "ShellSoulbreaker",
+            "FireExtinguisher",
+            "ClothingBackpackWaterTank",
 
             // Mech non-items and items (mech stuff is all expensive)
             "RipleyHarness",

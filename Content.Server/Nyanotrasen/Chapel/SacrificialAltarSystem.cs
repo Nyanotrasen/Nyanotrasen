@@ -77,7 +77,7 @@ namespace Content.Server.Chapel
             args.Verbs.Add(verb);
         }
 
-        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, BuckleChangeEvent args)
+        private void OnBuckleChanged(EntityUid uid, SacrificialAltarComponent component, ref BuckleChangeEvent args)
         {
             if (component.DoAfter != null)
             {

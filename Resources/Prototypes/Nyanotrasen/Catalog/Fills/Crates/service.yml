@@ -7,3 +7,13 @@
     contents:
       - id: BoxColoredLighttube
         amount: 2
+
+- type: entity
+  id: CrateServiceReplacementMaintenanceLights
+  name: Maintenance Lights Crate
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxMaintenanceLightbulb
+        amount: 2

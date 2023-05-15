@@ -1,8 +1,9 @@
-﻿- type: gameMap
+- type: gameMap
   id: Lighthouse
   mapName: 'Lighthouse'
   mapPath: /Maps/lighthouse.yml
-  minPlayers: 30
+  minPlayers: 15
+  maxPlayers: 55
   stations:
     Lighthouse:
       mapNameTemplate: '{0} Lighthouse {1}'
@@ -19,7 +20,7 @@
         Boxer: [ 2, 2 ]
         Chef: [ 1, 2 ]
         Clown: [ 1, 1 ]
-        Cyborg: [ 2, 2 ]
+        Robot: [ 2, 2 ]
         ForensicMantis: [ 1, 1 ]
         Janitor: [ 1, 2 ]
         Mime: [ 1, 1 ]
@@ -30,7 +31,7 @@
         ChiefMedicalOfficer: [ 1, 1 ]
         MailCarrier: [ 2, 2 ]
         MedicalDoctor: [ 5, 7 ]
-        MedicalCyborg: [ 1, 1 ]
+        MedicalRobot: [ 1, 1 ]
         Mystagogue: [ 1, 1 ]
         Epistemologist: [ 3, 3 ]
         HeadOfSecurity: [ 1, 1 ]
