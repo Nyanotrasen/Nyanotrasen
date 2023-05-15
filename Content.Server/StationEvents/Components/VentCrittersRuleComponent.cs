@@ -11,6 +11,6 @@ public sealed class VentCrittersRuleComponent : Component
         "MobMouse",
         "MobMouse1",
         "MobMouse2",
-        "MobMothroach"
+        "MobMothroach" // nyano change: Mothroach
     };
 }
