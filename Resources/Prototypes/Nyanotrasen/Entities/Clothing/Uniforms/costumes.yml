@@ -78,6 +78,17 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Misc/mio.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtTurtle
+  name: decorated turtle skirt
+  description: A turtle skirt with yellow straps and soft fabric.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
+
 ## old schoolgirl uniforms
 
 - type: entity
