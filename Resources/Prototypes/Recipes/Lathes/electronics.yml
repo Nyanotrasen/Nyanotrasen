@@ -165,6 +165,14 @@
      Glass: 900
 
 - type: latheRecipe
+  id: SalvageExpeditionsComputerCircuitboard
+  result: SalvageExpeditionsComputerCircuitboard
+  completetime: 5
+  materials:
+     Steel: 100
+     Glass: 900
+
+- type: latheRecipe
   id: UniformPrinterMachineCircuitboard
   result: UniformPrinterMachineCircuitboard
   completetime: 4

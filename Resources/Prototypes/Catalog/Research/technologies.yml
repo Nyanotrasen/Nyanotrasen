@@ -367,6 +367,21 @@
   - RipleyLLeg
   - RipleyRLeg
 
+- type: technology
+  name: technologies-salvage-expeditions
+  id: SalvageExpeditions
+  description: technologies-salvage-expeditions-description
+  icon:
+    sprite: Structures/Shuttles/thruster.rsi
+    state: base
+  requiredPoints: 30000
+  requiredTechnologies:
+  - SalvageEquipment
+  - ElectricalEngineering
+  - ArchaeologicalEquipment
+  unlockedRecipes:
+  - SalvageExpeditionsComputerCircuitboard
+
 # Industrial Engineering Technology Tree
 
 - type: technology
