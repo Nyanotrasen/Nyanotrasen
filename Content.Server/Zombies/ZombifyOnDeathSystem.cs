@@ -93,8 +93,8 @@ namespace Content.Server.Zombies
             //Don't zombfiy zombies
             if (HasComp<ZombieComponent>(target))
                 return;
-            
-            //Don't zombify cyborg
+
+            // nyano change: Don't zombify cyborg
             if (HasComp<CyborgComponent>(target))
                 return;
 
