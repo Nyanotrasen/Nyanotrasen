@@ -47504,7 +47504,7 @@ entities:
       type: Transform
   - uid: 19163
     components:
-    - pos: -9.528376,40.921482
+    - pos: -9.477411,40.882256
       parent: 100
       type: Transform
   - uid: 19696
@@ -50165,20 +50165,6 @@ entities:
   - uid: 13743
     components:
     - pos: 13.673946,-52.319447
-      parent: 100
-      type: Transform
-- proto: DefibrillatorCabinetFilled
-  entities:
-  - uid: 12998
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -10.5,43.5
-      parent: 100
-      type: Transform
-  - uid: 19825
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -15.5,41.5
       parent: 100
       type: Transform
 - proto: DeployableBarrier
@@ -99642,12 +99628,12 @@ entities:
       type: Transform
   - uid: 19164
     components:
-    - pos: -9.543883,40.441753
+    - pos: -9.741274,41.381287
       parent: 100
       type: Transform
   - uid: 19165
     components:
-    - pos: -9.601502,40.499382
+    - pos: -9.256899,41.662537
       parent: 100
       type: Transform
   - uid: 19166
@@ -99662,7 +99648,7 @@ entities:
       type: Transform
   - uid: 19168
     components:
-    - pos: -9.6591215,40.557007
+    - pos: -9.6306715,40.543194
       parent: 100
       type: Transform
   - uid: 19220
@@ -101097,11 +101083,6 @@ entities:
   - uid: 14696
     components:
     - pos: 4.5,-32.5
-      parent: 100
-      type: Transform
-  - uid: 19826
-    components:
-    - pos: -9.5,41.5
       parent: 100
       type: Transform
 - proto: Poweredlight
