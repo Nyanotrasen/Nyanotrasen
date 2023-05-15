@@ -32,9 +32,9 @@
       - CryostasisBeaker
       - ShockCollar
       - InsulativeHeadcage
-      - BackpackOfHolding
-      - SatchelOfHolding
-      - DuffelbagOfHolding
+      - ClothingBackpackHolding
+      - ClothingBackpackSatchelHolding
+      - ClothingBackpackDuffelHolding
       - AnomalyScanner
       - AnomalyLocator
       - ChemicalPayload #Below = shared
@@ -122,6 +122,7 @@
       - HydroponicsToolHatchet
       - Spade
       - Clippers
+      - Mousetrap
       - Shovel # Below is shared with other lathes
       - FlashlightLantern
       - Bucket

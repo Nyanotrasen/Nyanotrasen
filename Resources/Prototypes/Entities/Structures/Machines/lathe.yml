@@ -81,6 +81,8 @@
       - Shovel
       - Spade
       - CableStack
+      - CableMVStack
+      - CableHVStack
       - HandheldGPSBasic
       - TRayScanner
       - GasAnalyzer
@@ -206,7 +208,6 @@
       - IntercomElectronics
       - MailingUnitElectronics
       - SignalTimerElectronics
-      - Bucket
       - MopItem
       - SprayBottle
       - MegaSprayBottle
@@ -216,7 +217,6 @@
       - Signaller
       - SignalTrigger
       - VoiceTrigger
-      - PowerCellSmall
       - PowerCellMedium
       - PowerCellHigh
 
@@ -253,8 +253,6 @@
       - MailingUnitElectronics
       - IntercomElectronics
       - SignalTimerElectronics
-      - SMESMachineCircuitboard
-      - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
       - PortableScrubberMachineCircuitBoard
       - MetempsychoticMachineCircuitboard
@@ -489,9 +487,6 @@
       - Hemostat
       - ChemicalPayload
       - Beaker
-      - LargeBeaker
-      - CryostasisBeaker
-      - Dropper
       - Syringe
       - Implanter
       - PillCanister

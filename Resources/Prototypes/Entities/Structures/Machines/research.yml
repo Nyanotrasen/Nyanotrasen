@@ -8,8 +8,13 @@
     sprite: Structures/Machines/server.rsi
     state: server
   - type: ResearchServer
-    passiveLimitPerSource: 7500
+    # passiveLimitPerSource: 7500
   - type: TechnologyDatabase
+    supportedDisciplines:
+    - Industrial
+    - Biochemical
+    - Experimental
+    - CivilianServices
   - type: ApcPowerReceiver
     powerLoad: 200
     priority: Low

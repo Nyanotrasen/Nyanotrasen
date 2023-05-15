@@ -14,10 +14,7 @@ public sealed partial class ResearchSystem
     private void OnGetPointsPerSecond(EntityUid uid, ResearchPointSourceComponent component, ref ResearchServerGetPointsPerSecondEvent args)
     {
         if (CanProduce(component))
-        {
             args.Points += component.PointsPerSecond;
-            args.Sources++;
-        }
     }
 
     public bool CanProduce(ResearchPointSourceComponent component)

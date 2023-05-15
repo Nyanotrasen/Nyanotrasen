@@ -363,7 +363,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         if (pointValue == 0)
             return;
 
-        _research.AddPointsToServer(server.Value, pointValue, serverComponent);
+        _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
         _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
 
         // Begin Nyano-code: tie artifacts to glimmer.

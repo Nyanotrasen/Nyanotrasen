@@ -35,13 +35,9 @@ namespace Content.Shared.Research.Components
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
         public int Points;
-        public int PointsPerSecond;
-        public int PointsLimit;
-        public ResearchConsoleBoundInterfaceState(int points, int pointsPerSecond, int pointsLimit)
+        public ResearchConsoleBoundInterfaceState(int points)
         {
             Points = points;
-            PointsPerSecond = pointsPerSecond;
-            PointsLimit = pointsLimit;
         }
     }
 }
