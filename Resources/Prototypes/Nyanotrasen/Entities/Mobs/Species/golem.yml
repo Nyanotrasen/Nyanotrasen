@@ -411,6 +411,11 @@
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: silver_base
+        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
         - map: [ "enum.ToggleVisuals.Layer" ]
           sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
           state: lights
