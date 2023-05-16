@@ -542,10 +542,15 @@
     staticRecipes:
       - ClothingUniformJumpsuitColorGrey
       - ClothingUniformJumpskirtColorGrey
+      - ClothingUniformJumpsuitAtmos
+      - ClothingUniformJumpskirtAtmos 
       - ClothingUniformJumpsuitBartender
       - ClothingUniformJumpskirtBartender
+      - ClothingUniformJumpsuitBartenderPurple
       - ClothingUniformJumpsuitCaptain
       - ClothingUniformJumpskirtCaptain
+      - ClothingUniformJumpsuitCapFormal
+      - ClothingUniformJumpskirtCapFormalDress 
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -555,50 +560,106 @@
       - ClothingUniformJumpskirtChaplain
       - ClothingUniformJumpsuitChef
       - ClothingUniformJumpskirtChef
-      - ClothingUniformJumpsuitClown
+      - ClothingUniformJumpsuitClown 
+      - ClothingUniformJumpsuitJester
+      - ClothingUniformJumpsuitJesterAlt
       - ClothingUniformJumpsuitCMO
       - ClothingUniformJumpskirtCMO
+      - ClothingUniformJumpsuitCossack 
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
+      - ClothingUniformJumpsuitEngineeringHazard
+      - ClothingUniformJumpsuitMantis
+      - ClothingUniformSkirtMantis
+      - ClothingUniformJumpsuitDetective
+      - ClothingUniformJumpskirtDetective
+      - ClothingUniformJumpsuitDetectiveGrey
+      - ClothingUniformJumpskirtDetectiveGrey  
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
       - ClothingUniformJumpsuitHoSAlt
       - ClothingUniformJumpskirtHoSAlt
+      - ClothingUniformJumpsuitHoSBlue
+      - ClothingUniformJumpsuitHoSGrey
+      - ClothingUniformJumpsuitHosFormal
+      - ClothingUniformJumpskirtHosFormal
+      - ClothingUniformJumpsuitHoSParadeMale
+      - ClothingUniformJumpskirtHoSParadeMale
       - ClothingUniformJumpsuitHydroponics
       - ClothingUniformJumpskirtHydroponics
       - ClothingUniformJumpsuitJanitor
       - ClothingUniformJumpskirtJanitor
+      - ClothingUniformJumpskirtJanimaid
+      - ClothingUniformJumpskirtJanimaidmini 
+      - ClothingUniformJumpsuitJournalist 
       - ClothingUniformJumpsuitLawyerBlack
+      - ClothingUniformJumpskirtLawyerBlack
+      - ClothingUniformJumpsuitLawyerBlue
+      - ClothingUniformJumpskirtLawyerBlue
+      - ClothingUniformJumpsuitGalaxyBlue
+      - ClothingUniformJumpsuitLawyerGood
+      - ClothingUniformJumpskirtLawyerGood 
+      - ClothingUniformJumpsuitLawyerPurple
+      - ClothingUniformJumpskirtLawyerPurple
+      - ClothingUniformJumpsuitLawyerRed
+      - ClothingUniformJumpskirtLawyerRed 
+      - ClothingUniformJumpsuitGalaxyRed
+      - ClothingUniformJumpsuitLibrarian
+      - ClothingUniformMailCarrier
+      - ClothingUniformSkirtMailCarrier
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
+      - ClothingUniformJumpsuitChemistry
+      - ClothingUniformJumpskirtChemistry
+      - ClothingUniformJumpsuitVirology
+      - ClothingUniformJumpskirtVirology
+      - ClothingUniformJumpsuitGenetics
+      - ClothingUniformJumpskirtGenetics
       - ClothingUniformJumpsuitMime
       - ClothingUniformJumpskirtMime
+      - ClothingUniformJumpsuitMonasticRobeDark
+      - ClothingUniformJumpsuitMonasticRobeLight 
       - ClothingUniformJumpsuitMusician
+      - ClothingUniformJumpsuitMystagogue
+      - ClothingUniformJumpskirtMystagogue 
       - ClothingUniformJumpsuitParamedic
       - ClothingUniformJumpskirtParamedic
+      - ClothingUniformJumpskirtPerformer
+      - ClothingUniformJumpsuitPirate 
+      - ClothingUniformJumpsuitPrisonGuard 
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
+      - ClothingUniformJumpsuitPsychologist
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
+      - ClothingUniformJumpsuitReporter
+      - ClothingUniformJumpsuitSafari 
+      - ClothingUniformJumpsuitScientist
+      - ClothingUniformJumpskirtScientist 
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+      - ClothingUniformJumpsuitSecBlue
+      - ClothingUniformJumpsuitSecGrey 
       # - ClothingUniformJumpsuitBrigmedic
       # - ClothingUniformJumpskirtBrigmedic
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
+      - ClothingUniformJumpsuitDameDane 
       - ClothingOuterWinterCap
       - ClothingOuterWinterCE
       - ClothingOuterWinterCMO
       - ClothingOuterWinterHoP
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
+      - ClothingOuterWinterMystagogue 
       - ClothingNeckMantleCap
       - ClothingNeckMantleCE
       - ClothingNeckMantleCMO
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
+      - ClothingNeckMantleMystagogue 
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
@@ -619,6 +680,10 @@
       - ClothingOuterWinterSci
       - ClothingOuterWinterRobo
       - ClothingOuterWinterSec
+      - ClothingOuterWinterWarden 
+      - ClothingUniformJumpsuitTshirtJeansGray
+      - ClothingUniformJumpsuitTshirtJeansPeach
+      - ClothingUniformJumpsuitTshirtJeans 
   - type: MaterialStorage
     whitelist:
       tags:
