@@ -17,4 +17,4 @@ reagent-name-licoxide = Licoxide
 reagent-desc-licoxide = It looks... electrifying.
 
 reagent-name-bicarchup = Bicarchup
-reagent-desc-bicarchup = An unholy mix of ketchup and bicaridine.
+reagent-desc-bicarchup = The beverage of the gods.
