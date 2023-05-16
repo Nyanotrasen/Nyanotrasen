@@ -15,3 +15,6 @@ reagent-desc-saxoite = Smells like jazz.
 
 reagent-name-licoxide = Licoxide
 reagent-desc-licoxide = It looks... electrifying.
+
+reagent-name-bicarchup = Bicarchup
+reagent-desc-bicarchup = An unholy mix of ketchup and bicaridine.
