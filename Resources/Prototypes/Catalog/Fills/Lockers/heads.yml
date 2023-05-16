@@ -33,9 +33,12 @@
       - id: ClothingHeadHatCaptain
       - id: ClothingNeckCloakCap
       - id: ClothingHandsGlovesCaptain
+      - id: ClothingHandsGlovesInspection
       - id: ClothingOuterHardsuitCap
       - id: ClothingMaskGasCaptain
       - id: WeaponDisabler
+      - id: ClothingShoesMiscWhite
+      - id: ClothingShoesBootsLaceup
       - id: ClothingHeadsetAltCommand
       - id: SpaceCash1000
       - id: PlushieNuke
@@ -63,6 +66,11 @@
     contents:
       - id: ClothingNeckCloakHop
       - id: ClothingHeadHatHopcap
+      - id: ClothingHandsGlovesInspection
+      - id: ClothingUniformJumpsuitHoPMess
+      - id: ClothingUniformJumpskirtHoPMess
+      - id: ClothingUniformJumpsuitBoatswain
+      - id: ClothingOuterCoatHoPArmored
       - id: HoPIDCard
         prob: 0.9
       - id: ClothingHeadsetAltCommand
@@ -70,8 +78,8 @@
       - id: BoxID
       - id: BoxHeadset
       - id: WeaponDisabler
-      - id: ClothingShoesColorBlack
-        prob: 0.7
+      - id: ClothingShoesMiscWhite
+      - id: ClothingShoesBootsLaceup
       - id: PlushieLizard
         prob: 0.1
       - id: CigarGoldCase
