@@ -27,9 +27,11 @@ namespace Content.Server.Forensics
 
         private void OnDNAInit(EntityUid uid, DnaComponent component, ComponentInit args)
         {
-            // nyano change: we won't overwrite YAML defined DNA. Arachne have static DNA.
+            // nyano change
+            // we won't overwrite YAML defined DNA. Arachne have static DNA.
             if (String.IsNullOrEmpty(component.DNA))
                 component.DNA = GenerateDNA();
+            // end of change
         }
 
         private string GenerateFingerprint()
