@@ -2,8 +2,8 @@
   parent: BaseItem
   id: HyposprayBorgStandard
   name: epinephrine hypospray
-  suffix: Robot, No Map
-  description: A borg version of hypospray that automatically regenerates epinephrine.
+  description: A sterile injector for rapid administration of drugs to patients.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -29,8 +29,8 @@
   parent: HyposprayBorgStandard
   id: HyposprayBorgMedical
   name: medical robot hypospray
-  suffix: Robot, No Map
-  description: A hypospray that can switch through several reagents.
+  description: A sterile injector for rapid administration of drugs to patients. This one can switch through several reagents.
+  noSpawn: true
   components:
   - type: SolutionContainerManager
     solutions:
@@ -64,8 +64,8 @@
   parent: BaseItem
   id: HandheldHealthAnalyzerBorg
   name: health analyzer
-  suffix: Robot, No Map
-  description: A batteryless hand-held body scanner meant for medical robots capable of distinguishing vital signs of the subject.
+  description: A hand-held body scanner, that runs off of your own power cells, capable of distinguishing vital signs of the subject.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi
@@ -89,8 +89,8 @@
   parent: BaseItem
   id: HandheldCrewMonitorBorg
   name: handheld crew monitor
-  suffix: Robot, No Map
-  description: A batteryless hand-held crew monitor designed for robots which displays the status of the crew suit sensors.
+  description: A hand-held crew monitor, that runs off of your own power cells, which displays the status of the crew suit sensors.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
