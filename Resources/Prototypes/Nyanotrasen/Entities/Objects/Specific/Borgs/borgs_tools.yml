@@ -1,8 +1,9 @@
 - type: entity
-  name: epinephrine hypospray
   parent: BaseItem
-  description: A borg version of hypospray that automatically regenerates epinephrine.
   id: HyposprayBorgStandard
+  name: epinephrine hypospray
+  suffix: Robot, No Map
+  description: A borg version of hypospray that automatically regenerates epinephrine.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -28,6 +29,7 @@
   parent: HyposprayBorgStandard
   id: HyposprayBorgMedical
   name: medical robot hypospray
+  suffix: Robot, No Map
   description: A hypospray that can switch through several reagents.
   components:
   - type: SolutionContainerManager
@@ -59,9 +61,10 @@
           Quantity: 1
 
 - type: entity
-  name: robot health analyzer
   parent: BaseItem
   id: HandheldHealthAnalyzerBorg
+  name: robot health analyzer
+  suffix: Robot, No Map
   description: A hand-held body scanner capable of distinguishing vital signs of the subject.
   components:
   - type: Sprite
@@ -83,9 +86,10 @@
     - DiscreteHealthAnalyzer
 
 - type: entity
-  name: robot handheld crew monitor
   parent: BaseItem
   id: HandheldCrewMonitorBorg
+  name: robot handheld crew monitor
+  suffix: Robot, No Map
   description: A hand-held crew monitor displaying the status of suit sensors.
   components:
   - type: Sprite
