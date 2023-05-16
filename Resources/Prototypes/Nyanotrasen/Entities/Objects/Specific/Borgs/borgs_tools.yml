@@ -63,9 +63,9 @@
 - type: entity
   parent: BaseItem
   id: HandheldHealthAnalyzerBorg
-  name: robot health analyzer
+  name: health analyzer
   suffix: Robot, No Map
-  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  description: A batteryless hand-held body scanner capable of distinguishing vital signs of the subject meant for medical robots.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi
@@ -88,9 +88,9 @@
 - type: entity
   parent: BaseItem
   id: HandheldCrewMonitorBorg
-  name: robot handheld crew monitor
+  name: handheld crew monitor
   suffix: Robot, No Map
-  description: A hand-held crew monitor displaying the status of suit sensors.
+  description: A batteryless hand-held crew monitor displaying the status of suit sensors designed for robots.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
