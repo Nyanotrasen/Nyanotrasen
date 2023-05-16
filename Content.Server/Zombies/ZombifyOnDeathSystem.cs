@@ -94,9 +94,10 @@ namespace Content.Server.Zombies
             if (HasComp<ZombieComponent>(target))
                 return;
 
-            // nyano change: Don't zombify cyborg
+            // Begin Nyano-code: Don't zombify cyborg
             if (HasComp<CyborgComponent>(target))
                 return;
+            // End Nyano-code.
 
             if (!Resolve(target, ref mobState, logMissing: false))
                 return;
