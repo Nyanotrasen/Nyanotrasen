@@ -65,7 +65,7 @@
   id: HandheldHealthAnalyzerBorg
   name: health analyzer
   suffix: Robot, No Map
-  description: A batteryless hand-held body scanner capable of distinguishing vital signs of the subject meant for medical robots.
+  description: A batteryless hand-held body scanner meant for medical robots capable of distinguishing vital signs of the subject.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi
@@ -90,7 +90,7 @@
   id: HandheldCrewMonitorBorg
   name: handheld crew monitor
   suffix: Robot, No Map
-  description: A batteryless hand-held crew monitor displaying the status of suit sensors designed for robots.
+  description: A batteryless hand-held crew monitor designed for robots which displays the status of the crew suit sensors.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
