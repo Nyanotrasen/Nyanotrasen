@@ -227,7 +227,7 @@
     slots:
       analyzer_slot:
         name: HealthAnalyzer
-        startingItem: BorgHealthAnalyzer
+        startingItem: HandheldHealthAnalyzerBorg
         locked: true
       hypospray_slot:
         name: Hypospray
@@ -269,7 +269,7 @@
     tools:
       - id: HyposprayBorgMedical
       - id: Syringe
-      - id: BorgHealthAnalyzer
+      - id: HandheldHealthAnalyzerBorg
       - id: HandheldCrewMonitor
       - id: FireExtinguisher
       - id: StackHolderHealingItem

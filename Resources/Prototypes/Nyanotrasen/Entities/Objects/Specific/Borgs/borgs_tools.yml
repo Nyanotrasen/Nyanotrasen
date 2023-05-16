@@ -61,7 +61,7 @@
 - type: entity
   name: medical robot health analyzer
   parent: BaseItem
-  id: BorgHealthAnalyzer
+  id: HandheldHealthAnalyzerBorg
   description: A hand-held body scanner capable of distinguishing vital signs of the subject.
   components:
   - type: Sprite
