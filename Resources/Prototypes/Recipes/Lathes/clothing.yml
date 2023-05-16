@@ -595,16 +595,6 @@
     Cloth: 300
 
 - type: latheRecipe
-  id: ClothingUniformJumpsuitGalaxyBlue
-  icon:
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
-    state: icon
-  result: ClothingUniformJumpsuitGalaxyBlue
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
   id: ClothingUniformJumpsuitLawyerGood
   icon:
     sprite: Clothing/Uniforms/Jumpsuit/lawyergood.rsi
@@ -660,26 +650,6 @@
     sprite: Clothing/Uniforms/Jumpskirt/lawyerred.rsi
     state: icon
   result: ClothingUniformJumpskirtLawyerRed
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitGalaxyRed
-  icon:
-    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyred.rsi
-    state: icon
-  result: ClothingUniformJumpsuitGalaxyRed
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitLibrarian
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/librarian.rsi
-    state: icon
-  result: ClothingUniformJumpsuitLibrarian
   completetime: 4
   materials:
     Cloth: 300
@@ -875,26 +845,6 @@
     Cloth: 300
 
 - type: latheRecipe
-  id: ClothingUniformJumpskirtPerformer
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/performer.rsi
-    state: icon
-  result: ClothingUniformJumpskirtPerformer
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitPirate
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/pirate.rsi
-    state: icon
-  result: ClothingUniformJumpsuitPirate
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
   id: ClothingUniformJumpsuitPrisonGuard
   icon:
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/prisonguard.rsi
@@ -965,36 +915,6 @@
     Cloth: 300
 
 - type: latheRecipe
-  id: ClothingUniformJumpsuitSafari
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/safari.rsi
-    state: icon
-  result: ClothingUniformJumpsuitSafari
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitScientist
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
-    state: icon
-  result: ClothingUniformJumpsuitScientist
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpskirtScientist
-  icon:
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
-    state: icon
-  result: ClothingUniformJumpskirtScientist
-  completetime: 4
-  materials:
-    Cloth: 300
-
-- type: latheRecipe
   id: ClothingUniformJumpsuitSec
   icon:
     sprite: Clothing/Uniforms/Jumpsuit/security.rsi
@@ -1034,20 +954,6 @@
   materials:
     Cloth: 300
 
-# - type: latheRecipe
-#   id: ClothingUniformJumpsuitBrigmedic
-#   result: ClothingUniformJumpsuitBrigmedic
-#   completetime: 4
-#   materials:
-#     Cloth: 300
-
-# - type: latheRecipe
-#   id: ClothingUniformJumpskirtBrigmedic
-#   result: ClothingUniformJumpskirtBrigmedic
-#   completetime: 4
-#   materials:
-#     Cloth: 300
-
 - type: latheRecipe
   id: ClothingUniformJumpsuitWarden
   icon:
@@ -1067,18 +973,6 @@
   completetime: 4
   materials:
     Cloth: 300
-
-- type: latheRecipe
-  id: ClothingUniformJumpsuitDameDane
-  icon:
-    sprite: Clothing/Uniforms/Jumpsuit/damedaneoutfit.rsi
-    state: icon
-  result: ClothingUniformJumpsuitDameDane
-  completetime: 4
-  materials:
-    Cloth: 300
-
-
 
 - type: latheRecipe
   id: ClothingOuterWinterCap
