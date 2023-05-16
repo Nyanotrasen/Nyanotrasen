@@ -2,7 +2,7 @@
   parent: BaseItem
   id: HyposprayBorgStandard
   name: epinephrine hypospray
-  description: A sterile injector for rapid administration of drugs to patients.
+  description: A sterile injector for rapid administration of drugs to patients. It slowly regenerates epinephrine.
   noSpawn: true
   components:
   - type: Sprite
