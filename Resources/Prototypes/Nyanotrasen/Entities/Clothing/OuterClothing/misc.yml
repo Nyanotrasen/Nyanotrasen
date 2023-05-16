@@ -1,0 +1,36 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLettermanBlue
+  name: blue letterman jacket
+  description: It's a blue highschool jacket with a big '14' stitched onto the back.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_blue.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_blue.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLettermanRed
+  name: red letterman jacket
+  description: It's a red highschool jacket with a big '14' stitched onto the back.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTracksuitBlack
+  name: black tracksuit
+  description: A set of light athletic clothing.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/tracksuit.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/tracksuit.rsi
