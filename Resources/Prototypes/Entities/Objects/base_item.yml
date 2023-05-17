@@ -73,8 +73,8 @@
     visuals:
       enum.SharedBagOpenVisuals.BagState:
         openLayer:
-          True: { visible: true }
-          False: { visible: false }
+          Open: { visible: true }
+          Closed: { visible: false }
 
 
 # PowerCellSlot parents
