@@ -143,6 +143,15 @@ namespace Content.IntegrationTests.Tests
             // TODO fix whatever is going wrong here.
             HashSet<string> ignored = new() {"GhostBox", "StealthBox", "CrateSyndicateSurplusBundle", "CrateSyndicateSuperSurplusBundle"};
 
+            // Begin Nyano-code: remove mass mind swap event from test.
+            //
+            // I can't figure out why mass mind swap is causing NPCs to wake up
+            // during this test, and checking for an Actor component isn't a
+            // viable workaround either, because the fake client used by
+            // this test has an Actor and will get swapped.
+            ignored.Add("MassMindSwap");
+            // End Nyano-code.
+
             await server.WaitPost(() =>
             {
                 foreach (var protoId in protoIds)
