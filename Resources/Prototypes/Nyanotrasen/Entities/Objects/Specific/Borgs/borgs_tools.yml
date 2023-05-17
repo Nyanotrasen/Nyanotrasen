@@ -64,7 +64,7 @@
   parent: BaseItem
   id: HandheldHealthAnalyzerBorg
   name: health analyzer
-  description: A hand-held body scanner, that runs off of your own power cells, capable of distinguishing vital signs of the subject.
+  description: A hand-held body scanner that runs off of your own power cells, capable of distinguishing vital signs of the subject.
   noSpawn: true
   components:
   - type: Sprite
@@ -89,7 +89,7 @@
   parent: BaseItem
   id: HandheldCrewMonitorBorg
   name: handheld crew monitor
-  description: A hand-held crew monitor, that runs off of your own power cells, which displays the status of the crew suit sensors.
+  description: A hand-held crew monitor that runs off of your own power cells, which displays the status of the crew suit sensors.
   noSpawn: true
   components:
   - type: Sprite
@@ -108,13 +108,7 @@
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 500
-  - type: DynamicPrice
-    price: 500
   - type: StationLimitedNetwork
-  - type: ReverseEngineering
-    difficulty: 2
-    recipes:
-      - HandheldCrewMonitor
 
 - type: entity
   parent: BaseItem
