@@ -71,6 +71,7 @@
               Heat: 10
     - type: AtmosExposed
     - type: Kudzu
+      spreadChance: 0.75
       growthTickChance: 0.3
     - type: GrowingKudzu
     - type: SlowContacts
@@ -156,7 +157,8 @@
         tags:
         - Flesh
     - type: Kudzu
-      growthTickChance: 0.3
+      spreadChance: 0.75
+      growthTickChance: 0.2
       # Heals each time it manages to do a growth tick:
       damageRecovery:
         types:
@@ -181,7 +183,6 @@
        types:
          Heat: 1
     - type: GrowingKudzu
-      growthTickChance: 0.3
     - type: AtmosExposed
     - type: EdgeSpreader
     - type: NodeContainer
