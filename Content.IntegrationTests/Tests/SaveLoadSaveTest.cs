@@ -169,7 +169,7 @@ namespace Content.IntegrationTests.Tests
         ///     caught the mentioned bug.
         /// </remarks>
         [Test]
-        public async Task LoadTickLoadBagel()
+        public async Task LoadTickLoadAngle()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
             var server = pairTracker.Pair.Server;

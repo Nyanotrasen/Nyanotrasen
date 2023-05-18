@@ -3988,11 +3988,8 @@ entities:
     - type: Shuttle
     - type: GridPathfinding
     - type: RadiationGridResistance
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
-    - nextUpdate: 0
+    - nextUpdate: 1
       type: SpreaderGrid
 - proto: AcousticGuitarInstrument
   entities:
