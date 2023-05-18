@@ -79,13 +79,17 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void OnComponentInit(EntityUid uid, NukeOperativeComponent component, ComponentInit args)
     {
         var query = EntityQueryEnumerator<NukeopsRuleComponent, GameRuleComponent>();
+
+        // Begin Nyano-code:
+        // This is so nuclear operatives don't receive mail.
+        // This should be replaced at some point with a system that adds MailReceiver to valid mobs.
+        RemComp<MailReceiverComponent>(uid);
+        // End Nyano-code.
+
         while (query.MoveNext(out var ruleEnt, out var nukeops, out var gameRule))
         {
             if (!GameTicker.IsGameRuleAdded(ruleEnt, gameRule))
                 continue;
-
-
-            RemCompDeferred<MailReceiverComponent>(uid);
 
             // If entity has a prior mind attached, add them to the players list.
             if (!TryComp<MindComponent>(uid, out var mindComponent))
