@@ -235,13 +235,15 @@ namespace Content.Server.Cloning
                         AddComp<ActiveCloningPodComponent>(uid);
                         return true;
                     }
+                // Begin Nyano-code
+                // arachne have no genetics. we need to stop the cloner from cloning them.
                 } else
                 {
-                    // Certain player species lack genetics...
                     if (clonePod.ConnectedConsole != null)
                         _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-no-genetics", ("units", cloningCost)), InGameICChatType.Speak, false);
                     return false;
                 }
+                // End Nyano-code
             }
             // end of genetic damage checks
 
