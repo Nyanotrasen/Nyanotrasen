@@ -543,6 +543,13 @@
     interactSuccessSound:
       path: /Audio/Animals/goat_bah.ogg
   - type: Hunger
+    baseDecayRate: 0.05
+    thresholds:
+      Overfed: 400
+      Okay: 200
+      Peckish: 100
+      Starving: 20
+      Dead: 0
   - type: MeleeWeapon
     animation: WeaponArcBite
     soundHit:
