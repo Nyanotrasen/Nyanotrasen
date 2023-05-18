@@ -55,3 +55,9 @@ Entries:
         type: Tweak
     id: 9
     time: '2023-05-16T08:00:00.0000000+00:00'
+  - author: Debug
+    changes:
+      - message: Mimes with the muted trait should no longer cause round restart loops, if only they spoke up about it sooner.
+        type: Fix
+    id: 10
+    time: '2023-05-18T00:00:00.0000000+00:00'
