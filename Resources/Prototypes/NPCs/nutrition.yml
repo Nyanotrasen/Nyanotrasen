@@ -6,6 +6,8 @@
         - id: MoveToCombatTargetPrimitive
         - id: EatPrimitive
         - id: WaitIdleTimePrimitive
+      preconditions:
+        - !type:HungerPrecondition
 
 
 - type: htnPrimitive
