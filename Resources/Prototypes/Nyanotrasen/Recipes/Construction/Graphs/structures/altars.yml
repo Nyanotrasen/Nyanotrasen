@@ -12,7 +12,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: chaos
           completed:
             - !type:SnapToGrid
@@ -21,7 +23,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: druid
           completed:
             - !type:SnapToGrid
@@ -30,7 +34,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: toolbox
           completed:
             - !type:SnapToGrid
@@ -39,7 +45,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: spacechristian
           completed:
             - !type:SnapToGrid
@@ -48,7 +56,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: satana
           completed:
             - !type:SnapToGrid
@@ -57,7 +67,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: technology
           completed:
             - !type:SnapToGrid
@@ -66,7 +78,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: festival
           completed:
             - !type:SnapToGrid
@@ -75,7 +89,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: maint
           completed:
             - !type:SnapToGrid
@@ -84,7 +100,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: blue
           completed:
             - !type:SnapToGrid
@@ -93,7 +111,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: burden
           completed:
             - !type:SnapToGrid
@@ -102,7 +122,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: convert
           completed:
             - !type:SnapToGrid
@@ -111,7 +133,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: orange
           completed:
             - !type:SnapToGrid
@@ -120,7 +144,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: red
           completed:
             - !type:SnapToGrid
@@ -129,7 +155,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: white
           completed:
             - !type:SnapToGrid
@@ -138,7 +166,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: yellow
           completed:
             - !type:SnapToGrid
@@ -147,7 +177,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: heaven
           completed:
             - !type:SnapToGrid
@@ -156,7 +188,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
         - to: fanged
           completed:
             - !type:SnapToGrid
@@ -165,7 +199,9 @@
               amount: 10
             - material: Bluespace
               amount: 3
-              doAfter: 10
+            - material: Gold
+              amount: 4
+              doAfter: 5
 
     - node: nanotrasen
       entity: AltarNanotrasen
