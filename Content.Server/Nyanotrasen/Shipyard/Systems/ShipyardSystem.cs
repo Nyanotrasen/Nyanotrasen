@@ -92,8 +92,7 @@ namespace Content.Server.Shipyard.Systems
 
             /// nyano change:
             /// Allow Salvage Expedition Computers to work on Shipyard shuttles by tracking the owning Station.
-            StationMemberComponent stationMemberComp = AddComp<StationMemberComponent>((EntityUid) shuttleGrid);
-            stationMemberComp.Station = stationUid;
+            _station.AddGridToStation(stationUid, (EntityUid) shuttleGrid);
             /// end of change
 
             var price = _pricing.AppraiseGrid((EntityUid) shuttleGrid, null);
