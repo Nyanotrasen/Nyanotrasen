@@ -77,6 +77,13 @@
   - type: IntrinsicRadioReceiver
   - type: GuideHelp
     guides: [ AME, Power ]
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: false
+    onBump: false
+    requirePower: true
+    highVoltageNode: input
+    mediumVoltageNode: ame
 
 - type: entity
   noSpawn: true
@@ -155,3 +162,9 @@
     node: ameShielding
   - type: GuideHelp
     guides: [ AME, Power ]
+  - type: Electrified
+    onHandInteract: false
+    onInteractUsing: false
+    onBump: false
+    requirePower: true
+    highVoltageNode: ame
