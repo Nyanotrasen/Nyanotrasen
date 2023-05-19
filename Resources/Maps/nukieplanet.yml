@@ -111,6 +111,7 @@ entities:
       type: Physics
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -1530,9 +1531,6 @@ entities:
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
@@ -6089,10 +6087,8 @@ entities:
     - pos: 22.5,-15.5
       parent: 104
       type: Transform
-    - charge: 100
+    - gravityActive: true
       type: GravityGenerator
-    - radius: 175.75
-      type: PointLight
 - proto: GrenadeFlashBang
   entities:
   - uid: 2309

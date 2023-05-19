@@ -99,6 +99,7 @@ entities:
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -22926,6 +22927,8 @@ entities:
     - pos: -25.5,-32.5
       parent: 3765
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 3

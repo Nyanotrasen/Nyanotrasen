@@ -282,6 +282,7 @@ entities:
       type: Physics
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -83095,6 +83096,8 @@ entities:
     - pos: 35.5,-83.5
       parent: 9
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 8

@@ -39,6 +39,7 @@ entities:
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: true
       type: Gravity
     - chunkCollection:
         version: 2
@@ -218,9 +219,6 @@ entities:
     - id: Dart
       type: BecomesStation
     - type: RadiationGridResistance
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - type: SpreaderGrid
 - proto: AirlockAtmospherics
@@ -1006,6 +1004,8 @@ entities:
     - pos: 11.5,-27.5
       parent: 212
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 1

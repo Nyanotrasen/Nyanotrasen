@@ -662,9 +662,6 @@ entities:
       type: BecomesStation
     - type: RadiationGridResistance
     - type: SpreaderGrid
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
 - proto: AirCanister
   entities:
@@ -4389,6 +4386,8 @@ entities:
     - pos: 4.5,-17.5
       parent: 1
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 2

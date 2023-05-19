@@ -44,6 +44,7 @@ entities:
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -227,9 +228,6 @@ entities:
       type: GridAtmosphere
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - nextUpdate: 0
       type: SpreaderGrid
 - proto: AirCanister
@@ -1800,6 +1798,8 @@ entities:
     - pos: -1.5,-8.5
       parent: 325
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 1

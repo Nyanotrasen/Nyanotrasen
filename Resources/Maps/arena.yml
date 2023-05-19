@@ -349,6 +349,7 @@ entities:
       type: Physics
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -9927,9 +9928,6 @@ entities:
     - type: RadiationGridResistance
     - id: arena
       type: BecomesStation
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
@@ -110637,6 +110635,8 @@ entities:
     - pos: 18.5,33.5
       parent: 6747
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: GrenadeFlashBang
   entities:
   - uid: 9348

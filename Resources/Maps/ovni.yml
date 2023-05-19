@@ -231,6 +231,7 @@ entities:
       type: Physics
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -3160,9 +3161,6 @@ entities:
     - type: RadiationGridResistance
     - id: Ovni
       type: BecomesStation
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
@@ -51176,6 +51174,8 @@ entities:
     - pos: -2.5,36.5
       parent: 8
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 26

@@ -71,6 +71,7 @@ entities:
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -11921,10 +11922,8 @@ entities:
     - pos: -10.5,12.5
       parent: 1
       type: Transform
-    - charge: 100
+    - gravityActive: true
       type: GravityGenerator
-    - radius: 175.75
-      type: PointLight
 - proto: Grille
   entities:
   - uid: 41

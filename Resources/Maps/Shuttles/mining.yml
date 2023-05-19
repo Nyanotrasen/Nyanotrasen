@@ -516,9 +516,6 @@ entities:
     - type: RadiationGridResistance
     - nextUpdate: 0
       type: SpreaderGrid
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
 - proto: AirCanister
   entities:

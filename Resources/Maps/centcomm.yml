@@ -125,6 +125,7 @@ entities:
       type: BecomesStation
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -2531,9 +2532,6 @@ entities:
     - type: RadiationGridResistance
     - nextUpdate: 0
       type: SpreaderGrid
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
 - proto: AcousticGuitarInstrument
   entities:
@@ -25660,6 +25658,8 @@ entities:
     - pos: 32.5,-11.5
       parent: 1
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 31
