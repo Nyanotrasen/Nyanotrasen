@@ -90,9 +90,14 @@ namespace Content.Server.Shipyard.Systems
                 return false;
             }
 
+            /// nyano change:
+            /// Allow Salvage Expedition Computers to work on Shipyard shuttles by tracking the owning Station.
+            StationMemberComponent stationMemberComp = AddComp<StationMemberComponent>((EntityUid) shuttleGrid);
+            stationMemberComp.Station = stationUid;
+            /// end of change
+
             var price = _pricing.AppraiseGrid((EntityUid) shuttleGrid, null);
             var targetGrid = _station.GetLargestGrid(stationData);
-
 
             if (targetGrid == null) //how are we even here with no station grid
             {
