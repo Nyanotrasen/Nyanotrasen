@@ -31,6 +31,12 @@
   description: It's a turtleneck worn by those with the holy aura to achieve the role of Mystagogue. You can practically feel the psychic energies radiating from this thing, not to mention the actual radiation.
 
 - type: entity
+  parent: ClothingUniformJumpskirtResearchDirector
+  id: ClothingUniformJumpskirtMystagogue
+  name: mystagogue's turtleneck
+  description: It's a turtleneck worn by those with the holy aura to achieve the role of Mystagogue. You can practically feel the psychic energies radiating from this thing, not to mention the actual radiation.
+
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTshirtJeans
   name: white t-shirt and jeans
@@ -117,3 +123,14 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecSummer
+  name: summer security uniform
+  description: A loose-fitting and casual variant of the standard security uniform.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/summer_security.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/summer_security.rsi
