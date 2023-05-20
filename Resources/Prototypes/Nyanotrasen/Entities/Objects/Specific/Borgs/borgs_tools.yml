@@ -1,8 +1,9 @@
 - type: entity
-  name: epinephrine hypospray
   parent: BaseItem
-  description: A borg version of hypospray that automatically regenerates epinephrine.
   id: HyposprayBorgStandard
+  name: epinephrine hypospray
+  description: A sterile injector for rapid administration of drugs to patients. It slowly regenerates epinephrine.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/hypospray.rsi
@@ -28,7 +29,8 @@
   parent: HyposprayBorgStandard
   id: HyposprayBorgMedical
   name: medical robot hypospray
-  description: A hypospray that can switch through several reagents.
+  description: A sterile injector for rapid administration of drugs to patients. This one can switch through several reagents.
+  noSpawn: true
   components:
   - type: SolutionContainerManager
     solutions:
@@ -59,10 +61,11 @@
           Quantity: 1
 
 - type: entity
-  name: medical robot health analyzer
   parent: BaseItem
-  id: BorgHealthAnalyzer
-  description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  id: HandheldHealthAnalyzerBorg
+  name: health analyzer
+  description: A hand-held body scanner that runs off of your own power cells, capable of distinguishing vital signs of the subject.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/healthanalyzer.rsi
@@ -81,6 +84,31 @@
   - type: Tag
     tags:
     - DiscreteHealthAnalyzer
+
+- type: entity
+  parent: BaseItem
+  id: HandheldCrewMonitorBorg
+  name: handheld crew monitor
+  description: A hand-held crew monitor that runs off of your own power cells, which displays the status of the crew suit sensors.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
+    state: scanner
+  - type: ActivatableUI
+    key: enum.CrewMonitoringUIKey.Key
+    closeOnHandDeselect: false
+  - type: UserInterface
+    interfaces:
+      - key: enum.CrewMonitoringUIKey.Key
+        type: CrewMonitoringBoundUserInterface
+  - type: CrewMonitoringConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CrewMonitor
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: StationLimitedNetwork
 
 - type: entity
   parent: BaseItem
