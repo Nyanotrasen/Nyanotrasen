@@ -137,7 +137,8 @@
     bodyType: KinematicController
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
-      - shape:
+      fix1:
+        shape:
           !type:PhysShapeCircle
           radius: 0.35
         density: 400
@@ -410,6 +411,11 @@
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: silver_base
+        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
         - map: [ "enum.ToggleVisuals.Layer" ]
           sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
           state: lights
@@ -421,7 +427,8 @@
       state: full
     - type: Fixtures
       fixtures:
-        - shape:
+        fix1:
+          shape:
             !type:PhysShapeCircle
             radius: 0.35
           density: 200

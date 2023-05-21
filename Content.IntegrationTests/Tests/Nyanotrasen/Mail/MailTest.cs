@@ -22,6 +22,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Hands.Components;
 using Content.Server.Mail;
 using Content.Server.Mail.Components;
+using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Station.Systems;
 
@@ -34,6 +35,25 @@ namespace Content.IntegrationTests.Tests.Mail
     public sealed class MailTest
     {
         private const string Prototypes = @"
+- type: gameMap
+  id: FooStation
+  minPlayers: 0
+  mapName: FooStation
+  mapPath: Maps/Tests/empty.yml
+  stations:
+    Station:
+      mapNameTemplate: FooStation
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationJobs
+          overflowJobs:
+          - Assistant
+          availableJobs:
+            TMime: [0, -1]
+            TAssistant: [-1, -1]
+            TCaptain: [5, 5]
+            TClown: [5, 6]
+
 - type: damageType
   id: TestBlunt
 
@@ -87,11 +107,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-          bounds: ""-0.45,-0.45,0.45,0.00""
-      mask:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: ""-0.45,-0.45,0.45,0.00""
+        mask:
+        - Impassable
   - type: MailTeleporter
     priorityChance: 0
     fragileBonus: 1
@@ -147,11 +168,12 @@ namespace Content.IntegrationTests.Tests.Mail
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: ""-0.25,-0.25,0.25,0.25""
-      layer:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: ""-0.25,-0.25,0.25,0.25""
+        layer:
+        - Impassable
   - type: Mail
   - type: AccessReader
   - type: Appearance
@@ -593,8 +615,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailTransferDamage()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
@@ -1044,6 +1065,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1054,6 +1076,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             EntityUid station = default;
             EntityUid mail = default;
@@ -1064,7 +1087,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1152,6 +1175,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1162,6 +1186,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             EntityUid station = default;
             EntityUid mail = default;
@@ -1171,7 +1196,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
             await server.WaitAssertion(() =>
             {
-                station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);
@@ -1226,8 +1251,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithJobCandidate()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
@@ -1285,8 +1309,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithoutJobCandidate()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
@@ -1439,6 +1462,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
+            var prototypeManager = server.ResolveDependency<IPrototypeManager>();
             var mapManager = server.ResolveDependency<IMapManager>();
             var entityManager = server.ResolveDependency<IEntityManager>();
             var entitySystemManager = server.ResolveDependency<IEntitySystemManager>();
@@ -1448,10 +1472,11 @@ namespace Content.IntegrationTests.Tests.Mail
             var stationSystem = entitySystemManager.GetEntitySystem<StationSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
+            var fooStationProto = prototypeManager.Index<GameMapPrototype>("FooStation");
 
             await server.WaitAssertion(() =>
             {
-                var station = stationSystem.InitializeNewStation(null, new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
+                var station = stationSystem.InitializeNewStation(fooStationProto.Stations["Station"], new List<EntityUid>() {testMap.MapGrid.Owner}, $"Clown Town");
                 var coordinates = testMap.GridCoords;
 
                 EntityUid teleporter = entityManager.SpawnEntity("TestMailTeleporter", coordinates);

@@ -24,6 +24,8 @@
       collection: MaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: MaleSigh
 
 - type: emoteSounds
   id: FemaleHuman
@@ -50,6 +52,8 @@
       collection: FemaleYawn
     Snore:
       collection: Snores
+    Sigh:
+      collection: FemaleSigh
 
 - type: emoteSounds
   id: UnisexReptilian
@@ -176,5 +180,19 @@
   id: Bear
   sound:
     path: /Audio/Animals/bear.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Cerberus
+  sound:
+    path: /Audio/Animals/cerberus.ogg
+    params:
+      variation: 0.125
+
+- type: emoteSounds
+  id: Kangaroo
+  sound:
+    path: /Audio/Animals/kangaroo_grunt.ogg
     params:
       variation: 0.125
