@@ -193,41 +193,9 @@ entities:
       pos: 4.5,1.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.49,-0.49
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
+    - canCollide: False
+      type: Physics
+    - fixtures: []
       type: Fixtures
   - uid: 7
     components:
@@ -235,41 +203,9 @@ entities:
       pos: 4.5,-0.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.49,-0.49
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
+    - canCollide: False
+      type: Physics
+    - fixtures: []
       type: Fixtures
   - uid: 8
     components:
@@ -277,41 +213,9 @@ entities:
       pos: -3.5,1.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.49,-0.49
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
+    - canCollide: False
+      type: Physics
+    - fixtures: []
       type: Fixtures
   - uid: 9
     components:
@@ -319,41 +223,9 @@ entities:
       pos: -3.5,-0.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.49,-0.49
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
+    - canCollide: False
+      type: Physics
+    - fixtures: []
       type: Fixtures
 - proto: AirSensor
   entities:
@@ -410,7 +282,7 @@ entities:
       pos: -0.5,-5.5
       parent: 1
       type: Transform
-    - SecondsUntilStateChange: -1018.9145
+    - SecondsUntilStateChange: -1074.6123
       state: Closing
       type: Door
     - enabled: False
@@ -434,7 +306,7 @@ entities:
       pos: 0.5,-5.5
       parent: 1
       type: Transform
-    - SecondsUntilStateChange: -1018.9145
+    - SecondsUntilStateChange: -1074.6123
       state: Closing
       type: Door
     - enabled: False
@@ -458,7 +330,7 @@ entities:
       pos: 1.5,-5.5
       parent: 1
       type: Transform
-    - SecondsUntilStateChange: -1018.9145
+    - SecondsUntilStateChange: -1074.6123
       state: Closing
       type: Door
     - enabled: False
@@ -924,7 +796,7 @@ entities:
       type: Physics
 - proto: GasFilter
   entities:
-  - uid: 109
+  - uid: 84
     components:
     - desc: This Gas Filter scrubs CO2 from the shuttle's atmosphere and vents it.
       name: CO2 Filter
@@ -932,8 +804,6 @@ entities:
     - pos: 0.5,-2.5
       parent: 1
       type: Transform
-    - enabled: True
-      type: GasFilter
     - bodyType: Static
       type: Physics
     - nextSound: 163.46377
@@ -950,7 +820,7 @@ entities:
       type: Physics
     - nextSound: 656.4035203
       type: EmitSoundOnCollide
-  - uid: 87
+  - uid: 86
     components:
     - rot: 1.5707963267948966 rad
       pos: -2.5,-4.5
@@ -960,7 +830,7 @@ entities:
       type: Physics
     - nextSound: 1723.6251398
       type: EmitSoundOnCollide
-  - uid: 88
+  - uid: 87
     components:
     - rot: 1.5707963267948966 rad
       pos: 0.5,5.5
@@ -972,7 +842,7 @@ entities:
       type: EmitSoundOnCollide
 - proto: GasPipeBend
   entities:
-  - uid: 84
+  - uid: 88
     components:
     - rot: 3.141592653589793 rad
       pos: 0.5,-3.5
@@ -984,7 +854,7 @@ entities:
       type: AmbientSound
     - nextSound: 184.4745906
       type: EmitSoundOnCollide
-  - uid: 86
+  - uid: 89
     components:
     - rot: 1.5707963267948966 rad
       pos: -0.5,-2.5
@@ -996,7 +866,7 @@ entities:
       type: AmbientSound
     - nextSound: 100.1237285
       type: EmitSoundOnCollide
-  - uid: 89
+  - uid: 90
     components:
     - pos: 1.5,5.5
       parent: 1
@@ -1005,7 +875,7 @@ entities:
       type: Physics
     - nextSound: 4990.4629033
       type: EmitSoundOnCollide
-  - uid: 99
+  - uid: 91
     components:
     - rot: -1.5707963267948966 rad
       pos: 1.5,-4.5
@@ -1019,7 +889,7 @@ entities:
       type: EmitSoundOnCollide
 - proto: GasPipeStraight
   entities:
-  - uid: 91
+  - uid: 92
     components:
     - rot: 3.141592653589793 rad
       pos: 1.5,-2.5
@@ -1077,7 +947,7 @@ entities:
       type: Physics
     - nextSound: 673.7808268
       type: EmitSoundOnCollide
-  - uid: 100
+  - uid: 98
     components:
     - rot: 3.141592653589793 rad
       pos: -0.5,-3.5
@@ -1087,9 +957,9 @@ entities:
       type: Physics
     - enabled: True
       type: AmbientSound
-    - nextSound: 192.2374913
+    - nextSound: 192.2374912
       type: EmitSoundOnCollide
-  - uid: 102
+  - uid: 99
     components:
     - rot: -1.5707963267948966 rad
       pos: -1.5,-4.5
@@ -1099,7 +969,7 @@ entities:
       type: Physics
     - nextSound: 1735.5407218
       type: EmitSoundOnCollide
-  - uid: 103
+  - uid: 100
     components:
     - rot: 1.5707963267948966 rad
       pos: -1.5,-1.5
@@ -1111,7 +981,7 @@ entities:
       type: EmitSoundOnCollide
 - proto: GasPipeTJunction
   entities:
-  - uid: 92
+  - uid: 101
     components:
     - pos: 0.5,-1.5
       parent: 1
@@ -1122,7 +992,7 @@ entities:
       type: AmbientSound
     - nextSound: 91.760762
       type: EmitSoundOnCollide
-  - uid: 98
+  - uid: 102
     components:
     - rot: 3.141592653589793 rad
       pos: -0.5,-4.5
@@ -1134,7 +1004,7 @@ entities:
       type: AmbientSound
     - nextSound: 93.1734309
       type: EmitSoundOnCollide
-  - uid: 101
+  - uid: 103
     components:
     - rot: -1.5707963267948966 rad
       pos: 1.5,-3.5
@@ -1207,15 +1077,13 @@ entities:
       pos: -0.5,-1.5
       parent: 1
       type: Transform
-    - enabled: True
-      type: GasPressurePump
     - bodyType: Static
       type: Physics
     - nextSound: 1268.4602461
       type: EmitSoundOnCollide
 - proto: GasValve
   entities:
-  - uid: 90
+  - uid: 109
     components:
     - desc: This Manual Valve vents all of the shuttle's atmosphere.
       name: Panic Valve
@@ -1240,6 +1108,13 @@ entities:
   - uid: 111
     components:
     - pos: -1.5,2.5
+      parent: 1
+      type: Transform
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 169
+    components:
+    - pos: 2.5,-1.5
       parent: 1
       type: Transform
 - proto: Grille
@@ -1693,15 +1568,6 @@ entities:
       type: MeleeWeapon
     - nextSound: 2941.3215529
       type: EmitSoundOnCollide
-- proto: VendingMachineTankDispenserEVA
-  entities:
-  - uid: 169
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: 2.5,-1.5
-      parent: 1
-      type: Transform
 - proto: WallShuttle
   entities:
   - uid: 170
