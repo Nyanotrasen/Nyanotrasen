@@ -2,6 +2,7 @@
   id: MobGlimmerWisp
   name: glimmer wisp
   description: A strange orb that moves with intent.
+  save: false
   components:
   - type: Sprite
     netsync: false
@@ -25,14 +26,15 @@
     fixedRotation: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 13
-      mask:
-      - Opaque
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 13
+        mask:
+        - Opaque
+        layer:
+        - MobLayer
   - type: MovementSpeedModifier
     baseSprintSpeed: 8
     baseWalkSpeed: 5

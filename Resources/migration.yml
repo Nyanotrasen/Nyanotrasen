@@ -1,4 +1,4 @@
-﻿# basic dictionary that maps old entity ids to new entity ids.
+# basic dictionary that maps old entity ids to new entity ids.
 # an empty or "null" string results in the entity getting deleted.
 
 # e.g., you can swap all walls with windows and delete all tables by adding lines like:
@@ -9,7 +9,10 @@
 
 chem_dispenser: ChemDispenser
 
-# 2023-05-11
+# Nyano 2023-05-10
+FoodBakedCookieFortune: FoodSnackCookieFortune
+
+# Nyano 2023-05-11
 PoweredlightBlueInterior: PoweredLightBlueInterior
 AlwaysPoweredlightBlueInterior: AlwaysPoweredLightBlueInterior
 PoweredlightColoredRed: PoweredLightColoredRed
@@ -19,4 +22,18 @@ AlwaysPoweredlightColoredFrostyBlue: AlwaysPoweredLightColoredFrostyBlue
 PoweredlightColoredBlack: PoweredLightColoredBlack
 AlwaysPoweredlightColoredBlack: AlwaysPoweredLightColoredBlack
 
+# Nyano 2023-05-16
+ClothingNeckMantleRD: ClothingNeckMantleMystagogue
+ClothingUniformJumpsuitResearchDirector: ClothingUniformJumpsuitMystagogue
+ClothingUniformJumpskirtResearchDirector: ClothingUniformJumpskirtMystagogue
+ClothingOuterWinterRD: ClothingOuterWinterMystagogue
 
+# Nyano 2023-05-21: upstream map compat patch
+SpawnVehicleJanicart: SpawnVehiclePussywagon
+VehicleKeyJanicart: VehicleKeyPussyWagon
+LockerAtmosphericsFilledHardsuit: LockerAtmosphericsFilled
+LockerChiefEngineerFilledHardsuit: LockerChiefEngineerFilled
+LockerChiefMedicalOfficerFilledHardsuit: LockerChiefMedicalOfficerFilled
+LockerEngineerFilledHardsuit: LockerEngineerFilled
+LockerHeadOfSecurityFilledHardsuit: LockerHeadOfSecurityFilled
+LockerResearchDirectorFilledHardsuit: LockerResearchDirectorFilled

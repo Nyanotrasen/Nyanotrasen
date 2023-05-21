@@ -1,7 +1,5 @@
 meta:
   format: 4
-  name: DemoStation
-  author: Space-Wizards
   postmapinit: false
 tilemap:
   0: Space
@@ -310,10 +308,9 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -5943,15 +5940,12 @@ entities:
           - 0
         chunkSize: 4
       type: GridAtmosphere
-    - id: Glacierstation
+    - id: GlacierStation
       type: BecomesStation
     - type: RadiationGridResistance
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
@@ -6726,42 +6720,6 @@ entities:
       pos: 67.5,31.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 2105
     components:
     - name: Evac Dock
@@ -6770,42 +6728,6 @@ entities:
       pos: 67.5,33.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 2108
     components:
     - name: Evac Dock
@@ -6814,42 +6736,6 @@ entities:
       pos: 67.5,39.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 2110
     components:
     - name: Evac Dock
@@ -6858,42 +6744,6 @@ entities:
       pos: 67.5,41.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: AirlockExternalGlassShuttleLocked
   entities:
   - uid: 1162
@@ -6903,42 +6753,6 @@ entities:
     - pos: 49.5,17.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 2138
     components:
     - name: Cargo Shuttle Dock
@@ -6947,42 +6761,6 @@ entities:
       pos: 55.5,5.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 2141
     components:
     - name: Cargo Shuttle Dock
@@ -6991,124 +6769,16 @@ entities:
       pos: 55.5,3.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 5422
     components:
     - pos: -33.5,-20.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 7124
     components:
     - pos: -35.5,-20.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: AirlockFreezerKitchenHydroLocked
   entities:
   - uid: 581
@@ -7312,84 +6982,12 @@ entities:
       pos: -67.5,-10.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 7165
     components:
     - rot: -1.5707963267948966 rad
       pos: -54.5,31.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 7202
     components:
     - name: Supply Pod NT-14-XI
@@ -7398,42 +6996,6 @@ entities:
       pos: -55.5,31.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: AirlockHeadOfPersonnelGlassLocked
   entities:
   - uid: 1902
@@ -39898,6 +39460,19 @@ entities:
     - pos: 11.384118,52.69154
       parent: 1781
       type: Transform
+- proto: DefibrillatorCabinetFilled
+  entities:
+  - uid: 11625
+    components:
+    - pos: 0.5,3.5
+      parent: 1781
+      type: Transform
+  - uid: 11626
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -4.5,-5.5
+      parent: 1781
+      type: Transform
 - proto: DeployableBarrier
   entities:
   - uid: 275
@@ -44675,57 +44250,41 @@ entities:
     - pos: 22.5,-1.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 3822
     components:
     - pos: -8.5,1.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 5113
     components:
     - pos: 13.5,17.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 6255
     components:
     - pos: 38.5,3.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 6782
     components:
     - pos: 5.5,3.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 7037
     components:
     - pos: 12.5,-7.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 10886
     components:
     - pos: 62.5,-25.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 12318
     components:
     - pos: 30.5,-38.5
       parent: 1781
       type: Transform
-    - fixtures: []
-      type: Fixtures
 - proto: FloorTileItemDark
   entities:
   - uid: 9046
@@ -61542,6 +61101,8 @@ entities:
     - pos: 27.5,55.5
       parent: 1781
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: GrenadeFlashBang
   entities:
   - uid: 6383
@@ -76160,6 +75721,12 @@ entities:
     - pos: -7.5,42.5
       parent: 1781
       type: Transform
+  - uid: 11624
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -0.5,0.5
+      parent: 1781
+      type: Transform
 - proto: Poweredlight
   entities:
   - uid: 1147
@@ -81015,62 +80582,6 @@ entities:
       pos: 42.5,-1.5
       parent: 1781
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.55,-0.55
-          - 0.55,-0.55
-          - 0.55,0.55
-          - -0.55,0.55
-        mask: []
-        layer:
-        - Impassable
-        - MidImpassable
-        - LowImpassable
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: conveyor
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.15,-0.15
-          - 0.15,-0.15
-          - 0.15,0.15
-          - -0.15,0.15
-        mask: []
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: brrt
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - -0.49,-0.49
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-        mask:
-        - Impassable
-        layer:
-        - BulletImpassable
-        - Opaque
-        density: 1
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: collision
-      type: Fixtures
     - inputs:
         Reverse:
         - port: Right
@@ -83882,8 +83393,6 @@ entities:
         - port: Toggle
           uid: 6428
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 7162
     components:
     - pos: 52.5,8.5
@@ -83896,8 +83405,6 @@ entities:
         - port: Toggle
           uid: 10291
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 7163
     components:
     - pos: 54.5,8.5
@@ -83910,8 +83417,6 @@ entities:
         - port: Toggle
           uid: 10290
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 8596
     components:
     - name: Experiment Chamber Blastdoors
@@ -83932,8 +83437,6 @@ entities:
         - port: Toggle
           uid: 8844
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 9820
     components:
     - pos: 37.5,32.5
@@ -83952,8 +83455,6 @@ entities:
         - port: Toggle
           uid: 6199
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 13433
     components:
     - rot: 1.5707963267948966 rad
@@ -83965,8 +83466,6 @@ entities:
         - port: Toggle
           uid: 1528
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignalSwitch
   entities:
   - uid: 7792
@@ -83986,8 +83485,6 @@ entities:
         - port: Open
           uid: 7791
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignArmory
   entities:
   - uid: 5935

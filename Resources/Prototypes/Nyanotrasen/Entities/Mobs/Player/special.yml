@@ -24,12 +24,13 @@
     fixedRotation: true
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 13
-      mask:
-      - GhostImpassable
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 13
+        mask:
+        - GhostImpassable
   - type: MovementSpeedModifier
     baseSprintSpeed: 8
     baseWalkSpeed: 5

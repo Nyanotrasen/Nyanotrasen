@@ -115,15 +115,16 @@
     prototype: Human
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.42
-      density: 220
-      restitution: 0.0
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.42
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Stamina
     excess: 115
   - type: Perishable

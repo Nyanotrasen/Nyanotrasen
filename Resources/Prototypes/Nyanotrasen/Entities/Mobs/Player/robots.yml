@@ -59,14 +59,15 @@
   - type: NoSlip
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 400
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Repairable
     fuelcost: 60
     doAfterDelay: 32
@@ -227,7 +228,7 @@
     slots:
       analyzer_slot:
         name: HealthAnalyzer
-        startingItem: BorgHealthAnalyzer
+        startingItem: HandheldHealthAnalyzerBorg
         locked: true
       hypospray_slot:
         name: Hypospray
@@ -269,8 +270,8 @@
     tools:
       - id: HyposprayBorgMedical
       - id: Syringe
-      - id: BorgHealthAnalyzer
-      - id: HandheldCrewMonitor
+      - id: HandheldHealthAnalyzerBorg
+      - id: HandheldCrewMonitorBorg
       - id: FireExtinguisher
       - id: StackHolderHealingItem
   - type: ItemSlots

@@ -49,13 +49,12 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -435,9 +434,6 @@ entities:
         chunkSize: 4
       type: GridAtmosphere
     - type: RadiationGridResistance
-    - nextShake: 0
-      shakeTimes: 10
-      type: GravityShake
     - type: GasTileOverlay
     - nextUpdate: 0
       type: SpreaderGrid
@@ -502,84 +498,12 @@ entities:
       pos: 5.5,0.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 78
     components:
     - rot: 1.5707963267948966 rad
       pos: 5.5,2.5
       parent: 1
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: APCBasic
   entities:
   - uid: 332
@@ -2755,6 +2679,8 @@ entities:
     - pos: -2.5,-16.5
       parent: 1
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 13
@@ -3499,8 +3425,6 @@ entities:
         - port: Toggle
           uid: 308
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 522
     components:
     - pos: -6.5,4.5
@@ -3515,8 +3439,6 @@ entities:
         - port: Toggle
           uid: 308
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 528
     components:
     - rot: 1.5707963267948966 rad
@@ -3530,8 +3452,6 @@ entities:
         - port: Toggle
           uid: 264
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 529
     components:
     - rot: -1.5707963267948966 rad
@@ -3545,8 +3465,6 @@ entities:
         - port: Toggle
           uid: 86
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 539
     components:
     - rot: 1.5707963267948966 rad
@@ -3560,8 +3478,6 @@ entities:
         - port: Toggle
           uid: 264
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
   - uid: 543
     components:
     - rot: 1.5707963267948966 rad
@@ -3577,8 +3493,6 @@ entities:
         - port: Toggle
           uid: 252
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignCargoDock
   entities:
   - uid: 558

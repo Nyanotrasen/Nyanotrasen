@@ -1,135 +1,4 @@
 Entries:
-- author: Rane
-  changes:
-  - message: Telepathic chat from oracles, dreams, and others work as intended again.
-    type: Fix
-  - message: Ifrits will no longer have definite articles in loc strings.
-    type: Fix
-  - message: The stealth shader on telegnostic projections and psionically invisible
-      people works as intended.
-    type: Tweak
-  - message: Made a small optimization that should improve client perf slightly.
-    type: Fix
-  - message: 'New trait: colorblindness.'
-    type: Add
-  - message: Revenants spawn correctly from the glimmer event.
-    type: Fix
-  - message: Revenants drop some bluespace crystals on death.
-    type: Add
-  - message: Glimmer prober has a new construction graph.
-    type: Add
-  - message: Probers and disposal units can be toggled on and off with an alt verb.
-    type: Add
-  id: 42
-  time: '2022-10-19T21:44:49.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed the old point source available from salvage.
-    type: Fix
-  - message: Hoods should not hide face (or hair) anymore. Hiding hair broke upstream.
-    type: Fix
-  - message: As it makes up a disproportionate amount of problematic unwhitelisted
-      players, cleric is now time gated.
-    type: Tweak
-  - message: Glimmer drains are constructable, although they require something unlocked
-      with spacetime technology.
-    type: Add
-  - message: Glimmer probers have some more special behavior at dangerous glimmer
-      levels. (>500)
-    type: Add
-  id: 43
-  time: '2022-10-20T21:04:49.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Added some maintenance rooms.
-    type: Add
-  - message: Made significant changes to Atmos and its mix chamber.
-    type: Tweak
-  - message: Changed many firelocks to glass firelocks.
-    type: Tweak
-  id: 44
-  time: '2022-10-21T20:18:37.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Nuke ops and other midrounds humanoids can be felinids or oni, too.
-    type: Add
-  id: 45
-  time: '2022-10-21T20:21:43.0000000+00:00'
-- author: Daemon
-  changes:
-  - message: Tweaked splash screen!
-    type: Tweak
-  id: 46
-  time: '2022-10-22T05:04:39.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added icons for all standard psionic powers.
-    type: Add
-  id: 47
-  time: '2022-10-22T21:48:53.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed name identifiers for animals (they were ugly and our ghost roles
-      are whitelisted).
-    type: Remove
-  - message: Zombie removed from secret.
-    type: Remove
-  - message: DiseaseCarrier is back to humanoids, mice, and monkeys.
-    type: Fix
-  - message: Monkeys have 2 hands.
-    type: Tweak
-  - message: Removed several more impossible / unreasonably difficult oracle requests.
-    type: Fix
-  - message: Oracle now drops the rewards at your feet, so people are less likely
-      to forget them.
-    type: Tweak
-  - message: Revenant's minimum eligible glimmer increased by 150.
-    type: Tweak
-  - message: Polished random sentience event.
-    type: Add
-  - message: Interacting with probers at high glimmer is much more fun.
-    type: Add
-  - message: Destroying glimmer probers will reduce glimmer level if glimmer is above
-      300.
-    type: Add
-  - message: Plasteel and plasma are printable now with material printing
-    type: Add
-  - message: New soul lobby song
-    type: Add
-  - message: Reenabled early shuttle call cvar. Great way to speedrun a whitelist
-      removal and/or ban if you abuse it.
-    type: Add
-  id: 48
-  time: '2022-10-25T01:04:35.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Mundane discharge max glimmer reduced by 100.
-    type: Tweak
-  - message: Random sentience min glimmer reduced by 100.
-    type: Tweak
-  - message: Added 2 new glimmer console commands for admins and developers.
-    type: Add
-  id: 49
-  time: '2022-10-26T00:28:23.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed lamiae. Spiders soon.
-    type: Remove
-  - message: Fixed borg latejoin message and traitor objectives targeting borgs.
-    type: Fix
-  - message: Fixed several other traitor objective bugs.
-    type: Fix
-  - message: All relevant reagents are now affected by the small amount scaling.
-    type: Add
-  id: 50
-  time: '2022-10-25T23:54:16.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Merged the female clothing fix early because I need to use a similar
-      stencil method for aranche.
-    type: Fix
-  id: 51
-  time: '2022-10-26T04:24:47.0000000+00:00'
 - author: Vordenburg
   changes:
   - message: Added new icon for the NyanoTrasen server.
@@ -3858,3 +3727,73 @@ Entries:
     type: Remove
   id: 539
   time: '2023-05-09T16:31:44.119524+00:00'
+- author: DebugOk
+  changes:
+  - message: Fixed golem inventories.
+    type: Fix
+  id: 540
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: TadJohnson00
+  changes:
+  - message: Added a bunch of new weapons.
+    type: Add
+  id: 541
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Added mothroaches.
+    type: Add
+  - message: Medical robots' health analyzers no longer run out of charge.
+    type: Fix
+  id: 542
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: Rane
+  changes:
+  - message: Renamed cyborgs to robots.
+    type: Tweak
+  id: 543
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: toasterpm87
+  changes:
+  - message: Added a new skirt.
+    type: Add
+  id: 544
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: Hyenh
+  changes:
+  - message: Added a bunch of new clothes.
+    type: Add
+  id: 545
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: PPooch
+  changes:
+  - message: Midround antags won't spawn super early into the round.
+    type: Tweak
+  id: 546
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: Vannn4
+  changes:
+  - message: Added most missing clothes to the uniform printer.
+    type: Add
+  id: 547
+  time: '2023-05-16T16:31:44.119524+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Fixed medical robots crew monitor running out of charges.
+    type: Fix
+  id: 548
+  time: '2023-05-16T08:22:18.138720+00:00'
+- author: Vordenburg
+  changes:
+  - message: Merged ~200 changes from upstream. Report bugs and regressions.
+    type: Add
+  - message: Shoveling tiles should work again.
+    type: Fix
+  - message: Stations will have gravity at the start of the round again.
+    type: Fix
+  - message: Mice will become hungry less often.
+    type: Tweak
+  - message: Adjusted kudzu growth speed, again.
+    type: Tweak
+  id: 549
+  time: '2023-05-21T08:22:21.323686+00:00'

@@ -2,9 +2,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using NUnit.Framework;
+using Robust.Shared.Configuration;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Map;
@@ -26,6 +28,10 @@ namespace Content.IntegrationTests.Tests.Destructible
             var sEntityManager = server.ResolveDependency<IEntityManager>();
             var sPrototypeManager = server.ResolveDependency<IPrototypeManager>();
             var sEntitySystemManager = server.ResolveDependency<IEntitySystemManager>();
+            var sConfigurationManager = server.ResolveDependency<IConfigurationManager>();
+
+            // DamageVariance is causing issues with this test.
+            sConfigurationManager.SetCVar(CCVars.DamageVariance, 0f);
 
             EntityUid sDestructibleEntity = default;
             TestDestructibleListenerSystem sTestThresholdListenerSystem = null;

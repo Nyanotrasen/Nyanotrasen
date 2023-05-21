@@ -100,14 +100,15 @@
     secondsPerGlimmer: 10 #More effecient than probers by virtue of much higher point score...
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.45,-0.45,0.45,0.45"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - HalfWallLayer #Sprite looks short to me...
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - HalfWallLayer #Sprite looks short to me...
 
 - type: entity
   id: MachineAPE
@@ -137,14 +138,15 @@
     noRot: false
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Rotatable
     rotateWhileAnchored: true
   - type: Machine
@@ -244,14 +246,15 @@
     - Plasma
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-1.5,-0.5,1.5,0.6"
-      density: 50
-      mask:
-      - LargeMobMask
-      layer:
-      - WallLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-0.5,1.5,0.6"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 5

@@ -43,8 +43,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -1818,8 +1816,6 @@ entities:
     - pos: 1.5,2.5
       parent: 683
       type: Transform
-    - fixtures: []
-      type: Fixtures
 - proto: FoodBreadMoldy
   entities:
   - uid: 629
@@ -4335,8 +4331,6 @@ entities:
         - port: Close
           uid: 123
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignBar
   entities:
   - uid: 278
