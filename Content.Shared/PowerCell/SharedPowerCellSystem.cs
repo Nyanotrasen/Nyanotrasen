@@ -8,6 +8,7 @@ namespace Content.Shared.PowerCell;
 public abstract class SharedPowerCellSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     public override void Initialize()
     {
@@ -48,15 +49,15 @@ public abstract class SharedPowerCellSystem : EntitySystem
 
         if (args.Container.ID != component.CellSlotId)
             return;
-
+        _appearance.SetData(uid, PowerCellSlotVisuals.Enabled, true);
         RaiseLocalEvent(uid, new PowerCellChangedEvent(false), false);
     }
 
-    private void OnCellRemoved(EntityUid uid, PowerCellSlotComponent component, EntRemovedFromContainerMessage args)
+    protected virtual void OnCellRemoved(EntityUid uid, PowerCellSlotComponent component, EntRemovedFromContainerMessage args)
     {
         if (args.Container.ID != component.CellSlotId)
             return;
-
+        _appearance.SetData(uid, PowerCellSlotVisuals.Enabled, false);
         RaiseLocalEvent(uid, new PowerCellChangedEvent(true), false);
     }
 }

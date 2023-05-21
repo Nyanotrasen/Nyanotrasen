@@ -1,4 +1,5 @@
 #nullable enable
+using System.Collections.Generic;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using Content.Shared.ReverseEngineering;
@@ -12,6 +13,12 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
     [TestOf(typeof(ReverseEngineeringSystem))]
     public sealed class ReverseEngineeringTest
     {
+        private readonly HashSet<string> _ignoredPrototypes = new()
+        {
+            // This can be reverse-engineered, but the recipe will produce a version of itself without batteries.
+            "HandheldCrewMonitor",
+        };
+
         [Test]
         public async Task ReverseEngineeringResultsValid()
         {
@@ -29,6 +36,9 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                 foreach (var proto in allProtos)
                 {
                     if (proto.Abstract || !proto.TryGetComponent<ReverseEngineeringComponent>(out var rev))
+                        continue;
+
+                    if (_ignoredPrototypes.Contains(proto.ID))
                         continue;
 
                     if (rev.Recipes != null)

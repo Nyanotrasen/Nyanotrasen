@@ -2,9 +2,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Cargo.Components;
 using Content.Shared.Atmos.Prototypes;
+using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
+using Content.Shared.Materials;
 using Content.Shared.Stacks;
 
 namespace Content.Server.Cargo.Systems
@@ -26,6 +28,12 @@ namespace Content.Server.Cargo.Systems
 
         private Dictionary<string, FixedPoint2> _supplyReagent = new();
         private Dictionary<string, FixedPoint2> _demandReagent = new();
+
+        private Dictionary<string, int> _supplyMaterial = new();
+        private Dictionary<string, int> _demandMaterial = new();
+
+        private Dictionary<string, int> _supplyMob = new();
+        private Dictionary<string, int> _demandMob = new();
 
 
         private TimeSpan _updateInterval = TimeSpan.FromMinutes(1);
@@ -49,6 +57,10 @@ namespace Content.Server.Cargo.Systems
             _demandStack.Clear();
             _supplyReagent.Clear();
             _demandReagent.Clear();
+            _supplyMaterial.Clear();
+            _demandMaterial.Clear();
+            _supplyMob.Clear();
+            _demandMob.Clear();
         }
 
         public override void Update(float frameTime)
@@ -85,6 +97,20 @@ namespace Content.Server.Cargo.Systems
             {
                 if (_random.Prob(_supplyReductionChance))
                     _supplyGas[key] = Math.Max(0f, units - 100f);
+            }
+
+            // Randomly reduce the market's material supply.
+            foreach (var (key, units) in _supplyMaterial)
+            {
+                if (_random.Prob(_supplyReductionChance))
+                    _supplyMaterial[key] = Math.Max(0, units - 1000);
+            }
+
+            // Randomly reduce the market's material supply.
+            foreach (var (key, units) in _supplyMob)
+            {
+                if (_random.Prob(_supplyReductionChance))
+                    _supplyMob[key] = Math.Max(0, units - 1);
             }
 
             _nextUpdate = _gameTiming.CurTime + _updateInterval;
@@ -257,6 +283,54 @@ namespace Content.Server.Cargo.Systems
                 return reagent.HalfPriceSurplus;
 
             return _demandReagent[reagent.ID];
+        }
+
+        public void AddMaterialSupply(MaterialPrototype material, int units)
+        {
+            if (_supplyMaterial.ContainsKey(material.ID))
+                _supplyMaterial[material.ID] = Math.Max(0, _supplyMaterial[material.ID] + units);
+            else
+                _supplyMaterial[material.ID] = Math.Max(0, units);
+        }
+
+        public FixedPoint2 GetMaterialSupply(MaterialPrototype material)
+        {
+            if (!_supplyMaterial.ContainsKey(material.ID))
+                return 0;
+
+            return _supplyMaterial[material.ID];
+        }
+
+        public FixedPoint2 GetMaterialDemand(MaterialPrototype material)
+        {
+            if (!_demandMaterial.ContainsKey(material.ID))
+                return material.HalfPriceSurplus;
+
+            return _demandReagent[material.ID];
+        }
+
+        public void AddMobSupply(BodyPrototype body, int units)
+        {
+            if (_supplyMob.ContainsKey(body.ID))
+                _supplyMob[body.ID] = Math.Max(0, _supplyMob[body.ID] + units);
+            else
+                _supplyMob[body.ID] = Math.Max(0, units);
+        }
+
+        public FixedPoint2 GetMobSupply(BodyPrototype body)
+        {
+            if (!_supplyMob.ContainsKey(body.ID))
+                return 0;
+
+            return _supplyMob[body.ID];
+        }
+
+        public FixedPoint2 GetMobDemand(BodyPrototype body)
+        {
+            if (!_demandMob.ContainsKey(body.ID))
+                return body.HalfPriceSurplus;
+
+            return _demandReagent[body.ID];
         }
     }
 }

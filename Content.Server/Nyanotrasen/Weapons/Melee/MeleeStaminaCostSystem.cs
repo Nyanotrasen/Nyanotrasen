@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.Wieldable.Components;
+using Content.Shared.Wieldable.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Weapons.Melee.Events;

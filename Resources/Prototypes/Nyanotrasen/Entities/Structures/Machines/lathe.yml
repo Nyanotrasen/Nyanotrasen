@@ -36,6 +36,7 @@
       - SatchelOfHolding
       - DuffelbagOfHolding
       - AnomalyScanner
+      - AnomalyLocator
       - ChemicalPayload #Below = shared
       - FlashlightLantern
       - Bucket
@@ -55,6 +56,10 @@
       - CableMVStack
       - CableHVStack
       - NodeScanner
+      - WeaponPistolCHIMP
+      - CartridgeAnomalousParticleDelta
+      - CartridgeAnomalousParticleEpsilon
+      - CartridgeAnomalousParticleZeta
   - type: MaterialStorage
     whitelist:
       tags:
@@ -100,7 +105,9 @@
       - LightReplacer
       - Holoprojector
       - TrashBagOfHolding
-      - MopAdvanced
+      - AdvMopItem
+      - WeaponSprayNozzle
+      - ClothingBackpackWaterTank
       - HydroponicsToolScythe
       - HydroponicsToolHatchet
       - DrinkMug

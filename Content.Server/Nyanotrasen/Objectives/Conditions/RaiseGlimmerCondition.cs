@@ -21,7 +21,7 @@ namespace Content.Server.Objectives.Conditions
 
         public string Description => Loc.GetString("objective-condition-raise-glimmer-description", ("target", _target));
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Nyanotrasen/Icons/psi.rsi"), "psi");
+        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ("Nyanotrasen/Icons/psi.rsi"), "psi");
 
         public float Progress
         {

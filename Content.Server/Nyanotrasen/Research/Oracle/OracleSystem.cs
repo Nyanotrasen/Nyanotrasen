@@ -27,7 +27,7 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
-        [Dependency] private readonly SpillableSystem _spillableSystem = default!;
+        [Dependency] private readonly PuddleSystem _puddleSystem = default!;
 
         public readonly IReadOnlyList<string> RewardReagents = new[]
         {
@@ -94,8 +94,11 @@ namespace Content.Server.Research.Oracle
             "DrinkGlass",
             "Bucket",
             "SprayBottle",
+            "MegaSprayBottle",
             "ShellTranquilizer",
             "ShellSoulbreaker",
+            "FireExtinguisher",
+            "ClothingBackpackWaterTank",
 
             // Mech non-items and items (mech stuff is all expensive)
             "RipleyHarness",
@@ -252,7 +255,7 @@ namespace Content.Server.Research.Oracle
             _solutionSystem.TryMixAndOverflow(uid, fountainSol, sol, fountainSol.MaxVolume, out var overflowing);
 
             if (overflowing != null && overflowing.Volume > 0)
-                _spillableSystem.SpillAt(uid, overflowing, "PuddleSplatter");
+                _puddleSystem.TrySpillAt(uid, overflowing, out var _);
         }
 
         private void NextItem(OracleComponent component)

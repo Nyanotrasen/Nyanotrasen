@@ -43,7 +43,7 @@ namespace Content.Client.Changelog
             NewChangelogEntries = false;
             NewChangelogEntriesChanged?.Invoke();
 
-            using var sw = _resource.UserData.OpenWriteText(new ResourcePath($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}"));
+            using var sw = _resource.UserData.OpenWriteText(new ($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}"));
 
             sw.Write(MaxId.ToString());
         }
@@ -60,7 +60,7 @@ namespace Content.Client.Changelog
 
             MaxId = changelog.Max(c => c.Id);
 
-            var path = new ResourcePath($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}");
+            var path = new ResPath($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}");
             if(_resource.UserData.TryReadAllText(path, out var lastReadIdText))
             {
                 LastReadId = int.Parse(lastReadIdText);
@@ -71,26 +71,11 @@ namespace Content.Client.Changelog
             NewChangelogEntriesChanged?.Invoke();
         }
 
-        public async Task<List<ChangelogEntry>> LoadChangelog()
-        {
-            var paths = _resource.ContentFindFiles("/Changelog/")
-                .Where(filePath => filePath.Extension == "yml")
-                .ToArray();
-
-            var result = new List<ChangelogEntry>();
-            foreach (var path in paths)
-            {
-                var changelog = await LoadChangelogFile(path);
-                result = result.Union(changelog).ToList();
-            }
-            return result.OrderBy(x => x.Time).ToList();
-        }
-
-        private Task<List<ChangelogEntry>> LoadChangelogFile(ResourcePath path)
+        public Task<List<ChangelogEntry>> LoadChangelog()
         {
             return Task.Run(() =>
             {
-                var yamlData = _resource.ContentFileReadYaml(path);
+                var yamlData = _resource.ContentFileReadYaml(new ("/Changelog/Changelog.yml"));
 
                 if (yamlData.Documents.Count == 0)
                     return new List<ChangelogEntry>();

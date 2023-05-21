@@ -48,8 +48,8 @@ job-name-mantis = forensic mantis
 job-name-epistemologist = acolyte
 job-name-mail-carrier = mail carrier
 job-name-cataloguer = cataloguer
-job-name-cyborg = cyborg
-job-name-medical-cyborg = medical cyborg
+job-name-robot = robot
+job-name-medical-robot = medical robot
 job-name-salvage-technician = salvage technician
 job-name-gladiator = gladiator
 job-name-fugitive = fugitive
@@ -104,7 +104,7 @@ JobZookeeper = zookeeper
 
 # Nyano role timers
 JobCataloguer = cataloguer
-JobCyborg = cyborg
+JobRobot = robot
 JobEpistemologist = acolyte
 JobForensicMantis = forensic mantis
 JobMailCarrier = mail carrier

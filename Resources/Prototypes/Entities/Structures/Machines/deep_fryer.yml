@@ -31,14 +31,15 @@
   - type: Climbable
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.30,-0.25,0.30,0.45"
-      density: 600
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,-0.25,0.30,0.45"
+        density: 600
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: DeepFryer
     blacklist:
       components:
@@ -105,14 +106,8 @@
       - OilGhee
       - OilOlive
     unsafeOilVolumeEffects:
-    - !type:SmokeAreaReactionEffect
-      rangeConstant: 0
-      rangeMultiplier: 1.1 #Range formula: rangeConstant + rangeMultiplier*sqrt(ReactionUnits)
-      maxRange: 10
+    - !type:AreaReactionEffect
       duration: 10
-      spreadDelay: 0.2
-      removeDelay: 1.5
-      diluteReagents: true
       prototypeId: Smoke
       sound:
         path: /Audio/Effects/smoke.ogg

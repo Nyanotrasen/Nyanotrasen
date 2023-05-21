@@ -18,6 +18,9 @@
   - Xeno
 
 - type: faction
+  id: Passive
+
+- type: faction
   id: SimpleHostile
   hostile:
   - NanoTrasen
@@ -28,6 +31,7 @@
   - Xeno
   - Dragon
   - Pet
+  - Passive
 
 - type: faction
   id: SimpleNeutral
@@ -38,6 +42,7 @@
   - NanoTrasen
   - SimpleHostile
   - Xeno
+  - Pet
 
 - type: faction
   id: Xeno
@@ -45,6 +50,8 @@
   - NanoTrasen
   - Syndicate
   - SimpleHostile
+  - Passive
+  - Pet
   - RatPassive
   - RatHostile
 
