@@ -1,4 +1,5 @@
 using Content.Client.UserInterface.Systems.Chat;
+using System.Linq;
 using Content.Shared.GameTicking;
 using Content.Shared.Popups;
 using Content.Shared.Chat;
@@ -138,6 +139,9 @@ namespace Content.Client.Popups
 
         public override void PopupEntity(string message, EntityUid uid, Filter filter, bool recordReplay, PopupType type=PopupType.Small)
         {
+            if (!filter.Recipients.Contains(_playerManager.LocalPlayer?.Session))
+                return;
+
             PopupEntity(message, uid, type);
         }
 

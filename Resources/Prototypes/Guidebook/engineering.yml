@@ -1,4 +1,4 @@
-﻿- type: guideEntry
+- type: guideEntry
   id: Engineering
   name: guide-entry-engineering
   text: "/ServerInfo/Guidebook/Eng/Engineering.xml"
@@ -8,6 +8,7 @@
   - Power
   - MachineUpgrading
   - ReverseEngineering
+  - Networking
 
 - type: guideEntry
   id: Construction
@@ -32,13 +33,26 @@
   text: "/ServerInfo/Guidebook/Eng/ReverseEngineering.xml"
 
 - type: guideEntry
+  id: Networking
+  name: guide-entry-networking
+  text: "/ServerInfo/Guidebook/Networking.xml"
+  children:
+  - NetworkConfigurator
+
+- type: guideEntry
+  id: NetworkConfigurator
+  name: guide-entry-network-configurator
+  text: "/ServerInfo/Guidebook/Network_Configurator.xml"
+
+
+- type: guideEntry
   id: Power
   name: guide-entry-power
   text: "/ServerInfo/Guidebook/Eng/Power.xml"
   children:
   - AME
   - Singularity
-  
+
 - type: guideEntry
   id: AME
   name: guide-entry-ame
@@ -48,7 +62,7 @@
   id: MachineUpgrading
   name: guide-entry-machine-upgrading
   text: "/ServerInfo/Guidebook/Eng/MachineUpgrading.xml"
-  
+
 - type: guideEntry
   id: Singularity
   name: guide-entry-singularity

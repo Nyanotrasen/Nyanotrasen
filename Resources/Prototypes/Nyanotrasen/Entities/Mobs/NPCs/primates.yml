@@ -10,14 +10,15 @@
     templateId: monkey
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 80
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Strippable
   - type: Stripping
   - type: UserInterface
@@ -41,14 +42,6 @@
   - type: Body
     prototype: Primate
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: monkey
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
   - type: Appearance
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -67,7 +60,9 @@
   - type: Cuffable
   # These require a cuffable layer to be added to the sprite now...?
   # - type: Cuffable
-
+  - type: Faction
+    factions:
+    - Passive
   - type: MeleeWeapon
     hidden: true
     angle: 0
@@ -97,14 +92,15 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.48
-      density: 200
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -150,3 +146,6 @@
     damage:
       types:
         Blunt: 7 # See oni component
+  # - type: GhostRole
+  #   name: ghost-role-information-monkey-name
+  #   description: ghost-role-information-monkey-description

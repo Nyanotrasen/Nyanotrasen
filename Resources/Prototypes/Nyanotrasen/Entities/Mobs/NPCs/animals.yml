@@ -52,14 +52,15 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.3
-      density: 10
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 10
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:

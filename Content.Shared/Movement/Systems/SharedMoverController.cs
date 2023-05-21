@@ -17,10 +17,6 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Mech.Components;
-using Content.Shared.Parallax.Biomes;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Noise;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -34,6 +30,7 @@ namespace Content.Shared.Movement.Systems
     {
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] protected readonly IGameTiming Timing = default!;
+        [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
@@ -49,8 +46,6 @@ namespace Content.Shared.Movement.Systems
         private const float StepSoundMoveDistanceWalking = 1.5f;
 
         private const float FootstepVariation = 0f;
-        private const float FootstepVolume = 3f;
-        private const float FootstepWalkingAddedVolumeMultiplier = 0f;
 
         protected ISawmill Sawmill = default!;
 
@@ -113,26 +108,20 @@ namespace Content.Shared.Movement.Systems
             EntityQuery<SharedPullableComponent> pullableQuery,
             EntityQuery<MovementSpeedModifierComponent> modifierQuery)
         {
-            bool canMove = mover.CanMove;
-            if (relayTargetQuery.TryGetComponent(uid, out var relayTarget) && relayTarget.Entities.Count > 0)
+            var canMove = mover.CanMove;
+            if (relayTargetQuery.TryGetComponent(uid, out var relayTarget))
             {
-                DebugTools.Assert(relayTarget.Entities.Count <= 1, "Multiple relayed movers are not supported at the moment");
-
-                bool found = false;
-                foreach (var ent in relayTarget.Entities)
+                if (_mobState.IsIncapacitated(relayTarget.Source) ||
+                    !moverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
                 {
-                    if (_mobState.IsIncapacitated(ent) || !moverQuery.TryGetComponent(ent, out var relayedMover))
-                        continue;
-
-                    found = true;
+                    canMove = false;
+                }
+                else
+                {
                     mover.RelativeEntity = relayedMover.RelativeEntity;
                     mover.RelativeRotation = relayedMover.RelativeRotation;
                     mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
-                    break;
                 }
-
-                // lets just hope that this is the same entity that set the movement keys/direction.
-                canMove &= found;
             }
 
             // Update relative movement
@@ -264,19 +253,16 @@ namespace Content.Shared.Movement.Systems
                 if (!weightless && mobMoverQuery.TryGetComponent(uid, out var mobMover) &&
                     TryGetSound(weightless, uid, mover, mobMover, xform, out var sound))
                 {
-                    var soundModifier = mover.Sprinting ? 1.0f : FootstepWalkingAddedVolumeMultiplier;
+                    var soundModifier = mover.Sprinting ? 1.5f : 1f;
 
                     var audioParams = sound.Params
-                        .WithVolume(FootstepVolume * soundModifier)
+                        .WithVolume(sound.Params.Volume * soundModifier)
                         .WithVariation(sound.Params.Variation ?? FootstepVariation);
 
                     // If we're a relay target then predict the sound for all relays.
                     if (relayTarget != null)
                     {
-                        foreach (var ent in relayTarget.Entities)
-                        {
-                            _audio.PlayPredicted(sound, uid, ent, audioParams);
-                        }
+                        _audio.PlayPredicted(sound, uid, relayTarget.Source, audioParams);
                     }
                     else
                     {
@@ -348,7 +334,8 @@ namespace Content.Shared.Movement.Systems
 
             foreach (var otherCollider in broadPhaseSystem.GetCollidingEntities(transform.MapID, enlargedAABB))
             {
-                if (otherCollider == collider) continue; // Don't try to push off of yourself!
+                if (otherCollider == collider)
+                    continue; // Don't try to push off of yourself!
 
                 // Only allow pushing off of anchored things that have collision.
                 if (otherCollider.BodyType != BodyType.Static ||

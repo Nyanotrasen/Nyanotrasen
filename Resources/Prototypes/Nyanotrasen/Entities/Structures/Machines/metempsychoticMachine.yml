@@ -17,13 +17,12 @@
     layers:
       - state: pod_0
   - type: Appearance
+  - type: GenericVisualizer
     visuals:
-      - type: GenericEnumVisualizer
-        key: enum.CloningPodVisuals.Status
-        layer: 0
-        states:
-          enum.CloningPodStatus.Cloning: pod_1
-          enum.CloningPodStatus.NoMind: pod_1
-          enum.CloningPodStatus.Gore: pod_1
-          enum.CloningPodStatus.Idle: pod_0
+      enum.CloningPodVisuals.Status:
+        base:
+          Cloning: { state: pod_1 }
+          NoMind: { state: pod_1 }
+          Gore: { state: pod_1 }
+          Idle: { state: pod_0 }
   - type: Psionic
