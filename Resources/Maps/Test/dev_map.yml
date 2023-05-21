@@ -4150,7 +4150,7 @@ entities:
     - pos: -3.5,4.5
       parent: 179
       type: Transform
-- proto: SpawnVehiclePussywagon
+- proto: SpawnVehicleJanicart
   entities:
   - uid: 904
     components:
@@ -4733,7 +4733,7 @@ entities:
     - pos: -7.5,4.5
       parent: 179
       type: Transform
-- proto: VehicleKeyPussyWagon
+- proto: VehicleKeyJanicart
   entities:
   - uid: 14
     components:
