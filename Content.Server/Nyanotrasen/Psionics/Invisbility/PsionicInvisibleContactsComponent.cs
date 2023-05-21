@@ -10,10 +10,10 @@ namespace Content.Server.Psionics
         public EntityWhitelist Whitelist = default!;
 
         /// <summary>
-        /// Last tick we did a failed exit check from.
-        /// So, if you exit multiple webs on the same tick,
-        /// you still lose invis.
+        /// This tracks how many valid entities are being contacted,
+        /// so when you stop touching one, you don't immediately lose invisibility.
         /// </summary>
-        public GameTick LastFailedTick = default;
+        [DataField("stages")]
+        public int Stages = 0;
     }
 }

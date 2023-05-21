@@ -224,6 +224,16 @@
         amount: 1
 
 - type: entity
+  id: CrateFunWaterGuns
+  parent: CratePlastic
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponWaterBlaster
+      - id: WeaponWaterPistol
+        amount: 5
+
+- type: entity
   id: CrateFunSyndicateSegway
   parent: CrateLivestock
   components:

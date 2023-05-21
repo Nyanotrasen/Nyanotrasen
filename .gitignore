@@ -301,9 +301,11 @@ Resources/MapImages
 /Content.Docfx/api/
 /Content.Docfx/*site
 
+*.bak
+
+# Direnv stuff
+.direnv/
 
 ### Nyanotrasen Specific
 Tools/gen_build_info.py
 
-Resources/Prototypes/Maps
-Resources/Prototypes/species.yml

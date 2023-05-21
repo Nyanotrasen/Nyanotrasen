@@ -23,14 +23,15 @@
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4
@@ -112,34 +113,35 @@
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
   - type: Slippery
-    launchForwardsMultiplier: 6.0
+    launchForwardsMultiplier: 2
   - type: StepTrigger
     intersectRatio: 0.2
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      id: "slips"
-      hard: false
-      layer:
-        - SlipLayer
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 20
-      mask:
-      - MobMask
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        hard: false
+        layer:
+          - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
   - type: Construction
     graph: HonkBot
     node: bot
   - type: GhostRole
     makeSentient: true
     whitelistRequired: false
-    name: honkbot
-    description: An artificial being of pure evil.
+    name: ghost-role-information-honkbot-name
+    description: ghost-role-information-honkbot-description
   - type: GhostTakeoverAvailable
   - type: InteractionPopup
     interactSuccessString: petting-success-honkbot
@@ -190,14 +192,15 @@
     rootTask: CleanbotCompound
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 40
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 40
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: DrainableSolution
     solution: drainBuffer
   - type: InteractionPopup

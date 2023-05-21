@@ -24,6 +24,7 @@ namespace Content.Server.NPC.Systems
                 RemCompDeferred<NPCEngagerComponent>(engager.Owner);
             }
         }
+
         public override void Initialize()
         {
             base.Initialize();
@@ -64,6 +65,7 @@ namespace Content.Server.NPC.Systems
         {
             args.ExceptionalHostiles.UnionWith(component.EngagingEnemies);
         }
+
         private void OnShutdown(EntityUid uid, NPCEngagerComponent component, ComponentShutdown args)
         {
             foreach (var enemy in component.EngagedEnemies)

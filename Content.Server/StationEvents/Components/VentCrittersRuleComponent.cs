@@ -1,16 +1,11 @@
-﻿using Content.Server.StationEvents.Events;
+using Content.Server.StationEvents.Events;
+using Content.Shared.Storage;
 
 namespace Content.Server.StationEvents.Components;
 
 [RegisterComponent, Access(typeof(VentCrittersRule))]
 public sealed class VentCrittersRuleComponent : Component
 {
-    [DataField("spawnedPrototypeChoices")]
-    public List<string> SpawnedPrototypeChoices = new()
-    {
-        "MobMouse",
-        "MobMouse1",
-        "MobMouse2",
-        "MobMothroach"
-    };
+    [DataField("entries")]
+    public List<EntitySpawnEntry> Entries = new();
 }

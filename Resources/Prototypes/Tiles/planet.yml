@@ -6,6 +6,7 @@
   canCrowbar: false
   footstepSounds:
     collection: FootstepAsteroid
+  itemDrop: FloorTileItemDirt
   heatCapacity: 10000
   weather: true
 
@@ -52,8 +53,7 @@
     East: /Textures/Tiles/Planet/Grass/double_edge.png
     North: /Textures/Tiles/Planet/Grass/double_edge.png
     West: /Textures/Tiles/Planet/Grass/double_edge.png
-  baseTurfs:
-  - FloorPlanetDirt
+  baseTurf: FloorPlanetDirt
   isSubfloor: false
   canCrowbar: false
   canShovel: true
@@ -82,8 +82,7 @@
   sprite: /Textures/Tiles/Planet/Snow/snow.png
   variants: 13
   placementVariants: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-  baseTurfs:
-  - FloorPlanetDirt
+  baseTurf: FloorPlanetDirt
   #cornerSprites:
   #  - /Textures/Tiles/Planet/Snow/single_edge.png
   #cardinalSprites:

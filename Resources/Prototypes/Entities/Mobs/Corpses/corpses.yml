@@ -1,0 +1,86 @@
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomServiceCorpse
+  name: unidentified corpse
+  description: I think he's dead.
+  suffix: Dead, Service
+  components:
+  - type: Loadout
+    prototypes:
+      - ClownGear
+      - MimeGear
+      - JanitorGear
+      - ValetGear
+      - MusicianGear
+      - BotanistGear
+      - ChefGear
+      - PassengerGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomEngineerCorpse
+  suffix: Dead, Engineer
+  components:
+  - type: Loadout
+    prototypes:
+    - AtmosphericTechnicianGear
+    - StationEngineerGear
+    - SalvageTechnicianGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomCargoCorpse
+  suffix: Dead, Cargo
+  components:
+  - type: Loadout
+    prototypes:
+    - QuartermasterGear
+    - MailCarrierGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomMedicCorpse
+  suffix: Dead, Medic
+  components:
+  - type: Loadout
+    prototypes:
+    - PsychologistGear
+    - ParamedicGear
+    - DoctorGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomScienceCorpse
+  suffix: Dead, Epistemics
+  components:
+  - type: Loadout
+    prototypes:
+    - EpistemologistGear
+    - CataloguerGear
+    - ChaplainGear
+    - ForensicMantisGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomSecurityCorpse
+  suffix: Dead, Security
+  components:
+  - type: Loadout
+    prototypes:
+    - SecurityCadetGear
+    - SecurityOfficerGear
+    - WardenGear
+
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomCommandCorpse
+  suffix: Dead, Command
+  components:
+  - type: Loadout
+    prototypes:
+    - HoPGear
+    - CaptainGear
+    - HoSGear
+    - MystagogueGear
+    - CMOGear
+    - ChiefEngineerGear

@@ -24,8 +24,8 @@
     - Arachne
   components:
     - type: GhostRole
-      name: ERT Leader
-      description: Lead a team of specialists to resolve the stations issues.
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTLeaderGear ]
@@ -52,8 +52,8 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      name: ERT Leader
-      description: Lead a team of specialists to resolve the stations issues.
+      name: ghost-role-information-ert-leader-name
+      description: ghost-role-information-ert-leader-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTLeaderGearEVA ]
@@ -81,8 +81,8 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      name: ERT Janitor
-      description: Assist with custodial efforts to resolve the stations issues.
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -109,8 +109,8 @@
   parent: ERTJanitor
   components:
     - type: GhostRole
-      name: ERT Janitor
-      description: Assist with custodial efforts to resolve the stations issues.
+      name: ghost-role-information-ert-janitor-name
+      description: ghost-role-information-ert-janitor-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTJanitorGearEVA ]
@@ -138,8 +138,8 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      name: ERT Engineer
-      description: Assist with engineering efforts to resolve the stations issues.
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -166,8 +166,8 @@
   parent: ERTEngineer
   components:
     - type: GhostRole
-      name: ERT Engineer
-      description: Assist with engineering efforts to resolve the stations issues.
+      name: ghost-role-information-ert-engineer-name
+      description: ghost-role-information-ert-engineer-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTEngineerGearEVA ]
@@ -195,8 +195,8 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      name: ERT Security
-      description: Assist with security efforts to resolve the stations issues.
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -223,8 +223,8 @@
   parent: ERTSecurity
   components:
     - type: GhostRole
-      name: ERT Security
-      description: Assist with security efforts to resolve the stations issues.
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTSecurityGearEVA ]
@@ -252,8 +252,8 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      name: ERT Medical
-      description: Assist with medicaling efforts to resolve the stations issues.
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -280,8 +280,8 @@
   parent: ERTMedical
   components:
     - type: GhostRole
-      name: ERT Medical
-      description: Assist with medicaling efforts to resolve the stations issues.
+      name: ghost-role-information-ert-medical-name
+      description: ghost-role-information-ert-medical-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ ERTMedicalGearEVA ]
@@ -307,8 +307,8 @@
     - type: Loadout
       prototypes: [CBURNGear]
     - type: GhostRole
-      name: CBURN Agent
-      description: A highly trained CentCom agent, capable of dealing with various threats.
+      name: ghost-role-information-cburn-agent-name
+      description: ghost-role-information-cburn-agent-description
     - type: GhostTakeoverAvailable
     - type: RandomMetadata
       nameSegments:
@@ -331,8 +331,8 @@
   id: CentcomOfficial
   components:
     - type: GhostRole
-      name: CentCom official
-      description: Inspect the station, jot down performance reviews for heads of staff, bug the Captain.
+      name: ghost-role-information-centcom-official-name
+      description: ghost-role-information-centcom-official-description
     - type: GhostTakeoverAvailable
     - type: Loadout
       prototypes: [ CentcomGear ]
