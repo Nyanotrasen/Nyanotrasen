@@ -41,13 +41,12 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
+      enabled: True
       type: Gravity
     - chunkCollection:
         version: 2
@@ -392,165 +391,21 @@ entities:
     - pos: -1.5,-1.5
       parent: 428
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 356
     components:
     - pos: 0.5,-1.5
       parent: 428
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 357
     components:
     - pos: 6.5,-1.5
       parent: 428
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
   - uid: 358
     components:
     - pos: 8.5,-1.5
       parent: 428
       type: Transform
-    - fixtures:
-      - shape: !type:PolygonShape
-          radius: 0.01
-          vertices:
-          - 0.49,-0.49
-          - 0.49,0.49
-          - -0.49,0.49
-          - -0.49,-0.49
-        mask:
-        - Impassable
-        - MidImpassable
-        - HighImpassable
-        - LowImpassable
-        - InteractImpassable
-        layer:
-        - MidImpassable
-        - HighImpassable
-        - BulletImpassable
-        - InteractImpassable
-        - Opaque
-        density: 100
-        hard: True
-        restitution: 0
-        friction: 0.4
-        id: null
-      - shape: !type:PhysShapeCircle
-          radius: 0.2
-          position: 0,-0.5
-        mask: []
-        layer: []
-        density: 1
-        hard: False
-        restitution: 0
-        friction: 0.4
-        id: docking
-      type: Fixtures
 - proto: AirlockMedicalGlass
   entities:
   - uid: 103
@@ -1852,6 +1707,8 @@ entities:
     - pos: 2.5,10.5
       parent: 428
       type: Transform
+    - gravityActive: true
+      type: GravityGenerator
 - proto: Grille
   entities:
   - uid: 1

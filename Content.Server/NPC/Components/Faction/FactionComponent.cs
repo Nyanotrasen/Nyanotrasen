@@ -26,9 +26,11 @@ namespace Content.Server.NPC.Components
         [ViewVariables]
         public readonly HashSet<string> HostileFactions = new();
 
+        // Begin Nyano-code: support for specific entities to be friendly.
         /// <summary>
         /// Permanently friendly specific entities. Our summoner, etc.
         /// </summary>
         public HashSet<EntityUid> ExceptionalFriendlies = new();
+        // End Nyano-code.
     }
 }

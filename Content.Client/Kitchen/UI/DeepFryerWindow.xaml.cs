@@ -48,10 +48,11 @@ namespace Content.Client.Kitchen.UI
                 if (_entityManager.Deleted(entity))
                     continue;
 
+                // Duplicated from MicrowaveBoundUserInterface.cs: keep an eye on that file for when it changes.
                 Texture? texture;
                 if (_entityManager.TryGetComponent(entity, out IconComponent? iconComponent))
                 {
-                    texture = iconComponent.Icon?.Default;
+                    texture = _entityManager.System<SpriteSystem>().GetIcon(iconComponent);
                 }
                 else if (_entityManager.TryGetComponent(entity, out SpriteComponent? spriteComponent))
                 {

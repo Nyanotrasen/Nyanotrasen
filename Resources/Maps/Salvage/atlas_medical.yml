@@ -44,8 +44,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -1688,22 +1686,16 @@ entities:
     - pos: 1.5,-11.5
       parent: 549
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 246
     components:
     - pos: -4.5,-1.5
       parent: 549
       type: Transform
-    - fixtures: []
-      type: Fixtures
   - uid: 247
     components:
     - pos: -3.5,-2.5
       parent: 549
       type: Transform
-    - fixtures: []
-      type: Fixtures
 - proto: FoodBakedCannabisBrownie
   entities:
   - uid: 143

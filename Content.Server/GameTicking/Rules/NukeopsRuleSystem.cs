@@ -8,6 +8,7 @@ using Content.Server.Humanoid.Systems;
 using Content.Server.Mail.Components;
 using Content.Server.Humanoid;
 using Content.Server.Mind.Components;
+using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
 using Content.Server.Nuke;
 using Content.Server.Preferences.Managers;
@@ -79,13 +80,17 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     private void OnComponentInit(EntityUid uid, NukeOperativeComponent component, ComponentInit args)
     {
         var query = EntityQueryEnumerator<NukeopsRuleComponent, GameRuleComponent>();
+
+        // Begin Nyano-code:
+        // This is so nuclear operatives don't receive mail.
+        // This should be replaced at some point with a system that adds MailReceiver to valid mobs.
+        RemComp<MailReceiverComponent>(uid);
+        // End Nyano-code.
+
         while (query.MoveNext(out var ruleEnt, out var nukeops, out var gameRule))
         {
             if (!GameTicker.IsGameRuleAdded(ruleEnt, gameRule))
                 continue;
-
-
-            RemCompDeferred<MailReceiverComponent>(uid);
 
             // If entity has a prior mind attached, add them to the players list.
             if (!TryComp<MindComponent>(uid, out var mindComponent))
@@ -184,12 +189,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         // we can only currently guarantee that NT stations are the only station to
         // exist in the base game.
 
-        component.TargetStation = _stationSystem.Stations.FirstOrNull();
+        var eligible = EntityQuery<StationEventEligibleComponent, FactionComponent>()
+            .Where(x =>
+                _faction.IsFactionHostile(component.Faction, x.Item2.Owner, x.Item2))
+            .Select(x => x.Item1.Owner)
+            .ToList();
 
-        if (component.TargetStation == null)
-        {
+        if (!eligible.Any())
             return;
-        }
+
+        component.TargetStation = _random.Pick(eligible);
 
         var filter = Filter.Empty();
         var query = EntityQueryEnumerator<NukeOperativeComponent, ActorComponent>();

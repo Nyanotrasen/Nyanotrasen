@@ -19,14 +19,15 @@
       sprite: Nyanotrasen/Mobs/Mutants/killer_tomato.rsi
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.5
-      density: 63
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 63
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -83,14 +84,15 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 130
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -180,6 +182,10 @@
     tags:
       - Oneirophage
   - type: MovementAlwaysTouching
+  - type: PsionicInvisibleContacts
+    whitelist:
+      tags:
+        - ArachneWeb
 
 - type: entity
   name: oneirophage
@@ -249,14 +255,15 @@
     bodyType: KinematicController
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 30 #Bulky by mouse standards...
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 30 #Bulky by mouse standards...
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:
