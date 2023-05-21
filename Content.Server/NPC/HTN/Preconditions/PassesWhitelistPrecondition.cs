@@ -3,7 +3,7 @@ using Content.Shared.Whitelist;
 namespace Content.Server.NPC.HTN.Preconditions;
 
 /// <summary>
-/// Checks if the owner is being pulled or not.
+/// Checks if the owner passes an EntityWhitelist.
 /// </summary>
 public sealed class PassesWhitelistPrecondition : HTNPrecondition
 {

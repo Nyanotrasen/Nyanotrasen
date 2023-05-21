@@ -661,7 +661,7 @@
       revolver-ammo: !type:Container
 
 - type: entity
-  parent: RevolverCapGun 
+  parent: RevolverCapGun
   id: RevolverCapGunFake
   name: cap gun
   suffix: Real Gun, No Map
@@ -793,6 +793,8 @@
     size: 24
     sprite: Objects/Fun/toys.rsi
     heldPrefix: orb
+  - type: TileFrictionModifier
+    modifier: 0.001
 
 - type: entity
   id: ToySword

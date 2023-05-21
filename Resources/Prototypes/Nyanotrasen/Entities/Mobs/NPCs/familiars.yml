@@ -21,14 +21,15 @@
           magic_flare: Sixteen
   - type: Fixtures
     fixtures:
-      - shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 225
-        mask:
-          - FlyingMobMask
-        layer:
-          - FlyingMobLayer
+      fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 225
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
   - type: Bloodstream
     bloodReagent: Phlogiston
   - type: MeleeWeapon

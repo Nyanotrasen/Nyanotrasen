@@ -41,8 +41,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -2729,8 +2727,6 @@ entities:
         - port: Close
           uid: 46
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignDirectionalBrig
   entities:
   - uid: 228
