@@ -615,8 +615,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailTransferDamage()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
@@ -1252,8 +1251,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithJobCandidate()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
@@ -1311,8 +1309,7 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
 
-        /* Test disabled until I can determine why it is now failing. */
-        /* [Test] */
+        [Test]
         public async Task TestMailSpawnForJobWithoutJobCandidate()
         {
             await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
