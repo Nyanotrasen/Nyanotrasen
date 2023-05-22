@@ -41,8 +41,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - nextUpdate: 0
       type: SpreaderGrid
@@ -195,8 +193,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 7
     components:
     - rot: 1.5707963267948966 rad
@@ -205,8 +201,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 8
     components:
     - rot: -1.5707963267948966 rad
@@ -215,8 +209,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 9
     components:
     - rot: -1.5707963267948966 rad
@@ -224,9 +216,7 @@ entities:
       parent: 1
       type: Transform
     - canCollide: False
-      type: Physics
-    - fixtures: []
-      type: Fixtures
+      type: Physics
 - proto: AirSensor
   entities:
   - uid: 10
@@ -1445,8 +1435,6 @@ entities:
         - port: Close
           uid: 17
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
     - type: ItemCooldown
 - proto: SubstationWallBasic
   entities:
