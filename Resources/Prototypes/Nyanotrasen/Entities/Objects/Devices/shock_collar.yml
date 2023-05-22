@@ -10,6 +10,11 @@
     sprite: Nyanotrasen/Clothing/Neck/Misc/shock.rsi
   - type: ShockCollar
   - type: TriggerOnSignal
-  - type: SignalReceiver
-    inputs:
-      Trigger: []
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - Trigger

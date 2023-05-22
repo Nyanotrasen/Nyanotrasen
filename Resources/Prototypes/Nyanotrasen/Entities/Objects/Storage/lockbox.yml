@@ -18,7 +18,7 @@
   - type: Lock
   - type: AccessReader
   - type: Appearance
-    visuals:
-    - type: StorageVisualizer
-      state_open: icon
-      state_closed: icon
+  # TODO: Shouldn't this have a different open and closed state...?
+  - type: EntityStorageVisuals
+    stateDoorOpen: icon
+    stateDoorClosed: icon

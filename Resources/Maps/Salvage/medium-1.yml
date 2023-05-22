@@ -1,7 +1,5 @@
 meta:
   format: 4
-  name: DemoStation
-  author: Space-Wizards
   postmapinit: false
 tilemap:
   0: Space
@@ -40,8 +38,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
@@ -448,8 +444,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 116
     components:
     - pos: 1.5,1.5
@@ -457,8 +451,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 117
     components:
     - pos: 1.5,0.5
@@ -466,8 +458,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 118
     components:
     - pos: 1.5,-0.5
@@ -475,8 +465,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 119
     components:
     - pos: 0.5,-0.5
@@ -486,8 +474,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 120
     components:
     - pos: -0.5,-0.5
@@ -497,8 +483,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 121
     components:
     - pos: -1.5,-0.5
@@ -508,8 +492,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 122
     components:
     - pos: -2.5,-0.5
@@ -517,8 +499,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 123
     components:
     - pos: -1.5,-0.5
@@ -528,8 +508,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 124
     components:
     - pos: -1.5,-1.5
@@ -537,8 +515,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 125
     components:
     - pos: -1.5,-2.5
@@ -546,8 +522,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 126
     components:
     - pos: -1.5,-3.5
@@ -555,8 +529,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 127
     components:
     - pos: -1.5,-4.5
@@ -566,8 +538,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 128
     components:
     - pos: -2.5,-4.5
@@ -577,8 +547,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 129
     components:
     - pos: -0.5,0.5
@@ -586,8 +554,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 130
     components:
     - pos: -0.5,1.5
@@ -595,8 +561,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 131
     components:
     - pos: 1.5,3.5
@@ -606,8 +570,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 132
     components:
     - pos: 1.5,4.5
@@ -615,8 +577,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 133
     components:
     - pos: 0.5,4.5
@@ -626,8 +586,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 134
     components:
     - pos: -0.5,4.5
@@ -637,8 +595,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 135
     components:
     - pos: -1.5,4.5
@@ -648,8 +604,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 142
     components:
     - pos: 1.5,-1.5
@@ -657,8 +611,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 143
     components:
     - pos: 1.5,-2.5
@@ -666,8 +618,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 144
     components:
     - pos: 2.5,-2.5
@@ -675,8 +625,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 145
     components:
     - pos: 3.5,-2.5
@@ -684,8 +632,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 146
     components:
     - pos: 3.5,-1.5
@@ -693,8 +639,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 168
     components:
     - pos: 2.5,-3.5
@@ -745,8 +689,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 111
     components:
     - pos: 1.5,0.5
@@ -754,8 +696,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 112
     components:
     - pos: 1.5,1.5
@@ -763,8 +703,6 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 113
     components:
     - pos: 1.5,2.5
@@ -774,8 +712,6 @@ entities:
       type: AmbientSound
     - canCollide: False
       type: Physics
-    - fixtures: []
-      type: Fixtures
   - uid: 150
     components:
     - pos: -2.5,-2.5
