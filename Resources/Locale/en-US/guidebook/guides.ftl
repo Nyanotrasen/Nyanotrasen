@@ -11,6 +11,7 @@ guide-entry-ame = Antimatter Engine (AME)
 guide-entry-singularity = Singularity
 guide-entry-controls = Controls
 guide-entry-jobs = Jobs
+guide-entry-salvage = Salvage
 guide-entry-survival = Survival
 guide-entry-ss14 = Space Station 14
 guide-entry-janitorial = Janitorial
