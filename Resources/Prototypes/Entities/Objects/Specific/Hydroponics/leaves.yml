@@ -16,7 +16,7 @@
       food:
         reagents:
         - ReagentId: THC
-          Quantity: 5
+          Quantity: 15
 
 - type: entity
   name: dried cannabis leaves
@@ -32,7 +32,7 @@
       food:
         reagents:
         - ReagentId: THC
-          Quantity: 2
+          Quantity: 12
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
