@@ -329,15 +329,15 @@
 #     duration: 1
 #   - type: ZombieRule
 
-# - type: entity
-#   id: LoneOpsSpawn
-#   parent: BaseGameRule
-#   noSpawn: true
-#   components:
-#   - type: StationEvent
-#     earliestStart: 55
-#     weight: 5
-#     minimumPlayers: 10
-#     reoccurrenceDelay: 25
-#     duration: 1
-#   - type: LoneOpsSpawnRule
+- type: entity
+  id: LoneOpsSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    earliestStart: 90
+    weight: 5
+    minimumPlayers: 10
+    reoccurrenceDelay: 25
+    duration: 1
+  - type: LoneOpsSpawnRule
