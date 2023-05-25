@@ -615,6 +615,8 @@
         Glass: 200
       chemicalComposition:
         Silicon: 20
+    - type: DynamicPrice
+      price: 58
 
 - type: entity
   parent: BaseMachineCircuitboard

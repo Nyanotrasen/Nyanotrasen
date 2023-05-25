@@ -156,6 +156,8 @@
   components:
   - type: Spillable
     solution: beaker
+  - type: DynamicPrice
+    price: 10
 
 - type: entity
   name: large beaker

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: MailingUnitElectronics
   parent: BaseElectronics
   name: mailing unit electronics
@@ -14,3 +14,5 @@
     - type: ReverseEngineering
       recipes:
         - MailingUnitElectronics
+    - type: DynamicPrice
+      price: 55
