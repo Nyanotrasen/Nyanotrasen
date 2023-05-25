@@ -14,6 +14,8 @@
   - type: ReverseEngineering
     recipes:
       - AirAlarmElectronics
+  - type: DynamicPrice
+    price: 61
 
 - type: entity
   id: FireAlarmElectronics
@@ -31,3 +33,5 @@
   - type: ReverseEngineering
     recipes:
       - FireAlarmElectronics
+  - type: DynamicPrice
+    price: 61
