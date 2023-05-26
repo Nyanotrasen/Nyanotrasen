@@ -71,7 +71,9 @@
     - DroneUsable
     - Gauze
   - type: Healing
-    damageContainer: Biological
+    damageContainers:
+      - Biological
+      - HalfSpirit
     damage:
       types:
         Slash: -0.5

@@ -1,8 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Medical.Components
 {
@@ -31,13 +30,18 @@ namespace Content.Server.Medical.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float ModifyBloodLevel = 0.0f;
 
+
+        /// Nyano change: This has been changed from a string? to a List<string>
+
         /// <remarks>
         ///     The supported damage types are specified using a <see cref="DamageContainerPrototype"/>s. For a
-        ///     HealingComponent this filters what damage container type this component should work on. If null,
+        ///     HealingComponent this filters what damage container types this component should work on. If null,
         ///     all damage container types are supported.
         /// </remarks>
-        [DataField("damageContainer", customTypeSerializer: typeof(PrototypeIdSerializer<DamageContainerPrototype>))]
-        public string? DamageContainerID;
+        [DataField("damageContainers", customTypeSerializer: typeof(PrototypeIdListSerializer<DamageContainerPrototype>))]
+        public List<string> DamageContainers = new();
+
+        /// End Nyano change
 
         /// <summary>
         /// How long it takes to apply the damage.
