@@ -141,7 +141,8 @@ public sealed class HealingSystem : EntitySystem
             return false;
 
         // Nyano change: We see if the target's damage container is in our LIST of damage containers
-        if (targetDamage.DamageContainerID is not null &&
+        if (component.DamageContainers is not null &&
+            targetDamage.DamageContainerID is not null &&
             !component.DamageContainers.Contains(targetDamage.DamageContainerID))
             return false;
         // end nyano change

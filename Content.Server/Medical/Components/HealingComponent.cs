@@ -31,7 +31,7 @@ namespace Content.Server.Medical.Components
         public float ModifyBloodLevel = 0.0f;
 
 
-        /// Nyano change: This has been changed from a string? to a List<string>
+        /// Nyano change: This has been changed from a string? to a List<string>?
 
         /// <remarks>
         ///     The supported damage types are specified using a <see cref="DamageContainerPrototype"/>s. For a
@@ -39,7 +39,7 @@ namespace Content.Server.Medical.Components
         ///     all damage container types are supported.
         /// </remarks>
         [DataField("damageContainers", customTypeSerializer: typeof(PrototypeIdListSerializer<DamageContainerPrototype>))]
-        public List<string> DamageContainers = new();
+        public List<string>? DamageContainers;
 
         /// End Nyano change
 
