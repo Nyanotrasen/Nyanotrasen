@@ -245,12 +245,12 @@ public sealed class RottingSystem : EntitySystem
         var rotQuery = EntityQueryEnumerator<RottingComponent, PerishableComponent, TransformComponent>();
         while (rotQuery.MoveNext(out var uid, out var rotting, out var perishable, out var xform))
         {
-            if (!IsRotProgressing(uid, perishable))
-                continue;
-
             if (_timing.CurTime < rotting.NextRotUpdate) // This is where it starts to get noticable on larger animals, no need to run every second
                 continue;
             rotting.NextRotUpdate += rotting.RotUpdateRate;
+
+            if (!IsRotProgressing(uid, perishable))
+                continue;
             rotting.TotalRotTime += rotting.RotUpdateRate;
 
             if (rotting.DealDamage)

@@ -4,6 +4,7 @@ using Content.Server.Database;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.NPC.Systems;
+using Content.Server.Objectives;
 using Content.Server.Objectives.Interfaces;
 using Content.Server.PDA.Ringer;
 using Content.Server.Players;
@@ -271,6 +272,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             if (traitorRole.Mind.TryAddObjective(objective))
                 difficulty += objective.Difficulty;
         }
+
+        // Begin Nyano-code: Escape is a mandatory objective for Traitors.
+        traitorRole.Mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>("EscapeShuttleObjective"));
+        // End Nyano-code.
 
         //give traitors their codewords and uplink code to keep in their character info menu
         traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", traitorRule.Codewords)))

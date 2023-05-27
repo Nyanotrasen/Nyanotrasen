@@ -167,6 +167,7 @@ namespace Content.Server.RoundEnd
 
             LastCountdownStart = _gameTiming.CurTime;
             ExpectedCountdownEnd = _gameTiming.CurTime + countdownTime;
+
             Timer.Spawn(countdownTime, _shuttle.CallEmergencyShuttle, _countdownTokenSource.Token);
 
             ActivateCooldown();
