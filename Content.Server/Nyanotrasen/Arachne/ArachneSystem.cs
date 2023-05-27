@@ -34,7 +34,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
-using Robust.Server.GameObjects;
 using Robust.Server.Console;
 using static Content.Shared.Examine.ExamineSystemShared;
 
@@ -67,14 +66,14 @@ namespace Content.Server.Arachne
             base.Initialize();
             SubscribeLocalEvent<ArachneComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<ArachneComponent, GetVerbsEvent<InnateVerb>>(AddCocoonVerb);
-            SubscribeLocalEvent<WebComponent, ComponentInit>(OnWebInit);
-            SubscribeLocalEvent<WebComponent, GetVerbsEvent<AlternativeVerb>>(AddRestVerb);
-            SubscribeLocalEvent<WebComponent, BuckleChangeEvent>(OnBuckleChange);
+
             SubscribeLocalEvent<CocoonComponent, EntInsertedIntoContainerMessage>(OnCocEntInserted);
             SubscribeLocalEvent<CocoonComponent, EntRemovedFromContainerMessage>(OnCocEntRemoved);
             SubscribeLocalEvent<CocoonComponent, DamageChangedEvent>(OnDamageChanged);
             SubscribeLocalEvent<CocoonComponent, GetVerbsEvent<AlternativeVerb>>(AddSuccVerb);
+
             SubscribeLocalEvent<SpinWebActionEvent>(OnSpinWeb);
+
             SubscribeLocalEvent<ArachneComponent, ArachneWebDoAfterEvent>(OnWebDoAfter);
             SubscribeLocalEvent<ArachneComponent, ArachneCocoonDoAfterEvent>(OnCocoonDoAfter);
         }
@@ -109,21 +108,6 @@ namespace Content.Server.Arachne
                 Priority = 2
             };
             args.Verbs.Add(verb);
-        }
-
-        private void OnWebInit(EntityUid uid, WebComponent component, ComponentInit args)
-        {
-            if (TryComp<StrapComponent>(uid, out var strap))
-                _buckleSystem.StrapSetEnabled(uid, false, strap);
-        }
-
-        private void OnBuckleChange(EntityUid uid, WebComponent component, ref BuckleChangeEvent args)
-        {
-            if (!TryComp<StrapComponent>(uid, out var strap))
-                return;
-
-            if (!args.Buckling)
-                _buckleSystem.StrapSetEnabled(uid, false, strap);
         }
 
         private void OnCocEntInserted(EntityUid uid, CocoonComponent component, EntInsertedIntoContainerMessage args)
@@ -202,35 +186,6 @@ namespace Content.Server.Arachne
                 },
                 Text = Loc.GetString("action-name-suck-blood"),
                 Icon = new SpriteSpecifier.Texture(new ("/Textures/Nyanotrasen/Icons/verbiconfangs.png")),
-                Priority = 2
-            };
-            args.Verbs.Add(verb);
-        }
-
-        private void AddRestVerb(EntityUid uid, WebComponent component, GetVerbsEvent<AlternativeVerb> args)
-        {
-            if (!args.CanAccess || !args.CanInteract)
-                return;
-
-            if (!TryComp<StrapComponent>(uid, out var strap) || strap.Enabled)
-                return;
-
-            if (!TryComp<BuckleComponent>(args.User, out var buckle))
-                return;
-
-            if (!HasComp<ArachneComponent>(args.User))
-                return;
-
-            AlternativeVerb verb = new()
-            {
-                Act = () =>
-                {
-                    _buckleSystem.StrapSetEnabled(uid, true, strap);
-                    if (_prototypeManager.TryIndex<InstantActionPrototype>("Sleep", out var sleep))
-                        _actions.RemoveAction(uid, new InstantAction(sleep), null);
-                    _buckleSystem.TryBuckle(args.User, args.User, uid, buckle);
-                },
-                Text = Loc.GetString("rest-on-web"),
                 Priority = 2
             };
             args.Verbs.Add(verb);

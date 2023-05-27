@@ -107,10 +107,20 @@ namespace Content.Server.RatKing
             if (!HasComp<MobStateComponent>(args.Target))
                 return;
 
-            foreach (var servant in component.Servants)
+            if (args.Target == uid)
             {
-                var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
-                targeted.EngagingEnemies.Add(args.Target);
+                // Pointed to self, cancel all attacks.
+                foreach (var servant in component.Servants)
+                    RemComp<NPCCombatTargetComponent>(servant);
+            }
+            else
+            {
+                // Pointed to someone else, go kill.
+                foreach (var servant in component.Servants)
+                {
+                    var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
+                    targeted.EngagingEnemies.Add(args.Target);
+                }
             }
         }
 

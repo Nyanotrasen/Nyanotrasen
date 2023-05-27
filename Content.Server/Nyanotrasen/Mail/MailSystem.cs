@@ -16,6 +16,7 @@ using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Fluids.Components;
+using Content.Server.Item;
 using Content.Server.Mail.Components;
 using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
@@ -60,6 +61,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly ItemSystem _itemSystem = default!;
 
         private ISawmill _sawmill = default!;
 
@@ -469,6 +471,9 @@ namespace Content.Server.Mail
             if (TryMatchJobTitleToIcon(recipient.Job, out string? icon))
                 _appearanceSystem.SetData(uid, MailVisuals.JobIcon, icon);
 
+            MetaData(uid).EntityName = Loc.GetString("mail-item-name-addressed",
+                ("recipient", recipient.Name));
+
             var accessReader = EnsureComp<AccessReaderComponent>(uid);
             accessReader.AccessLists.Add(recipient.AccessTags);
         }
@@ -677,6 +682,7 @@ namespace Content.Server.Mail
                 _handsSystem.PickupOrDrop(user, entity);
             }
 
+            _itemSystem.SetSize(uid, 1);
             _tagSystem.AddTag(uid, "Trash");
             _tagSystem.AddTag(uid, "Recyclable");
             component.IsEnabled = false;

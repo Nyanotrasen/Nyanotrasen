@@ -11,15 +11,18 @@
   - type: EmitSoundOnUse
     sound:
       collection: ToySqueak
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToySqueak
   - type: EmitSoundOnActivate
     sound:
       collection: ToySqueak
   - type: EmitSoundOnTrigger
     sound:
       collection: ToySqueak
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
   - type: ItemCooldown
   - type: Tag
     tags:
