@@ -271,9 +271,15 @@ public sealed class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             ftlTime = _timing.CurTime + TimeSpan.FromSeconds(shuttleFtl.Accumulator);
         }
 
-        // Mass too large
+		// Begin Nyano-code: 
+        // Is Mass of grid too large?
+        // OR is intended to be a Spaceship
+        // The 1000 mass limit exists as abstract divide between which grid "is a shuttle" and which "is a station"
+		// Change is to allow for very large shuttles that can be their own map without need for cramping things.
+		// I couldn't figure out better way to add component check.
         if (entity != null && shuttleGridUid != null &&
-            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || shuttleBody.Mass < 1000f))
+            (!TryComp<PhysicsComponent>(shuttleGridUid, out var shuttleBody) || HasComp<FTLWhitelistComponent>(shuttleGridUid) || shuttleBody.Mass < 1000f))
+		// End Nyano-code.
         {
             var metaQuery = GetEntityQuery<MetaDataComponent>();
 
