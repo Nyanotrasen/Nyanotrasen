@@ -66,7 +66,7 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
                     return;
 
                 // Pop the last entry off.
-                var other = psionicPool[psionicPool.Count - 1];
+                var other = psionicPool[^1];
                 psionicPool.RemoveAt(psionicPool.Count - 1);
 
                 if (other == actor)
