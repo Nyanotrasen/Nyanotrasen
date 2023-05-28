@@ -72,3 +72,10 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
         HeavyAttack = heavyAttack;
     }
 }
+
+/// <summary>
+/// Raised on a melee weapon to calculate potential damage bonuses or decreases.
+/// </summary>
+/// <param name="Damage"></param>
+[ByRefEvent]
+public record struct GetMeleeDamageEvent(DamageSpecifier Damage);
