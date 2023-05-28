@@ -97,9 +97,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             var mousePos = _eyeManager.ScreenToMap(_inputManager.MouseScreenPosition);
             EntityCoordinates coordinates;
 
-            if (MapManager.TryFindGridAt(mousePos, out var grid))
+            if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
             {
-                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, TransformSystem, EntityManager);
+                coordinates = EntityCoordinates.FromMap(gridUid, mousePos, TransformSystem, EntityManager);
             }
             else
             {
@@ -146,9 +146,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             // Bro why would I want a ternary here
             // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-            if (MapManager.TryFindGridAt(mousePos, out var grid))
+            if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
             {
-                coordinates = EntityCoordinates.FromMap(grid.Owner, mousePos, TransformSystem, EntityManager);
+                coordinates = EntityCoordinates.FromMap(gridUid, mousePos, TransformSystem, EntityManager);
             }
             else
             {
