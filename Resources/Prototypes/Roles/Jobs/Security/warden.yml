@@ -6,7 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10800
+      time: 36000
+    - !type:RoleTimeRequirement
+      role: JobPrisoner
+      time: 3600
   startingGear: WardenGear
   icon: "Warden"
   supervisors: job-supervisors-hos

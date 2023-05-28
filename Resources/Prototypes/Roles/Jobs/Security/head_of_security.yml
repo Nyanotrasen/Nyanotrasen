@@ -6,10 +6,16 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 3600
+      time: 36000
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 18000
+      time: 36000
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 36000
+    - !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 14400
     - !type:OverallPlaytimeRequirement
       time: 54000
   weight: 10

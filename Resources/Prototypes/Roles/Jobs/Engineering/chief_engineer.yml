@@ -6,13 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 7200
+      time: 14400
     - !type:RoleTimeRequirement
       role: JobSalvageTechnician
       time: 3600
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 18000
+      time: 28800
     - !type:OverallPlaytimeRequirement
       time: 72000
   weight: 10
