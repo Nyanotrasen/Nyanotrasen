@@ -1,0 +1,50 @@
+- type: entity
+  name: groza
+  parent: BaseWeaponSubMachineGun
+  id: Weapontoygroza
+  description: A russian rifle converted to be a toy
+  components:
+  - type: Sprite
+    sprite: Objects\Weapons\Guns\groza-toy
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects\Weapons\Guns\groza-toy
+  - type: Gun
+    fireRate: 1
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+    availableModes:
+    - FullAuto
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnumSubMachineGun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnumSubMachineGun
+      gun_chamber:
+        name: Chamber
+  name: cartridge (cap)
+        startingItem: BaseCartridgeCap
+        priority: 1
+        whitelist:
+          tags:
+            - BaseCartridgeCap
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
