@@ -1,5 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Audio
 {
@@ -46,15 +47,19 @@ namespace Content.Shared.Audio
             Dirty(ambience);
         }
 
-        public virtual void SetSound(EntityUid uid, SoundSpecifier path, AmbientSoundComponent? ambience = null)
+        // Begin Nyano-code: allow an AmbientSound's SoundSpecifier to be changed.
+        public virtual void SetSound(EntityUid uid, SoundSpecifier sound, AmbientSoundComponent? ambience = null)
         {
-            if (!Resolve(uid, ref ambience, false) || ambience.Sound == path)
+            if (!Resolve(uid, ref ambience, false) || ambience.Sound == sound)
                 return;
 
-            ambience.Sound = path;
+            ambience.Sound = sound;
+            var ev = new AmbientSoundChangedSoundEvent();
+            RaiseLocalEvent(uid, ev);
             QueueUpdate(uid, ambience);
             Dirty(ambience);
         }
+        // End Nyano-code.
 
         private void HandleCompState(EntityUid uid, AmbientSoundComponent component, ref ComponentHandleState args)
         {
@@ -62,8 +67,10 @@ namespace Content.Shared.Audio
             SetAmbience(uid, state.Enabled, component);
             SetRange(uid, state.Range, component);
             SetVolume(uid, state.Volume, component);
+            // Begin Nyano-code: allow changing of SoundSpecifier.
             if (state.Sound != null)
                 SetSound(uid, state.Sound, component);
+            // End Nyano-code.
         }
 
         private void GetCompState(EntityUid uid, AmbientSoundComponent component, ref ComponentGetState args)
@@ -73,8 +80,13 @@ namespace Content.Shared.Audio
                 Enabled = component.Enabled,
                 Range = component.Range,
                 Volume = component.Volume,
+                // Begin Nyano-code: allow changing of SoundSpecifier.
                 Sound = component.Sound,
+                // End Nyano-code.
             };
         }
     }
+
+    [Serializable, NetSerializable]
+    public sealed class AmbientSoundChangedSoundEvent : EntityEventArgs { }
 }
