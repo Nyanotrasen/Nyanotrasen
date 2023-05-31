@@ -102,6 +102,9 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 uplink-radio-jammer-name = Radio Jammer
 uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication when activated.
 
+uplink-borg-beacon-name = Syndicate Assault Robot beacon
+uplink-borg-beacon-desc = A beacon that can be used to call in a syndicate assault borg. It is equipped with a grenade launcher, energy sword, emag, LMG and a pinpointer.
+
 # Implants
 uplink-storage-implanter-name = Storage Implanter
 uplink-storage-implanter-desc = Hide goodies inside of yourself with new bluespace technology!
