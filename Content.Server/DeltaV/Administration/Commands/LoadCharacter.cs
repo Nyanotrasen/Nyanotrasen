@@ -1,40 +1,37 @@
 using System.Linq;
-using Content.Server.DetailExaminable;
-using Content.Shared.CCVar;
+using Content.Server.Administration;
+using Content.Server.GameTicking;
 using Content.Server.Players;
-using Content.Server.Humanoid;
 using Content.Shared.Administration;
-using Content.Server.IdentityManagement;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Server.Preferences.Managers;
+using Content.Server.Station.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Server.Player;
 using Robust.Shared.Console;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Administration.Commands.loadcharacter
+namespace Content.Server.DeltaV.Administration.Commands
 {
     [AdminCommand(AdminFlags.Admin)]
-    public sealed class loadcharacter : IConsoleCommand
+    public sealed class LoadCharacter : IConsoleCommand
     {
-        [Dependency] private readonly IEntitySystemManager _entitysys = default!;
+        [Dependency] private readonly IEntitySystemManager _entitySys = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
         public string Command => "loadcharacter";
-        public string Description => "Applies your currently selected character to an entity";
-        public string Help => $"Usage: {Command} | {Command} <entityUid> | {Command} <entityUid> <characterName>";
+        public string Description => Loc.GetString("loadcharacter-command-description");
+        public string Help => Loc.GetString("loadcharacter-command-help");
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             var player = shell.Player as IPlayerSession;
             if (player == null)
             {
-                shell.WriteError("You aren't a player.");
+                shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
                 return;
             }
 
@@ -42,7 +39,7 @@ namespace Content.Server.Administration.Commands.loadcharacter
 
             if (mind == null || mind.UserId == null)
             {
-                shell.WriteError("You don't have a mind.");
+                shell.WriteError(Loc.GetString("shell-entity-is-not-mob")); // No mind specific errors? :(
                 return;
             }
 
@@ -50,20 +47,20 @@ namespace Content.Server.Administration.Commands.loadcharacter
 
             if (args.Length >= 1)
             {
-                if (!int.TryParse(args.First(), out var entityUid))
+                if (!EntityUid.TryParse(args.First(), out var uid))
                 {
                     shell.WriteLine(Loc.GetString("shell-entity-uid-must-be-number"));
                     return;
                 }
-                target = new EntityUid(entityUid);
+
+                target = uid;
             }
             else
             {
                 if (player.AttachedEntity == null ||
                     !_entityManager.HasComponent<HumanoidAppearanceComponent>(player.AttachedEntity.Value))
                 {
-                    shell.WriteError(Loc.GetString("shell-target-entity-does-not-have-message",
-                        ("missing", "AttachedEntity")));
+                    shell.WriteError(Loc.GetString("shell-must-be-attached-to-entity"));
                     return;
                 }
                 target = player.AttachedEntity.Value;
@@ -75,25 +72,24 @@ namespace Content.Server.Administration.Commands.loadcharacter
                 return;
             }
 
-            if (target == null ||
-                !_entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var humanoidAppearance))
+            if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var humanoidAppearance))
             {
-                shell.WriteError(Loc.GetString("shell-entity-with-uid-lacks-component", ("uid", target), ("componentName", nameof(HumanoidAppearanceComponent))));
+                shell.WriteError(Loc.GetString("shell-entity-with-uid-lacks-component", ("uid", target.ToString()), ("componentName", nameof(HumanoidAppearanceComponent))));
                 return;
             }
 
-            HumanoidCharacterProfile character = new();
+            HumanoidCharacterProfile character;
 
             if (args.Length >= 2)
             {
                 // This seems like a bad way to go about it, but it works so eh?
                 var name = String.Join(" ", args.Skip(1).ToArray());
-                shell.WriteLine($"Attempting to fetch character '{name}'");
+                shell.WriteLine(Loc.GetString("loadcharacter-command-fetching", ("name", name)));
 
                 var charIndex = _prefs.GetPreferences(mind.UserId.Value).IndexOfCharacterName(name);
                 if (charIndex < 0)
                 {
-                    shell.WriteError("Fetching failed!");
+                    shell.WriteError(Loc.GetString("loadcharacter-command-fetching-failed"));
                     return;
                 }
 
@@ -107,26 +103,24 @@ namespace Content.Server.Administration.Commands.loadcharacter
                 return;
 
             if (speciesPrototype != entPrototype)
-                shell.WriteLine("Species mismatch detected between character and selected entity, this may have unexpected results.");
+                shell.WriteLine(Loc.GetString("loadcharacter-command-mismatch"));
 
-            _entityManager.System<HumanoidAppearanceSystem>().LoadProfile(target, character);
+            var coordinates = player.AttachedEntity != null
+                ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
+                : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
 
-            if (_entityManager.TryGetComponent<MetaDataComponent>(target, out var metadata))
-                metadata.EntityName = character.Name;
+            _entityManager.System<StationSpawningSystem>()
+                .SpawnPlayerMob(coordinates: coordinates, profile: character, entity: target, job: null, station: null);
 
-            if (character.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-            {
-                _entityManager.EnsureComponent<DetailExaminableComponent>(target).Content = character.FlavorText;
-            }
-            else
-                _entityManager.RemoveComponent<DetailExaminableComponent>(target);
-
-            _entityManager.System<IdentitySystem>().QueueIdentityUpdate(target);
-            shell.WriteLine("Character load complete");
+            shell.WriteLine(Loc.GetString("loadcharacter-command-complete"));
         }
 
         public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
         {
+            if (args.Length == 1)
+            {
+                return CompletionResult.FromHint(Loc.GetString("shell-argument-uid"));
+            }
             if (args.Length == 2)
             {
                 var player = shell.Player as IPlayerSession;
@@ -136,7 +130,7 @@ namespace Content.Server.Administration.Commands.loadcharacter
                 if (mind == null || mind.UserId == null)
                     return CompletionResult.Empty;
 
-                return CompletionResult.FromHintOptions(_prefs.GetPreferences(mind.UserId.Value).GetCharacterNames(), "Select Character");
+                return CompletionResult.FromHintOptions(_prefs.GetPreferences(mind.UserId.Value).GetCharacterNames(), Loc.GetString("loadcharacter-command-hint-select"));
             }
 
             return CompletionResult.Empty;
