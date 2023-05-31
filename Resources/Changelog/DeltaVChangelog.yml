@@ -64,6 +64,18 @@ Entries:
   - author: Scribbles0
     changes:
       - message: Lone nuclear operatives have recently started attacking stations. Make sure to watch out for them on long, extended shifts.
-        type: add
+        type: Add
     id: 11
     time: '2023-05-23T00:00:00.0000000+00:00'
+  - author: Pooch
+    changes:
+      - message: Dwarf, Vox, Skeleton mobs now carriable
+        type: Fix
+    id: 12
+    time: '2023-05-31T12:00:00.0000000+00:00'
+  - author: Debug
+    changes:
+      - message: Reports have been coming in about a new type of robot designed by Cybersun falling into the hands of nuclear operatives.
+        type: Add
+    id: 13
+    time: '2023-05-31T12:00:00.0000000+00:00'
