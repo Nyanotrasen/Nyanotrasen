@@ -21,6 +21,8 @@
     sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: PointLight
+    color: green
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitERTLeader
