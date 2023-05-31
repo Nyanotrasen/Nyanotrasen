@@ -38,6 +38,8 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
+
 
         public override void Initialize()
         {
@@ -56,7 +58,10 @@ namespace Content.Server.EvilTwin
                 args.Player.ContentData()?.Mind?.TransferTo(twin, true);
             }
 
-            QueueDel(uid);
+            // If there are no suitable people to copy,
+            // we will not remove the spawner,
+            // but simply throw the player out of it
+            _gameTicker.MakeObserve(args.Player);
         }
 
         private void OnMindAdded(EntityUid uid, EvilTwinComponent component, MindAddedMessage args)
@@ -91,7 +96,12 @@ namespace Content.Server.EvilTwin
                 if (fugi.mind.Mind == null)
                     continue;
 
-                var name = fugi.mind.Mind.CharacterName;
+                string name = null!;
+                var uid = fugi.mind.Mind.CurrentEntity;
+                if (TryComp<MetaDataComponent>(uid, out var metadata))
+                {
+                    name = metadata.EntityName;
+                }
                 fugi.mind.Mind.TryGetSession(out var session);
                 var username = session?.Name;
 

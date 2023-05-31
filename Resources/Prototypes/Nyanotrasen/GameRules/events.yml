@@ -12,18 +12,61 @@
       earliestStart: 15
     - type: NoosphericStormRule
 
-# Rat king, paradox anomaly, fugitive, oneiro, etc.
 - type: entity
-  id: MidRoundAntag
+  id: SpawnVampSpider
   parent: BaseGameRule
   noSpawn: true
   components:
     - type: StationEvent
-      weight: 7
-      reoccurrenceDelay: 5
-      minimumPlayers: 15
       earliestStart: 25
+      minimumPlayers: 15
+      reoccurrenceDelay: 5
+      weight: 5
+      duration: 25
     - type: MidRoundAntagRule
+      spawnPoint: SpawnPointGhostVampSpider
+
+- type: entity
+  id: SpawnFugitive
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: StationEvent
+      earliestStart: 10
+      minimumPlayers: 15
+      reoccurrenceDelay: 5
+      weight: 10
+      duration: 25
+    - type: MidRoundAntagRule
+      spawnPoint: SpawnPointGhostFugitive
+
+- type: entity
+  id: SpawnEvilTwin
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: StationEvent
+      earliestStart: 10
+      minimumPlayers: 10
+      reoccurrenceDelay: 5
+      weight: 10
+      duration: 25
+    - type: MidRoundAntagRule
+      spawnPoint: SpawnPointGhostEvilTwin
+
+- type: entity
+  id: SpawnRatKing
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: StationEvent
+      earliestStart: 25
+      minimumPlayers: 15
+      reoccurrenceDelay: 5
+      weight: 5
+      duration: 25
+    - type: MidRoundAntagRule
+      spawnPoint: SpawnPointGhostRatKing
 
 # Base glimmer event
 - type: entity

@@ -1,31 +1,19 @@
 using System.Linq;
 using Content.Server.Mind.Components;
-using Content.Server.Ghost.Roles.Events;
 using Content.Server.Traitor;
 using Content.Server.Objectives;
 using Content.Server.Chat.Systems;
-using Content.Server.Communications;
-using Content.Server.Paper;
-using Content.Server.Humanoid;
-using Content.Server.Popups;
-using Content.Server.Stunnable;
-using Content.Server.Ghost.Components;
+using Content.Server.Fax;
 using Content.Server.Roles;
 using Content.Server.GameTicking;
 using Content.Shared.Roles;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Examine;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Audio;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Player;
-using Robust.Server.GameObjects;
-using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Fugitive
 {
@@ -38,15 +26,11 @@ namespace Content.Server.Fugitive
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly PaperSystem _paperSystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly StunSystem _stun = default!;
-        [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly FaxSystem _faxSystem = default!;
 
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<FugitiveComponent, GhostRoleSpawnerUsedEvent>(OnSpawned);
             SubscribeLocalEvent<FugitiveComponent, MindAddedMessage>(OnMindAdded);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
         }
@@ -60,41 +44,37 @@ namespace Content.Server.Fugitive
                 {
                     _chat.DispatchGlobalAnnouncement(Loc.GetString("station-event-fugitive-hunt-announcement"), sender: Loc.GetString("fugitive-announcement-GALPOL"), colorOverride: Color.Yellow);
 
-                    foreach (var console in EntityQuery<CommunicationsConsoleComponent>())
-                    {
-                        if (HasComp<GhostComponent>(console.Owner))
-                            continue;
-
-                        var paperEnt = Spawn("Paper", Transform(console.Owner).Coordinates);
-
-                        MetaData(paperEnt).EntityName = Loc.GetString("fugi-report-ent-name", ("name", cd.Owner));
-
-                        if (!TryComp<PaperComponent>(paperEnt, out var paper))
-                            continue;
-
-                        var report = GenerateFugiReport(cd.Owner);
-
-                        _paperSystem.SetContent(paperEnt, report.ToMarkup(), paper);
-                    }
+                    SendFugiReport(cd.Owner);
 
                     RemCompDeferred<FugitiveCountdownComponent>(cd.Owner);
                 }
             }
         }
 
-        private void OnSpawned(EntityUid uid, FugitiveComponent component, GhostRoleSpawnerUsedEvent args)
+        public bool SendFugiReport(EntityUid fugitive)
         {
-            if (TryComp<FugitiveCountdownComponent>(uid, out var cd))
-                cd.AnnounceTime = _timing.CurTime + cd.AnnounceCD;
+            var report = GenerateFugiReport(fugitive);
+            var faxes = EntityManager.EntityQuery<FaxMachineComponent>();
+            var wasSent = false;
+            foreach (var fax in faxes)
+            {
+                if (!fax.ReceiveNukeCodes)
+                {
+                    continue;
+                }
 
-            _popupSystem.PopupEntity(Loc.GetString("fugitive-spawn", ("name", uid)), uid,
-            Filter.Pvs(uid).RemoveWhereAttachedEntity(entity => !ExamineSystemShared.InRangeUnOccluded(uid, entity, ExamineRange, null)), true, Shared.Popups.PopupType.LargeCaution);
+                var printout = new FaxPrintout(
+                    report.ToString(),
+                    Loc.GetString("fugi-report-ent-name", ("name", fugitive)),
+                    null,
+                    "paper_stamp-cent",
+                    new() { Loc.GetString("stamp-component-stamped-name-centcom") });
+                _faxSystem.Receive(fax.Owner, printout, null, fax);
 
-            _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), false);
-            _audioSystem.PlayPvs(component.SpawnSoundPath, uid, AudioParams.Default.WithVolume(-6f));
+                wasSent = true;
+            }
 
-            var tile = Spawn("FloorTileItemSteel", Transform(uid).Coordinates);
-            tile.RandomOffset(0.3f);
+            return wasSent;
         }
 
         private void OnMindAdded(EntityUid uid, FugitiveComponent component, MindAddedMessage args)
@@ -134,8 +114,12 @@ namespace Content.Server.Fugitive
             {
                 if (fugi.mind.Mind == null)
                     continue;
-
-                var name = fugi.mind.Mind.CharacterName;
+                string name = null!;
+                var uid = fugi.mind.Mind.CurrentEntity;
+                if (TryComp<MetaDataComponent>(uid, out var metadata))
+                {
+                    name = metadata.EntityName;
+                }
                 fugi.mind.Mind.TryGetSession(out var session);
                 var username = session?.Name;
 
@@ -144,12 +128,10 @@ namespace Content.Server.Fugitive
                 {
                     if (username != null)
                     {
-                        if (name == null)
-                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive", ("user", username));
-                        else
-                            result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-named", ("user", username), ("name", name));
+                        result += "\n" + Loc.GetString("fugitive-user-was-a-fugitive-named",
+                            ("user", username), ("name", name));
                     }
-                    else if (name != null)
+                    else
                         result += "\n" + Loc.GetString("fugitive-was-a-fugitive-named", ("name", name));
 
                     continue;
