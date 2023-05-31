@@ -43,6 +43,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.GameObjects.Components.Localization;
+using Content.Server.Traits.Assorted;
+
 namespace Content.Server.Cloning
 {
     public sealed class CloningSystem : EntitySystem
@@ -203,6 +205,16 @@ namespace Content.Server.Cloning
 
             if (clonePod.ConstantBiomassCost == null && _configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+
+            // Check if they have the uncloneable trait
+            if (TryComp<UncloneableComponent>(bodyToClone, out _))
+            {
+                if (clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value,
+                        Loc.GetString("cloning-console-uncloneable-trait-error"),
+                        InGameICChatType.Speak, false);
+                return false;
+            }
 
             // biomass checks
             var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
