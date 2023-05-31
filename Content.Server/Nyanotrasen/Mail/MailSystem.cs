@@ -199,12 +199,13 @@ namespace Content.Server.Mail
 
             component.IsProfitable = false;
 
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var station, out var account))
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
+                if (_stationSystem.GetOwningStation(uid) != station)
+                    continue;
 
-                _cargoSystem.UpdateBankAccount(account, component.Bounty);
+                _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
                 return;
             }
         }
@@ -256,12 +257,13 @@ namespace Content.Server.Mail
             if (component.IsPriority)
                 _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
 
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var station, out var account))
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
+                if (_stationSystem.GetOwningStation(uid) != station)
+                    continue;
 
-                _cargoSystem.UpdateBankAccount(account, component.Penalty);
+                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
                 return;
             }
         }
