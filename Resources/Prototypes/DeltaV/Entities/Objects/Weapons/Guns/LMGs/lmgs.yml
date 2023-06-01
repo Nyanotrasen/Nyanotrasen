@@ -17,7 +17,7 @@
       maxAngle: 20
       angleIncrease: 4
       angleDecay: 16
-      fireRate: 8
+      fireRate: 5
       selectedMode: FullAuto
       availableModes:
         - FullAuto
@@ -26,7 +26,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Battery
-      maxCharge: 1000
+      maxCharge: 800
       startingCharge: 500
     - type: ProjectileBatteryAmmoProvider
       proto: CartridgeLightRifleReplicated

@@ -20,11 +20,11 @@
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
     - type: Battery
-      maxCharge: 999
-      startingCharge: 333
+      maxCharge: 600
+      startingCharge: 300
     - type: ProjectileBatteryAmmoProvider
       proto: GrenadeFrag
-      fireCost: 333
+      fireCost: 300
     - type: BatterySelfRecharger
       autoRecharge: true
-      autoRechargeRate: 5
+      autoRechargeRate: 2
