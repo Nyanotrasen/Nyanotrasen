@@ -553,6 +553,8 @@
         Capacitor: 2
       materialRequirements:
         Cable: 5
+    - type: DynamicPrice
+      price: 15
 
 - type: entity
   id: WeaponCapacitorRechargerCircuitboard
@@ -569,6 +571,8 @@
         Capacitor: 2
       materialRequirements:
         CableMV: 5
+    - type: DynamicPrice
+      price: 15
 
 - type: entity
   id: SubstationMachineCircuitboard
