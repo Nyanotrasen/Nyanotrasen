@@ -1,7 +1,10 @@
 using Content.Shared.Chat.Prototypes;
+using Content.Shared.Damage;
 using Content.Shared.Roles;
+using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using static Content.Shared.Humanoid.HumanoidAppearanceState;
 
@@ -21,14 +24,33 @@ namespace Content.Shared.Zombies
         /// The baseline infection chance you have if you are completely nude
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float MaxZombieInfectionChance = 0.50f;
+        public float MaxZombieInfectionChance = 0.40f;
+
+        /// <summary>
+        /// Chance that this zombie be permanently killed (rolled once on crit->death transition)
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float ZombiePermadeathChance = 0.70f;
+
+        /// <summary>
+        /// Chance that this zombie will be healed (rolled each second when in crit or dead)
+        ///   3% means you have a 60% chance after 30 secs and a 84% chance after 60.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float ZombieReviveChance = 0.03f;
+
+        /// <summary>
+        /// Has this zombie stopped healing now that it's died for real?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Permadeath = false;
 
         /// <summary>
         /// The minimum infection chance possible. This is simply to prevent
         /// being invincible by bundling up.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float MinZombieInfectionChance = 0.05f;
+        public float MinZombieInfectionChance = 0.10f;
 
         [ViewVariables(VVAccess.ReadWrite)]
         public float ZombieMovementSpeedDebuff = 0.75f;
@@ -63,9 +85,44 @@ namespace Content.Shared.Zombies
         [DataField("zombieRoleId", customTypeSerializer: typeof(PrototypeIdSerializer<AntagPrototype>))]
         public readonly string ZombieRoleId = "Zombie";
 
+        /// <summary>
+        /// The EntityName of the humanoid to restore in case of cloning
+        /// </summary>
+        [DataField("beforeZombifiedEntityName"), ViewVariables(VVAccess.ReadOnly)]
+        public string BeforeZombifiedEntityName = String.Empty;
+
+        /// <summary>
+        /// The CustomBaseLayers of the humanoid to restore in case of cloning
+        /// </summary>
+        [DataField("beforeZombifiedCustomBaseLayers")]
+        public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> BeforeZombifiedCustomBaseLayers = new ();
+
+        /// <summary>
+        /// The skin color of the humanoid to restore in case of cloning
+        /// </summary>
+        [DataField("beforeZombifiedSkinColor")]
+        public Color BeforeZombifiedSkinColor;
+
         [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
         public string? EmoteSoundsId = "Zombie";
 
         public EmoteSoundsPrototype? EmoteSounds;
+
+        // Heal on tick
+        [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
+        public TimeSpan NextTick;
+
+        [DataField("damage")] public DamageSpecifier Damage = new()
+        {
+            DamageDict = new ()
+            {
+                { "Blunt", -0.4 },
+                { "Slash", -0.2 },
+                { "Piercing", -0.2 },
+                { "Heat", -0.2 },
+                { "Cold", -0.2 },
+                { "Shock", -0.2 },
+            }
+        };
     }
 }

@@ -28,12 +28,13 @@
     - type: Physics
     - type: Fixtures
       fixtures:
-      - shape:
-          !type:PhysShapeCircle
-          radius: 0.35
-        density: 80
-        mask:
-        - MobMask
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 80
+          mask:
+          - MobMask
     - type: Damageable
     - type: Destructible
       thresholds:
@@ -68,7 +69,7 @@
           unfoldedLayer:
             True: {visible: false}
             False: {visible: true}
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 200
 
 - type: entity

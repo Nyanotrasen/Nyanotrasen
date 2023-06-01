@@ -28,13 +28,14 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - hard: false
-      density: 7
-      shape:
-        !type:PhysShapeAabb
-        bounds: "-0.5,-0.5,0.5,0.5"
-      layer:
-      - Impassable
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        hard: false
+        density: 7
+        layer:
+        - Impassable
   - type: Clickable
   - type: Transform
     anchored: true
@@ -79,6 +80,9 @@
       path: /Audio/Effects/plant_rustle.ogg
     unbuckleSound: !type:SoundPathSpecifier
       path: /Audio/Effects/plant_rustle.ogg
+    allowedEntities:
+      components:
+        - Arachne
   - type: HealOnBuckle
     damage:
       groups:
@@ -90,10 +94,9 @@
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: 1
-  - type: PsionicInvisibleContacts
-    whitelist:
-      tags:
-        - Oneirophage
+  - type: Tag
+    tags:
+      - ArachneWeb
 
 - type: entity
   id: CocoonedHumanoid
@@ -135,14 +138,15 @@
         acts: [ "Destruction" ]
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.25,-0.4,0.25,0.1"
-      density: 20
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.1"
+        density: 20
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: Physics
     bodyType: Dynamic
   - type: Pullable

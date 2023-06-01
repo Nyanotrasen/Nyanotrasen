@@ -53,17 +53,6 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
-        if (xform.Coordinates.TryDistance(EntityManager, steering.LastCoordinates, out var movedDistance) &&
-            movedDistance > 1)
-        {
-            steering.LastCoordinates = ourCoordinates;
-            steering.LastTimeMoved = _timing.CurTime;
-        } else if (_timing.CurTime > steering.LastTimeMoved + steering.TimeOutTime)
-        {
-            steering.Status = SteeringStatus.NoPath;
-            return false;
-        }
-
         // We've arrived, nothing else matters.
         if (xform.Coordinates.TryDistance(EntityManager, destinationCoordinates, out var distance) &&
             distance <= steering.Range)
@@ -109,7 +98,7 @@ public sealed partial class NPCSteeringSystem
         // TODO: Consider melee range or the likes.
         else
         {
-            arrivalDistance = SharedInteractionSystem.InteractionRange - 0.65f;
+            arrivalDistance = SharedInteractionSystem.InteractionRange - 0.05f;
         }
 
         // Check if mapids match.
@@ -137,6 +126,12 @@ public sealed partial class NPCSteeringSystem
                 // Breaking behaviours and the likes.
                 lock (_obstacles)
                 {
+                    // We're still coming to a stop so wait for the do_after.
+                    if (body.LinearVelocity.LengthSquared > 0.01f)
+                    {
+                        return true;
+                    }
+
                     status = TryHandleFlags(uid, steering, node, bodyQuery);
                 }
 
@@ -144,8 +139,10 @@ public sealed partial class NPCSteeringSystem
                 switch (status)
                 {
                     case SteeringObstacleStatus.Completed:
+                        steering.DoAfterId = null;
                         break;
                     case SteeringObstacleStatus.Failed:
+                        steering.DoAfterId = null;
                         // TODO: Blacklist the poly for next query
                         steering.Status = SteeringStatus.NoPath;
                         return false;
@@ -407,27 +404,27 @@ public sealed partial class NPCSteeringSystem
                 continue;
 
             var obstacleDirection = pointB - pointA;
-            var obstacleDistance = obstacleDirection.Length;
+            var obstableDistance = obstacleDirection.Length;
 
-            if (obstacleDistance > detectionRadius)
+            if (obstableDistance > detectionRadius)
                 continue;
 
             // Fallback to worldpos if we're colliding.
-            if (obstacleDistance == 0f)
+            if (obstableDistance == 0f)
             {
                 obstacleDirection = pointB - worldPos;
-                obstacleDistance = obstacleDirection.Length;
+                obstableDistance = obstacleDirection.Length;
 
-                if (obstacleDistance == 0f)
+                if (obstableDistance == 0f)
                     continue;
 
-                obstacleDistance = agentRadius;
+                obstableDistance = agentRadius;
             }
 
             dangerPoints.Add(pointB);
             obstacleDirection = offsetRot.RotateVec(obstacleDirection);
             var norm = obstacleDirection.Normalized;
-            var weight = obstacleDistance <= agentRadius ? 1f : (detectionRadius - obstacleDistance) / detectionRadius;
+            var weight = obstableDistance <= agentRadius ? 1f : (detectionRadius - obstableDistance) / detectionRadius;
 
             for (var i = 0; i < InterestDirections; i++)
             {
@@ -458,7 +455,7 @@ public sealed partial class NPCSteeringSystem
         EntityQuery<PhysicsComponent> bodyQuery,
         EntityQuery<TransformComponent> xformQuery)
     {
-        var detectionRadius = agentRadius + 0.1f;
+        var detectionRadius = MathF.Max(0.35f, agentRadius + 0.1f);
         var ourVelocity = body.LinearVelocity;
         var factionQuery = GetEntityQuery<FactionComponent>();
         factionQuery.TryGetComponent(uid, out var ourFaction);
@@ -473,7 +470,7 @@ public sealed partial class NPCSteeringSystem
                 (mask & otherBody.CollisionLayer) == 0x0 &&
                 (layer & otherBody.CollisionMask) == 0x0 ||
                 !factionQuery.TryGetComponent(ent, out var otherFaction) ||
-                !_faction.IsFriendly(uid, ent, ourFaction, otherFaction) ||
+                !_faction.IsEntityFriendly(uid, ent, ourFaction, otherFaction) ||
                 // Use <= 0 so we ignore stationary friends in case.
                 Vector2.Dot(otherBody.LinearVelocity, ourVelocity) <= 0f)
             {

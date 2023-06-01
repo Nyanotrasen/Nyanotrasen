@@ -24,4 +24,29 @@
   - type: Tag
     tags:
       - DroneUsable
+
+- type: entity
+  name: maintenance lightbulb box
+  parent: BoxCardboard
+  id: BoxMaintenanceLightbulb
+  description: This box is shaped on the inside so that only light tubes and bulbs fit.
+  components:
+  - type: StorageFill
+    contents:
+      - id: LightBulbMaintenance
+        amount: 6
+      - id: LightBulbMaintenanceRed
+        amount: 6
+  - type: Sprite
+    layers:
+      - state: box
+      - state: light
+  - type: Storage
+    capacity: 60
+    whitelist:
+      components:
+      - LightBulb
+  - type: Tag
+    tags:
+      - DroneUsable      
       

@@ -44,7 +44,7 @@ public class RedialManager
         var ours = _cfg.GetCVar(CVars.HubServerUrl);
         try
         {
-            var addresses = _res.ContentFileReadAllText($"/Server Info/{path}").Split("\n");
+            var addresses = _res.ContentFileReadAllText($"/ServerInfo/{path}").Split("\n");
             foreach (var address in addresses)
             {
                 if (address == ours)

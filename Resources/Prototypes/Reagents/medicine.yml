@@ -349,6 +349,7 @@
       effects:
       - !type:HealthChange
         conditions:
+          # they gotta be in crit first
         - !type:MobStateCondition
           mobstate: Critical
         damage:
@@ -574,6 +575,10 @@
         key: KnockedDown
         time: 3.0
         type: Remove
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        time: 15.0
+        type: Remove
 
 - type: reagent
   id: TranexamicAcid
@@ -636,6 +641,10 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
 
   # Should heal quite literally everything, use in very small amounts
 - type: reagent
@@ -775,7 +784,7 @@
         messages: ["ethyloxyephedrine-effect-feeling-awake", "ethyloxyephedrine-effect-clear-mind"]
         type: Local
         probability: 0.1
-        
+
 - type: reagent
   id: Sigynate
   name: reagent-name-sigynate

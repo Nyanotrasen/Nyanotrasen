@@ -6,6 +6,7 @@
   flavor: metallic
   color: "#800000"
   physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
   metabolisms:
     Drink:
       # Quenching!
@@ -47,12 +48,20 @@
   flavor: slimy
   color: "#2cf274"
   physicalDesc: reagent-physical-desc-viscous
+  slippery: false
+  viscosity: 0.25
+  tileReactions:
+    - !type:SpillTileReaction
   metabolisms:
     Food:
       # Delicious!
       effects:
       - !type:SatiateHunger
         factor: 1.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
 
 - type: reagent
   id: Ichor

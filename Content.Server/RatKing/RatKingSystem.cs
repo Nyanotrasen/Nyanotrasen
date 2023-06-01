@@ -1,20 +1,19 @@
 using Content.Server.Actions;
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared.Actions;
+using Content.Shared.Atmos;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using Content.Server.NPC.Systems;
 using Content.Server.NPC.Components;
 using Content.Server.NPC;
 using Content.Server.Pointing.EntitySystems;
-using Content.Shared.Actions;
-using Content.Shared.Atmos;
-/* <<<<<<< HEAD */
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-/* ======= */
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-/* >>>>>>> 0f0b534239 (Hunger ECS (#14939)) */
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
@@ -108,10 +107,20 @@ namespace Content.Server.RatKing
             if (!HasComp<MobStateComponent>(args.Target))
                 return;
 
-            foreach (var servant in component.Servants)
+            if (args.Target == uid)
             {
-                var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
-                targeted.EngagingEnemies.Add(args.Target);
+                // Pointed to self, cancel all attacks.
+                foreach (var servant in component.Servants)
+                    RemComp<NPCCombatTargetComponent>(servant);
+            }
+            else
+            {
+                // Pointed to someone else, go kill.
+                foreach (var servant in component.Servants)
+                {
+                    var targeted = EnsureComp<NPCCombatTargetComponent>(servant);
+                    targeted.EngagingEnemies.Add(args.Target);
+                }
             }
         }
 
@@ -189,6 +198,12 @@ namespace Content.Server.RatKing
 
             _action.SetToggled(component.ActionToggleFaction, component.HostileServants);
             args.Handled = true;
+
+            if (!_timing.IsFirstTimePredicted)
+                return;
+
+            var msg = component.HostileServants ? "rat-king-toggle-action-popup" : "rat-king-toggle-action-popup-enabled";
+            _popup.PopupEntity(Loc.GetString(msg), args.Performer);
         }
 
 

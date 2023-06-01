@@ -175,7 +175,7 @@ namespace Content.Server.Psionics.Glimmer
                     _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
                     _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
                 },
-                Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
                 Priority = -3
             };

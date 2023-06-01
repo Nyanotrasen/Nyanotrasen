@@ -86,21 +86,22 @@
     species: Arachne
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.40
-      density: 140
-      restitution: 0.0
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Body
     prototype: Arachne
     requiredLegs: 8
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Arachne
+    damageContainer: HalfSpirit
+    damageModifierSet: HalfSpirit
   - type: DiseaseCarrier
     naturalImmunities:
     - BleedersBite
@@ -147,6 +148,8 @@
     normalState: Generic_mob_burning
     alternateState: arachne_standing
     fireStackAlternateState: 3
+  - type: Dna
+    dna: "ABRAXAS"
 
 - type: entity
   save: false

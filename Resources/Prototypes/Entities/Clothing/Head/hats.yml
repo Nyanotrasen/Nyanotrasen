@@ -588,7 +588,18 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadClothingHeadHatWatermelon
+  id: ClothingHeadHatPirateTricord
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWatermelon
   name: watermelon helmet
   description: A carelessly cut half of a watermelon, gutted from the inside, to be worn as a helmet. It can soften the blow to the head.
   components:
@@ -603,6 +614,17 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatHetmanHat
+  name: Hetman hat
+  description: From the Zaporozhian Sich with love.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/hetman_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/hetman_hat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatBeretContractor
   name: contractor's beret
   description: A black beret with a contractor's company emblem. For contractors that are more inclined towards style than safety.
@@ -611,4 +633,3 @@
     sprite: Clothing/Head/Hats/beret_contractor.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/beret_contractor.rsi
-

@@ -82,6 +82,8 @@
       - id: RubberStampHop
       - id: BoxEncryptionKeyPassenger
       - id: BoxEncryptionKeyService
+      - id: ClothingBackpackIan
+        prob: 0.5
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -118,6 +120,7 @@
       - id: ClothingHandsGlovesNitrile
       - id: ClothingEyesHudMedical
       - id: ClothingHeadsetAltMedical
+      - id: ClothingBeltMilitaryWebbingCMO
       - id: ClothingCloakCmo
       - id: ClothingBackpackDuffelSurgeryFilled
       - id: ClothingOuterCoatLabCmo
@@ -174,7 +177,7 @@
       - id: ClothingUniformJumpskirtHoSParadeMale
         prob: 0.1
       - id: ClothingOuterHardsuitSecurityRed
-      - id: ClothingMaskGasSecurity
+      - id: ClothingMaskGasSwat
       - id: DrinkVacuumFlask
         prob: 0.8
       - id: ClothingBeltSecurityFilled
@@ -190,3 +193,4 @@
       - id: JetpackSecurityFilled
       - id: HyperlinkBookSpaceLaw
       - id: BoxEncryptionKeySecurity
+      - id: HoloprojectorSecurity

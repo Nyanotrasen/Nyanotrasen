@@ -1,5 +1,6 @@
 using System.Threading;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared.DoAfter;
 using Content.Shared.NPC;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -25,15 +26,6 @@ public sealed class NPCSteeringComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float Radius = 0.35f;
-
-    [ViewVariables]
-    public EntityCoordinates LastCoordinates = default!;
-
-    [ViewVariables]
-    public TimeSpan LastTimeMoved = default!;
-
-    [ViewVariables]
-    public TimeSpan TimeOutTime = TimeSpan.FromSeconds(4f);
 
     [ViewVariables]
     public readonly float[] Interest = new float[SharedNPCSteeringSystem.InterestDirections];
@@ -105,6 +97,12 @@ public sealed class NPCSteeringComponent : Component
     [ViewVariables] public SteeringStatus Status = SteeringStatus.Moving;
 
     [ViewVariables(VVAccess.ReadWrite)] public PathFlags Flags = PathFlags.None;
+
+    /// <summary>
+    /// If the NPC is using a do_after to clear an obstacle.
+    /// </summary>
+    [DataField("doAfterId")]
+    public DoAfterId? DoAfterId = null;
 }
 
 public enum SteeringStatus : byte

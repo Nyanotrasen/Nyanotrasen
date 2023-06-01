@@ -18,7 +18,8 @@ public sealed class StealthSystem : SharedStealthSystem
         base.Initialize();
 
         _shader = _protoMan.Index<ShaderPrototype>("Stealth").InstanceUnique();
-        SubscribeLocalEvent<StealthComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<StealthComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<StealthComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<StealthComponent, BeforePostShaderRenderEvent>(OnShaderRender);
     }
 
@@ -33,6 +34,13 @@ public sealed class StealthSystem : SharedStealthSystem
 
     private void SetShader(EntityUid uid, bool enabled, StealthComponent? component = null, SpriteComponent? sprite = null)
     {
+        // Begin Nyano-code: only set shader if the entity's not terminating.
+        // This prevents test failures with telegnostic projections and glimmer wisps,
+        // both of which are NPCs with Stealth, which causes issues with InteractionOutline.
+        if (LifeStage(uid) >= EntityLifeStage.Terminating)
+            return;
+        // End Nyano-code.
+
         if (!Resolve(uid, ref component, ref sprite, false))
             return;
 
@@ -44,7 +52,7 @@ public sealed class StealthSystem : SharedStealthSystem
         if (!enabled)
         {
             if (component.HadOutline)
-                AddComp<InteractionOutlineComponent>(uid);
+                EnsureComp<InteractionOutlineComponent>(uid);
             return;
         }
 
@@ -55,13 +63,12 @@ public sealed class StealthSystem : SharedStealthSystem
         }
     }
 
-    protected override void OnInit(EntityUid uid, StealthComponent component, ComponentInit args)
+    private void OnStartup(EntityUid uid, StealthComponent component, ComponentStartup args)
     {
-        base.OnInit(uid, component, args);
         SetShader(uid, component.Enabled, component);
     }
 
-    private void OnRemove(EntityUid uid, StealthComponent component, ComponentRemove args)
+    private void OnShutdown(EntityUid uid, StealthComponent component, ComponentShutdown args)
     {
         SetShader(uid, false, component);
     }

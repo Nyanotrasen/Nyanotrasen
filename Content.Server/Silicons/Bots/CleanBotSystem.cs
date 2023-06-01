@@ -3,9 +3,9 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 using Content.Shared.DoAfter;
 using Content.Shared.Silicons;
+using Content.Shared.Fluids.Components;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
-using Content.Server.Fluids.Components;
 using Content.Server.Chemistry.EntitySystems;
 using Robust.Server.GameObjects;
 
@@ -32,6 +32,10 @@ namespace Content.Server.Silicons.Bots
         private void PlayerClean(EntityUid uid, CleanBotComponent component, InteractNoHandEvent args)
         {
             if (!HasComp<PuddleComponent>(args.Target))
+                return;
+
+            if (!HasComp<ActorComponent>(uid))
+                // Not a player, so do whatever you usually do.
                 return;
 
             TryStartClean(uid, component, args.Target.Value);

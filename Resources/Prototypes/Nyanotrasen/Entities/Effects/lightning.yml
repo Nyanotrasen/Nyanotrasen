@@ -2,6 +2,7 @@
   parent: BaseLightning
   id: LightningNoospheric
   name: noospheric lightning
+  noSpawn: true
   components:
   - type: Electrified
     enabled: false

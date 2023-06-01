@@ -24,6 +24,12 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
   - type: ItemCooldown
+  - type: MeleeWeapon
+    damage:
+       types:
+        Heat: 5
+    soundHit:
+      path: /Audio/Effects/lightburn.ogg
 
 # Drill
 
@@ -237,7 +243,7 @@
         Slash: 23.0
     bleedingIncrease:
       types:
-        Slash: 5.0
+        Slash: 0.25
 
 - type: entity
   name: circular saw

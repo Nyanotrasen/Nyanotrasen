@@ -41,7 +41,17 @@ public sealed partial class EmergencyShuttleSystem
     private readonly TimeSpan _bufferTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// <see cref="CCVars.EmergencyShuttleTransitTime"/>
+    /// <see cref="CCVars.EmergencyShuttleMinTransitTime"/>
+    /// </summary>
+    public float MinimumTransitTime { get; private set; }
+
+    /// <summary>
+    /// <see cref="CCVars.EmergencyShuttleMaxTransitTime"/>
+    /// </summary>
+    public float MaximumTransitTime { get; private set; }
+
+    /// <summary>
+    /// How long it will take for the emergency shuttle to arrive at CentComm.
     /// </summary>
     public float TransitTime { get; private set; }
 
@@ -69,7 +79,8 @@ public sealed partial class EmergencyShuttleSystem
 
     private void InitializeEmergencyConsole()
     {
-        _configManager.OnValueChanged(CCVars.EmergencyShuttleTransitTime, SetTransitTime, true);
+        _configManager.OnValueChanged(CCVars.EmergencyShuttleMinTransitTime, SetMinTransitTime, true);
+        _configManager.OnValueChanged(CCVars.EmergencyShuttleMaxTransitTime, SetMaxTransitTime, true);
         _configManager.OnValueChanged(CCVars.EmergencyShuttleAuthorizeTime, SetAuthorizeTime, true);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, ComponentStartup>(OnEmergencyStartup);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleAuthorizeMessage>(OnEmergencyAuthorize);
@@ -95,15 +106,22 @@ public sealed partial class EmergencyShuttleSystem
         _authorizeTime = obj;
     }
 
-    private void SetTransitTime(float obj)
+    private void SetMinTransitTime(float obj)
     {
-        TransitTime = obj;
+        MinimumTransitTime = obj;
+        MaximumTransitTime = Math.Max(MaximumTransitTime, MinimumTransitTime);
+    }
+
+    private void SetMaxTransitTime(float obj)
+    {
+        MaximumTransitTime = Math.Max(MinimumTransitTime, obj);
     }
 
     private void ShutdownEmergencyConsole()
     {
         _configManager.UnsubValueChanged(CCVars.EmergencyShuttleAuthorizeTime, SetAuthorizeTime);
-        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleTransitTime, SetTransitTime);
+        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleMinTransitTime, SetMinTransitTime);
+        _configManager.UnsubValueChanged(CCVars.EmergencyShuttleMaxTransitTime, SetMaxTransitTime);
     }
 
     private void OnEmergencyStartup(EntityUid uid, EmergencyShuttleConsoleComponent component, ComponentStartup args)
@@ -136,39 +154,39 @@ public sealed partial class EmergencyShuttleSystem
         {
             _launchedShuttles = true;
 
-            if (CentComMap != null)
+            var dataQuery = AllEntityQuery<StationEmergencyShuttleComponent>();
+
+            while (dataQuery.MoveNext(out var stationUid, out var comp))
             {
-                var dataQuery = AllEntityQuery<StationDataComponent>();
-
-                while (dataQuery.MoveNext(out var comp))
+                if (!TryComp<ShuttleComponent>(comp.EmergencyShuttle, out var shuttle) ||
+                    !TryComp<StationCentcommComponent>(stationUid, out var centcomm))
                 {
-                    if (!TryComp<ShuttleComponent>(comp.EmergencyShuttle, out var shuttle))
-                        continue;
-
-                    if (Deleted(CentCom))
-                    {
-                        // TODO: Need to get non-overlapping positions.
-                        _shuttle.FTLTravel(comp.EmergencyShuttle.Value, shuttle,
-                            new EntityCoordinates(
-                                _mapManager.GetMapEntityId(CentComMap.Value),
-                                _random.NextVector2(1000f)), _consoleAccumulator, TransitTime);
-                    }
-                    else
-                    {
-                        _shuttle.FTLTravel(comp.EmergencyShuttle.Value, shuttle,
-                            CentCom.Value, _consoleAccumulator, TransitTime, true);
-                    }
+                    continue;
                 }
 
-                var podQuery = AllEntityQuery<EscapePodComponent>();
-                var podLaunchOffset = 0.5f;
-
-                // Stagger launches coz funny
-                while (podQuery.MoveNext(out _, out var pod))
+                if (Deleted(centcomm.Entity))
                 {
-                    pod.LaunchTime = _timing.CurTime + TimeSpan.FromSeconds(podLaunchOffset);
-                    podLaunchOffset += _random.NextFloat(0.5f, 2.5f);
+                    // TODO: Need to get non-overlapping positions.
+                    _shuttle.FTLTravel(comp.EmergencyShuttle.Value, shuttle,
+                        new EntityCoordinates(
+                            _mapManager.GetMapEntityId(centcomm.MapId),
+                            _random.NextVector2(1000f)), _consoleAccumulator, TransitTime);
                 }
+                else
+                {
+                    _shuttle.FTLTravel(comp.EmergencyShuttle.Value, shuttle,
+                        centcomm.Entity, _consoleAccumulator, TransitTime, true);
+                }
+            }
+
+            var podQuery = AllEntityQuery<EscapePodComponent>();
+            var podLaunchOffset = 0.5f;
+
+            // Stagger launches coz funny
+            while (podQuery.MoveNext(out _, out var pod))
+            {
+                pod.LaunchTime = _timing.CurTime + TimeSpan.FromSeconds(podLaunchOffset);
+                podLaunchOffset += _random.NextFloat(0.5f, 2.5f);
             }
         }
 
@@ -176,13 +194,16 @@ public sealed partial class EmergencyShuttleSystem
 
         while (podLaunchQuery.MoveNext(out var uid, out var pod, out var shuttle))
         {
-            if (CentCom == null || pod.LaunchTime == null || pod.LaunchTime < _timing.CurTime)
+            var stationUid = _station.GetOwningStation(uid);
+
+            if (!TryComp<StationCentcommComponent>(stationUid, out var centcomm) ||
+                Deleted(centcomm.Entity) || pod.LaunchTime == null || pod.LaunchTime < _timing.CurTime)
+            {
                 continue;
+            }
 
             // Don't dock them. If you do end up doing this then stagger launch.
-            _shuttle.FTLTravel(uid, shuttle,
-                CentCom.Value, hyperspaceTime: TransitTime);
-
+            _shuttle.FTLTravel(uid, shuttle, centcomm.Entity, hyperspaceTime: TransitTime);
             RemCompDeferred<EscapePodComponent>(uid);
         }
 
@@ -192,16 +213,22 @@ public sealed partial class EmergencyShuttleSystem
             _leftShuttles = true;
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("emergency-shuttle-left", ("transitTime", $"{TransitTime:0}")));
 
-            _roundEndCancelToken = new CancellationTokenSource();
-            Timer.Spawn((int) (TransitTime * 1000) + _bufferTime.Milliseconds, () => _roundEnd.EndRound(), _roundEndCancelToken.Token);
+            Timer.Spawn((int) (TransitTime * 1000) + _bufferTime.Milliseconds, () => _roundEnd.EndRound(), _roundEndCancelToken?.Token ?? default);
         }
 
         // All the others.
         if (_consoleAccumulator < minTime)
         {
+            var query = AllEntityQuery<StationCentcommComponent>();
+
             // Guarantees that emergency shuttle arrives first before anyone else can FTL.
-            if (CentCom != null)
-                _shuttle.AddFTLDestination(CentCom.Value, true);
+            while (query.MoveNext(out var comp))
+            {
+                if (Deleted(comp.Entity))
+                    continue;
+
+                _shuttle.AddFTLDestination(comp.Entity, true);
+            }
         }
     }
 
@@ -283,6 +310,9 @@ public sealed partial class EmergencyShuttleSystem
         _consoleAccumulator = float.MinValue;
         EarlyLaunchAuthorized = false;
         EmergencyShuttleArrived = false;
+        TransitTime = MinimumTransitTime + (MaximumTransitTime - MinimumTransitTime) * _random.NextFloat();
+        // Round to nearest 10
+        TransitTime = MathF.Round(TransitTime / 10f) * 10f;
     }
 
     private void UpdateAllEmergencyConsoles()
@@ -350,7 +380,9 @@ public sealed partial class EmergencyShuttleSystem
 
     public bool DelayEmergencyRoundEnd()
     {
-        if (_roundEndCancelToken == null) return false;
+        if (_roundEndCancelToken == null)
+            return false;
+
         _roundEndCancelToken?.Cancel();
         _roundEndCancelToken = null;
         return true;
