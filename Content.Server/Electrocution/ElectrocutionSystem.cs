@@ -329,6 +329,10 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
         var electrocutionComponent = Comp<ElectrocutionComponent>(electrocutionEntity);
 
+        // This shows up in the power monitor.
+        // Yes. Yes exactly.
+        MetaData(electrocutionEntity).EntityName = MetaData(uid).EntityName;
+
         electrocutionNode.CableEntity = sourceUid;
         electrocutionNode.NodeName = node.Name;
 
