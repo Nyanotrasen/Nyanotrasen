@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: WeaponWandBase
   id: WeaponWandPolymorphBase
   abstract: true
@@ -92,5 +92,16 @@
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_door.ogg
   - type: BasicEntityAmmoProvider
     proto: ProjectilePolyboltDoor
+    capacity: 10
+    count: 10
+
+- type: entity
+  parent: WeaponWandPolymorphBase
+  id: WeaponWandPolymorphBread
+  name: magic bread wand
+  description: Turn all your friends into bread! Your boss! Your enemies! Your dog! Make everything bread!
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: ProjectilePolyboltBread
     capacity: 10
     count: 10
