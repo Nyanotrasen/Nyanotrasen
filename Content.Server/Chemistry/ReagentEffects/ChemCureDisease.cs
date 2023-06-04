@@ -1,6 +1,8 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Disease;
+using Content.Shared.Disease;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects
 {
@@ -10,6 +12,9 @@ namespace Content.Server.Chemistry.ReagentEffects
     [UsedImplicitly]
     public sealed class ChemCureDisease : ReagentEffect
     {
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => Loc.GetString("reagent-effect-guidebook-cure-disease", ("chance", Probability));
+
         /// <summary>
         /// Chance it has each tick to cure a disease, between 0 and 1
         /// </summary>

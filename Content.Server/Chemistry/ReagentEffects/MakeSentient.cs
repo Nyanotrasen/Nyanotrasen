@@ -3,13 +3,16 @@ using Content.Server.Mind.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.StationEvents.Components;
-using Content.Server.Ghost.Roles.Components;
 using Content.Server.Psionics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects;
 
 public sealed class MakeSentient : ReagentEffect
 {
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-make-sentient", ("chance", Probability));
+
     public override void Effect(ReagentEffectArgs args)
     {
         var entityManager = args.EntityManager;

@@ -1,8 +1,11 @@
+using System.Linq;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Disease;
+using Content.Shared.Disease;
 using Content.Shared.Disease.Components;
 using Robust.Shared.Random;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects
 {
@@ -12,6 +15,11 @@ namespace Content.Server.Chemistry.ReagentEffects
     [UsedImplicitly]
     public sealed class ChemCauseRandomDisease : ReagentEffect
     {
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => Loc.GetString("reagent-effect-guidebook-chem-cause-diseases", ("chance", Probability),
+                ("diseases",
+                 string.Join(", ", Diseases.Select(e => prototype.Index<DiseasePrototype>(e).Name))));
+
         /// <summary>
         /// A disease to choose from.
         /// </summary>
