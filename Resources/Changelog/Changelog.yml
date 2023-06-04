@@ -1,10 +1,4 @@
 Entries:
-- author: Rane
-  changes:
-  - message: Panic bunker works now for when the hub is like... this.
-    type: Add
-  id: 58
-  time: '2022-10-29T12:39:20.0000000+00:00'
 - author: Vordenburg
   changes:
   - message: Added sprites and sounds for the Ifrit's hand.
@@ -3820,3 +3814,13 @@ Entries:
     type: Tweak
   id: 555
   time: '2023-05-27T21:47:41.318977+00:00'
+- author: Vordenburg
+  changes:
+  - message: Joints and blunts will get you high again.
+    type: Fix
+  - message: Arachne should no longer appear as nuclear operatives.
+    type: Fix
+  - message: Merged several bugfixes from upstream.
+    type: Fix
+  id: 556
+  time: '2023-06-04T23:08:03.172770+00:00'
