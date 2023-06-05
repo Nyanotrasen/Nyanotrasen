@@ -1,0 +1,42 @@
+- type: startingGear
+  id: MobsterGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlackMob
+    back: ClothingBackpackMafiaFilled
+    head: ClothingHeadHatFedoraBlack
+    shoes: ClothingShoesBootsLaceup
+    neck: ClothingNeckTieBlack
+    id: PassengerPDA
+    belt: ClothingBeltHolster
+  innerclothingskirt: ClothingUniformJumpsuitSuitBlackMob
+  satchel: ClothingBackpackMafiaFilled
+  duffelbag: ClothingBackpackMafiaFilled
+
+- type: startingGear
+  id: MobsterGearAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBrown
+    back: ClothingBackpackMafiaFilled
+    head: ClothingHeadHatFlatBrown
+    shoes: ClothingShoesLeather
+    neck: ClothingNeckTieBrown
+    id: PassengerPDA
+    belt: ClothingBeltSuspendersBlack
+    pocket1: CombatKnife
+  innerclothingskirt: ClothingUniformJumpsuitSuitBrown
+  satchel: ClothingBackpackMafiaFilled
+  duffelbag: ClothingBackpackMafiaFilled
+
+- type: startingGear
+  id: MafiosoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitWhiteMob
+    back: ClothingBackpackMafiaFilled
+    head: ClothingHeadHatFedoraWhite
+    shoes: ClothingShoesMiscWhite
+    neck: ClothingNeckCloakMafioso
+    id: PassengerPDA
+    belt: WeaponRevolverSnub
+  innerclothingskirt: ClothingUniformJumpsuitSuitWhiteAlt
+  satchel: ClothingBackpackMafiaFilled
+  duffelbag: ClothingBackpackMafiaFilled

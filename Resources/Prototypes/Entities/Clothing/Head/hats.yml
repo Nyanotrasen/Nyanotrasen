@@ -135,8 +135,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraBrown
-  name: brown fedora
-  description: It's a brown fedora.
+  name: hard-worn fedora
+  description: It's a beat-up fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/brownfedora.rsi
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatFedoraGrey
-  name: grey fedora
-  description: It's a grey fedora.
+  name: noir fedora
+  description: It's a mysterious fedora.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/greyfedora.rsi

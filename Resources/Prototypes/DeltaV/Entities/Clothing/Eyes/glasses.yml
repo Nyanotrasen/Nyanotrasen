@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesAmber
+  name: amber glasses
+  description: Tinted glasses for jaded people.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/beergoggles.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/beergoggles.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
