@@ -17,6 +17,7 @@ using Content.Client.Redial;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Client.Guidebook;
+using Content.Client.Replay;
 using Content.Shared.Administration.Managers;
 
 namespace Content.Client.IoC
@@ -44,6 +45,7 @@ namespace Content.Client.IoC
             IoCManager.Register<JobRequirementsManager>();
             IoCManager.Register<DocumentParsingManager>();
             IoCManager.Register<RedialManager>();
+            IoCManager.Register<ContentReplayPlaybackManager, ContentReplayPlaybackManager>();
         }
     }
 }
