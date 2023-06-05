@@ -1,12 +1,13 @@
 using System.Linq;
 using Content.Server.Administration.Commands;
+using Content.Server.CharacterAppearance.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Humanoid.Systems;
-using Content.Server.Mail.Components;
 using Content.Server.Humanoid;
+using Content.Server.Mail.Components;
 using Content.Server.Mind.Components;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
@@ -27,6 +28,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nuke;
 using Content.Shared.Preferences;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.CCVar;
 using Robust.Server.GameObjects;
@@ -52,6 +54,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
     [Dependency] private readonly FactionSystem _faction = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
+    [Dependency] private readonly RandomHumanoidSystem _randomHumanoidSystem = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawningSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
@@ -576,8 +579,12 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             return;
 
         HumanoidCharacterProfile? profile = null;
+        // Begin Nyano-code: disable profile loading.
+        /*
         if (TryComp(args.Spawned, out ActorComponent? actor))
             profile = _prefs.GetPreferences(actor.PlayerSession.UserId).SelectedCharacter as HumanoidCharacterProfile;
+        */
+        // End Nyano-code.
 
         // todo: this is kinda awful for multi-nukies
         foreach (var nukeops in EntityQuery<NukeopsRuleComponent>())
@@ -721,6 +728,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         MetaData(mob).EntityName = name;
         EnsureComp<NukeOperativeComponent>(mob);
+        // Begin Nyano-code: disable profile loading.
+        EnsureComp<RandomHumanoidAppearanceComponent>(mob);
+        // End Nyano-code.
 
         if (profile != null)
         {
@@ -769,6 +779,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
             if (sessions.TryGetValue(i, out var session))
             {
+                // Begin Nyano-code: disable profile loading.
+                HumanoidCharacterProfile? profile = null;
+                /*
                 var profile = _prefs.GetPreferences(session.UserId).SelectedCharacter as HumanoidCharacterProfile;
                 if (!_prototypeManager.TryIndex(profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies, out SpeciesPrototype? species))
                 {
@@ -776,6 +789,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 }
 
                 var mob = EntityManager.SpawnEntity(species.Prototype, _random.Pick(spawns));
+                */
+                var mob = _randomHumanoidSystem.SpawnRandomHumanoid(component.Species, _random.Pick(spawns), string.Empty);
+                // End Nyano-code.
+
                 SetupOperativeEntity(mob, spawnDetails.Name, spawnDetails.Gear, profile, component);
 
                 var newMind = new Mind.Mind(session.UserId)
