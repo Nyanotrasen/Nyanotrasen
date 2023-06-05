@@ -42,8 +42,8 @@
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
-      state: female_full
-      visible: true
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
@@ -196,8 +196,8 @@
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
-      state: female_full
-      visible: true
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
