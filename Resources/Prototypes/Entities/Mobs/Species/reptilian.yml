@@ -49,9 +49,6 @@
     heatDamage:
       types:
         Heat : 0.1 #per second, scales with temperature & other constants
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
   - type: Perishable
   - type: Carriable
 

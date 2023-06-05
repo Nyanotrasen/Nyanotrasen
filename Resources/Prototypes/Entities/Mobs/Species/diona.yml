@@ -41,9 +41,6 @@
   - type: Inventory
     templateId: diona
   - type: InventorySlots
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
 
 - type: entity
   save: false

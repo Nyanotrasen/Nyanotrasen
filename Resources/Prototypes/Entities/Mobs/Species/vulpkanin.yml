@@ -25,9 +25,6 @@
       types:
         Blunt: 1
         Slash: 5
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 5
   - type: Perishable
   - type: Carriable
   - type: TemperatureProtection
