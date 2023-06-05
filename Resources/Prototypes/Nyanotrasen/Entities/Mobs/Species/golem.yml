@@ -85,7 +85,8 @@
     - CanPilot
     - DoorBumpOpener
     - ShoesRequiredStepTriggerImmune
-    - GunsDisabled
+    # TODO: https://github.com/Nyanotrasen/Nyanotrasen/issues/1628
+    # - GunsDisabled
   - type: Reactive
     groups:
       Acidic: [Touch]

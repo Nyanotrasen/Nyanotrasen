@@ -14,6 +14,8 @@
     damage:
       types:
         Slash: 17 #cmon, it has to be at least BETTER than the rest.
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -45,6 +47,8 @@
     damage:
       types:
         Slash: 12
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -72,6 +76,8 @@
     damage:
       types:
         Slash: 15
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -101,6 +107,8 @@
     damage:
       types:
         Slash: 19
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: MeleeBloodletter
     bloodReduction:
       types:
@@ -135,6 +143,8 @@
     damage:
       types:
         Slash: 16
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: 15
     sprite: Objects/Weapons/Melee/cutlass.rsi
