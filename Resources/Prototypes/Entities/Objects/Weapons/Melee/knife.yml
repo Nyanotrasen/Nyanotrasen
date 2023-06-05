@@ -131,6 +131,9 @@
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
+  - type: GuideHelp
+    guides:
+    - Chef
 
 - type: entity
   name: butcher's cleaver
@@ -158,6 +161,9 @@
   - type: Item
     size: 10
     sprite: Objects/Weapons/Melee/cleaver.rsi
+  - type: GuideHelp
+    guides:
+    - Chef
 
 - type: entity
   name: combat knife
