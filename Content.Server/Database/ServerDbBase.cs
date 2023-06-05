@@ -921,6 +921,32 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
+        #region Donator
+
+        public async Task<bool> GetDonatorStatusAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Donator.AnyAsync(d => d.UserId == player);
+        }
+
+        public async Task AddDonatorAsync(NetUserId player, DateTime? date)
+        {
+            await using var db = await GetDb();
+
+            db.DbContext.Donator.Add(new Donator { UserId = player, ExpirationDate = date });
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveDonatorAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+            var entry = await db.DbContext.Donator.SingleAsync(d => d.UserId == player);
+            db.DbContext.Donator.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+        }
+        #endregion
+
         #region Uploaded Resources Logs
 
         public async Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data)

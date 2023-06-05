@@ -219,6 +219,16 @@ namespace Content.Server.Database
 
         #endregion
 
+        #region Donator
+
+        Task<bool> GetDonatorStatusAsync(NetUserId player);
+
+        Task AddDonatorAsync(NetUserId player, DateTime? expires);
+
+        Task RemoveDonatorAsync(NetUserId player);
+
+        #endregion
+
         #region Uploaded Resources Logs
 
         Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data);
@@ -611,6 +621,24 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveFromWhitelistAsync(player));
+        }
+
+        public Task<bool> GetDonatorStatusAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDonatorStatusAsync(player));
+        }
+
+        public Task AddDonatorAsync(NetUserId player, DateTime? expires)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.AddDonatorAsync(player, expires));
+        }
+
+        public Task RemoveDonatorAsync(NetUserId player)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.RemoveDonatorAsync(player));
         }
 
         public Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data)
