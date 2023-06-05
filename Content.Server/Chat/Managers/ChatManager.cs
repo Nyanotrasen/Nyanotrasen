@@ -234,8 +234,14 @@ namespace Content.Server.Chat.Managers
             var msg = new ChatMessage(channel, message, wrappedMessage, source, hideChat, colorOverride, audioPath, audioVolume);
             _netManager.ServerSendMessage(new MsgChatMessage() { Message = msg }, client);
 
-            if (recordReplay)
+            if (!recordReplay)
+                return;
+
+            if ((channel & ChatChannel.AdminRelated) == 0 ||
+                _configurationManager.GetCVar(CCVars.ReplayRecordAdminChat))
+            {
                 _replay.QueueReplayMessage(msg);
+            }
         }
 
         public void ChatMessageToMany(ChatChannel channel, string message, string wrappedMessage, EntityUid source, bool hideChat, bool recordReplay, IEnumerable<INetChannel> clients, Color? colorOverride = null, string? audioPath = null, float audioVolume = 0)
@@ -246,8 +252,14 @@ namespace Content.Server.Chat.Managers
             var msg = new ChatMessage(channel, message, wrappedMessage, source, hideChat, colorOverride, audioPath, audioVolume);
             _netManager.ServerSendToMany(new MsgChatMessage() { Message = msg }, clients);
 
-            if (recordReplay)
+            if (!recordReplay)
+                return;
+
+            if ((channel & ChatChannel.AdminRelated) == 0 ||
+                _configurationManager.GetCVar(CCVars.ReplayRecordAdminChat))
+            {
                 _replay.QueueReplayMessage(msg);
+            }
         }
 
         public void ChatMessageToManyFiltered(Filter filter, ChatChannel channel, string message, string wrappedMessage, EntityUid source,
@@ -270,8 +282,14 @@ namespace Content.Server.Chat.Managers
             var msg = new ChatMessage(channel, message, wrappedMessage, source, hideChat, colorOverride, audioPath, audioVolume);
             _netManager.ServerSendToAll(new MsgChatMessage() { Message = msg });
 
-            if (recordReplay)
+            if (!recordReplay)
+                return;
+
+            if ((channel & ChatChannel.AdminRelated) == 0 ||
+                _configurationManager.GetCVar(CCVars.ReplayRecordAdminChat))
+            {
                 _replay.QueueReplayMessage(msg);
+            }
         }
 
         public bool MessageCharacterLimit(IPlayerSession? player, string message)
