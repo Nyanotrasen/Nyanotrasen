@@ -79,3 +79,11 @@ Entries:
         type: Add
     id: 13
     time: '2023-05-31T12:00:00.0000000+00:00'
+  - author: Debug
+    changes:
+      - message: Merged upstream, shouldn't cause any issues
+        type: Add
+      - message: Enabled ambient sounds
+        type: Tweak
+    id: 14
+    time: '2023-06-05T12:00:00.0000000+00:00'

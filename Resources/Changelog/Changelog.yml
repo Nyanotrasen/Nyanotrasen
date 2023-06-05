@@ -1,50 +1,6 @@
 Entries:
 - author: Vordenburg
   changes:
-  - message: Added new icon for the NyanoTrasen server.
-    type: Add
-  id: 52
-  time: '2022-10-27T23:25:45.0000000+00:00'
-- author: Rane and Kesiath
-  changes:
-  - message: Added a new species, Arachne!
-    type: Add
-  id: 53
-  time: '2022-10-28T02:50:48.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Speedran a bunch of misc arachne fixes. Traitor arachne, check your uplink.
-    type: Tweak
-  id: 54
-  time: '2022-10-28T03:05:09.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Adds a few shuttles for admins to quickly deploy.
-    type: Add
-  id: 55
-  time: '2022-10-28T03:58:51.0000000+00:00'
-- author: Kromabae
-  changes:
-  - message: Pebble Station
-    type: Add
-  id: 56
-  time: '2022-10-28T10:48:39.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed Atlas.
-    type: Remove
-  - message: Improved some server config stuff.
-    type: Tweak
-  id: 57
-  time: '2022-10-28T10:50:08.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Panic bunker works now for when the hub is like... this.
-    type: Add
-  id: 58
-  time: '2022-10-29T12:39:20.0000000+00:00'
-- author: Vordenburg
-  changes:
   - message: Added sprites and sounds for the Ifrit's hand.
     type: Add
   id: 59
@@ -3799,62 +3755,72 @@ Entries:
   time: '2023-05-21T08:22:21.323686+00:00'
 - author: FluidRock
   changes:
-    - message: Corgi meat is now obtainable from all corgi.
-      type: Tweak
+  - message: Corgi meat is now obtainable from all corgi.
+    type: Tweak
   id: 550
   time: '2023-05-27T21:46:28.886586+00:00'
 - author: Fireheart
   changes:
-    - message: Added moth squeaks and chitters!
-      type: Add
+  - message: Added moth squeaks and chitters!
+    type: Add
   id: 551
   time: '2023-05-27T21:46:28.886609+00:00'
 - author: Vannn4
   changes:
-    - message: Added altars to the Construction menu.
-      type: Add
-    - message: Fixed burden altar using the incorrect sprite.
-      type: Fix
+  - message: Added altars to the Construction menu.
+    type: Add
+  - message: Fixed burden altar using the incorrect sprite.
+    type: Fix
   id: 552
   time: '2023-05-27T21:46:28.886620+00:00'
 - author: TheBlackHorizons
   changes:
-    - message: Added new lobby screen by Kimikyu.
-      type: Add
+  - message: Added new lobby screen by Kimikyu.
+    type: Add
   id: 553
   time: '2023-05-27T21:46:28.886627+00:00'
 - author: Saltson
   changes:
-    - message: Updated Glacier station.
-      type: Add
+  - message: Updated Glacier station.
+    type: Add
   id: 554
   time: '2023-05-27T21:46:28.886632+00:00'
 - author: Vordenburg
   changes:
-    - message: Rat kings can now point at themselves to stop their servants from attacking.
-      type: Add
-    - message: The recipient of a mail parcel will be printed in larger font now.
-      type: Add
-    - message: Arachne can no longer wear the experimental research hardsuit.
-      type: Fix
-    - message: Arachne can now safely buckle and unbuckle to webs again, letting them
-        rest.
-      type: Fix
-    - message: Burned food can now be destroyed in the recycler.
-      type: Fix
-    - message: Merged a couple dozen fixes from upstream.
-      type: Fix
-    - message: Snares, such as the bola, work better now.
-      type: Fix
-    - message: Vampiric creatures such as the Arachne will no longer be able to sustain
-        themselves off of salt, sugar, slime, vitamins, ramen, and soy sauce.
-      type: Fix
-    - message: You can hop a holobarrier with the alternate action now.
-      type: Fix
-    - message: Psionic regeneration will heal bleeding, lost blood, and caustic damage
-        now.
-      type: Tweak
-    - message: Traitors must escape alive and unrestrained.
-      type: Tweak
+  - message: Rat kings can now point at themselves to stop their servants from attacking.
+    type: Add
+  - message: The recipient of a mail parcel will be printed in larger font now.
+    type: Add
+  - message: Arachne can no longer wear the experimental research hardsuit.
+    type: Fix
+  - message: Arachne can now safely buckle and unbuckle to webs again, letting them
+      rest.
+    type: Fix
+  - message: Burned food can now be destroyed in the recycler.
+    type: Fix
+  - message: Merged a couple dozen fixes from upstream.
+    type: Fix
+  - message: Snares, such as the bola, work better now.
+    type: Fix
+  - message: Vampiric creatures such as the Arachne will no longer be able to sustain
+      themselves off of salt, sugar, slime, vitamins, ramen, and soy sauce.
+    type: Fix
+  - message: You can hop a holobarrier with the alternate action now.
+    type: Fix
+  - message: Psionic regeneration will heal bleeding, lost blood, and caustic damage
+      now.
+    type: Tweak
+  - message: Traitors must escape alive and unrestrained.
+    type: Tweak
   id: 555
   time: '2023-05-27T21:47:41.318977+00:00'
+- author: Vordenburg
+  changes:
+  - message: Joints and blunts will get you high again.
+    type: Fix
+  - message: Arachne should no longer appear as nuclear operatives.
+    type: Fix
+  - message: Merged several bugfixes from upstream.
+    type: Fix
+  id: 556
+  time: '2023-06-04T23:08:03.172770+00:00'
