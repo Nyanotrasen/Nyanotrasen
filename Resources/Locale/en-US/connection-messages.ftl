@@ -14,8 +14,8 @@ command-whitelistremove-removed = {$username} removed from the whitelist
 command-whitelistremove-not-found = Unable to find '{$username}'
 
 # Nyanotrasen-Donator-start
-command-donatoradd-description = Adds the player with the given username to the donator list with an optional expiration time offset in days.
-command-donatoradd-help = donatoradd <username> <expiration time>
+command-donatoradd-description = Adds the player with the given username to the donator list with an optional rank and expiration time offset in days.
+command-donatoradd-help = donatoradd <username> <rank> <expiration time>
 command-donatoradd-existing = {$name} is already a donator!
 command-donatoradd-invalid-time = Invalid time offset '{$time}', must be a positive integer in days.
 command-donatoradd-added = {$name} added to the donator list.

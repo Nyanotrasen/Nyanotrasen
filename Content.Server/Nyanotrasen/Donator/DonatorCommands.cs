@@ -30,11 +30,15 @@ public sealed class AddDonatorCommand : IConsoleCommand
         }
 
         uint days = 0;
+        string rank = "Unknown";
         switch (args.Length)
         {
-            case 2 when uint.TryParse(args[1], out days):
+            case 2:
+                rank = args[1];
                 break;
-            case 2 when !uint.TryParse(args[1], out days):
+            case 3 when uint.TryParse(args[2], out days):
+                break;
+            case 3 when !uint.TryParse(args[2], out days):
                 shell.WriteLine(Loc.GetString("command-donatoradd-invalid-time", ("time", args[1])));
                 return;
         }
@@ -54,7 +58,7 @@ public sealed class AddDonatorCommand : IConsoleCommand
             return;
         }
 
-        await db.AddDonatorAsync(guid, expires);
+        await db.AddDonatorAsync(guid, expires, rank, Color.Red);
 
         shell.WriteLine(Loc.GetString("command-donatoradd-added", ("name", name)));
     }

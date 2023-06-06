@@ -225,9 +225,13 @@ namespace Content.Server.Database
 
         Task<Donator?> GetDonatorInformationAsync(NetUserId player);
 
-        Task AddDonatorAsync(NetUserId player, DateTime? expires);
+        Task AddDonatorAsync(NetUserId player, DateTime? expires, string? rank, Color? color);
 
         Task RemoveDonatorAsync(NetUserId player);
+
+        Task UpdateDonatorColorAsync(NetUserId player, Color color);
+
+        Task UpdateDonatorRankAsync(NetUserId player, string rank);
 
         #endregion
 
@@ -637,16 +641,28 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetDonatorInformationAsync(player));
         }
 
-        public Task AddDonatorAsync(NetUserId player, DateTime? expires)
+        public Task AddDonatorAsync(NetUserId player, DateTime? expires, string? rank, Color? color)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.AddDonatorAsync(player, expires));
+            return RunDbCommand(() => _db.AddDonatorAsync(player, expires, rank, color));
         }
 
         public Task RemoveDonatorAsync(NetUserId player)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveDonatorAsync(player));
+        }
+
+        public Task UpdateDonatorColorAsync(NetUserId player, Color color)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateDonatorColorAsync(player, color));
+        }
+
+        public Task UpdateDonatorRankAsync(NetUserId player, string rank)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateDonatorRankAsync(player, rank));
         }
 
         public Task AddUploadedResourceLogAsync(NetUserId user, DateTime date, string path, byte[] data)

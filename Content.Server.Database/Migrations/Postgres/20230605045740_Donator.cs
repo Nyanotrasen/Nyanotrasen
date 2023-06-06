@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -14,8 +15,10 @@ namespace Content.Server.Database.Migrations.Postgres
                 name: "donator",
                 columns: table => new
                 {
-                    user_id = table.Column<string>(type: "text", nullable: false),
-                    expiration_date = table.Column<string>(type: "text", nullable: true)
+                    user_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    expiration_date = table.Column<string>(type: "text", nullable: true),
+                    ooc_color = table.Column<string>(type: "text", nullable: false, defaultValue: "#ff0000"),
+                    rank = table.Column<string>(type: "text", nullable: false, defaultValue: "Unknown")
                 },
                 constraints: table =>
                 {

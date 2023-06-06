@@ -953,17 +953,27 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid")
+                        .HasColumnType("TEXT")
                         .HasColumnName("user_id");
 
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_date");
 
+                    b.Property<string>("OOCColor")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooc_color");
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("rank");
+
                     b.HasKey("UserId")
                         .HasName("PK_donator");
 
-                    b.ToTable("donator", (string) null);
+                    b.ToTable("donator", (string)null);
                 });
 
             modelBuilder.Entity("PlayerRound", b =>

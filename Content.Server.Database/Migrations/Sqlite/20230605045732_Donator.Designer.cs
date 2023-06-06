@@ -394,6 +394,16 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("expiration_date");
 
+                    b.Property<string>("OOCColor")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ooc_color");
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("rank");
+
                     b.HasKey("UserId")
                         .HasName("PK_donator");
 

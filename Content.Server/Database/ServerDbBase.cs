@@ -955,11 +955,18 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return await db.DbContext.Donator.SingleOrDefaultAsync(d => d.UserId == player);
         }
 
-        public async Task AddDonatorAsync(NetUserId player, DateTime? date)
+        public async Task AddDonatorAsync(NetUserId player, DateTime? date, string? rank, Color? color)
         {
             await using var db = await GetDb();
 
-            db.DbContext.Donator.Add(new Donator { UserId = player, ExpirationDate = date });
+            db.DbContext.Donator.Add(new Donator
+            {
+                UserId = player,
+                ExpirationDate = date,
+                OOCColor = color?.ToHex() ?? Color.Red.ToHex(),
+                Rank = rank ?? "Unknown",
+            });
+
             await db.DbContext.SaveChangesAsync();
         }
 
@@ -968,6 +975,26 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await using var db = await GetDb();
             var entry = await db.DbContext.Donator.SingleAsync(d => d.UserId == player);
             db.DbContext.Donator.Remove(entry);
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateDonatorColorAsync(NetUserId player, Color color)
+        {
+            await using var db = await GetDb();
+
+            var entry = await db.DbContext.Donator.SingleAsync(d => d.UserId == player);
+            entry.OOCColor = color.ToHex();
+
+            await db.DbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateDonatorRankAsync(NetUserId player, string rank)
+        {
+            await using var db = await GetDb();
+
+            var entry = await db.DbContext.Donator.SingleAsync(d => d.UserId == player);
+            entry.Rank = rank;
+
             await db.DbContext.SaveChangesAsync();
         }
         #endregion

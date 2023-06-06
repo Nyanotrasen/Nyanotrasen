@@ -327,6 +327,8 @@ namespace Content.Server.Database
     {
         [Required, Key] public Guid UserId { get; set; }
         public DateTime? ExpirationDate { get; set; }
+        public string OOCColor { get; set; } = null!;
+        public string Rank { get; set; } = null!;
     }
 
     public class Admin

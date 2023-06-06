@@ -427,6 +427,16 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("expiration_date");
 
+                    b.Property<string>("OOCColor")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ooc_color");
+
+                    b.Property<string>("Rank")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("rank");
+
                     b.HasKey("UserId")
                         .HasName("PK_donator");
 
