@@ -223,6 +223,8 @@ namespace Content.Server.Database
 
         Task<bool> GetDonatorStatusAsync(NetUserId player);
 
+        Task<Donator?> GetDonatorInformationAsync(NetUserId player);
+
         Task AddDonatorAsync(NetUserId player, DateTime? expires);
 
         Task RemoveDonatorAsync(NetUserId player);
@@ -627,6 +629,12 @@ namespace Content.Server.Database
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetDonatorStatusAsync(player));
+        }
+
+        public Task<Donator?> GetDonatorInformationAsync(NetUserId player)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetDonatorInformationAsync(player));
         }
 
         public Task AddDonatorAsync(NetUserId player, DateTime? expires)

@@ -928,8 +928,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var active = false;
             await using var db = await GetDb();
 
-            // Check if the player is in the donator table
-            if (await db.DbContext.Donator.SingleAsync(d => d.UserId == player) is { } donator)
+            // Get the donator information
+            var donator = await db.DbContext.Donator.SingleOrDefaultAsync(d => d.UserId == player);
+            if (donator is not null)
             {
                 // Check if the donator has an expiration date
                 if (donator.ExpirationDate != null)
@@ -945,6 +946,13 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             }
 
             return active;
+        }
+
+        public async Task<Donator?> GetDonatorInformationAsync(NetUserId player)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Donator.SingleOrDefaultAsync(d => d.UserId == player);
         }
 
         public async Task AddDonatorAsync(NetUserId player, DateTime? date)
