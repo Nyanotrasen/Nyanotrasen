@@ -925,9 +925,26 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         public async Task<bool> GetDonatorStatusAsync(NetUserId player)
         {
+            var active = false;
             await using var db = await GetDb();
 
-            return await db.DbContext.Donator.AnyAsync(d => d.UserId == player);
+            // Check if the player is in the donator table
+            if (await db.DbContext.Donator.SingleAsync(d => d.UserId == player) is { } donator)
+            {
+                // Check if the donator has an expiration date
+                if (donator.ExpirationDate != null)
+                {
+                    // Check if the donator is still active
+                    active = donator.ExpirationDate > DateTime.Now;
+                }
+                else
+                {
+                    // Donator is active if they don't have an expiration date
+                    active = true;
+                }
+            }
+
+            return active;
         }
 
         public async Task AddDonatorAsync(NetUserId player, DateTime? date)
