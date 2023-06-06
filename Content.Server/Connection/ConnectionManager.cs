@@ -1,4 +1,4 @@
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Server.GameTicking;
@@ -104,6 +104,7 @@ namespace Content.Server.Connection
             }
 
             var adminData = await _dbManager.GetAdminDataForAsync(e.UserId);
+            var donatorData = await _dbManager.GetDonatorStatusAsync(e.UserId);
 
             if (_cfg.GetCVar(CCVars.PanicBunkerEnabled))
             {
@@ -140,7 +141,7 @@ namespace Content.Server.Connection
             var wasInGame = EntitySystem.TryGet<GameTicker>(out var ticker) &&
                             ticker.PlayerGameStatuses.TryGetValue(userId, out var status) &&
                             status == PlayerGameStatus.JoinedGame;
-            if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && adminData is null) && !wasInGame)
+            if ((_plyMgr.PlayerCount >= _cfg.GetCVar(CCVars.SoftMaxPlayers) && (adminData is null || donatorData is false)) && !wasInGame)
             {
                 var reason = Loc.GetString("soft-player-cap-full");
                 var redial = _redial.GetRandomRedial();
