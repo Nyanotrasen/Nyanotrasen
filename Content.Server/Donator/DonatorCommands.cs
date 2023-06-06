@@ -3,7 +3,7 @@ using Content.Server.Database;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
-namespace Content.Server.Nyanotrasen.Donator;
+namespace Content.Server.Donator;
 
 [AdminCommand(AdminFlags.Host)]
 public sealed class AddDonatorCommand : IConsoleCommand

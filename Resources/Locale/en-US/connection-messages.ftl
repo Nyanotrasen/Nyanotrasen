@@ -13,7 +13,6 @@ command-whitelistremove-existing = {$username} is not on the whitelist!
 command-whitelistremove-removed = {$username} removed from the whitelist
 command-whitelistremove-not-found = Unable to find '{$username}'
 
-# Nyanotrasen-Donator-start
 command-donatoradd-description = Adds the player with the given username to the donator list with an optional rank and expiration time offset in days.
 command-donatoradd-help = donatoradd <username> <rank> <expiration time>
 command-donatoradd-existing = {$name} is already a donator!
@@ -32,7 +31,6 @@ command-donatorget-help = donatorget <username>
 command-donatorget-not-found = Unable to find user with name '{$name}'
 command-donatorget-donator = {$name} is a donator.
 command-donatorget-not-donator = {$name} is not a donator.
-# Nyanotrasen-Donator-end
 
 command-kicknonwhitelisted-description = Kicks all non-whitelisted players from the server.
 command-kicknonwhitelisted-help = kicknonwhitelisted
