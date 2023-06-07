@@ -9,6 +9,7 @@ using Content.Server.Station.Systems;
 using Content.Server.Mind.Components;
 using Content.Server.DetailExaminable;
 using Content.Server.Players;
+using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Psionics;
 using Content.Server.Jobs;

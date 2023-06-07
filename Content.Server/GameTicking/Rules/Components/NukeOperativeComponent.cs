@@ -1,3 +1,5 @@
+using Robust.Shared.Audio;
+
 namespace Content.Server.GameTicking.Rules.Components;
 
 /// <summary>
@@ -6,6 +8,9 @@ namespace Content.Server.GameTicking.Rules.Components;
 [RegisterComponent]
 public sealed class NukeOperativeComponent : Component
 {
-    [DataField("firstMindAdded")]
-    public bool FirstMindAdded = false;
+    /// <summary>
+    ///     Path to antagonist alert sound.
+    /// </summary>
+    [DataField("greetSoundNotification")]
+    public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
 }
