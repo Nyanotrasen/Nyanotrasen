@@ -89,6 +89,19 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRat
+  name: rat king fan outfit
+  description: Declare your allegiance to the rodent monarch, as well as your desire to see the station burn *at the same time!*
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
+    # TODO: Remove the line below when the sprite accounts for FemaleMask.
+    femaleMask: NoMask
+
 ## old schoolgirl uniforms
 
 - type: entity
