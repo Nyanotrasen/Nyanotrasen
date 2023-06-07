@@ -56,7 +56,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!args.CanInteract || !args.CanAccess || component.HideFromExamine)
             return;
 
-        var damageSpec = GetDamage(uid, component);
+        var damageSpec = GetDamage(uid, args.User, component);
 
         if (damageSpec.Total == FixedPoint2.Zero)
             return;
