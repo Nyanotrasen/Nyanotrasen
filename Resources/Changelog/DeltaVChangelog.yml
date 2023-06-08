@@ -1,109 +1,131 @@
 Entries:
-  - author: Colin-Tel
-    changes:
-      - message: Lowered the maintenance lighting on Angle and Shoukou.
-        type: Tweak
-    id: 1
-    time: '2023-05-08T08:00:00.0000000+00:00'
-  - author: ZeroDayDaemon
-    changes:
-      - message: Enabled all species types, and added Vulpkanin
-        type: Add
-    id: 2
-    time: '2023-05-09T08:00:00.0000000+00:00'
-  - author: Fireheart
-    changes:
-      - message: Adjusted character name validation
-        type: Tweak
-    id: 3
-    time: '2023-05-11T08:00:00.0000000+00:00'
-  - author: Debug
-    changes:
-      - message: Made the changelog system better
-        type: Tweak
-    id: 4
-    time: '2023-05-11T08:00:00.0000000+00:00'
-  - author: ODJ
-    changes:
-      - message: Diona, Reptilian, and Vulpkanin morphotypes should feel a bit better.
-        type: Tweak
-    id: 5
-    time: '2023-05-11T08:00:00.0000000+00:00'
-  - author: Debug
-    changes:
-      - message: Merged upstream, please report any bugs or issues you find.
-        type: Add
-    id: 6
-    time: '2023-05-13T08:00:00.0000000+00:00'
-  - author: BasedPugilist
-    changes:
-      - message: The rules have been updated, make sure to read them!
-        type: Tweak
-    id: 7
-    time: '2023-05-15T00:00:00.0000000+00:00'
-  - author: 20kdc
-    changes:
-      - message: After a terrible accident involving an unfortunately rotated circuit board revision, the crew monitoring devices now should show the correct directions again and shouldn't be too harmful to look at for long periods of time.
-        type: Fix
-    id: 8
-    time: '2023-05-16T00:00:00.0000000+00:00'
-  - author: TadJohnson00
-    changes:
-      - message: Added HoP mess kit, inspection items, and flak jackets.
-        type: Add
-      - message: Changed e-cutlass sprites to fit planned artstyle, replaced detective vest with press flak jacket in RepDrobe.
-        type: Tweak
-    id: 9
-    time: '2023-05-16T08:00:00.0000000+00:00'
-  - author: Debug
-    changes:
-      - message: Mimes with the muted trait should no longer cause round restart loops, if only they spoke up about it sooner.
-        type: Fix
-    id: 10
-    time: '2023-05-18T00:00:00.0000000+00:00'
-  - author: Scribbles0
-    changes:
-      - message: Lone nuclear operatives have recently started attacking stations. Make sure to watch out for them on long, extended shifts.
-        type: Add
-    id: 11
-    time: '2023-05-23T00:00:00.0000000+00:00'
-  - author: Pooch
-    changes:
-      - message: Dwarf, Vox, Skeleton mobs now carriable
-        type: Fix
-    id: 12
-    time: '2023-05-31T12:00:00.0000000+00:00'
-  - author: Debug
-    changes:
-      - message: Reports have been coming in about a new type of robot designed by Cybersun falling into the hands of nuclear operatives.
-        type: Add
-    id: 13
-    time: '2023-05-31T12:00:00.0000000+00:00'
-  - author: Debug
-    changes:
-      - message: Merged upstream, shouldn't cause any issues
-        type: Add
-      - message: Enabled ambient sounds
-        type: Tweak
-    id: 14
-    time: '2023-06-05T12:00:00.0000000+00:00'
-  - author: FluffiestFloof
-    changes:
-      - message: Fixed some morphotypes accidentally being faster than others.
-        type: Fix
-    id: 15
-    time: '2023-06-05T12:00:00.0000000+00:00'
-  - author: TadJohnson00
-    changes:
-      - message: added various mafia-related clothes, the Typewriter SMG, a snubnosed .45, and a few other tidbits.
-        type: Add
-      - message: resprited vests (kevlar, web, flak) to look a little nicer.
-        type: Tweak
-    id: 16
-    time: '2023-06-05T12:00:00.0000000+00:00'
-  - author: Colin-Tel
-    changes:
-      - message: Security cadets regained their Brig access.
-        type: Fix
-    id: 17
-    time: '2023-06-05T12:00:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - message: Lowered the maintenance lighting on Angle and Shoukou.
+      type: Tweak
+  id: 1
+  time: '2023-05-08T08:00:00.0000000+00:00'
+- author: ZeroDayDaemon
+  changes:
+    - message: Enabled all species types, and added Vulpkanin
+      type: Add
+  id: 2
+  time: '2023-05-09T08:00:00.0000000+00:00'
+- author: Fireheart
+  changes:
+    - message: Adjusted character name validation
+      type: Tweak
+  id: 3
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Made the changelog system better
+      type: Tweak
+  id: 4
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: ODJ
+  changes:
+    - message: Diona, Reptilian, and Vulpkanin morphotypes should feel a bit better.
+      type: Tweak
+  id: 5
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Merged upstream, please report any bugs or issues you find.
+      type: Add
+  id: 6
+  time: '2023-05-13T08:00:00.0000000+00:00'
+- author: BasedPugilist
+  changes:
+    - message: The rules have been updated, make sure to read them!
+      type: Tweak
+  id: 7
+  time: '2023-05-15T00:00:00.0000000+00:00'
+- author: 20kdc
+  changes:
+    - message: >-
+        After a terrible accident involving an unfortunately rotated circuit
+        board revision, the crew monitoring devices now should show the correct
+        directions again and shouldn't be too harmful to look at for long
+        periods of time.
+      type: Fix
+  id: 8
+  time: '2023-05-16T00:00:00.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - message: Added HoP mess kit, inspection items, and flak jackets.
+      type: Add
+    - message: >-
+        Changed e-cutlass sprites to fit planned artstyle, replaced detective
+        vest with press flak jacket in RepDrobe.
+      type: Tweak
+  id: 9
+  time: '2023-05-16T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: >-
+        Mimes with the muted trait should no longer cause round restart loops,
+        if only they spoke up about it sooner.
+      type: Fix
+  id: 10
+  time: '2023-05-18T00:00:00.0000000+00:00'
+- author: Scribbles0
+  changes:
+    - message: >-
+        Lone nuclear operatives have recently started attacking stations. Make
+        sure to watch out for them on long, extended shifts.
+      type: Add
+  id: 11
+  time: '2023-05-23T00:00:00.0000000+00:00'
+- author: Pooch
+  changes:
+    - message: Dwarf, Vox, Skeleton mobs now carriable
+      type: Fix
+  id: 12
+  time: '2023-05-31T12:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: >-
+        Reports have been coming in about a new type of robot designed by
+        Cybersun falling into the hands of nuclear operatives.
+      type: Add
+  id: 13
+  time: '2023-05-31T12:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Merged upstream, shouldn't cause any issues
+      type: Add
+    - message: Enabled ambient sounds
+      type: Tweak
+  id: 14
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+    - message: Fixed some morphotypes accidentally being faster than others.
+      type: Fix
+  id: 15
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - message: >-
+        added various mafia-related clothes, the Typewriter SMG, a snubnosed
+        .45, and a few other tidbits.
+      type: Add
+    - message: resprited vests (kevlar, web, flak) to look a little nicer.
+      type: Tweak
+  id: 16
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - message: Security cadets regained their Brig access.
+      type: Fix
+  id: 17
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: ShatteredSwords
+  changes:
+    - type: add
+      message: >-
+        Added THE SPOOOOKYY GHOST HOTEL FROM CATACLYSM, YOUR FAVORITE/LEAST
+        FAVORITE UNOFFICIAL GOD OF CHAOS
+  id: 18
+  time: '2023-06-07T19:03:59.0000000+00:00'
