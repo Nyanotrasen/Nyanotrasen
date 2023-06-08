@@ -8,9 +8,9 @@
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    name: ghost-role-information-remilia-name
-    description: ghost-role-information-remilia-description
-    rules: ghost-role-information-remilia-rules
+    name: Remilia
+    description: The chaplain's familiar, likes fruit
+    rules: Follow your master's orders and drink blood.
   - type: GhostTakeoverAvailable
   - type: Grammar
     attributes:
