@@ -29,6 +29,7 @@ public sealed partial class MappingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        InitializeCopyBuffers();
 
         SubscribeLocalEvent<FillActionSlotEvent>(OnFillActionSlot);
         SubscribeLocalEvent<StartPlacementActionEvent>(OnStartPlacementAction);
