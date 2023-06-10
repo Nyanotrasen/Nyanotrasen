@@ -99,6 +99,8 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
+    # TODO: Remove the line below when the sprite accounts for FemaleMask.
+    femaleMask: NoMask
 
 ## old schoolgirl uniforms
 
