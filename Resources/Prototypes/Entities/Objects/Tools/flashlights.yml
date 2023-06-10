@@ -61,7 +61,6 @@
     damage: 9.5
   - type: Sprite
     sprite: Objects/Tools/flashlight.rsi
-    netsync: false
     layers:
       - state: flashlight
       - state: flashlight-overlay

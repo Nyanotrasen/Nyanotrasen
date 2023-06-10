@@ -7,7 +7,6 @@
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
     snapCardinals: true
-    netsync: false
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -99,7 +98,6 @@
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
     snapCardinals: true
-    netsync: false
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -227,7 +225,6 @@
   description: Prints circuit boards for machines.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/circuit_imprinter.rsi
     layers:
     - state: icon
@@ -327,7 +324,6 @@
   description: Creates parts for mechs and hardsuits.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/exosuit_fabricator.rsi
     layers:
     - state: fab-idle
@@ -372,7 +368,6 @@
   description: Prints equipment for use by security crew.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
@@ -457,7 +452,6 @@
   description: Prints equipment for use by the medbay.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
@@ -536,7 +530,6 @@
     noRot: false
   - type: Sprite
     sprite: Structures/Machines/uniform_printer.rsi
-    netsync: false
     snapCardinals: false
     layers:
     - state: icon
@@ -696,7 +689,6 @@
   components:
     - type: Sprite
       sprite: Structures/Machines/ore_processor.rsi
-      netsync: false
       layers:
         - state: icon
           map: ["enum.LatheVisualLayers.IsRunning"]

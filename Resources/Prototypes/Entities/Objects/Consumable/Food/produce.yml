@@ -7,7 +7,6 @@
   components:
   - type: SolutionContainerManager
   - type: Sprite
-    netsync: false
     state: produce
   - type: Produce
   - type: PotencyVisuals
@@ -24,7 +23,6 @@
   components:
   - type: SolutionContainerManager
   - type: Sprite
-    netsync: false
     state: produce
   - type: Produce
   - type: PotencyVisuals
@@ -595,7 +593,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/corn.rsi
     state: cob
-    netsync: false
   - type: Item
     size: 1
   - type: Tag
@@ -690,7 +687,6 @@
         - ReagentId: Nutriment
           Quantity: 2
   - type: Sprite
-    netsync: false
     state: slice
   - type: Extractable
     grindableSolutionName: food

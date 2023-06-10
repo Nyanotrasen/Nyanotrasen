@@ -9,7 +9,6 @@
     noRot: true
   - type: Sprite
     noRot: true
-    netsync: false
     sprite: Structures/Storage/closet.rsi
     layers:
     - state: generic
@@ -98,7 +97,6 @@
     noRot: false
   - type: Sprite
     drawdepth: WallMountedItems
-    netsync: false
     noRot: false
     sprite: Structures/Storage/wall_locker.rsi
     layers:
@@ -156,7 +154,6 @@
   - type: AccessReader
   - type: Lock
   - type: Sprite
-    netsync: false
     sprite: Structures/Storage/wall_locker.rsi
     layers:
     - state: generic
@@ -187,7 +184,6 @@
     noRot: true
   - type: Sprite
     noRot: true
-    netsync: false
     sprite: Structures/Storage/suit_storage.rsi
     layers:
     - state: base
