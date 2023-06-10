@@ -30,18 +30,13 @@ namespace Content.Server.Medical.Components
         [ViewVariables(VVAccess.ReadWrite)]
         public float ModifyBloodLevel = 0.0f;
 
-
-        /// Nyano change: This has been changed from a string? to a List<string>?
-
         /// <remarks>
         ///     The supported damage types are specified using a <see cref="DamageContainerPrototype"/>s. For a
-        ///     HealingComponent this filters what damage container types this component should work on. If null,
+        ///     HealingComponent this filters what damage container type this component should work on. If null,
         ///     all damage container types are supported.
         /// </remarks>
         [DataField("damageContainers", customTypeSerializer: typeof(PrototypeIdListSerializer<DamageContainerPrototype>))]
         public List<string>? DamageContainers;
-
-        /// End Nyano change
 
         /// <summary>
         /// How long it takes to apply the damage.

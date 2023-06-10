@@ -58,6 +58,10 @@
       effects:
       - !type:SatiateHunger
         factor: 1.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
 
 - type: reagent
   id: Ichor

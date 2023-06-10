@@ -51,8 +51,12 @@ public sealed class HealingSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        if (component.DamageContainerID is not null && !component.DamageContainerID.Equals(component.DamageContainerID))
+        if (healing.DamageContainers is not null &&
+            component.DamageContainerID is not null &&
+            !healing.DamageContainers.Contains(component.DamageContainerID))
+        {
             return;
+        }
 
         // Heal some bloodloss damage.
         if (healing.BloodlossModifier != 0)
@@ -140,12 +144,12 @@ public sealed class HealingSystem : EntitySystem
         if (!TryComp<DamageableComponent>(target, out var targetDamage))
             return false;
 
-        // Nyano change: We see if the target's damage container is in our LIST of damage containers
         if (component.DamageContainers is not null &&
             targetDamage.DamageContainerID is not null &&
             !component.DamageContainers.Contains(targetDamage.DamageContainerID))
+        {
             return false;
-        // end nyano change
+        }
 
         if (user != target && !_interactionSystem.InRangeUnobstructed(user, target, popup: true))
             return false;

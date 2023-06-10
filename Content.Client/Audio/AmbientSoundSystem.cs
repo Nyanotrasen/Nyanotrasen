@@ -7,10 +7,12 @@ using Robust.Shared.Log;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Linq;
+using Robust.Client.GameObjects;
 
 namespace Content.Client.Audio
 {
@@ -28,6 +30,7 @@ namespace Content.Client.Audio
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         protected override void QueueUpdate(EntityUid uid, AmbientSoundComponent ambience)
             => _treeSys.QueueTreeUpdate(uid, ambience);
@@ -93,6 +96,7 @@ namespace Content.Client.Audio
             _cfg.OnValueChanged(CCVars.AmbientRange, SetAmbientRange, true);
             _cfg.OnValueChanged(CCVars.AmbienceVolume, SetAmbienceVolume, true);
             SubscribeLocalEvent<AmbientSoundComponent, ComponentShutdown>(OnShutdown);
+            SubscribeLocalEvent<AmbientSoundComponent, AmbientSoundChangedSoundEvent>(OnChangedSound);
         }
 
         private void OnShutdown(EntityUid uid, AmbientSoundComponent component, ComponentShutdown args)
@@ -106,7 +110,35 @@ namespace Content.Client.Audio
                 _playingCount.Remove(sound.Sound);
         }
 
-        private void SetAmbienceVolume(float value) => _ambienceVolume = value;
+        // Begin Nyano-code: allow changing of SoundSpecifier.
+        private void OnChangedSound(EntityUid uid, AmbientSoundComponent component, AmbientSoundChangedSoundEvent args)
+        {
+            // This just duplicates what shutting down the component does,
+            // because the sound will be re-added when ProcessNearbyAmbience
+            // goes through the nearby sources again.
+            if (!_playingSounds.Remove(component, out var sound))
+                return;
+
+            sound.Stream?.Stop();
+            _playingCount[sound.Sound] -= 1;
+            if (_playingCount[sound.Sound] == 0)
+                _playingCount.Remove(sound.Sound);
+        }
+        // End Nyano-code.
+
+        private void SetAmbienceVolume(float value)
+        {
+            _ambienceVolume = value;
+
+            foreach (var (comp, values) in _playingSounds)
+            {
+                if (values.Stream == null)
+                    continue;
+
+                var stream = (AudioSystem.PlayingStream) values.Stream;
+                stream.Volume = _params.Volume + comp.Volume + _ambienceVolume;
+            }
+        }
         private void SetCooldown(float value) => _cooldown = value;
         private void SetAmbientCount(int value) => _maxAmbientCount = value;
         private void SetAmbientRange(float value) => _maxAmbientRange = value;
@@ -224,20 +256,10 @@ namespace Content.Client.Audio
             var metaQuery = GetEntityQuery<MetaDataComponent>();
             var mapPos = playerXform.MapPosition;
 
-            // Remove out-of-range ambiences and sounds with updated paths
+            // Remove out-of-range ambiences
             foreach (var (comp, sound) in _playingSounds)
             {
                 var entity = comp.Owner;
-
-                // check if path has been updated
-                if (sound.Sound != comp.Sound.GetSound())
-                {
-                    sound.Stream?.Stop();
-                    _playingSounds.Remove(comp);
-                    _playingCount[sound.Sound] -= 1;
-                    if (_playingCount[sound.Sound] == 0)
-                        _playingCount.Remove(sound.Sound);
-                }
 
                 if (comp.Enabled &&
                     query.TryGetComponent(entity, out var xform) &&

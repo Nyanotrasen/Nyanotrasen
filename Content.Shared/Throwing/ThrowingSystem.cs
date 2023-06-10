@@ -14,7 +14,7 @@ public sealed class ThrowingSystem : EntitySystem
 {
     public const float ThrowAngularImpulse = 5f;
 
-    public const float PushbackDefault = 1f;
+    public const float PushbackDefault = 2f;
 
     /// <summary>
     /// The minimum amount of time an entity needs to be thrown before the timer can be run.
@@ -133,9 +133,10 @@ public sealed class ThrowingSystem : EntitySystem
         {
             var msg = new ThrowPushbackAttemptEvent();
             RaiseLocalEvent(uid, msg);
+            const float MassLimit = 5f;
 
             if (!msg.Cancelled)
-                _physics.ApplyLinearImpulse(user.Value, -impulseVector * pushbackRatio * physics.Mass, body: userPhysics);
+                _physics.ApplyLinearImpulse(user.Value, -impulseVector / physics.Mass * pushbackRatio * MathF.Min(MassLimit, physics.Mass), body: userPhysics);
         }
     }
 }

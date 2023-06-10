@@ -10,5 +10,4 @@ cocoon-start-second-person = You start cocooning {THE($target)}.
 cocoon-start-third-person = {CAPITALIZE(THE($spider))} starts cocooning {THE($target)}.
 spun-web-second-person = You spin up a web.
 spun-web-third-person = {CAPITALIZE(THE($spider))} spins up a web!
-rest-on-web = Rest on web
 cocoon = Cocoon
