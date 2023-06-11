@@ -88,7 +88,16 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
-
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingCostumeNaota
+  name: turquoise hoodie and shorts
+  description: A hoodie with a small kangaroo pouch. 
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/aUniforms/Costume/naota.rsi
 ## old schoolgirl uniforms
 
 - type: entity
