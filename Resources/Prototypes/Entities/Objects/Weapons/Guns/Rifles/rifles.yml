@@ -188,8 +188,10 @@
   name: SK-40
   parent: BaseWeaponRifle
   id: WeaponRifleSK40
-  description: A oddly robust lmg based off the dp-27, highly light but with a reduced ammo count. Uses .20 rifle ammo.
+  description: A rifle based off the dp-27 modified to withstand the strongest winters, highly light but with a reduced ammo count. Uses .20 rifle ammo. #why can't we just rename this shit to metric calibers? who the fuck thinks "oh we should use .50 for shotguns"smh
   components:
+  - type: Gun
+    fireRate: 2
   - type: Item
    size: 35
   - type: Sprite
