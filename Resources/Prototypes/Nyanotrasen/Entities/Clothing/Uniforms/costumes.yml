@@ -91,6 +91,17 @@
 
 - type: entity
   parent: ClothingUniformBase
+  id: ClothingCostumeNaota
+  name: turquoise hoodie and shorts
+  description: A hoodie with a small kangaroo pouch. 
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
+
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformRat
   name: rat king fan outfit
   description: Declare your allegiance to the rodent monarch, as well as your desire to see the station burn *at the same time!*
