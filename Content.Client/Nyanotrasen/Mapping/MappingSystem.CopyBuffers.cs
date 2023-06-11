@@ -57,9 +57,7 @@ public sealed partial class MappingSystem : EntitySystem
 
         args.Handled = true;
 
-        var _entityManager = IoCManager.Resolve<IEntityManager>();
-
-        var gridId = args.Target.GetGridUid(_entityManager);
+        var gridId = args.Target.GetGridUid(EntityManager);
         if (gridId == null)
             return;
 
