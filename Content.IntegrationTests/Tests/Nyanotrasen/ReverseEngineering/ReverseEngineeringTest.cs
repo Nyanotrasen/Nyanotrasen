@@ -16,7 +16,7 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
         private readonly HashSet<string> _ignoredPrototypes = new()
         {
             // This can be reverse-engineered, but the recipe will produce a version of itself without batteries.
-            "HandheldCrewMonitor",
+            "HandheldCrewMonitor", "HandheldCrewMonitorBorg",
         };
 
         [Test]

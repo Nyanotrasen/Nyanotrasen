@@ -10,12 +10,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60
+        maxVol: 100
         reagents:
         - ReagentId: Butter
           Quantity: 10
         - ReagentId: THC
-          Quantity: 45
+          Quantity: 82
   - type: Extractable
     grindableSolutionName: food
 

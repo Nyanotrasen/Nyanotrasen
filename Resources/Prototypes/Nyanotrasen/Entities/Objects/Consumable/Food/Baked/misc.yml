@@ -15,14 +15,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 148
+        maxVol: 228
         reagents:
         - ReagentId: Nutriment
           Quantity: 30
         - ReagentId: Theobromine
           Quantity: 18
         - ReagentId: THC
-          Quantity: 90
+          Quantity: 150
   - type: SliceableFood
     count: 6
     slice: FoodBakedCannabisBrownie
@@ -44,14 +44,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 28
+        maxVol: 38
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
         - ReagentId: Theobromine
           Quantity: 3
         - ReagentId: THC
-          Quantity: 15
+          Quantity: 25
 
 - type: entity
   name: cheesecake balls
