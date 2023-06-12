@@ -9,7 +9,7 @@ namespace Content.Client.PDA.Ringer
     [GenerateTypedNameReferences]
     public sealed partial class RingtoneMenu : DefaultWindow
     {
-        public string[] PreviousNoteInputs = new[] { "A", "A", "A", "A" };
+        public string[] PreviousNoteInputs = new[] { "A", "A", "A", "A", "A", "A" };
         public LineEdit[] RingerNoteInputs = default!;
 
         public RingtoneMenu()

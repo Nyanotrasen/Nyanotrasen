@@ -278,7 +278,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         //give traitors their codewords and uplink code to keep in their character info menu
         traitorRole.Mind.Briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", traitorRule.Codewords)))
-            + "\n" + Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("", code)));
+            + "\n" + Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("", code).Replace("sharp", "#")));
 
         _audioSystem.PlayGlobal(traitorRule.AddedSound, Filter.Empty().AddPlayer(traitor), false, AudioParams.Default);
     }

@@ -27,7 +27,7 @@ namespace Content.Server.Traitor
                 var entMgr = IoCManager.Resolve<IEntityManager>();
                 chatMgr.DispatchServerMessage(session, Loc.GetString("traitor-role-greeting"));
                 chatMgr.DispatchServerMessage(session, Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-                chatMgr.DispatchServerMessage(session, Loc.GetString("traitor-role-uplink-code", ("code", string.Join("", code))));
+                chatMgr.DispatchServerMessage(session, Loc.GetString("traitor-role-uplink-code", ("code", string.Join("", code).Replace("sharp","#"))));
             }
         }
     }

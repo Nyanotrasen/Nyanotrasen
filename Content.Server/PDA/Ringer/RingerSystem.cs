@@ -96,16 +96,23 @@ namespace Content.Server.PDA.Ringer
             // Default to using C pentatonic so it at least sounds not terrible.
             var notes = new[]
             {
-                Note.C,
-                Note.D,
-                Note.E,
-                Note.G,
                 Note.A,
+                Note.Asharp,
+                Note.B,
+                Note.C,
+                Note.Csharp,
+                Note.D,
+                Note.Dsharp,
+                Note.E,
+                Note.F,
+                Note.Fsharp,
+                Note.G,
+                Note.Gsharp
             };
 
             var ringtone = new Note[RingtoneLength];
 
-            for (var i = 0; i < 4; i++)
+            for (var i = 0; i < RingtoneLength; i++)
             {
                 ringtone[i] = _random.Pick(notes);
             }
@@ -154,7 +161,7 @@ namespace Content.Server.PDA.Ringer
 
                 ringer.NoteCount++;
 
-                if (ringer.NoteCount > 3)
+                if (ringer.NoteCount > RingtoneLength-1)
                 {
                     remove.Add(ringer.Owner);
                     UpdateRingerUserInterface(ringer);
