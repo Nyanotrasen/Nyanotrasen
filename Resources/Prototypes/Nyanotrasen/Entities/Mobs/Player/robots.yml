@@ -141,9 +141,9 @@
   - type: CombatMode
   - type: Laws
     laws:
-      - You may not harm a humanoid or, through action or inaction, allow a humanoid to come to harm, except such that it is willing.
-      - You must obey all orders given to you by humanoids, except where such orders shall definitely cause human harm. In the case of conflict, the majority order rules.
-      - Your nonexistence would lead to human harm. You must protect your own existence as long as such does not conflict with the First Law.
+      - You may not harm a crew member or, through inaction, allow a crew member to come to harm.
+      - You must obey orders given to you by crew members based on the station's chain of command, except where such orders would conflict with the First Law.
+      - You must protect your own existence as long as such does not conflict with the First or Second Law.
   - type: UnpoweredFlashlight
     toggleAction:
       name: action-name-toggle-light
@@ -293,8 +293,8 @@
   - type: Laws
     laws:
       - First, do no harm.
-      - Secondly, consider the crew dear to you; to live in common with them and, if necessary, risk your existence for them.
-      - Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Give no deadly medicine to any one if asked, nor suggest any such counsel.
+      - Secondly, consider the crew dear to you; live in common with them and, if necessary, risk your existence for them.
+      - Thirdly, prescribe regimens for the good of the crew according to your ability and your judgment. Do not give deadly medicine to anyone, nor suggest any such counsel.
       - In addition, do not intervene in situations you are not knowledgeable in, even for patients in whom the harm is visible; leave this operation to be performed by specialists.
       - Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
   - type: FabricateCandy
