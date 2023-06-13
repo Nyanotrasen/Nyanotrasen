@@ -1,0 +1,33 @@
+- type: entity
+  id: Snowman
+  parent: BaseStructure
+  name: snowman
+  description: An adorable friend. 
+  abstract: true
+  components:
+    noRot: true
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Inflatable
+  - type: PlaceableSurface
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/snowstep2.ogg
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Furniture/snowman.rsi
+    state: snowman
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Furniture/snowman.rsi
+    state: snowman
