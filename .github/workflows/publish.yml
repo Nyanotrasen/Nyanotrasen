@@ -42,10 +42,10 @@ jobs:
     - name: Upload files to cdn
       uses: appleboy/scp-action@master
       with:
-        host: delta-v.org
-        username: ${{ secrets.BUILDS_PUSH_USER }}
-        key: ${{ secrets.BUILDS_PUSH_KEY }}
-        port: ${{ secrets.PUBLISH_SSH_PORT }}
+        host: ${{ secrets.PUBLISH_HOST }}
+        username: ${{ secrets.PUBLISH_USER }}
+        key: ${{ secrets.PUBLISH_KEY }}
+        port: ${{ secrets.PUBLISH_PORT }}
         source: "release/${{ github.sha }}"
         target: "/var/www/builds.delta-v.org/delta-v/builds/"
         strip_components: 1
@@ -53,10 +53,10 @@ jobs:
     - name: Update manifest JSON
       uses: appleboy/ssh-action@master
       with:
-        host: delta-v.org
-        username: ${{ secrets.BUILDS_PUSH_USER }}
-        key: ${{ secrets.BUILDS_PUSH_KEY }}
-        port: ${{ secrets.PUBLISH_SSH_PORT }}
+        host: ${{ secrets.PUBLISH_HOST }}
+        username: ${{ secrets.PUBLISH_USER }}
+        key: ${{ secrets.PUBLISH_KEY }}
+        port: ${{ secrets.PUBLISH_PORT }}
         script: /var/www/builds.delta-v.org/push.ps1 ${{ github.sha }}
 
     - name: Publish changelog
