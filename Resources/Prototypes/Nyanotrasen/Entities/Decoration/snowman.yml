@@ -5,6 +5,7 @@
   description: An adorable friend. 
   abstract: true
   components:
+  - type: Transform
     noRot: true
   - type: Damageable
     damageContainer: Inorganic
