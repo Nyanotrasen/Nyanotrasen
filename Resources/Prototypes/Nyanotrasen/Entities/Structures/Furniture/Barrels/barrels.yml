@@ -1,0 +1,73 @@
+- type: entity
+  id: BarrelBase
+  parent: BaseStructure
+  name: barrel
+  description: You feel a great urge to roll it down a hill. 
+  abstract: true
+  components:
+  - type: Anchorable
+  - type: Transform
+    noRot: true
+  - type: Prayable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: PlaceableSurface
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 55
+  - type: Sprite
+    netsync: false
+    snapCardinals: true
+  - type: Clickable
+
+- type: entity
+  id: BarrelSteel
+  parent: BarrelBase
+  name: steel barrel
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Furniture/barrels.rsi
+    state: steel
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Furniture/barrels.rsi
+    state: steel
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 25
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetPlasteel1:
+            min: 5
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+- type: entity
+  id: BarrelExplosive
+  parent: BarrelSteel
+  name: explosive barrel
+  description: On further inspection, it's not explosive. 
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Furniture/barrels.rsi
+    state: explosive
+  - type: Icon
+    sprite: Nyanotrasen/Structures/Furniture/barrels.rsi
+    state: explosive
+    
