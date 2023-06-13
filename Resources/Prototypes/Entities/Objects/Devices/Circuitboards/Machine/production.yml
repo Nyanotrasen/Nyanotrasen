@@ -1052,3 +1052,21 @@
     - type: ReverseEngineering
       recipes:
         - TelecomServerCircuitboard
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SalvageMagnetMachineCircuitboard
+  name: salvage magnet machine board
+  description: A machine printed circuit board for a salvage magnet.
+  components:
+  - type: MachineBoard
+    prototype: SalvageMagnet
+    requirements:
+      Capacitor: 4
+    materialRequirements:
+      Steel: 5
+      CableHV: 5
+      Cable: 2
+  - type: ReverseEngineering
+    recipes:
+      - SalvageMagnetMachineCircuitboard
