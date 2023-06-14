@@ -1,9 +1,10 @@
-﻿using Content.Server.Mind.Commands;
+﻿using Content.Server.DeltaV.Ghost.Roles;
+using Content.Server.Mind.Commands;
 
 namespace Content.Server.Ghost.Roles.Components
 {
     [RegisterComponent]
-    [Access(typeof(GhostRoleSystem))]
+    [Access(typeof(GhostRoleSystem), typeof(GhostRoleCharacterSystem))]
     public sealed class GhostRoleComponent : Component
     {
         [DataField("name")] public string _roleName = "Unknown";
