@@ -90,16 +90,16 @@ function getChanges(body) {
 
         switch (entry[0].toLowerCase()) {
             case "add":
-                type = "add";
+                type = "Add";
                 break;
             case "remove":
-                type = "remove";
+                type = "Remove";
                 break;
             case "tweak":
-                type = "tweak";
+                type = "Tweak";
                 break;
             case "fix":
-                type = "fix";
+                type = "Fix";
                 break;
             default:
                 break;
