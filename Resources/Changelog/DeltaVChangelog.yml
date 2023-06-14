@@ -135,3 +135,11 @@ Entries:
       message: Merged Nyano, shouldn't change too much
   id: 19
   time: '2023-06-12T07:41:02.0000000+00:00'
+- author: router
+  changes:
+    - type: tweak
+      message: >-
+        Maxcaps have had their radius reduced by roughly 3x, from 80 to 27.5 due
+        to a flimsier gas tank construction.
+  id: 20
+  time: '2023-06-14T00:13:51.0000000+00:00'
