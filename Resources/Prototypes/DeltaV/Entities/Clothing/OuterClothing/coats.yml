@@ -72,23 +72,3 @@
         Slash: 0.9
         Piercing: 0.6
         Heat: 0.75
-
-#- type: entity
-#  parent: ClothingOuterStorageBase
-#  id: ClothingOuterCoatMafioso
-#  name: mafioso coat
-#  description: A white coat. Don't get any blood on it!
-#  components:
-#  - type: Sprite
-#    sprite: DeltaV/Clothing/OuterClothing/Coats/mafioso.rsi
-#  - type: Clothing
-#    sprite: DeltaV/Clothing/OuterClothing/Coats/mafioso.rsi
-#  - type: TemperatureProtection
-#    coefficient: 0.1
-#  - type: Armor
-#    modifiers:
-#      coefficients:
-#        Slash: 0.9
-#        Heat: 0.75
-
-# add later when sprited better

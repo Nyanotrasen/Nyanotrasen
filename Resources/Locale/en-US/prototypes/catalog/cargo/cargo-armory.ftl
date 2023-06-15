@@ -9,3 +9,9 @@ ent-TrackingImplants = { ent-CrateTrackingImplants }
 
 ent-ArmoryLaser = { ent-CrateArmoryLaser }
     .desc = { ent-CrateArmoryLaser.desc }
+
+ent-ArmoryGrand = { ent-CrateArmoryGrand }
+    .desc = { eng-CraeArmoryGrand.desc }
+
+ent-ArmoryUniversal = { ent-CrateArmoryUniversal }
+    .desc = { ent-CrateArmoryUniversal.desc }

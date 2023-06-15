@@ -15,10 +15,12 @@
     sprite: DeltaV/Objects/Weapons/Guns/SMGs/typewriter.rsi
   - type: Gun
     minAngle: 1
-    maxAngle: 3
-    fireRate: 5
+    maxAngle: 15
+    angleIncrease: 5
+    angleDecay: 20
+    fireRate: 8
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/typewriter.ogg
   - type: ChamberMagazineAmmoProvider
   - type: ItemSlots
     slots:
