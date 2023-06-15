@@ -7,18 +7,19 @@ tilemap:
   4: FloorAsteroidCoarseSand0
   5: FloorAsteroidCoarseSandDug
   12: FloorBar
-  18: FloorCarpetClown
-  32: FloorDarkPlastic
-  39: FloorGlass
-  47: FloorHydro
-  48: FloorKitchen
-  56: FloorPlanetGrass
-  58: FloorRGlass
-  59: FloorReinforced
-  87: FloorWhiteMono
-  91: FloorWhitePlastic
-  92: FloorWood
-  95: Plating
+  19: FloorCarpetClown
+  33: FloorDarkPlastic
+  40: FloorGlass
+  48: FloorHydro
+  49: FloorKitchen
+  56: FloorPlanetDirt
+  57: FloorPlanetGrass
+  59: FloorRGlass
+  60: FloorReinforced
+  88: FloorWhiteMono
+  92: FloorWhitePlastic
+  93: FloorWood
+  96: Plating
 entities:
 - proto: ""
   entities:
@@ -40,22 +41,22 @@ entities:
     - chunks:
         0,0:
           ind: 0,0
-          tiles: XAAAAFwAAABcAAAAXAAAAFwAAAA6AAAAMAAAADAAAAAwAAAAMAAAADAAAABfAAAAXwAAAF8AAABfAAAAXwAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAwAAABcAAAAXAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAAXAAAAFwAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAADAAAAFwAAABcAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAA6AAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAFwAAABcAAAAXAAAAFwAAABcAAAAOgAAADoAAABfAAAAXwAAADsAAAA7AAAAXwAAAAAAAAAAAAAAAAAAAAAAAABcAAAAXAAAAFwAAABcAAAAXAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAAXwAAAF8AAABfAAAAOwAAADsAAABfAAAAAAAAAAAAAAAAAAAAAAAAACAAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: XQAAAF0AAABdAAAAXQAAAF0AAAA7AAAAMQAAADEAAAAxAAAAMQAAADEAAABgAAAAYAAAAGAAAABgAAAAYAAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAADAAAAAwAAABdAAAAXQAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAwAAAAMAAAAXQAAAF0AAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAMAAAADAAAAF0AAABdAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAA7AAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAF0AAABdAAAAXQAAAF0AAABdAAAAOwAAADsAAABgAAAAYAAAADwAAAA8AAAAYAAAAAAAAAAAAAAAAAAAAAAAAABdAAAAXQAAAF0AAABdAAAAXQAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAYAAAAGAAAABgAAAAPAAAADwAAABgAAAAAAAAAAAAAAAAAAAAAAAAACEAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         -1,0:
           ind: -1,0
-          tiles: AAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAEgAAAAIAAAACAAAAJwAAACcAAAA6AAAAXAAAAFwAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAFwAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAF8AAAA7AAAAOwAAADsAAAA7AAAAOwAAADoAAAA6AAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAOwAAADsAAAA7AAAAOwAAADsAAABfAAAAXwAAAAwAAAAMAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAOwAAADsAAABfAAAAXwAAAF8AAABfAAAAXAAAAFwAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAADsAAAA7AAAAOwAAAF8AAAA6AAAAOgAAAFwAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAAA7AAAAOwAAADsAAABfAAAAXwAAAF8AAABXAAAAVwAAAFcAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAOwAAADsAAAA7AAAAXwAAAF8AAABfAAAAVwAAAFcAAABXAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAEwAAAAIAAAACAAAAKAAAACgAAAA7AAAAXQAAAF0AAABdAAAAXQAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAF0AAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAMAAAADAAAAAwAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAA8AAAAPAAAADwAAAA8AAAAPAAAADsAAAA7AAAADAAAAAwAAAAMAAAADAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAPAAAADwAAAA8AAAAPAAAADwAAABgAAAAYAAAAAwAAAAMAAAADAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAPAAAADwAAABgAAAAYAAAAGAAAABgAAAAXQAAAF0AAABdAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAADwAAAA8AAAAPAAAAGAAAAA7AAAAOwAAAF0AAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAA8AAAAPAAAADwAAABgAAAAYAAAAGAAAABYAAAAWAAAAFgAAABdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAPAAAADwAAAA8AAAAYAAAAGAAAABgAAAAWAAAAFgAAABYAAAAXQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         -1,-1:
           ind: -1,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAWwAAAFsAAABbAAAAWwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAFsAAABbAAAAWwAAAFsAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABbAAAAWwAAAFsAAABbAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAAFwAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABcAAAAXAAAAFwAAABcAAAAXAAAAF8AAABcAAAAXAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAAXAAAAFwAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAAFwAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAABcAAAAXAAAAFwAAABcAAAAXAAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAEgAAAAIAAAACAAAAJwAAACcAAABfAAAAXAAAAFwAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAABfAAAAXwAAABIAAAACAAAAAgAAACcAAAAnAAAAXwAAAFwAAAAnAAAAJwAAACcAAAAAAAAAAAAAAAAAAAAAAAAAXwAAAF8AAAACAAAAAgAAAAIAAAAnAAAAJwAAAF8AAABcAAAAJwAAACcAAAAnAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAEgAAAAIAAAACAAAAJwAAACcAAABfAAAAXAAAACcAAAAnAAAAJwAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABcAAAAXAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAXAAAAFwAAABcAAAAXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAFwAAABcAAAAXAAAAFwAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABcAAAAXAAAAFwAAABcAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAAF0AAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABdAAAAXQAAAF0AAABdAAAAXQAAAGAAAABdAAAAXQAAAF0AAABdAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAXQAAAF0AAABdAAAAXQAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAAF0AAABdAAAAXQAAAF0AAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAABdAAAAXQAAAF0AAABdAAAAXQAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAEwAAAAIAAAACAAAAKAAAACgAAABgAAAAXQAAAF0AAABdAAAAXQAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAAAABMAAAACAAAAAgAAACgAAAAoAAAAYAAAAF0AAAAoAAAAKAAAACgAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAGAAAAACAAAAAgAAAAIAAAAoAAAAKAAAAGAAAABdAAAAKAAAACgAAAAoAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAEwAAAAIAAAACAAAAKAAAACgAAABgAAAAXQAAACgAAAAoAAAAKAAAAA==
         0,-1:
           ind: 0,-1
-          tiles: XwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABbAAAAWwAAAFsAAABbAAAAWwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWwAAAFsAAABbAAAAWwAAAFsAAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAFsAAABbAAAAWwAAAFsAAABbAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABbAAAAWwAAAFsAAABbAAAAWwAAAF8AAAAEAAAABQAAAAQAAAAEAAAABAAAAF8AAAA4AAAAOAAAADgAAAA4AAAAOgAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAOAAAADgAAAA4AAAAOAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAXwAAADgAAAA4AAAAOAAAADgAAABcAAAAXAAAAFwAAABcAAAAXAAAAF8AAAAvAAAALwAAAC8AAAAvAAAALwAAAF8AAAA4AAAAOAAAADgAAAA4AAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAALwAAAC8AAAAvAAAALwAAAC8AAABfAAAAOAAAADgAAAA4AAAAOAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAAC8AAAAvAAAALwAAAC8AAAAvAAAAXwAAADgAAAA4AAAAOAAAADgAAAA6AAAAXwAAAF8AAABfAAAAXwAAAF8AAAAvAAAALwAAAC8AAAAvAAAALwAAAF8AAAA4AAAAOAAAADgAAAA4AAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAAMAAAADAAAAAwAAAAMAAAADAAAABfAAAAOAAAADgAAAA4AAAAOAAAAFwAAABcAAAAXAAAAFwAAABcAAAAXwAAADAAAAAwAAAAMAAAADAAAAAwAAAAXwAAADgAAAA4AAAAOAAAADgAAABcAAAAXAAAAFwAAABcAAAAXAAAAF8AAAAwAAAAMAAAADAAAAAwAAAAMAAAAF8AAAA4AAAAOAAAADgAAAA4AAAAXAAAAFwAAABcAAAAXAAAAFwAAABfAAAAMAAAADAAAAAwAAAAMAAAADAAAABfAAAAOAAAADgAAAA4AAAAOAAAAA==
+          tiles: YAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABcAAAAXAAAAFwAAABcAAAAXAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAXAAAAFwAAABcAAAAXAAAAFwAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAFwAAABcAAAAXAAAAFwAAABcAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABcAAAAXAAAAFwAAABcAAAAXAAAAGAAAAAEAAAABQAAAAQAAAAEAAAABAAAAGAAAAA5AAAAOQAAADkAAAA5AAAAOwAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAOQAAADkAAAA5AAAAOQAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAADAAAAAwAAAAMAAAADAAAAAwAAAAYAAAADkAAAA5AAAAOQAAADkAAABdAAAAXQAAAF0AAABdAAAAXQAAAGAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAGAAAAA5AAAAOQAAADkAAAA5AAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAMAAAADAAAAAwAAAAMAAAADAAAABgAAAAOQAAADkAAAA5AAAAOQAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAADAAAAAwAAAAMAAAADAAAAAwAAAAYAAAADkAAAA5AAAAOQAAADkAAAA7AAAAYAAAAGAAAABgAAAAYAAAAGAAAAAwAAAAMAAAADAAAAAwAAAAMAAAAGAAAAA5AAAAOQAAADkAAAA5AAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAMQAAADEAAAAxAAAAMQAAADEAAABgAAAAOQAAADkAAAA5AAAAOQAAAF0AAABdAAAAXQAAAF0AAABdAAAAYAAAADEAAAAxAAAAMQAAADEAAAAxAAAAYAAAADkAAAA5AAAAOQAAADkAAABdAAAAXQAAAF0AAABdAAAAXQAAAGAAAAAxAAAAMQAAADEAAAAxAAAAMQAAAGAAAAA5AAAAOQAAADkAAAA5AAAAXQAAAF0AAABdAAAAXQAAAF0AAABgAAAAMQAAADEAAAAxAAAAMQAAADEAAABgAAAAOQAAADkAAAA5AAAAOQAAAA==
         1,-1:
           ind: 1,-1
-          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAABfAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAXwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOAAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADgAAAA4AAAAOQAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADgAAAA4AAAAOAAAADgAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA4AAAAOAAAADgAAAA4AAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADgAAAA4AAAAOQAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
         1,0:
           ind: 1,0
-          tiles: XwAAAF8AAABfAAAAXwAAAF8AAABfAAAAXwAAAF8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+          tiles: YAAAAGAAAABgAAAAYAAAAGAAAABgAAAAYAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       type: MapGrid
     - type: Broadphase
     - angularDamping: 0.05
@@ -63,6 +64,8 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
+    - fixtures: {}
+      type: Fixtures
     - type: OccluderTree
     - nextUpdate: 0
       type: SpreaderGrid
@@ -291,7 +294,8 @@ entities:
           1,-2:
             0: 65535
           1,-1:
-            0: 65535
+            0: 65471
+            2: 64
           2,-4:
             0: 61440
           2,-3:
@@ -371,6 +375,21 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+          - 21.824879
+          - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
       type: GridAtmosphere
     - type: GasTileOverlay
@@ -385,35 +404,6 @@ entities:
     - nextAttack: 1782.9149982
       type: MeleeWeapon
     - nextSound: 1783.1149982
-      type: EmitSoundOnCollide
-- proto: AdvMopItem
-  entities:
-  - uid: 4
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: -6.63009,9.627916
-      parent: 2
-      type: Transform
-    - nextAttack: 6107.3565023
-      type: MeleeWeapon
-    - nextChargeTime: 6107.3565023
-      type: SolutionRegeneration
-    - nextPurgeTime: 6107.3565023
-      type: SolutionPurge
-    - nextSound: 6107.5565023
-      type: EmitSoundOnCollide
-  - uid: 5
-    components:
-    - pos: 7.783667,0.6268616
-      parent: 2
-      type: Transform
-    - nextAttack: 7860.4120526
-      type: MeleeWeapon
-    - nextChargeTime: 7860.4120526
-      type: SolutionRegeneration
-    - nextPurgeTime: 7860.4120526
-      type: SolutionPurge
-    - nextSound: 7860.6120526
       type: EmitSoundOnCollide
 - proto: AirlockMaintGlass
   entities:
@@ -697,6 +687,15 @@ entities:
     - pos: -1.5,5.5
       parent: 2
       type: Transform
+- proto: BartenderPDA
+  entities:
+  - uid: 1222
+    components:
+    - pos: 4.5,8.5
+      parent: 2
+      type: Transform
+    - nextSound: 507.5980269
+      type: EmitSoundOnCollide
 - proto: BaseUplinkRadio
   entities:
   - uid: 52
@@ -896,19 +895,19 @@ entities:
       type: EmitSoundOnCollide
 - proto: BedsheetWiz
   entities:
-  - uid: 77
+  - uid: 1252
     components:
-    - pos: -8.005545,-7.900102
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7073.8777274
+    - nextSound: 1253.9712563
       type: EmitSoundOnCollide
-  - uid: 78
+  - uid: 1256
     components:
-    - pos: -8.019434,-8.177879
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7074.4049332
+    - nextSound: 1265.5447459
       type: EmitSoundOnCollide
 - proto: BlockGameArcade
   entities:
@@ -924,6 +923,44 @@ entities:
       pos: -9.5,-0.5
       parent: 2
       type: Transform
+- proto: BluespaceBeaker
+  entities:
+  - uid: 1281
+    components:
+    - pos: -1.5,6.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1688.5765673
+      type: MeleeWeapon
+    - nextSound: 1688.7765673
+      type: EmitSoundOnCollide
+  - uid: 1282
+    components:
+    - pos: -1.5,6.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1688.98457
+      type: MeleeWeapon
+    - nextSound: 1689.18457
+      type: EmitSoundOnCollide
+  - uid: 1283
+    components:
+    - pos: -1.5,6.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1689.3606795
+      type: MeleeWeapon
+    - nextSound: 1689.5606795
+      type: EmitSoundOnCollide
+  - uid: 1284
+    components:
+    - pos: -1.5,6.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1689.743046
+      type: MeleeWeapon
+    - nextSound: 1689.943046
+      type: EmitSoundOnCollide
 - proto: Bonfire
   entities:
   - uid: 81
@@ -938,6 +975,15 @@ entities:
     - pos: -1.5,4.5
       parent: 2
       type: Transform
+- proto: BotanistPDA
+  entities:
+  - uid: 1231
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextSound: 884.4087072
+      type: EmitSoundOnCollide
 - proto: Bucket
   entities:
   - uid: 83
@@ -983,7 +1029,8 @@ entities:
     - pos: 0.5,10.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 88
     components:
     - pos: -7.5,6.5
@@ -991,19 +1038,22 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 89
     components:
     - pos: -7.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 90
     components:
     - pos: -7.5,7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 91
     components:
     - pos: -6.5,8.5
@@ -1011,7 +1061,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 92
     components:
     - pos: -5.5,8.5
@@ -1019,7 +1070,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 93
     components:
     - pos: -4.5,8.5
@@ -1027,169 +1079,197 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 94
     components:
     - pos: -3.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 95
     components:
     - pos: -2.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 96
     components:
     - pos: -1.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 97
     components:
     - pos: -0.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 98
     components:
     - pos: 0.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 99
     components:
     - pos: 0.5,9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 100
     components:
     - pos: 0.5,7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 101
     components:
     - pos: 0.5,6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 102
     components:
     - pos: 0.5,5.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 103
     components:
     - pos: 0.5,4.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 104
     components:
     - pos: 0.5,3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 105
     components:
     - pos: 0.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 106
     components:
     - pos: 0.5,1.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 107
     components:
     - pos: 0.5,0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 108
     components:
     - pos: 0.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 109
     components:
     - pos: 0.5,-1.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 110
     components:
     - pos: 0.5,-2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 111
     components:
     - pos: 0.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 112
     components:
     - pos: 0.5,-4.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 113
     components:
     - pos: 0.5,-5.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 114
     components:
     - pos: 0.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 115
     components:
     - pos: 0.5,-7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 116
     components:
     - pos: 0.5,-8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 117
     components:
     - pos: 1.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 118
     components:
     - pos: 2.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 119
     components:
     - pos: 3.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 120
     components:
     - pos: 4.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 121
     components:
     - pos: 5.5,8.5
@@ -1197,7 +1277,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 122
     components:
     - pos: 6.5,8.5
@@ -1205,7 +1286,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 123
     components:
     - pos: 7.5,8.5
@@ -1213,7 +1295,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 124
     components:
     - pos: 8.5,8.5
@@ -1221,7 +1304,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 125
     components:
     - pos: -7.5,6.5
@@ -1229,7 +1313,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 126
     components:
     - pos: -7.5,5.5
@@ -1237,7 +1322,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 127
     components:
     - pos: -7.5,5.5
@@ -1245,7 +1331,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 128
     components:
     - pos: -6.5,5.5
@@ -1253,7 +1340,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 129
     components:
     - pos: -5.5,5.5
@@ -1261,7 +1349,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 130
     components:
     - pos: -4.5,5.5
@@ -1269,7 +1358,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 131
     components:
     - pos: -3.5,5.5
@@ -1277,7 +1367,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 132
     components:
     - pos: -2.5,5.5
@@ -1285,7 +1376,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 133
     components:
     - pos: -1.5,5.5
@@ -1293,7 +1385,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 134
     components:
     - pos: -0.5,5.5
@@ -1301,13 +1394,15 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 135
     components:
     - pos: 0.5,5.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 136
     components:
     - pos: 1.5,5.5
@@ -1315,7 +1410,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 137
     components:
     - pos: 2.5,5.5
@@ -1323,7 +1419,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 138
     components:
     - pos: 3.5,5.5
@@ -1331,7 +1428,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 139
     components:
     - pos: 4.5,5.5
@@ -1339,7 +1437,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 140
     components:
     - pos: 5.5,5.5
@@ -1347,7 +1446,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 141
     components:
     - pos: 6.5,5.5
@@ -1355,7 +1455,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 142
     components:
     - pos: 7.5,5.5
@@ -1363,7 +1464,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 143
     components:
     - pos: 8.5,5.5
@@ -1371,7 +1473,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 144
     components:
     - pos: -4.5,2.5
@@ -1379,61 +1482,71 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 145
     components:
     - pos: -3.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 146
     components:
     - pos: -2.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 147
     components:
     - pos: -1.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 148
     components:
     - pos: -0.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 149
     components:
     - pos: 0.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 150
     components:
     - pos: 1.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 151
     components:
     - pos: 2.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 152
     components:
     - pos: 3.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 153
     components:
     - pos: 4.5,2.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 154
     components:
     - pos: 5.5,2.5
@@ -1441,7 +1554,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 155
     components:
     - pos: -4.5,-0.5
@@ -1449,61 +1563,71 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 156
     components:
     - pos: -3.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 157
     components:
     - pos: -2.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 158
     components:
     - pos: -1.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 159
     components:
     - pos: -0.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 160
     components:
     - pos: 0.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 161
     components:
     - pos: 1.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 162
     components:
     - pos: 2.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 163
     components:
     - pos: 3.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 164
     components:
     - pos: 4.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 165
     components:
     - pos: 5.5,-0.5
@@ -1511,7 +1635,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 166
     components:
     - pos: -4.5,-3.5
@@ -1519,61 +1644,71 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 167
     components:
     - pos: -3.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 168
     components:
     - pos: -2.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 169
     components:
     - pos: -1.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 170
     components:
     - pos: -0.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 171
     components:
     - pos: 0.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 172
     components:
     - pos: 1.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 173
     components:
     - pos: 2.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 174
     components:
     - pos: 3.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 175
     components:
     - pos: 4.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 176
     components:
     - pos: 5.5,-3.5
@@ -1581,7 +1716,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 177
     components:
     - pos: -4.5,-6.5
@@ -1589,61 +1725,71 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 178
     components:
     - pos: -3.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 179
     components:
     - pos: -2.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 180
     components:
     - pos: -1.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 181
     components:
     - pos: -0.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 182
     components:
     - pos: 0.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 183
     components:
     - pos: 1.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 184
     components:
     - pos: 2.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 185
     components:
     - pos: 3.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 186
     components:
     - pos: 4.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 187
     components:
     - pos: 5.5,-6.5
@@ -1651,7 +1797,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 188
     components:
     - pos: -4.5,-9.5
@@ -1659,7 +1806,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 189
     components:
     - pos: -3.5,-9.5
@@ -1667,7 +1815,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 190
     components:
     - pos: -2.5,-9.5
@@ -1675,7 +1824,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 191
     components:
     - pos: -1.5,-9.5
@@ -1683,7 +1833,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 192
     components:
     - pos: -0.5,-9.5
@@ -1691,13 +1842,15 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 193
     components:
     - pos: 0.5,-9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 194
     components:
     - pos: 1.5,-9.5
@@ -1705,7 +1858,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 195
     components:
     - pos: 2.5,-9.5
@@ -1713,7 +1867,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 196
     components:
     - pos: 3.5,-9.5
@@ -1721,7 +1876,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 197
     components:
     - pos: 4.5,-9.5
@@ -1729,7 +1885,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 198
     components:
     - pos: 5.5,-9.5
@@ -1737,13 +1894,15 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 199
     components:
     - pos: 0.5,11.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 200
     components:
     - pos: -4.5,-0.5
@@ -1751,37 +1910,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 201
     components:
     - pos: -5.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 202
     components:
     - pos: -6.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 203
     components:
     - pos: -7.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 204
     components:
     - pos: -8.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 205
     components:
     - pos: -9.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 206
     components:
     - pos: -10.5,-0.5
@@ -1789,7 +1954,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 207
     components:
     - pos: -4.5,-3.5
@@ -1797,37 +1963,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 208
     components:
     - pos: -5.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 209
     components:
     - pos: -6.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 210
     components:
     - pos: -7.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 211
     components:
     - pos: -8.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 212
     components:
     - pos: -9.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 213
     components:
     - pos: -10.5,-3.5
@@ -1835,7 +2007,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 214
     components:
     - pos: -4.5,-6.5
@@ -1843,37 +2016,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 215
     components:
     - pos: -5.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 216
     components:
     - pos: -6.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 217
     components:
     - pos: -7.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 218
     components:
     - pos: -8.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 219
     components:
     - pos: -9.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 220
     components:
     - pos: -10.5,-6.5
@@ -1881,13 +2060,15 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 221
     components:
     - pos: 0.5,-9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 222
     components:
     - pos: -0.5,-9.5
@@ -1895,7 +2076,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 223
     components:
     - pos: -1.5,-9.5
@@ -1903,7 +2085,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 224
     components:
     - pos: -2.5,-9.5
@@ -1911,7 +2094,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 225
     components:
     - pos: -3.5,-9.5
@@ -1919,7 +2103,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 226
     components:
     - pos: -4.5,-9.5
@@ -1927,7 +2112,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 227
     components:
     - pos: -5.5,-9.5
@@ -1935,7 +2121,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 228
     components:
     - pos: -6.5,-9.5
@@ -1943,7 +2130,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 229
     components:
     - pos: -7.5,-9.5
@@ -1951,7 +2139,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 230
     components:
     - pos: -8.5,-9.5
@@ -1959,7 +2148,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 231
     components:
     - pos: -9.5,-9.5
@@ -1967,7 +2157,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 232
     components:
     - pos: -10.5,-9.5
@@ -1975,13 +2166,15 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 233
     components:
     - pos: 0.5,-9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 234
     components:
     - pos: 1.5,-9.5
@@ -1989,7 +2182,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 235
     components:
     - pos: 2.5,-9.5
@@ -1997,7 +2191,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 236
     components:
     - pos: 3.5,-9.5
@@ -2005,7 +2200,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 237
     components:
     - pos: 4.5,-9.5
@@ -2013,7 +2209,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 238
     components:
     - pos: 5.5,-9.5
@@ -2021,7 +2218,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 239
     components:
     - pos: 6.5,-9.5
@@ -2029,7 +2227,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 240
     components:
     - pos: 7.5,-9.5
@@ -2037,7 +2236,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 241
     components:
     - pos: 8.5,-9.5
@@ -2045,7 +2245,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 242
     components:
     - pos: 9.5,-9.5
@@ -2053,7 +2254,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 243
     components:
     - pos: 10.5,-9.5
@@ -2061,7 +2263,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 244
     components:
     - pos: 11.5,-9.5
@@ -2069,7 +2272,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 245
     components:
     - pos: 5.5,-6.5
@@ -2077,37 +2281,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 246
     components:
     - pos: 6.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 247
     components:
     - pos: 7.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 248
     components:
     - pos: 8.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 249
     components:
     - pos: 9.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 250
     components:
     - pos: 10.5,-6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 251
     components:
     - pos: 11.5,-6.5
@@ -2115,7 +2325,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 252
     components:
     - pos: 5.5,-3.5
@@ -2123,37 +2334,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 253
     components:
     - pos: 6.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 254
     components:
     - pos: 7.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 255
     components:
     - pos: 8.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 256
     components:
     - pos: 9.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 257
     components:
     - pos: 10.5,-3.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 258
     components:
     - pos: 11.5,-3.5
@@ -2161,7 +2378,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 259
     components:
     - pos: 5.5,-0.5
@@ -2169,37 +2387,43 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 260
     components:
     - pos: 6.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 261
     components:
     - pos: 7.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 262
     components:
     - pos: 8.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 263
     components:
     - pos: 9.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 264
     components:
     - pos: 10.5,-0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 265
     components:
     - pos: 11.5,-0.5
@@ -2207,31 +2431,36 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 266
     components:
     - pos: 0.5,-10.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 267
     components:
     - pos: 0.5,-11.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 268
     components:
     - pos: 0.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 269
     components:
     - pos: 0.5,-13.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 270
     components:
     - pos: 0.5,-14.5
@@ -2239,7 +2468,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 271
     components:
     - pos: -4.5,-12.5
@@ -2247,61 +2477,71 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 272
     components:
     - pos: -3.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 273
     components:
     - pos: -2.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 274
     components:
     - pos: -1.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 275
     components:
     - pos: -0.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 276
     components:
     - pos: 0.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 277
     components:
     - pos: 1.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 278
     components:
     - pos: 2.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 279
     components:
     - pos: 3.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 280
     components:
     - pos: 4.5,-12.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 281
     components:
     - pos: 5.5,-12.5
@@ -2309,7 +2549,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 282
     components:
     - pos: -4.5,2.5
@@ -2317,7 +2558,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 283
     components:
     - pos: -5.5,2.5
@@ -2325,7 +2567,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 284
     components:
     - pos: -6.5,2.5
@@ -2333,7 +2576,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 285
     components:
     - pos: -7.5,2.5
@@ -2341,7 +2585,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 286
     components:
     - pos: -8.5,2.5
@@ -2349,7 +2594,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 287
     components:
     - pos: -9.5,2.5
@@ -2357,7 +2603,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 288
     components:
     - pos: -10.5,2.5
@@ -2365,7 +2612,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 289
     components:
     - pos: -11.5,2.5
@@ -2373,7 +2621,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
 - proto: CableHV
   entities:
   - uid: 290
@@ -2381,61 +2630,71 @@ entities:
     - pos: -9.5,9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 291
     components:
     - pos: -9.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 292
     components:
     - pos: -9.5,7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 293
     components:
     - pos: -9.5,6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 294
     components:
     - pos: -8.5,6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 295
     components:
     - pos: -9.5,9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 296
     components:
     - pos: -9.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 297
     components:
     - pos: -8.5,7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 298
     components:
     - pos: -8.5,8.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 299
     components:
     - pos: -8.5,9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
 - proto: CableMV
   entities:
   - uid: 300
@@ -2443,7 +2702,8 @@ entities:
     - pos: -8.5,6.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 301
     components:
     - pos: -7.5,6.5
@@ -2451,7 +2711,8 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-    
+    - fixtures: {}
+      type: Fixtures
 - proto: Carpet
   entities:
   - uid: 302
@@ -2694,6 +2955,15 @@ entities:
       type: Transform
     - nextSound: 2988.9150545
       type: EmitSoundOnCollide
+- proto: ChefPDA
+  entities:
+  - uid: 1230
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextSound: 876.1300481
+      type: EmitSoundOnCollide
 - proto: chem_master
   entities:
   - uid: 343
@@ -2718,6 +2988,17 @@ entities:
     - pos: -2.5,9.5
       parent: 2
       type: Transform
+- proto: ClothingBeltPlantFilled
+  entities:
+  - uid: 1236
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextAttack: 958.5631311
+      type: MeleeWeapon
+    - nextSound: 958.7631311
+      type: EmitSoundOnCollide
 - proto: ClothingBeltUtilityFilled
   entities:
   - uid: 347
@@ -2765,6 +3046,26 @@ entities:
       type: Transform
     - nextSound: 7992.9944747
       type: EmitSoundOnCollide
+- proto: ClothingHandsGlovesBoxingRed
+  entities:
+  - uid: 1272
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1368.5446544
+      type: MeleeWeapon
+    - nextSound: 1368.7446544
+      type: EmitSoundOnCollide
+  - uid: 1273
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1369.4488448
+      type: MeleeWeapon
+    - nextSound: 1369.6488448
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesColorYellow
   entities:
   - uid: 352
@@ -2773,6 +3074,15 @@ entities:
       parent: 2
       type: Transform
     - nextSound: 2227.6423117
+      type: EmitSoundOnCollide
+- proto: ClothingHeadHatChef
+  entities:
+  - uid: 1241
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextSound: 1005.6622635
       type: EmitSoundOnCollide
 - proto: ClothingHeadHatCone
   entities:
@@ -2792,37 +3102,80 @@ entities:
       type: EmitSoundOnCollide
 - proto: ClothingHeadHatJester
   entities:
-  - uid: 355
+  - uid: 1267
     components:
-    - pos: -6.5611,-8.247324
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7099.8203943
+    - nextSound: 1318.5113297
       type: EmitSoundOnCollide
 - proto: ClothingHeadHatJesterAlt
   entities:
-  - uid: 356
+  - uid: 1263
     components:
-    - pos: -6.5194335,-8.233435
+    - pos: -5.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7089.4773433
+    - nextSound: 1309.4447482
+      type: EmitSoundOnCollide
+- proto: ClothingHeadHatTophat
+  entities:
+  - uid: 1225
+    components:
+    - pos: 4.5,8.5
+      parent: 2
+      type: Transform
+    - nextSound: 552.9951976
       type: EmitSoundOnCollide
 - proto: ClothingHeadHatWizardFake
   entities:
-  - uid: 357
+  - uid: 1249
     components:
-    - pos: -8.088878,-8.358435
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7059.992166
+    - nextSound: 1245.9276974
       type: EmitSoundOnCollide
-  - uid: 358
+  - uid: 1253
     components:
-    - pos: -8.088878,-8.191769
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7058.891015
+    - nextSound: 1256.8542671
+      type: EmitSoundOnCollide
+- proto: ClothingHeadHelmetTemplar
+  entities:
+  - uid: 1261
+    components:
+    - pos: -5.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1297.605961
+      type: EmitSoundOnCollide
+  - uid: 1262
+    components:
+    - pos: -5.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1298.068962
+      type: EmitSoundOnCollide
+- proto: ClothingOuterApronBotanist
+  entities:
+  - uid: 1238
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextSound: 973.5305358
+      type: EmitSoundOnCollide
+- proto: ClothingOuterApronChef
+  entities:
+  - uid: 1232
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextSound: 986.6742514
       type: EmitSoundOnCollide
 - proto: ClothingOuterGhostSheet
   entities:
@@ -2835,76 +3188,397 @@ entities:
       type: EmitSoundOnCollide
 - proto: ClothingOuterWizardFake
   entities:
-  - uid: 360
+  - uid: 1250
     components:
-    - pos: -8.074989,-8.094547
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7063.2013622
+    - nextSound: 1248.7788594
       type: EmitSoundOnCollide
-  - uid: 361
+  - uid: 1254
     components:
-    - pos: -8.0611,-8.28899
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7063.9072292
+    - nextSound: 1259.8344283
+      type: EmitSoundOnCollide
+- proto: ClothingShoesColorBlack
+  entities:
+  - uid: 1205
+    components:
+    - pos: -2.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 129.7506013
+      type: EmitSoundOnCollide
+  - uid: 1206
+    components:
+    - pos: -2.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 129.7506013
+      type: EmitSoundOnCollide
+  - uid: 1207
+    components:
+    - pos: -2.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 129.7506013
+      type: EmitSoundOnCollide
+  - uid: 1208
+    components:
+    - pos: -2.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 129.7506013
+      type: EmitSoundOnCollide
+  - uid: 1209
+    components:
+    - pos: 3.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 131.5653376
+      type: EmitSoundOnCollide
+  - uid: 1210
+    components:
+    - pos: 3.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 131.5653376
+      type: EmitSoundOnCollide
+  - uid: 1211
+    components:
+    - pos: 3.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 131.5653376
+      type: EmitSoundOnCollide
+  - uid: 1212
+    components:
+    - pos: 3.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 131.5653376
+      type: EmitSoundOnCollide
+  - uid: 1226
+    components:
+    - pos: 4.5,8.5
+      parent: 2
+      type: Transform
+    - nextSound: 564.9484996
+      type: EmitSoundOnCollide
+  - uid: 1242
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextSound: 1016.2868883
+      type: EmitSoundOnCollide
+- proto: ClothingShoesColorBrown
+  entities:
+  - uid: 1237
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextSound: 964.8969559
       type: EmitSoundOnCollide
 - proto: ClothingShoesJester
   entities:
-  - uid: 362
+  - uid: 1264
     components:
-    - pos: -6.5472107,-8.455658
+    - pos: -5.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7097.3383307
+    - nextSound: 1312.4621658
       type: EmitSoundOnCollide
 - proto: ClothingShoesWizardFake
   entities:
-  - uid: 363
+  - uid: 1251
     components:
-    - pos: -8.0611,-8.066769
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7067.4313132
+    - nextSound: 1251.996144
       type: EmitSoundOnCollide
-  - uid: 364
+  - uid: 1255
     components:
-    - pos: -8.116656,-8.441769
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextSound: 7067.8716103
+    - nextSound: 1262.9182626
       type: EmitSoundOnCollide
-  - uid: 365
+- proto: ClothingUniformJumpskirtBartender
+  entities:
+  - uid: 1224
     components:
-    - desc: These look just like the wizard shoes...
-      name: Green Jester Shoes
-      type: MetaData
-    - pos: -6.5809126,-8.459303
+    - pos: 4.5,8.5
       parent: 2
       type: Transform
-    - nextSound: 7118.0712799
+    - nextUpdate: 514.3195428
+      type: SuitSensor
+    - nextSound: 514.5195428
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpskirtChef
+  entities:
+  - uid: 1240
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 998.7616519
+      type: SuitSensor
+    - nextSound: 998.9616519
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpskirtColorGrey
+  entities:
+  - uid: 1197
+    components:
+    - pos: -2.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 120.019903
+      type: SuitSensor
+    - nextSound: 120.219903
+      type: EmitSoundOnCollide
+  - uid: 1198
+    components:
+    - pos: -2.5,-6.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 120.019903
+      type: SuitSensor
+    - nextSound: 120.219903
+      type: EmitSoundOnCollide
+  - uid: 1199
+    components:
+    - pos: -2.5,-7.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 120.019903
+      type: SuitSensor
+    - nextSound: 120.219903
+      type: EmitSoundOnCollide
+  - uid: 1200
+    components:
+    - pos: -2.5,-8.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 120.019903
+      type: SuitSensor
+    - nextSound: 120.219903
+      type: EmitSoundOnCollide
+  - uid: 1201
+    components:
+    - pos: 3.5,-8.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 121.8152515
+      type: SuitSensor
+    - nextSound: 122.0152515
+      type: EmitSoundOnCollide
+  - uid: 1202
+    components:
+    - pos: 3.5,-7.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 121.8152515
+      type: SuitSensor
+    - nextSound: 122.0152515
+      type: EmitSoundOnCollide
+  - uid: 1203
+    components:
+    - pos: 3.5,-6.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 121.8152515
+      type: SuitSensor
+    - nextSound: 122.0152515
+      type: EmitSoundOnCollide
+  - uid: 1204
+    components:
+    - pos: 3.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 121.8152515
+      type: SuitSensor
+    - nextSound: 122.0152515
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpskirtHydroponics
+  entities:
+  - uid: 1234
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 933.3293181
+      type: SuitSensor
+    - nextSound: 933.5293181
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpsuitBartender
+  entities:
+  - uid: 1223
+    components:
+    - pos: 4.5,8.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 511.7313249
+      type: SuitSensor
+    - nextSound: 511.9313249
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpsuitChef
+  entities:
+  - uid: 1239
+    components:
+    - pos: 9.5,-3.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 996.4700794
+      type: SuitSensor
+    - nextSound: 996.6700794
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpsuitColorGrey
+  entities:
+  - uid: 1189
+    components:
+    - pos: -2.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 113.733555
+      type: SuitSensor
+    - nextSound: 113.933555
+      type: EmitSoundOnCollide
+  - uid: 1190
+    components:
+    - pos: -2.5,-6.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 113.733555
+      type: SuitSensor
+    - nextSound: 113.933555
+      type: EmitSoundOnCollide
+  - uid: 1191
+    components:
+    - pos: -2.5,-7.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 113.733555
+      type: SuitSensor
+    - nextSound: 113.933555
+      type: EmitSoundOnCollide
+  - uid: 1192
+    components:
+    - pos: -2.5,-8.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 113.733555
+      type: SuitSensor
+    - nextSound: 113.933555
+      type: EmitSoundOnCollide
+  - uid: 1193
+    components:
+    - pos: 3.5,-8.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 116.2386872
+      type: SuitSensor
+    - nextSound: 116.4386872
+      type: EmitSoundOnCollide
+  - uid: 1194
+    components:
+    - pos: 3.5,-7.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 116.2386872
+      type: SuitSensor
+    - nextSound: 116.4386872
+      type: EmitSoundOnCollide
+  - uid: 1195
+    components:
+    - pos: 3.5,-6.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 116.2386872
+      type: SuitSensor
+    - nextSound: 116.4386872
+      type: EmitSoundOnCollide
+  - uid: 1196
+    components:
+    - pos: 3.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 116.2386872
+      type: SuitSensor
+    - nextSound: 116.4386872
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpsuitCossack
+  entities:
+  - uid: 1259
+    components:
+    - pos: -5.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 1281.6274448
+      type: SuitSensor
+    - nextSound: 1281.8274448
+      type: EmitSoundOnCollide
+  - uid: 1260
+    components:
+    - pos: -5.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 1282.0291139
+      type: SuitSensor
+    - nextSound: 1282.2291139
+      type: EmitSoundOnCollide
+- proto: ClothingUniformJumpsuitHydroponics
+  entities:
+  - uid: 1235
+    components:
+    - pos: 9.5,-4.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 936.5964603
+      type: SuitSensor
+    - nextSound: 936.7964603
       type: EmitSoundOnCollide
 - proto: ClothingUniformJumpsuitJester
   entities:
-  - uid: 366
+  - uid: 1266
     components:
-    - pos: -6.5611,-8.455658
+    - pos: -9.5,-5.5
       parent: 2
       type: Transform
-    - nextUpdate: 7102.675502
+    - nextUpdate: 1316.3111593
       type: SuitSensor
-    - nextSound: 7102.875502
+    - nextSound: 1316.5111593
       type: EmitSoundOnCollide
 - proto: ClothingUniformJumpsuitJesterAlt
   entities:
-  - uid: 367
+  - uid: 1265
     components:
-    - pos: -6.533323,-8.41399
+    - pos: -5.5,-5.5
       parent: 2
       type: Transform
-    - nextUpdate: 7093.7706475
+    - nextUpdate: 1314.0816426
       type: SuitSensor
-    - nextSound: 7093.9706475
+    - nextSound: 1314.2816426
+      type: EmitSoundOnCollide
+- proto: ClownRecorder
+  entities:
+  - uid: 1268
+    components:
+    - pos: -5.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1335.570229
+      type: EmitSoundOnCollide
+  - uid: 1269
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1336.3517056
       type: EmitSoundOnCollide
 - proto: ComfyChair
   entities:
@@ -3036,6 +3710,33 @@ entities:
     - pos: 6.5,-2.5
       parent: 2
       type: Transform
+    - open: True
+      removedMasks: 28
+      type: EntityStorage
+    - fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            radius: 0.01
+            vertices:
+            - -0.4,-0.4
+            - 0.4,-0.4
+            - 0.4,0.29
+            - -0.4,0.29
+          mask:
+          - Impassable
+          - MidImpassable
+          - HighImpassable
+          - LowImpassable
+          layer:
+          - BulletImpassable
+          - Opaque
+          density: 135
+          hard: True
+          restitution: 0
+          friction: 0.4
+      type: Fixtures
+    - isPlaceable: True
+      type: PlaceableSurface
 - proto: DawInstrument
   entities:
   - uid: 386
@@ -3054,6 +3755,50 @@ entities:
     - pos: 2.5,10.5
       parent: 2
       type: Transform
+- proto: DiceBag
+  entities:
+  - uid: 713
+    components:
+    - pos: -6.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1187.9776746
+      type: EmitSoundOnCollide
+  - uid: 714
+    components:
+    - pos: -6.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1188.261977
+      type: EmitSoundOnCollide
+  - uid: 715
+    components:
+    - pos: -6.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1187.6423552
+      type: EmitSoundOnCollide
+  - uid: 716
+    components:
+    - pos: -8.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1186.7278294
+      type: EmitSoundOnCollide
+  - uid: 717
+    components:
+    - pos: -8.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1187.0837132
+      type: EmitSoundOnCollide
+  - uid: 718
+    components:
+    - pos: -8.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1186.3442896
+      type: EmitSoundOnCollide
 - proto: DisposalBend
   entities:
   - uid: 388
@@ -3153,31 +3898,64 @@ entities:
     - pos: -6.5,9.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 403
     components:
     - pos: 7.5,0.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 404
     components:
     - pos: 6.5,-7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 405
     components:
     - pos: 10.5,-7.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
   - uid: 406
     components:
     - pos: -3.5,-10.5
       parent: 2
       type: Transform
-    
+    - fixtures: {}
+      type: Fixtures
+  - uid: 1233
+    components:
+    - pos: -2.5,3.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
+  - uid: 1243
+    components:
+    - pos: 8.5,-1.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
+  - uid: 1244
+    components:
+    - pos: 8.5,-6.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
+  - uid: 1247
+    components:
+    - pos: -0.5,3.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
 - proto: FloorWaterEntity
   entities:
   - uid: 407
@@ -3451,60 +4229,6 @@ entities:
       parent: 2
       type: Transform
     - nextSound: 1311.2271322
-      type: EmitSoundOnCollide
-- proto: FoodCheese
-  entities:
-  - uid: 449
-    components:
-    - pos: -1.7196031,-3.393227
-      parent: 2
-      type: Transform
-    - nextSound: 2159.2692143
-      type: EmitSoundOnCollide
-- proto: FoodMothMoffin
-  entities:
-  - uid: 450
-    components:
-    - pos: -3.5112696,-3.3376727
-      parent: 2
-      type: Transform
-    - nextSound: 2147.380228
-      type: EmitSoundOnCollide
-  - uid: 451
-    components:
-    - pos: 3.23873,-3.3654494
-      parent: 2
-      type: Transform
-    - nextSound: 2149.950788
-      type: EmitSoundOnCollide
-- proto: FoodSaladWatermelonFruitBowl
-  entities:
-  - uid: 452
-    components:
-    - pos: 4.322246,-3.312449
-      parent: 2
-      type: Transform
-    - nextSound: 2202.1555838
-      type: EmitSoundOnCollide
-- proto: FoodSoupStew
-  entities:
-  - uid: 453
-    components:
-    - pos: 2.510868,-3.3402267
-      parent: 2
-      type: Transform
-    - nextAttack: 2226.4304997
-      type: MeleeWeapon
-    - nextSound: 2226.6304998
-      type: EmitSoundOnCollide
-- proto: FoodWatermelon
-  entities:
-  - uid: 454
-    components:
-    - pos: -3.0112696,-3.2543383
-      parent: 2
-      type: Transform
-    - nextSound: 2187.4848155
       type: EmitSoundOnCollide
 - proto: GasMinerNitrogenStationLarge
   entities:
@@ -4808,6 +5532,15 @@ entities:
     - pos: 1.5,9.5
       parent: 2
       type: Transform
+- proto: MagicDiceBag
+  entities:
+  - uid: 1188
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1184.1496654
+      type: EmitSoundOnCollide
 - proto: MaterialWoodPlank
   entities:
   - uid: 627
@@ -4850,7 +5583,7 @@ entities:
     - pos: 0.5,-9.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -6138.6113
+    - SecondsUntilStateChange: -7974.1367
       state: Opening
       type: Door
 - proto: Mirror
@@ -4867,6 +5600,38 @@ entities:
       pos: -3.5,-14.5
       parent: 2
       type: Transform
+- proto: MopBucketFull
+  entities:
+  - uid: 4
+    components:
+    - pos: -6.5,9.5
+      parent: 2
+      type: Transform
+  - uid: 5
+    components:
+    - pos: 7.5,0.5
+      parent: 2
+      type: Transform
+- proto: MopItem
+  entities:
+  - uid: 1245
+    components:
+    - pos: -6.5,9.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1074.629324
+      type: MeleeWeapon
+    - nextSound: 1074.829324
+      type: EmitSoundOnCollide
+  - uid: 1246
+    components:
+    - pos: 7.5,0.5
+      parent: 2
+      type: Transform
+    - nextAttack: 1076.5968175
+      type: MeleeWeapon
+    - nextSound: 1076.7968175
+      type: EmitSoundOnCollide
 - proto: OilJarCorn
   entities:
   - uid: 635
@@ -4947,6 +5712,104 @@ entities:
       type: Transform
 - proto: Paper
   entities:
+  - uid: 77
+    components:
+    - pos: -8.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1198.6960421
+      type: EmitSoundOnCollide
+  - uid: 78
+    components:
+    - pos: -6.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1200.3781093
+      type: EmitSoundOnCollide
+  - uid: 355
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1206.6289916
+      type: EmitSoundOnCollide
+  - uid: 356
+    components:
+    - pos: -6.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1205.4955035
+      type: EmitSoundOnCollide
+  - uid: 357
+    components:
+    - pos: -8.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1203.4454789
+      type: EmitSoundOnCollide
+  - uid: 358
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1201.5960462
+      type: EmitSoundOnCollide
+  - uid: 360
+    components:
+    - pos: -6.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1199.9128061
+      type: EmitSoundOnCollide
+  - uid: 361
+    components:
+    - pos: -8.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1202.994388
+      type: EmitSoundOnCollide
+  - uid: 362
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1207.0619972
+      type: EmitSoundOnCollide
+  - uid: 363
+    components:
+    - pos: -6.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1199.4946312
+      type: EmitSoundOnCollide
+  - uid: 364
+    components:
+    - pos: -8.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1203.8953355
+      type: EmitSoundOnCollide
+  - uid: 365
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1207.4987629
+      type: EmitSoundOnCollide
+  - uid: 366
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1207.2786557
+      type: EmitSoundOnCollide
+  - uid: 367
+    components:
+    - pos: -7.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 1206.8621875
+      type: EmitSoundOnCollide
   - uid: 645
     components:
     - pos: 0.5,-5.5
@@ -5426,6 +6289,34 @@ entities:
       type: Transform
     - nextSound: 6910.3607291
       type: EmitSoundOnCollide
+  - uid: 712
+    components:
+    - pos: -8.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1197.7126851
+      type: EmitSoundOnCollide
+  - uid: 727
+    components:
+    - pos: -8.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1198.1777912
+      type: EmitSoundOnCollide
+  - uid: 728
+    components:
+    - pos: -6.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 1205.028866
+      type: EmitSoundOnCollide
+  - uid: 729
+    components:
+    - pos: -6.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 1204.6173956
+      type: EmitSoundOnCollide
 - proto: PaperBin10
   entities:
   - uid: 707
@@ -5440,7 +6331,7 @@ entities:
     - pos: 0.5,10.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -10658.26
+    - SecondsUntilStateChange: -12493.785
       state: Opening
       type: Door
 - proto: PartRodMetal
@@ -5466,65 +6357,116 @@ entities:
       type: Transform
     - nextSound: 6056.5699472
       type: EmitSoundOnCollide
+- proto: PassengerPDA
+  entities:
+  - uid: 1214
+    components:
+    - pos: -2.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 310.7320924
+      type: EmitSoundOnCollide
+  - uid: 1215
+    components:
+    - pos: -2.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 310.7320924
+      type: EmitSoundOnCollide
+  - uid: 1216
+    components:
+    - pos: -2.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 310.7320924
+      type: EmitSoundOnCollide
+  - uid: 1217
+    components:
+    - pos: -2.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 310.7320924
+      type: EmitSoundOnCollide
+  - uid: 1218
+    components:
+    - pos: 3.5,-8.5
+      parent: 2
+      type: Transform
+    - nextSound: 312.3696167
+      type: EmitSoundOnCollide
+  - uid: 1219
+    components:
+    - pos: 3.5,-7.5
+      parent: 2
+      type: Transform
+    - nextSound: 312.3696167
+      type: EmitSoundOnCollide
+  - uid: 1220
+    components:
+    - pos: 3.5,-6.5
+      parent: 2
+      type: Transform
+    - nextSound: 312.3696167
+      type: EmitSoundOnCollide
+  - uid: 1221
+    components:
+    - pos: 3.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 312.3696167
+      type: EmitSoundOnCollide
 - proto: Pen
   entities:
-  - uid: 712
+  - uid: 1182
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -7.1401916,-7.334845
+    - pos: -8.5,-6.5
       parent: 2
       type: Transform
-    - nextSound: 6324.0440894
+    - nextSound: 1225.5946277
       type: EmitSoundOnCollide
-  - uid: 713
+  - uid: 1183
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -7.0290794,-7.4320674
+    - pos: -6.5,-8.5
       parent: 2
       type: Transform
-    - nextSound: 6324.723034
+    - nextSound: 1226.329078
       type: EmitSoundOnCollide
-  - uid: 714
+  - uid: 1184
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -6.931858,-7.5292897
+    - pos: -6.5,-7.5
       parent: 2
       type: Transform
-    - nextSound: 6325.308142
+    - nextSound: 1226.6947257
       type: EmitSoundOnCollide
-  - uid: 715
+  - uid: 1186
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -6.848525,-7.6126227
+    - pos: -8.5,-7.5
       parent: 2
       type: Transform
-    - nextSound: 6325.9751644
+    - nextSound: 1225.1461178
       type: EmitSoundOnCollide
-  - uid: 716
+  - uid: 1187
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -6.7790794,-7.7376227
+    - pos: -8.5,-8.5
       parent: 2
       type: Transform
-    - nextSound: 6328.809675
+    - nextSound: 1224.5618777
       type: EmitSoundOnCollide
-  - uid: 717
+  - uid: 1248
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -6.6679688,-7.834845
+    - pos: -6.5,-6.5
       parent: 2
       type: Transform
-    - nextSound: 6330.2102041
+    - nextSound: 1227.09609
       type: EmitSoundOnCollide
-- proto: PenHop
+- proto: PenCap
   entities:
-  - uid: 718
+  - uid: 1185
     components:
-    - rot: 3.141592653589793 rad
-      pos: -7.5013022,-6.376512
+    - pos: -7.5,-6.5
       parent: 2
       type: Transform
-    - nextSound: 6338.6649568
+    - nextSound: 1217.8792842
       type: EmitSoundOnCollide
 - proto: PhoneInstrument
   entities:
@@ -5609,33 +6551,6 @@ entities:
       type: EmitSoundOnCollide
     - nextAttack: 2079.252294
       type: MeleeWeapon
-- proto: PlushieRGBee
-  entities:
-  - uid: 727
-    components:
-    - pos: -7.544976,-6.8999534
-      parent: 2
-      type: Transform
-    - nextSound: 8873.7369041
-      type: EmitSoundOnCollide
-    - nextAttack: 8873.5369041
-      type: MeleeWeapon
-- proto: PonderingOrb
-  entities:
-  - uid: 728
-    components:
-    - pos: -7.5194335,-8.378563
-      parent: 2
-      type: Transform
-    - nextSound: 7049.4242383
-      type: EmitSoundOnCollide
-  - uid: 729
-    components:
-    - pos: -7.533251,-8.083347
-      parent: 2
-      type: Transform
-    - nextSound: 7193.2442901
-      type: EmitSoundOnCollide
 - proto: Rack
   entities:
   - uid: 730
@@ -5671,6 +6586,75 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: 7.5,-2.5
+      parent: 2
+      type: Transform
+- proto: RandomDrinkGlass
+  entities:
+  - uid: 1274
+    components:
+    - pos: -3.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1275
+    components:
+    - pos: -2.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1276
+    components:
+    - pos: -1.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1277
+    components:
+    - pos: -0.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1278
+    components:
+    - pos: 0.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1279
+    components:
+    - pos: 1.5,2.5
+      parent: 2
+      type: Transform
+  - uid: 1280
+    components:
+    - pos: 2.5,2.5
+      parent: 2
+      type: Transform
+- proto: RandomFoodBakedWhole
+  entities:
+  - uid: 449
+    components:
+    - pos: 2.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 450
+    components:
+    - pos: 4.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 451
+    components:
+    - pos: -2.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 452
+    components:
+    - pos: -3.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 453
+    components:
+    - pos: -1.5,-3.5
+      parent: 2
+      type: Transform
+  - uid: 454
+    components:
+    - pos: 3.5,-3.5
       parent: 2
       type: Transform
 - proto: RandomVendingDrinks
@@ -5941,6 +6925,22 @@ entities:
       pos: 12.5,-11.5
       parent: 2
       type: Transform
+- proto: RGBStaff
+  entities:
+  - uid: 1257
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1271.811272
+      type: EmitSoundOnCollide
+  - uid: 1258
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextSound: 1272.3744032
+      type: EmitSoundOnCollide
 - proto: ScreenTimer
   entities:
   - uid: 779
@@ -6082,22 +7082,6 @@ entities:
       type: Transform
     - nextChargeTime: 6165.8593363
       type: SolutionRegeneration
-  - uid: 798
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.5,-7.5
-      parent: 2
-      type: Transform
-    - nextChargeTime: 7832.2884756
-      type: SolutionRegeneration
-  - uid: 799
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 6.5,-7.5
-      parent: 2
-      type: Transform
-    - nextChargeTime: 7834.1463517
-      type: SolutionRegeneration
   - uid: 800
     components:
     - pos: 7.5,0.5
@@ -6156,6 +7140,47 @@ entities:
     - pos: -0.5,-3.5
       parent: 2
       type: Transform
+- proto: SpawnPointPlayerCharacter
+  entities:
+  - uid: 1213
+    components:
+    - pos: 0.5,-7.5
+      parent: 2
+      type: Transform
+    - rules: Please read the rules paper in your dorms before you go in.
+      description: Afterlife Bar Patron
+      name: Afterlife Bar
+      type: GhostRole
+    - availableTakeovers: 8
+      deleteOnSpawn: False
+      type: GhostRoleCharacterSpawner
+  - uid: 1227
+    components:
+    - pos: 4.5,9.5
+      parent: 2
+      type: Transform
+    - rules: Please read the rules found in the bar patron dorms if you have not already. You are the unofficial "leader" of the bar. Please be polite to others.
+      description: Afterlife Barkeeper
+      name: Afterlife Bar
+      type: GhostRole
+  - uid: 1228
+    components:
+    - pos: 10.5,-3.5
+      parent: 2
+      type: Transform
+    - rules: Please read the rules in the bar patron dorms if you haven't already. Ask the Bartender to make salt.
+      description: Afterlife Bar Chef
+      name: Afterlife Bar
+      type: GhostRole
+  - uid: 1229
+    components:
+    - pos: 10.5,-4.5
+      parent: 2
+      type: Transform
+    - rules: Please read the rules sheet in the bar patron dorms if you haven't already. Ask the bartender to make you EZNutrient.
+      description: Afterlife Bar Botanist
+      name: Afterlife Bar
+      type: GhostRole
 - proto: StoolBar
   entities:
   - uid: 808
@@ -6532,6 +7557,26 @@ entities:
         - 379
         - 380
       type: DeviceLinkSource
+- proto: UniformJabroni
+  entities:
+  - uid: 1270
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 1347.3280236
+      type: SuitSensor
+    - nextSound: 1347.5280236
+      type: EmitSoundOnCollide
+  - uid: 1271
+    components:
+    - pos: -9.5,-5.5
+      parent: 2
+      type: Transform
+    - nextUpdate: 1347.8440546
+      type: SuitSensor
+    - nextSound: 1348.0440546
+      type: EmitSoundOnCollide
 - proto: VendingBarDrobe
   entities:
   - uid: 855
@@ -6597,6 +7642,17 @@ entities:
       parent: 2
       type: Transform
     - nextEmpEject: 7763.3563962
+      type: VendingMachine
+- proto: VendingMachineGames
+  entities:
+  - uid: 1181
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: -5.5,-2.5
+      parent: 2
+      type: Transform
+    - nextEmpEject: 42.5621292
       type: VendingMachine
 - proto: VendingMachineHydrobe
   entities:
@@ -8335,6 +9391,18 @@ entities:
       type: Transform
     - location: Ghost Bar
       type: WarpPoint
+- proto: WaterTankHighCapacity
+  entities:
+  - uid: 798
+    components:
+    - pos: 6.5,-7.5
+      parent: 2
+      type: Transform
+  - uid: 799
+    components:
+    - pos: 10.5,-7.5
+      parent: 2
+      type: Transform
 - proto: WetFloorSign
   entities:
   - uid: 1166
@@ -8419,7 +9487,7 @@ entities:
     - pos: 0.5,5.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -10605.744
+    - SecondsUntilStateChange: -12441.27
       state: Opening
       type: Door
   - uid: 1178
@@ -8428,7 +9496,7 @@ entities:
       pos: 5.5,0.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -9453.099
+    - SecondsUntilStateChange: -11288.624
       state: Opening
       type: Door
   - uid: 1179
@@ -8437,7 +9505,7 @@ entities:
       pos: -4.5,0.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -9454.515
+    - SecondsUntilStateChange: -11290.04
       state: Opening
       type: Door
   - uid: 1180
@@ -8446,7 +9514,7 @@ entities:
       pos: 0.5,-4.5
       parent: 2
       type: Transform
-    - SecondsUntilStateChange: -9451.981
+    - SecondsUntilStateChange: -11287.507
       state: Opening
       type: Door
 ...
