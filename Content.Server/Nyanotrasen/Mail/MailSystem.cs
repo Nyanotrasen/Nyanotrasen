@@ -160,7 +160,7 @@ namespace Content.Server.Mail
 
             IdCardComponent? idCard = null; // We need an ID card.
 
-            if (HasComp<PDAComponent>(args.Used)) /// Can we find it in a PDA if the user is using that?
+            if (HasComp<PdaComponent>(args.Used)) /// Can we find it in a PDA if the user is using that?
             {
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
                 idCard = pdaID;
