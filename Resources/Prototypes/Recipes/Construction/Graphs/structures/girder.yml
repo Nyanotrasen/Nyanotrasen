@@ -148,6 +148,17 @@
               amount: 2
               doAfter: 1
 
+        - to: meatWall
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          conditions:
+            - !type:EntityAnchored {}
+          steps:
+            - material: MeatSheets
+              amount: 2
+              doAfter: 2
+
     - node: wall
       entity: WallSolid
       edges:
@@ -268,6 +279,18 @@
               doAfter: 10
             - tool: Screwing
               doAfter: 1
+
+    - node: meatWall
+      entity: WallMeat
+      edges:
+        - to: girder
+          completed:
+            - !type:GivePrototype
+              prototype: MaterialSheetMeat1
+              amount: 2
+          steps:
+            - tool: Prying
+              doAfter: 5
 
     - node: reinforcedGirder
       entity: ReinforcedGirder
