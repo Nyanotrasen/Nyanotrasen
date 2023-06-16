@@ -11,7 +11,7 @@
   icon: "AtmosphericTechnician"
   supervisors: job-supervisors-ce
   whitelistRequired: true
-  antagAdvantage: 10
+  canBeAntag: false
   access:
   - Maintenance
   - Engineering
