@@ -1054,4 +1054,15 @@
       tileId: Space
   assignments:
   - 0: 8
+- action: !type:InstantAction
+    checkCanInteract: False
+    icon: /Textures/Nyanotrasen/Interface/copy_action.png
+    name: Copy
+    keywords: []
+    clientExclusive: True
+    autoPopulate: False
+    temporary: True
+    event: !type:StartMapCopyActionEvent
+  assignments:
+  - 8: 0
 ...

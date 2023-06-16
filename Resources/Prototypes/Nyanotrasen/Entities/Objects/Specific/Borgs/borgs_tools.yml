@@ -1,4 +1,15 @@
 - type: entity
+  parent: PowerCellMedium
+  id: PowerCellRobotTool
+  name: robot tool power cell
+  description: A small cell that self recharges. Used in robot tools.
+  noSpawn: true
+  components:
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 4
+
+- type: entity
   parent: BaseItem
   id: HyposprayBorgStandard
   name: epinephrine hypospray
@@ -61,54 +72,46 @@
           Quantity: 1
 
 - type: entity
-  parent: BaseItem
+  parent: HoloprojectorEngineering
+  id: HoloprojectorEngineeringBorg
+  name: engineering holoprojector
+  description: Displays a warning sign.
+  noSpawn: true
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellRobotTool
+        locked: true
+
+- type: entity
+  parent: HandheldHealthAnalyzer
   id: HandheldHealthAnalyzerBorg
   name: health analyzer
   description: A hand-held body scanner that runs off of your own power cells, capable of distinguishing vital signs of the subject.
   noSpawn: true
   components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/healthanalyzer.rsi
-    netsync: false
-    state: analyzer
-  - type: ActivatableUI
-    key: enum.HealthAnalyzerUiKey.Key
-    closeOnHandDeselect: false
-  - type: UserInterface
-    interfaces:
-      - key: enum.HealthAnalyzerUiKey.Key
-        type: HealthAnalyzerBoundUserInterface
-  - type: HealthAnalyzer
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
-  - type: Tag
-    tags:
-    - DiscreteHealthAnalyzer
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellRobotTool
+        locked: true
 
 - type: entity
-  parent: BaseItem
+  parent: HandheldCrewMonitor
   id: HandheldCrewMonitorBorg
   name: handheld crew monitor
   description: A hand-held crew monitor that runs off of your own power cells, which displays the status of the crew suit sensors.
   noSpawn: true
   components:
-  - type: Sprite
-    sprite: Objects/Specific/Medical/handheldcrewmonitor.rsi
-    state: scanner
-  - type: ActivatableUI
-    key: enum.CrewMonitoringUIKey.Key
-    closeOnHandDeselect: false
-  - type: UserInterface
-    interfaces:
-      - key: enum.CrewMonitoringUIKey.Key
-        type: CrewMonitoringBoundUserInterface
-  - type: CrewMonitoringConsole
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: CrewMonitor
-  - type: WirelessNetworkConnection
-    range: 500
-  - type: StationLimitedNetwork
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellRobotTool
+        locked: true
 
 - type: entity
   parent: BaseItem

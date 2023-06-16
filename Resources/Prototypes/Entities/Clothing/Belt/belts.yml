@@ -37,6 +37,8 @@
         - Welder
         - PowerCell
         - Geiger
+        - TrayScanner
+        - GasAnalyzer
   - type: ItemMapper
     mapLayers:
       drill:
@@ -117,6 +119,8 @@
         - Handcuff
         - PowerCell
         - Geiger
+        - TrayScanner
+        - GasAnalyzer
   - type: ItemMapper
     mapLayers:
       drill:
@@ -314,6 +318,7 @@
         - PlantSampleTaker
         - PlantBGone
         - Bottle
+        # - Syringe
         - CigPack
       components:
         - Seed

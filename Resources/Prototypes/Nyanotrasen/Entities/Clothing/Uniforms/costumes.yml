@@ -89,6 +89,54 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/Decorskirt.rsi
 
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingCostumeNaota
+  name: turquoise hoodie and shorts
+  description: A hoodie with a small kangaroo pouch. 
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/naota.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformRat
+  name: rat king fan outfit
+  description: Declare your allegiance to the rodent monarch, as well as your desire to see the station burn *at the same time!*
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/rat.rsi
+    # TODO: Remove the line below when the sprite accounts for FemaleMask.
+    femaleMask: NoMask
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformDressRed
+  name: red dress
+  description: A voluminous, fancy red dress.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/red_dress.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/red_dress.rsi
+    femaleMask: NoMask
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSwimsuitBlue
+  name: blue swimsuit
+  description: A form-fitting, hydrodynamic blue swimsuit.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/swimsuit.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/swimsuit.rsi
+    femaleMask: UniformTop
+
 ## old schoolgirl uniforms
 
 - type: entity
@@ -258,7 +306,7 @@
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/kimono-green.rsi
 
-## new schoolgirl uniforms
+## new school uniforms
 
 - type: entity
   parent: ClothingUniformSchoolgirlBase
@@ -281,3 +329,18 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/blazer-tan.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Costume/SchoolgirlModern/blazer-tan.rsi
+
+# gakuran
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSchoolGakuranBlack
+  name: gakuran uniform
+  description: A sleek school uniform.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/gakuran.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Costume/gakuran.rsi
+    femaleMask: NoMask
+
