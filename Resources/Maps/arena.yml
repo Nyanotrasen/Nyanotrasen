@@ -9945,7 +9945,7 @@ entities:
     - type: Shuttle
     - type: GridPathfinding
     - type: RadiationGridResistance
-    - id: Arena
+    - id: arena
       type: BecomesStation
     - type: GasTileOverlay
     - nextUpdate: 0
@@ -16670,8 +16670,6 @@ entities:
     - pos: -39.58222,-20.175936
       parent: 6747
       type: Transform
-    - nextSound: 2491.9741203
-      type: EmitSoundOnCollide
   - uid: 7562
     components:
     - flags: InContainer
@@ -17025,8 +17023,6 @@ entities:
     - pos: -39.498886,-20.280174
       parent: 6747
       type: Transform
-    - nextSound: 2495.3226767
-      type: EmitSoundOnCollide
 - proto: BoxShotgunSlug
   entities:
   - uid: 3052
@@ -17034,8 +17030,6 @@ entities:
     - pos: -39.571804,-20.415686
       parent: 6747
       type: Transform
-    - nextSound: 2505.6078357
-      type: EmitSoundOnCollide
 - proto: BoxSterileMask
   entities:
   - uid: 3710
@@ -59708,8 +59702,6 @@ entities:
       type: MetaData
     - parent: 3041
       type: Transform
-    - nextSound: 4617.0854473
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -59719,8 +59711,6 @@ entities:
       type: MetaData
     - parent: 3084
       type: Transform
-    - nextSound: 4619.4248547
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -59735,8 +59725,6 @@ entities:
       type: MetaData
     - parent: 3832
       type: Transform
-    - nextSound: 4620.1578159
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -59746,8 +59734,6 @@ entities:
       type: MetaData
     - parent: 3873
       type: Transform
-    - nextSound: 4618.323559
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -59758,15 +59744,11 @@ entities:
     - pos: -36.579422,-20.348064
       parent: 6747
       type: Transform
-    - nextSound: 4567.4064662
-      type: EmitSoundOnCollide
   - uid: 3083
     components:
     - pos: -36.537758,-25.40366
       parent: 6747
       type: Transform
-    - nextSound: 4566.1413284
-      type: EmitSoundOnCollide
 - proto: ClothingMaskPlague
   entities:
   - uid: 8743
@@ -60235,10 +60217,6 @@ entities:
     - pos: -7.4721985,-70.61425
       parent: 6747
       type: Transform
-    - nextUpdate: 102.995856
-      type: SuitSensor
-    - nextSound: 103.195856
-      type: EmitSoundOnCollide
 - proto: CombatKnife
   entities:
   - uid: 8668
@@ -63048,8 +63026,6 @@ entities:
       type: Transform
     - nextUpdate: 910.388956
       type: PowerCellDraw
-    - nextSound: 910.588956
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -77435,8 +77411,6 @@ entities:
     - pos: -5.213666,-6.198781
       parent: 6747
       type: Transform
-    - nextSound: 1812.8754631
-      type: EmitSoundOnCollide
 - proto: FoodCondimentBottleSmallVinegar
   entities:
   - uid: 23528
@@ -77738,22 +77712,16 @@ entities:
     - pos: 16.707985,-3.5077357
       parent: 6747
       type: Transform
-    - nextSound: 1782.0701907
-      type: EmitSoundOnCollide
   - uid: 6811
     components:
     - pos: -5.213666,-3.5094132
       parent: 6747
       type: Transform
-    - nextSound: 1794.0437778
-      type: EmitSoundOnCollide
   - uid: 6813
     components:
     - pos: -47.05328,2.7920258
       parent: 6747
       type: Transform
-    - nextSound: 1842.1368249
-      type: EmitSoundOnCollide
 - proto: FoodShakerSalt
   entities:
   - uid: 6807
@@ -77761,22 +77729,16 @@ entities:
     - pos: 63.592365,-51.409622
       parent: 6747
       type: Transform
-    - nextSound: 1759.0234597
-      type: EmitSoundOnCollide
   - uid: 6808
     components:
     - pos: 16.81215,-3.4660404
       parent: 6747
       type: Transform
-    - nextSound: 1779.8602082
-      type: EmitSoundOnCollide
   - uid: 6810
     components:
     - pos: -5.296999,-3.426022
       parent: 6747
       type: Transform
-    - nextSound: 1792.2216068
-      type: EmitSoundOnCollide
 - proto: FoodSnackCookieFortune
   entities:
   - uid: 21847
@@ -78273,8 +78235,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 243.749692
-      type: EmitSoundOnCollide
   - uid: 6753
     components:
     - pos: 39.5,4.5
@@ -78284,8 +78244,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 248.4878872
-      type: EmitSoundOnCollide
   - uid: 6754
     components:
     - rot: 3.141592653589793 rad
@@ -78296,8 +78254,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 244.8166476
-      type: EmitSoundOnCollide
   - uid: 7547
     components:
     - rot: -1.5707963267948966 rad
@@ -80526,8 +80482,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 251.8999528
-      type: EmitSoundOnCollide
   - uid: 6751
     components:
     - rot: -1.5707963267948966 rad
@@ -80538,8 +80492,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 251.5166069
-      type: EmitSoundOnCollide
   - uid: 6752
     components:
     - rot: -1.5707963267948966 rad
@@ -80550,8 +80502,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-    - nextSound: 251.1502799
-      type: EmitSoundOnCollide
   - uid: 7541
     components:
     - rot: 1.5707963267948966 rad
@@ -111407,8 +111357,6 @@ entities:
     - pos: 5.466424,-18.469646
       parent: 6747
       type: Transform
-    - nextSound: 535.0733308
-      type: EmitSoundOnCollide
   - uid: 7710
     components:
     - pos: 30.491333,32.607517
@@ -116842,8 +116790,6 @@ entities:
       type: Transform
     - nextUpdate: 579.3973481
       type: PowerCellDraw
-    - nextSound: 579.5973481
-      type: EmitSoundOnCollide
   - uid: 16696
     components:
     - pos: -11.567833,-84.51028
@@ -117606,10 +117552,6 @@ entities:
       type: Transform
     - lerpTarget: 4591.8203344
       type: InputMover
-    - nextAttack: 4591.8203344
-      type: MeleeWeapon
-    - nextSound: 4592.0203344
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -117621,10 +117563,6 @@ entities:
       type: Transform
     - lerpTarget: 4594.2248431
       type: InputMover
-    - nextAttack: 4594.2248431
-      type: MeleeWeapon
-    - nextSound: 4594.4248431
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -117636,10 +117574,6 @@ entities:
       type: Transform
     - lerpTarget: 4595.2898054
       type: InputMover
-    - nextAttack: 4595.2898054
-      type: MeleeWeapon
-    - nextSound: 4595.4898053
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -117651,10 +117585,6 @@ entities:
       type: Transform
     - lerpTarget: 4593.1230853
       type: InputMover
-    - nextAttack: 4593.1230853
-      type: MeleeWeapon
-    - nextSound: 4593.3230852
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -118117,8 +118047,6 @@ entities:
       pos: -9.292019,-70.36745
       parent: 6747
       type: Transform
-    - nextSound: 1645.893134
-      type: EmitSoundOnCollide
   - uid: 17436
     components:
     - pos: 40.75191,-59.169403
@@ -118766,16 +118694,12 @@ entities:
       pos: -39.55097,-23.266285
       parent: 6747
       type: Transform
-    - nextSound: 2434.1079785
-      type: EmitSoundOnCollide
   - uid: 3075
     components:
     - rot: 1.5707963267948966 rad
       pos: -39.55097,-23.266285
       parent: 6747
       type: Transform
-    - nextSound: 2434.3231691
-      type: EmitSoundOnCollide
 - proto: MagazineMagnumSubMachineGunPractice
   entities:
   - uid: 3055
@@ -118784,16 +118708,12 @@ entities:
       pos: -39.55097,-23.422644
       parent: 6747
       type: Transform
-    - nextSound: 2440.6658682
-      type: EmitSoundOnCollide
   - uid: 3076
     components:
     - rot: 1.5707963267948966 rad
       pos: -39.55097,-23.422644
       parent: 6747
       type: Transform
-    - nextSound: 2440.4406659
-      type: EmitSoundOnCollide
 - proto: MagazineMagnumSubMachineGunRubber
   entities:
   - uid: 3056
@@ -118802,16 +118722,12 @@ entities:
       pos: -39.55097,-23.579002
       parent: 6747
       type: Transform
-    - nextSound: 2446.5887082
-      type: EmitSoundOnCollide
   - uid: 3079
     components:
     - rot: 1.5707963267948966 rad
       pos: -39.55097,-23.579002
       parent: 6747
       type: Transform
-    - nextSound: 2446.7908888
-      type: EmitSoundOnCollide
 - proto: MagazineRifleHighVelocity
   entities:
   - uid: 9346
@@ -119197,22 +119113,16 @@ entities:
     - pos: 27.377743,-95.260124
       parent: 6747
       type: Transform
-    - nextSound: 1427.494662
-      type: EmitSoundOnCollide
   - uid: 6755
     components:
     - pos: 27.32566,-90.21495
       parent: 6747
       type: Transform
-    - nextSound: 1425.9408852
-      type: EmitSoundOnCollide
   - uid: 6806
     components:
     - pos: 58.967625,1.4492114
       parent: 6747
       type: Transform
-    - nextSound: 1474.4267898
-      type: EmitSoundOnCollide
 - proto: MaterialCotton
   entities:
   - uid: 3329
@@ -119397,8 +119307,6 @@ entities:
     - pos: 55.41175,-41.87065
       parent: 6747
       type: Transform
-    - nextSound: 2849.6034314
-      type: EmitSoundOnCollide
   - uid: 3723
     components:
     - pos: 17.397,-23.87764
@@ -119421,8 +119329,6 @@ entities:
     - pos: 55.53675,-42.09998
       parent: 6747
       type: Transform
-    - nextSound: 2853.4699168
-      type: EmitSoundOnCollide
   - uid: 3726
     components:
     - pos: 17.5845,-24.127813
@@ -133122,28 +133028,16 @@ entities:
     - pos: -19.972733,-4.3100777
       parent: 6747
       type: Transform
-    - nextAttack: 1189.563251
-      type: MeleeWeapon
-    - nextSound: 1189.7632511
-      type: EmitSoundOnCollide
   - uid: 6773
     components:
     - pos: 60.426533,-51.17389
       parent: 6747
       type: Transform
-    - nextAttack: 1233.679849
-      type: MeleeWeapon
-    - nextSound: 1233.879849
-      type: EmitSoundOnCollide
   - uid: 7501
     components:
     - pos: 57.69928,1.3628695
       parent: 6747
       type: Transform
-    - nextAttack: 1211.6300886
-      type: MeleeWeapon
-    - nextSound: 1211.8300886
-      type: EmitSoundOnCollide
 - proto: Railing
   entities:
   - uid: 397
@@ -142593,8 +142487,6 @@ entities:
     - pos: 50.472504,16.50103
       parent: 6747
       type: Transform
-    - nextSound: 955.1332445
-      type: EmitSoundOnCollide
 - proto: SheetGlass1
   entities:
   - uid: 10894
@@ -142642,8 +142534,6 @@ entities:
     - pos: -39.575947,-26.49615
       parent: 6747
       type: Transform
-    - nextSound: 2684.0386394
-      type: EmitSoundOnCollide
   - uid: 4237
     components:
     - pos: -26.531456,-50.382748
@@ -142745,8 +142635,6 @@ entities:
     - pos: -39.49261,-26.475302
       parent: 6747
       type: Transform
-    - nextSound: 2675.9555976
-      type: EmitSoundOnCollide
   - uid: 3739
     components:
     - pos: 18.505264,-39.38003
@@ -147169,8 +147057,6 @@ entities:
       pos: 3.5071468,-14.627492
       parent: 6747
       type: Transform
-    - nextSound: 4405.016769
-      type: EmitSoundOnCollide
 - proto: StatueVenusBlue
   entities:
   - uid: 2904
@@ -167250,19 +167136,11 @@ entities:
       pos: -36.420853,-19.0784
       parent: 6747
       type: Transform
-    - nextFire: 1147.7212477
-      type: Gun
-    - nextSound: 1147.9212478
-      type: EmitSoundOnCollide
   - uid: 5800
     components:
     - pos: -36.545853,-18.859497
       parent: 6747
       type: Transform
-    - nextFire: 1146.2874407
-      type: Gun
-    - nextSound: 1146.4874407
-      type: EmitSoundOnCollide
   - uid: 23614
     components:
     - rot: 1.5707963267948966 rad
@@ -167329,10 +167207,6 @@ entities:
       type: MetaData
     - parent: 2677
       type: Transform
-    - nextFire: 2536.8077999
-      type: Gun
-    - nextSound: 2537.0077999
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -167342,10 +167216,6 @@ entities:
       type: MetaData
     - parent: 2677
       type: Transform
-    - nextFire: 2536.5810086
-      type: Gun
-    - nextSound: 2536.7810086
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -167355,10 +167225,6 @@ entities:
       type: MetaData
     - parent: 2677
       type: Transform
-    - nextFire: 2536.3908112
-      type: Gun
-    - nextSound: 2536.5908112
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -167368,10 +167234,6 @@ entities:
       type: MetaData
     - parent: 3046
       type: Transform
-    - nextFire: 2529.707469
-      type: Gun
-    - nextSound: 2529.907469
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -167381,10 +167243,6 @@ entities:
       type: MetaData
     - parent: 3046
       type: Transform
-    - nextFire: 2529.4622499
-      type: Gun
-    - nextSound: 2529.6622499
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -167394,10 +167252,6 @@ entities:
       type: MetaData
     - parent: 3046
       type: Transform
-    - nextFire: 2529.2740786
-      type: Gun
-    - nextSound: 2529.4740786
-      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
