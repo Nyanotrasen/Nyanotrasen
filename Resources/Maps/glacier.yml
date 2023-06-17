@@ -8206,6 +8206,10 @@ entities:
     - pos: 65.71993,-36.60378
       parent: 1781
       type: Transform
+    - nextAttack: 1844.1886356
+      type: MeleeWeapon
+    - nextSound: 1844.3886356
+      type: EmitSoundOnCollide
 - proto: AirAlarm
   entities:
   - uid: 10859
@@ -10257,6 +10261,8 @@ entities:
     - pos: -24.431602,10.683188
       parent: 1781
       type: Transform
+    - nextSound: 23358.4579565
+      type: EmitSoundOnCollide
 - proto: AppraisalTool
   entities:
   - uid: 4419
@@ -10264,6 +10270,8 @@ entities:
     - pos: 35.469334,32.897686
       parent: 1781
       type: Transform
+    - nextSound: 1417.0186983
+      type: EmitSoundOnCollide
   - uid: 15271
     components:
     - pos: 31.76368,1.7964716
@@ -10279,6 +10287,8 @@ entities:
     - pos: 52.57254,8.579295
       parent: 1781
       type: Transform
+    - nextSound: 3655.1986204
+      type: EmitSoundOnCollide
 - proto: Ash
   entities:
   - uid: 15550
@@ -10286,16 +10296,22 @@ entities:
     - pos: -5.270505,-29.048687
       parent: 1781
       type: Transform
+    - nextSound: 7676.4122392
+      type: EmitSoundOnCollide
   - uid: 15551
     components:
     - pos: -5.7377586,-28.31557
       parent: 1781
       type: Transform
+    - nextSound: 7677.994596
+      type: EmitSoundOnCollide
   - uid: 15750
     components:
     - pos: -42.588486,24.688408
       parent: 1781
       type: Transform
+    - nextSound: 500.1040669
+      type: EmitSoundOnCollide
 - proto: AsteroidRock
   entities:
   - uid: 264
@@ -11450,6 +11466,10 @@ entities:
       type: MetaData
     - parent: 1739
       type: Transform
+    - nextAttack: 25583.3063208
+      type: MeleeWeapon
+    - nextSound: 25583.5063208
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -11825,6 +11845,8 @@ entities:
     - pos: -30.5,27.5
       parent: 1781
       type: Transform
+    - nextSound: 20133.9678614
+      type: EmitSoundOnCollide
   - uid: 12396
     components:
     - pos: 25.5,-22.5
@@ -11844,6 +11866,8 @@ entities:
     - pos: -29.5,29.5
       parent: 1781
       type: Transform
+    - nextSound: 20082.8206572
+      type: EmitSoundOnCollide
 - proto: BedsheetCaptain
   entities:
   - uid: 6336
@@ -12192,6 +12216,8 @@ entities:
     - pos: -28.3816,24.567226
       parent: 1781
       type: Transform
+    - nextSound: 20722.3141426
+      type: EmitSoundOnCollide
 - proto: BookSalvageEpistemicsRandom
   entities:
   - uid: 7271
@@ -12199,6 +12225,8 @@ entities:
     - pos: 25.648323,-21.515633
       parent: 1781
       type: Transform
+    - nextSound: 612.5008974
+      type: EmitSoundOnCollide
 - proto: Bookshelf
   entities:
   - uid: 1803
@@ -12323,6 +12351,8 @@ entities:
     - pos: 28.602703,-28.223198
       parent: 1781
       type: Transform
+    - nextSound: 2924.8866135
+      type: EmitSoundOnCollide
 - proto: BoxBeanbag
   entities:
   - uid: 2518
@@ -12330,6 +12360,8 @@ entities:
     - pos: -17.539177,11.63491
       parent: 1781
       type: Transform
+    - nextSound: 9248.6972551
+      type: EmitSoundOnCollide
   - uid: 10512
     components:
     - pos: 19.520868,20.749626
@@ -12378,6 +12410,8 @@ entities:
     - pos: -0.68516254,23.379623
       parent: 1781
       type: Transform
+    - nextSound: 3580.9907412
+      type: EmitSoundOnCollide
   - uid: 12204
     components:
     - pos: -25.379795,-4.4257855
@@ -12402,11 +12436,15 @@ entities:
     - pos: -25.164654,-1.2735014
       parent: 1781
       type: Transform
+    - nextSound: 5794.6190251
+      type: EmitSoundOnCollide
   - uid: 15714
     components:
     - pos: -6.278533,14.709256
       parent: 1781
       type: Transform
+    - nextSound: 1159.3117517
+      type: EmitSoundOnCollide
 - proto: BoxFolderBlack
   entities:
   - uid: 12526
@@ -12419,21 +12457,29 @@ entities:
     - pos: 35.564365,43.900776
       parent: 1781
       type: Transform
+    - nextSound: 2180.8543246
+      type: EmitSoundOnCollide
   - uid: 15592
     components:
     - pos: -1.4231625,22.593792
       parent: 1781
       type: Transform
+    - nextSound: 3425.3777635
+      type: EmitSoundOnCollide
   - uid: 15760
     components:
     - pos: -12.894383,22.60754
       parent: 1781
       type: Transform
+    - nextSound: 2272.9755569
+      type: EmitSoundOnCollide
   - uid: 15761
     components:
     - pos: -13.472447,35.56303
       parent: 1781
       type: Transform
+    - nextSound: 2304.1093882
+      type: EmitSoundOnCollide
 - proto: BoxFolderBlue
   entities:
   - uid: 5901
@@ -12446,21 +12492,29 @@ entities:
     - pos: 26.37125,26.72567
       parent: 1781
       type: Transform
+    - nextSound: 718.535314
+      type: EmitSoundOnCollide
   - uid: 15364
     components:
     - pos: 33.096123,43.62705
       parent: 1781
       type: Transform
+    - nextSound: 2188.4810438
+      type: EmitSoundOnCollide
   - uid: 15576
     components:
     - pos: 43.42633,-4.2320137
       parent: 1781
       type: Transform
+    - nextSound: 2438.891768
+      type: EmitSoundOnCollide
   - uid: 15586
     components:
     - pos: -2.4461603,20.513977
       parent: 1781
       type: Transform
+    - nextSound: 3071.2967614
+      type: EmitSoundOnCollide
 - proto: BoxFolderRed
   entities:
   - uid: 2142
@@ -12473,11 +12527,15 @@ entities:
     - pos: -17.263664,19.541088
       parent: 1781
       type: Transform
+    - nextSound: 25001.8196094
+      type: EmitSoundOnCollide
   - uid: 3923
     components:
     - pos: -17.618004,19.541088
       parent: 1781
       type: Transform
+    - nextSound: 25002.4737567
+      type: EmitSoundOnCollide
   - uid: 5900
     components:
     - pos: 28.70515,23.713993
@@ -12488,11 +12546,15 @@ entities:
     - pos: -20.663177,19.146465
       parent: 1781
       type: Transform
+    - nextSound: 19542.8797669
+      type: EmitSoundOnCollide
   - uid: 15587
     components:
     - pos: 0.3407178,20.527184
       parent: 1781
       type: Transform
+    - nextSound: 3073.6922974
+      type: EmitSoundOnCollide
 - proto: BoxFolderWhite
   entities:
   - uid: 6861
@@ -12500,6 +12562,8 @@ entities:
     - pos: 6.8898315,-13.5703335
       parent: 1781
       type: Transform
+    - nextSound: 1113.6017004
+      type: EmitSoundOnCollide
   - uid: 7113
     components:
     - pos: 18.710327,-12.468293
@@ -12515,11 +12579,15 @@ entities:
     - pos: 17.46025,-49.509834
       parent: 1781
       type: Transform
+    - nextSound: 5740.7058946
+      type: EmitSoundOnCollide
   - uid: 15363
     components:
     - pos: 35.07565,42.928226
       parent: 1781
       type: Transform
+    - nextSound: 2178.8592671
+      type: EmitSoundOnCollide
 - proto: BoxFolderYellow
   entities:
   - uid: 1057
@@ -12527,6 +12595,8 @@ entities:
     - pos: 16.833305,40.645466
       parent: 1781
       type: Transform
+    - nextSound: 321.2392709
+      type: EmitSoundOnCollide
   - uid: 11116
     components:
     - pos: 16.34018,62.4967
@@ -12537,11 +12607,15 @@ entities:
     - pos: 44.369053,10.535039
       parent: 1781
       type: Transform
+    - nextSound: 172.0682437
+      type: EmitSoundOnCollide
   - uid: 15693
     components:
     - pos: 53.89056,8.61746
       parent: 1781
       type: Transform
+    - nextSound: 3568.1310359
+      type: EmitSoundOnCollide
 - proto: BoxHandcuff
   entities:
   - uid: 3628
@@ -12571,11 +12645,15 @@ entities:
     - pos: 39.321815,5.7243786
       parent: 1781
       type: Transform
+    - nextSound: 191.8995931
+      type: EmitSoundOnCollide
   - uid: 15772
     components:
     - pos: -8.441152,-0.37038708
       parent: 1781
       type: Transform
+    - nextSound: 3909.6017963
+      type: EmitSoundOnCollide
 - proto: BoxMousetrap
   entities:
   - uid: 6191
@@ -12583,6 +12661,8 @@ entities:
     - pos: -35.550198,16.665154
       parent: 1781
       type: Transform
+    - nextSound: 23951.0163183
+      type: EmitSoundOnCollide
 - proto: BoxMouthSwab
   entities:
   - uid: 2627
@@ -12590,6 +12670,8 @@ entities:
     - pos: 6.408801,-13.362292
       parent: 1781
       type: Transform
+    - nextSound: 792.3071533
+      type: EmitSoundOnCollide
 - proto: BoxNitrileGloves
   entities:
   - uid: 6858
@@ -12623,6 +12705,8 @@ entities:
     - pos: 35.68819,32.491436
       parent: 1781
       type: Transform
+    - nextSound: 4003.0106753
+      type: EmitSoundOnCollide
   - uid: 9809
     components:
     - pos: 28.61414,24.165508
@@ -12649,6 +12733,8 @@ entities:
     - pos: 25.781498,62.653286
       parent: 1781
       type: Transform
+    - nextSound: 7038.8356791
+      type: EmitSoundOnCollide
 - proto: Bucket
   entities:
   - uid: 394
@@ -12676,6 +12762,10 @@ entities:
     - pos: -25.170746,10.796432
       parent: 1781
       type: Transform
+    - nextAttack: 22038.1974327
+      type: MeleeWeapon
+    - nextSound: 22038.3974327
+      type: EmitSoundOnCollide
   - uid: 6268
     components:
     - pos: 39.089867,2.2887602
@@ -12691,6 +12781,10 @@ entities:
     - pos: -34.69586,17.42007
       parent: 1781
       type: Transform
+    - nextAttack: 22044.3428036
+      type: MeleeWeapon
+    - nextSound: 22044.5428036
+      type: EmitSoundOnCollide
   - uid: 12226
     components:
     - pos: -15.683776,-22.66349
@@ -12703,29 +12797,39 @@ entities:
     - pos: 71.41087,-25.603539
       parent: 1781
       type: Transform
+    - nextSound: 12609.8095798
+      type: EmitSoundOnCollide
   - uid: 15729
     components:
     - rot: -1.5707963267948966 rad
       pos: 71.72353,-25.582706
       parent: 1781
       type: Transform
+    - nextSound: 12611.1458786
+      type: EmitSoundOnCollide
   - uid: 15730
     components:
     - rot: 3.141592653589793 rad
       pos: 71.71311,-25.582706
       parent: 1781
       type: Transform
+    - nextSound: 12613.2453506
+      type: EmitSoundOnCollide
   - uid: 15731
     components:
     - rot: 1.5707963267948966 rad
       pos: 71.181595,-25.645206
       parent: 1781
       type: Transform
+    - nextSound: 12615.0227461
+      type: EmitSoundOnCollide
   - uid: 15732
     components:
     - pos: 71.81733,-26.207706
       parent: 1781
       type: Transform
+    - nextSound: 12618.3724924
+      type: EmitSoundOnCollide
 - proto: ButchCleaver
   entities:
   - uid: 15639
@@ -12733,6 +12837,10 @@ entities:
     - pos: 9.470452,16.773762
       parent: 1781
       type: Transform
+    - nextAttack: 7328.6019543
+      type: MeleeWeapon
+    - nextSound: 7328.8019543
+      type: EmitSoundOnCollide
 - proto: CableApcExtension
   entities:
   - uid: 7
@@ -28518,6 +28626,8 @@ entities:
     - pos: -27.707397,33.646515
       parent: 1781
       type: Transform
+    - nextSound: 29184.3375604
+      type: EmitSoundOnCollide
 - proto: CableApcStack1
   entities:
   - uid: 6445
@@ -28577,6 +28687,10 @@ entities:
     - pos: -20.591896,19.712215
       parent: 1781
       type: Transform
+    - nextAttack: 29316.6423006
+      type: MeleeWeapon
+    - nextSound: 29316.8423006
+      type: EmitSoundOnCollide
 - proto: CableHV
   entities:
   - uid: 237
@@ -34843,6 +34957,8 @@ entities:
     - pos: -13.4406595,69.26449
       parent: 1781
       type: Transform
+    - nextSound: 4261.4535809
+      type: EmitSoundOnCollide
 - proto: CableMV
   entities:
   - uid: 17
@@ -40659,6 +40775,8 @@ entities:
     - pos: -26.407356,9.732405
       parent: 1781
       type: Transform
+    - nextSound: 23351.0820327
+      type: EmitSoundOnCollide
 - proto: CargoPallet
   entities:
   - uid: 20
@@ -41135,6 +41253,8 @@ entities:
       type: MetaData
     - parent: 644
       type: Transform
+    - nextSound: 5418.2619404
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
   - uid: 2217
@@ -41143,6 +41263,8 @@ entities:
       type: MetaData
     - parent: 644
       type: Transform
+    - nextSound: 5418.7360485
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
   - uid: 2218
@@ -41151,6 +41273,8 @@ entities:
       type: MetaData
     - parent: 5939
       type: Transform
+    - nextSound: 5417.8658513
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
   - uid: 2314
@@ -41159,6 +41283,8 @@ entities:
       type: MetaData
     - parent: 5939
       type: Transform
+    - nextSound: 5417.3807442
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
   - uid: 4729
@@ -41167,6 +41293,8 @@ entities:
       type: MetaData
     - parent: 5939
       type: Transform
+    - nextSound: 5416.1864764
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
   - uid: 11697
@@ -41177,6 +41305,8 @@ entities:
       type: Transform
     - spent: True
       type: CartridgeAmmo
+    - nextSound: 5463.8430684
+      type: EmitSoundOnCollide
   - uid: 11703
     components:
     - rot: 1.3145636320114136 rad
@@ -41185,12 +41315,16 @@ entities:
       type: Transform
     - spent: True
       type: CartridgeAmmo
+    - nextSound: 5464.9763229
+      type: EmitSoundOnCollide
   - uid: 11705
     components:
     - rot: 3.141592653589793 rad
       pos: -17.382847,30.936237
       parent: 1781
       type: Transform
+    - nextSound: 5062.5685541
+      type: EmitSoundOnCollide
   - uid: 12325
     components:
     - rot: 1.9919111728668213 rad
@@ -41199,6 +41333,8 @@ entities:
       type: Transform
     - spent: True
       type: CartridgeAmmo
+    - nextSound: 5464.4332021
+      type: EmitSoundOnCollide
   - uid: 12372
     components:
     - rot: 0.4686632454395294 rad
@@ -41207,6 +41343,8 @@ entities:
       type: Transform
     - spent: True
       type: CartridgeAmmo
+    - nextSound: 5465.484435
+      type: EmitSoundOnCollide
   - uid: 12374
     components:
     - rot: 3.7094666957855225 rad
@@ -41215,6 +41353,8 @@ entities:
       type: Transform
     - spent: True
       type: CartridgeAmmo
+    - nextSound: 5463.4249753
+      type: EmitSoundOnCollide
 - proto: Catwalk
   entities:
   - uid: 24
@@ -46835,23 +46975,31 @@ entities:
       pos: 29.5,-1.5
       parent: 1781
       type: Transform
+    - nextAttack: 5179.822975
+      type: MeleeWeapon
   - uid: 1302
     components:
     - rot: 1.5707963267948966 rad
       pos: -32.5,18.5
       parent: 1781
       type: Transform
+    - nextAttack: 9577.7089276
+      type: MeleeWeapon
   - uid: 3763
     components:
     - pos: -31.5,15.5
       parent: 1781
       type: Transform
+    - nextAttack: 8751.6276544
+      type: MeleeWeapon
   - uid: 4676
     components:
     - rot: -1.5707963267948966 rad
       pos: 26.5,63.5
       parent: 1781
       type: Transform
+    - nextAttack: 6729.3798939
+      type: MeleeWeapon
   - uid: 4682
     components:
     - rot: 1.5707963267948966 rad
@@ -46876,6 +47024,8 @@ entities:
       pos: 23.5,60.5
       parent: 1781
       type: Transform
+    - nextAttack: 6661.8864901
+      type: MeleeWeapon
   - uid: 5619
     components:
     - rot: 1.5707963267948966 rad
@@ -46923,18 +47073,24 @@ entities:
       pos: -32.5,20.5
       parent: 1781
       type: Transform
+    - nextAttack: 25259.171965
+      type: MeleeWeapon
   - uid: 9565
     components:
     - rot: 3.141592653589793 rad
       pos: -31.5,17.5
       parent: 1781
       type: Transform
+    - nextAttack: 9579.2252697
+      type: MeleeWeapon
   - uid: 9600
     components:
     - rot: 3.141592653589793 rad
       pos: -31.5,21.5
       parent: 1781
       type: Transform
+    - nextAttack: 24555.6184212
+      type: MeleeWeapon
   - uid: 9959
     components:
     - rot: -1.5707963267948966 rad
@@ -47001,24 +47157,32 @@ entities:
       pos: 65.5,-36.5
       parent: 1781
       type: Transform
+    - nextAttack: 1505.2493036
+      type: MeleeWeapon
   - uid: 15653
     components:
     - rot: -1.5707963267948966 rad
       pos: 24.5,23.5
       parent: 1781
       type: Transform
+    - nextAttack: 1554.1505064
+      type: MeleeWeapon
   - uid: 15654
     components:
     - rot: -1.5707963267948966 rad
       pos: 26.5,62.5
       parent: 1781
       type: Transform
+    - nextAttack: 6730.5211485
+      type: MeleeWeapon
   - uid: 15655
     components:
     - rot: 3.141592653589793 rad
       pos: 25.5,61.5
       parent: 1781
       type: Transform
+    - nextAttack: 6731.4393527
+      type: MeleeWeapon
 - proto: ChairFoldingSpawnFolded
   entities:
   - uid: 7964
@@ -47052,6 +47216,8 @@ entities:
       pos: 67.27405,-35.514465
       parent: 1781
       type: Transform
+    - nextAttack: 1507.1057213
+      type: MeleeWeapon
 - proto: ChairOfficeDark
   entities:
   - uid: 875
@@ -47546,6 +47712,8 @@ entities:
     - pos: -30.388054,26.546192
       parent: 1781
       type: Transform
+    - nextSound: 20118.4594873
+      type: EmitSoundOnCollide
 - proto: CheckerBoard
   entities:
   - uid: 9604
@@ -47553,6 +47721,8 @@ entities:
     - pos: 6.4973297,11.596997
       parent: 1781
       type: Transform
+    - nextSound: 2556.6449374
+      type: EmitSoundOnCollide
 - proto: chem_master
   entities:
   - uid: 3770
@@ -47632,6 +47802,8 @@ entities:
     - pos: -31.484978,18.643478
       parent: 1781
       type: Transform
+    - nextSound: 8841.010987
+      type: EmitSoundOnCollide
   - uid: 4558
     components:
     - pos: 10.505369,23.494194
@@ -47698,16 +47870,22 @@ entities:
       pos: -31.71426,19.424728
       parent: 1781
       type: Transform
+    - nextSound: 9596.2553967
+      type: EmitSoundOnCollide
   - uid: 9593
     components:
     - pos: -31.464134,19.705978
       parent: 1781
       type: Transform
+    - nextSound: 26368.1081306
+      type: EmitSoundOnCollide
   - uid: 14429
     components:
     - pos: -31.297386,19.424728
       parent: 1781
       type: Transform
+    - nextSound: 26366.0816761
+      type: EmitSoundOnCollide
 - proto: CigaretteSpent
   entities:
   - uid: 8043
@@ -47742,44 +47920,60 @@ entities:
     - pos: 29.937561,-1.5179791
       parent: 1781
       type: Transform
+    - nextSound: 5211.1057506
+      type: EmitSoundOnCollide
   - uid: 15025
     components:
     - rot: -1.5707963267948966 rad
       pos: 30.041779,-1.4971457
       parent: 1781
       type: Transform
+    - nextSound: 5212.7491162
+      type: EmitSoundOnCollide
   - uid: 15607
     components:
     - pos: -7.307168,26.986198
       parent: 1781
       type: Transform
+    - nextSound: 3935.3693724
+      type: EmitSoundOnCollide
   - uid: 15647
     components:
     - pos: 24.721062,23.107918
       parent: 1781
       type: Transform
+    - nextSound: 1522.6300968
+      type: EmitSoundOnCollide
   - uid: 15648
     components:
     - pos: 24.512623,23.055836
       parent: 1781
       type: Transform
+    - nextSound: 1529.3666019
+      type: EmitSoundOnCollide
   - uid: 15649
     components:
     - rot: -1.5707963267948966 rad
       pos: 24.502201,23.12875
       parent: 1781
       type: Transform
+    - nextSound: 1532.5733205
+      type: EmitSoundOnCollide
   - uid: 15650
     components:
     - pos: 24.77317,23.274586
       parent: 1781
       type: Transform
+    - nextSound: 1535.4849715
+      type: EmitSoundOnCollide
   - uid: 15651
     components:
     - rot: -1.5707963267948966 rad
       pos: 25.01287,23.00375
       parent: 1781
       type: Transform
+    - nextSound: 1537.9300181
+      type: EmitSoundOnCollide
 - proto: CigarGoldCase
   entities:
   - uid: 7330
@@ -47794,11 +47988,15 @@ entities:
     - pos: -16.518314,24.96584
       parent: 1781
       type: Transform
+    - nextSound: 5191.1379888
+      type: EmitSoundOnCollide
   - uid: 15593
     components:
     - pos: -3.199463,12.730264
       parent: 1781
       type: Transform
+    - nextSound: 3695.4692348
+      type: EmitSoundOnCollide
 - proto: CigPackBlack
   entities:
   - uid: 13414
@@ -47820,6 +48018,8 @@ entities:
     - pos: 13.926213,-32.06024
       parent: 1781
       type: Transform
+    - nextSound: 6782.7183712
+      type: EmitSoundOnCollide
 - proto: ClosetChefFilled
   entities:
   - uid: 9895
@@ -48076,6 +48276,8 @@ entities:
       pos: -28.750614,24.596386
       parent: 1781
       type: Transform
+    - nextSound: 20746.8360964
+      type: EmitSoundOnCollide
   - uid: 10416
     components:
     - pos: -46.48251,19.471851
@@ -48113,6 +48315,8 @@ entities:
       type: MetaData
     - parent: 15525
       type: Transform
+    - nextSound: 297.6055697
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48175,6 +48379,8 @@ entities:
     - pos: -44.901314,23.869892
       parent: 1781
       type: Transform
+    - nextSound: 369.2788313
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesColorYellow
   entities:
   - uid: 6366
@@ -48194,6 +48400,8 @@ entities:
     - pos: 17.52068,-50.46817
       parent: 1781
       type: Transform
+    - nextSound: 5697.6789724
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesFingerless
   entities:
   - uid: 7980
@@ -48223,6 +48431,8 @@ entities:
     - pos: -18.526943,53.842022
       parent: 1781
       type: Transform
+    - nextSound: 5627.8230366
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesLatex
   entities:
   - uid: 2233
@@ -48230,6 +48440,8 @@ entities:
     - pos: 14.505275,0.91666174
       parent: 1781
       type: Transform
+    - nextSound: 11853.7159425
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesLeather
   entities:
   - uid: 3201
@@ -48237,6 +48449,8 @@ entities:
     - pos: -25.498035,13.422484
       parent: 1781
       type: Transform
+    - nextSound: 21600.4331115
+      type: EmitSoundOnCollide
   - uid: 10726
     components:
     - pos: -20.205872,-19.217335
@@ -48249,6 +48463,8 @@ entities:
     - pos: 3.4677086,-13.385135
       parent: 1781
       type: Transform
+    - nextSound: 847.7134612
+      type: EmitSoundOnCollide
 - proto: ClothingHandsGlovesPowerglove
   entities:
   - uid: 9026
@@ -48271,6 +48487,8 @@ entities:
       type: MetaData
     - parent: 15525
       type: Transform
+    - nextSound: 5350.5756977
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48288,6 +48506,8 @@ entities:
     - pos: 16.35461,13.605973
       parent: 1781
       type: Transform
+    - nextSound: 1276.3894393
+      type: EmitSoundOnCollide
 - proto: ClothingHeadHatFedoraBrown
   entities:
   - uid: 12315
@@ -48319,6 +48539,8 @@ entities:
       type: MetaData
     - parent: 972
       type: Transform
+    - nextSound: 40.1433756
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48329,6 +48551,8 @@ entities:
     - pos: -25.620129,-1.4666457
       parent: 1781
       type: Transform
+    - nextSound: 5968.8410295
+      type: EmitSoundOnCollide
 - proto: ClothingHeadHatPlaguedoctor
   entities:
   - uid: 15720
@@ -48336,6 +48560,8 @@ entities:
     - pos: 59.48621,-14.480078
       parent: 1781
       type: Transform
+    - nextSound: 10952.6589686
+      type: EmitSoundOnCollide
 - proto: ClothingHeadHatPurplesoftFlipped
   entities:
   - uid: 6351
@@ -48402,6 +48628,8 @@ entities:
     - pos: 51.704365,-2.3678787
       parent: 1781
       type: Transform
+    - nextSound: 6713.5664249
+      type: EmitSoundOnCollide
 - proto: ClothingHeadHoodBrown
   entities:
   - uid: 15748
@@ -48409,6 +48637,8 @@ entities:
     - pos: -42.495422,25.264229
       parent: 1781
       type: Transform
+    - nextSound: 365.3129461
+      type: EmitSoundOnCollide
 - proto: ClothingHeadNurseHat
   entities:
   - uid: 6982
@@ -48429,6 +48659,8 @@ entities:
       type: MetaData
     - parent: 1739
       type: Transform
+    - nextSound: 27554.0762229
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48439,6 +48671,8 @@ entities:
     - pos: -21.667484,23.829376
       parent: 1781
       type: Transform
+    - nextSound: 85.5132424
+      type: EmitSoundOnCollide
 - proto: ClothingHeadsetRobotics
   entities:
   - uid: 6385
@@ -48453,6 +48687,8 @@ entities:
     - pos: 20.518421,-21.171883
       parent: 1781
       type: Transform
+    - nextSound: 1138.2375314
+      type: EmitSoundOnCollide
 - proto: ClothingMaskGasAtmos
   entities:
   - uid: 9382
@@ -48468,6 +48704,8 @@ entities:
       pos: 59.545074,-14.792885
       parent: 1781
       type: Transform
+    - nextSound: 11139.1996416
+      type: EmitSoundOnCollide
 - proto: ClothingMaskSterile
   entities:
   - uid: 6859
@@ -48482,6 +48720,8 @@ entities:
     - pos: 36.983654,37.741825
       parent: 1781
       type: Transform
+    - nextSound: 1841.913695
+      type: EmitSoundOnCollide
 - proto: ClothingNeckCloakMiner
   entities:
   - uid: 6310
@@ -48509,6 +48749,8 @@ entities:
       type: MetaData
     - parent: 15525
       type: Transform
+    - nextSound: 5118.0657507
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48526,6 +48768,8 @@ entities:
     - pos: 36.569805,32.569153
       parent: 1781
       type: Transform
+    - nextSound: 1210.1285745
+      type: EmitSoundOnCollide
   - uid: 10254
     components:
     - pos: 56.67493,31.712097
@@ -48543,6 +48787,8 @@ entities:
     - pos: 36.24686,32.55678
       parent: 1781
       type: Transform
+    - nextSound: 1532.9116769
+      type: EmitSoundOnCollide
   - uid: 10256
     components:
     - pos: 18.917236,25.605839
@@ -48558,6 +48804,8 @@ entities:
     - pos: 25.987556,1.7252631
       parent: 1781
       type: Transform
+    - nextSound: 2451.4951723
+      type: EmitSoundOnCollide
   - uid: 12144
     components:
     - pos: -16.640472,-0.5307636
@@ -48575,6 +48823,8 @@ entities:
     - pos: 45.57118,32.59311
       parent: 1781
       type: Transform
+    - nextSound: 643.4078133
+      type: EmitSoundOnCollide
   - uid: 2146
     components:
     - pos: -7.7750883,21.542118
@@ -48621,6 +48871,8 @@ entities:
     - pos: -7.604883,-20.32008
       parent: 1781
       type: Transform
+    - nextSound: 4800.274013
+      type: EmitSoundOnCollide
 - proto: ClothingOuterCoatBomber
   entities:
   - uid: 4152
@@ -48628,12 +48880,16 @@ entities:
     - pos: 34.861492,35.47803
       parent: 1781
       type: Transform
+    - nextSound: 1047.202438
+      type: EmitSoundOnCollide
   - uid: 9343
     components:
     - flags: InContainer
       type: MetaData
     - parent: 9319
       type: Transform
+    - nextSound: 25589.5096663
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48656,6 +48912,8 @@ entities:
     - pos: 36.347588,31.43148
       parent: 1781
       type: Transform
+    - nextSound: 1084.4369022
+      type: EmitSoundOnCollide
 - proto: ClothingOuterCoatHyenhSweater
   entities:
   - uid: 4154
@@ -48663,6 +48921,8 @@ entities:
     - pos: 35.49649,33.394585
       parent: 1781
       type: Transform
+    - nextSound: 1062.4728492
+      type: EmitSoundOnCollide
 - proto: ClothingOuterDameDane
   entities:
   - uid: 4220
@@ -48670,6 +48930,8 @@ entities:
     - pos: 36.74901,31.73476
       parent: 1781
       type: Transform
+    - nextSound: 1157.9829878
+      type: EmitSoundOnCollide
 - proto: ClothingOuterHardsuitSecurity
   entities:
   - uid: 4992
@@ -48699,6 +48961,8 @@ entities:
     - pos: 59.463524,-15.193448
       parent: 1781
       type: Transform
+    - nextSound: 10957.0242339
+      type: EmitSoundOnCollide
 - proto: ClothingOuterRobeBrown
   entities:
   - uid: 15747
@@ -48706,6 +48970,8 @@ entities:
     - pos: -42.516266,24.743397
       parent: 1781
       type: Transform
+    - nextSound: 362.8003848
+      type: EmitSoundOnCollide
 - proto: ClothingOuterRobeTechPriest
   entities:
   - uid: 13623
@@ -48713,6 +48979,8 @@ entities:
     - pos: 20.539265,-21.484383
       parent: 1781
       type: Transform
+    - nextSound: 1140.2627545
+      type: EmitSoundOnCollide
 - proto: ClothingOuterStraightjacket
   entities:
   - uid: 13997
@@ -48742,6 +49010,8 @@ entities:
       type: MetaData
     - parent: 9275
       type: Transform
+    - nextSound: 17.5201137
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48751,6 +49021,8 @@ entities:
       type: MetaData
     - parent: 9276
       type: Transform
+    - nextSound: 17.8841985
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48761,6 +49033,8 @@ entities:
     - pos: -35.348938,15.513499
       parent: 1781
       type: Transform
+    - nextSound: 26530.1383707
+      type: EmitSoundOnCollide
 - proto: ClothingOuterWinterCap
   entities:
   - uid: 10002
@@ -48781,6 +49055,8 @@ entities:
       type: MetaData
     - parent: 15525
       type: Transform
+    - nextSound: 5314.003079
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48844,11 +49120,15 @@ entities:
     - pos: 34.515182,-2.1973557
       parent: 1781
       type: Transform
+    - nextSound: 5537.0317855
+      type: EmitSoundOnCollide
   - uid: 8845
     components:
     - pos: 36.32613,31.695786
       parent: 1781
       type: Transform
+    - nextSound: 1129.873661
+      type: EmitSoundOnCollide
 - proto: ClothingOuterWinterCoatPlaid
   entities:
   - uid: 8844
@@ -48856,6 +49136,8 @@ entities:
     - pos: 36.703205,31.370235
       parent: 1781
       type: Transform
+    - nextSound: 525.3476287
+      type: EmitSoundOnCollide
 - proto: ClothingOuterWinterEngi
   entities:
   - uid: 390
@@ -48864,6 +49146,8 @@ entities:
       type: MetaData
     - parent: 6043
       type: Transform
+    - nextSound: 999.5092654
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48873,6 +49157,8 @@ entities:
       type: MetaData
     - parent: 6044
       type: Transform
+    - nextSound: 999.0981716
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48882,6 +49168,8 @@ entities:
       type: MetaData
     - parent: 7034
       type: Transform
+    - nextSound: 999.9243577
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -48918,6 +49206,8 @@ entities:
     - pos: 25.570686,1.6523466
       parent: 1781
       type: Transform
+    - nextSound: 2445.9624195
+      type: EmitSoundOnCollide
 - proto: ClothingOuterWinterJani
   entities:
   - uid: 6315
@@ -48991,6 +49281,8 @@ entities:
     - pos: 36.85859,37.564743
       parent: 1781
       type: Transform
+    - nextSound: 1838.1348527
+      type: EmitSoundOnCollide
 - proto: ClothingShoesBootsJack
   entities:
   - uid: 6373
@@ -49003,6 +49295,8 @@ entities:
     - pos: 25.36425,-5.227235
       parent: 1781
       type: Transform
+    - nextSound: 1148.8307305
+      type: EmitSoundOnCollide
 - proto: ClothingShoesBootsWork
   entities:
   - uid: 6307
@@ -49074,6 +49368,10 @@ entities:
     - pos: -21.659782,23.522495
       parent: 1781
       type: Transform
+    - nextUpdate: 83.3448081
+      type: SuitSensor
+    - nextSound: 83.5448081
+      type: EmitSoundOnCollide
 - proto: ClothingUniformJumpsuitPyjamaSyndicateBlack
   entities:
   - uid: 5132
@@ -49825,6 +50123,10 @@ entities:
     - pos: -22.272648,-11.595665
       parent: 1781
       type: Transform
+    - nextAttack: 12859.4480038
+      type: MeleeWeapon
+    - nextSound: 12859.6480038
+      type: EmitSoundOnCollide
 - proto: CrateArtifactContainer
   entities:
   - uid: 8041
@@ -50249,17 +50551,23 @@ entities:
     - pos: -25.652733,-1.1831632
       parent: 1781
       type: Transform
+    - nextSound: 227.5385724
+      type: EmitSoundOnCollide
   - uid: 14673
     components:
     - pos: -26.093422,22.189194
       parent: 1781
       type: Transform
+    - nextSound: 26828.4950824
+      type: EmitSoundOnCollide
   - uid: 15708
     components:
     - flags: InContainer
       type: MetaData
     - parent: 9826
       type: Transform
+    - nextSound: 1183.226281
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -50270,6 +50578,8 @@ entities:
     - pos: -25.488956,21.55378
       parent: 1781
       type: Transform
+    - nextSound: 26832.2539205
+      type: EmitSoundOnCollide
 - proto: Crematorium
   entities:
   - uid: 9605
@@ -50413,6 +50723,10 @@ entities:
       pos: 29.5,10.5
       parent: 1781
       type: Transform
+    - nextAttack: 657.4005562
+      type: MeleeWeapon
+    - nextSound: 657.6005563
+      type: EmitSoundOnCollide
     - canCollide: False
       bodyType: Static
       type: Physics
@@ -50422,6 +50736,10 @@ entities:
       pos: 32.5,-20.5
       parent: 1781
       type: Transform
+    - nextAttack: 685.2579233
+      type: MeleeWeapon
+    - nextSound: 685.4579232
+      type: EmitSoundOnCollide
     - canCollide: False
       bodyType: Static
       type: Physics
@@ -50432,6 +50750,10 @@ entities:
       pos: 36.5,12.5
       parent: 1781
       type: Transform
+    - nextAttack: 696.4175127
+      type: MeleeWeapon
+    - nextSound: 696.6175127
+      type: EmitSoundOnCollide
     - canCollide: False
       bodyType: Static
       type: Physics
@@ -50442,6 +50764,10 @@ entities:
       pos: -6.5,27.5
       parent: 1781
       type: Transform
+    - nextAttack: 736.9593741
+      type: MeleeWeapon
+    - nextSound: 737.1593741
+      type: EmitSoundOnCollide
     - canCollide: False
       bodyType: Static
       type: Physics
@@ -50452,6 +50778,10 @@ entities:
       pos: 26.5,26.5
       parent: 1781
       type: Transform
+    - nextAttack: 652.216906
+      type: MeleeWeapon
+    - nextSound: 652.416906
+      type: EmitSoundOnCollide
     - canCollide: False
       bodyType: Static
       type: Physics
@@ -50468,6 +50798,8 @@ entities:
     - pos: -30.53659,19.539314
       parent: 1781
       type: Transform
+    - nextSound: 26381.6016962
+      type: EmitSoundOnCollide
 - proto: DiseaseDiagnoser
   entities:
   - uid: 6832
@@ -50482,11 +50814,15 @@ entities:
     - pos: -25.456997,12.623456
       parent: 1781
       type: Transform
+    - nextSound: 21681.0170083
+      type: EmitSoundOnCollide
   - uid: 5582
     components:
     - pos: -25.498684,12.64429
       parent: 1781
       type: Transform
+    - nextSound: 21669.1884845
+      type: EmitSoundOnCollide
   - uid: 5869
     components:
     - rot: 1.5707963267948966 rad
@@ -50514,21 +50850,29 @@ entities:
     - pos: -25.247871,12.66775
       parent: 1781
       type: Transform
+    - nextSound: 21680.0909592
+      type: EmitSoundOnCollide
   - uid: 15539
     components:
     - pos: 2.5303824,-7.386099
       parent: 1781
       type: Transform
+    - nextSound: 6107.6540132
+      type: EmitSoundOnCollide
   - uid: 15540
     components:
     - pos: 2.6762881,-7.4902654
       parent: 1781
       type: Transform
+    - nextSound: 6108.6617409
+      type: EmitSoundOnCollide
   - uid: 15541
     components:
     - pos: 2.4392996,-7.3411927
       parent: 1781
       type: Transform
+    - nextSound: 6109.9308006
+      type: EmitSoundOnCollide
 - proto: DisposalBend
   entities:
   - uid: 2135
@@ -54254,12 +54598,20 @@ entities:
       pos: 26.579033,61.68384
       parent: 1781
       type: Transform
+    - nextAttack: 6853.7580246
+      type: MeleeWeapon
+    - nextSound: 6853.9580245
+      type: EmitSoundOnCollide
   - uid: 15657
     components:
     - rot: 3.141592653589793 rad
       pos: 26.20385,63.504803
       parent: 1781
       type: Transform
+    - nextAttack: 6858.5680991
+      type: MeleeWeapon
+    - nextSound: 6858.7680991
+      type: EmitSoundOnCollide
 - proto: DrinkBottleWhiskey
   entities:
   - uid: 10410
@@ -54282,6 +54634,10 @@ entities:
     - pos: 18.27082,-39.1835
       parent: 1781
       type: Transform
+    - nextAttack: 6774.2628215
+      type: MeleeWeapon
+    - nextSound: 6774.4628215
+      type: EmitSoundOnCollide
 - proto: DrinkGlass
   entities:
   - uid: 15455
@@ -54289,6 +54645,10 @@ entities:
     - pos: -35.26323,15.4259
       parent: 1781
       type: Transform
+    - nextAttack: 28790.4048926
+      type: MeleeWeapon
+    - nextSound: 28790.6048926
+      type: EmitSoundOnCollide
 - proto: DrinkGoldenCup
   entities:
   - uid: 9750
@@ -54303,6 +54663,10 @@ entities:
     - pos: 65.54758,-36.20126
       parent: 1781
       type: Transform
+    - nextAttack: 1762.3511292
+      type: MeleeWeapon
+    - nextSound: 1762.5511292
+      type: EmitSoundOnCollide
 - proto: DrinkHotCoffee
   entities:
   - uid: 1123
@@ -54317,6 +54681,10 @@ entities:
     - pos: 46.359905,-20.301098
       parent: 1781
       type: Transform
+    - nextAttack: 5026.8327115
+      type: MeleeWeapon
+    - nextSound: 5027.0327115
+      type: EmitSoundOnCollide
 - proto: DrinkMugMetal
   entities:
   - uid: 5071
@@ -54324,21 +54692,37 @@ entities:
     - pos: -31.454048,14.661479
       parent: 1781
       type: Transform
+    - nextAttack: 21782.6897918
+      type: MeleeWeapon
+    - nextSound: 21782.8897918
+      type: EmitSoundOnCollide
   - uid: 9236
     components:
     - pos: -30.36953,14.794833
       parent: 1781
       type: Transform
+    - nextAttack: 21777.4826282
+      type: MeleeWeapon
+    - nextSound: 21777.6826282
+      type: EmitSoundOnCollide
   - uid: 14525
     components:
     - pos: -35.731804,15.786534
       parent: 1781
       type: Transform
+    - nextAttack: 25505.326944
+      type: MeleeWeapon
+    - nextSound: 25505.526944
+      type: EmitSoundOnCollide
   - uid: 14529
     components:
     - pos: -35.47126,15.776118
       parent: 1781
       type: Transform
+    - nextAttack: 25506.3691763
+      type: MeleeWeapon
+    - nextSound: 25506.5691763
+      type: EmitSoundOnCollide
 - proto: DrinkMugRainbow
   entities:
   - uid: 11868
@@ -54346,6 +54730,10 @@ entities:
     - pos: 46.109783,-20.478184
       parent: 1781
       type: Transform
+    - nextAttack: 5023.0188609
+      type: MeleeWeapon
+    - nextSound: 5023.2188609
+      type: EmitSoundOnCollide
 - proto: DrinkShaker
   entities:
   - uid: 76
@@ -54353,6 +54741,8 @@ entities:
     - pos: -35.724125,15.357249
       parent: 1781
       type: Transform
+    - nextSound: 26535.558732
+      type: EmitSoundOnCollide
 - proto: DrinkShotGlass
   entities:
   - uid: 10252
@@ -54379,6 +54769,10 @@ entities:
     - pos: 25.286404,62.80884
       parent: 1781
       type: Transform
+    - nextAttack: 6821.6742571
+      type: MeleeWeapon
+    - nextSound: 6821.8742571
+      type: EmitSoundOnCollide
   - uid: 7981
     components:
     - pos: -20.776878,37.762836
@@ -54394,6 +54788,10 @@ entities:
     - pos: 25.93288,61.496212
       parent: 1781
       type: Transform
+    - nextAttack: 6881.2971949
+      type: MeleeWeapon
+    - nextSound: 6881.4971949
+      type: EmitSoundOnCollide
 - proto: DrinkWaterBottleFull
   entities:
   - uid: 7005
@@ -54458,6 +54856,10 @@ entities:
     - pos: -7.2454424,21.481216
       parent: 1781
       type: Transform
+    - nextAttack: 2202.9386707
+      type: MeleeWeapon
+    - nextSound: 2203.1386707
+      type: EmitSoundOnCollide
 - proto: DrinkWhiskeyBottleFull
   entities:
   - uid: 10408
@@ -54950,6 +55352,8 @@ entities:
     - pos: 13.461518,-3.4514937
       parent: 1781
       type: Transform
+    - nextSound: 2762.3841265
+      type: EmitSoundOnCollide
 - proto: EmitterCircuitboard
   entities:
   - uid: 15286
@@ -55356,11 +55760,19 @@ entities:
         temporary: False
         event: !type:ToggleActionEvent {}
       type: HandheldLight
+    - nextAttack: 291.7681823
+      type: MeleeWeapon
+    - nextSound: 291.9681823
+      type: EmitSoundOnCollide
   - uid: 14727
     components:
     - pos: 29.671406,-1.1977758
       parent: 1781
       type: Transform
+    - nextAttack: 5193.1149452
+      type: MeleeWeapon
+    - nextSound: 5193.3149452
+      type: EmitSoundOnCollide
   - uid: 14775
     components:
     - pos: -38.39253,20.548313
@@ -55388,6 +55800,10 @@ entities:
         temporary: False
         event: !type:ToggleActionEvent {}
       type: HandheldLight
+    - nextAttack: 85.2857226
+      type: MeleeWeapon
+    - nextSound: 85.4857226
+      type: EmitSoundOnCollide
   - uid: 15236
     components:
     - pos: -28.495102,27.414402
@@ -55415,11 +55831,19 @@ entities:
         temporary: False
         event: !type:ToggleActionEvent {}
       type: HandheldLight
+    - nextAttack: 27040.5112091
+      type: MeleeWeapon
+    - nextSound: 27040.7112091
+      type: EmitSoundOnCollide
   - uid: 15255
     components:
     - pos: -35.541588,16.541859
       parent: 1781
       type: Transform
+    - nextAttack: 27079.472885
+      type: MeleeWeapon
+    - nextSound: 27079.672885
+      type: EmitSoundOnCollide
   - uid: 15324
     components:
     - pos: 11.667519,-10.260889
@@ -55457,11 +55881,19 @@ entities:
     - pos: -27.484852,33.479847
       parent: 1781
       type: Transform
+    - nextAttack: 29167.2951453
+      type: MeleeWeapon
+    - nextSound: 29167.4951453
+      type: EmitSoundOnCollide
   - uid: 15538
     components:
     - pos: 78.47652,-24.581276
       parent: 1781
       type: Transform
+    - nextAttack: 5952.1604392
+      type: MeleeWeapon
+    - nextSound: 5952.3604392
+      type: EmitSoundOnCollide
 - proto: FlashlightSeclite
   entities:
   - uid: 2179
@@ -55470,6 +55902,10 @@ entities:
       pos: 31.399776,-38.730507
       parent: 1781
       type: Transform
+    - nextAttack: 475.2991908
+      type: MeleeWeapon
+    - nextSound: 475.4991908
+      type: EmitSoundOnCollide
   - uid: 6739
     components:
     - pos: 69.448265,-9.618609
@@ -55502,6 +55938,10 @@ entities:
     - pos: -43.068935,23.490032
       parent: 1781
       type: Transform
+    - nextAttack: 627.5613003
+      type: MeleeWeapon
+    - nextSound: 627.7613003
+      type: EmitSoundOnCollide
 - proto: Floodlight
   entities:
   - uid: 5521
@@ -55519,11 +55959,15 @@ entities:
     - pos: -17.485424,-0.47317314
       parent: 1781
       type: Transform
+    - nextSound: 3224.1960572
+      type: EmitSoundOnCollide
   - uid: 15689
     components:
     - pos: -16.464085,0.51641035
       parent: 1781
       type: Transform
+    - nextSound: 3226.0504715
+      type: EmitSoundOnCollide
 - proto: FloodlightBroken
   entities:
   - uid: 1108
@@ -55531,6 +55975,8 @@ entities:
     - pos: 18.47755,-48.058098
       parent: 1781
       type: Transform
+    - nextSound: 520.584437
+      type: EmitSoundOnCollide
 - proto: FloorDrain
   entities:
   - uid: 3780
@@ -55635,6 +56081,8 @@ entities:
     - pos: 15.0868435,12.949723
       parent: 1781
       type: Transform
+    - nextSound: 1226.6053785
+      type: EmitSoundOnCollide
 - proto: FloorWaterEntity
   entities:
   - uid: 15630
@@ -56245,6 +56693,10 @@ entities:
     - pos: 71.55678,-25.270206
       parent: 1781
       type: Transform
+    - nextFire: 12602.5957167
+      type: Gun
+    - nextSound: 12602.7957167
+      type: EmitSoundOnCollide
 - proto: FoamedAluminiumMetal
   entities:
   - uid: 1698
@@ -56294,11 +56746,15 @@ entities:
     - pos: 28.952488,10.539229
       parent: 1781
       type: Transform
+    - nextSound: 2451.314782
+      type: EmitSoundOnCollide
   - uid: 15585
     components:
     - pos: 28.727913,10.737145
       parent: 1781
       type: Transform
+    - nextSound: 2452.1099588
+      type: EmitSoundOnCollide
 - proto: FoodBanana
   entities:
   - uid: 12180
@@ -56323,6 +56779,10 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 13279.5812007
+      type: MeleeWeapon
+    - nextSound: 13279.7812007
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56331,12 +56791,20 @@ entities:
     - pos: -30.559486,10.752263
       parent: 1781
       type: Transform
+    - nextAttack: 21913.9248805
+      type: MeleeWeapon
+    - nextSound: 21914.1248805
+      type: EmitSoundOnCollide
   - uid: 12387
     components:
     - flags: InContainer
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 6593.7654387
+      type: MeleeWeapon
+    - nextSound: 6593.9654387
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56355,6 +56823,8 @@ entities:
     - pos: -30.91938,14.688035
       parent: 1781
       type: Transform
+    - nextSound: 21757.7328331
+      type: EmitSoundOnCollide
 - proto: FoodBoxDonut
   entities:
   - uid: 5997
@@ -56408,6 +56878,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 11927.4023745
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56423,6 +56895,8 @@ entities:
     - pos: -33.760643,12.948485
       parent: 1781
       type: Transform
+    - nextSound: 25670.0131058
+      type: EmitSoundOnCollide
 - proto: FoodCondimentBottleKetchup
   entities:
   - uid: 1467
@@ -56431,6 +56905,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13332.0574089
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56449,6 +56925,8 @@ entities:
       pos: -42.098766,23.890728
       parent: 1781
       type: Transform
+    - nextSound: 520.0448833
+      type: EmitSoundOnCollide
 - proto: FoodCondimentBottleSmallVinegar
   entities:
   - uid: 1471
@@ -56457,6 +56935,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13265.7120621
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56476,6 +56956,8 @@ entities:
     - pos: 13.532655,15.459453
       parent: 1781
       type: Transform
+    - nextSound: 2406.2021461
+      type: EmitSoundOnCollide
 - proto: FoodDonutBlumpkin
   entities:
   - uid: 5960
@@ -56509,6 +56991,8 @@ entities:
     - pos: 35.364956,43.57506
       parent: 1781
       type: Transform
+    - nextSound: 2053.5392286
+      type: EmitSoundOnCollide
 - proto: FoodDonutJellyBlumpkin
   entities:
   - uid: 2348
@@ -56516,6 +57000,8 @@ entities:
     - pos: 32.61862,43.50814
       parent: 1781
       type: Transform
+    - nextSound: 1994.6756606
+      type: EmitSoundOnCollide
 - proto: FoodDonutJellyPink
   entities:
   - uid: 5143
@@ -56547,6 +57033,8 @@ entities:
     - pos: 66.016556,-35.836678
       parent: 1781
       type: Transform
+    - nextSound: 1717.2640811
+      type: EmitSoundOnCollide
 - proto: FoodFrozenSandwichStrawberry
   entities:
   - uid: 5122
@@ -56559,6 +57047,8 @@ entities:
     - pos: 65.714325,-35.909595
       parent: 1781
       type: Transform
+    - nextSound: 1712.6040313
+      type: EmitSoundOnCollide
 - proto: FoodKebabSkewer
   entities:
   - uid: 1466
@@ -56567,6 +57057,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13343.0087695
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56576,6 +57068,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13344.4740949
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56585,6 +57079,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13343.8019461
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56593,6 +57089,8 @@ entities:
     - pos: 65.62053,-35.867928
       parent: 1781
       type: Transform
+    - nextSound: 1724.9670529
+      type: EmitSoundOnCollide
 - proto: FoodLemon
   entities:
   - uid: 13426
@@ -56600,11 +57098,15 @@ entities:
     - pos: 27.59193,9.839067
       parent: 1781
       type: Transform
+    - nextSound: 636.5411626
+      type: EmitSoundOnCollide
   - uid: 15619
     components:
     - pos: 27.477291,9.995317
       parent: 1781
       type: Transform
+    - nextSound: 636.2290878
+      type: EmitSoundOnCollide
 - proto: FoodLollipop
   entities:
   - uid: 12477
@@ -56630,6 +57132,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 102.8376951
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56639,6 +57143,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13412.3948187
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56648,6 +57154,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13412.9639451
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56657,6 +57165,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13413.2790169
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56666,6 +57176,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 103.8519221
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56675,6 +57187,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 103.3558108
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56686,6 +57200,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13407.2696754
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56695,6 +57211,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13406.8765835
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56704,6 +57222,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13406.4304843
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56712,11 +57232,15 @@ entities:
     - pos: 13.640833,15.6286745
       parent: 1781
       type: Transform
+    - nextSound: 7582.1330195
+      type: EmitSoundOnCollide
   - uid: 15549
     components:
     - pos: 13.672099,15.5036745
       parent: 1781
       type: Transform
+    - nextSound: 7583.0872339
+      type: EmitSoundOnCollide
 - proto: FoodMeatMeatball
   entities:
   - uid: 3560
@@ -56725,6 +57249,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13399.0413921
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56734,6 +57260,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13398.5087044
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56743,6 +57271,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 13397.9745853
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56771,6 +57301,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 2721.5868687
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56780,6 +57312,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 2720.6839053
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56789,6 +57323,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 2721.1758937
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56799,16 +57335,22 @@ entities:
     - pos: -31.454979,12.756814
       parent: 1781
       type: Transform
+    - nextSound: 26543.9793297
+      type: EmitSoundOnCollide
   - uid: 15638
     components:
     - pos: 9.430893,17.241955
       parent: 1781
       type: Transform
+    - nextSound: 7137.2965338
+      type: EmitSoundOnCollide
   - uid: 15692
     components:
     - pos: 9.537893,19.588177
       parent: 1781
       type: Transform
+    - nextSound: 3354.4928476
+      type: EmitSoundOnCollide
 - proto: FoodShakerSalt
   entities:
   - uid: 9234
@@ -56816,16 +57358,22 @@ entities:
     - pos: -31.692158,12.619576
       parent: 1781
       type: Transform
+    - nextSound: 26539.6566418
+      type: EmitSoundOnCollide
   - uid: 15617
     components:
     - pos: 9.545532,17.523205
       parent: 1781
       type: Transform
+    - nextSound: 7130.7273045
+      type: EmitSoundOnCollide
   - uid: 15691
     components:
     - pos: 9.756752,19.58701
       parent: 1781
       type: Transform
+    - nextSound: 3338.6299221
+      type: EmitSoundOnCollide
 - proto: FoodSnackChocolate
   entities:
   - uid: 9902
@@ -56849,6 +57397,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 6562.9144895
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56858,6 +57408,8 @@ entities:
       type: MetaData
     - parent: 3445
       type: Transform
+    - nextSound: 6562.1793181
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56880,6 +57432,8 @@ entities:
     - pos: -5.6642,-28.834438
       parent: 1781
       type: Transform
+    - nextSound: 1755.1530035
+      type: EmitSoundOnCollide
 - proto: FoodTinMRETrash
   entities:
   - uid: 14003
@@ -56887,11 +57441,15 @@ entities:
     - pos: -5.2913914,-28.240334
       parent: 1781
       type: Transform
+    - nextSound: 1762.7747054
+      type: EmitSoundOnCollide
   - uid: 15534
     components:
     - pos: 69.516525,-50.84709
       parent: 1781
       type: Transform
+    - nextSound: 5784.0112185
+      type: EmitSoundOnCollide
 - proto: FoodTinPeachesMaint
   entities:
   - uid: 10208
@@ -56909,6 +57467,8 @@ entities:
     - pos: -37.56295,38.672676
       parent: 1781
       type: Transform
+    - nextSound: 594.5431861
+      type: EmitSoundOnCollide
 - proto: FoodTinPeachesMaintOpen
   entities:
   - uid: 14816
@@ -56935,6 +57495,8 @@ entities:
     - pos: 27.60086,10.653171
       parent: 1781
       type: Transform
+    - nextSound: 2408.480608
+      type: EmitSoundOnCollide
 - proto: Football
   entities:
   - uid: 11449
@@ -56950,6 +57512,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13153.0287895
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -56959,6 +57523,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13152.4056511
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -57241,6 +57807,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10227.0886193
+      type: EmitSoundOnCollide
   - uid: 1675
     components:
     - rot: -1.5707963267948966 rad
@@ -57265,6 +57833,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 598.2449878
+      type: EmitSoundOnCollide
   - uid: 2346
     components:
     - rot: 3.141592653589793 rad
@@ -57301,6 +57871,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 591.221418
+      type: EmitSoundOnCollide
   - uid: 2937
     components:
     - rot: 1.5707963267948966 rad
@@ -57309,6 +57881,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 516.8284538
+      type: EmitSoundOnCollide
   - uid: 2939
     components:
     - rot: 1.5707963267948966 rad
@@ -57317,6 +57891,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 594.2000863
+      type: EmitSoundOnCollide
   - uid: 3070
     components:
     - pos: 23.5,46.5
@@ -57360,6 +57936,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 514.829008
+      type: EmitSoundOnCollide
   - uid: 4510
     components:
     - rot: -1.5707963267948966 rad
@@ -57368,6 +57946,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 515.8682398
+      type: EmitSoundOnCollide
   - uid: 4520
     components:
     - rot: 1.5707963267948966 rad
@@ -57376,6 +57956,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 585.0609561
+      type: EmitSoundOnCollide
   - uid: 4532
     components:
     - rot: -1.5707963267948966 rad
@@ -57384,6 +57966,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 586.3784673
+      type: EmitSoundOnCollide
   - uid: 4916
     components:
     - rot: 1.5707963267948966 rad
@@ -57466,6 +58050,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 587.4375739
+      type: EmitSoundOnCollide
   - uid: 5835
     components:
     - rot: -1.5707963267948966 rad
@@ -57474,6 +58060,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 330.503409
+      type: EmitSoundOnCollide
   - uid: 5981
     components:
     - rot: 1.5707963267948966 rad
@@ -57482,6 +58070,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 513.5037111
+      type: EmitSoundOnCollide
   - uid: 5984
     components:
     - rot: -1.5707963267948966 rad
@@ -57490,6 +58080,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 590.0271529
+      type: EmitSoundOnCollide
   - uid: 6244
     components:
     - rot: 3.141592653589793 rad
@@ -57531,6 +58123,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 483.8457355
+      type: EmitSoundOnCollide
   - uid: 8063
     components:
     - pos: 18.5,54.5
@@ -57585,6 +58179,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 485.0390018
+      type: EmitSoundOnCollide
   - uid: 8472
     components:
     - rot: -1.5707963267948966 rad
@@ -57593,6 +58189,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 517.7836664
+      type: EmitSoundOnCollide
   - uid: 8492
     components:
     - rot: -1.5707963267948966 rad
@@ -57601,6 +58199,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 592.5497155
+      type: EmitSoundOnCollide
   - uid: 8670
     components:
     - rot: -1.5707963267948966 rad
@@ -57637,6 +58237,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 597.253769
+      type: EmitSoundOnCollide
   - uid: 8803
     components:
     - rot: -1.5707963267948966 rad
@@ -57835,6 +58437,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1206.5842756
+      type: EmitSoundOnCollide
   - uid: 11909
     components:
     - pos: 70.5,-11.5
@@ -58174,6 +58778,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 329.0760879
+      type: EmitSoundOnCollide
 - proto: GasPipeFourway
   entities:
   - uid: 4912
@@ -58280,6 +58886,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 26673.4221523
+      type: EmitSoundOnCollide
   - uid: 32
     components:
     - rot: -1.5707963267948966 rad
@@ -58303,6 +58911,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 467.2523081
+      type: EmitSoundOnCollide
   - uid: 173
     components:
     - pos: 43.5,29.5
@@ -58310,6 +58920,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 469.0507068
+      type: EmitSoundOnCollide
   - uid: 203
     components:
     - rot: -1.5707963267948966 rad
@@ -58318,6 +58930,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 621.7124901
+      type: EmitSoundOnCollide
   - uid: 207
     components:
     - rot: 1.5707963267948966 rad
@@ -58326,6 +58940,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 20848.1744562
+      type: EmitSoundOnCollide
   - uid: 209
     components:
     - pos: -22.5,18.5
@@ -58333,6 +58949,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 21291.5302161
+      type: EmitSoundOnCollide
   - uid: 236
     components:
     - pos: -22.5,16.5
@@ -58340,6 +58958,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 21294.4498715
+      type: EmitSoundOnCollide
   - uid: 238
     components:
     - rot: 3.141592653589793 rad
@@ -58394,6 +59014,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 470.1239475
+      type: EmitSoundOnCollide
   - uid: 400
     components:
     - pos: 45.5,30.5
@@ -58401,6 +59023,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 470.646064
+      type: EmitSoundOnCollide
   - uid: 408
     components:
     - rot: -1.5707963267948966 rad
@@ -58528,6 +59152,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 345.0036469
+      type: EmitSoundOnCollide
   - uid: 1085
     components:
     - rot: 1.5707963267948966 rad
@@ -58543,6 +59169,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 468.3855608
+      type: EmitSoundOnCollide
   - uid: 1187
     components:
     - rot: 1.5707963267948966 rad
@@ -58575,6 +59203,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 11215.7083633
+      type: EmitSoundOnCollide
   - uid: 1286
     components:
     - rot: -1.5707963267948966 rad
@@ -58590,6 +59220,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10163.703935
+      type: EmitSoundOnCollide
   - uid: 1371
     components:
     - pos: -15.5,13.5
@@ -58597,6 +59229,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10162.8432405
+      type: EmitSoundOnCollide
   - uid: 1372
     components:
     - pos: -15.5,15.5
@@ -58604,6 +59238,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10161.3619096
+      type: EmitSoundOnCollide
   - uid: 1627
     components:
     - rot: 3.141592653589793 rad
@@ -58780,6 +59416,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 26674.4850263
+      type: EmitSoundOnCollide
   - uid: 2294
     components:
     - rot: 1.5707963267948966 rad
@@ -58897,6 +59535,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 336.9328427
+      type: EmitSoundOnCollide
   - uid: 2790
     components:
     - rot: 3.141592653589793 rad
@@ -58912,6 +59552,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10167.1234716
+      type: EmitSoundOnCollide
   - uid: 2862
     components:
     - pos: -15.5,11.5
@@ -58919,6 +59561,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10165.9922207
+      type: EmitSoundOnCollide
   - uid: 2938
     components:
     - rot: -1.5707963267948966 rad
@@ -58927,6 +59571,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 337.5889911
+      type: EmitSoundOnCollide
   - uid: 3044
     components:
     - pos: -23.5,17.5
@@ -58936,6 +59582,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 21288.6275685
+      type: EmitSoundOnCollide
   - uid: 3072
     components:
     - pos: 23.5,45.5
@@ -58950,6 +59598,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 21289.5047652
+      type: EmitSoundOnCollide
   - uid: 3180
     components:
     - pos: -23.5,19.5
@@ -58957,6 +59607,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 21286.5451041
+      type: EmitSoundOnCollide
   - uid: 3183
     components:
     - rot: 3.141592653589793 rad
@@ -58965,6 +59617,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 405.9754802
+      type: EmitSoundOnCollide
   - uid: 3196
     components:
     - pos: -23.5,18.5
@@ -58972,6 +59626,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 21287.0802436
+      type: EmitSoundOnCollide
   - uid: 3197
     components:
     - pos: -22.5,17.5
@@ -58979,6 +59635,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 21293.6966996
+      type: EmitSoundOnCollide
   - uid: 3207
     components:
     - rot: 1.5707963267948966 rad
@@ -58989,6 +59647,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 20849.925848
+      type: EmitSoundOnCollide
   - uid: 3636
     components:
     - rot: 3.141592653589793 rad
@@ -59027,6 +59687,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 338.2511345
+      type: EmitSoundOnCollide
   - uid: 3969
     components:
     - rot: 3.141592653589793 rad
@@ -59105,6 +59767,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10152.589951
+      type: EmitSoundOnCollide
   - uid: 4200
     components:
     - pos: -18.5,13.5
@@ -59112,6 +59776,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10152.0388271
+      type: EmitSoundOnCollide
   - uid: 4432
     components:
     - pos: 34.5,31.5
@@ -59119,6 +59785,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 2004.8067174
+      type: EmitSoundOnCollide
   - uid: 4434
     components:
     - pos: 36.5,31.5
@@ -59126,6 +59794,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 2005.3848492
+      type: EmitSoundOnCollide
   - uid: 4435
     components:
     - pos: 36.5,30.5
@@ -59133,6 +59803,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 2006.1056882
+      type: EmitSoundOnCollide
   - uid: 4455
     components:
     - rot: 3.141592653589793 rad
@@ -59148,6 +59820,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 2006.5567882
+      type: EmitSoundOnCollide
   - uid: 4470
     components:
     - pos: 36.5,29.5
@@ -59155,6 +59829,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 2008.3801956
+      type: EmitSoundOnCollide
   - uid: 4475
     components:
     - rot: 3.141592653589793 rad
@@ -59171,6 +59847,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 573.9681159
+      type: EmitSoundOnCollide
   - uid: 4519
     components:
     - rot: 3.141592653589793 rad
@@ -59195,6 +59873,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 20847.7413583
+      type: EmitSoundOnCollide
   - uid: 4914
     components:
     - pos: -67.5,-19.5
@@ -59401,6 +60081,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 394.8399938
+      type: EmitSoundOnCollide
   - uid: 5747
     components:
     - rot: 3.141592653589793 rad
@@ -59409,6 +60091,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 409.0551786
+      type: EmitSoundOnCollide
   - uid: 5853
     components:
     - rot: 1.5707963267948966 rad
@@ -59417,6 +60101,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 20846.6986136
+      type: EmitSoundOnCollide
   - uid: 5864
     components:
     - rot: 1.5707963267948966 rad
@@ -59425,6 +60111,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 20845.2033912
+      type: EmitSoundOnCollide
   - uid: 5904
     components:
     - rot: 1.5707963267948966 rad
@@ -59449,6 +60137,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 344.3344953
+      type: EmitSoundOnCollide
   - uid: 5982
     components:
     - rot: 1.5707963267948966 rad
@@ -59457,6 +60147,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 572.227725
+      type: EmitSoundOnCollide
   - uid: 5985
     components:
     - rot: 3.141592653589793 rad
@@ -59465,6 +60157,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 568.7499486
+      type: EmitSoundOnCollide
   - uid: 6018
     components:
     - rot: -1.5707963267948966 rad
@@ -59473,6 +60167,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 336.5007464
+      type: EmitSoundOnCollide
   - uid: 6059
     components:
     - rot: 3.141592653589793 rad
@@ -59481,6 +60177,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 410.7605498
+      type: EmitSoundOnCollide
   - uid: 6249
     components:
     - rot: 3.141592653589793 rad
@@ -59489,6 +60187,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 401.2084157
+      type: EmitSoundOnCollide
   - uid: 6323
     components:
     - rot: 1.5707963267948966 rad
@@ -59504,6 +60204,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 200.0272564
+      type: EmitSoundOnCollide
   - uid: 7065
     components:
     - rot: -1.5707963267948966 rad
@@ -59512,6 +60214,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 481.5772293
+      type: EmitSoundOnCollide
   - uid: 7068
     components:
     - rot: -1.5707963267948966 rad
@@ -59520,6 +60224,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 476.5951137
+      type: EmitSoundOnCollide
   - uid: 7069
     components:
     - rot: -1.5707963267948966 rad
@@ -59528,6 +60234,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 477.3872922
+      type: EmitSoundOnCollide
   - uid: 7070
     components:
     - rot: -1.5707963267948966 rad
@@ -59536,6 +60244,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 478.0864449
+      type: EmitSoundOnCollide
   - uid: 7418
     components:
     - rot: 1.5707963267948966 rad
@@ -61045,6 +61755,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 20850.6590112
+      type: EmitSoundOnCollide
   - uid: 8430
     components:
     - rot: 1.5707963267948966 rad
@@ -61055,6 +61767,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 20852.4792487
+      type: EmitSoundOnCollide
   - uid: 8431
     components:
     - pos: 22.5,26.5
@@ -62210,6 +62924,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 458.7588185
+      type: EmitSoundOnCollide
   - uid: 8780
     components:
     - rot: 1.5707963267948966 rad
@@ -62218,6 +62934,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 573.057912
+      type: EmitSoundOnCollide
   - uid: 8786
     components:
     - rot: 3.141592653589793 rad
@@ -62226,6 +62944,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 459.5109858
+      type: EmitSoundOnCollide
   - uid: 8787
     components:
     - rot: -1.5707963267948966 rad
@@ -62234,6 +62954,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 481.1771405
+      type: EmitSoundOnCollide
   - uid: 8793
     components:
     - rot: -1.5707963267948966 rad
@@ -62490,6 +63212,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 417.0391002
+      type: EmitSoundOnCollide
   - uid: 9018
     components:
     - pos: -6.5,43.5
@@ -63933,6 +64657,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 396.7114141
+      type: EmitSoundOnCollide
   - uid: 11662
     components:
     - rot: 3.141592653589793 rad
@@ -63941,6 +64667,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 407.944921
+      type: EmitSoundOnCollide
   - uid: 11672
     components:
     - rot: -1.5707963267948966 rad
@@ -63949,6 +64677,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1193.864755
+      type: EmitSoundOnCollide
   - uid: 11673
     components:
     - rot: -1.5707963267948966 rad
@@ -63957,6 +64687,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1194.4583343
+      type: EmitSoundOnCollide
   - uid: 11674
     components:
     - rot: -1.5707963267948966 rad
@@ -63965,6 +64697,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1195.2875218
+      type: EmitSoundOnCollide
   - uid: 11675
     components:
     - rot: 3.141592653589793 rad
@@ -63973,6 +64707,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1197.2679654
+      type: EmitSoundOnCollide
   - uid: 11676
     components:
     - rot: 3.141592653589793 rad
@@ -63981,6 +64717,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1197.9211112
+      type: EmitSoundOnCollide
   - uid: 11678
     components:
     - rot: 1.5707963267948966 rad
@@ -63989,6 +64727,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1212.3305599
+      type: EmitSoundOnCollide
   - uid: 11679
     components:
     - pos: 10.5,17.5
@@ -63996,6 +64736,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1213.7748816
+      type: EmitSoundOnCollide
   - uid: 11680
     components:
     - rot: -1.5707963267948966 rad
@@ -64004,6 +64746,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1218.1928684
+      type: EmitSoundOnCollide
   - uid: 11681
     components:
     - rot: -1.5707963267948966 rad
@@ -64012,6 +64756,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1218.8680202
+      type: EmitSoundOnCollide
   - uid: 11682
     components:
     - rot: -1.5707963267948966 rad
@@ -64022,6 +64768,8 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+    - nextSound: 1220.4373691
+      type: EmitSoundOnCollide
   - uid: 11685
     components:
     - rot: 3.141592653589793 rad
@@ -64030,6 +64778,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 416.4739755
+      type: EmitSoundOnCollide
   - uid: 11910
     components:
     - rot: -1.5707963267948966 rad
@@ -67431,6 +68181,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 400.3842368
+      type: EmitSoundOnCollide
   - uid: 14849
     components:
     - rot: 1.5707963267948966 rad
@@ -68471,6 +69223,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 522.1815913
+      type: EmitSoundOnCollide
   - uid: 15565
     components:
     - pos: 21.5,21.5
@@ -68478,6 +69232,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 522.9637705
+      type: EmitSoundOnCollide
   - uid: 15566
     components:
     - rot: -1.5707963267948966 rad
@@ -68486,6 +69242,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 525.1662562
+      type: EmitSoundOnCollide
 - proto: GasPipeTJunction
   entities:
   - uid: 195
@@ -68496,6 +69254,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 491.1264118
+      type: EmitSoundOnCollide
   - uid: 392
     components:
     - rot: 3.141592653589793 rad
@@ -68504,6 +69264,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 491.746292
+      type: EmitSoundOnCollide
   - uid: 968
     components:
     - pos: 10.5,18.5
@@ -68511,6 +69273,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1160.6383233
+      type: EmitSoundOnCollide
   - uid: 1475
     components:
     - rot: 3.141592653589793 rad
@@ -68519,6 +69283,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 2020.7538297
+      type: EmitSoundOnCollide
   - uid: 1476
     components:
     - rot: 3.141592653589793 rad
@@ -68527,6 +69293,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 2021.4419822
+      type: EmitSoundOnCollide
   - uid: 1813
     components:
     - rot: -1.5707963267948966 rad
@@ -68598,6 +69366,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10220.4781487
+      type: EmitSoundOnCollide
   - uid: 2860
     components:
     - rot: 1.5707963267948966 rad
@@ -68606,6 +69376,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10219.1748582
+      type: EmitSoundOnCollide
   - uid: 3982
     components:
     - rot: 3.141592653589793 rad
@@ -68645,6 +69417,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 552.0442187
+      type: EmitSoundOnCollide
   - uid: 4668
     components:
     - pos: -22.5,19.5
@@ -68652,6 +69426,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 21283.7019135
+      type: EmitSoundOnCollide
   - uid: 4731
     components:
     - rot: 3.141592653589793 rad
@@ -68660,6 +69436,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 427.1394022
+      type: EmitSoundOnCollide
   - uid: 4929
     components:
     - rot: -1.5707963267948966 rad
@@ -68701,6 +69479,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 426.0161529
+      type: EmitSoundOnCollide
   - uid: 5860
     components:
     - pos: -23.5,20.5
@@ -68708,6 +69488,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 21284.2328678
+      type: EmitSoundOnCollide
   - uid: 5956
     components:
     - rot: 3.141592653589793 rad
@@ -68716,6 +69498,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 450.1658988
+      type: EmitSoundOnCollide
   - uid: 5983
     components:
     - rot: 3.141592653589793 rad
@@ -68724,6 +69508,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 434.3878116
+      type: EmitSoundOnCollide
   - uid: 6282
     components:
     - rot: 3.141592653589793 rad
@@ -68747,6 +69533,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 465.2592769
+      type: EmitSoundOnCollide
   - uid: 7067
     components:
     - pos: 12.5,9.5
@@ -68754,6 +69542,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 474.0510563
+      type: EmitSoundOnCollide
   - uid: 7818
     components:
     - rot: 1.5707963267948966 rad
@@ -68762,6 +69552,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 518.7128216
+      type: EmitSoundOnCollide
   - uid: 7819
     components:
     - rot: 1.5707963267948966 rad
@@ -68770,6 +69562,8 @@ entities:
       type: Transform
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 517.3975238
+      type: EmitSoundOnCollide
   - uid: 8049
     components:
     - rot: 3.141592653589793 rad
@@ -69196,6 +69990,8 @@ entities:
       type: Transform
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1189.5807984
+      type: EmitSoundOnCollide
   - uid: 11890
     components:
     - rot: 3.141592653589793 rad
@@ -69950,6 +70746,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 461.6240513
+      type: EmitSoundOnCollide
   - uid: 260
     components:
     - rot: 3.141592653589793 rad
@@ -69979,6 +70777,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10237.5121084
+      type: EmitSoundOnCollide
   - uid: 1398
     components:
     - pos: 36.5,32.5
@@ -69988,6 +70788,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 2001.784609
+      type: EmitSoundOnCollide
   - uid: 1604
     components:
     - pos: -18.5,15.5
@@ -69997,6 +70799,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 10235.9439184
+      type: EmitSoundOnCollide
   - uid: 1609
     components:
     - rot: 1.5707963267948966 rad
@@ -70007,6 +70811,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 26664.845063
+      type: EmitSoundOnCollide
   - uid: 1825
     components:
     - rot: 3.141592653589793 rad
@@ -70017,6 +70823,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 3890.7275466
+      type: EmitSoundOnCollide
   - uid: 2189
     components:
     - rot: 1.5707963267948966 rad
@@ -70027,6 +70835,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1148.7174332
+      type: EmitSoundOnCollide
   - uid: 2190
     components:
     - rot: 1.5707963267948966 rad
@@ -70037,6 +70847,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 65.9392285
+      type: EmitSoundOnCollide
   - uid: 2191
     components:
     - rot: -1.5707963267948966 rad
@@ -70047,6 +70859,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 1166.861725
+      type: EmitSoundOnCollide
   - uid: 3972
     components:
     - pos: 17.5,38.5
@@ -70147,6 +70961,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 497.3950095
+      type: EmitSoundOnCollide
   - uid: 8081
     components:
     - pos: 17.5,56.5
@@ -70206,6 +71022,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 504.9437402
+      type: EmitSoundOnCollide
   - uid: 8151
     components:
     - rot: 1.5707963267948966 rad
@@ -70560,6 +71378,8 @@ entities:
       type: AmbientSound
     - color: '#03FCD3FF'
       type: AtmosPipeColor
+    - nextSound: 443.8331265
+      type: EmitSoundOnCollide
   - uid: 13797
     components:
     - rot: 3.141592653589793 rad
@@ -70808,6 +71628,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 424.7631455
+      type: EmitSoundOnCollide
   - uid: 382
     components:
     - rot: 1.5707963267948966 rad
@@ -70837,6 +71659,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10252.9380521
+      type: EmitSoundOnCollide
   - uid: 1603
     components:
     - rot: 3.141592653589793 rad
@@ -70847,6 +71671,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 10258.6633282
+      type: EmitSoundOnCollide
   - uid: 1811
     components:
     - rot: 3.141592653589793 rad
@@ -70867,6 +71693,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 70.0201416
+      type: EmitSoundOnCollide
   - uid: 3198
     components:
     - rot: 3.141592653589793 rad
@@ -70877,6 +71705,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 21304.4140946
+      type: EmitSoundOnCollide
   - uid: 3978
     components:
     - rot: -1.5707963267948966 rad
@@ -70896,6 +71726,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1985.0888827
+      type: EmitSoundOnCollide
   - uid: 4436
     components:
     - pos: 42.5,15.5
@@ -70914,6 +71746,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 437.710763
+      type: EmitSoundOnCollide
   - uid: 8048
     components:
     - rot: 3.141592653589793 rad
@@ -71040,6 +71874,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 479.3989207
+      type: EmitSoundOnCollide
   - uid: 8552
     components:
     - rot: 3.141592653589793 rad
@@ -71168,6 +72004,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1077.7511168
+      type: EmitSoundOnCollide
   - uid: 11670
     components:
     - rot: -1.5707963267948966 rad
@@ -71178,6 +72016,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 1181.3919691
+      type: EmitSoundOnCollide
   - uid: 11992
     components:
     - pos: 65.5,-23.5
@@ -71425,6 +72265,8 @@ entities:
       type: AmbientSound
     - color: '#947507FF'
       type: AtmosPipeColor
+    - nextSound: 26668.846029
+      type: EmitSoundOnCollide
   - uid: 14252
     components:
     - rot: 1.5707963267948966 rad
@@ -71704,6 +72546,8 @@ entities:
       type: MetaData
     - parent: 9319
       type: Transform
+    - nextSound: 29065.1905127
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -71749,6 +72593,8 @@ entities:
       type: MetaData
     - parent: 9319
       type: Transform
+    - nextSound: 29067.3529962
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -74645,6 +75491,10 @@ entities:
     - pos: 45.550335,32.37436
       parent: 1781
       type: Transform
+    - nextAttack: 645.1172405
+      type: MeleeWeapon
+    - nextSound: 645.3172406
+      type: EmitSoundOnCollide
   - uid: 6381
     components:
     - pos: -13.422282,10.41256
@@ -74672,6 +75522,8 @@ entities:
     - pos: 29.05907,24.486584
       parent: 1781
       type: Transform
+    - nextSound: 2085.694296
+      type: EmitSoundOnCollide
 - proto: HarmonicaInstrument
   entities:
   - uid: 14528
@@ -74679,6 +75531,8 @@ entities:
     - pos: -30.588676,18.706852
       parent: 1781
       type: Transform
+    - nextSound: 25576.6617982
+      type: EmitSoundOnCollide
 - proto: HatBandBotany
   entities:
   - uid: 5013
@@ -74686,6 +75540,8 @@ entities:
     - pos: -25.498596,13.68724
       parent: 1781
       type: Transform
+    - nextSound: 21608.5429498
+      type: EmitSoundOnCollide
 - proto: HatSpawner
   entities:
   - uid: 12227
@@ -74749,6 +75605,8 @@ entities:
       pos: -21.251274,23.519958
       parent: 1781
       type: Transform
+    - nextSound: 19581.557671
+      type: EmitSoundOnCollide
 - proto: HospitalCurtains
   entities:
   - uid: 3768
@@ -74958,6 +75816,10 @@ entities:
     - pos: -25.73494,9.960152
       parent: 1781
       type: Transform
+    - nextAttack: 21617.5650075
+      type: MeleeWeapon
+    - nextSound: 21617.7650074
+      type: EmitSoundOnCollide
   - uid: 9940
     components:
     - pos: 21.039291,-50.03098
@@ -74978,6 +75840,10 @@ entities:
     - pos: 32.42674,24.06689
       parent: 1781
       type: Transform
+    - nextAttack: 883.2632066
+      type: MeleeWeapon
+    - nextSound: 883.4632066
+      type: EmitSoundOnCollide
 - proto: HydroponicsToolHatchet
   entities:
   - uid: 14652
@@ -74997,6 +75863,10 @@ entities:
     - pos: -24.873375,12.58179
       parent: 1781
       type: Transform
+    - nextAttack: 21642.5115729
+      type: MeleeWeapon
+    - nextSound: 21642.7115729
+      type: EmitSoundOnCollide
   - uid: 10723
     components:
     - pos: -21.096497,-19.48296
@@ -75026,6 +75896,10 @@ entities:
     - pos: -24.800423,12.58179
       parent: 1781
       type: Transform
+    - nextAttack: 21632.0874965
+      type: MeleeWeapon
+    - nextSound: 21632.2874965
+      type: EmitSoundOnCollide
   - uid: 10724
     components:
     - pos: -21.033997,-19.42046
@@ -75090,6 +75964,8 @@ entities:
     - pos: 19.385426,20.427948
       parent: 1781
       type: Transform
+    - nextSound: 2123.808855
+      type: EmitSoundOnCollide
 - proto: HyperlinkBookBotany
   entities:
   - uid: 1304
@@ -75097,6 +75973,8 @@ entities:
     - pos: -24.305965,12.661677
       parent: 1781
       type: Transform
+    - nextSound: 522.9255388
+      type: EmitSoundOnCollide
   - uid: 10718
     components:
     - pos: -21.66019,-19.436085
@@ -75107,6 +75985,8 @@ entities:
     - pos: 31.52855,1.5135016
       parent: 1781
       type: Transform
+    - nextSound: 2223.2363107
+      type: EmitSoundOnCollide
 - proto: HyperlinkBookChemistry
   entities:
   - uid: 15575
@@ -75114,6 +75994,8 @@ entities:
     - pos: 22.700108,-3.4844224
       parent: 1781
       type: Transform
+    - nextSound: 2391.9307451
+      type: EmitSoundOnCollide
 - proto: HyperlinkBookCooking
   entities:
   - uid: 15480
@@ -75121,11 +76003,15 @@ entities:
     - pos: -30.455807,12.426652
       parent: 1781
       type: Transform
+    - nextSound: 552.2774673
+      type: EmitSoundOnCollide
   - uid: 15571
     components:
     - pos: 11.505812,14.742923
       parent: 1781
       type: Transform
+    - nextSound: 2084.2353828
+      type: EmitSoundOnCollide
 - proto: HyperlinkBookGlimmer
   entities:
   - uid: 15574
@@ -75133,6 +76019,8 @@ entities:
     - pos: 28.449982,-27.361427
       parent: 1781
       type: Transform
+    - nextSound: 2295.8734485
+      type: EmitSoundOnCollide
 - proto: HyperlinkBookSpaceLaw
   entities:
   - uid: 2070
@@ -75140,6 +76028,8 @@ entities:
     - pos: -20.55605,18.533356
       parent: 1781
       type: Transform
+    - nextSound: 19996.574135
+      type: EmitSoundOnCollide
   - uid: 2133
     components:
     - pos: -12.325971,22.548298
@@ -75169,6 +76059,8 @@ entities:
     - pos: -61.907875,-2.20434
       parent: 1781
       type: Transform
+    - nextSound: 5647.5917245
+      type: EmitSoundOnCollide
 - proto: InflatableDoor
   entities:
   - uid: 4300
@@ -75222,6 +76114,8 @@ entities:
     - pos: -29.356796,39.41013
       parent: 1781
       type: Transform
+    - nextSound: 556.4716893
+      type: EmitSoundOnCollide
 - proto: JanitorialTrolley
   entities:
   - uid: 6117
@@ -75348,6 +76242,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13155.4363269
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -75357,6 +76253,8 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextSound: 13154.9682219
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -75365,6 +76263,8 @@ entities:
     - pos: -30.300606,11.381814
       parent: 1781
       type: Transform
+    - nextSound: 21920.688348
+      type: EmitSoundOnCollide
 - proto: Lamp
   entities:
   - uid: 4640
@@ -75401,6 +76301,8 @@ entities:
     - pos: 25.346088,-20.973969
       parent: 1781
       type: Transform
+    - nextSound: 584.8226021
+      type: EmitSoundOnCollide
 - proto: LampBanana
   entities:
   - uid: 4545
@@ -75415,6 +76317,8 @@ entities:
       pos: -26.525597,-10.645924
       parent: 1781
       type: Transform
+    - nextSound: 3155.8752094
+      type: EmitSoundOnCollide
 - proto: LampGold
   entities:
   - uid: 3928
@@ -75422,6 +76326,8 @@ entities:
     - pos: 26.382206,-33.935883
       parent: 1781
       type: Transform
+    - nextSound: 4912.1215201
+      type: EmitSoundOnCollide
   - uid: 4994
     components:
     - pos: -12.314361,35.80182
@@ -75449,6 +76355,8 @@ entities:
       pos: -33.692062,21.066822
       parent: 1781
       type: Transform
+    - nextSound: 25301.9444576
+      type: EmitSoundOnCollide
 - proto: LandMineExplosive
   entities:
   - uid: 4671
@@ -75476,6 +76384,10 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 13131.3938328
+      type: MeleeWeapon
+    - nextSound: 13131.5938328
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -75485,6 +76397,10 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 11890.9759763
+      type: MeleeWeapon
+    - nextSound: 11891.1759762
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -75503,6 +76419,10 @@ entities:
     - pos: -33.385002,12.760985
       parent: 1781
       type: Transform
+    - nextAttack: 21941.9371349
+      type: MeleeWeapon
+    - nextSound: 21942.1371349
+      type: EmitSoundOnCollide
 - proto: LightBulb
   entities:
   - uid: 15338
@@ -75510,17 +76430,23 @@ entities:
     - pos: -35.60108,16.312695
       parent: 1781
       type: Transform
+    - nextSound: 27088.3546905
+      type: EmitSoundOnCollide
   - uid: 15413
     components:
     - pos: -35.371803,16.333527
       parent: 1781
       type: Transform
+    - nextSound: 27088.7657818
+      type: EmitSoundOnCollide
   - uid: 15677
     components:
     - rot: -1.5707963267948966 rad
       pos: -8.418257,-13.870055
       parent: 1781
       type: Transform
+    - nextSound: 2855.3998889
+      type: EmitSoundOnCollide
 - proto: LightPostSmall
   entities:
   - uid: 7412
@@ -75565,21 +76491,29 @@ entities:
     - pos: 65.64031,-30.63087
       parent: 1781
       type: Transform
+    - nextSound: 337.0114441
+      type: EmitSoundOnCollide
   - uid: 5673
     components:
     - pos: -35.487297,16.508904
       parent: 1781
       type: Transform
+    - nextSound: 23961.7497318
+      type: EmitSoundOnCollide
   - uid: 7934
     components:
     - pos: -35.26844,16.352654
       parent: 1781
       type: Transform
+    - nextSound: 23962.1158166
+      type: EmitSoundOnCollide
   - uid: 15562
     components:
     - pos: 34.74596,35.67529
       parent: 1781
       type: Transform
+    - nextSound: 1268.1597094
+      type: EmitSoundOnCollide
 - proto: LockerAtmosphericsFilled
   entities:
   - uid: 9275
@@ -76178,6 +77112,8 @@ entities:
     - pos: 56.405785,-36.350796
       parent: 1781
       type: Transform
+    - nextSound: 6945.7862754
+      type: EmitSoundOnCollide
 - proto: MatchstickSpent
   entities:
   - uid: 14728
@@ -76185,12 +77121,16 @@ entities:
     - pos: 29.916718,-1.967968
       parent: 1781
       type: Transform
+    - nextSound: 5206.6268577
+      type: EmitSoundOnCollide
   - uid: 15652
     components:
     - rot: -1.5707963267948966 rad
       pos: 24.575153,23.139168
       parent: 1781
       type: Transform
+    - nextSound: 1544.5522133
+      type: EmitSoundOnCollide
 - proto: MaterialBiomass
   entities:
   - uid: 12514
@@ -76227,11 +77167,15 @@ entities:
     - pos: 61.54477,-24.456665
       parent: 1781
       type: Transform
+    - nextSound: 87.3958175
+      type: EmitSoundOnCollide
   - uid: 15645
     components:
     - pos: 62.493156,-23.54293
       parent: 1781
       type: Transform
+    - nextSound: 90.5855296
+      type: EmitSoundOnCollide
 - proto: MaterialDurathread
   entities:
   - uid: 5893
@@ -76260,6 +77204,8 @@ entities:
     - pos: 11.469202,54.61479
       parent: 1781
       type: Transform
+    - nextSound: 11776.0127657
+      type: EmitSoundOnCollide
 - proto: MaterialWoodPlank1
   entities:
   - uid: 5760
@@ -76517,6 +77463,8 @@ entities:
     - pos: -35.519714,15.400523
       parent: 1781
       type: Transform
+    - nextSound: 24023.6719429
+      type: EmitSoundOnCollide
 - proto: MedkitOxygenFilled
   entities:
   - uid: 4740
@@ -76684,6 +77632,10 @@ entities:
     - pos: -34.56948,15.530208
       parent: 1781
       type: Transform
+    - nextAttack: 24010.5070526
+      type: MeleeWeapon
+    - nextSound: 24010.7070526
+      type: EmitSoundOnCollide
   - uid: 6280
     components:
     - pos: 38.977818,5.4892836
@@ -85357,6 +86309,8 @@ entities:
       type: Transform
     - lastUseAttempt: 465.0446743
       type: NetworkConfigurator
+    - nextSound: 465.2446743
+      type: EmitSoundOnCollide
 - proto: NitrogenCanister
   entities:
   - uid: 5909
@@ -85439,6 +86393,10 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 12254.2870805
+      type: MeleeWeapon
+    - nextSound: 12254.4870804
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -85448,6 +86406,10 @@ entities:
       type: MetaData
     - parent: 12375
       type: Transform
+    - nextAttack: 12254.807199
+      type: MeleeWeapon
+    - nextSound: 12255.007199
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -85592,6 +86554,8 @@ entities:
     - pos: 43.773483,31.747059
       parent: 1781
       type: Transform
+    - nextSound: 636.6762099
+      type: EmitSoundOnCollide
   - uid: 1249
     components:
     - pos: 43.08327,14.536387
@@ -85602,6 +86566,8 @@ entities:
     - pos: -20.538116,19.323551
       parent: 1781
       type: Transform
+    - nextSound: 19548.7182146
+      type: EmitSoundOnCollide
   - uid: 2129
     components:
     - pos: -13.075036,22.517769
@@ -85627,6 +86593,8 @@ entities:
     - pos: -20.423477,19.511051
       parent: 1781
       type: Transform
+    - nextSound: 19548.1142446
+      type: EmitSoundOnCollide
   - uid: 4534
     components:
     - pos: 42.661396,14.739512
@@ -86058,11 +87026,15 @@ entities:
     - pos: -6.236845,14.51134
       parent: 1781
       type: Transform
+    - nextSound: 1174.9642486
+      type: EmitSoundOnCollide
   - uid: 15716
     components:
     - pos: -6.1734447,14.414113
       parent: 1781
       type: Transform
+    - nextSound: 1203.193346
+      type: EmitSoundOnCollide
 - proto: PaperCargoInvoice
   entities:
   - uid: 15694
@@ -86070,11 +87042,15 @@ entities:
     - pos: 53.202244,8.716882
       parent: 1781
       type: Transform
+    - nextSound: 3587.2987344
+      type: EmitSoundOnCollide
   - uid: 15695
     components:
     - pos: 53.01775,8.581466
       parent: 1781
       type: Transform
+    - nextSound: 3602.5296156
+      type: EmitSoundOnCollide
 - proto: PaperDoor
   entities:
   - uid: 514
@@ -86095,18 +87071,24 @@ entities:
       pos: -33.44194,20.60849
       parent: 1781
       type: Transform
+    - nextSound: 25291.1594634
+      type: EmitSoundOnCollide
   - uid: 14440
     components:
     - rot: 1.5707963267948966 rad
       pos: -33.368988,20.775158
       parent: 1781
       type: Transform
+    - nextSound: 25291.7195232
+      type: EmitSoundOnCollide
   - uid: 14486
     components:
     - flags: InContainer
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 448.3609594
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86116,6 +87098,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 447.920861
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86125,6 +87109,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 448.9290854
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86134,6 +87120,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 448.6630249
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86143,6 +87131,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 447.5867858
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86151,16 +87141,22 @@ entities:
     - pos: -6.456627,33.623016
       parent: 1781
       type: Transform
+    - nextSound: 1019.1519524
+      type: EmitSoundOnCollide
   - uid: 15782
     components:
     - pos: 26.600533,26.777752
       parent: 1781
       type: Transform
+    - nextSound: 728.4668364
+      type: EmitSoundOnCollide
   - uid: 15783
     components:
     - pos: 26.788124,26.559002
       parent: 1781
       type: Transform
+    - nextSound: 729.3208059
+      type: EmitSoundOnCollide
 - proto: PartRodMetal
   entities:
   - uid: 6082
@@ -86234,6 +87230,8 @@ entities:
     - pos: 16.891876,40.392147
       parent: 1781
       type: Transform
+    - nextSound: 357.2451838
+      type: EmitSoundOnCollide
   - uid: 5988
     components:
     - pos: 32.719334,43.792767
@@ -86270,12 +87268,16 @@ entities:
       pos: -33.337723,20.462658
       parent: 1781
       type: Transform
+    - nextSound: 25312.5693503
+      type: EmitSoundOnCollide
   - uid: 14485
     components:
     - flags: InContainer
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 461.193066
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86285,6 +87287,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 461.5340442
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86294,6 +87298,8 @@ entities:
       type: MetaData
     - parent: 14542
       type: Transform
+    - nextSound: 460.7079606
+      type: EmitSoundOnCollide
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
@@ -86302,46 +87308,64 @@ entities:
     - pos: 43.699608,-6.209875
       parent: 1781
       type: Transform
+    - nextSound: 2471.473091
+      type: EmitSoundOnCollide
   - uid: 15588
     components:
     - pos: -2.2475014,20.774395
       parent: 1781
       type: Transform
+    - nextSound: 3092.4739407
+      type: EmitSoundOnCollide
   - uid: 15589
     components:
     - pos: 0.49935842,20.784813
       parent: 1781
       type: Transform
+    - nextSound: 3094.6182809
+      type: EmitSoundOnCollide
   - uid: 15595
     components:
     - pos: -1.7091408,12.751096
       parent: 1781
       type: Transform
+    - nextSound: 3701.4895802
+      type: EmitSoundOnCollide
   - uid: 15608
     components:
     - pos: -6.5304565,26.392448
       parent: 1781
       type: Transform
+    - nextSound: 3942.3060039
+      type: EmitSoundOnCollide
   - uid: 15697
     components:
     - pos: 53.819546,8.592284
       parent: 1781
       type: Transform
+    - nextSound: 3686.3651904
+      type: EmitSoundOnCollide
   - uid: 15711
     components:
     - pos: -6.7692804,33.581352
       parent: 1781
       type: Transform
+    - nextSound: 1033.023384
+      type: EmitSoundOnCollide
   - uid: 15713
     components:
     - pos: -6.6745625,14.719672
       parent: 1781
       type: Transform
+    - nextSound: 1143.4165109
+      type: EmitSoundOnCollide
   - uid: 15784
     components:
     - pos: 26.777702,26.777752
       parent: 1781
       type: Transform
+    - nextSound: 738.3552175
+      type: EmitSoundOnCollide
 - proto: PenCap
   entities:
   - uid: 6345
@@ -86380,17 +87404,29 @@ entities:
     - pos: -5.5502653,-28.700474
       parent: 1781
       type: Transform
+    - nextAttack: 7737.2491567
+      type: MeleeWeapon
+    - nextSound: 7737.4491567
+      type: EmitSoundOnCollide
   - uid: 15686
     components:
     - rot: -1.5707963267948966 rad
       pos: 60.020256,-18.305836
       parent: 1781
       type: Transform
+    - nextAttack: 3044.809651
+      type: MeleeWeapon
+    - nextSound: 3045.009651
+      type: EmitSoundOnCollide
   - uid: 15769
     components:
     - pos: 19.208519,63.485035
       parent: 1781
       type: Transform
+    - nextAttack: 3433.9387167
+      type: MeleeWeapon
+    - nextSound: 3434.1387166
+      type: EmitSoundOnCollide
 - proto: PlantBag
   entities:
   - uid: 5935
@@ -86398,6 +87434,8 @@ entities:
     - pos: -25.539722,12.953734
       parent: 1781
       type: Transform
+    - nextSound: 23907.0965996
+      type: EmitSoundOnCollide
 - proto: PlaqueAtmos
   entities:
   - uid: 15771
@@ -86419,6 +87457,10 @@ entities:
     - pos: -6.486844,47.478172
       parent: 1781
       type: Transform
+    - nextSound: 7042.1250463
+      type: EmitSoundOnCollide
+    - nextAttack: 7041.9250463
+      type: MeleeWeapon
 - proto: PlushieCarp
   entities:
   - uid: 10310
@@ -86445,6 +87487,10 @@ entities:
     - pos: 13.517604,20.5573
       parent: 1781
       type: Transform
+    - nextSound: 5693.6299009
+      type: EmitSoundOnCollide
+    - nextAttack: 5693.4299009
+      type: MeleeWeapon
 - proto: PlushieMoffRandom
   entities:
   - uid: 15239
@@ -86453,6 +87499,10 @@ entities:
       pos: -30.485672,28.372921
       parent: 1781
       type: Transform
+    - nextSound: 27061.1931939
+      type: EmitSoundOnCollide
+    - nextAttack: 27060.9931939
+      type: MeleeWeapon
 - proto: PlushieNuke
   entities:
   - uid: 10308
@@ -86467,6 +87517,10 @@ entities:
     - pos: 13.5122175,-31.912247
       parent: 1781
       type: Transform
+    - nextSound: 6996.0050483
+      type: EmitSoundOnCollide
+    - nextAttack: 6995.8050483
+      type: MeleeWeapon
 - proto: PlushieRGBee
   entities:
   - uid: 8949
@@ -86481,6 +87535,10 @@ entities:
     - pos: 14.431907,-10.322878
       parent: 1781
       type: Transform
+    - nextSound: 13160.498444
+      type: EmitSoundOnCollide
+    - nextAttack: 13160.298444
+      type: MeleeWeapon
 - proto: PlushieSlime
   entities:
   - uid: 10311
@@ -86990,6 +88048,8 @@ entities:
     - pos: -28.502075,27.001911
       parent: 1781
       type: Transform
+    - nextSound: 27098.3739294
+      type: EmitSoundOnCollide
 - proto: Poweredlight
   entities:
   - uid: 1147
@@ -89694,21 +90754,37 @@ entities:
     - pos: -34.64375,17.87923
       parent: 1781
       type: Transform
+    - nextAttack: 22060.0075789
+      type: MeleeWeapon
+    - nextSound: 22060.2075789
+      type: EmitSoundOnCollide
   - uid: 12437
     components:
     - pos: 14.553218,23.925003
       parent: 1781
       type: Transform
+    - nextAttack: 5418.41404
+      type: MeleeWeapon
+    - nextSound: 5418.61404
+      type: EmitSoundOnCollide
   - uid: 14502
     components:
     - pos: -30.325336,14.539956
       parent: 1781
       type: Transform
+    - nextAttack: 26403.0535295
+      type: MeleeWeapon
+    - nextSound: 26403.2535295
+      type: EmitSoundOnCollide
   - uid: 15636
     components:
     - pos: -20.412903,41.589127
       parent: 1781
       type: Transform
+    - nextAttack: 6966.7292209
+      type: MeleeWeapon
+    - nextSound: 6966.9292209
+      type: EmitSoundOnCollide
 - proto: Railing
   entities:
   - uid: 538
@@ -91315,11 +92391,19 @@ entities:
     - pos: -30.560024,11.652461
       parent: 1781
       type: Transform
+    - nextAttack: 8926.1273655
+      type: MeleeWeapon
+    - nextSound: 8926.3273655
+      type: EmitSoundOnCollide
   - uid: 9359
     components:
     - pos: 13.358387,15.68279
       parent: 1781
       type: Transform
+    - nextAttack: 2375.6584727
+      type: MeleeWeapon
+    - nextSound: 2375.8584728
+      type: EmitSoundOnCollide
 - proto: ReagentContainerMilk
   entities:
   - uid: 15456
@@ -91327,6 +92411,10 @@ entities:
     - pos: -30.995617,12.709323
       parent: 1781
       type: Transform
+    - nextAttack: 28804.8376645
+      type: MeleeWeapon
+    - nextSound: 28805.0376645
+      type: EmitSoundOnCollide
 - proto: ReagentContainerRice
   entities:
   - uid: 5862
@@ -91343,6 +92431,10 @@ entities:
     - pos: -30.65495,11.298482
       parent: 1781
       type: Transform
+    - nextAttack: 21947.9986178
+      type: MeleeWeapon
+    - nextSound: 21948.1986178
+      type: EmitSoundOnCollide
 - proto: ReagentGrinderMachineCircuitboard
   entities:
   - uid: 13420
@@ -93274,6 +94366,10 @@ entities:
     - pos: -0.73068094,22.860039
       parent: 1781
       type: Transform
+    - nextFire: 45.0276583
+      type: Gun
+    - nextSound: 45.2276583
+      type: EmitSoundOnCollide
   - uid: 12203
     components:
     - pos: -25.52042,-4.1914105
@@ -93287,6 +94383,8 @@ entities:
       pos: -5.675356,-29.228287
       parent: 1781
       type: Transform
+    - nextSound: 1679.3836825
+      type: EmitSoundOnCollide
 - proto: RightHandSkeleton
   entities:
   - uid: 9694
@@ -93295,6 +94393,8 @@ entities:
       pos: -5.091732,-29.165787
       parent: 1781
       type: Transform
+    - nextSound: 1659.2108771
+      type: EmitSoundOnCollide
 - proto: RightLegSkeleton
   entities:
   - uid: 11124
@@ -93303,6 +94403,8 @@ entities:
       pos: -5.675356,-29.3637
       parent: 1781
       type: Transform
+    - nextSound: 1657.3694639
+      type: EmitSoundOnCollide
 - proto: RiotShield
   entities:
   - uid: 15762
@@ -93310,11 +94412,15 @@ entities:
     - pos: -19.643341,13.376622
       parent: 1781
       type: Transform
+    - nextSound: 2506.2857554
+      type: EmitSoundOnCollide
   - uid: 15763
     components:
     - pos: -19.309841,13.376622
       parent: 1781
       type: Transform
+    - nextSound: 2507.2549717
+      type: EmitSoundOnCollide
 - proto: RubberStampApproved
   entities:
   - uid: 6238
@@ -93420,57 +94526,97 @@ entities:
     - pos: 26.611153,-45.13093
       parent: 1781
       type: Transform
+    - nextAttack: 503.6274391
+      type: MeleeWeapon
+    - nextSound: 503.8274391
+      type: EmitSoundOnCollide
   - uid: 344
     components:
     - pos: 13.962107,-10.660007
       parent: 1781
       type: Transform
+    - nextAttack: 492.5656551
+      type: MeleeWeapon
+    - nextSound: 492.7656551
+      type: EmitSoundOnCollide
   - uid: 13836
     components:
     - rot: 1.5707963267948966 rad
       pos: -37.504654,22.862331
       parent: 1781
       type: Transform
+    - nextAttack: 910.7871318
+      type: MeleeWeapon
+    - nextSound: 910.9871318
+      type: EmitSoundOnCollide
   - uid: 14466
     components:
     - rot: 1.5707963267948966 rad
       pos: 23.226421,-8.2584095
       parent: 1781
       type: Transform
+    - nextAttack: 4453.6064165
+      type: MeleeWeapon
+    - nextSound: 4453.8064164
+      type: EmitSoundOnCollide
   - uid: 15117
     components:
     - rot: 1.5707963267948966 rad
       pos: 15.5024185,-15.949561
       parent: 1781
       type: Transform
+    - nextAttack: 207.53006
+      type: MeleeWeapon
+    - nextSound: 207.73006
+      type: EmitSoundOnCollide
   - uid: 15536
     components:
     - rot: 1.5707963267948966 rad
       pos: 58.50684,-33.966362
       parent: 1781
       type: Transform
+    - nextAttack: 5939.0935226
+      type: MeleeWeapon
+    - nextSound: 5939.2935226
+      type: EmitSoundOnCollide
   - uid: 15537
     components:
     - rot: 1.5707963267948966 rad
       pos: 77.56587,-23.148521
       parent: 1781
       type: Transform
+    - nextAttack: 5944.4567217
+      type: MeleeWeapon
+    - nextSound: 5944.6567217
+      type: EmitSoundOnCollide
   - uid: 15658
     components:
     - pos: 24.828167,61.411053
       parent: 1781
       type: Transform
+    - nextAttack: 6869.8956288
+      type: MeleeWeapon
+    - nextSound: 6870.0956288
+      type: EmitSoundOnCollide
   - uid: 15678
     components:
     - rot: -1.5707963267948966 rad
       pos: -4.512767,-19.153294
       parent: 1781
       type: Transform
+    - nextAttack: 2899.4354466
+      type: MeleeWeapon
+    - nextSound: 2899.6354465
+      type: EmitSoundOnCollide
   - uid: 15679
     components:
     - pos: -4.6065626,-19.715794
       parent: 1781
       type: Transform
+    - nextAttack: 2902.1430516
+      type: MeleeWeapon
+    - nextSound: 2902.3430516
+      type: EmitSoundOnCollide
 - proto: ShardGlassReinforced
   entities:
   - uid: 1169
@@ -93493,6 +94639,8 @@ entities:
     - pos: -58.107773,30.560677
       parent: 1781
       type: Transform
+    - nextAttack: 1804.226119
+      type: MeleeWeapon
   - uid: 4670
     components:
     - pos: -63.961037,1.31425
@@ -93558,6 +94706,10 @@ entities:
     - pos: 17.859772,-47.87477
       parent: 1781
       type: Transform
+    - nextAttack: 525.7506359
+      type: MeleeWeapon
+    - nextSound: 525.9506358
+      type: EmitSoundOnCollide
 - proto: SheetGlass
   entities:
   - uid: 6078
@@ -93592,6 +94744,8 @@ entities:
     - pos: 65.44522,-23.400772
       parent: 1781
       type: Transform
+    - nextSound: 11293.2069737
+      type: EmitSoundOnCollide
 - proto: SheetPlasma
   entities:
   - uid: 6288
@@ -93672,6 +94826,8 @@ entities:
     - pos: 43.674923,10.607957
       parent: 1781
       type: Transform
+    - nextSound: 3400.6699077
+      type: EmitSoundOnCollide
 - proto: SheetSteel1
   entities:
   - uid: 9979
@@ -93696,32 +94852,44 @@ entities:
     - pos: -5.3091173,-28.908863
       parent: 1781
       type: Transform
+    - nextSound: 584.8558929
+      type: EmitSoundOnCollide
   - uid: 11638
     components:
     - pos: -5.2098856,-29.773445
       parent: 1781
       type: Transform
+    - nextSound: 585.5080361
+      type: EmitSoundOnCollide
   - uid: 14001
     components:
     - pos: -5.137929,-28.835655
       parent: 1781
       type: Transform
+    - nextSound: 597.4807087
+      type: EmitSoundOnCollide
   - uid: 15680
     components:
     - pos: 58.499073,-47.013477
       parent: 1781
       type: Transform
+    - nextSound: 2962.8518721
+      type: EmitSoundOnCollide
   - uid: 15681
     components:
     - rot: -1.5707963267948966 rad
       pos: 58.519917,-47.62806
       parent: 1781
       type: Transform
+    - nextSound: 2964.4202236
+      type: EmitSoundOnCollide
   - uid: 15682
     components:
     - pos: 58.60329,-47.28431
       parent: 1781
       type: Transform
+    - nextSound: 2968.4341192
+      type: EmitSoundOnCollide
 - proto: ShellShotgunIncendiary
   entities:
   - uid: 15563
@@ -93729,6 +94897,8 @@ entities:
     - pos: -5.435215,-29.64582
       parent: 1781
       type: Transform
+    - nextSound: 110.5423707
+      type: EmitSoundOnCollide
 - proto: Shinai
   entities:
   - uid: 15719
@@ -93737,6 +94907,10 @@ entities:
       pos: 65.3434,-23.511997
       parent: 1781
       type: Transform
+    - nextAttack: 10650.7262874
+      type: MeleeWeapon
+    - nextSound: 10650.9262874
+      type: EmitSoundOnCollide
 - proto: ShipyardComputerCircuitboard
   entities:
   - uid: 15278
@@ -94716,6 +95890,8 @@ entities:
     - pos: -25.464527,-4.685829
       parent: 1781
       type: Transform
+    - nextSound: 6002.9648344
+      type: EmitSoundOnCollide
 - proto: soda_dispenser
   entities:
   - uid: 1816
@@ -94744,6 +95920,8 @@ entities:
       pos: 31.178844,15.021132
       parent: 1781
       type: Transform
+    - nextSound: 176.9432579
+      type: EmitSoundOnCollide
 - proto: SolarAssembly
   entities:
   - uid: 8802
@@ -94903,6 +96081,8 @@ entities:
       type: Transform
     - count: 5
       type: Stack
+    - nextSound: 6959.4195311
+      type: EmitSoundOnCollide
   - uid: 15665
     components:
     - pos: 26.422737,62.479298
@@ -94910,6 +96090,8 @@ entities:
       type: Transform
     - count: 5
       type: Stack
+    - nextSound: 6963.045381
+      type: EmitSoundOnCollide
 - proto: SpaceCash10
   entities:
   - uid: 12176
@@ -94931,6 +96113,8 @@ entities:
     - pos: 25.691212,63.166286
       parent: 1781
       type: Transform
+    - nextSound: 6956.1298282
+      type: EmitSoundOnCollide
 - proto: SpawnMobAlexander
   entities:
   - uid: 12388
@@ -96114,11 +97298,15 @@ entities:
     - pos: -34.19561,17.378403
       parent: 1781
       type: Transform
+    - nextSound: 22049.9650146
+      type: EmitSoundOnCollide
   - uid: 4703
     components:
     - pos: -34.24772,17.659653
       parent: 1781
       type: Transform
+    - nextSound: 22049.7079571
+      type: EmitSoundOnCollide
   - uid: 6293
     components:
     - pos: 38.212193,5.4580336
@@ -96347,16 +97535,28 @@ entities:
     - pos: 45.3419,32.728527
       parent: 1781
       type: Transform
+    - nextAttack: 647.9178657
+      type: MeleeWeapon
+    - nextSound: 648.1178657
+      type: EmitSoundOnCollide
   - uid: 1757
     components:
     - pos: -19.411247,14.6434965
       parent: 1781
       type: Transform
+    - nextAttack: 8729.1551885
+      type: MeleeWeapon
+    - nextSound: 8729.3551885
+      type: EmitSoundOnCollide
   - uid: 1879
     components:
     - pos: -19.338295,14.403913
       parent: 1781
       type: Transform
+    - nextAttack: 8730.2194293
+      type: MeleeWeapon
+    - nextSound: 8730.4194293
+      type: EmitSoundOnCollide
   - uid: 3237
     components:
     - pos: -7.416048,21.543587
@@ -97235,6 +98435,10 @@ entities:
       pos: -29.770622,39.587265
       parent: 1781
       type: Transform
+    - nextAttack: 519.3610674
+      type: MeleeWeapon
+    - nextSound: 519.5610674
+      type: EmitSoundOnCollide
 - proto: Syringe
   entities:
   - uid: 12485
@@ -99268,6 +100472,10 @@ entities:
     - pos: 19.555916,-47.736557
       parent: 1781
       type: Transform
+    - nextAttack: 1232.161877
+      type: MeleeWeapon
+    - nextSound: 1232.361877
+      type: EmitSoundOnCollide
   - uid: 9377
     components:
     - pos: -3.5349703,36.661423
@@ -99389,12 +100597,16 @@ entities:
       pos: -5.466918,-29.228287
       parent: 1781
       type: Transform
+    - nextSound: 1649.4727005
+      type: EmitSoundOnCollide
   - uid: 15725
     components:
     - rot: -1.5707963267948966 rad
       pos: 59.421833,-15.183031
       parent: 1781
       type: Transform
+    - nextSound: 11154.5253399
+      type: EmitSoundOnCollide
 - proto: ToyAi
   entities:
   - uid: 5514
@@ -99501,11 +100713,15 @@ entities:
     - pos: 68.71405,-49.503017
       parent: 1781
       type: Transform
+    - nextSound: 5787.7070434
+      type: EmitSoundOnCollide
   - uid: 15736
     components:
     - pos: -22.506588,-8.647545
       parent: 1781
       type: Transform
+    - nextSound: 13298.3246882
+      type: EmitSoundOnCollide
 - proto: trayScanner
   entities:
   - uid: 7432
@@ -99809,6 +101025,8 @@ entities:
     - pos: -18.92022,34.6245
       parent: 1781
       type: Transform
+    - nextSound: 7436.3445981
+      type: EmitSoundOnCollide
 - proto: VendingBarDrobe
   entities:
   - uid: 2251
@@ -108547,6 +109765,10 @@ entities:
     - pos: -5.452237,-29.285027
       parent: 1781
       type: Transform
+    - nextFire: 96.8828653
+      type: Gun
+    - nextSound: 97.0828653
+      type: EmitSoundOnCollide
 - proto: WeaponLaserCarbine
   entities:
   - uid: 5929
@@ -108727,11 +109949,15 @@ entities:
     - pos: -8.46243,4.54475
       parent: 1781
       type: Transform
+    - nextSound: 1052.030465
+      type: EmitSoundOnCollide
   - uid: 15627
     components:
     - pos: 36.3825,4.665659
       parent: 1781
       type: Transform
+    - nextSound: 6470.5943377
+      type: EmitSoundOnCollide
 - proto: WheatSeeds
   entities:
   - uid: 385
@@ -109723,6 +110949,8 @@ entities:
     - pos: -34.451817,35.505104
       parent: 1781
       type: Transform
+    - nextSound: 15589.4636605
+      type: EmitSoundOnCollide
 - proto: Wrench
   entities:
   - uid: 6451
@@ -109741,4 +110969,8 @@ entities:
     - pos: 14.810942,13.553889
       parent: 1781
       type: Transform
+    - nextAttack: 1254.9581926
+      type: MeleeWeapon
+    - nextSound: 1255.1581925
+      type: EmitSoundOnCollide
 ...
