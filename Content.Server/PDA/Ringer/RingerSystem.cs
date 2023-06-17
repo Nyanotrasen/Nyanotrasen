@@ -86,7 +86,7 @@ namespace Content.Server.PDA.Ringer
 
         public void RandomizeUplinkCode(EntityUid uid, RingerUplinkComponent uplink, ComponentInit args)
         {
-            uplink.Code = GenerateRingtone();
+            uplink.Code = GenerateUplinkCode();
         }
 
         //Non Event Functions
@@ -94,6 +94,27 @@ namespace Content.Server.PDA.Ringer
         private Note[] GenerateRingtone()
         {
             // Default to using C pentatonic so it at least sounds not terrible.
+            var notes = new[]
+            {
+                Note.A,
+                Note.C,
+                Note.D,
+                Note.E,
+                Note.G,
+            };
+
+            var ringtone = new Note[RingtoneLength];
+
+            for (var i = 0; i < RingtoneLength; i++)
+            {
+                ringtone[i] = _random.Pick(notes);
+            }
+
+            return ringtone;
+        }
+
+        private Note[] GenerateUplinkCode() // this is duplicated code, too bad
+        {
             var notes = new[]
             {
                 Note.A,
@@ -110,14 +131,14 @@ namespace Content.Server.PDA.Ringer
                 Note.Gsharp
             };
 
-            var ringtone = new Note[RingtoneLength];
+            var code = new Note[RingtoneLength];
 
             for (var i = 0; i < RingtoneLength; i++)
             {
-                ringtone[i] = _random.Pick(notes);
+                code[i] = _random.Pick(notes);
             }
 
-            return ringtone;
+            return code;
         }
 
         private bool UpdateRingerRingtone(RingerComponent ringer, Note[] ringtone)
