@@ -145,10 +145,6 @@
         Quantity: 1
   - type: Tool
     speed: 1.3
-  - type: ReverseEngineering
-    difficulty: 5 #5 due to infinite fuel + industrial welding speed bonus
-    recipes:
-      - WelderExperimental
 
 - type: entity
   name: emergency welding tool
