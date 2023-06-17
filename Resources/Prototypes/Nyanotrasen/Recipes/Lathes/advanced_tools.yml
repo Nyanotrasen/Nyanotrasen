@@ -1,0 +1,26 @@
+- type: latheRecipe
+  id: WelderIndustrial
+  result: WelderIndustrial
+  completetime: 5
+  materials:
+    Steel: 400
+    Plastic: 200
+
+- type: latheRecipe
+  id: WelderIndustrialAdvanced
+  result: WelderIndustrialAdvanced
+  completetime: 7.5
+  materials:
+    Steel: 400
+    Plastic: 200
+    Gold: 100
+
+- type: latheRecipe
+  id: WelderExperimental
+  result: WelderExperimental
+  completetime: 10
+  materials:
+    Steel: 800
+    Gold: 200
+    Bluespace: 200
+
