@@ -256,7 +256,7 @@ public sealed partial class CargoSystem
         amount = 0;
         var xformQuery = GetEntityQuery<TransformComponent>();
         var blacklistQuery = GetEntityQuery<CargoSellBlacklistComponent>();
-        var mindQuery = GetEntityQuery<MindComponent>(); // for pallets especially, we don't want to risk instagibbing any players.
+        var mindQuery = GetEntityQuery<MindContainerComponent>(); // for pallets especially, we don't want to risk instagibbing any players.
         var mobStateQuery = GetEntityQuery<MobStateComponent>();
 
         toSell = new HashSet<EntityUid>();

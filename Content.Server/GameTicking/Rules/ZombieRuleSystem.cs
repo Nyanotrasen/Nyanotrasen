@@ -5,6 +5,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Disease;
 using Content.Server.Disease.Components;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.Players;
 using Content.Server.Popups;
@@ -44,6 +45,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ZombifyOnDeathSystem _zombify = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -95,7 +97,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
                 {
                     var meta = MetaData(survivor);
                     var username = string.Empty;
-                    if (TryComp<MindComponent>(survivor, out var mindcomp))
+                    if (TryComp<MindContainerComponent>(survivor, out var mindcomp))
                         if (mindcomp.Mind != null && mindcomp.Mind.Session != null)
                             username = mindcomp.Mind.Session.Name;
 
@@ -282,8 +284,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             }
 
             DebugTools.AssertNotNull(mind.OwnedEntity);
-
-            mind.AddRole(new ZombieRole(mind, _prototypeManager.Index<AntagPrototype>(component.PatientZeroPrototypeID)));
+            _mindSystem.AddRole(mind, new ZombieRole(mind, _prototypeManager.Index<AntagPrototype>(component.PatientZeroPrototypeID)));
 
             var inCharacterName = string.Empty;
             if (mind.OwnedEntity != null)

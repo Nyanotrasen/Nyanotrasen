@@ -30,6 +30,7 @@ using Content.Server.Ghost.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
 using Content.Server.Maps;
+using Content.Server.Mind;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Prototypes;
 using Content.Server.NPC.Systems;
@@ -107,6 +108,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly LockSystem _lockSystem = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoaderSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly NPCConversationSystem _npcConversationSystem = default!;
     [Dependency] private readonly NPCSystem _npcSystem = default!;
@@ -463,11 +465,10 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         if (!_prototypeManager.TryIndex(jobProtoId, out JobPrototype? jobPrototype))
             throw new ArgumentException($"Invalid JobPrototype: {jobProtoId}");
 
-        var mind = new Mind.Mind(player.UserId);
-        mind.ChangeOwningPlayer(player.UserId);
+        var mind = _mindSystem.CreateMind(player.UserId, profile.Name);
 
         var job = new Job(mind, jobPrototype);
-        mind.AddRole(job);
+        _mindSystem.AddRole(mind, job);
 
         var mob = _stationSpawningSystem.SpawnPlayerMob(spawnPoint, job, profile, station: null);
         var mobName = MetaData(mob).EntityName;
@@ -498,7 +499,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             }
         }
 
-        mind.TransferTo(mob);
+        _mindSystem.TransferTo(mind, mob);
 
         EnsureComp<ShipwreckSurvivorComponent>(mob);
         component.Survivors.Add((mob, player));

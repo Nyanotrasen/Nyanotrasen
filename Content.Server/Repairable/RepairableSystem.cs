@@ -4,7 +4,7 @@ using Content.Shared.Database;
 using Content.Server.Borgs;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Server.Mind.Components;
+using Content.Server.Mind;
 using Content.Shared.Popups;
 using Content.Shared.Repairable;
 using Content.Shared.Tools;
@@ -17,6 +17,7 @@ namespace Content.Server.Repairable
         [Dependency] private readonly SharedToolSystem _toolSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger= default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -61,7 +62,8 @@ namespace Content.Server.Repairable
                 return;
 
             // Begin Nyano-code: Don't repair if it's a cyborg with no soul
-            if (HasComp<CyborgComponent>(uid) && (!EntityManager.TryGetComponent(uid, out MindComponent? mindComponent) || mindComponent.Mind == null))
+            if (HasComp<CyborgComponent>(uid) && _mindSystem.GetMind(uid) == null)
+
             {
                 uid.PopupMessage(args.User, Loc.GetString("borg-nosoul"));
                 return;

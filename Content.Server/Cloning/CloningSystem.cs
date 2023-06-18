@@ -30,6 +30,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
+using Content.Server.Mind;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Zombies;
@@ -67,9 +68,9 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
-        [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -113,12 +114,12 @@ namespace Content.Server.Cloning
         {
             if (!ClonesWaitingForMind.TryGetValue(mind, out var entity) ||
                 !EntityManager.EntityExists(entity) ||
-                !TryComp<MindComponent>(entity, out var mindComp) ||
+                !TryComp<MindContainerComponent>(entity, out var mindComp) ||
                 mindComp.Mind != null)
                 return;
 
-            mind.TransferTo(entity, ghostCheckOverride: true);
-            mind.UnVisit();
+            _mindSystem.TransferTo(mind, entity, ghostCheckOverride: true);
+            _mindSystem.UnVisit(mind);
             ClonesWaitingForMind.Remove(mind);
         }
 
@@ -173,7 +174,7 @@ namespace Content.Server.Cloning
             {
                 if (EntityManager.EntityExists(clone) &&
                     !_mobStateSystem.IsDead(clone) &&
-                    TryComp<MindComponent>(clone, out var cloneMindComp) &&
+                    TryComp<MindContainerComponent>(clone, out var cloneMindComp) &&
                     (cloneMindComp.Mind == null || cloneMindComp.Mind == mind))
                     return false; // Mind already has clone
 
@@ -419,8 +420,8 @@ namespace Content.Server.Cloning
             if (!ev.NameHandled)
                 MetaData(mob).EntityName = name;
 
-            var mind = EnsureComp<MindComponent>(mob);
-            _mind.SetExamineInfo(mob, true, mind);
+            var mind = EnsureComp<MindContainerComponent>(mob);
+            _mindSystem.SetExamineInfo(mob, true, mind);
 
             var grammar = EnsureComp<GrammarComponent>(mob);
             grammar.ProperNoun = true;

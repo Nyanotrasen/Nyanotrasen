@@ -6,6 +6,7 @@ using Content.Shared.Preferences;
 using Content.Server.Preferences.Managers;
 using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.DetailExaminable;
 using Content.Server.Players;
@@ -39,6 +40,7 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -54,7 +56,9 @@ namespace Content.Server.EvilTwin
 
             if (twin != null)
             {
-                args.Player.ContentData()?.Mind?.TransferTo(twin, true);
+                var mind = args.Player.ContentData()?.Mind;
+                if (mind != null)
+                    _mindSystem.TransferTo(mind, twin, true);
             }
 
             QueueDel(uid);
@@ -62,7 +66,7 @@ namespace Content.Server.EvilTwin
 
         private void OnMindAdded(EntityUid uid, EvilTwinComponent component, MindAddedMessage args)
         {
-            if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
+            if (!_mindSystem.TryGetMind(uid, out var mind))
                 return;
 
             if (component.FirstMindAdded)
@@ -70,16 +74,14 @@ namespace Content.Server.EvilTwin
 
             component.FirstMindAdded = true;
 
-            var mind = mindComponent.Mind;
-
-            mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(EvilTwinRole)));
-            mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
-            mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(KillObjective));
+            _mindSystem.AddRole(mind, new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(EvilTwinRole)));
+            _mindSystem.TryAddObjective(mind, _prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
+            _mindSystem.TryAddObjective(mind, _prototypeManager.Index<ObjectivePrototype>(KillObjective));
         }
 
         private void OnRoundEnd(RoundEndTextAppendEvent ev)
         {
-            List<(EvilTwinComponent fugi, MindComponent mind)> fugis = EntityQuery<EvilTwinComponent, MindComponent>().ToList();
+            List<(EvilTwinComponent fugi, MindContainerComponent mind)> fugis = EntityQuery<EvilTwinComponent, MindContainerComponent>().ToList();
 
             if (fugis.Count < 1)
                 return;
@@ -93,7 +95,7 @@ namespace Content.Server.EvilTwin
                     continue;
 
                 var name = fugi.mind.Mind.CharacterName;
-                fugi.mind.Mind.TryGetSession(out var session);
+                _mindSystem.TryGetSession(fugi.mind.Mind, out var session);
                 var username = session?.Name;
 
                 var objectives = fugi.mind.Mind.AllObjectives.ToArray();
@@ -154,7 +156,7 @@ namespace Content.Server.EvilTwin
         }
         public EntityUid? SpawnEvilTwin()
         {
-            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidAppearanceComponent>().ToList();
+            var candidates = EntityQuery<ActorComponent, MindContainerComponent, HumanoidAppearanceComponent>().ToList();
             _random.Shuffle(candidates);
 
             foreach (var candidate in candidates)

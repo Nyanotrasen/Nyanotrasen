@@ -13,4 +13,9 @@ public sealed class NukeOperativeComponent : Component
     /// </summary>
     [DataField("greetSoundNotification")]
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
+
+    // Begin Nyano-code: prevent issues with mind swapping into a nuclear operative.
+    [DataField("firstMindAdded")]
+    public bool FirstMindAdded;
+    // End Nyano-code.
 }
