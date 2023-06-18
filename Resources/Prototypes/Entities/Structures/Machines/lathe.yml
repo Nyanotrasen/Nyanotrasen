@@ -386,7 +386,6 @@
     runningState: icon
     dynamicRecipes:
       - Flash
-      - FlashPayload
       - Handcuffs
       - Zipties
       - Stunbaton
@@ -396,31 +395,59 @@
       - ClothingEyesGlassesSecurity
       - RiotShield
       - CartridgePistol
-      - ShellShotgun
-      - CartridgeLightRifle
       - CartridgeMagnum
-      - CartridgePistolRubber
-      - CartridgeMagnumRubber
       - ShellShotgun
-      - ShellShotgunBeanbag
       - ShellShotgunFlare
       - ShellTranquilizer
       - ShellSoulbreaker
       - EncryptionKeySyndie
+      - CartridgeRifle
+      - MagazineBoxPistol
+      - MagazineBoxMagnum
+      - MagazineBoxRifle
+      - MagazineBoxLightRifle
       - TargetHuman
       - TargetSyndicate
       - TargetClown
-      - MagazineBoxPistol
+      - CartridgePistolRubber
+      - CartridgeMagnumRubber
+      - ShellShotgunBeanbag
+      - CartridgeRifleRubber
+      - CartridgeLightRifleRubber
       - MagazineBoxPistolRubber
-      - MagazineBoxMagnum
       - MagazineBoxMagnumRubber
-      - MagazineBoxRifle
       - MagazineBoxRifleRubber
-      - MagazineBoxLightRifle
       - MagazineBoxLightRifleRubber
       - CartridgeLightRifle
-      - CartridgeLightRifleRubber
-      - CartridgeRifleRubber  #Everything below this is shared with other lathes
+      - CartridgePistolHighVelocity
+      - CartridgeMagnumHighVelocity
+      - CartridgeLightRifleHighVelocity
+      - CartridgeRifleHighVelocity
+      - MagazineBoxPistolHighVelocity
+      - MagazineBoxMagnumHighVelocity
+      - MagazineBoxLightRifleHighVelocity
+      - MagazineBoxRifleHighVelocity
+      - ShellShotgunIncendiary
+      - CartridgePistolIncendiary
+      - CartridgeMagnumIncendiary
+      - CartridgeLightRifleIncendiary
+      - CartridgeRifleIncendiary
+      - MagazineBoxPistolIncendiary
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxLightRifleIncendiary
+      - MagazineBoxRifleIncendiary
+      - Signaller
+      - SignalTrigger
+      - VoiceTrigger
+      - TimerTrigger
+      - FlashPayload
+      - ExplosivePayload
+      - WeaponLaserCarbine
+      - WeaponAdvancedLaser
+      - WeaponLaserCannon
+      - WeaponXrayCannon
+      - WeaponTaser
+        #Everything below this is shared with other lathes
       - FlashlightLantern
       - Bucket
       - MopItem
