@@ -25,6 +25,10 @@
   id: OreUranium
   oreEntity: UraniumOre1
 
+- type: ore
+  id: OreArtifactFragment
+  oreEntity: ArtifactFragment
+
 - type: weightedRandom
   id: RandomOreDistributionStandard
   weights:
@@ -44,3 +48,4 @@
     OrePlasma: 8
     OreSilver: 4
     OreUranium: 6
+    OreArtifactFragment: 0.5
