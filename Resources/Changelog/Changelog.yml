@@ -1,56 +1,4 @@
 Entries:
-- author: Vordenburg
-  changes:
-  - message: Added sprites and sounds for the Ifrit's hand.
-    type: Add
-  id: 59
-  time: '2022-10-29T22:28:26.0000000+00:00'
-- author: Kroma
-  changes:
-  - message: Resolved several issues with Pebble.
-    type: Fix
-  id: 60
-  time: '2022-10-30T10:54:32.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added job icon stamps for mail to make it easier to sort.
-    type: Add
-  - message: Added fragile mail. If you break it, you're in trouble.
-    type: Add
-  - message: Added priority mail. Get it delivered on time or face a penalty.
-    type: Add
-  - message: Added mail for specific jobs and departments.
-    type: Add
-  - message: Added a lot of new possible deliveries you can receive.
-    type: Add
-  - message: Mail will now change appearance when damaged.
-    type: Add
-  - message: Damage to mail will harm its contents too.
-    type: Add
-  - message: Mail parcels can be emagged open now.
-    type: Fix
-  - message: Mail teleporters have a limit on undelivered mail now to prevent it from
-      piling up.
-    type: Tweak
-  - message: One of the new Arachne tailors made a jumpskirt variant of the mailman
-      uniform!
-    type: Add
-  - message: That same tailor redesigned the standard mailman uniform and hat.
-    type: Tweak
-  id: 61
-  time: '2022-10-31T01:14:50.0000000+00:00'
-- author: spessCarp
-  changes:
-  - message: Wrote several letters that can be received in the mail.
-    type: Add
-  id: 62
-  time: '2022-10-31T01:14:51.0000000+00:00'
-- author: kromabae
-  changes:
-  - message: qol changes to pebble
-    type: Add
-  id: 63
-  time: '2022-11-01T00:48:48.0000000+00:00'
 - author: Rane
   changes:
   - message: Arachne whitelists and blacklists updated for uplink items and random
@@ -3824,3 +3772,39 @@ Entries:
     type: Fix
   id: 556
   time: '2023-06-04T23:08:03.172770+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Fixed robots holoprojector running out of charges.
+    type: Fix
+  - message: Moth and Arachne body parts can now be recycled.
+    type: Fix
+  id: 557
+  time: '2023-06-17T20:22:59.238817+00:00'
+- author: Rane
+  changes:
+  - message: Healing items can be used on arachne again.
+    type: Fix
+  id: 558
+  time: '2023-06-17T20:22:59.238906+00:00'
+- author: Velcroboy
+  changes:
+  - message: Mop buckets are spillable again.
+    type: Fix
+  id: 559
+  time: '2023-06-17T20:22:59.238949+00:00'
+- author: Hyenh
+  changes:
+  - message: Added more clothes.
+    type: Add
+  - message: Adjusted the reverse engineering machine's sprite.
+    type: Tweak
+  id: 560
+  time: '2023-06-17T20:22:59.238995+00:00'
+- author: Vordenburg
+  changes:
+  - message: Fixed the ifrit, fugitive, and oneirophage ghost roles.
+    type: Fix
+  - message: Disabled the vent clog foam event.
+    type: Tweak
+  id: 561
+  time: '2023-06-17T20:23:00.640592+00:00'
