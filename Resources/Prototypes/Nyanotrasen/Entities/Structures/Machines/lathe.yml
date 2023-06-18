@@ -1,5 +1,5 @@
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: ScienceTechFab
   name: epistemics techfab
   description: Prints equipment for use by the epistemics department.
@@ -77,7 +77,7 @@
     - Durathread
 
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: ServiceTechFab
   name: service techfab
   description: Prints equipment for service staff.
@@ -157,7 +157,7 @@
     - Wood
 
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: EngineeringTechFab
   name: engineering techfab
   description: Prints equipment for engineers.
