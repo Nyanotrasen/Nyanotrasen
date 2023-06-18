@@ -12,6 +12,8 @@ using Content.Server.Chat.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs;
 
 namespace Content.Server.Nyanotrasen.Chat
 {
@@ -30,7 +32,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private IEnumerable<INetChannel> GetPsionicChatClients()
         {
             return Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<PsionicComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
+                .AddWhereAttachedEntity(IsEligibleForTelepathy)
                 .Recipients
                 .Select(p => p.ConnectedClient);
         }
@@ -55,9 +57,18 @@ namespace Content.Server.Nyanotrasen.Chat
 
             return filteredList;
         }
+
+        private bool IsEligibleForTelepathy(EntityUid entity)
+        {
+            return HasComp<PsionicComponent>(entity)
+                && !HasComp<PsionicsDisabledComponent>(entity)
+                && !HasComp<PsionicInsulationComponent>(entity)
+                && TryComp<MobStateComponent>(entity, out var mobstate) && mobstate.CurrentState == MobState.Alive;
+        }
+
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
         {
-            if (!HasComp<PsionicComponent>(source) || HasComp<PsionicsDisabledComponent>(source) || HasComp<PsionicInsulationComponent>(source))
+            if (!IsEligibleForTelepathy(source))
                 return;
 
             var clients = GetPsionicChatClients();
