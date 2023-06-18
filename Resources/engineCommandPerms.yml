@@ -63,6 +63,7 @@
   - tilelookup
   - net_entityreport
   - scene
+  - replay_recording_stats
 
 
 - Flags: MAPPING
@@ -120,6 +121,8 @@
   - getcomponentregistration
   - fuck
   - spin
+  - replay_recording_start
+  - replay_recording_stop
 
 - Flags: QUERY
   Commands:
