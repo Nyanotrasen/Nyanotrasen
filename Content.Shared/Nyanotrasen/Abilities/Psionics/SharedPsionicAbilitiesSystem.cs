@@ -1,8 +1,8 @@
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
@@ -23,6 +23,8 @@ namespace Content.Shared.Abilities.Psionics
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
+
+            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
@@ -46,6 +48,14 @@ namespace Content.Shared.Abilities.Psionics
         private void OnShutdown(EntityUid uid, PsionicsDisabledComponent component, ComponentShutdown args)
         {
             if (!HasComp<PsionicInsulationComponent>(uid))
+                TogglePsionics(uid, true);
+        }
+
+        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
+        {
+            if (args.NewMobState == MobState.Dead)
+                TogglePsionics(uid, false);
+            else
                 TogglePsionics(uid, true);
         }
 
