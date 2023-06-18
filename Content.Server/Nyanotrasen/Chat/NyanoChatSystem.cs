@@ -63,7 +63,7 @@ namespace Content.Server.Nyanotrasen.Chat
             return HasComp<PsionicComponent>(entity)
                 && !HasComp<PsionicsDisabledComponent>(entity)
                 && !HasComp<PsionicInsulationComponent>(entity)
-                && TryComp<MobStateComponent>(entity, out var mobstate) && mobstate.CurrentState == MobState.Alive;
+                && (!TryComp<MobStateComponent>(entity, out var mobstate) || mobstate.CurrentState == MobState.Alive);
         }
 
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
