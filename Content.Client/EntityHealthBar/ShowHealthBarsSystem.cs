@@ -50,11 +50,9 @@ namespace Content.Client.EntityHealthBar
 
         private void ApplyOverlays(ShowHealthBarsComponent component)
         {
-            foreach (var damageContainer in component.DamageContainers)
-            {
-                _overlayMan.AddOverlay(_overlay);
-                _overlay.DamageContainer = damageContainer;
-            }
+            _overlayMan.AddOverlay(_overlay);
+            _overlay.DamageContainers.Clear();
+            _overlay.DamageContainers.AddRange(component.DamageContainers);
         }
 
         private void OnPlayerDetached(EntityUid uid, ShowHealthBarsComponent component, PlayerDetachedEvent args)
