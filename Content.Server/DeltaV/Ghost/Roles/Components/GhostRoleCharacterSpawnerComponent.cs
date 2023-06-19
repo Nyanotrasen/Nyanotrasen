@@ -15,5 +15,8 @@
 
         [ViewVariables]
         public int CurrentTakeovers = 0;
+
+        [ViewVariables(VVAccess.ReadWrite)] [DataField("outfitPrototype")]
+        public string OutfitPrototype = "PassengerGear";
     }
 }
