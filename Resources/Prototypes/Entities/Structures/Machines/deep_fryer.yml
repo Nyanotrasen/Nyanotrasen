@@ -31,14 +31,15 @@
   - type: Climbable
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.30,-0.25,0.30,0.45"
-      density: 600
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.30,-0.25,0.30,0.45"
+        density: 600
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: DeepFryer
     blacklist:
       components:

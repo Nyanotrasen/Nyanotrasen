@@ -11,6 +11,11 @@
     containers:
       bodypart: !type:Container
         ents: []
+  - type: DynamicPrice
+    price: 100
+  - type: Tag
+    tags:
+      - Trash
 
 - type: entity
   id: ThoraxSpider

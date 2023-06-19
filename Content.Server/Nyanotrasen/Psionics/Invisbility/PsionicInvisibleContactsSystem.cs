@@ -1,4 +1,3 @@
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Robust.Shared.Physics.Events;
@@ -7,10 +6,14 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Psionics
 {
+    /// <summary>
+    /// Allows an entity to become psionically invisible when touching certain entities.
+    /// </summary>
     public sealed class PsionicInvisibleContactsSystem : EntitySystem
     {
         [Dependency] private readonly SharedStealthSystem _stealth = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -22,53 +25,44 @@ namespace Content.Server.Psionics
 
         private void OnEntityEnter(EntityUid uid, PsionicInvisibleContactsComponent component, ref StartCollideEvent args)
         {
-            var otherUid = args.OtherFixture.Body.Owner;
+            var otherUid = args.OtherEntity;
+            var ourEntity = args.OurEntity;
 
             if (!component.Whitelist.IsValid(otherUid))
                 return;
 
-            if (HasComp<PsionicInvisibilityUsedComponent>(otherUid))
+            // This will go up twice per web hit, since webs also have a flammable fixture.
+            // It goes down twice per web exit, so everything's fine.
+            ++component.Stages;
+
+            if (HasComp<PsionicallyInvisibleComponent>(ourEntity))
                 return;
 
-            EnsureComp<PsionicallyInvisibleComponent>(otherUid);
-            var stealth = EnsureComp<StealthComponent>(otherUid);
-            _stealth.SetVisibility(otherUid, 0.66f, stealth);
+            EnsureComp<PsionicallyInvisibleComponent>(ourEntity);
+            var stealth = EnsureComp<StealthComponent>(ourEntity);
+            _stealth.SetVisibility(ourEntity, 0.66f, stealth);
         }
 
         private void OnEntityExit(EntityUid uid, PsionicInvisibleContactsComponent component, ref EndCollideEvent args)
         {
-            var otherUid = args.OtherFixture.Body.Owner;
-
-            foreach (var contact in args.OtherFixture.Contacts)
-            {
-                if (contact.Key.Body.Owner == uid)
-                    continue;
-
-                if (!contact.Value.IsTouching)
-                    continue;
-
-                // TODO: I am unsure this is still neccesary with the introduction of IsTouching above.
-                // yes the tick checks are kind of shitty and tickrate dependent
-                // what's even shittier is that you can apparently still be colliding with an entity for multiple ticks
-                // after EndCollideEvent is raised
-                if (TryComp<PsionicInvisibleContactsComponent>(contact.Key.Body.Owner, out var psiontacts)
-                    && psiontacts.Whitelist.IsValid(otherUid)
-                    && psiontacts.LastFailedTick !<= (_gameTiming.CurTick - 5))
-                {
-                    component.LastFailedTick = _gameTiming.CurTick;
-                    return;
-                }
-            }
+            var otherUid = args.OtherEntity;
+            var ourEntity = args.OurEntity;
 
             if (!component.Whitelist.IsValid(otherUid))
                 return;
 
-            if (HasComp<PsionicInvisibilityUsedComponent>(otherUid))
+            if (!HasComp<PsionicallyInvisibleComponent>(ourEntity))
                 return;
 
-            RemComp<PsionicallyInvisibleComponent>(otherUid);
-            RemComp<StealthComponent>(otherUid);
+            if (--component.Stages > 0)
+                return;
+
+            RemComp<PsionicallyInvisibleComponent>(ourEntity);
+            var stealth = EnsureComp<StealthComponent>(ourEntity);
+            // Just to be sure...
+            _stealth.SetVisibility(ourEntity, 1f, stealth);
+
+            RemComp<StealthComponent>(ourEntity);
         }
     }
-
 }

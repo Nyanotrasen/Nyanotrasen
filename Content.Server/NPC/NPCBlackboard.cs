@@ -4,6 +4,7 @@ using Content.Server.Interaction;
 using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
+using JetBrains.Annotations;
 using Robust.Shared.Utility;
 
 namespace Content.Server.NPC;
@@ -27,9 +28,9 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
         {"MeleeRange", 1f},
         {"MinimumIdleTime", 2f},
         {"MovementRange", 1.5f},
-        {"RangedRange", 7f},
+        {"RangedRange", 10f},
         {"RotateSpeed", MathF.PI},
-        {"VisionRadius", 7f},
+        {"VisionRadius", 10f},
     };
 
     /// <summary>
@@ -60,6 +61,7 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
         return dict;
     }
 
+    [Pure]
     public bool ContainsKey(string key)
     {
         return _blackboard.ContainsKey(key);
@@ -68,6 +70,7 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
     /// <summary>
     /// Get the blackboard data for a particular key.
     /// </summary>
+    [Pure]
     public T GetValue<T>(string key)
     {
         return (T) _blackboard[key];
@@ -76,6 +79,7 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
     /// <summary>
     /// Tries to get the blackboard data for a particular key. Returns default if not found
     /// </summary>
+    [Pure]
     public T? GetValueOrDefault<T>(string key, IEntityManager entManager)
     {
         if (_blackboard.TryGetValue(key, out var value))
@@ -228,6 +232,7 @@ public sealed class NPCBlackboard : IEnumerable<KeyValuePair<string, object>>
 
     public const string RotateSpeed = "RotateSpeed";
     public const string VisionRadius = "VisionRadius";
+    public const string UtilityTarget = "Target";
 
     public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
     {

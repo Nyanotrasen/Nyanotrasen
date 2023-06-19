@@ -11,6 +11,7 @@
   - type: Clothing
     sprite: Clothing/Belt/utility.rsi
   - type: Storage
+    capacity: 45
     # TODO: Fill this out more.
     whitelist:
       tags:
@@ -26,14 +27,18 @@
         - CigPack
         - Radio
         - HolofanProjector
+        - Multitool
+        - AppraisalTool
       components:
         - AirlockPainter
-        - SignalLinker
+        - NetworkConfigurator
         - RCD
         - RCDAmmo
         - Welder
         - PowerCell
         - Geiger
+        - TrayScanner
+        - GasAnalyzer
   - type: ItemMapper
     mapLayers:
       drill:
@@ -62,8 +67,8 @@
           - Wrench
       multitool:
         whitelist:
-          components:
-          - SignalLinker
+          tags:
+            - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
   - type: MeleeWeapon
@@ -85,7 +90,7 @@
   - type: Clothing
     sprite: Clothing/Belt/ce.rsi
   - type: Storage
-    capacity: 100
+    capacity: 105
     # TODO: Fill this out more.
     whitelist:
       tags:
@@ -102,9 +107,11 @@
         - CigPack
         - Radio
         - HolofanProjector
+        - Multitool
+        - AppraisalTool
       components:
         - AirlockPainter
-        - SignalLinker
+        - NetworkConfigurator
         - RCD
         - RCDAmmo
         - Welder
@@ -112,6 +119,8 @@
         - Handcuff
         - PowerCell
         - Geiger
+        - TrayScanner
+        - GasAnalyzer
   - type: ItemMapper
     mapLayers:
       drill:
@@ -140,8 +149,8 @@
           - Screwdriver
       multitool:
         whitelist:
-          components:
-          - SignalLinker
+          tags:
+            - Multitool
       wrench:
         whitelist:
           tags:
@@ -309,6 +318,7 @@
         - PlantSampleTaker
         - PlantBGone
         - Bottle
+        # - Syringe
         - CigPack
       components:
         - Seed
@@ -438,6 +448,9 @@
   - type: Clothing
     sprite: Clothing/Belt/champion.rsi
     quickEquip: true
+  - type: Tag
+    tags:
+    - Kangaroo
 
 - type: entity
   parent: ClothingBeltStorageBase

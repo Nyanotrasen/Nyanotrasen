@@ -66,3 +66,39 @@
     - purrs!
     - purring
     - purred
+
+- type: emote
+  id: Squeak
+  category: Vocal
+  chatMessages: [squeaks.]
+  chatTriggers:
+   - squeak
+   - squeak.
+   - squeak!
+   - squeaks
+   - squeaks.
+   - squeaks!
+   - squeaking
+   - squeaking.
+   - squeaking!
+   - squeaked
+   - squeaked.
+   - squeaked!
+   
+- type: emote
+  id: Chitter
+  category: Vocal
+  chatMessages: [chitters.]
+  chatTriggers:
+   - chitter
+   - chitter.
+   - chitter!
+   - chitters
+   - chitters.
+   - chitters!
+   - chittering
+   - chittering.
+   - chittering!
+   - chittered
+   - chittered.
+   - chittered!

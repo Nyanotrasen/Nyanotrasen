@@ -641,6 +641,10 @@
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
         factor: -1
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
 
   # Should heal quite literally everything, use in very small amounts
 - type: reagent

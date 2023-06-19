@@ -53,20 +53,6 @@ public sealed partial class NPCSteeringSystem
         var ourCoordinates = xform.Coordinates;
         var destinationCoordinates = steering.Coordinates;
 
-        // Disabling this gets steering working again as of 2023-05-07.
-        /*
-        if (xform.Coordinates.TryDistance(EntityManager, steering.LastCoordinates, out var movedDistance) &&
-            movedDistance > 1)
-        {
-            steering.LastCoordinates = ourCoordinates;
-            steering.LastTimeMoved = _timing.CurTime;
-        } else if (_timing.CurTime > steering.LastTimeMoved + steering.TimeOutTime)
-        {
-            steering.Status = SteeringStatus.NoPath;
-            return false;
-        }
-        */
-
         // We've arrived, nothing else matters.
         if (xform.Coordinates.TryDistance(EntityManager, destinationCoordinates, out var distance) &&
             distance <= steering.Range)
@@ -399,7 +385,8 @@ public sealed partial class NPCSteeringSystem
         EntityQuery<PhysicsComponent> bodyQuery,
         EntityQuery<TransformComponent> xformQuery)
     {
-        var detectionRadius = MathF.Max(1f, agentRadius);
+        var objectRadius = 0.15f;
+        var detectionRadius = MathF.Max(0.35f, agentRadius + objectRadius);
 
         foreach (var ent in _lookup.GetEntitiesInRange(uid, detectionRadius, LookupFlags.Static))
         {
@@ -414,31 +401,37 @@ public sealed partial class NPCSteeringSystem
                 continue;
             }
 
-            if (!_physics.TryGetNearestPoints(uid, ent, out var pointA, out var pointB, xform, xformQuery.GetComponent(ent)))
-                continue;
+            var xformB = xformQuery.GetComponent(ent);
 
-            var obstacleDirection = pointB - pointA;
-            var obstacleDistance = obstacleDirection.Length;
-
-            if (obstacleDistance > detectionRadius)
-                continue;
-
-            // Fallback to worldpos if we're colliding.
-            if (obstacleDistance == 0f)
+            if (!_physics.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
             {
-                obstacleDirection = pointB - worldPos;
-                obstacleDistance = obstacleDirection.Length;
-
-                if (obstacleDistance == 0f)
-                    continue;
-
-                obstacleDistance = agentRadius;
+                continue;
             }
 
-            dangerPoints.Add(pointB);
+            if (distance > detectionRadius)
+                continue;
+
+            var weight = 1f;
+            var obstacleDirection = pointB - pointA;
+
+            // Inside each other so just use worldPos
+            if (distance == 0f)
+            {
+                obstacleDirection = _transform.GetWorldPosition(xformB, xformQuery) - worldPos;
+
+                // Welp
+                if (obstacleDirection == Vector2.Zero)
+                {
+                    obstacleDirection = Vector2.One.Normalized;
+                }
+            }
+            else
+            {
+                weight = distance / detectionRadius;
+            }
+
             obstacleDirection = offsetRot.RotateVec(obstacleDirection);
             var norm = obstacleDirection.Normalized;
-            var weight = obstacleDistance <= agentRadius ? 1f : (detectionRadius - obstacleDistance) / detectionRadius;
 
             for (var i = 0; i < InterestDirections; i++)
             {
@@ -469,7 +462,8 @@ public sealed partial class NPCSteeringSystem
         EntityQuery<PhysicsComponent> bodyQuery,
         EntityQuery<TransformComponent> xformQuery)
     {
-        var detectionRadius = agentRadius + 0.1f;
+        var objectRadius = 0.25f;
+        var detectionRadius = MathF.Max(0.35f, agentRadius + objectRadius);
         var ourVelocity = body.LinearVelocity;
         var factionQuery = GetEntityQuery<FactionComponent>();
         factionQuery.TryGetComponent(uid, out var ourFaction);
@@ -484,7 +478,7 @@ public sealed partial class NPCSteeringSystem
                 (mask & otherBody.CollisionLayer) == 0x0 &&
                 (layer & otherBody.CollisionMask) == 0x0 ||
                 !factionQuery.TryGetComponent(ent, out var otherFaction) ||
-                !_faction.IsFriendly(uid, ent, ourFaction, otherFaction) ||
+                !_faction.IsEntityFriendly(uid, ent, ourFaction, otherFaction) ||
                 // Use <= 0 so we ignore stationary friends in case.
                 Vector2.Dot(otherBody.LinearVelocity, ourVelocity) <= 0f)
             {
@@ -493,21 +487,36 @@ public sealed partial class NPCSteeringSystem
 
             var xformB = xformQuery.GetComponent(ent);
 
-            if (!_physics.TryGetNearestPoints(uid, ent, out _, out var pointB, xform, xformB))
+            if (!_physics.TryGetNearest(uid, ent, out var pointA, out var pointB, out var distance, xform, xformB))
             {
                 continue;
             }
 
-            var obstacleDirection = pointB - worldPos;
-            var obstableDistance = obstacleDirection.Length;
-
-            if (obstableDistance > detectionRadius || obstableDistance == 0f)
+            if (distance > detectionRadius)
                 continue;
+
+            var weight = 1f;
+            var obstacleDirection = pointB - pointA;
+
+            // Inside each other so just use worldPos
+            if (distance == 0f)
+            {
+                obstacleDirection = _transform.GetWorldPosition(xformB, xformQuery) - worldPos;
+
+                // Welp
+                if (obstacleDirection == Vector2.Zero)
+                {
+                    obstacleDirection = _random.NextAngle().ToVec();
+                }
+            }
+            else
+            {
+                weight = distance / detectionRadius;
+            }
 
             obstacleDirection = offsetRot.RotateVec(obstacleDirection);
             var norm = obstacleDirection.Normalized;
-            var weight = obstableDistance <= agentRadius ? 1f : (detectionRadius - obstableDistance) / detectionRadius;
-            weight *= 1f;
+            weight *= 0.25f;
 
             for (var i = 0; i < InterestDirections; i++)
             {

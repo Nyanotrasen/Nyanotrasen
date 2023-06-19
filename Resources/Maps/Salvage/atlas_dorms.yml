@@ -51,8 +51,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -1213,8 +1211,6 @@ entities:
     - pos: 4.5,-13.5
       parent: 377
       type: Transform
-    - fixtures: []
-      type: Fixtures
 - proto: FoodCondimentBottleBBQ
   entities:
   - uid: 146

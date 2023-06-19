@@ -24,14 +24,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.4,0.4,0.4"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -50,6 +51,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: WiresPanel
   - type: Wires
     BoardName: "Autolathe"
     LayoutId: Autolathe
@@ -73,6 +75,7 @@
       - Wrench
       - Crowbar
       - Multitool
+      - NetworkConfigurator
       - AirlockPainter
       - MiniHoe
       - Shovel
@@ -111,14 +114,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.4,0.4,0.4"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: ResearchClient
   - type: Destructible
     thresholds:
@@ -132,6 +136,7 @@
         acts: ["Destruction"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: WiresPanel
   - type: Wires
     BoardName: "Protolathe"
     LayoutId: Protolathe
@@ -196,6 +201,7 @@
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
+      - StationMapElectronics
       - FireAlarmElectronics
       - IntercomElectronics
       - MailingUnitElectronics
@@ -242,6 +248,7 @@
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
+      - StationMapElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
       - IntercomElectronics

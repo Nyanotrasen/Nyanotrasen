@@ -11,6 +11,8 @@
         path: /Audio/Effects/shuttle_thruster.ogg
     - type: Transform
       anchored: true
+    - type: Physics
+      bodyType: Static
     - type: Rotatable
       rotateWhileAnchored: true
     - type: Thruster
@@ -162,4 +164,3 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
-      offset: 0, 1

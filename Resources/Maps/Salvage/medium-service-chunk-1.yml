@@ -44,8 +44,6 @@ entities:
       fixedRotation: False
       bodyType: Dynamic
       type: Physics
-    - fixtures: []
-      type: Fixtures
     - type: OccluderTree
     - type: Shuttle
     - type: GridPathfinding
@@ -1585,8 +1583,6 @@ entities:
     - pos: -6.5,-4.5
       parent: 273
       type: Transform
-    - fixtures: []
-      type: Fixtures
 - proto: FoodTinBeansTrash
   entities:
   - uid: 303
@@ -2549,8 +2545,6 @@ entities:
         - port: Toggle
           uid: 82
       type: SignalTransmitter
-    - fixtures: []
-      type: Fixtures
 - proto: SignDirectionalDorms
   entities:
   - uid: 331

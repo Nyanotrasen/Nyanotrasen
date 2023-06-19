@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.Station.Components;
 using Content.Shared.Dragon;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
@@ -30,13 +31,17 @@ public sealed partial class DragonSystem
     {
         base.Started(uid, component, gameRule, args);
 
-        var spawnLocations = EntityQuery<MapGridComponent, TransformComponent>().ToList();
+        var eligible = EntityQuery<StationEventEligibleComponent>().Select(x => x.Owner).ToList();
 
-        if (spawnLocations.Count == 0)
+        if (!eligible.Any())
             return;
 
-        var location = _random.Pick(spawnLocations);
-        Spawn("MobDragon", location.Item2.MapPosition);
+        var station = _random.Pick(eligible);
+
+        if (_station.GetLargestGrid(EntityManager.GetComponent<StationDataComponent>(station)) is not { } grid)
+            return;
+
+        Spawn("MobDragon", Transform(grid).MapPosition);
     }
 
     private void OnRiftRoundEnd(RoundEndTextAppendEvent args)

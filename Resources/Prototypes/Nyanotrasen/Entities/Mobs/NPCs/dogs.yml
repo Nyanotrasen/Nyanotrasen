@@ -26,18 +26,20 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 65
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 65
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Appearance
   - type: Inventory
     speciesId: dog
     templateId: pet
+  - type: InventorySlots
   - type: Strippable
   - type: UserInterface
     interfaces:

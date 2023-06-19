@@ -8,6 +8,12 @@
   id: AirSensor
 
 - type: Tag
+  id: AppraisalTool
+
+- type: Tag
+  id: ArachneWeb
+
+- type: Tag
   id: ATVKeys
 
 - type: Tag
@@ -72,6 +78,9 @@
 
 - type: Tag
   id: BulletFoam
+
+- type: Tag
+  id: BypassInteractionRangeChecks
 
 - type: Tag
   id: CableCoil
@@ -318,9 +327,6 @@
   id: GuideEmbeded
 
 - type: Tag
-  id: GunsDisabled # Allow certain entities to not use guns without complicating the system with an event
-
-- type: Tag
   id: Handcuffs
 
 - type: Tag
@@ -367,6 +373,10 @@
 
 - type: Tag
   id: Katana
+
+- type: Tag
+  id: Kangaroo
+
 
 - type: Tag
   id: KeyedInstrument
@@ -465,6 +475,9 @@
 
 - type: Tag
   id: Mop
+
+- type: Tag
+  id: Multitool
 
 - type: Tag
   id: NoAction
@@ -643,6 +656,9 @@
 
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: StationMapElectronics
 
 - type: Tag
   id: SubdermalImplant

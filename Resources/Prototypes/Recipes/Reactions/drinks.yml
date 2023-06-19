@@ -388,6 +388,17 @@
   products:
     ManlyDorf: 3
 
+# TODO: PR #15540
+# - type: reaction
+#   id: Margarita
+#   reactants:
+#     Tequila:
+#       amount: 2
+#     JuiceLime:
+#       amount: 1
+#   products:
+#     Margarita: 3
+
 - type: reaction
   id: Martini
   reactants:

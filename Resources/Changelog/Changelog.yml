@@ -1,233 +1,6 @@
 Entries:
 - author: Rane
   changes:
-  - message: Telepathic chat from oracles, dreams, and others work as intended again.
-    type: Fix
-  - message: Ifrits will no longer have definite articles in loc strings.
-    type: Fix
-  - message: The stealth shader on telegnostic projections and psionically invisible
-      people works as intended.
-    type: Tweak
-  - message: Made a small optimization that should improve client perf slightly.
-    type: Fix
-  - message: 'New trait: colorblindness.'
-    type: Add
-  - message: Revenants spawn correctly from the glimmer event.
-    type: Fix
-  - message: Revenants drop some bluespace crystals on death.
-    type: Add
-  - message: Glimmer prober has a new construction graph.
-    type: Add
-  - message: Probers and disposal units can be toggled on and off with an alt verb.
-    type: Add
-  id: 42
-  time: '2022-10-19T21:44:49.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed the old point source available from salvage.
-    type: Fix
-  - message: Hoods should not hide face (or hair) anymore. Hiding hair broke upstream.
-    type: Fix
-  - message: As it makes up a disproportionate amount of problematic unwhitelisted
-      players, cleric is now time gated.
-    type: Tweak
-  - message: Glimmer drains are constructable, although they require something unlocked
-      with spacetime technology.
-    type: Add
-  - message: Glimmer probers have some more special behavior at dangerous glimmer
-      levels. (>500)
-    type: Add
-  id: 43
-  time: '2022-10-20T21:04:49.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Added some maintenance rooms.
-    type: Add
-  - message: Made significant changes to Atmos and its mix chamber.
-    type: Tweak
-  - message: Changed many firelocks to glass firelocks.
-    type: Tweak
-  id: 44
-  time: '2022-10-21T20:18:37.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Nuke ops and other midrounds humanoids can be felinids or oni, too.
-    type: Add
-  id: 45
-  time: '2022-10-21T20:21:43.0000000+00:00'
-- author: Daemon
-  changes:
-  - message: Tweaked splash screen!
-    type: Tweak
-  id: 46
-  time: '2022-10-22T05:04:39.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added icons for all standard psionic powers.
-    type: Add
-  id: 47
-  time: '2022-10-22T21:48:53.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed name identifiers for animals (they were ugly and our ghost roles
-      are whitelisted).
-    type: Remove
-  - message: Zombie removed from secret.
-    type: Remove
-  - message: DiseaseCarrier is back to humanoids, mice, and monkeys.
-    type: Fix
-  - message: Monkeys have 2 hands.
-    type: Tweak
-  - message: Removed several more impossible / unreasonably difficult oracle requests.
-    type: Fix
-  - message: Oracle now drops the rewards at your feet, so people are less likely
-      to forget them.
-    type: Tweak
-  - message: Revenant's minimum eligible glimmer increased by 150.
-    type: Tweak
-  - message: Polished random sentience event.
-    type: Add
-  - message: Interacting with probers at high glimmer is much more fun.
-    type: Add
-  - message: Destroying glimmer probers will reduce glimmer level if glimmer is above
-      300.
-    type: Add
-  - message: Plasteel and plasma are printable now with material printing
-    type: Add
-  - message: New soul lobby song
-    type: Add
-  - message: Reenabled early shuttle call cvar. Great way to speedrun a whitelist
-      removal and/or ban if you abuse it.
-    type: Add
-  id: 48
-  time: '2022-10-25T01:04:35.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Mundane discharge max glimmer reduced by 100.
-    type: Tweak
-  - message: Random sentience min glimmer reduced by 100.
-    type: Tweak
-  - message: Added 2 new glimmer console commands for admins and developers.
-    type: Add
-  id: 49
-  time: '2022-10-26T00:28:23.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed lamiae. Spiders soon.
-    type: Remove
-  - message: Fixed borg latejoin message and traitor objectives targeting borgs.
-    type: Fix
-  - message: Fixed several other traitor objective bugs.
-    type: Fix
-  - message: All relevant reagents are now affected by the small amount scaling.
-    type: Add
-  id: 50
-  time: '2022-10-25T23:54:16.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Merged the female clothing fix early because I need to use a similar
-      stencil method for aranche.
-    type: Fix
-  id: 51
-  time: '2022-10-26T04:24:47.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added new icon for the NyanoTrasen server.
-    type: Add
-  id: 52
-  time: '2022-10-27T23:25:45.0000000+00:00'
-- author: Rane and Kesiath
-  changes:
-  - message: Added a new species, Arachne!
-    type: Add
-  id: 53
-  time: '2022-10-28T02:50:48.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Speedran a bunch of misc arachne fixes. Traitor arachne, check your uplink.
-    type: Tweak
-  id: 54
-  time: '2022-10-28T03:05:09.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Adds a few shuttles for admins to quickly deploy.
-    type: Add
-  id: 55
-  time: '2022-10-28T03:58:51.0000000+00:00'
-- author: Kromabae
-  changes:
-  - message: Pebble Station
-    type: Add
-  id: 56
-  time: '2022-10-28T10:48:39.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Removed Atlas.
-    type: Remove
-  - message: Improved some server config stuff.
-    type: Tweak
-  id: 57
-  time: '2022-10-28T10:50:08.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Panic bunker works now for when the hub is like... this.
-    type: Add
-  id: 58
-  time: '2022-10-29T12:39:20.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added sprites and sounds for the Ifrit's hand.
-    type: Add
-  id: 59
-  time: '2022-10-29T22:28:26.0000000+00:00'
-- author: Kroma
-  changes:
-  - message: Resolved several issues with Pebble.
-    type: Fix
-  id: 60
-  time: '2022-10-30T10:54:32.0000000+00:00'
-- author: Vordenburg
-  changes:
-  - message: Added job icon stamps for mail to make it easier to sort.
-    type: Add
-  - message: Added fragile mail. If you break it, you're in trouble.
-    type: Add
-  - message: Added priority mail. Get it delivered on time or face a penalty.
-    type: Add
-  - message: Added mail for specific jobs and departments.
-    type: Add
-  - message: Added a lot of new possible deliveries you can receive.
-    type: Add
-  - message: Mail will now change appearance when damaged.
-    type: Add
-  - message: Damage to mail will harm its contents too.
-    type: Add
-  - message: Mail parcels can be emagged open now.
-    type: Fix
-  - message: Mail teleporters have a limit on undelivered mail now to prevent it from
-      piling up.
-    type: Tweak
-  - message: One of the new Arachne tailors made a jumpskirt variant of the mailman
-      uniform!
-    type: Add
-  - message: That same tailor redesigned the standard mailman uniform and hat.
-    type: Tweak
-  id: 61
-  time: '2022-10-31T01:14:50.0000000+00:00'
-- author: spessCarp
-  changes:
-  - message: Wrote several letters that can be received in the mail.
-    type: Add
-  id: 62
-  time: '2022-10-31T01:14:51.0000000+00:00'
-- author: kromabae
-  changes:
-  - message: qol changes to pebble
-    type: Add
-  id: 63
-  time: '2022-11-01T00:48:48.0000000+00:00'
-- author: Rane
-  changes:
   - message: Arachne whitelists and blacklists updated for uplink items and random
       humanoid spawns.
     type: Fix
@@ -3908,3 +3681,130 @@ Entries:
     type: Add
   id: 547
   time: '2023-05-16T16:31:44.119524+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Fixed medical robots crew monitor running out of charges.
+    type: Fix
+  id: 548
+  time: '2023-05-16T08:22:18.138720+00:00'
+- author: Vordenburg
+  changes:
+  - message: Merged ~200 changes from upstream. Report bugs and regressions.
+    type: Add
+  - message: Shoveling tiles should work again.
+    type: Fix
+  - message: Stations will have gravity at the start of the round again.
+    type: Fix
+  - message: Mice will become hungry less often.
+    type: Tweak
+  - message: Adjusted kudzu growth speed, again.
+    type: Tweak
+  id: 549
+  time: '2023-05-21T08:22:21.323686+00:00'
+- author: FluidRock
+  changes:
+  - message: Corgi meat is now obtainable from all corgi.
+    type: Tweak
+  id: 550
+  time: '2023-05-27T21:46:28.886586+00:00'
+- author: Fireheart
+  changes:
+  - message: Added moth squeaks and chitters!
+    type: Add
+  id: 551
+  time: '2023-05-27T21:46:28.886609+00:00'
+- author: Vannn4
+  changes:
+  - message: Added altars to the Construction menu.
+    type: Add
+  - message: Fixed burden altar using the incorrect sprite.
+    type: Fix
+  id: 552
+  time: '2023-05-27T21:46:28.886620+00:00'
+- author: TheBlackHorizons
+  changes:
+  - message: Added new lobby screen by Kimikyu.
+    type: Add
+  id: 553
+  time: '2023-05-27T21:46:28.886627+00:00'
+- author: Saltson
+  changes:
+  - message: Updated Glacier station.
+    type: Add
+  id: 554
+  time: '2023-05-27T21:46:28.886632+00:00'
+- author: Vordenburg
+  changes:
+  - message: Rat kings can now point at themselves to stop their servants from attacking.
+    type: Add
+  - message: The recipient of a mail parcel will be printed in larger font now.
+    type: Add
+  - message: Arachne can no longer wear the experimental research hardsuit.
+    type: Fix
+  - message: Arachne can now safely buckle and unbuckle to webs again, letting them
+      rest.
+    type: Fix
+  - message: Burned food can now be destroyed in the recycler.
+    type: Fix
+  - message: Merged a couple dozen fixes from upstream.
+    type: Fix
+  - message: Snares, such as the bola, work better now.
+    type: Fix
+  - message: Vampiric creatures such as the Arachne will no longer be able to sustain
+      themselves off of salt, sugar, slime, vitamins, ramen, and soy sauce.
+    type: Fix
+  - message: You can hop a holobarrier with the alternate action now.
+    type: Fix
+  - message: Psionic regeneration will heal bleeding, lost blood, and caustic damage
+      now.
+    type: Tweak
+  - message: Traitors must escape alive and unrestrained.
+    type: Tweak
+  id: 555
+  time: '2023-05-27T21:47:41.318977+00:00'
+- author: Vordenburg
+  changes:
+  - message: Joints and blunts will get you high again.
+    type: Fix
+  - message: Arachne should no longer appear as nuclear operatives.
+    type: Fix
+  - message: Merged several bugfixes from upstream.
+    type: Fix
+  id: 556
+  time: '2023-06-04T23:08:03.172770+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Fixed robots holoprojector running out of charges.
+    type: Fix
+  - message: Moth and Arachne body parts can now be recycled.
+    type: Fix
+  id: 557
+  time: '2023-06-17T20:22:59.238817+00:00'
+- author: Rane
+  changes:
+  - message: Healing items can be used on arachne again.
+    type: Fix
+  id: 558
+  time: '2023-06-17T20:22:59.238906+00:00'
+- author: Velcroboy
+  changes:
+  - message: Mop buckets are spillable again.
+    type: Fix
+  id: 559
+  time: '2023-06-17T20:22:59.238949+00:00'
+- author: Hyenh
+  changes:
+  - message: Added more clothes.
+    type: Add
+  - message: Adjusted the reverse engineering machine's sprite.
+    type: Tweak
+  id: 560
+  time: '2023-06-17T20:22:59.238995+00:00'
+- author: Vordenburg
+  changes:
+  - message: Fixed the ifrit, fugitive, and oneirophage ghost roles.
+    type: Fix
+  - message: Disabled the vent clog foam event.
+    type: Tweak
+  id: 561
+  time: '2023-06-17T20:23:00.640592+00:00'
