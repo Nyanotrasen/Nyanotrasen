@@ -43,20 +43,20 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
         {
-            TogglePsionics(uid);
+            SetPsionicsThroughEligibility(uid);
         }
 
         private void OnShutdown(EntityUid uid, PsionicsDisabledComponent component, ComponentShutdown args)
         {
-            TogglePsionics(uid);
+            SetPsionicsThroughEligibility(uid);
         }
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
-            TogglePsionics(uid);
+            SetPsionicsThroughEligibility(uid);
         }
 
-        public void TogglePsionics(EntityUid uid, PsionicComponent? component = null)
+        public void SetPsionicsThroughEligibility(EntityUid uid, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
                 return;
