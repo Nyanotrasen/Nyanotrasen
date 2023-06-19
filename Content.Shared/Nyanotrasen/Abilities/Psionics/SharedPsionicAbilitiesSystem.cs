@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Random;
@@ -42,24 +43,20 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
         {
-            TogglePsionics(uid, false);
+            TogglePsionics(uid);
         }
 
         private void OnShutdown(EntityUid uid, PsionicsDisabledComponent component, ComponentShutdown args)
         {
-            if (!HasComp<PsionicInsulationComponent>(uid))
-                TogglePsionics(uid, true);
+            TogglePsionics(uid);
         }
 
         private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
-            if (args.NewMobState == MobState.Dead)
-                TogglePsionics(uid, false);
-            else
-                TogglePsionics(uid, true);
+            TogglePsionics(uid);
         }
 
-        public void TogglePsionics(EntityUid uid, bool toggle, PsionicComponent? component = null)
+        public void TogglePsionics(EntityUid uid, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
                 return;
@@ -67,8 +64,15 @@ namespace Content.Shared.Abilities.Psionics
             if (component.PsionicAbility == null)
                 return;
 
-            _actions.SetEnabled(component.PsionicAbility, toggle);
+            _actions.SetEnabled(component.PsionicAbility, IsEligibleForPsionics(uid));
         }
+
+        private bool IsEligibleForPsionics(EntityUid uid)
+        {
+            return !HasComp<PsionicInsulationComponent>(uid)
+                && (!TryComp<MobStateComponent>(uid, out var mobstate) || mobstate.CurrentState == MobState.Alive);
+        }
+
         public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)
         {
             _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
