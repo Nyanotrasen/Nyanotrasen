@@ -26,10 +26,10 @@ namespace Content.Shared.Abilities.Psionics
             if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
             
-            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
             var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
             insul.Passthrough = component.Passthrough;
             component.IsActive = true;
+            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
         }
 
         private void OnTinfoilUnequipped(EntityUid uid, TinfoilHatComponent component, GotUnequippedEvent args)
@@ -41,8 +41,7 @@ namespace Content.Shared.Abilities.Psionics
                 RemComp<PsionicInsulationComponent>(args.Equipee);
 
             component.IsActive = false;
-
-                _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
+            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
         }
 
         private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)
