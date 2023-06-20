@@ -25,7 +25,7 @@ namespace Content.Shared.Abilities.Psionics
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
-            
+
             var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
             insul.Passthrough = component.Passthrough;
             component.IsActive = true;
