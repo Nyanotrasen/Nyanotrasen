@@ -40,6 +40,7 @@ REMOVE_COMPONENT_DATA = {
     "PowerCellDraw": ["nextUpdate"],
     "SolutionPurge": ["nextPurgeTime"],
     "SolutionRegeneration": ["nextChargeTime"],
+    "SuitSensor": ["nextUpdate"],
     "Thruster": ["nextFire"],
     "VendingMachine": ["nextEmpEject"],
 }
