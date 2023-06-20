@@ -56,7 +56,7 @@ namespace Content.Shared.Abilities.Psionics
             SetPsionics(uid, IsEligibleForPsionics(uid));
         }
 
-        public void SetPsionics(EntityUid uid, bool newValue, PsionicComponent? component = null)
+        public void SetPsionics(EntityUid uid, bool psionicsEnabled, PsionicComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
                 return;
@@ -64,7 +64,7 @@ namespace Content.Shared.Abilities.Psionics
             if (component.PsionicAbility == null)
                 return;
 
-            _actions.SetEnabled(component.PsionicAbility, newValue);
+            _actions.SetEnabled(component.PsionicAbility, psionicsEnabled);
         }
 
         private bool IsEligibleForPsionics(EntityUid uid)
