@@ -26,7 +26,7 @@ namespace Content.Shared.Abilities.Psionics
             if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
             
-            _psiAbilities.SetPsionics(args.Equipee, psionicsEnabled: false);
+            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
             var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
             insul.Passthrough = component.Passthrough;
             component.IsActive = true;
@@ -42,8 +42,7 @@ namespace Content.Shared.Abilities.Psionics
 
             component.IsActive = false;
 
-            if (!HasComp<PsionicsDisabledComponent>(args.Equipee))
-                _psiAbilities.SetPsionics(args.Equipee, psionicsEnabled: true);
+                _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
         }
 
         private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)
