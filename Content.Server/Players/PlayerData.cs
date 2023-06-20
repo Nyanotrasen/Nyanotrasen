@@ -1,3 +1,4 @@
+using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Robust.Server.Player;
 using Robust.Shared.Network;
@@ -27,8 +28,8 @@ namespace Content.Server.Players
         ///     The currently occupied mind of the player owning this data.
         ///     DO NOT DIRECTLY SET THIS UNLESS YOU KNOW WHAT YOU'RE DOING.
         /// </summary>
-        [ViewVariables]
-        public Mind.Mind? Mind { get; private set; }
+        [ViewVariables, Access(typeof(MindSystem), typeof(GameTicker))]
+        public Mind.Mind? Mind { get; set; }
 
         /// <summary>
         ///     If true, the player is an admin and they explicitly de-adminned mid-game,
@@ -40,27 +41,6 @@ namespace Content.Server.Players
         ///     Are they whitelisted? Lets us avoid async.
         /// </summary>
         public bool Whitelisted { get; set; }
-
-        public void WipeMind()
-        {
-            var entityManager = IoCManager.Resolve<IEntityManager>();
-            var mindSystem = entityManager.System<MindSystem>();
-            
-            // This will ensure Mind == null
-            if (Mind == null)
-                return;
-
-            mindSystem.TransferTo(Mind, null);
-            mindSystem.ChangeOwningPlayer(Mind, null);
-        }
-
-        /// <summary>
-        /// Called from Mind.ChangeOwningPlayer *and nowhere else.*
-        /// </summary>
-        public void UpdateMindFromMindChangeOwningPlayer(Mind.Mind? mind)
-        {
-            Mind = mind;
-        }
 
         public PlayerData(NetUserId userId, string name)
         {
