@@ -4,9 +4,7 @@ using Content.Shared.GameTicking;
 namespace Content.Shared.Psionics.Glimmer
 {
     /// <summary>
-    /// How much psionic power is flowing around.
-    /// 1 average power use = 10 glimmer.
-    /// Passively lose 1 glimmer every 10 seconds.
+    /// This handles setting / reading the value of glimmer.
     /// </summary>
     public sealed class SharedGlimmerSystem : EntitySystem
     {

@@ -1,5 +1,7 @@
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer
@@ -9,8 +11,7 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-
-        public const float GlimmerLostPerSecond = 0.1f;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         public TimeSpan TargetUpdatePeriod = TimeSpan.FromSeconds(6);
         public TimeSpan NextUpdateTime = default!;
@@ -25,7 +26,7 @@ namespace Content.Server.Psionics.Glimmer
                 return;
 
             var delta = curTime - LastUpdateTime;
-            var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * GlimmerLostPerSecond);
+            var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * _cfg.GetCVar(CCVars.GlimmerLostPerSecond));
 
             // It used to be 75% to lose one glimmer per ten seconds, but now it's 50% per six seconds.
             // The probability is exactly the same over the same span of time. (0.25 ^ 3 == 0.5 ^ 6)

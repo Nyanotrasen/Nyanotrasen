@@ -1249,6 +1249,18 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> AnomalyGenerationGridBoundsScale =
             CVarDef.Create("anomaly.generation_grid_bounds_scale", 0.6f, CVar.SERVERONLY);
 
+
+        /*
+         * Glimmer
+         */
+
+        /// <summary>
+        ///     Passive glimmer drain per second.
+        ///     Note that this is randomized and this is an average value.
+        /// </summary>
+        public static readonly CVarDef<float> GlimmerLostPerSecond =
+            CVarDef.Create("glimmer.passive_drain_per_second", 0.1f, CVar.SERVERONLY);
+
         /*
          * VIEWPORT
          */
