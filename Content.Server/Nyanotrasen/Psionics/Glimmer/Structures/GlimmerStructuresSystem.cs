@@ -9,7 +9,7 @@ namespace Content.Server.Psionics.Glimmer
     public sealed class GlimmerStructuresSystem : EntitySystem
     {
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
 
         public override void Update(float frameTime)
         {

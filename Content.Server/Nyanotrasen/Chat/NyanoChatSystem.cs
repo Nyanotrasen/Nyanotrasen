@@ -25,7 +25,7 @@ namespace Content.Server.Nyanotrasen.Chat
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chatSystem = default!;
         private IEnumerable<INetChannel> GetPsionicChatClients()
         {

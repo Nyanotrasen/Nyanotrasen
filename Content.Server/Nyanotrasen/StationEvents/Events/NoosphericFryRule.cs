@@ -28,7 +28,7 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
     [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;

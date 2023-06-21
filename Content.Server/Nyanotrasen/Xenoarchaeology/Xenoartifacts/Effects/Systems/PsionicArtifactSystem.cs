@@ -18,7 +18,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();

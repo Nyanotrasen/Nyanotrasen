@@ -6,9 +6,12 @@ using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer
 {
-    public sealed class GlimmerSystem : EntitySystem
+    /// <summary>
+    /// Handles the passive reduction of glimmer.
+    /// </summary>
+    public sealed class PassiveGlimmerReductionSystem : EntitySystem
     {
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;

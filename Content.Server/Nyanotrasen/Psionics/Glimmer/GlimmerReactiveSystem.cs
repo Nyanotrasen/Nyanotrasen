@@ -24,7 +24,7 @@ namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerReactiveSystem : EntitySystem
     {
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
@@ -359,7 +359,7 @@ namespace Content.Server.Psionics.Glimmer
     /// This event is fired when the broader glimmer tier has changed,
     /// not on every single adjustment to the glimmer count.
     ///
-    /// <see cref="SharedGlimmerSystem.GetGlimmerTier"/> has the exact
+    /// <see cref="GlimmerSystem.GetGlimmerTier"/> has the exact
     /// values corresponding to tiers.
     /// </summary>
     public class GlimmerTierChangedEvent : EntityEventArgs

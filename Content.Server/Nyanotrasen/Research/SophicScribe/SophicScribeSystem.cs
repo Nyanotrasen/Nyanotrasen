@@ -14,7 +14,7 @@ namespace Content.Server.Research.SophicScribe
     public sealed partial class SophicScribeSystem : EntitySystem
     {
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
         [Dependency] private readonly RadioSystem _radioSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IGameTiming _timing = default!;

@@ -14,7 +14,7 @@ public sealed class TelepathicArtifactSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
 
     public override void Initialize()
     {

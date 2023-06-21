@@ -26,7 +26,7 @@ namespace Content.Server.Research.Oracle
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly PuddleSystem _puddleSystem = default!;
 
         public readonly IReadOnlyList<string> RewardReagents = new[]

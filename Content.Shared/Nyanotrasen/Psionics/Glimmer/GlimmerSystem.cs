@@ -1,4 +1,6 @@
 using Robust.Shared.Serialization;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 
 namespace Content.Shared.Psionics.Glimmer
@@ -6,18 +8,22 @@ namespace Content.Shared.Psionics.Glimmer
     /// <summary>
     /// This handles setting / reading the value of glimmer.
     /// </summary>
-    public sealed class SharedGlimmerSystem : EntitySystem
+    public sealed class GlimmerSystem : EntitySystem
     {
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
         private int _glimmer = 0;
         public int Glimmer
         {
             get { return _glimmer; }
-            set { _glimmer = Math.Clamp(value, 0, 1000); }
+            set { _glimmer = _enabled ? Math.Clamp(value, 0, 1000) : 0; }
         }
+        private bool _enabled;
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
+            _enabled = _cfg.GetCVar(CCVars.GlimmerEnabled);
+            _cfg.OnValueChanged(CCVars.GlimmerEnabled, value => _enabled = value, true);
         }
 
         private void Reset(RoundRestartCleanupEvent args)
