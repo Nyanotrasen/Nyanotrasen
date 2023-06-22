@@ -381,6 +381,9 @@
       Plastic: 100
   - type: DynamicPrice
     price: 10
+  - type: Tag
+    tags:
+    - Figurine
 
 - type: entity
   parent: BaseFigurine
