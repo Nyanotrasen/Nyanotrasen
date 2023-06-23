@@ -778,6 +778,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 case "Burn":
                 case "Heat":
                 case "Holy":
+                case "Radiation":
                 case "Cold":
                     Audio.PlayPredicted(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target, user, AudioParams.Default.WithVariation(DamagePitchVariation));
                     break;
