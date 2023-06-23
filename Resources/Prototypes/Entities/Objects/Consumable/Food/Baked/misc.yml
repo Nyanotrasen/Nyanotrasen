@@ -249,6 +249,9 @@
       map: ["pancakes9"]
       visible: false
   - type: Appearance
+  - type: Tag
+    tags:
+    - Pancake
 
 - type: entity
   name: blueberry pancake
@@ -279,6 +282,9 @@
       map: ["pancakesbb3"]
       visible: false
   - type: Appearance
+  - type: Tag
+    tags:
+    - Pancake
 
 - type: entity
   name: chocolate chip pancake
@@ -318,6 +324,9 @@
           Quantity: 5
         - ReagentId: Theobromine
           Quantity: 1
+  - type: Tag
+    tags:
+    - Pancake
 
 - type: entity
   name: waffles

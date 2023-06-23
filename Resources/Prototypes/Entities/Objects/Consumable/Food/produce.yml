@@ -340,6 +340,9 @@
       reagents:
       - ReagentId: JuiceLemon
         Quantity: 10
+  - type: Tag
+    tags:
+    - Lemon
 
 - type: entity
   name: lime
@@ -359,6 +362,9 @@
       reagents:
       - ReagentId: JuiceLime
         Quantity: 10
+  - type: Tag
+    tags:
+    - Lime
 
 - type: entity
   name: orange
@@ -572,6 +578,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
+  - type: Tag
+    tags:
+    - Corn
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/corn.rsi
   - type: Produce
@@ -916,6 +925,9 @@
     seedId: galaxythistle
   - type: Extractable
     grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Galaxythistle
 
 - type: entity
   name: fly amanita
