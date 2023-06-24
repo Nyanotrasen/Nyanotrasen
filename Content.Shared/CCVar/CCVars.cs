@@ -283,6 +283,12 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.round_start_fail_shutdown_count", 5, CVar.SERVERONLY | CVar.SERVER);
 #endif
 
+        /// <summary>
+        /// Delay between station alert level changes.
+        /// </summary>
+        public static readonly CVarDef<int> GameAlertLevelChangeDelay =
+            CVarDef.Create("game.alert_level_change_delay", 30, CVar.SERVERONLY);
+
         /*
          * Damage
          */
