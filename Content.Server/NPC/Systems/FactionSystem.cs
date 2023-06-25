@@ -94,6 +94,22 @@ public partial class FactionSystem : EntitySystem
         }
     }
 
+    // Begin Nyano-code: API expansion.
+    /// <summary>
+    /// Clears an entity's factions.
+    /// </summary>
+    public void ClearFactions(EntityUid uid, bool dirty = true)
+    {
+        var comp = EnsureComp<FactionComponent>(uid);
+        comp.Factions.Clear();
+
+        if (dirty)
+        {
+            RefreshFactions(comp);
+        }
+    }
+    // End Nyano-code.
+
     /// <summary>
     /// Removes this entity from the particular faction.
     /// </summary>
