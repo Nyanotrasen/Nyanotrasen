@@ -108,3 +108,33 @@
   id: PsionicInterloper # Crew aligned psionic
   hostile:
   - GlimmerMonster
+
+- type: faction
+  id: Zombie
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - RatPassive
+  - RatHostile
+  - Cat
+  - Xeno
+  - Dragon
+  - Pet
+  - Passive
+  - SimpleHostile
+  - MalfunctioningRobot
+
+- type: faction
+  id: MalfunctioningRobot
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - RatPassive
+  - RatHostile
+  - Cat
+  - Xeno
+  - Dragon
+  - Pet
+  - Passive
+  - SimpleHostile
+  - Zombie

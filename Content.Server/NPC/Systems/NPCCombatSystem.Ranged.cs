@@ -30,6 +30,7 @@ public sealed partial class NPCCombatSystem
         SubscribeLocalEvent<NPCRangedCombatComponent, ComponentShutdown>(OnRangedShutdown);
     }
 
+    // Begin Nyano-code: support for mobile ranged NPCs.
     private void OnRangedSteering(EntityUid uid, NPCRangedCombatComponent component, ref NPCSteeringEvent args)
     {
         args.Steering.CanSeek = true;
@@ -62,6 +63,7 @@ public sealed partial class NPCCombatSystem
             args.Interest[i] = MathF.Max(args.Interest[i], result);
         }
     }
+    // End Nyano-code.
 
 
     private void OnRangedStartup(EntityUid uid, NPCRangedCombatComponent component, ComponentStartup args)
@@ -91,9 +93,9 @@ public sealed partial class NPCCombatSystem
         var bodyQuery = GetEntityQuery<PhysicsComponent>();
         var xformQuery = GetEntityQuery<TransformComponent>();
         var combatQuery = GetEntityQuery<CombatModeComponent>();
-        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<NPCRangedCombatComponent, TransformComponent, ActiveNPCComponent>();
 
-        while (query.MoveNext(out var uid, out var comp, out var xform))
+        while (query.MoveNext(out var uid, out var comp, out var xform, out _))
         {
             if (comp.Status == CombatStatus.Unspecified)
                 continue;
@@ -145,15 +147,15 @@ public sealed partial class NPCCombatSystem
             if (!comp.TargetInLOS)
             {
                 comp.ShootAccumulator = 0f;
+
+                // Begin Nyano-code: support for mobile ranged NPCs.
                 if (!comp.CanMove || distance >= 9f)
-                {
                     comp.Status = CombatStatus.TargetUnreachable;
-                    continue;
-                }
                 else
-                {
                     comp.Status = CombatStatus.NotInSight;
-                }
+                // End Nyano-code.
+
+                continue;
             }
 
             if (!oldInLos && comp.SoundTargetInLOS != null)

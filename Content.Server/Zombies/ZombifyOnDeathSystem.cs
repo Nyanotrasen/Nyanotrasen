@@ -218,6 +218,8 @@ namespace Content.Server.Zombies
                 _chatMan.DispatchServerMessage(session, Loc.GetString("zombie-infection-greeting"));
             }
 
+            // Begin Nyano-code: disable ghost roles for zombies.
+            /*
             if (!HasComp<GhostRoleMobSpawnerComponent>(target) && !mindcomp.HasMind) //this specific component gives build test trouble so pop off, ig
             {
                 //yet more hardcoding. Visit zombie.ftl for more information.
@@ -227,6 +229,8 @@ namespace Content.Server.Zombies
                 ghostRole.RoleDescription = Loc.GetString("zombie-role-desc");
                 ghostRole.RoleRules = Loc.GetString("zombie-role-rules");
             }
+            */
+            // End Nyano-code.
 
             //Goes through every hand, drops the items in it, then removes the hand
             //may become the source of various bugs.

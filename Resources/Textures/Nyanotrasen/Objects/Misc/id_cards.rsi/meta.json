@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "@Vordenburg; modified from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "idexplorer"
+    },
+    {
+      "name": "idfreelancer"
+    },
+    {
+      "name": "idstudent"
+    },
+    {
+      "name": "unaffiliated"
+    },
+    {
+      "name": "unaffiliated-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "unaffiliated-inhand-right",
+      "directions": 4
+    }
+  ]
+}

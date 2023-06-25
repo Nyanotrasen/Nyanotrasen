@@ -69,6 +69,11 @@ namespace Content.Server.Disease
             base.Update(frameTime);
             foreach (var entity in AddQueue)
             {
+                // Begin Nyano-code: avoid adding diseases to deleted entities.
+                if (Deleted(entity))
+                    continue;
+                // End Nyano-code.
+
                 EnsureComp<DiseasedComponent>(entity);
             }
 
