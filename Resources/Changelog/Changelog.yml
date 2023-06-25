@@ -1,23 +1,6 @@
 Entries:
 - author: Rane
   changes:
-  - message: Arachne whitelists and blacklists updated for uplink items and random
-      humanoid spawns.
-    type: Fix
-  - message: Arachne PDA slot is in the correct location.
-    type: Fix
-  - message: Revenants, familiars, etc cannot get mindbreakered.
-    type: Fix
-  - message: Fixed multiple popups on bags of holding.
-    type: Fix
-  - message: Glimmer objective rasied to 500 and difficulty adjusted accordingly.
-    type: Tweak
-  - message: New 'lspsionics' command for developers and admins.
-    type: Add
-  id: 64
-  time: '2022-11-01T02:24:52.0000000+00:00'
-- author: Rane
-  changes:
   - message: Reenabled the non-social objective groups. Woops.
     type: Fix
   - message: All animals are now eligible for awakening.
@@ -3808,3 +3791,10 @@ Entries:
     type: Tweak
   id: 561
   time: '2023-06-17T20:23:00.640592+00:00'
+- author: Vordenburg
+  changes:
+  - message: 'Added a new game mode for small servers and low player counts: Shipwrecked.
+      Vote for it in the lobby.'
+    type: Add
+  id: 562
+  time: '2023-06-25T22:16:26.668452+00:00'
