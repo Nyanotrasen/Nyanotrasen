@@ -1,0 +1,13 @@
+- type: entity
+  id: DeathByStarvation
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: DeathByStarvationRule
+      damage:
+        # TODO: Wasting damage? This is good enough for now.
+        types:
+          Bloodloss: 2
+          Blunt: 1
+          Poison: 1
+
