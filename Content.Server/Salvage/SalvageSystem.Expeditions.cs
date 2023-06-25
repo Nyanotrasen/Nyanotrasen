@@ -172,13 +172,13 @@ public sealed partial class SalvageSystem
         // Payout already handled elsewhere.
         if (expedition.Completed)
         {
-            _sawmill.Debug($"Completed mission {expedition.MissionParams.MissionType} with seed {expedition.MissionParams.Seed}");
+            Log.Debug($"Completed mission {expedition.MissionParams.MissionType} with seed {expedition.MissionParams.Seed}");
             component.NextOffer = _timing.CurTime + TimeSpan.FromSeconds(_cooldown);
             Announce(expedition.Owner, Loc.GetString("salvage-expedition-mission-completed"));
         }
         else
         {
-            _sawmill.Debug($"Failed mission {expedition.MissionParams.MissionType} with seed {expedition.MissionParams.Seed}");
+            Log.Debug($"Failed mission {expedition.MissionParams.MissionType} with seed {expedition.MissionParams.Seed}");
             component.NextOffer = _timing.CurTime + TimeSpan.FromSeconds(_failedCooldown);
             Announce(expedition.Owner, Loc.GetString("salvage-expedition-mission-failed"));
         }
