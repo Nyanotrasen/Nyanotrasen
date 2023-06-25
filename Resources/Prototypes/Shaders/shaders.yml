@@ -77,3 +77,12 @@
   id: Crispy
   kind: source
   path: "/Textures/Shaders/crispy.swsl"
+
+# hologram
+- type: shader
+  id: Hologram
+  kind: source
+  path: "/Textures/Shaders/hologram.swsl"
+  params:
+    textureHeight: 32
+    hue: 0.64

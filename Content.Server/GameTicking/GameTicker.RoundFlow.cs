@@ -537,6 +537,13 @@ namespace Content.Server.GameTicking
 
         private void AnnounceRound()
         {
+            // Begin Nyano-code: support systems intercepting AnnounceRound.
+            var ev = new AnnounceRoundAttemptEvent();
+            RaiseLocalEvent(ref ev);
+            if (ev.Handled)
+                return;
+            // End Nyano-code.
+
             if (Preset == null) return;
 
             var options = _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
@@ -732,4 +739,9 @@ namespace Content.Server.GameTicking
             _doNewLine = true;
         }
     }
+
+    // Begin Nyano-code: support systems intercepting AnnounceRound.
+    [ByRefEvent]
+    public record struct AnnounceRoundAttemptEvent(bool Handled);
+    // End Nyano-code.
 }
