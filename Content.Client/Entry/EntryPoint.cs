@@ -126,6 +126,8 @@ namespace Content.Client.Entry
 
             // Begin Nyano-code: our ignored prototypes.
             _prototypeManager.RegisterIgnore("npcConversationTree");
+            _prototypeManager.RegisterIgnore("shipwreckDestination");
+            _prototypeManager.RegisterIgnore("shipwreckFaction");
             // End Nyano-code.
 
             _componentFactory.GenerateNetIds();
