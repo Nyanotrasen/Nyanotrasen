@@ -1,0 +1,102 @@
+- type: entity
+  name: BaseWeaponSpecialRevolver
+  parent: BaseItem
+  id: BaseWeaponSpecialRevolver
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+    state: icon
+  - type: Item
+    size: 10
+  - type: Clothing
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38combat.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 1.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeSpecial
+        - SpeedLoaderSpecial
+    proto: CartridgeSpecial
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: DynamicPrice
+    price: 500
+
+- type: entity
+  name: K-38 Masterpiece
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverK38Master
+  description: A classic, if not outdated, law enforcement firearm. Uses .38 Special rounds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/k38master.rsi
+
+- type: entity
+  name: Fitz Special
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverSnub
+  description: A compact and concealable self defence snub revolver. Uses .38 Special rounds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/fitz.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeSpecial
+        - SpeedLoaderSpecial
+    proto: CartridgeSpecialRubber
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    soundEject:
+      path: /Audio/Weapons/Guns/MagOut/revolver_magout.ogg
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+
+- type: entity
+  name: Lucky 37
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverLucky
+  description: Luck always beats skill, ya weasel. Uses .38 Special rounds.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/lucky.rsi
+
+- type: entity
+  name: Faith
+  parent: BaseWeaponSpecialRevolver
+  id: WeaponRevolverFaith
+  description: Delivers blessings in bullet form. Uses .38 Special rounds.
+  components:
+  - type: Gun
+    fireRate: 1
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Revolvers/faith.rsi
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeSpecial #Requires manual reload.
+    proto: CartridgeSpecialHoly
+    capacity: 4
+    chambers: [ True, True, True, True ]
+    ammoSlots: [ null, null, null, null ]
