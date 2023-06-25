@@ -254,7 +254,7 @@ void fragment()
     highp float noise_hue = hue - 0.2 * pingpong((TIME_OFFSET1 + TIME) * 0.21);
 
     highp vec2 noise_coord = floor(UV * noise_scale);
-    float noise_result = snoise(vec3(noise_coord, (TIME_OFFSET2 + TIME) * noise_rate));
+    highp float noise_result = snoise(vec3(noise_coord, (TIME_OFFSET2 + TIME) * noise_rate));
 
     highp vec3 noise3 = hsv2rgb(vec3(noise_hue, 1.0, noise_result));
     product.xyz = blendOverlay(product.xyz, noise3, noise_result < 0.3 ? 0.0 : 0.5);
