@@ -124,6 +124,10 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("flavor");
 
+            // Begin Nyano-code: our ignored prototypes.
+            _prototypeManager.RegisterIgnore("npcConversationTree");
+            // End Nyano-code.
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();
