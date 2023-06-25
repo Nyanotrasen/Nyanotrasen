@@ -524,3 +524,18 @@
           Quantity: 100
   - type: Sprite
     sprite: Objects/Consumable/Drinks/flaskholywater.rsi
+
+- type: entity
+  parent: DrinkBottleBaseFull
+  id: DrinkMoonshineFull
+  name: jug of moonshine
+  description: A jug, of the classic variety, containing copious amounts of moonshine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Moonshine
+          Quantity: 100
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Drinks/moonshinebottle.rsi

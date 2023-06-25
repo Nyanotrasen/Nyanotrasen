@@ -1067,6 +1067,9 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alcohol
   color: "#d1d7d155"
+  metamorphicSprite:
+    sprite: DeltaV/Objects/Consumable/Drinks/moonshine.rsi
+    state: icon
   metabolisms:
     Drink:
       effects:

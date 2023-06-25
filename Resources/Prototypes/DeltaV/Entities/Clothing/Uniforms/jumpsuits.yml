@@ -129,3 +129,14 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformal.rsi
   - type: Clothing
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/secformal.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSober
+  name: sober sweater
+  description: For the more lucid moments.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/sober.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/sober.rsi

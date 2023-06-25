@@ -267,3 +267,20 @@ reagent-desc-sapopicante = Tastes nothing like a toad.
 
 reagent-name-graveyard = graveyard
 reagent-desc-graveyard = For those shifts that never seem to end.
+
+## Velta o.o
+
+reagent-name-gunmetal = gunmetal
+reagent-desc-gunmetal = A controversial drink created by the infamous Solus Cream, the first bartender to serve welding fuel without losing their liquor license.
+
+reagent-name-lemondrop = lemon drop
+reagent-desc-lemondrop = A simple, tangy, and tasty drink consisting of lemon, vodka, and simple syrup. Refreshing!
+
+reagent-name-greengrass = green grass
+reagent-desc-greengrass = Green grass, or grüne wiese, is a peculiar green cocktail hailing from the now dissolved GDR. Popular amongst the disillusioned and ingenuous alike.
+
+reagent-name-daiquiri = classic daiquiri
+reagent-desc-daiquiri = A sweet rum and lime mix, a favourite of writers and politicians.
+
+reagent-name-arsonistsbrew = arsonist's brew
+reagent-desc-arsonistsbrew = Take a sip and laugh, while you watch your world burn.

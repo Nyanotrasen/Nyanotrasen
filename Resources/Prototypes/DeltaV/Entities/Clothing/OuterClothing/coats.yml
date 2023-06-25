@@ -72,3 +72,21 @@
         Slash: 0.9
         Piercing: 0.6
         Heat: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLeatherJacket
+  name: leather jacket
+  description: A rugged leather jacket, for fashion or for utility.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Coats/leatherjacket.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Coats/leatherjacket.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.75
