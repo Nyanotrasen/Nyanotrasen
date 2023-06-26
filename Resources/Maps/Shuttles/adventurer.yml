@@ -1879,12 +1879,9 @@ entities:
   entities:
   - uid: 200
     components:
-    - anchored: true
-      pos: 4.5,-2.5
+    - pos: 4.5,-2.5
       parent: 2
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: SyringeSpaceacillin
   entities:
   - uid: 270
