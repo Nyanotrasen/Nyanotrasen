@@ -1,0 +1,20 @@
+- type: entity
+  name: ice axe
+  parent: BaseItem
+  id: iceaxe
+  description: A axe designed to climb ice cliffs, surpisingly works well as a weapon.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/iceaxe.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 1.25
+    range: 0.75
+    damage:
+      types:
+        Piercing: 3
+        Slash: 5
+        Structural: 2
+  - type: Item
+    size: 15
+    sprite: Objects/Weapons/Melee/iceaxe.rsi
