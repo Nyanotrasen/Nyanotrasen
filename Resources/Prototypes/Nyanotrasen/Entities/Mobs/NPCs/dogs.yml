@@ -81,3 +81,40 @@
       proper: true
   - type: RandomMetadata
     nameSegments: [names_pitbull]
+
+- type: entity
+  parent: MobPibble
+  id: MobPibbleVent
+  name: ventbull
+  description: Some kind of pitbull mix... or maybe the next stage in pibble evolution?
+  components:
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 2
+        Piercing: 5
+        Blunt: 0.5
+        Structural: 2
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 35
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: Sprite
+    scale: 0.8, 0.6
+    drawdepth: Mobs
+    sprite: Nyanotrasen/Mobs/Pets/ventbull.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pibble
