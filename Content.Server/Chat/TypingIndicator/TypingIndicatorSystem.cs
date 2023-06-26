@@ -54,7 +54,9 @@ public sealed class TypingIndicatorSystem : SharedTypingIndicatorSystem
         SetTypingIndicatorEnabled(uid.Value, ev.IsTyping);
     }
 
-    private void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // Begin Nyano-code: API made public for conversational NPCs.
+    public void SetTypingIndicatorEnabled(EntityUid uid, bool isEnabled, AppearanceComponent? appearance = null)
+    // End Nyano-code.
     {
         if (!Resolve(uid, ref appearance, false))
             return;
