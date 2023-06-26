@@ -1782,7 +1782,7 @@ entities:
         Pressed:
         - 254
       type: DeviceLinkSource
-- proto: Sink
+- proto: SinkEmpty
   entities:
   - uid: 6
     components:
@@ -1790,6 +1790,16 @@ entities:
       pos: -0.5,-3.5
       parent: 2
       type: Transform
+    - solutions:
+        tank:
+          temperature: 293.15
+          canMix: false
+          canReact: true
+          maxVol: 500
+          reagents:
+          - Quantity: 50
+            ReagentId: Water
+      type: SolutionContainerManager
 - proto: SMESBasic
   entities:
   - uid: 199
