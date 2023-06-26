@@ -568,7 +568,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             EnsureComp<FinitePowerSupplierComponent>(uid);
 
             // Hit it right away.
-            powerSupplier.MaxSupply *= 0.95f;
+            powerSupplier.MaxSupply *= 0.8f;
         }
     }
 
