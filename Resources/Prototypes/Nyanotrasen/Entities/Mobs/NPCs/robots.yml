@@ -100,13 +100,14 @@
         Base: shell
   - type: MovementAlwaysTouching
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 6
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 4.5
   - type: MeleeWeapon
     hidden: true
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     angle: 0
+    range: 1
     animation: WeaponArcSlash
     damage:
       types:
@@ -171,6 +172,7 @@
     soundHit:
         path: /Audio/Weapons/pierce.ogg
     angle: 0
+    range: 1.25
     animation: WeaponArcSlash
     damage:
       types:
@@ -186,7 +188,7 @@
     generated:
       reagents:
         - ReagentId: Toxin
-          Quantity: 1
+          Quantity: 0.1
   - type: Butcherable
     spawned:
     - id: SheetSteel1
@@ -266,6 +268,8 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
   - type: BallisticAmmoProvider
     proto: BulletCannonBall
     capacity: 16

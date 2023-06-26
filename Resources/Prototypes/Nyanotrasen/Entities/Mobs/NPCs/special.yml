@@ -68,12 +68,12 @@
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/hecate_response_name.ogg
           listenEvent: !type:NPCConversationToldNameEvent
-    - prompts: [job]
+    - prompts: [job, occupation, profession]
       responses:
         - text: shipwrecked-hecate-response-job
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_job.ogg
-    - prompts: [help]
+    - prompts: [help, topics]
       weight: 0.5
       hidden: true
       responses:
@@ -88,7 +88,7 @@
         - text: hecate-response-buy-sell
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/hecate_response_buy_sell.ogg
-    - prompts: [hi, hello]
+    - prompts: [hi, hello, hey, greetings, salutations]
       weight: 0.1
       hidden: true
       responses:
@@ -101,7 +101,8 @@
         - text: hecate-response-hello-3
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/hecate_response_hello_3.ogg
-    - prompts: [bye, goodbye, done]
+    - prompts: [bye, goodbye, done, farewell, later, seeya]
+      weight: 0.1
       hidden: true
       responses:
         - text: hecate-response-bye-1
@@ -121,12 +122,12 @@
     # Quest-relevant
     #
 
-    - prompts: [food]
+    - prompts: [food, drink, drinks]
       responses:
         - text: shipwrecked-hecate-response-food
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_food.ogg
-    - prompts: [supplies]
+    - prompts: [supplies, supply]
       responses:
         - text: shipwrecked-hecate-response-supplies
           audio: !type:SoundPathSpecifier
@@ -134,7 +135,7 @@
 
     # Post-crash
 
-    - prompts: [generator]
+    - prompts: [generator, generators, power, engine]
       locked: true
       responses:
         - text: shipwrecked-hecate-response-generator
@@ -151,13 +152,13 @@
         - text: shipwrecked-hecate-response-rescue
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_rescue.ogg
-    - prompts: [scans]
+    - prompts: [scans, scan]
       locked: true
       responses:
         - text: shipwrecked-hecate-response-scans
           audio: !type:SoundPathSpecifier
             path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_scans.ogg
-    - prompts: [status]
+    - prompts: [status, stats, prelaunch]
       locked: true
       responses:
         - is: !type:ShipwreckedHecateAskStatusEvent
@@ -181,7 +182,7 @@
               text: shipwrecked-hecate-response-status-all-green-again
               audio: !type:SoundPathSpecifier
                 path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_status_all_green_again.ogg
-    - prompts: [weapons, firearms, arms, guns]
+    - prompts: [weapons, firearms, arms, guns, safe]
       locked: true
       responses:
         - is: !type:ShipwreckedHecateAskWeaponsEvent
@@ -196,7 +197,7 @@
                 path: /Audio/Nyanotrasen/Dialogue/Hecate/shipwrecked_hecate_response_weapons_after.ogg
 
     # All objectives complete!
-    - prompts: [launch, takeoff, liftoff, blastoff]
+    - prompts: [launch, takeoff, liftoff, blastoff, ready, go, leave, escape]
       locked: true
       responses:
         - is: !type:ShipwreckedHecateAskLaunchEvent

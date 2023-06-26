@@ -30,17 +30,17 @@
       spawnPointHecate: SpawnPointShipwreckHecate
       hecatePrototype: MobQuestHecateShipwrecked
       eventSchedule:
-        - 12: AnnounceTransit
-        - 8: ShowHecate
+        - 13: AnnounceTransit
+        - 9: ShowHecate
         - 1: IntroduceHecate
         - 160: EncounterTurbulence
         - 10: ShiftParallax
         - 60: MidFlightDamage
         - 1: Alert
         - 8: DecoupleEngine
-        - 8: SendDistressSignal
+        - 14: SendDistressSignal
         - 8: InterstellarBody
         - 8: EnteringAtmosphere
         - 6: Crash
-        - 4: AfterCrash
+        - 6: AfterCrash
         - 12: Sitrep

@@ -18,7 +18,7 @@ shipwrecked-list-objective-thrusters-fail = - [color=red]None[/color] of the [co
 shipwrecked-list-objective-generator-fail = - The generator was [color=red]never repaired[/color].
 shipwrecked-list-objective-console-fail = - The console was [color=red]never repaired[/color].
 
-shipwrecked-list-objective-thruster-partial = - Only [color=blue]{$goodThrusterCount}[/color] out of [color=blue]{$totalThrusterCount}[/color] thrusters were repaired.
+shipwrecked-list-objective-thrusters-partial = - Only [color=blue]{$goodThrusterCount}[/color] out of [color=blue]{$totalThrusterCount}[/color] thrusters were repaired.
 
 shipwrecked-list-objective-thrusters-pass = - All [color=green]{$totalThrusterCount}[/color] thrusters were [color=green]repaired[/color].
 shipwrecked-list-objective-generator-pass = - The generator was [color=green]repaired[/color].
@@ -103,9 +103,8 @@ hecate-told-name-3 = {$name}? Your parents must have been interesting.
 shipwrecked-hecate-response-job = I am an autopilot hologram, here to ferry you to your destination.
 
 # Pre-crash
-shipwrecked-hecate-response-food = This vessel is stocked with rations for our trip, in a refridgeration unit, in the corner of the common area.
+shipwrecked-hecate-response-food = This vessel is stocked with rations for our trip, in a refrigeration unit, in the corner of the common area.
 shipwrecked-hecate-response-supplies = This vessel is stocked with supplies in the event of an onboard fire, or boredom. Please enjoy yourself.
-# shipwrecked-hecate-response-freeport = Freeport 7 was constructed at the edge of the D.M.Z. to facilitate trade between neutral parties.
 
 # Post-crash
 shipwrecked-hecate-response-generator = Our on-board generator was damaged in the crash. We will eventually lose power.
