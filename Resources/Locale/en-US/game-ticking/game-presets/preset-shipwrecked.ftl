@@ -103,7 +103,7 @@ hecate-told-name-3 = {$name}? Your parents must have been interesting.
 shipwrecked-hecate-response-job = I am an autopilot hologram, here to ferry you to your destination.
 
 # Pre-crash
-shipwrecked-hecate-response-food = This vessel is stocked with rations for our trip, in a refridgeration unit, in the corner of the common area.
+shipwrecked-hecate-response-food = This vessel is stocked with rations for our trip, in a refrigeration unit, in the corner of the common area.
 shipwrecked-hecate-response-supplies = This vessel is stocked with supplies in the event of an onboard fire, or boredom. Please enjoy yourself.
 
 # Post-crash

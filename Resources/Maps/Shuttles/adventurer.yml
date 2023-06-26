@@ -1400,7 +1400,8 @@ entities:
   entities:
   - uid: 179
     components:
-    - name: refridgerator
+    - desc: A tall box with a dizzying array of metal coils at the back.
+      name: refrigerator
       type: MetaData
     - pos: -0.5,-1.5
       parent: 2
