@@ -18,7 +18,7 @@ shipwrecked-list-objective-thrusters-fail = - [color=red]None[/color] of the [co
 shipwrecked-list-objective-generator-fail = - The generator was [color=red]never repaired[/color].
 shipwrecked-list-objective-console-fail = - The console was [color=red]never repaired[/color].
 
-shipwrecked-list-objective-thruster-partial = - Only [color=blue]{$goodThrusterCount}[/color] out of [color=blue]{$totalThrusterCount}[/color] thrusters were repaired.
+shipwrecked-list-objective-thrusters-partial = - Only [color=blue]{$goodThrusterCount}[/color] out of [color=blue]{$totalThrusterCount}[/color] thrusters were repaired.
 
 shipwrecked-list-objective-thrusters-pass = - All [color=green]{$totalThrusterCount}[/color] thrusters were [color=green]repaired[/color].
 shipwrecked-list-objective-generator-pass = - The generator was [color=green]repaired[/color].
