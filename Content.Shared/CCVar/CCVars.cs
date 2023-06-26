@@ -424,6 +424,13 @@ namespace Content.Shared.CCVar
             CVarDef.Create("pirates.players_per_pirate", 5);
 
         /*
+         * Shipwrecked
+         */
+
+        public static readonly CVarDef<int> ShipwreckedMaxPlayers =
+            CVarDef.Create("shipwrecked.max_players", 8);
+
+        /*
          * Tips
          */
 
