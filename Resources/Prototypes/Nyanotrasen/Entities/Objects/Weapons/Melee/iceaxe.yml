@@ -5,7 +5,7 @@
   description: A axe designed to climb ice cliffs, surpisingly works well as a weapon.
   components:
   - type: Sprite
-    sprite: /Nyanotrasen/Objects/Weapons/Melee/iceaxe.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Melee/iceaxe.rsi
     state: icon
   - type: MeleeWeapon
     attackRate: 1.25
