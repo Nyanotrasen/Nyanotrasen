@@ -21,6 +21,7 @@ using Content.Server.Buckle.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Components;
+using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
@@ -539,6 +540,9 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             // If these get destroyed at any point during the round, escape becomes impossible.
             // So make them indestructible.
             RemComp<DestructibleComponent>(uid);
+
+            // Disallow them to be broken down, too.
+            RemComp<ConstructionComponent>(uid);
 
             // These should be weak enough to rough up the walls but not destroy them.
             _explosionSystem.QueueExplosion(uid, "DemolitionCharge",
