@@ -105,7 +105,6 @@ shipwrecked-hecate-response-job = I am an autopilot hologram, here to ferry you 
 # Pre-crash
 shipwrecked-hecate-response-food = This vessel is stocked with rations for our trip, in a refridgeration unit, in the corner of the common area.
 shipwrecked-hecate-response-supplies = This vessel is stocked with supplies in the event of an onboard fire, or boredom. Please enjoy yourself.
-# shipwrecked-hecate-response-freeport = Freeport 7 was constructed at the edge of the D.M.Z. to facilitate trade between neutral parties.
 
 # Post-crash
 shipwrecked-hecate-response-generator = Our on-board generator was damaged in the crash. We will eventually lose power.
