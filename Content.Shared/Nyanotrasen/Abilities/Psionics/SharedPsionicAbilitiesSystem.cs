@@ -56,6 +56,9 @@ namespace Content.Shared.Abilities.Psionics
             SetPsionicsThroughEligibility(uid);
         }
 
+        /// <summary>
+        /// Checks whether the entity is eligible to use its psionic ability. This should be run after anything that could effect psionic eligibility.
+        /// </summary>
         public void SetPsionicsThroughEligibility(EntityUid uid)
         {
             PsionicComponent? component = null;
