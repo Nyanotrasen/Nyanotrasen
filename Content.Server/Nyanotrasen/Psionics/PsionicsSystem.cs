@@ -5,6 +5,7 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
 using Content.Shared.IdentityManagement;
+using Content.Shared.CCVar;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Electrocution;
 using Content.Server.Chat.Systems;
@@ -13,6 +14,7 @@ using Content.Server.NPC.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Configuration;
 
 namespace Content.Server.Psionics
 {
@@ -26,6 +28,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly FactionSystem _factions = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         /// <summary>
         /// Unfortunately, since spawning as a normal role and anything else is so different,
@@ -156,6 +159,9 @@ namespace Content.Server.Psionics
         public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
         {
             if (HasComp<PsionicComponent>(uid))
+                return;
+
+            if (!_cfg.GetCVar(CCVars.PsionicRollsEnabled))
                 return;
 
             var chance = component.Chance;

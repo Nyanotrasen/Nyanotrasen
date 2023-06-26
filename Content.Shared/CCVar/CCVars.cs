@@ -1274,6 +1274,13 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> GlimmerLostPerSecond =
             CVarDef.Create("glimmer.passive_drain_per_second", 0.1f, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     Whether random rolls for psionics are allowed.
+        ///     Guaranteed psionics will still go through.
+        /// </summary>
+        public static readonly CVarDef<bool> PsionicRollsEnabled =
+            CVarDef.Create("psionics.rolls_enabled", true, CVar.SERVERONLY);
+
         /*
          * VIEWPORT
          */
