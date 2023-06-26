@@ -16,15 +16,15 @@ public sealed class FinitePowerSupplierSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FinitePowerSupplierComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<FinitePowerSupplierComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnInit(EntityUid uid, FinitePowerSupplierComponent component, MapInitEvent args)
+    private void OnStartup(EntityUid uid, FinitePowerSupplierComponent component, ComponentStartup args)
     {
         // Prevent reconstruction exploits. There's a better way to handle this,
         // but it would involve storing state on the machine circuitboard or its parts.
         // This will do for now.
-        RemCompDeferred<ConstructionComponent>(uid);
+        RemComp<ConstructionComponent>(uid);
     }
 
     public override void Update(float frameTime)

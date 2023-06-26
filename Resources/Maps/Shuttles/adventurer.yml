@@ -1400,7 +1400,8 @@ entities:
   entities:
   - uid: 179
     components:
-    - name: refridgerator
+    - desc: A tall box with a dizzying array of metal coils at the back.
+      name: refrigerator
       type: MetaData
     - pos: -0.5,-1.5
       parent: 2
@@ -1446,6 +1447,8 @@ entities:
       pos: 4.5,7.5
       parent: 2
       type: Transform
+    - access: []
+      type: AccessReader
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 257
@@ -1480,6 +1483,15 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: -0.5,-4.5
+      parent: 2
+      type: Transform
+- proto: PersonalAI
+  entities:
+  - uid: 290
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 4.175825,10.454469
       parent: 2
       type: Transform
 - proto: Pickaxe
@@ -1770,7 +1782,7 @@ entities:
         Pressed:
         - 254
       type: DeviceLinkSource
-- proto: Sink
+- proto: SinkEmpty
   entities:
   - uid: 6
     components:
@@ -1778,6 +1790,16 @@ entities:
       pos: -0.5,-3.5
       parent: 2
       type: Transform
+    - solutions:
+        tank:
+          temperature: 293.15
+          canMix: false
+          canReact: true
+          maxVol: 500
+          reagents:
+          - Quantity: 50
+            ReagentId: Water
+      type: SolutionContainerManager
 - proto: SMESBasic
   entities:
   - uid: 199
@@ -1865,16 +1887,13 @@ entities:
     - pos: 3.5,-5.5
       parent: 2
       type: Transform
-- proto: SuitStorageEngi
+- proto: SuitStorageEVA
   entities:
   - uid: 200
     components:
-    - anchored: true
-      pos: 4.5,-2.5
+    - pos: 4.5,-2.5
       parent: 2
       type: Transform
-    - bodyType: Static
-      type: Physics
 - proto: SyringeSpaceacillin
   entities:
   - uid: 270

@@ -21,6 +21,7 @@ using Content.Server.Buckle.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Components;
+using Content.Server.Construction.Components;
 using Content.Server.Destructible;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
@@ -73,6 +74,7 @@ using Content.Shared.Random;
 using Content.Shared.Roles;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Storage;
+using Content.Shared.Zombies;
 
 
 namespace Content.Server.GameTicking.Rules;
@@ -146,6 +148,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
 
         SubscribeLocalEvent<ShipwreckSurvivorComponent, MobStateChangedEvent>(OnSurvivorMobStateChanged);
         SubscribeLocalEvent<ShipwreckSurvivorComponent, BeingGibbedEvent>(OnSurvivorBeingGibbed);
+        SubscribeLocalEvent<EntityZombifiedEvent>(OnZombified);
     }
 
     private void OnAnnounceRoundAttempt(ref AnnounceRoundAttemptEvent ev)
@@ -538,6 +541,9 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             // So make them indestructible.
             RemComp<DestructibleComponent>(uid);
 
+            // Disallow them to be broken down, too.
+            RemComp<ConstructionComponent>(uid);
+
             // These should be weak enough to rough up the walls but not destroy them.
             _explosionSystem.QueueExplosion(uid, "DemolitionCharge",
                 2f,
@@ -562,7 +568,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             EnsureComp<FinitePowerSupplierComponent>(uid);
 
             // Hit it right away.
-            powerSupplier.MaxSupply *= 0.95f;
+            powerSupplier.MaxSupply *= 0.8f;
         }
     }
 
@@ -1226,7 +1232,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
 
             foreach (var (survivor, session) in shipwrecked.Survivors)
             {
-                if (_mobStateSystem.IsDead(survivor))
+                if (IsDead(survivor))
                 {
                     ev.AddLine(Loc.GetString("shipwrecked-list-perished-name",
                         ("name", MetaData(survivor).EntityName),
@@ -1309,15 +1315,39 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         }
     }
 
+    private void OnZombified(EntityZombifiedEvent args)
+    {
+        var query = EntityQueryEnumerator<ShipwreckedRuleComponent, GameRuleComponent>();
+        while (query.MoveNext(out var uid, out var shipwrecked, out var gameRule))
+        {
+            if (!GameTicker.IsGameRuleActive(uid, gameRule))
+                continue;
+
+            CheckShouldRoundEnd(uid, shipwrecked);
+        }
+    }
+
+    // This should probably be something general, but I'm not sure where to put it,
+    // and it's small enough to stay here for now. Feel free to move it.
+    public bool IsDead(EntityUid uid)
+    {
+        return (_mobStateSystem.IsDead(uid) ||
+            // Zombies are not dead-dead, so check for that.
+            HasComp<ZombieComponent>(uid) ||
+            Deleted(uid));
+    }
+
     private void CheckShouldRoundEnd(EntityUid uid, ShipwreckedRuleComponent component)
     {
         var totalSurvivors = component.Survivors.Count;
         var deadSurvivors = 0;
 
+        var zombieQuery = GetEntityQuery<ZombieComponent>();
+
         foreach (var (survivor, _) in component.Survivors)
         {
             // Check if everyone's dead.
-            if (_mobStateSystem.IsDead(survivor) || Deleted(survivor))
+            if (IsDead(survivor))
                 ++deadSurvivors;
         }
 
