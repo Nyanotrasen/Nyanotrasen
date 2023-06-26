@@ -1447,6 +1447,8 @@ entities:
       pos: 4.5,7.5
       parent: 2
       type: Transform
+    - access: []
+      type: AccessReader
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 257
