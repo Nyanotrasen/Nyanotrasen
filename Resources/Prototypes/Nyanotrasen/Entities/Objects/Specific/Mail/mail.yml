@@ -496,6 +496,16 @@
 - type: entity
   noSpawn: true
   parent: BaseMail
+  id: Mailiceaxe
+  suffix: Knife
+  components:
+  - type: Mail
+    contents:
+    - id: iceaxe
+
+- type: entity
+  noSpawn: true
+  parent: BaseMail
   id: MailMoney
   suffix: money
   components:
