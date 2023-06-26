@@ -1482,6 +1482,15 @@ entities:
       pos: -0.5,-4.5
       parent: 2
       type: Transform
+- proto: PersonalAI
+  entities:
+  - uid: 290
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 4.175825,10.454469
+      parent: 2
+      type: Transform
 - proto: Pickaxe
   entities:
   - uid: 281
