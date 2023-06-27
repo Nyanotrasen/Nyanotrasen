@@ -31,8 +31,12 @@ namespace Content.Client.Nyanotrasen.UserInterface.CustomControls
             var i = 0;
             while (i + 1 < _glimmer.Count)
             {
-                handle.DrawLine((i * spacing, 250 - _glimmer[i] / 5), ((i + 1) * spacing, 250 - _glimmer[i + 1] / 5), Color.Red);
-                handle.DrawLine((i * spacing, 250), (i * spacing, 50), Color.White);
+                Vector2 vector1 = (i * spacing, 250 - _glimmer[i] / 5);
+                Vector2 vector2 = ((i + 1) * spacing, 250 - _glimmer[i + 1] / 5);
+                handle.DrawLine(vector1, vector2, Color.FromHex("#A200BB"));
+                handle.DrawLine(vector1 + (0, 1), vector2 + (0, 1), Color.FromHex("#A200BB"));
+                handle.DrawLine(vector1 - (0, 1), vector2 - (0, 1), Color.FromHex("#A200BB"));
+                handle.DrawLine((i * spacing, 250), (i * spacing, 50), Color.FromHex("#686868"));
                 i++;
             }
         }

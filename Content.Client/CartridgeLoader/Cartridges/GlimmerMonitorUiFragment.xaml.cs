@@ -20,7 +20,7 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         VerticalExpand = true;
 
         UpdateState(0);
-        var graph = new GlimmerGraph(_resourceCache, new List<int>{ 0, 250, 150, 500, 770, 900, 999});
+        var graph = new GlimmerGraph(_resourceCache, new List<int>{ 0, 20, 40, 40, 80, 150, 130, 210, 220, 270, 250, 310, 400, 420, 390, 500});
         graph.SetSize = (450, 250);
         MonitorBox.AddChild(graph);
     }
