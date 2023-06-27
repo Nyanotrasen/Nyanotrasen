@@ -16,6 +16,7 @@ namespace Content.Client.Nyanotrasen.UserInterface.CustomControls
             HorizontalAlignment = HAlignment.Left;
             VerticalAlignment = VAlignment.Bottom;
         }
+
         protected override void Draw(DrawingHandleScreen handle)
         {
             base.Draw(handle);
@@ -25,9 +26,9 @@ namespace Content.Client.Nyanotrasen.UserInterface.CustomControls
             if (_glimmer.Count < 2)
                 return;
 
-            int spacing = 450 / (_glimmer.Count - 1);
+            var spacing = 450 / (_glimmer.Count - 1);
 
-            int i = 0;
+            var i = 0;
             while (i + 1 < _glimmer.Count)
             {
                 handle.DrawLine((i * spacing, 250 - _glimmer[i] / 5), ((i + 1) * spacing, 250 - _glimmer[i + 1] / 5), Color.Red);
