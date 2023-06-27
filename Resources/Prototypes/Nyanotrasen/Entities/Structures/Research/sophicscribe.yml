@@ -1,9 +1,17 @@
 - type: entity
-  parent: StatueVenusRed
+  parent: BaseStructure
   id: SophicScribe
-  name: sophic grammateus
-  description: Latest reports on the Noösphere! Placeholder sprite.
+  name: Sophia
+  description: Latest reports on the Noösphere!
   components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: sophia
+      - map: ["enum.SolutionContainerLayers.Fill"]
   - type: SophicScribe
   - type: Speech
     speechSounds: Tenor
@@ -21,6 +29,10 @@
     - Science
   - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
   - type: Psionic
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
   - type: SpriteFade
   - type: GuideHelp
     guides:
