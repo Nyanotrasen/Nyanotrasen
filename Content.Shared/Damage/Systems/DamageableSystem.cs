@@ -161,7 +161,7 @@ namespace Content.Shared.Damage
 
             if (damage == null)
             {
-                Logger.Error("Null DamageSpecifier. Probably because a required yaml field was not given.");
+                Log.Error("Null DamageSpecifier. Probably because a required yaml field was not given.");
                 return null;
             }
 
