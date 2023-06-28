@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -62,7 +62,6 @@
     containers:
       board: !type:Container
   - type: Weldable
-    fuel: 3
     time: 3
   - type: Airlock
   - type: DoorBolt
