@@ -1,18 +1,18 @@
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.StatusEffect;
-using Content.Shared.Mobs;
-using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Damage.Events;
-using Content.Shared.IdentityManagement;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Electrocution;
 using Content.Server.Chat.Systems;
+using Content.Server.Electrocution;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
-using Robust.Shared.Random;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Damage.Events;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs;
+using Content.Shared.Psionics.Glimmer;
+using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server.Psionics
 {
@@ -52,7 +52,6 @@ namespace Content.Server.Psionics
 
             SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicComponent, ComponentRemove>(OnRemove);
-            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
@@ -129,12 +128,6 @@ namespace Content.Server.Psionics
                 return;
 
             _factions.RemoveFaction(uid, "PsionicInterloper");
-        }
-
-        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
-        {
-            if (args.NewMobState == MobState.Dead)
-                RemCompDeferred(uid, component);
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
