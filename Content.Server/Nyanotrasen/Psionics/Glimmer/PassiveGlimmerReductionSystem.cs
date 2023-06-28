@@ -20,6 +20,14 @@ namespace Content.Server.Psionics.Glimmer
         public TimeSpan NextUpdateTime = default!;
         public TimeSpan LastUpdateTime = default!;
 
+        private float _glimmerLostPerSecond;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            _cfg.OnValueChanged(CCVars.GlimmerLostPerSecond, UpdatePassiveGlimmer, true);
+        }
+
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -29,7 +37,7 @@ namespace Content.Server.Psionics.Glimmer
                 return;
 
             var delta = curTime - LastUpdateTime;
-            var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * _cfg.GetCVar(CCVars.GlimmerLostPerSecond));
+            var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * _glimmerLostPerSecond);
 
             // It used to be 75% to lose one glimmer per ten seconds, but now it's 50% per six seconds.
             // The probability is exactly the same over the same span of time. (0.25 ^ 3 == 0.5 ^ 6)
@@ -41,5 +49,7 @@ namespace Content.Server.Psionics.Glimmer
             NextUpdateTime = curTime + TargetUpdatePeriod;
             LastUpdateTime = curTime;
         }
+
+        private void UpdatePassiveGlimmer(float value) => _glimmerLostPerSecond = value;
     }
 }
