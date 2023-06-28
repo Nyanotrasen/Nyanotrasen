@@ -54,10 +54,10 @@
         Heat: 7
         Blunt: -5.5
   - type: PointLight
-    netsync: false
     enabled: false
     radius: 1.5
     color: orange
+    netsync: false
   - type: Appearance
   - type: RequiresEyeProtection
   - type: PhysicalComposition
