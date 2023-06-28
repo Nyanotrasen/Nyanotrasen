@@ -11,7 +11,7 @@ namespace Content.Server.Psionics.Glimmer
     /// </summary>
     public sealed class PassiveGlimmerReductionSystem : EntitySystem
     {
-        [Dependency] private readonly GlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -36,7 +36,7 @@ namespace Content.Server.Psionics.Glimmer
             // This math is just easier to do for pausing's sake.
             var actualGlimmerLost = _random.Next(0, 1 + maxGlimmerLost);
 
-            _sharedGlimmerSystem.Glimmer -= actualGlimmerLost;
+            _glimmerSystem.Glimmer -= actualGlimmerLost;
 
             NextUpdateTime = curTime + TargetUpdatePeriod;
             LastUpdateTime = curTime;
