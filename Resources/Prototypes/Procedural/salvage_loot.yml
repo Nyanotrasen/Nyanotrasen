@@ -6,7 +6,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreTin
+      proto:
+        Grasslands: OreTin
+        Snow: SnowOreTin
 
 - type: salvageLoot
   id: OreQuartz
@@ -14,7 +16,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreQuartz
+      proto:
+        Grasslands: OreQuartz
+        Snow: SnowOreQuartz
 
 # - Medium value
 - type: salvageLoot
@@ -23,7 +27,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreGold
+      proto:
+        Grasslands: OreGold
+        Snow: SnowOreGold
 
 - type: salvageLoot
   id: OreSilver
@@ -31,7 +37,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreSilver
+      proto:
+        Grasslands: OreSilver
+        Snow: SnowOreSilver
 
 # - High value
 - type: salvageLoot
@@ -40,7 +48,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OrePlasma
+      proto:
+        Grasslands: OrePlasma
+        Snow: SnowOrePlasma
 
 - type: salvageLoot
   id: OreUranium
@@ -48,7 +58,9 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreUranium
+      proto:
+        Grasslands: OreUranium
+        Snow: SnowOreUranium
 
 - type: salvageLoot
   id: OreArtifactFragment
@@ -56,4 +68,6 @@
   guaranteed: true
   loots:
     - !type:BiomeMarkerLoot
-      proto: OreArtifactFragment
+      proto:
+        Grasslands: OreArtifactFragment
+        Snow: SnowOreArtifactFragment
