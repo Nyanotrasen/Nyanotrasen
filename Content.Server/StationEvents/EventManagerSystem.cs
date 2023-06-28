@@ -209,10 +209,10 @@ public sealed class EventManagerSystem : EntitySystem
 
         // Begin Nyano-code: check for glimmer events.
         // This could not be cleanly done anywhere else.
-        if (prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
-            _configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
-            (_glimmerSystem.Glimmer < glimmerEvent.MinimumGlimmer ||
-            _glimmerSystem.Glimmer > glimmerEvent.MaximumGlimmer))
+        if (_configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
+            prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
+            (_glimmerSystem.Glimmer <= glimmerEvent.MinimumGlimmer ||
+            _glimmerSystem.Glimmer >= glimmerEvent.MaximumGlimmer))
         {
             return false;
         }
