@@ -16,3 +16,5 @@ reagent-desc-inactiveblood = Synthetic blood without the oxygen, causes asphyxia
 reagent-name-fat = fat
 reagent-desc-fat = No matter how it was obtained, its application is important.
 
+reagent-name-vomit = vomit
+reagent-desc-vomit = You can see a few chunks of someones last meal in it.
