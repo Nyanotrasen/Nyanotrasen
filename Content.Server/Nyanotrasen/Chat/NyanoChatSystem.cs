@@ -1,17 +1,19 @@
-using System.Linq;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Bed.Sleep;
-using Content.Shared.Drugs;
-using Content.Shared.Chat;
-using Content.Shared.Database;
-using Content.Shared.Psionics.Glimmer;
-using Content.Server.Administration.Managers;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Chat;
+using Content.Shared.Database;
+using Content.Shared.Drugs;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using System.Linq;
 
 namespace Content.Server.Nyanotrasen.Chat
 {
@@ -30,7 +32,7 @@ namespace Content.Server.Nyanotrasen.Chat
         private IEnumerable<INetChannel> GetPsionicChatClients()
         {
             return Filter.Empty()
-                .AddWhereAttachedEntity(entity => HasComp<PsionicComponent>(entity) && !HasComp<PsionicsDisabledComponent>(entity) && !HasComp<PsionicInsulationComponent>(entity))
+                .AddWhereAttachedEntity(IsEligibleForTelepathy)
                 .Recipients
                 .Select(p => p.ConnectedClient);
         }
@@ -55,9 +57,18 @@ namespace Content.Server.Nyanotrasen.Chat
 
             return filteredList;
         }
+
+        private bool IsEligibleForTelepathy(EntityUid entity)
+        {
+            return HasComp<PsionicComponent>(entity)
+                && !HasComp<PsionicsDisabledComponent>(entity)
+                && !HasComp<PsionicInsulationComponent>(entity)
+                && (!TryComp<MobStateComponent>(entity, out var mobstate) || mobstate.CurrentState == MobState.Alive);
+        }
+
         public void SendTelepathicChat(EntityUid source, string message, bool hideChat)
         {
-            if (!HasComp<PsionicComponent>(source) || HasComp<PsionicsDisabledComponent>(source) || HasComp<PsionicInsulationComponent>(source))
+            if (!IsEligibleForTelepathy(source))
                 return;
 
             var clients = GetPsionicChatClients();
