@@ -15,37 +15,13 @@ public sealed partial class GuidebookWindow : FancyWindow
     [Dependency] private readonly DocumentParsingManager _parsingMan = default!;
 
     private Dictionary<string, GuideEntry> _entries = new();
-    private List<string> _expandedEntryIds = new();
-    private bool _firstTimeOpen = true;
-    private int? _lastSelectedIndex = default!;
 
     public GuidebookWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        CollapseToggle.OnPressed += OnCollapseTogglePressed;
+
         Tree.OnSelectedItemChanged += OnSelectionChanged;
-        OnClose += OnClosed;
-    }
-
-    private void OnCollapseTogglePressed(BaseButton.ButtonEventArgs _)
-    {
-        CollapseToggle.Text = CollapseToggle.Pressed ? Loc.GetString("guidebook-collapse-all") : Loc.GetString("guidebook-expand-all");
-        Tree.SetAllExpanded(CollapseToggle.Pressed);
-    }
-
-    private void OnClosed()
-    {
-        foreach (var item in Tree.Items)
-        {
-            if (!item.Expanded || item.Metadata is not GuideEntry entry)
-                continue;
-
-            if (!_expandedEntryIds.Contains(entry.Id))
-                _expandedEntryIds.Add(entry.Id);
-        }
-
-        _lastSelectedIndex = Tree?.SelectedIndex;
     }
 
     private void OnSelectionChanged(TreeItem? item)
@@ -87,25 +63,6 @@ public sealed partial class GuidebookWindow : FancyWindow
         _entries = entries;
         RepopulateTree(rootEntries, forceRoot);
         ClearSelectedGuide();
-
-        if (_firstTimeOpen)
-        {
-            Tree.SetSelectedIndex(0);
-            _firstTimeOpen = false;
-        }
-        else
-        {
-            foreach (var item in Tree.Items)
-            {
-                if (item.Metadata is not GuideEntry entry)
-                    continue;
-
-                item.SetExpanded(_expandedEntryIds.Contains(entry.Id));
-            }
-
-            _expandedEntryIds.Clear();
-            Tree.SetSelectedIndex(_lastSelectedIndex);
-        }
 
         Split.State = SplitContainer.SplitState.Auto;
         if (entries.Count == 1)
@@ -156,6 +113,7 @@ public sealed partial class GuidebookWindow : FancyWindow
         {
             AddEntry(entry.Id, parent, addedEntries);
         }
+        Tree.SetAllExpanded(true);
     }
 
     private TreeItem? AddEntry(string id, TreeItem? parent, HashSet<string> addedEntries)
@@ -180,14 +138,5 @@ public sealed partial class GuidebookWindow : FancyWindow
         }
 
         return item;
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        base.Dispose(disposing);
-
-        OnClose -= OnClosed;
-        CollapseToggle.OnPressed -= OnCollapseTogglePressed;
-        Tree.OnSelectedItemChanged -= OnSelectionChanged;
     }
 }
