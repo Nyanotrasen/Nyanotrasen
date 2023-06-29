@@ -299,4 +299,6 @@
       - Finally, all that you may discover in your daily commerce with the crew, if it is not already known, keep secret and never reveal.
   - type: FabricateCandy
   - type: ShowHealthBars
-    damageContainer: Biological
+    damageContainers:
+    - Biological
+    - HalfSpirit

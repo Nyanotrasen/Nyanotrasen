@@ -41,7 +41,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
 
     /// <inheritdoc/>

@@ -24,7 +24,7 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmer = default!;
+    [Dependency] private readonly GlimmerSystem _glimmer = default!;
 
     private ISawmill _sawmill = default!;
 

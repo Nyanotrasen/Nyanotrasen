@@ -22,7 +22,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         public override void Initialize()
         {

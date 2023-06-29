@@ -241,7 +241,9 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ShowHealthBars
-    damageContainer: Biological
+    damageContainers: 
+    - Biological
+    - HalfSpirit
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

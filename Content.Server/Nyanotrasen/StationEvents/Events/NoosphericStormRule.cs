@@ -13,7 +13,7 @@ internal sealed class NoosphericStormRule : StationEventSystem<NoosphericStormRu
 {
     [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     protected override void Started(EntityUid uid, NoosphericStormRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)

@@ -32,7 +32,7 @@ namespace Content.Server.Chapel
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;

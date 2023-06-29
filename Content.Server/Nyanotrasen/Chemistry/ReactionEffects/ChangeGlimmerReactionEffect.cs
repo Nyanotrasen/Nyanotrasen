@@ -14,7 +14,7 @@ public sealed class ChangeGlimmerReactionEffect : ReagentEffect
 
     public override void Effect(ReagentEffectArgs args)
     {
-        var glimmersys = args.EntityManager.EntitySysManager.GetEntitySystem<SharedGlimmerSystem>();
+        var glimmersys = args.EntityManager.EntitySysManager.GetEntitySystem<GlimmerSystem>();
 
         glimmersys.Glimmer += Change;
     }
