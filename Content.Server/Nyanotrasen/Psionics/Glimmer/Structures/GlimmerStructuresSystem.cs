@@ -9,7 +9,7 @@ namespace Content.Server.Psionics.Glimmer
     public sealed class GlimmerStructuresSystem : EntitySystem
     {
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
         public override void Update(float frameTime)
         {
@@ -29,11 +29,11 @@ namespace Content.Server.Psionics.Glimmer
                     source.Accumulator -= source.SecondsPerGlimmer;
                     if (source.AddToGlimmer)
                     {
-                        _sharedGlimmerSystem.Glimmer++;
+                        _glimmerSystem.Glimmer++;
                     }
                     else
                     {
-                        _sharedGlimmerSystem.Glimmer--;
+                        _glimmerSystem.Glimmer--;
                     }
                 }
             }

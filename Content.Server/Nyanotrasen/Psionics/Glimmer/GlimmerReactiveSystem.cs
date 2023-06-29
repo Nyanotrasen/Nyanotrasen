@@ -24,7 +24,7 @@ namespace Content.Server.Psionics.Glimmer
 {
     public sealed class GlimmerReactiveSystem : EntitySystem
     {
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
@@ -173,7 +173,7 @@ namespace Content.Server.Psionics.Glimmer
                 Act = () =>
                 {
                     _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
-                    _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                    _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
                 },
                 Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
                 Text = Loc.GetString("power-switch-component-toggle-verb"),
@@ -187,10 +187,10 @@ namespace Content.Server.Psionics.Glimmer
             if (args.Origin == null)
                 return;
 
-            if (!_random.Prob((float) _sharedGlimmerSystem.Glimmer / 1000))
+            if (!_random.Prob((float) _glimmerSystem.Glimmer / 1000))
                 return;
 
-            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            var tier = _glimmerSystem.GetGlimmerTier();
             if (tier < GlimmerTier.High)
                 return;
             Beam(uid, args.Origin.Value, tier);
@@ -200,26 +200,26 @@ namespace Content.Server.Psionics.Glimmer
         {
             Spawn("MaterialBluespace1", Transform(uid).Coordinates);
 
-            var tier = _sharedGlimmerSystem.GetGlimmerTier();
+            var tier = _glimmerSystem.GetGlimmerTier();
             if (tier < GlimmerTier.High)
                 return;
 
-            var totalIntensity = (float) (_sharedGlimmerSystem.Glimmer * 2);
-            var slope = (float) (11 - _sharedGlimmerSystem.Glimmer / 100);
+            var totalIntensity = (float) (_glimmerSystem.Glimmer * 2);
+            var slope = (float) (11 - _glimmerSystem.Glimmer / 100);
             var maxIntensity = 20;
 
-            var removed = (float) _sharedGlimmerSystem.Glimmer * _random.NextFloat(0.1f, 0.15f);
-            _sharedGlimmerSystem.Glimmer -= (int) removed;
-            BeamRandomNearProber(uid, _sharedGlimmerSystem.Glimmer / 350, _sharedGlimmerSystem.Glimmer / 50);
+            var removed = (float) _glimmerSystem.Glimmer * _random.NextFloat(0.1f, 0.15f);
+            _glimmerSystem.Glimmer -= (int) removed;
+            BeamRandomNearProber(uid, _glimmerSystem.Glimmer / 350, _glimmerSystem.Glimmer / 50);
             _explosionSystem.QueueExplosion(uid, "Default", totalIntensity, slope, maxIntensity);
         }
 
         private void OnUnanchorAttempt(EntityUid uid, SharedGlimmerReactiveComponent component, UnanchorAttemptEvent args)
         {
-            if (_sharedGlimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
+            if (_glimmerSystem.GetGlimmerTier() >= GlimmerTier.Dangerous)
             {
                 _sharedAudioSystem.PlayPvs(component.ShockNoises, args.User);
-                _electrocutionSystem.TryDoElectrocution(args.User, null, _sharedGlimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _sharedGlimmerSystem.Glimmer / 100), false);
+                _electrocutionSystem.TryDoElectrocution(args.User, null, _glimmerSystem.Glimmer / 200, TimeSpan.FromSeconds((float) _glimmerSystem.Glimmer / 100), false);
                 args.Cancel();
             }
         }
@@ -244,7 +244,7 @@ namespace Content.Server.Psionics.Glimmer
                 if (targets <= 0)
                     return;
 
-                Beam(prober, target, _sharedGlimmerSystem.GetGlimmerTier(), false);
+                Beam(prober, target, _glimmerSystem.GetGlimmerTier(), false);
                 targets--;
             }
         }
@@ -262,7 +262,7 @@ namespace Content.Server.Psionics.Glimmer
 
             if (!lxform.Coordinates.TryDistance(EntityManager, txform.Coordinates, out var distance))
                 return;
-            if (distance > (float) (_sharedGlimmerSystem.Glimmer / 100))
+            if (distance > (float) (_glimmerSystem.Glimmer / 100))
                 return;
 
             string beamproto;
@@ -320,7 +320,7 @@ namespace Content.Server.Psionics.Glimmer
 
             if (Accumulator > UpdateFrequency)
             {
-                var currentGlimmerTier = _sharedGlimmerSystem.GetGlimmerTier();
+                var currentGlimmerTier = _glimmerSystem.GetGlimmerTier();
 
                 var reactives = EntityQuery<SharedGlimmerReactiveComponent>();
                 if (currentGlimmerTier != LastGlimmerTier) {
@@ -359,7 +359,7 @@ namespace Content.Server.Psionics.Glimmer
     /// This event is fired when the broader glimmer tier has changed,
     /// not on every single adjustment to the glimmer count.
     ///
-    /// <see cref="SharedGlimmerSystem.GetGlimmerTier"/> has the exact
+    /// <see cref="GlimmerSystem.GetGlimmerTier"/> has the exact
     /// values corresponding to tiers.
     /// </summary>
     public class GlimmerTierChangedEvent : EntityEventArgs

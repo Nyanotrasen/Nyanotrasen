@@ -26,7 +26,7 @@ namespace Content.Server.Objectives.Conditions
         public float Progress
         {
             get {
-                var glimmer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedGlimmerSystem>();
+                var glimmer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GlimmerSystem>();
 
                 var progress = Math.Min((float) glimmer.Glimmer / (float) _target, 1f);
                 return progress;

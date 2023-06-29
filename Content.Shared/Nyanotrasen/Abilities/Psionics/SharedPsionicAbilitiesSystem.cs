@@ -15,7 +15,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
         public override void Initialize()
@@ -86,8 +86,8 @@ namespace Content.Shared.Abilities.Psionics
             _glimmerSystem.Glimmer += _robustRandom.Next(minGlimmer, maxGlimmer);
         }
     }
-    
-    public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs 
+
+    public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs
     {
         public EntityUid User { get; }
         public string Power = string.Empty;

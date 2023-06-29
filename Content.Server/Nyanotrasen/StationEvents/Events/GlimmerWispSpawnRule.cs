@@ -12,7 +12,7 @@ namespace Content.Server.StationEvents.Events;
 internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
     private static readonly string WispPrototype = "MobGlimmerWisp";
 

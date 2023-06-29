@@ -17,7 +17,7 @@ internal sealed class FreeProberRule : StationEventSystem<FreeProberRuleComponen
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly AnchorableSystem _anchorable = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
 
     private static readonly string ProberPrototype = "GlimmerProber";
