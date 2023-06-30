@@ -3,6 +3,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface.XAML;
 using Content.Client.Nyanotrasen.UserInterface.CustomControls;
+using System.Linq;
 
 namespace Content.Client.CartridgeLoader.Cartridges;
 
@@ -25,14 +26,36 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         if (glimmerValues.Count < 1)
             return;
 
+
         MonitorBox.RemoveAllChildren();
 
         var glimmerLabel = new Label();
         glimmerLabel.Text = Loc.GetString("glimmer-monitor-current-glimmer", ("glimmer", glimmerValues[^1]));
         MonitorBox.AddChild(glimmerLabel);
 
-        var graph = new GlimmerGraph(_resourceCache, glimmerValues);
+        var formattedValues = (FormatGlimmerValues(glimmerValues));
+        var graph = new GlimmerGraph(_resourceCache, formattedValues);
         graph.SetSize = (450, 250);
         MonitorBox.AddChild(graph);
+    }
+
+
+    /// <summary>
+    /// Format glimmer values to get <=15 data points correctly.
+    /// </summary>
+    private List<int> FormatGlimmerValues(List<int> glimmerValues)
+    {
+        List<int> returnList;
+
+        if (glimmerValues.Count <= 15)
+        {
+            returnList = glimmerValues;
+        }
+        else
+        {
+            returnList = glimmerValues.Skip(glimmerValues.Count - 15).ToList();
+        }
+
+        return returnList;
     }
 }
