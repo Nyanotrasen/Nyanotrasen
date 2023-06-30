@@ -24,6 +24,6 @@ public sealed class GlimmerMonitorUi : UIFragment
         if (state is not GlimmerMonitorUiState monitorState)
             return;
 
-        _fragment?.UpdateState(monitorState.Glimmer);
+        _fragment?.UpdateState(monitorState.GlimmerValues);
     }
 }

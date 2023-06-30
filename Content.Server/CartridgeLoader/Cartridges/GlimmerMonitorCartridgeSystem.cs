@@ -1,13 +1,13 @@
 ﻿using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.Psionics.Glimmer;
+using Content.Server.Psionics.Glimmer;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
 public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
+    [Dependency] private readonly PassiveGlimmerReductionSystem _glimmerReductionSystem = default!;
 
     public override void Initialize()
     {
@@ -28,7 +28,7 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var state = new GlimmerMonitorUiState(_glimmer.Glimmer);
+        var state = new GlimmerMonitorUiState(_glimmerReductionSystem.GlimmerValues);
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
     }
 }

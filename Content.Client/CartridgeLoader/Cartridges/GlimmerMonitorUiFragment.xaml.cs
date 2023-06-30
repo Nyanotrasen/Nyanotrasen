@@ -18,15 +18,18 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
-
-        UpdateState(0);
-        var graph = new GlimmerGraph(_resourceCache, new List<int>{ 0, 20, 40, 40, 80, 150, 130, 210, 220, 270, 250, 310, 400, 420, 390, 500});
-        graph.SetSize = (450, 250);
-        MonitorBox.AddChild(graph);
     }
 
-    public void UpdateState(int glimmer)
+    public void UpdateState(List<int> glimmerValues)
     {
-        GlimmerLabel.Text = Loc.GetString("glimmer-monitor-current-glimmer", ("glimmer", glimmer));
+        MonitorBox.RemoveAllChildren();
+
+        var glimmerLabel = new Label();
+        glimmerLabel.Text = Loc.GetString("glimmer-monitor-current-glimmer", ("glimmer", glimmerValues[^1]));
+        MonitorBox.AddChild(glimmerLabel);
+
+        var graph = new GlimmerGraph(_resourceCache, glimmerValues);
+        graph.SetSize = (450, 250);
+        MonitorBox.AddChild(graph);
     }
 }

@@ -5,10 +5,10 @@ namespace Content.Shared.CartridgeLoader.Cartridges;
 [Serializable, NetSerializable]
 public sealed class GlimmerMonitorUiState : BoundUserInterfaceState
 {
-    public int Glimmer;
+    public List<int> GlimmerValues;
 
-    public GlimmerMonitorUiState(int glimmer)
+    public GlimmerMonitorUiState(List<int> glimmerValues)
     {
-        Glimmer = glimmer;
+        GlimmerValues = glimmerValues;
     }
 }

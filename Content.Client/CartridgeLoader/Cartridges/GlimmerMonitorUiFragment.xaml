@@ -2,6 +2,5 @@
                                  xmlns="https://spacestation14.io" Margin="1 0 2 0">
     <PanelContainer StyleClasses="BackgroundDark"></PanelContainer>
     <BoxContainer Name="MonitorBox" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <Label Name="GlimmerLabel"></Label>
     </BoxContainer>
 </cartridges:GlimmerMonitorUiFragment>
