@@ -564,6 +564,9 @@
   id: Plastic
 
 - type: Tag
+  id: Plunger
+
+- type: Tag
   id: Powerdrill
 
 - type: Tag
@@ -716,7 +719,7 @@
 
 - type: Tag
   id: TrashBag
-  
+
 - type: Tag
   id: Unstackable # To prevent things like atmos devices (filters etc) being stacked on one tile. See NoUnstackableInTile
 
