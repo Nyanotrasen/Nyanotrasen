@@ -7,7 +7,7 @@ namespace Content.Server.CartridgeLoader.Cartridges;
 public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmer = default!;
+    [Dependency] private readonly GlimmerSystem _glimmer = default!;
 
     public override void Initialize()
     {

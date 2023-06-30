@@ -3,6 +3,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
 using Content.Shared.Psionics.Glimmer;
+using Content.Shared.GameTicking;
 
 namespace Content.Server.Psionics.Glimmer
 {
@@ -16,7 +17,13 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
+        /// List of glimmer values spaced by minute.
+        public List<int> GlimmerValues = new();
+
         public TimeSpan TargetUpdatePeriod = TimeSpan.FromSeconds(6);
+
+        /// Every 10 updates a minute will pass and we'll log the value at the time.
+        private int _i;
         public TimeSpan NextUpdateTime = default!;
         public TimeSpan LastUpdateTime = default!;
 
@@ -25,7 +32,13 @@ namespace Content.Server.Psionics.Glimmer
         public override void Initialize()
         {
             base.Initialize();
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
             _cfg.OnValueChanged(CCVars.GlimmerLostPerSecond, UpdatePassiveGlimmer, true);
+        }
+
+        private void Reset(RoundRestartCleanupEvent args)
+        {
+            GlimmerValues.Clear();
         }
 
         public override void Update(float frameTime)
@@ -36,6 +49,8 @@ namespace Content.Server.Psionics.Glimmer
             if (NextUpdateTime > curTime)
                 return;
 
+            _i++;
+
             var delta = curTime - LastUpdateTime;
             var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * _glimmerLostPerSecond);
 
@@ -45,6 +60,13 @@ namespace Content.Server.Psionics.Glimmer
             var actualGlimmerLost = _random.Next(0, 1 + maxGlimmerLost);
 
             _glimmerSystem.Glimmer -= actualGlimmerLost;
+
+
+            if (_i == 10)
+            {
+                GlimmerValues.Add(_glimmerSystem.Glimmer);
+                _i = 0;
+            }
 
             NextUpdateTime = curTime + TargetUpdatePeriod;
             LastUpdateTime = curTime;
