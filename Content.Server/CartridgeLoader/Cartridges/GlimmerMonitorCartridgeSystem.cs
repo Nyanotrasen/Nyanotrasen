@@ -1,6 +1,7 @@
 ﻿using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Server.Psionics.Glimmer;
+using System.Linq;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
@@ -28,7 +29,32 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        var state = new GlimmerMonitorUiState(_glimmerReductionSystem.GlimmerValues);
+        var state = new GlimmerMonitorUiState(FormatGlimmerValues(_glimmerReductionSystem.GlimmerValues));
         _cartridgeLoaderSystem?.UpdateCartridgeUiState(loaderUid, state);
+    }
+
+    /// <summary>
+    /// We don't want to return more than 15 elements.
+    /// </summary>
+    private List<int> FormatGlimmerValues(List<int> glimmerValues)
+    {
+        List<int> returnList;
+
+        if (glimmerValues.Count <= 15)
+        {
+            returnList = glimmerValues;
+        }
+        else
+        {
+            returnList = glimmerValues.Skip(glimmerValues.Count - 15).ToList();
+        }
+
+        Logger.Error("Return list: ");
+        foreach (var value in returnList)
+        {
+            Logger.Error(value.ToString());
+        }
+
+        return returnList;
     }
 }

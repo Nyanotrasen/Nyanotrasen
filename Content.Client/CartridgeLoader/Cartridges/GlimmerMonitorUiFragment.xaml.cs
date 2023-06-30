@@ -22,6 +22,9 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
 
     public void UpdateState(List<int> glimmerValues)
     {
+        if (glimmerValues.Count < 1)
+            return;
+
         MonitorBox.RemoveAllChildren();
 
         var glimmerLabel = new Label();
