@@ -32,6 +32,8 @@
     graph: Toilet
     node: toilet
   - type: Appearance
+  - type: DynamicPrice
+    price: 25
 
 - type: entity
   id: ToiletDirtyWater
