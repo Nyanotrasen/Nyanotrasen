@@ -545,6 +545,9 @@
   description: A limited mime edition of the happy honk meal.
   suffix: Toy Safe
   components:
+  - type: Tag
+    tags:
+    - Trash
   - type: Sprite
     netsync: false
     sprite: Objects/Storage/happyhonk/mime.rsi
