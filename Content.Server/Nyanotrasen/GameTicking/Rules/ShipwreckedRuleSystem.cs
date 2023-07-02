@@ -628,7 +628,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         // of sorts.
 
         structure = _random.Pick(component.Structures);
-        var offset = _random.NextVector2(-11, 11);
+        var offset = _random.NextVector2(-13, 13);
         var xy = _random.Pick(structure.Rooms).Center + offset;
 
         coordinates = new EntityCoordinates(component.PlanetMap.Value, xy);
