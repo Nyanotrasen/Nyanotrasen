@@ -5,7 +5,6 @@
   description: A weapon that damages the target's genome, making it very hard to heal from
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
     layers:
       - state: icon

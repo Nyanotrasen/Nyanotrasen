@@ -6,7 +6,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -160,7 +159,6 @@
   description: A dummy arachne meant to be used in character setup.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:

@@ -14,7 +14,6 @@
   - type: HumanoidAppearance
     species: Oni
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     scale: 1.2, 1.2
@@ -137,7 +136,6 @@
   description: A dummy oni meant to be used in character setup.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     scale: 1.0, 1.0

@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -251,7 +250,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Nyanotrasen/Mobs/Player/Borgs/cyborg_medical.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]

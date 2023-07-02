@@ -30,7 +30,6 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi # placeholder sprite
     state: "torso_m"
   - type: Icon
@@ -51,7 +50,6 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
     state: spiderleg
   - type: Icon
@@ -70,7 +68,6 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
     state: spiderleg
   - type: Icon
