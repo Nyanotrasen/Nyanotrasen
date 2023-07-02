@@ -785,10 +785,10 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             }
 
             foreach (var room in structure.Rooms)
+            {
                 SpawnFactionMobs(component, faction.Active, room);
-
-            foreach (var room in structure.Rooms)
                 SpawnFactionMobs(component, faction.Inactive, room);
+            }
         }
     }
 
