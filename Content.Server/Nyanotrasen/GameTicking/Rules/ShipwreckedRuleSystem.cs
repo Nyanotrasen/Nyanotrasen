@@ -557,7 +557,18 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         }
 
         // Ensure that all generators on the shuttle will decay.
+        // Get the total power supply so we know how much to damage the generators by.
+        var totalPowerSupply = 0f;
         var generatorQuery = EntityQueryEnumerator<PowerSupplierComponent, TransformComponent>();
+        while (generatorQuery.MoveNext(out _, out var powerSupplier, out var xform))
+        {
+            if (xform.GridUid != component.Shuttle)
+                continue;
+
+            totalPowerSupply += powerSupplier.MaxSupply;
+        }
+
+        generatorQuery = EntityQueryEnumerator<PowerSupplierComponent, TransformComponent>();
         while (generatorQuery.MoveNext(out var uid, out var powerSupplier, out var xform))
         {
             if (xform.GridUid != component.Shuttle)
@@ -566,7 +577,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             EnsureComp<FinitePowerSupplierComponent>(uid);
 
             // Hit it right away.
-            powerSupplier.MaxSupply *= 0.8f;
+            powerSupplier.MaxSupply *= (component.OriginalPowerDemand / totalPowerSupply) * 0.96f;
         }
     }
 
