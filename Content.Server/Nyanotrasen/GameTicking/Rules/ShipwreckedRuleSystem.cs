@@ -714,6 +714,12 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
 
     private void DecoupleShuttleEngine(ShipwreckedRuleComponent component)
     {
+        if (component.Shuttle == null)
+            return;
+
+        // Stop thrusters from burning anyone when re-anchored.
+        _thrusterSystem.DisableLinearThrusters(Comp<ShuttleComponent>(component.Shuttle.Value));
+
         // Move the vital pieces of the shuttle down to the planet.
         foreach (var (uid, (destination, _)) in component.VitalPieces)
         {
