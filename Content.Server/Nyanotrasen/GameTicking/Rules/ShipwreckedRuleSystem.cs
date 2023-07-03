@@ -557,18 +557,27 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         }
 
         // Ensure that all generators on the shuttle will decay.
+        // Get the total power supply so we know how much to damage the generators by.
+        var totalPowerSupply = 0f;
         var generatorQuery = EntityQueryEnumerator<PowerSupplierComponent, TransformComponent>();
+        while (generatorQuery.MoveNext(out _, out var powerSupplier, out var xform))
+        {
+            if (xform.GridUid != component.Shuttle)
+                continue;
+
+            totalPowerSupply += powerSupplier.MaxSupply;
+        }
+
+        generatorQuery = EntityQueryEnumerator<PowerSupplierComponent, TransformComponent>();
         while (generatorQuery.MoveNext(out var uid, out var powerSupplier, out var xform))
         {
             if (xform.GridUid != component.Shuttle)
                 continue;
 
-            component.OriginalPowerSupply += powerSupplier.MaxSupply;
-
             EnsureComp<FinitePowerSupplierComponent>(uid);
 
             // Hit it right away.
-            powerSupplier.MaxSupply *= 0.8f;
+            powerSupplier.MaxSupply *= (component.OriginalPowerDemand / totalPowerSupply) * 0.96f;
         }
     }
 
@@ -628,7 +637,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
         // of sorts.
 
         structure = _random.Pick(component.Structures);
-        var offset = _random.NextVector2(-11, 11);
+        var offset = _random.NextVector2(-13, 13);
         var xy = _random.Pick(structure.Rooms).Center + offset;
 
         coordinates = new EntityCoordinates(component.PlanetMap.Value, xy);
@@ -668,37 +677,60 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             component.VitalPieces.Add(uid, (spot, structure));
         }
 
+        // Part of the escape objective requires the shuttle to have enough
+        // power for liftoff, but due to luck of the draw with dungeon generation,
+        // it's possible that not enough generators are spawned in.
         var planetGeneratorCount = 0;
+        var planetGeneratorPower = 0f;
         var generatorQuery = EntityQueryEnumerator<PowerSupplierComponent, TransformComponent>();
-        while (generatorQuery.MoveNext(out var uid, out var powerSupplier, out var xform))
+        while (generatorQuery.MoveNext(out _, out var powerSupplier, out var xform))
         {
-            if (xform.GridUid == component.PlanetMap)
-                ++planetGeneratorCount;
+            if (xform.GridUid != component.PlanetMap)
+                continue;
+
+            planetGeneratorPower += powerSupplier.MaxSupply;
+            ++planetGeneratorCount;
         }
 
-        if (planetGeneratorCount < 2)
+        _sawmill.Info($"Shipwreck destination has {planetGeneratorPower} W worth of {planetGeneratorCount} scavengeable generators.");
+
+        if (planetGeneratorPower < component.OriginalPowerDemand)
         {
-            // Yes, it's possible. There's a very slim chance, but it's possible.
-            // Give the survivors a free generator, because they're going to need it.
+            // It's impossible to find enough generators to supply the shuttle's
+            // original power demand, assuming the players let the generator
+            // completely fail, therefore, we must spawn some generators,
+            // Deus Ex Machina.
 
-            var somewhere = new EntityCoordinates(component.PlanetMap.Value, 200f, 200f);
-            var uid = Spawn("GeneratorUranium", somewhere);
+            // This is all very cheesy that there would be generators just lying around,
+            // but I'd rather players be able to win than be hard-locked into losing.
 
-            TryGetRandomStructureSpot(component, out var spot, out var structure);
-            _sawmill.Info($"Heaven generator! {ToPrettyString(uid)} will go to {spot}");
+            // How many will we need?
+            const float UraniumPower = 15000f;
+            var generatorsNeeded = Math.Max(1, component.OriginalPowerDemand / UraniumPower);
 
-            MakeCrater(component.PlanetGrid, spot);
+            for (int i = 0; i < generatorsNeeded; ++i)
+            {
+                // Just need a temporary spawn point away from everything.
+                var somewhere = new EntityCoordinates(component.PlanetMap.Value, 200f + i, 200f + i);
+                var uid = Spawn("GeneratorUranium", somewhere);
 
-            component.VitalPieces.Add(uid, (spot, structure));
-        }
-        else
-        {
-            _sawmill.Info($"Planet has {planetGeneratorCount} scavengeable generators.");
+                TryGetRandomStructureSpot(component, out var spot, out var structure);
+                _sawmill.Info($"Heaven generator! {ToPrettyString(uid)} will go to {spot}");
+
+                MakeCrater(component.PlanetGrid, spot);
+                component.VitalPieces.Add(uid, (spot, structure));
+            }
         }
     }
 
     private void DecoupleShuttleEngine(ShipwreckedRuleComponent component)
     {
+        if (component.Shuttle == null)
+            return;
+
+        // Stop thrusters from burning anyone when re-anchored.
+        _thrusterSystem.DisableLinearThrusters(Comp<ShuttleComponent>(component.Shuttle.Value));
+
         // Move the vital pieces of the shuttle down to the planet.
         foreach (var (uid, (destination, _)) in component.VitalPieces)
         {
@@ -764,10 +796,10 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             }
 
             foreach (var room in structure.Rooms)
+            {
                 SpawnFactionMobs(component, faction.Active, room);
-
-            foreach (var room in structure.Rooms)
                 SpawnFactionMobs(component, faction.Inactive, room);
+            }
         }
     }
 
@@ -1144,7 +1176,17 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             return;
 
         _mapManager.SetMapPaused(component.PlanetMapId.Value, false);
-        /* EntityManager.InitializeAndStartEntity(component.PlanetMap.Value); */
+
+        var loadQuery = EntityQueryEnumerator<ApcPowerReceiverComponent, TransformComponent>();
+        while (loadQuery.MoveNext(out _, out var apcPowerReceiver, out var xform))
+        {
+            if (xform.GridUid != component.Shuttle)
+                continue;
+
+            component.OriginalPowerDemand += apcPowerReceiver.Load;
+        }
+
+        _sawmill.Info($"The original power demand for the shuttle is {component.OriginalPowerDemand} W");
 
         var shuttle = component.Shuttle.Value;
 
@@ -1455,7 +1497,7 @@ public sealed class ShipwreckedRuleSystem : GameRuleSystem<ShipwreckedRuleCompon
             totalSupply += powerSupplier.MaxSupply;
         }
 
-        return totalSupply >= component.OriginalPowerSupply;
+        return totalSupply >= component.OriginalPowerDemand;
     }
 
     private bool GetLaunchConditionThrusters(ShipwreckedRuleComponent component, out int goodThrusters)

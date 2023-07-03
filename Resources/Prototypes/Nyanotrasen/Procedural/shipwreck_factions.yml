@@ -3,7 +3,7 @@
   objectiveDefender: RandomHumanoidSpawnerZombieBrute
   active:
     - id: RandomHumanoidSpawnerZombie
-      prob: 0.4
+      prob: 0.3
       orGroup: zombie
     - id: RandomHumanoidSpawnerZombieSurprise
       prob: 0.4
@@ -40,9 +40,9 @@
   objectiveDefender: MobMalfunctioningRobotTank
   active:
     - id: MobMalfunctioningRobotCutter
-      prob: 0.35
+      prob: 0.3
     - id: MobMalfunctioningRobotPoisoner
-      prob: 0.12
+      prob: 0.15
   inactive:
     - id: RandomHumanoidSpawnerUnaffiliatedDead
       prob: 0.4
@@ -55,5 +55,5 @@
   components:
   - type: Anomaly
     severityGrowthCoefficient: 0
-    minPulseLength: 300
-    maxPulseLength: 600
+    minPulseLength: 1200
+    maxPulseLength: 1800
