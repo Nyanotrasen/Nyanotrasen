@@ -42,7 +42,6 @@ entities:
       type: BecomesStation
     - type: OccluderTree
     - type: Shuttle
-    - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
