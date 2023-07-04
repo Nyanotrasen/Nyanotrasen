@@ -4,6 +4,7 @@ using Content.Server.Ghost;
 using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Players;
+using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;

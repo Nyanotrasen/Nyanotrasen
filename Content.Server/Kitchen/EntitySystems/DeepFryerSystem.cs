@@ -261,7 +261,7 @@ namespace Content.Server.Kitchen.EntitySystems
         /// </summary>
         private void MakeCrispy(EntityUid item)
         {
-            EnsureComp<ServerAppearanceComponent>(item);
+            EnsureComp<AppearanceComponent>(item);
             EnsureComp<DeepFriedComponent>(item);
 
             _appearanceSystem.SetData(item, DeepFriedVisuals.Fried, true);

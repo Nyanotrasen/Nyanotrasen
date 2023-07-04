@@ -112,11 +112,10 @@
   components:
   - type: PDA
     id: CataloguerIDCard
-  - type: Appearance
     state: pda-library
   - type: Icon
     state: pda-library
-    
+
 - type: entity
   parent: BasePDA
   id: GuardPDA
