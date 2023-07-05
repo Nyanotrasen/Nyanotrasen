@@ -188,13 +188,15 @@ namespace Content.Server.Cloning
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
                 return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
 
-            var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
+            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
+                return false; // whatever body was to be cloned, was not a humanoid
+
+            // Begin Nyano-code: allow paradox anomalies to be cloned.
+            var pref = humanoid.LastProfileLoaded;
+            // End Nyano-code.
 
             if (pref == null)
                 return false;
-
-            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
-                return false; // whatever body was to be cloned, was not a humanoid
 
             if (!_prototype.TryIndex<SpeciesPrototype>(humanoid.Species, out var speciesPrototype))
                 return false;
