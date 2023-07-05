@@ -88,6 +88,10 @@ ClothingOuterHardsuitRd: ClothingOuterHardsuitMystagogue
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
 
+# SS14 2023-07-04
+# Bulletproof armor is almost statistically identical to kevlar, however, before this kevlar armor was the closest thing there was to "basic" armor. It makes the most sense to replace it with this.
+ClothingOuterVestKevlar: ClothingOuterArmorBasic
+
 # Nyano 2023-07-09
 SpawnVehiclePussywagon: SpawnVehicleJanicart
 VehicleKeyPussyWagon: VehicleKeyJanicart
