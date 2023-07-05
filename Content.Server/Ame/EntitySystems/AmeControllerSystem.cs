@@ -222,6 +222,16 @@ public sealed class AmeControllerSystem : EntitySystem
             return;
 
         var oldValue = controller.InjectionAmount;
+
+        // Admin alert
+        var safeLimit = 0;
+        if (TryGetAMENodeGroup(uid, out var group))
+            safeLimit = group.CoreCount * 2;
+
+        // Begin Nyano-code: prevent braindead AME overloading.
+        value = Math.Min(value, safeLimit);
+        // End Nyano-code.
+
         controller.InjectionAmount = value;
 
         UpdateUi(uid, controller);
@@ -232,11 +242,6 @@ public sealed class AmeControllerSystem : EntitySystem
 
         var humanReadableState = controller.Injecting ? "Inject" : "Not inject";
         _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{EntityManager.ToPrettyString(user.Value):player} has set the AME to inject {controller.InjectionAmount} while set to {humanReadableState}");
-
-        // Admin alert
-        var safeLimit = 0;
-        if (TryGetAMENodeGroup(uid, out var group))
-            safeLimit = group.CoreCount * 2;
 
         if (oldValue <= safeLimit && value > safeLimit)
             _chatManager.SendAdminAlert(user.Value, $"increased AME over safe limit to {controller.InjectionAmount}", mindContainer);
