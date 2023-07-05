@@ -1,12 +1,15 @@
 using Content.Server.Ame.EntitySystems;
 using Content.Shared.Ame;
+using Content.Shared.Radio;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Ame.Components;
 
 /// <summary>
-/// The component used to make an entity the controller/fuel injector port of an AntiMatter Engine. 
+/// The component used to make an entity the controller/fuel injector port of an AntiMatter Engine.
 /// Connects to adjacent entities with this component or <see cref="AmeShieldComponent"/> to make an AME.
 /// </summary>
 [Access(typeof(AmeControllerSystem), typeof(AmeNodeGroup))]
@@ -78,4 +81,34 @@ public sealed class AmeControllerComponent : SharedAmeControllerComponent
     [DataField("updatePeriod")]
     [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan UpdatePeriod = TimeSpan.FromSeconds(10.0);
+
+    // Begin Nyano-code: low fuel alert.
+    [DataField("alertChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public string AlertChannel = "Engineering";
+
+    /// <summary>
+    /// The percentage at which the AME fuel jar has to pass in order for the alert countdown to begin.
+    /// </summary>
+    [DataField("fuelAlertLevel")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public float FuelAlertLevel = 0.1f;
+
+    /// <summary>
+    /// The number of injections left before an alert is raised.
+    /// </summary>
+    /// <remarks>
+    /// This is reset any time the fuel is over FuelAlertLevel.
+    /// </remarks>
+    [DataField("fuelAlertCountdown")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int FuelAlertCountdown;
+
+    /// <summary>
+    /// How many injections between radio reports.
+    /// </summary>
+    [DataField("fuelAlertFrequency")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int FuelAlertFrequency = 3;
+    // End Nyano-code.
 }
