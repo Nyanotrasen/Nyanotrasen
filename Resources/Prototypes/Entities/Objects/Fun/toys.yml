@@ -846,24 +846,6 @@
           Blunt: 0
 
 - type: entity
-  parent: BasePlushie
-  id: ToyAmongPequeno
-  name: among pequeno
-  description: sus!
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/pequeno.rsi
-    netsync: false
-    layers:
-    - state: base
-      map: [ "enum.DamageStateVisualLayers.Base" ]
-    - state: visor
-  - type: RandomSprite
-    available:
-      - enum.DamageStateVisualLayers.Base:
-          base: Sixteen
-
-- type: entity
   parent: BaseItem
   id: FoamCutlass
   name: foam cutlass
