@@ -7,8 +7,8 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Clothing/Eyes/Glasses/gar.rsi
-          state: icon-super
+        - sprite: Clothing/Mask/gas.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - CigarGold
@@ -37,9 +37,6 @@
       prototypes:
         - Lighter
         - CigCartonBlue
-        - ClothingEyesGlassesGarGiga
-        - ClothingEyesGlassesGarOrange
-        - ClothingEyesGlassesGar
         - ClothingHeadHatCake
         - ClothingHeadHatCone
         - ClothingNeckBling
