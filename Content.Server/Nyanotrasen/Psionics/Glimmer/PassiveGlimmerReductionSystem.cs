@@ -64,7 +64,7 @@ namespace Content.Server.Psionics.Glimmer
             _glimmerSystem.Glimmer -= actualGlimmerLost;
 
 
-            if (_i == 1)
+            if (_i == 10)
             {
                 GlimmerValues.Add(_glimmerSystem.Glimmer);
 
