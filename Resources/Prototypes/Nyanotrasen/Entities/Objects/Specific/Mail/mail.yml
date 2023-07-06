@@ -639,16 +639,6 @@
 - type: entity
   noSpawn: true
   parent: BaseMail
-  id: MailSkub
-  suffix: skub
-  components:
-  - type: Mail
-    contents:
-    - id: Skub
-
-- type: entity
-  noSpawn: true
-  parent: BaseMail
   id: MailSoda
   suffix: soda
   components:
