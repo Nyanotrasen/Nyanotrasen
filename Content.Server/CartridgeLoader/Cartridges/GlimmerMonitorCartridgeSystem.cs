@@ -1,7 +1,6 @@
 ﻿using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Server.Psionics.Glimmer;
-using System.Linq;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
@@ -14,6 +13,7 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<GlimmerMonitorCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<GlimmerMonitorCartridgeComponent, CartridgeMessageEvent>(OnMessage);
     }
 
     /// <summary>
@@ -24,7 +24,15 @@ public sealed class GlimmerMonitorCartridgeSystem : EntitySystem
         UpdateUiState(uid, args.Loader, component);
     }
 
-    private void UpdateUiState(EntityUid uid, EntityUid loaderUid, GlimmerMonitorCartridgeComponent? component)
+    private void OnMessage(EntityUid uid, GlimmerMonitorCartridgeComponent component, CartridgeMessageEvent args)
+    {
+        if (args is not GlimmerMonitorSyncMessageEvent)
+            return;
+
+        UpdateUiState(uid, args.LoaderUid, component);
+    }
+
+    public void UpdateUiState(EntityUid uid, EntityUid loaderUid, GlimmerMonitorCartridgeComponent? component)
     {
         if (!Resolve(uid, ref component))
             return;

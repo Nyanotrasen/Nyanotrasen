@@ -6,6 +6,7 @@
         <Button Name="IntervalButton1" Access="Public" Text="1m" StyleClasses="OpenRight"/>
         <Button Name="IntervalButton5" Access="Public" Text="5m" StyleClasses="OpenBoth"/>
         <Button Name="IntervalButton10" Access="Public" Text="10m" StyleClasses="OpenLeft"/>
+        <Button Name="SyncButton" Access="Public" Text="Sync" Margin="200 0 0 0" />
     </BoxContainer>
     <BoxContainer Name="MonitorBox" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
     </BoxContainer>

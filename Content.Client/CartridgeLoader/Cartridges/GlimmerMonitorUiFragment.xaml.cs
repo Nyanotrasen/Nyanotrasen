@@ -12,7 +12,9 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
 {
     [Dependency] private readonly IResourceCache _resourceCache = default!;
 
+    public event Action<bool>? OnSync;
     private List<int> _cachedValues = new();
+
     public GlimmerMonitorUiFragment()
     {
         RobustXamlLoader.Load(this);
@@ -32,6 +34,8 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         IntervalButton1.OnPressed += _ => UpdateState(_cachedValues);
         IntervalButton5.OnPressed += _ => UpdateState(_cachedValues);
         IntervalButton10.OnPressed += _ => UpdateState(_cachedValues);
+
+        SyncButton.OnPressed += _ => OnSync?.Invoke(true);
     }
 
     public void UpdateState(List<int> glimmerValues)
@@ -46,7 +50,7 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         glimmerLabel.Text = Loc.GetString("glimmer-monitor-current-glimmer", ("glimmer", glimmerValues[^1]));
         MonitorBox.AddChild(glimmerLabel);
 
-        var formattedValues = (FormatGlimmerValues(glimmerValues));
+        var formattedValues = FormatGlimmerValues(glimmerValues);
         var graph = new GlimmerGraph(_resourceCache, formattedValues);
         graph.SetSize = (450, 250);
         MonitorBox.AddChild(graph);

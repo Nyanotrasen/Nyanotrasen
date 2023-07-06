@@ -12,3 +12,11 @@ public sealed class GlimmerMonitorUiState : BoundUserInterfaceState
         GlimmerValues = glimmerValues;
     }
 }
+
+
+[Serializable, NetSerializable]
+public sealed class GlimmerMonitorSyncMessageEvent : CartridgeMessageEvent
+{
+    public GlimmerMonitorSyncMessageEvent()
+    {}
+}
