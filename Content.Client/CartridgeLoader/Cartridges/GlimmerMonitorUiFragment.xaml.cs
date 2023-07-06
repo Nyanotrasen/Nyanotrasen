@@ -11,6 +11,8 @@ namespace Content.Client.CartridgeLoader.Cartridges;
 public sealed partial class GlimmerMonitorUiFragment : BoxContainer
 {
     [Dependency] private readonly IResourceCache _resourceCache = default!;
+
+    private List<int> _cachedValues = new();
     public GlimmerMonitorUiFragment()
     {
         RobustXamlLoader.Load(this);
@@ -19,13 +21,24 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         Orientation = LayoutOrientation.Vertical;
         HorizontalExpand = true;
         VerticalExpand = true;
+
+        var intervalGroup = new ButtonGroup();
+        IntervalButton1.Group = intervalGroup;
+        IntervalButton5.Group = intervalGroup;
+        IntervalButton10.Group = intervalGroup;
+
+        IntervalButton1.Pressed = true;
+
+        IntervalButton1.OnPressed += _ => UpdateState(_cachedValues);
+        IntervalButton5.OnPressed += _ => UpdateState(_cachedValues);
+        IntervalButton10.OnPressed += _ => UpdateState(_cachedValues);
     }
 
     public void UpdateState(List<int> glimmerValues)
     {
+        _cachedValues = glimmerValues;
         if (glimmerValues.Count < 1)
             return;
-
 
         MonitorBox.RemoveAllChildren();
 
@@ -40,10 +53,25 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
     }
 
 
+    private List<int> FormatGlimmerValues(List<int> glimmerValues)
+    {
+        var returnList = glimmerValues;
+
+        if (IntervalButton5.Pressed)
+        {
+            returnList = GetAveragedList(glimmerValues, 5);
+        } else if (IntervalButton10.Pressed)
+        {
+            returnList = GetAveragedList(glimmerValues, 10);
+        }
+
+        return ClipToFifteen(returnList);
+    }
+
     /// <summary>
     /// Format glimmer values to get <=15 data points correctly.
     /// </summary>
-    private List<int> FormatGlimmerValues(List<int> glimmerValues)
+    private List<int> ClipToFifteen(List<int> glimmerValues)
     {
         List<int> returnList;
 
@@ -55,6 +83,36 @@ public sealed partial class GlimmerMonitorUiFragment : BoxContainer
         {
             returnList = glimmerValues.Skip(glimmerValues.Count - 15).ToList();
         }
+
+        return returnList;
+    }
+
+    private List<int> GetAveragedList(List<int> glimmerValues, int interval)
+    {
+        var returnList = new List<int>();
+
+        int i = 0;
+        while (i < glimmerValues.Count - interval - 1)
+        {
+            var tempList = glimmerValues.GetRange(i, interval);
+
+            int total = 0;
+            foreach (var value in tempList)
+            {
+                total += value;
+            }
+
+            returnList.Add(total / interval);
+            i += interval;
+        }
+
+        int remainingTotal = 0;
+        foreach (var value in glimmerValues.Skip(i))
+        {
+            remainingTotal += value;
+        }
+
+        returnList.Add(remainingTotal / glimmerValues.Skip(i).Count());
 
         return returnList;
     }
