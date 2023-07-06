@@ -5,11 +5,11 @@
   description: A cartridge that keeps track of glimmer.
   components:
   - type: Sprite
-    sprite: Objects/Devices/cartridge.rsi
+    sprite: Nyanotrasen/Objects/Devices/cartridge.rsi
     state: cart-psi
     netsync: false
   - type: Icon
-    sprite: Objects/Devices/cartridge.rsi
+    sprite: Nyanotrasen/Objects/Devices/cartridge.rsi
     state: cart-psi
   - type: UIFragment
     ui: !type:GlimmerMonitorUi
