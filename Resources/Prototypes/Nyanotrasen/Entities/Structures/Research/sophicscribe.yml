@@ -1,7 +1,7 @@
 - type: entity
   parent: StatueVenusRed
   id: SophicScribe
-  name: sophic grammateus
+  name: Sophia
   description: Latest reports on the Noösphere! Placeholder sprite.
   components:
   - type: SophicScribe
@@ -19,9 +19,47 @@
     channels:
     - Common
     - Science
+  - type: ActiveListener
+  - type: TypingIndicator
+  - type: NPCConversation
+    tree: SophiaTree
   - type: PotentialPsionic #this makes her easier to access for glimmer events, dw about it
   - type: Psionic
   - type: SpriteFade
   - type: GuideHelp
     guides:
     - Psionics
+
+- type: npcConversationTree
+  id: SophiaTree
+  dialogue:
+  - prompts: [job, occupation, profession]
+    responses:
+      - text: sophia-response-job
+  - prompts: [help, topics]
+    weight: 0.5
+    hidden: true
+    responses:
+      - is: !type:NPCConversationHelpEvent
+          text: sophia-response-help
+  - prompts: [hi, hello, hey, greetings, salutations]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-hello-1
+      - text: sophia-response-hello-2
+
+  attention:
+    - text: sophia-response-attention-1
+    - text: sophia-response-attention-2
+    - text: sophia-response-attention-3
+
+  idle:
+    - text: sophia-idle-phrase-1
+    - text: sophia-idle-phrase-2
+    - text: sophia-idle-phrase-3
+
+  unknown:
+    - text: sophia-response-sorry-1
+    - text: sophia-response-sorry-2
+    - text: sophia-response-sorry-3
