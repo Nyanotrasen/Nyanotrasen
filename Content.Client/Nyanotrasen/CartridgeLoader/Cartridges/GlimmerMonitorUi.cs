@@ -2,14 +2,10 @@
 using Content.Shared.CartridgeLoader.Cartridges;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
-using Content.Client.UserInterface.Fragments;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
-using Robust.Client.GameObjects;
-using Robust.Client.UserInterface;
+using Content.Client.CartridgeLoader.Cartridges;
 
-
-namespace Content.Client.CartridgeLoader.Cartridges;
+namespace Content.Client.Nyanotrasen.CartridgeLoader.Cartridges;
 
 public sealed class GlimmerMonitorUi : UIFragment
 {

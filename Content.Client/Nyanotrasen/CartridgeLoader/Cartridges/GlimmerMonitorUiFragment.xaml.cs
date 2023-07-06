@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.XAML;
 using Content.Client.Nyanotrasen.UserInterface.CustomControls;
 using System.Linq;
 
-namespace Content.Client.CartridgeLoader.Cartridges;
+namespace Content.Client.Nyanotrasen.CartridgeLoader.Cartridges;
 
 [GenerateTypedNameReferences]
 public sealed partial class GlimmerMonitorUiFragment : BoxContainer
