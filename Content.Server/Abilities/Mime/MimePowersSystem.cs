@@ -10,6 +10,8 @@ using Content.Shared.Mobs.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 using Content.Server.Speech.Muting;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
 
 namespace Content.Server.Abilities.Mime
 {
@@ -21,7 +23,8 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
         [Dependency] private readonly TurfSystem _turf = default!;
-
+        [Dependency] private readonly IMapManager _mapMan = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
 
         public override void Initialize()
@@ -68,11 +71,14 @@ namespace Content.Server.Abilities.Mime
             if (!component.Enabled)
                 return;
 
+            if (_container.IsEntityOrParentInContainer(uid))
+                return;
+
             var xform = Transform(uid);
             // Get the tile in front of the mime
-            var offsetValue = xform.LocalRotation.ToWorldVec().Normalized;
-            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager);
-            var tile = coords.GetTileRef();
+            var offsetValue = xform.LocalRotation.ToWorldVec();
+            var coords = xform.Coordinates.Offset(offsetValue).SnapToGrid(EntityManager, _mapMan);
+            var tile = coords.GetTileRef(EntityManager, _mapMan);
             if (tile == null)
                 return;
 
@@ -92,13 +98,12 @@ namespace Content.Server.Abilities.Mime
                     return;
                 }
             }
+            // Begin Nyano-code: mime powers are psionic.
+            _psionics.LogPowerUsed(uid, "invisible wall");
+            // End Nyano-code.
             _popupSystem.PopupEntity(Loc.GetString("mime-invisible-wall-popup", ("mime", uid)), uid);
             // Make sure we set the invisible wall to despawn properly
-            Spawn(component.WallPrototype, coords);
-
-            // log
-            _psionics.LogPowerUsed(uid, "invisible wall");
-
+            Spawn(component.WallPrototype, _turf.GetTileCenter(tile.Value));
             // Handle args so cooldown works
             args.Handled = true;
         }
