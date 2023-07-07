@@ -414,7 +414,7 @@
   description: A self recharging emitter rifle that can slow enemies down.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
+    sprite: Objects/Weapons/Guns/Battery/Exfrostrifle.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -422,7 +422,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
+    sprite: Objects/Weapons/Guns/Battery/Exfrostrifle.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
