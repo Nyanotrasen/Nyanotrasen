@@ -176,7 +176,7 @@
             max: 150.0
           damage:
             types:
-             Cellular: -2 
+             Cellular: -2
 
 - type: reagent
   id: Dermaline
@@ -490,13 +490,13 @@
         probability: 0.05
 
 - type: reagent
-  id: Romerol
-  name: reagent-name-romerol
+  id: Ambuzol
+  name: reagent-name-ambuzol
   group: Medicine
-  desc: reagent-desc-romerol
-  physicalDesc: reagent-physical-desc-acrid
+  desc: reagent-desc-ambuzol
+  physicalDesc: reagent-physical-desc-crisp
   flavor: medicine
-  color: "#7e916e"
+  color: "#86caf7"
   metabolisms:
     Medicine:
       effects:
@@ -504,6 +504,11 @@
         damage:
           types:
             Poison: 0.5
+        # non-DiseaseSystem variant:
+        # - !type:CureZombieInfection
+        #   conditions:
+        #     - !type:ReagentThreshold
+        #       min: 10
 
 - type: reagent
   id: PulpedBananaPeel
