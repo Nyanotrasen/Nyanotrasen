@@ -415,23 +415,24 @@
           disease: VentCough
 
 - type: reagent
-  id: Corpium
-  name: reagent-name-corpium
+  id: Romerol
+  name: reagent-name-romerol
   group: Toxins
-  desc: reagent-desc-corpium
+  desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
-  color: "#7668a1"
+  color: "#7e916e"
   metabolisms:
-    Poison:
+    Medicine:
       effects:
-        - !type:HealthChange
-          damage:
-            types:
-              Cellular: 1
         - !type:ChemCauseDisease
           causeChance: 1
           disease: ActiveZombieVirus
+        # non-DiseaseSystem variant:
+        # - !type:CauseZombieInfection
+        #   conditions:
+        #     - !type:ReagentThreshold
+        #       min: 5
 
 - type: reagent
   id: UncookedAnimalProteins
