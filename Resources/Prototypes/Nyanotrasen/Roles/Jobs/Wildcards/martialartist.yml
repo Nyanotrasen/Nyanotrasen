@@ -4,7 +4,7 @@
   description: job-description-martialartist
   playTimeTracker: JobBoxer
   startingGear: MartialGear
-  icon: "Boxer"
+  icon: "MartialArtist"
   supervisors: job-supervisors-hop
   whitelistRequired: true
   access:
@@ -28,7 +28,7 @@
     belt: ClothingBeltMartialBlack
     back: ClothingBackpackFilled
     id: MartialArtistPDA
-    ears: ClothingHeadsetGrey
+    ears: ClothingHeadsetService
     shoes: ClothingShoesWizard
     gloves: ClothingHandsGlovesBoxingRed
   satchel: ClothingBackpackSatchelFilled

@@ -25,6 +25,7 @@
     runningState: icon
     dynamicRecipes:
       - QSI
+      - CoreSilver
       - HandTeleporter
       - BluespaceBeaker
       - Decloner
@@ -35,6 +36,7 @@
       - SatchelOfHolding
       - DuffelbagOfHolding
       - AnomalyScanner
+      - AnomalyLocator
       - ChemicalPayload #Below = shared
       - FlashlightLantern
       - Bucket
@@ -54,6 +56,10 @@
       - CableMVStack
       - CableHVStack
       - NodeScanner
+      - WeaponPistolCHIMP
+      - CartridgeAnomalousParticleDelta
+      - CartridgeAnomalousParticleEpsilon
+      - CartridgeAnomalousParticleZeta
   - type: MaterialStorage
     whitelist:
       tags:
@@ -62,6 +68,7 @@
         - Ingot
     materialWhiteList:
     - Bluespace
+    - Silver
     - Glass
     - Plastic
     - Steel
@@ -98,7 +105,9 @@
       - LightReplacer
       - Holoprojector
       - TrashBagOfHolding
-      - MopAdvanced
+      - AdvMopItem
+      - WeaponSprayNozzle
+      - ClothingBackpackWaterTank
       - HydroponicsToolScythe
       - HydroponicsToolHatchet
       - DrinkMug

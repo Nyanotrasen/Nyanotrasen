@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Hands.Components;
@@ -6,9 +7,6 @@ using Content.Shared.Physics.Pull;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Dynamics;
-using System.Linq;
-using Content.Shared.Sound.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -76,10 +74,10 @@ namespace Content.Shared.Throwing
                 return;
 
             var thrower = component.Thrower;
-            var otherBody = args.OtherFixture.Body;
+            if (args.OtherEntity == thrower)
+                return;
 
-            if (otherBody.Owner == thrower) return;
-            ThrowCollideInteraction(thrower, args.OurFixture.Body, otherBody);
+            ThrowCollideInteraction(thrower, args.OurBody, args.OtherBody);
         }
 
         private void PreventCollision(EntityUid uid, ThrownItemComponent component, ref PreventCollideEvent args)
@@ -129,7 +127,7 @@ namespace Content.Shared.Throwing
 
             // Unfortunately we can't check for hands containers as they have specific names.
             if (uid.TryGetContainerMan(out var containerManager) &&
-                EntityManager.HasComponent<SharedHandsComponent>(containerManager.Owner))
+                EntityManager.HasComponent<HandsComponent>(containerManager.Owner))
             {
                 EntityManager.RemoveComponent(landing, thrownItem);
                 return;

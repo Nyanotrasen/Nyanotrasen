@@ -36,6 +36,10 @@ namespace Content.Server.Gravity
         /// Is the gravity generator currently "producing" gravity?
         /// </summary>
         [ViewVariables]
+        // Begin Nyano-code: allow editing GravityActive for round-start gravity.
+        // See commit message for details.
+        [DataField("gravityActive")]
+        // End Nyano-code.
         public bool GravityActive { get; set; } = false;
 
         // Do we need a UI update even if the charge doesn't change? Used by power button.

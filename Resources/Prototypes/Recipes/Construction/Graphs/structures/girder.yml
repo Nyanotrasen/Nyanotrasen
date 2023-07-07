@@ -15,11 +15,6 @@
 
     - node: girder
       entity: Girder
-      actions:
-        - !type:SpriteChange
-          specifier:
-            sprite: /Textures/Structures/Walls/solid.rsi
-            state: wall_girder
       edges:
         - to: start
           completed:
@@ -223,7 +218,7 @@
         - to: girder
           completed:
             - !type:GivePrototype
-              prototype: SheetSteel1
+              prototype: SheetPlastic1
               amount: 2
           steps:
             - tool: Prying
@@ -503,11 +498,6 @@
       entity: WallSolidRust
       edges:
         - to: wall
-          completed:
-            - !type:SpawnPrototype
-              prototype: WallSolid
-              amount: 1
-            - !type:DeleteEntity {}
           steps:
             - tool: Welding
               doAfter: 5

@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Mind.Components;
 using Content.Server.NodeContainer;
 using Content.Server.Power.Components;
@@ -25,6 +27,7 @@ namespace Content.Server.AME.Components
         [Dependency] private readonly IEntitySystemManager _sysMan = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IChatManager _chat = default!;
 
         [ViewVariables] private BoundUserInterface? UserInterface => Owner.GetUIOrNull(AMEControllerUiKey.Key);
         private bool _injecting;
@@ -97,7 +100,7 @@ namespace Content.Server.AME.Components
                 {
                     if (_warningCD == 0)
                     {
-                        _entities.EntitySysManager.GetEntitySystem<RadioSystem>().SendRadioMessage(this.Owner, Loc.GetString("ame-controller-warning", ("percentage", Math.Round(fuelRatio * 100f))), _prototypeManager.Index<RadioChannelPrototype>("Engineering"));
+                        _entities.EntitySysManager.GetEntitySystem<RadioSystem>().SendRadioMessage(this.Owner, Loc.GetString("ame-controller-warning", ("percentage", Math.Round(fuelRatio * 100f))), _prototypeManager.Index<RadioChannelPrototype>("Engineering"), this.Owner);
                         _warningCD = 3;
                     } else
                     {
@@ -204,6 +207,10 @@ namespace Content.Server.AME.Components
 
                 if (msg.Button == UiButton.ToggleInjection)
                     _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{_entities.ToPrettyString(mindComponent.Owner):player} has set the AME to {humanReadableState}");
+
+                // Admin alert
+                if (GetCoreCount() * 2 == InjectionAmount - 2 && msg.Button == UiButton.IncreaseFuel)
+                    _chat.SendAdminAlert(player, $"increased AME over safe limit to {InjectionAmount}", mindComponent);
             }
 
             GetAMENodeGroup()?.UpdateCoreVisuals();

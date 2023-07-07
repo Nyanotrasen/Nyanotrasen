@@ -19,14 +19,15 @@
       sprite: Nyanotrasen/Mobs/Mutants/killer_tomato.rsi
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.5
-      density: 63
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 63
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -51,10 +52,6 @@
     bloodReagent: DemonsBlood
     bloodMaxVolume: 100
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: Temperature
     heatDamageThreshold: 500
     coldDamageThreshold: 200
@@ -87,14 +84,15 @@
   - type: Physics
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 130
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 130
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -109,10 +107,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-    disarmAction:
-      enabled: false
-      autoPopulate: false
-      name: action-name-disarm
   - type: ReplacementAccent
     accent: xeno
   - type: InteractionPopup
@@ -132,11 +126,12 @@
   - type: MeleeChemicalInjector
     solution: melee
     transferAmount: 3.5
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: melee
-    unitsPerSecond: 0.15
-    reagents:
-      - Nocturine
+    generated:
+      reagents:
+        - ReagentId: Nocturine
+          Quantity: 0.15
   - type: BloodSucker
     unitsToSucc: 35
     injectWhenSucc: true
@@ -164,8 +159,8 @@
       coefficients:
         Piercing: 2.25
   - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Arachne
+    damageContainer: HalfSpirit
+    damageModifierSet: HalfSpirit
   - type: StatusEffects
     allowed:
       - Stun
@@ -187,6 +182,10 @@
     tags:
       - Oneirophage
   - type: MovementAlwaysTouching
+  - type: PsionicInvisibleContacts
+    whitelist:
+      tags:
+        - ArachneWeb
 
 - type: entity
   name: oneirophage
@@ -201,10 +200,12 @@
     - type: MobMover
     - type: HTN
       rootTask: SimpleHostileCompound
-    - type: GhostTakeoverAvailable
+    - type: GhostRole
       makeSentient: true
       name: ghost-role-information-giant-spider-vampire-name
       description: ghost-role-information-giant-spider-vampire-description
+      rules: No antagonist restrictions. Just don't talk in emote; you have telepathic chat.
+    - type: GhostTakeoverAvailable
 
 - type: entity
   parent: SimpleMobBase
@@ -236,10 +237,11 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: CancerMouse
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     name: ghost-role-information-cancer-mouse-name
     description: ghost-role-information-cancer-mouse-description
+  - type: GhostTakeoverAvailable
   - type: CombatMode
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.5
@@ -254,14 +256,15 @@
     bodyType: KinematicController
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 30 #Bulky by mouse standards...
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 30 #Bulky by mouse standards...
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: MobState
   - type: MobThresholds
     thresholds:
@@ -314,11 +317,11 @@
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound
+      - Recyclable
   - type: NoSlip
   - type: MobPrice
     price: 100 # rat wealth
   - type: FelinidFood
-  - type: Recyclable
   - type: CanEscapeInventory
   - type: Extractable
     grindableSolutionName: food

@@ -16,13 +16,16 @@ roles-antag-suspicion-suspect-objective = Kill the innocents.
 roles-antag-nuclear-operative-commander-name = Nuclear operative commander
 roles-antag-nuclear-operative-commander-objective = Lead your team to the destruction of the station.
 
+roles-antag-nuclear-operative-agent-name = Nuclear operative medic
+roles-antag-nuclear-operative-agent-objective = Provide medical support to your team and destroy the station.
+
 roles-antag-nuclear-operative-name = Nuclear operative
 roles-antag-nuclear-operative-objective = Find the nuke disk and blow up the station.
 
 roles-antag-fugitive-name = Fugitive
 roles-antag-fugitive-description = Survive. Escape.
 
-roles-antag-evil-twin-name = Evil twin
-roles-antag-evil-twin-description = Replace your twin.
+roles-antag-evil-twin-name = Paradox Anomaly
+roles-antag-evil-twin-description = Replace your double, or befriend them.
 
 roles-antag-not-whitelisted = You need to be whitelisted to play antagonists.

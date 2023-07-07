@@ -1,13 +1,16 @@
+using Content.Server.Mind.Components;
+using Content.Server.PDA.Ringer;
 using Content.Server.Store.Components;
+using Content.Server.UserInterface;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared.Stacks;
 using Content.Shared.Store;
+using JetBrains.Annotations;
+using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Server.UserInterface;
-using Content.Shared.Stacks;
-using JetBrains.Annotations;
 
 namespace Content.Server.Store.Systems;
 
@@ -32,6 +35,7 @@ public sealed partial class StoreSystem : EntitySystem
         SubscribeLocalEvent<StoreComponent, ComponentShutdown>(OnShutdown);
 
         InitializeUi();
+        InitializeCommand();
     }
 
     private void OnMapInit(EntityUid uid, StoreComponent component, MapInitEvent args)
@@ -65,6 +69,11 @@ public sealed partial class StoreSystem : EntitySystem
             return;
 
         if (args.Target == null || !TryComp<StoreComponent>(args.Target, out var store))
+            return;
+
+        // if the store can be locked, it must be unlocked first before inserting currency
+        var user = args.User;
+        if (TryComp<RingerUplinkComponent>(args.Target, out var uplink) && !uplink.Unlocked)
             return;
 
         args.Handled = TryAddCurrency(GetCurrencyValue(uid, component), args.Target.Value, store);
@@ -168,7 +177,9 @@ public sealed partial class StoreSystem : EntitySystem
 
         var ui = _ui.GetUiOrNull(uid, StoreUiKey.Key);
         if (ui != null)
+        {
             _ui.SetUiState(ui, new StoreInitializeState(preset.StoreName));
+        }
     }
 }
 

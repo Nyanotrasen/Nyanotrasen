@@ -28,6 +28,12 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
+            damage: 80
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
             damage: 40 #This is probably enough damage before it breaks
           behaviors:
             - !type:DoActsBehavior
@@ -37,12 +43,12 @@
             - !type:SpawnEntitiesBehavior
               spawn:
                 SheetSteel:
-                  min: 5
-                  max: 5
+                  min: 2
+                  max: 2
                 SheetGlass:
-                  min: 5
-                  max: 5
-    - type: StaticPrice
+                  min: 2
+                  max: 2
+    - type: DynamicPrice
       price: 50
 
 #Security Shields
@@ -106,6 +112,12 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
+            damage: 60
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
             damage: 30 #Weaker shield
           behaviors:
             - !type:DoActsBehavior
@@ -117,7 +129,7 @@
                 MaterialWoodPlank:
                   min: 5
                   max: 5
-    - type: StaticPrice
+    - type: DynamicPrice
       price: 150
 
 - type: entity
@@ -138,6 +150,12 @@
       node: makeshiftShield
     - type: Destructible
       thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 40
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
         - trigger:
             !type:DamageTrigger
             damage: 20 #Very weak shield

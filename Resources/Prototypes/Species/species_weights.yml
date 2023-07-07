@@ -1,0 +1,9 @@
+#default species weights used for randomly selected species
+- type: weightedRandom
+  id: SpeciesWeights
+  weights:
+    Human: 5
+    Felinid: 4
+    Oni: 3
+    Moth: 2
+    Arachne: 2

@@ -19,18 +19,19 @@
     bloodlossHealDamage:
       types:
         Bloodloss:
-          -0.25
+          -1
   - type: InteractionOutline
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 50
-      mask:
-      - MobMask
-      layer:
-      - MobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
     baseSprintSpeed : 4
@@ -38,8 +39,6 @@
     noRot: true
     drawdepth: Mobs
     netsync: false
-  - type: Recyclable
-    safe: false
   - type: Faction
     factions:
     - SimpleNeutral
@@ -114,34 +113,36 @@
     sprite: Mobs/Silicon/Bots/honkbot.rsi
     state: honkbot
   - type: Slippery
-    launchForwardsMultiplier: 6.0
+    launchForwardsMultiplier: 2
   - type: StepTrigger
     intersectRatio: 0.2
   - type: Physics
     bodyType: Dynamic
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      id: "slips"
-      hard: false
-      layer:
-        - SlipLayer
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.35
-      density: 20
-      mask:
-      - MobMask
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        hard: false
+        layer:
+          - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
   - type: Construction
     graph: HonkBot
     node: bot
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     whitelistRequired: false
-    name: honkbot
-    description: An artificial being of pure evil.
+    name: ghost-role-information-honkbot-name
+    description: ghost-role-information-honkbot-description
+  - type: GhostTakeoverAvailable
   - type: InteractionPopup
     interactSuccessString: petting-success-honkbot
     interactFailureString: petting-failure-honkbot
@@ -154,7 +155,8 @@
   name: cleanbot
   description: The creep of automation now threatening space janitors.
   components:
-  - type: DoAfter
+  # TODO: We need to find a way to unify player/NPC cleanbots one day so they can't spam clean.
+  # - type: DoAfter
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Silicon/Bots/cleanbot.rsi
@@ -162,7 +164,26 @@
   - type: Construction
     graph: CleanBot
     node: bot
-  - type: CleanBot
+  # - type: CleanBot
+  - type: Absorbent
+    pickupAmount: 10
+  - type: UseDelay
+    delay: 2
+  - type: SolutionRegeneration
+    solution: absorbed
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 10
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+      - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 50
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -171,14 +192,15 @@
     rootTask: CleanbotCompound
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeCircle
-        radius: 0.2
-      density: 40
-      mask:
-      - SmallMobMask
-      layer:
-      - SmallMobLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 40
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
   - type: DrainableSolution
     solution: drainBuffer
   - type: InteractionPopup
@@ -186,13 +208,14 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  - type: GhostTakeoverAvailable
+  - type: GhostRole
     makeSentient: true
     allowSpeech: false
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-cleanbot-name
     description: ghost-role-information-cleanbot-description
+  - type: GhostTakeoverAvailable
 
 - type: entity
   parent: MobSiliconBase
@@ -218,11 +241,14 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ShowHealthBars
-    damageContainer: Biological
-  - type: GhostTakeoverAvailable
+    damageContainers: 
+    - Biological
+    - HalfSpirit
+  - type: GhostRole
     makeSentient: true
     allowSpeech: true
     allowMovement: true
     whitelistRequired: false
     name: ghost-role-information-medibot-name
     description: ghost-role-information-medibot-description
+  - type: GhostTakeoverAvailable

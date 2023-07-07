@@ -15,13 +15,14 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading;
+using Content.Shared.Eye.Blinding.Components;
 using static Content.Shared.Interaction.SharedInteractionSystem;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
 namespace Content.Client.Examine
 {
     [UsedImplicitly]
-    internal sealed class ExamineSystem : ExamineSystemShared
+    public sealed class ExamineSystem : ExamineSystemShared
     {
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -117,7 +118,7 @@ namespace Content.Client.Examine
             // Center it on the entity if they use the verb instead.
             verb.Act = () => DoExamine(args.Target, false);
             verb.Text = Loc.GetString("examine-verb-name");
-            verb.Icon = new SpriteSpecifier.Texture(new ResourcePath("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"));
+            verb.Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/examine.svg.192dpi.png"));
             verb.ShowOnExamineTooltip = false;
             verb.ClientExclusive = true;
             args.Verbs.Add(verb);
@@ -206,6 +207,7 @@ namespace Content.Client.Examine
                 hBox.AddChild(new SpriteView
                 {
                     Sprite = sprite, OverrideDirection = Direction.South,
+                    SetSize = (32, 32),
                     Margin = new Thickness(2, 0, 2, 0),
                 });
             }
@@ -325,9 +327,9 @@ namespace Content.Client.Examine
             }
         }
 
-        public void DoExamine(EntityUid entity, bool centeredOnCursor=true)
+        public void DoExamine(EntityUid entity, bool centeredOnCursor = true, EntityUid? userOverride = null)
         {
-            var playerEnt = _playerManager.LocalPlayer?.ControlledEntity;
+            var playerEnt = userOverride ?? _playerManager.LocalPlayer?.ControlledEntity;
             if (playerEnt == null)
                 return;
 

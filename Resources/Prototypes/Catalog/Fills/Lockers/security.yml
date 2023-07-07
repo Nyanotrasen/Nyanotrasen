@@ -20,6 +20,7 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitWarden
+      - id: HoloprojectorSecurity
 
 - type: entity
   id: LockerSecurityFilled
@@ -69,3 +70,84 @@
       - id: ClothingHeadHelmetBombSuit
       - id: ClothingOuterSuitBomb
       - id: ClothingMaskGas
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeDisabler
+  name: disabler safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponDisabler
+      amount: 5
+
+- type: entity
+  parent: GunSafe
+  id: GunSafePistolMk58
+  name: mk58 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolMk58
+      amount: 4
+    - id: MagazinePistol
+      amount: 8
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeRifleLecter
+  name: lecter safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleLecter
+      amount: 2
+    - id: MagazineRifle
+      amount: 4
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeShotgunKammerer
+  name: kammerer safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunKammerer
+      amount: 2
+    - id: MagazineShotgun
+      amount: 4
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeSubMachineGunVector
+  name: vector safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunVector
+      amount: 2
+    - id: MagazineMagnumSubMachineGun
+      amount: 4
+
+- type: entity
+  id: GunSafeSubMachineGunWt550
+  suffix: Wt550
+  parent: GunSafe
+  name: wt550 safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunWt550
+      amount: 2
+    - id: MagazinePistolSubMachineGun
+      amount: 4
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeLaserCarbine
+  name: laser safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponLaserCarbine
+      amount: 3

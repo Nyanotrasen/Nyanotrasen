@@ -1,23 +1,23 @@
 using Content.Server.Disease.Components;
-using Content.Shared.Disease;
-using Content.Shared.Interaction;
-using Content.Shared.Inventory;
-using Content.Shared.Examine;
-using Content.Server.DoAfter;
-using Content.Server.Popups;
-using Content.Server.Hands.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Paper;
+using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Robust.Shared.Random;
-using Robust.Shared.Player;
-using Robust.Shared.Audio;
-using Robust.Shared.Utility;
-using Content.Shared.Tools.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Disease;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
+using Content.Shared.Inventory;
+using Content.Shared.Swab;
+using Content.Shared.Tools.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Disease
 {
@@ -26,7 +26,7 @@ namespace Content.Server.Disease
     /// </summary>
     public sealed class DiseaseDiagnosisSystem : EntitySystem
     {
-        [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+        [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
@@ -45,7 +45,7 @@ namespace Content.Server.Disease
             SubscribeLocalEvent<DiseaseMachineComponent, PowerChangedEvent>(OnPowerChanged);
             // Private Events
             SubscribeLocalEvent<DiseaseDiagnoserComponent, DiseaseMachineFinishedEvent>(OnDiagnoserFinished);
-            SubscribeLocalEvent<DiseaseSwabComponent, DoAfterEvent>(OnSwabDoAfter);
+            SubscribeLocalEvent<DiseaseSwabComponent, DiseaseSwabDoAfterEvent>(OnSwabDoAfter);
         }
 
         public Queue<EntityUid> AddQueue = new();
@@ -114,15 +114,10 @@ namespace Content.Server.Disease
                 return;
             }
 
-            var isTarget = args.User != args.Target;
-
-            _doAfterSystem.DoAfter(new DoAfterEventArgs(args.User, swab.SwabDelay, target: args.Target, used: uid)
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(args.User, swab.SwabDelay, new DiseaseSwabDoAfterEvent(), uid, target: args.Target, used: uid)
             {
-                RaiseOnTarget = isTarget,
-                RaiseOnUser = !isTarget,
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
-                BreakOnStun = true,
                 NeedHand = true
             });
         }

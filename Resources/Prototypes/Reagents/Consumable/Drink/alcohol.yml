@@ -110,6 +110,7 @@
   name: reagent-name-ethanol
   parent: BaseAlcohol
   desc: reagent-desc-ethanol
+  slippery: true
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: alcohol
   color: "#b05b3c"
@@ -122,15 +123,41 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
+        - !type:OrganType
+          type: Dwarf
+          shouldHave: false
+        damage:
+          types:
+            Poison: 1
+      # dwarves take less toxin damage and heal a marginal amount of brute
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        - !type:OrganType
+          type: Dwarf
+        damage:
+          types:
+            Poison: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        - !type:OrganType
+          type: Dwarf
         damage:
           groups:
-            Caustic: 1
+            Brute: -1
       - !type:ChemVomit
         probability: 0.04
         conditions:
         - !type:ReagentThreshold
           reagent: Ethanol
           min: 3
+        # dwarves immune to vomiting from alcohol
+        - !type:OrganType
+          type: Dwarf
+          shouldHave: false
     Alcohol:
       effects:
       - !type:Drunk
@@ -396,7 +423,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-antifreeze
   physicalDesc: reagent-physical-desc-translucent
-  flavor: alcohol
+  flavor: antifreeze
   color: "#ff7d63"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/antifreeze.rsi
@@ -657,6 +684,10 @@
         factor: 2
       - !type:SatiateHunger
         factor: -2
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+          shouldHave: false
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.05
@@ -957,8 +988,8 @@
   name: reagent-name-manly-dorf
   parent: BaseAlcohol
   desc: reagent-desc-manly-dorf
-  physicalDesc: reagent-physical-desc-bubbly
-  flavor: alcohol
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: rocksandstones
   color: "#664300"
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/manlydorfglass.rsi

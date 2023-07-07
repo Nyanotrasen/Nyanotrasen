@@ -26,6 +26,12 @@
     thresholds:
       - trigger:
           !type:DamageTrigger
+          damage: 80
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+      - trigger:
+          !type:DamageTrigger
           damage: 40
         behaviors:
           - !type:DoActsBehavior
@@ -46,11 +52,12 @@
         reagents:
         - ReagentId: Water
           Quantity: 500
-  - type: AutoRegenReagent
+  - type: SolutionRegeneration
     solution: tank
-    reagents:
-      - Water
-    unitsPerSecond: 1
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 1
 
 - type: entity
   name: wide sink
@@ -61,7 +68,7 @@
     sprite: Structures/Furniture/sink.rsi
     state: sink_wide
     netsync: false
-    
+
 #Stemless Sink
 
 - type: entity
@@ -72,7 +79,7 @@
   - type: Sprite
     sprite: Structures/Furniture/sink.rsi
     state: sink
-    netsync: false    
+    netsync: false
 
 - type: entity
   name: sink
@@ -86,3 +93,9 @@
         reagents:
         - ReagentId: Water
           Quantity: 500
+  - type: SolutionRegeneration
+    solution: tank
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 1

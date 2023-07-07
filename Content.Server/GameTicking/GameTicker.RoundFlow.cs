@@ -77,6 +77,16 @@ namespace Content.Server.GameTicking
         public int RoundId { get; private set; }
 
         /// <summary>
+        /// Returns true if the round's map is eligible to be updated.
+        /// </summary>
+        /// <returns></returns>
+        public bool CanUpdateMap()
+        {
+            return RunLevel == GameRunLevel.PreRoundLobby &&
+                   _roundStartTime - RoundPreloadTime > _gameTiming.CurTime;
+        }
+
+        /// <summary>
         ///     Loads all the maps for the given round.
         /// </summary>
         /// <remarks>
@@ -84,11 +94,13 @@ namespace Content.Server.GameTicking
         /// </remarks>
         private void LoadMaps()
         {
+            if (_mapManager.MapExists(DefaultMap))
+                return;
+
             AddGamePresetRules();
 
             DefaultMap = _mapManager.CreateMap();
             _mapManager.AddUninitializedMap(DefaultMap);
-            var startTime = _gameTiming.RealTime;
 
             var maps = new List<GameMapPrototype>();
 
@@ -128,9 +140,6 @@ namespace Content.Server.GameTicking
 
                 LoadGameMap(map, toLoad, null);
             }
-
-            var timeSpan = _gameTiming.RealTime - startTime;
-            _sawmill.Info($"Loaded maps in {timeSpan.TotalMilliseconds:N2}ms.");
         }
 
 
@@ -177,6 +186,7 @@ namespace Content.Server.GameTicking
 
             SendServerMessage(Loc.GetString("game-ticker-start-round"));
 
+            // Just in case it hasn't been loaded previously we'll try loading it.
             LoadMaps();
 
             // map has been selected so update the lobby info text
@@ -252,7 +262,7 @@ namespace Content.Server.GameTicking
                     return;
                 }
 
-                _sawmill.Warning($"Exception caught while trying to start the round! Restarting round...");
+                _sawmill.Error($"Exception caught while trying to start the round! Restarting round...");
                 _runtimeLog.LogException(e, nameof(GameTicker));
                 _startingRound = false;
                 RestartRound();
@@ -461,7 +471,6 @@ namespace Content.Server.GameTicking
             // Clear up any game rules.
             ClearGameRules();
 
-            _addedGameRules.Clear();
             _allPreviousGameRules.Clear();
 
             // Round restart cleanup event, so entity systems can reset.
@@ -502,14 +511,23 @@ namespace Content.Server.GameTicking
                 RoundLengthMetric.Inc(frameTime);
             }
 
-            if (RunLevel != GameRunLevel.PreRoundLobby || Paused ||
-                _roundStartTime > _gameTiming.CurTime ||
+            if (RunLevel != GameRunLevel.PreRoundLobby ||
+                Paused ||
+                _roundStartTime - RoundPreloadTime > _gameTiming.CurTime ||
                 _roundStartCountdownHasNotStartedYetDueToNoPlayers)
             {
                 return;
             }
 
-            StartRound();
+            if (_roundStartTime < _gameTiming.CurTime)
+            {
+                StartRound();
+            }
+            // Preload maps so we can start faster
+            else if (_roundStartTime - RoundPreloadTime < _gameTiming.CurTime)
+            {
+                LoadMaps();
+            }
         }
 
         public TimeSpan RoundDuration()
@@ -519,21 +537,27 @@ namespace Content.Server.GameTicking
 
         private void AnnounceRound()
         {
+            // Begin Nyano-code: support systems intercepting AnnounceRound.
+            var ev = new AnnounceRoundAttemptEvent();
+            RaiseLocalEvent(ref ev);
+            if (ev.Handled)
+                return;
+            // End Nyano-code.
+
             if (Preset == null) return;
 
-            foreach (var proto in _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>())
-            {
-                if (!proto.GamePresets.Contains(Preset.ID)) continue;
+            var options = _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
 
-                if (proto.Message != null)
-                    _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
+            if (options.Count == 0)
+                return;
 
-                if (proto.Sound != null)
-                    SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
+            var proto = _robustRandom.Pick(options);
 
-                // Only play one because A
-                break;
-            }
+            if (proto.Message != null)
+                _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(proto.Message), playSound: true);
+
+            if (proto.Sound != null)
+                SoundSystem.Play(proto.Sound.GetSound(), Filter.Broadcast());
         }
     }
 
@@ -715,4 +739,9 @@ namespace Content.Server.GameTicking
             _doNewLine = true;
         }
     }
+
+    // Begin Nyano-code: support systems intercepting AnnounceRound.
+    [ByRefEvent]
+    public record struct AnnounceRoundAttemptEvent(bool Handled);
+    // End Nyano-code.
 }

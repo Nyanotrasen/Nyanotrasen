@@ -63,7 +63,7 @@
   name: uplink-edagger-name
   description: uplink-edagger-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
-  productEntity: EnergyDagger
+  productEntity: EnergyDaggerBox
   cost:
     Telecrystal: 2
   categories:
@@ -97,7 +97,7 @@
   description: uplink-flash-grenade-desc
   productEntity: GrenadeFlashBang
   cost:
-    Telecrystal: 2
+    Telecrystal: 1
   categories:
   - UplinkExplosives
 
@@ -132,10 +132,19 @@
   description: uplink-c4-desc
   productEntity: C4
   cost:
-    Telecrystal: 2
+    Telecrystal: 4
   categories:
   - UplinkExplosives
 
+- type: listing
+  id: UplinkC4Bundle
+  name: uplink-c4-bundle-name
+  description: uplink-c4-bundle-desc
+  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkExplosives
 
 - type: listing
   id: UplinkEmpGrenade
@@ -151,7 +160,8 @@
   id: UplinkExplodingPen
   name: uplink-exploding-pen-name
   description: uplink-exploding-pen-desc
-  productEntity: PenExploding
+  icon: { sprite: /Textures/Objects/Misc/bureaucracy.rsi, state: pen }
+  productEntity: PenExplodingBox
   cost:
     Telecrystal: 5
   categories:
@@ -202,7 +212,7 @@
   id: UplinkMosinAmmo
   name: uplink-mosin-ammo-name
   description: uplink-mosin-ammo-desc
-  productEntity: BoxMagazineLightRifle
+  productEntity: BoxSpeedLoaderLightRifle
   cost:
     Telecrystal: 2
   categories:
@@ -261,7 +271,7 @@
   id: UplinkJetpack
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
-  productEntity: JetpackBlack
+  productEntity: JetpackBlackFilled
   cost:
     Telecrystal: 4
   categories:
@@ -284,7 +294,7 @@
   description: uplink-stealth-box-desc
   productEntity: StealthBox
   cost:
-    Telecrystal: 8
+    Telecrystal: 5
   categories:
   - UplinkUtility
 
@@ -303,7 +313,8 @@
   id: UplinkHeadsetEncryptionKey
   name: uplink-encryption-key-name
   description: uplink-encryption-key-desc
-  productEntity: EncryptionKeySyndie
+  icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
+  productEntity: BoxEncryptionKeySyndie # Two for the price of one
   cost:
     Telecrystal: 2
   categories:
@@ -313,7 +324,8 @@
   id: UplinkHypopen
   name: uplink-hypopen-name
   description: uplink-hypopen-desc
-  productEntity: Hypopen
+  icon: { sprite: /Textures/Objects/Misc/bureaucracy.rsi, state: pen }
+  productEntity: HypopenBox
   cost:
     Telecrystal: 6
   categories:
@@ -326,6 +338,16 @@
   productEntity: ClothingMaskGasVoiceChameleon
   cost:
     Telecrystal: 6
+  categories:
+  - UplinkUtility
+
+- type: listing
+  id: UplinkRadioJammer
+  name: uplink-radio-jammer-name
+  description: uplink-radio-jammer-desc
+  productEntity: RadioJammer
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkUtility
 
@@ -400,16 +422,6 @@
         blacklist:
           components:
             - SurplusBundle
-
-- type: listing
-  id: UplinkC4Bundle
-  name: uplink-c4-bundle-name
-  description: uplink-c4-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateC4tBundle
-  cost:
-    Telecrystal: 12
-  categories:
-  - UplinkBundles
 
 - type: listing
   id: UplinkBulldogBundle
@@ -521,7 +533,7 @@
   description: uplink-toolbox-desc
   productEntity: ToolboxSyndicateFilled
   cost:
-    Telecrystal: 2
+    Telecrystal: 4
   categories:
   - UplinkTools
 
@@ -541,7 +553,7 @@
   description: uplink-duffel-surgery-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledMedical
   cost:
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkTools
 
@@ -587,6 +599,21 @@
         - Botanist
 
 - type: listing
+  id: uplinkRiggedBoxingGloves
+  name: uplink-rigged-boxing-gloves-name
+  description: uplink-rigged-boxing-gloves-desc
+  productEntity: ClothingHandsGlovesBoxingRigged
+  cost:
+    Telecrystal: 5
+  categories:
+    - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Passenger
+        - Boxer
+
+- type: listing
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
   description: uplink-necronomicon-desc
@@ -610,7 +637,7 @@
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
   cost:
-    Telecrystal: 10
+    Telecrystal: 6
   categories:
   - UplinkJob
   conditions:
@@ -618,6 +645,69 @@
     whitelist:
     - Mime
     - Clown
+
+- type: listing
+  id: uplinkBananaPeelExplosive
+  name: uplink-banana-peel-explosive-name
+  description: uplink-banana-peel-explosive-desc
+  productEntity: TrashBananaPeelExplosive
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+
+# - type: listing
+#   id: uplinkHotPotato
+#   name: uplink-hot-potato-name
+#   description: uplink-hot-potato-desc
+#   productEntity: HotPotato
+#   cost:
+#     Telecrystal: 4
+#   categories:
+#   - UplinkJob
+#   conditions:
+#   - !type:BuyerJobCondition
+#     whitelist:
+#     - Chef
+#     - Botanist
+#     - Clown
+#     - Mime
+
+- type: listing
+  id: UplinkChimpAmmo
+  name: uplink-chimp-ammo-name
+  description: uplink-chimp-ammo-desc
+  productEntity: BoxMagazineChimpOmega
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+    - !type:BuyerJobCondition
+      whitelist:
+        - Epistemologist
+
+- type: listing
+  id: uplinkProximityMine
+  name: uplink-proximity-mine-name
+  description: uplink-proximity-mine-desc
+  productEntity: WetFloorSignMineExplosive
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 # Armor
 
@@ -662,7 +752,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 4
+    Telecrystal: 3
   categories:
   - UplinkArmor
 
@@ -881,6 +971,16 @@
   name: uplink-outlaw-hat-name
   description: uplink-outlaw-hat-desc
   productEntity: ClothingHeadHatOutlawHat
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkOutlawGlasses
+  name: uplink-outlaw-glasses-name
+  description: uplink-outlaw-glasses-desc
+  productEntity: ClothingEyesGlassesOutlawGlasses
   cost:
     Telecrystal: 1
   categories:

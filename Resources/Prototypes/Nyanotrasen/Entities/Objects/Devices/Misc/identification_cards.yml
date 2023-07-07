@@ -35,9 +35,14 @@
     job: Mystagogue
 
 - type: entity
-  parent: EngineeringIDCard
+  parent: IDCardStandard
   id: SalvageTechIDCard
+  name: salvage technician ID card
   components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idshaftminer
   - type: PresetIdCard
     job: SalvageTechnician
 
@@ -84,6 +89,7 @@
   - type: Sprite
     layers:
     - state: orange #Placeholder?
+    - state: idgladiator
   - type: PresetIdCard
     job: Gladiator
 
@@ -107,7 +113,7 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idscientist
+    - state: idcurator
   - type: PresetIdCard
     job: Cataloguer
 
@@ -131,6 +137,57 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idboxer
+    - state: idmartialartist
   - type: PresetIdCard
     job: MartialArtist
+
+## Unaffiliated ID cards
+
+- type: entity
+  parent: IDCardStandard
+  id: UnaffiliatedIDCard
+  name: unaffiliated ID card
+  description: A card displaying a name and other identifying details.
+  # maybe make this not abstract when this is more developed
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Misc/id_cards.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Objects/Misc/id_cards.rsi
+
+- type: entity
+  parent: UnaffiliatedIDCard
+  id: ExplorerIDCard
+  name: explorer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: unaffiliated
+    - state: idexplorer
+  - type: PresetIdCard
+    job: Explorer
+
+- type: entity
+  parent: UnaffiliatedIDCard
+  id: StudentIDCard
+  name: student ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: unaffiliated
+    - state: idstudent
+  - type: PresetIdCard
+    job: Student
+
+- type: entity
+  parent: UnaffiliatedIDCard
+  id: FreelancerIDCard
+  name: freelancer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: unaffiliated
+    - state: idfreelancer
+  - type: PresetIdCard
+    job: Freelancer

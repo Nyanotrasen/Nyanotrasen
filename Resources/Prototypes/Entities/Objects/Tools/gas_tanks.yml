@@ -39,6 +39,11 @@
         Blunt: 8
   - type: StaminaDamageOnHit
     damage: 4
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 400
+  - type: DynamicPrice
+    price: 20
 
 - type: entity
   parent: GasTankBase
@@ -113,6 +118,9 @@
     damage:
       types:
         Blunt: 5
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
 
 - type: entity
   parent: EmergencyOxygenTank

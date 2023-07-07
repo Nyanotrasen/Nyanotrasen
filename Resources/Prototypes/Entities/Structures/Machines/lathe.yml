@@ -24,14 +24,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.4,0.4,0.4"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: Destructible
     thresholds:
     - trigger:
@@ -50,6 +51,7 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: WiresPanel
   - type: Wires
     BoardName: "Autolathe"
     LayoutId: Autolathe
@@ -73,6 +75,7 @@
       - Wrench
       - Crowbar
       - Multitool
+      - NetworkConfigurator
       - AirlockPainter
       - MiniHoe
       - Shovel
@@ -111,14 +114,15 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.4,-0.4,0.4,0.4"
-      density: 190
-      mask:
-      - MachineMask
-      layer:
-      - MachineLayer
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
   - type: ResearchClient
   - type: Destructible
     thresholds:
@@ -132,6 +136,7 @@
         acts: ["Destruction"]
   - type: Machine
     board: ProtolatheMachineCircuitboard
+  - type: WiresPanel
   - type: Wires
     BoardName: "Protolathe"
     LayoutId: Protolathe
@@ -196,12 +201,15 @@
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
+      - StationMapElectronics
       - FireAlarmElectronics
       - IntercomElectronics
       - MailingUnitElectronics
+      - SignalTimerElectronics
       - Bucket
       - MopItem
       - SprayBottle
+      - MegaSprayBottle
       - FireExtinguisher
       - FlashlightLantern
       - TimerTrigger
@@ -240,9 +248,11 @@
       - DoorElectronics
       - APCElectronics
       - AirAlarmElectronics
+      - StationMapElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
       - IntercomElectronics
+      - SignalTimerElectronics
       - SMESMachineCircuitboard
       - SubstationMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard
@@ -281,6 +291,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - MaterialReclaimerMachineCircuitboard
       - OreProcessorMachineCircuitboard
       - RipleyCentralElectronics
       - RipleyPeripheralsElectronics
@@ -333,6 +344,8 @@
     - ProximitySensor
     - LeftArmBorg
     - RightArmBorg
+    - LeftLegBorg
+    - RightLegBorg
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -460,6 +473,7 @@
     runningState: icon
     machinePartPrintSpeed: Laser
     dynamicRecipes:
+      - Defibrillator
       - HandheldHealthAnalyzer
       - ClothingHandsGlovesLatex
       - ClothingHandsGlovesNitrile
@@ -535,10 +549,15 @@
     staticRecipes:
       - ClothingUniformJumpsuitColorGrey
       - ClothingUniformJumpskirtColorGrey
+      - ClothingUniformJumpsuitAtmos
+      - ClothingUniformJumpskirtAtmos
       - ClothingUniformJumpsuitBartender
       - ClothingUniformJumpskirtBartender
+      - ClothingUniformJumpsuitBartenderPurple
       - ClothingUniformJumpsuitCaptain
       - ClothingUniformJumpskirtCaptain
+      - ClothingUniformJumpsuitCapFormal
+      - ClothingUniformJumpskirtCapFormalDress
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -549,32 +568,79 @@
       - ClothingUniformJumpsuitChef
       - ClothingUniformJumpskirtChef
       - ClothingUniformJumpsuitClown
+      - ClothingUniformJumpsuitJester
+      - ClothingUniformJumpsuitJesterAlt
       - ClothingUniformJumpsuitCMO
       - ClothingUniformJumpskirtCMO
+      - ClothingUniformJumpsuitCossack
       - ClothingUniformJumpsuitEngineering
       - ClothingUniformJumpskirtEngineering
+      - ClothingUniformJumpsuitEngineeringHazard
+      - ClothingUniformJumpsuitMantis
+      - ClothingUniformSkirtMantis
+      - ClothingUniformJumpsuitDetective
+      - ClothingUniformJumpskirtDetective
+      - ClothingUniformJumpsuitDetectiveGrey
+      - ClothingUniformJumpskirtDetectiveGrey
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
       - ClothingUniformJumpsuitHoS
       - ClothingUniformJumpskirtHoS
+      - ClothingUniformJumpsuitHoSAlt
+      - ClothingUniformJumpskirtHoSAlt
+      - ClothingUniformJumpsuitHoSBlue
+      - ClothingUniformJumpsuitHoSGrey
+      - ClothingUniformJumpsuitHosFormal
+      - ClothingUniformJumpskirtHosFormal
+      - ClothingUniformJumpsuitHoSParadeMale
+      - ClothingUniformJumpskirtHoSParadeMale
       - ClothingUniformJumpsuitHydroponics
       - ClothingUniformJumpskirtHydroponics
       - ClothingUniformJumpsuitJanitor
       - ClothingUniformJumpskirtJanitor
+      - ClothingUniformJumpskirtJanimaid
+      - ClothingUniformJumpskirtJanimaidmini
+      - ClothingUniformJumpsuitJournalist
       - ClothingUniformJumpsuitLawyerBlack
+      - ClothingUniformJumpskirtLawyerBlack
+      - ClothingUniformJumpsuitLawyerBlue
+      - ClothingUniformJumpskirtLawyerBlue
+      - ClothingUniformJumpsuitLawyerGood
+      - ClothingUniformJumpskirtLawyerGood
+      - ClothingUniformJumpsuitLawyerPurple
+      - ClothingUniformJumpskirtLawyerPurple
+      - ClothingUniformJumpsuitLawyerRed
+      - ClothingUniformJumpskirtLawyerRed
+      - ClothingUniformMailCarrier
+      - ClothingUniformSkirtMailCarrier
       - ClothingUniformJumpsuitMedicalDoctor
       - ClothingUniformJumpskirtMedicalDoctor
+      - ClothingUniformJumpsuitChemistry
+      - ClothingUniformJumpskirtChemistry
+      - ClothingUniformJumpsuitVirology
+      - ClothingUniformJumpskirtVirology
+      - ClothingUniformJumpsuitGenetics
+      - ClothingUniformJumpskirtGenetics
       - ClothingUniformJumpsuitMime
       - ClothingUniformJumpskirtMime
+      - ClothingUniformJumpsuitMonasticRobeDark
+      - ClothingUniformJumpsuitMonasticRobeLight
       - ClothingUniformJumpsuitMusician
+      - ClothingUniformJumpsuitMystagogue
+      - ClothingUniformJumpskirtMystagogue
       - ClothingUniformJumpsuitParamedic
       - ClothingUniformJumpskirtParamedic
+      - ClothingUniformJumpsuitPrisonGuard
       - ClothingUniformJumpsuitPrisoner
       - ClothingUniformJumpskirtPrisoner
+      - ClothingUniformJumpsuitPsychologist
       - ClothingUniformJumpsuitQM
       - ClothingUniformJumpskirtQM
+      - ClothingUniformJumpsuitReporter
       - ClothingUniformJumpsuitSec
       - ClothingUniformJumpskirtSec
+      - ClothingUniformJumpsuitSecBlue
+      - ClothingUniformJumpsuitSecGrey
       - ClothingUniformJumpsuitWarden
       - ClothingUniformJumpskirtWarden
       - ClothingOuterWinterCap
@@ -583,14 +649,37 @@
       - ClothingOuterWinterHoP
       - ClothingOuterWinterHoS
       - ClothingOuterWinterQM
+      - ClothingOuterWinterMystagogue
       - ClothingNeckMantleCap
       - ClothingNeckMantleCE
       - ClothingNeckMantleCMO
       - ClothingNeckMantleHOP
       - ClothingNeckMantleHOS
+      - ClothingNeckMantleMystagogue
       - ClothingOuterWinterMusician
       - ClothingOuterWinterClown
       - ClothingOuterWinterMime
+      - ClothingOuterWinterCoat
+      - ClothingOuterWinterJani
+      - ClothingOuterWinterBar
+      - ClothingOuterWinterChef
+      - ClothingOuterWinterHydro
+      - ClothingOuterWinterAtmos
+      - ClothingOuterWinterEngi
+      - ClothingOuterWinterCargo
+      - ClothingOuterWinterMiner
+      - ClothingOuterWinterMed
+      - ClothingOuterWinterPara
+      - ClothingOuterWinterChem
+      - ClothingOuterWinterGen
+      - ClothingOuterWinterViro
+      - ClothingOuterWinterSci
+      - ClothingOuterWinterRobo
+      - ClothingOuterWinterSec
+      - ClothingOuterWinterWarden
+      - ClothingUniformJumpsuitTshirtJeansGray
+      - ClothingUniformJumpsuitTshirtJeansPeach
+      - ClothingUniformJumpsuitTshirtJeans
   - type: MaterialStorage
     whitelist:
       tags:

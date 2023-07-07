@@ -21,12 +21,12 @@ namespace Content.Server.Objectives.Conditions
 
         public string Description => Loc.GetString("objective-condition-raise-glimmer-description", ("target", _target));
 
-        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ResourcePath("Nyanotrasen/Icons/psi.rsi"), "psi");
+        public SpriteSpecifier Icon => new SpriteSpecifier.Rsi(new ("Nyanotrasen/Icons/psi.rsi"), "psi");
 
         public float Progress
         {
             get {
-                var glimmer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SharedGlimmerSystem>();
+                var glimmer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GlimmerSystem>();
 
                 var progress = Math.Min((float) glimmer.Glimmer / (float) _target, 1f);
                 return progress;

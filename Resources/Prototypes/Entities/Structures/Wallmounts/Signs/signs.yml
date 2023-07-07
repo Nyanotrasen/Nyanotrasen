@@ -448,6 +448,7 @@
   description: A sign indicating the escape pods.
   components:
   - type: Sprite
+    snapCardinals: false
     state: pods
 
 - type: entity
@@ -673,6 +674,7 @@
   description: A sign warning that the area ahead is nothing but cold, empty space.
   components:
   - type: Sprite
+    snapCardinals: false
     state: space
 
 - type: entity

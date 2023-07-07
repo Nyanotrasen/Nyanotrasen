@@ -12,7 +12,7 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// <summary>
     ///     The base amount of damage dealt by the melee hit.
     /// </summary>
-    public readonly DamageSpecifier BaseDamage = new();
+    public readonly DamageSpecifier BaseDamage;
 
     /// <summary>
     ///     Modifier sets to apply to the hit event when it's all said and done.
@@ -31,24 +31,28 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// <summary>
     ///     A list containing every hit entity. Can be zero.
     /// </summary>
-    public IEnumerable<EntityUid> HitEntities { get; }
+    public IReadOnlyList<EntityUid> HitEntities;
 
     /// <summary>
     ///     Used to define a new hit sound in case you want to override the default GenericHit.
     ///     Also gets a pitch modifier added to it.
     /// </summary>
-    public SoundSpecifier? HitSoundOverride {get; set;}
+    public SoundSpecifier? HitSoundOverride;
 
     /// <summary>
     /// The user who attacked with the melee weapon.
     /// </summary>
-    public EntityUid User { get; }
+    public readonly EntityUid User;
 
     /// <summary>
     /// True: Light
     /// False: Heavy
     /// </summary>
     public bool? HeavyAttack;
+
+    /// The melee weapon used.
+    /// </summary>
+    public readonly EntityUid Weapon;
 
     /// <summary>
     /// Check if this is true before attempting to do something during a melee attack other than changing/adding bonus damage. <br/>
@@ -59,11 +63,19 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </remarks>
     public bool IsHit = true;
 
-    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, DamageSpecifier baseDamage, bool heavyAttack)
+    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, bool heavyAttack)
     {
         HitEntities = hitEntities;
         User = user;
+        Weapon = weapon;
         BaseDamage = baseDamage;
         HeavyAttack = heavyAttack;
     }
 }
+
+/// <summary>
+/// Raised on a melee weapon to calculate potential damage bonuses or decreases.
+/// </summary>
+/// <param name="Damage"></param>
+[ByRefEvent]
+public record struct GetMeleeDamageEvent(DamageSpecifier Damage);

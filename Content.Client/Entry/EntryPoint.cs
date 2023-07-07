@@ -24,7 +24,6 @@ using Content.Shared.Administration;
 using Content.Shared.AME;
 using Content.Shared.Gravity;
 using Content.Shared.Localizations;
-using Content.Shared.Markers;
 using Robust.Client;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -54,14 +53,11 @@ namespace Content.Client.Entry
         [Dependency] private readonly ViewportManager _viewportManager = default!;
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IOverlayManager _overlayManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IClientPreferencesManager _clientPreferencesManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly IGamePrototypeLoadManager _gamePrototypeLoadManager = default!;
-        [Dependency] private readonly NetworkResourceManager _networkResources = default!;
         [Dependency] private readonly DocumentParsingManager _documentParsingManager = default!;
         [Dependency] private readonly GhostKickManager _ghostKick = default!;
         [Dependency] private readonly ExtendedDisconnectInformationManager _extendedDisconnectInformation = default!;
@@ -87,11 +83,12 @@ namespace Content.Client.Entry
             _componentFactory.IgnoreMissingComponents();
 
             // Do not add to these, they are legacy.
-            _componentFactory.RegisterClass<SharedSpawnPointComponent>();
             _componentFactory.RegisterClass<SharedGravityGeneratorComponent>();
             _componentFactory.RegisterClass<SharedAMEControllerComponent>();
             // Do not add to the above, they are legacy
 
+            _prototypeManager.RegisterIgnore("utilityQuery");
+            _prototypeManager.RegisterIgnore("utilityCurvePreset");
             _prototypeManager.RegisterIgnore("accent");
             _prototypeManager.RegisterIgnore("material");
             _prototypeManager.RegisterIgnore("reaction"); //Chemical reactions only needed by server. Reactions checks are server-side.
@@ -111,7 +108,12 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("metabolizerType");
             _prototypeManager.RegisterIgnore("metabolismGroup");
             _prototypeManager.RegisterIgnore("salvageMap");
+            _prototypeManager.RegisterIgnore("salvageFaction");
             _prototypeManager.RegisterIgnore("gamePreset");
+            _prototypeManager.RegisterIgnore("noiseChannel");
+            _prototypeManager.RegisterIgnore("spaceBiome");
+            _prototypeManager.RegisterIgnore("worldgenConfig");
+            _prototypeManager.RegisterIgnore("gcQueue");
             _prototypeManager.RegisterIgnore("gameRule");
             _prototypeManager.RegisterIgnore("worldSpell");
             _prototypeManager.RegisterIgnore("entitySpell");
@@ -122,9 +124,14 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("flavor");
 
+            // Begin Nyano-code: our ignored prototypes.
+            _prototypeManager.RegisterIgnore("npcConversationTree");
+            _prototypeManager.RegisterIgnore("shipwreckDestination");
+            _prototypeManager.RegisterIgnore("shipwreckFaction");
+            // End Nyano-code.
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
-            _stylesheetManager.Initialize();
             _screenshotHook.Initialize();
             _changelogManager.Initialize();
             _rulesManager.Initialize();
@@ -145,6 +152,9 @@ namespace Content.Client.Entry
         public override void PostInit()
         {
             base.PostInit();
+
+            _stylesheetManager.Initialize();
+
             // Setup key contexts
             ContentContexts.SetupContexts(_inputManager.Contexts);
 
@@ -158,8 +168,6 @@ namespace Content.Client.Entry
             _clientPreferencesManager.Initialize();
             _euiManager.Initialize();
             _voteManager.Initialize();
-            _gamePrototypeLoadManager.Initialize();
-            _networkResources.Initialize();
             _userInterfaceManager.SetDefaultTheme("SS14DefaultTheme");
             _documentParsingManager.Initialize();
 

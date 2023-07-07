@@ -97,7 +97,7 @@
         - !type:ReagentThreshold
           min: 5
         damage:
-          groups:
+          types:
             Caustic: 0.25
       - !type:SatiateThirst
         factor: 2

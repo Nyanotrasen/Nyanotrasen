@@ -184,7 +184,7 @@ namespace Content.Server.Abilities.Psionics
             targetComp.OriginalEntity = performer;
         }
 
-        private void GetTrapped(EntityUid uid)
+        public void GetTrapped(EntityUid uid)
         {
             if (!_prototypeManager.TryIndex<InstantActionPrototype>("MindSwapReturn", out var action))
                 return;

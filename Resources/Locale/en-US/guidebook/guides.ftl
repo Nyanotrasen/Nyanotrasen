@@ -4,6 +4,8 @@ guide-entry-atmospherics = Atmospherics
 guide-entry-botany = Botany
 guide-entry-fires = Fires & Space
 guide-entry-shuttle-craft = Shuttle-craft
+guide-entry-networking = Networking
+guide-entry-network-configurator = Network Configurator
 guide-entry-power = Power
 guide-entry-ame = Antimatter Engine (AME)
 guide-entry-controls = Controls
@@ -41,3 +43,6 @@ guide-entry-soups = Soups
 guide-entry-salads = Salads
 guide-entry-sauces = Condiments
 guide-entry-cargo = Cargo
+
+guide-entry-security = Security
+guide-entry-dna = DNA

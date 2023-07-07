@@ -59,6 +59,11 @@
     heldPrefix: gold
   - type: PresetIdCard
     job: Captain
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - HighRiskItem
 
 - type: entity
   parent: IDCardStandard
@@ -350,6 +355,7 @@
   - type: AgentIDCard
   - type: ActivatableUI
     key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
   - type: UserInterface
     interfaces:
       - key: enum.AgentIDCardUiKey.Key

@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Server.Players;
+using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
@@ -49,7 +50,9 @@ namespace Content.Server.GameTicking
 
                 foreach (var (player, _) in profiles)
                 {
-                    if (playerNetIds.Contains(player)) continue;
+                    if (playerNetIds.Contains(player))
+                        continue;
+
                     toRemove.Add(player);
                 }
 
@@ -59,12 +62,14 @@ namespace Content.Server.GameTicking
                 }
             }
 
-            var assignedJobs = _stationJobs.AssignJobs(profiles, _stationSystem.Stations.ToList());
+            var spawnableStations = EntityQuery<StationJobsComponent, StationSpawningComponent>().Select(x => x.Item1.Owner).ToList();
 
-            _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, _stationSystem.Stations.ToList());
+            var assignedJobs = _stationJobs.AssignJobs(profiles, spawnableStations);
+
+            _stationJobs.AssignOverflowJobs(ref assignedJobs, playerNetIds, profiles, spawnableStations);
 
             // Calculate extended access for stations.
-            var stationJobCounts = _stationSystem.Stations.ToDictionary(e => e, _ => 0);
+            var stationJobCounts = spawnableStations.ToDictionary(e => e, _ => 0);
             foreach (var (netUser, (job, station)) in assignedJobs)
             {
                 if (job == null)
@@ -117,7 +122,7 @@ namespace Content.Server.GameTicking
 
             if (station == EntityUid.Invalid)
             {
-                var stations = _stationSystem.Stations.ToList();
+                var stations = EntityQuery<StationJobsComponent, StationSpawningComponent>().Select(x => x.Item1.Owner).ToList();
                 _robustRandom.Shuffle(stations);
                 if (stations.Count == 0)
                     station = EntityUid.Invalid;
@@ -231,6 +236,13 @@ namespace Content.Server.GameTicking
             {
                 _chatManager.DispatchServerMessage(player,
                     Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
+            }
+
+            // Arrivals is unable to do this during spawning as no actor is attached yet.
+            // We also want this message last.
+            if (lateJoin && _arrivals.Enabled)
+            {
+                _chatManager.DispatchServerMessage(player, Loc.GetString("latejoin-arrivals-direction"));
             }
 
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
@@ -367,7 +379,8 @@ namespace Content.Server.GameTicking
             }
 
             // AAAAAAAAAAAAA
-            _sawmill.Error("Found no observer spawn points!");
+            // This should be an error, if it didn't cause tests to start erroring when they delete a player.
+            _sawmill.Warning("Found no observer spawn points!");
             return EntityCoordinates.Invalid;
         }
         #endregion

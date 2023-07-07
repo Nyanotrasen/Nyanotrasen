@@ -1,0 +1,18 @@
+- type: job
+  id: Freelancer
+  name: job-name-freelancer
+  description: job-description-freelancer
+  playTimeTracker: JobPassenger # (・ω・｀)
+  startingGear: FreelancerGear
+  setPreference: false
+  canBeAntag: false
+  icon: "Passenger" # TODO
+  supervisors: job-supervisors-self
+
+- type: startingGear
+  id: FreelancerGear
+  equipment:
+    jumpsuit: ClothingUniformTShirtKhakiPants
+    id: FreelancerIDCard
+    shoes: ClothingShoesBootsWork
+    outerClothing: ClothingOuterWinterCoat

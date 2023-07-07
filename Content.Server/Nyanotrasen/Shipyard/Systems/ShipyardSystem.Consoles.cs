@@ -100,7 +100,7 @@ namespace Content.Server.Shipyard.Systems
 
             _cargo.DeductFunds(bank, vessel.Price);
             var channel = _prototypeManager.Index<RadioChannelPrototype>("Command");
-            _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel);
+            _radio.SendRadioMessage(uid, Loc.GetString("shipyard-console-docking", ("vessel", vessel.Name.ToString())), channel, uid);
             PlayConfirmSound(uid, component);
 
             var newState = new ShipyardConsoleInterfaceState(
@@ -154,7 +154,7 @@ namespace Content.Server.Shipyard.Systems
                 return false;
             };
 
-            _shipyard.PurchaseShuttle(stationUid, vessel.ShuttlePath.ToString(), out deed);
+            _shipyard.TryPurchaseShuttle((EntityUid) stationUid, vessel.ShuttlePath.ToString(), out deed);
 
             if (deed == null)
             {

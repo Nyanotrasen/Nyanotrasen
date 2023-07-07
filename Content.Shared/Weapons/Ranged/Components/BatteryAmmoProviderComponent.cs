@@ -14,12 +14,6 @@ public abstract class BatteryAmmoProviderComponent : AmmoProviderComponent
     [DataField("examinable")]
     public bool Examinable = true;
 
-    /// <summary>
-    /// Whether to consume ammo.
-    /// </summary>
-    [DataField("infinite")]
-    public bool Infinite = false;
-
     // Batteries aren't predicted which means we need to track the battery and manually count it ourselves woo!
 
     [ViewVariables]

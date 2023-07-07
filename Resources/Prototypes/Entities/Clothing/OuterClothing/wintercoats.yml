@@ -98,6 +98,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -108,6 +112,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -138,6 +146,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -153,11 +165,19 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterHoS
   name: head of security's winter coat
+  description: A sturdy, red winter coat designed for the head of security. It is meant to withstand the harshest of weathers.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.6 #slightly less bulletproof than hos normal coat
+        Heat: 0.75
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -178,6 +198,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -188,6 +212,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -218,6 +246,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -238,6 +270,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -258,16 +294,30 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterSec
   name: security winter coat
+  description: A red, armour-padded winter coat. It glitters with a mild ablative coating and a robust air of authority.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.6 #slightly less bulletproof than a normal kevlar vest
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -278,6 +328,10 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.9
 
 - type: entity
   parent: ClothingOuterWinterCoat

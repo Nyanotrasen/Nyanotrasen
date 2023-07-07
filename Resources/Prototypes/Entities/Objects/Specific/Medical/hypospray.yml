@@ -19,15 +19,18 @@
     solution: hypospray
   - type: Hypospray
     pierceArmor: true
-  - type: DynamicPrice
-    price: 750
   - type: UseDelay
     delay: 0.5
+  - type: DynamicPrice
+    price: 750
+  - type: Tag
+    tags:
+    - HighRiskItem
 
 - type: entity
-  name: gorlax hypospray
+  name: gorlex hypospray
   parent: BaseItem
-  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for gorlax marauder operatives.
+  description: Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.
   id: SyndiHypo
   components:
   - type: Sprite
@@ -80,7 +83,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: Recyclable
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 50
   - type: SpaceGarbage
   - type: DynamicPrice
     price: 75 # These are limited supply items.
@@ -175,7 +180,7 @@
   - type: Hypospray
     solutionName: pen
     transferAmount: 60
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 500
   - type: Tag
     tags: []
@@ -196,7 +201,7 @@
         reagents:
         - ReagentId: Stimulants
           Quantity: 15
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 100
   - type: Tag
     tags: []
@@ -220,7 +225,7 @@
   - type: Hypospray
     solutionName: pen
     transferAmount: 60
-  - type: StaticPrice
+  - type: DynamicPrice
     price: 1000
   - type: Tag
     tags: []
@@ -242,7 +247,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 15
+        maxVol: 10
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
@@ -251,7 +256,23 @@
   - type: Tag
     tags:
     - Write
-  - type: DynamicPrice
-    price: 75
   - type: UseDelay
     delay: 0.5
+  - type: DynamicPrice
+    price: 75
+
+- type: entity
+  parent: BaseItem
+  id: HypopenBox
+  name: hypopen box
+  description: A small box containing a hypopen. Packaging disintegrates when opened, leaving no evidence behind.
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/penbox.rsi
+    state: hypopen
+    netsync: false
+  - type: SpawnItemsOnUse
+    items:
+    - id: Hypopen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
