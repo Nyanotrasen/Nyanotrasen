@@ -24,8 +24,7 @@ namespace Content.Server.Psionics.Glimmer
 
         public TimeSpan TargetUpdatePeriod = TimeSpan.FromSeconds(6);
 
-        /// Every 10 updates a minute will pass and we'll log the value at the time.
-        private int _i;
+        private int _updateIncrementor;
         public TimeSpan NextUpdateTime = default!;
         public TimeSpan LastUpdateTime = default!;
 
@@ -51,7 +50,6 @@ namespace Content.Server.Psionics.Glimmer
             if (NextUpdateTime > curTime)
                 return;
 
-            _i++;
 
             var delta = curTime - LastUpdateTime;
             var maxGlimmerLost = (int) Math.Round(delta.TotalSeconds * _glimmerLostPerSecond);
@@ -63,12 +61,14 @@ namespace Content.Server.Psionics.Glimmer
 
             _glimmerSystem.Glimmer -= actualGlimmerLost;
 
+            _updateIncrementor++;
 
-            if (_i == 10)
+            // Since we normally update every 6 seconds, this works out to a minute.
+            if (_updateIncrementor == 10)
             {
                 GlimmerValues.Add(_glimmerSystem.Glimmer);
 
-                _i = 0;
+                _updateIncrementor = 0;
             }
 
             NextUpdateTime = curTime + TargetUpdatePeriod;

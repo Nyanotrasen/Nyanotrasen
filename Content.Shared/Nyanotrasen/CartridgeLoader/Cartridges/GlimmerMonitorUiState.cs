@@ -13,7 +13,6 @@ public sealed class GlimmerMonitorUiState : BoundUserInterfaceState
     }
 }
 
-
 [Serializable, NetSerializable]
 public sealed class GlimmerMonitorSyncMessageEvent : CartridgeMessageEvent
 {

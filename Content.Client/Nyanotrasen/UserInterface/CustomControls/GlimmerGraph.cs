@@ -13,6 +13,7 @@ namespace Content.Client.Nyanotrasen.UserInterface.CustomControls
         private const int YOffset = 210;
         private const int Length = 450;
         private static int YOffsetTop => YOffset - 200;
+
         public GlimmerGraph(IResourceCache resourceCache, List<int> glimmer)
         {
             _resourceCache = resourceCache;

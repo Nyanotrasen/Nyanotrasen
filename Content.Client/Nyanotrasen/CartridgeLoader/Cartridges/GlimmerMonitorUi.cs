@@ -1,9 +1,9 @@
-﻿using Content.Client.UserInterface.Fragments;
-using Content.Shared.CartridgeLoader.Cartridges;
-using Robust.Client.GameObjects;
+﻿using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
-using Content.Shared.CartridgeLoader;
+using Content.Client.UserInterface.Fragments;
 using Content.Client.CartridgeLoader.Cartridges;
+using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared.CartridgeLoader;
 
 namespace Content.Client.Nyanotrasen.CartridgeLoader.Cartridges;
 
