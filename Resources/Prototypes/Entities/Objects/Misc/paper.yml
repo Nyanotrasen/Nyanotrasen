@@ -363,6 +363,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-mime
     stampState: "paper_stamp-mime"
+    sound: /Audio/Items/Stamp/thick_stamp_sub.ogg
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: stamp-mime
@@ -440,6 +441,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-denied
     stampState: "paper_stamp-deny"
+    sound: /Audio/Items/Stamp/automatic_stamp.ogg
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: stamp-deny
@@ -452,6 +454,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-approved
     stampState: "paper_stamp-iaa"
+    sound: /Audio/Items/Stamp/automatic_stamp.ogg
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: stamp-iaa
