@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;

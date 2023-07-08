@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Nutrition.Components;

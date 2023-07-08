@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Throwing;
@@ -89,7 +90,7 @@ namespace Content.Server.Soul
 
             args.Handled = true;
 
-            Vector2 direction = (_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
+            var direction = new Vector2(_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
             _throwing.TryThrow(item.Value, direction, _robustRandom.Next(1, 10));
 
             if (TryComp<AppearanceComponent>(uid, out var appearance))
