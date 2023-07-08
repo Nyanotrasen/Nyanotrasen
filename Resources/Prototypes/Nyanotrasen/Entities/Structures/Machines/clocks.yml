@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMachine
+  parent: BaseStructure
   id: ClockGrandfather
   name: grandfather clock
   components:
@@ -7,16 +7,24 @@
     sound: "/Audio/Ambience/Objects/grandfather_clock_ticking.ogg"
     range: 10
     volume: -9
+  - type: SpriteFade
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/theater.rsi
+    sprite: Nyanotrasen/Structures/Machines/grandfather_clock.rsi
+    drawdepth: Mobs
+    noRot: true
+    offset: "0, 0.5"
     layers:
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.Base"]
-    - state: "off"
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-      shader: unshaded
-    - state: panel
-      map: ["enum.WiresVisualLayers.MaintenancePanel"]
-    - state: "screen"
-      map: ["enum.VendingMachineVisualLayers.Screen"]
-      shader: unshaded
+    - state: grandfather_clock
+    - state: pendulum
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - LowImpassable

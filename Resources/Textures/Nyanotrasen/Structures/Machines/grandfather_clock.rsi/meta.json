@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-4.0",
+  "copyright": "Created by Rane",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "grandfather_clock"
+    },
+    {
+      "name": "pendulum",
+      "delays": [
+        [
+          0.5,
+          0.25,
+          0.5,
+          0.25
+        ]
+      ]
+    }
+  ]
+}
