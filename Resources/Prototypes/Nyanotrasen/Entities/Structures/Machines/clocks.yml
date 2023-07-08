@@ -7,24 +7,9 @@
     sound: "/Audio/Nyanotrasen/Ambience/Objects/grandfather_clock_ticking.ogg"
     range: 10
     volume: -9
-  - type: SpriteFade
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/grandfather_clock.rsi
     drawdepth: Mobs
     noRot: true
-    offset: "0, 0.5"
     layers:
-    - state: grandfather_clock
-    - state: pendulum
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.45,-0.45,0.45,0"
-        density: 60
-        mask:
-        - MachineMask
-        layer:
-        - MidImpassable
-        - LowImpassable
+    - state: clock
