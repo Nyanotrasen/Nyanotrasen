@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Construction;
-using Content.Server.DeviceLinking.Events;
 using Content.Server.MachineLinking.Components;
 using Content.Server.Paper;
 using Content.Server.Power.Components;
@@ -43,6 +42,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly PaperSystem _paper = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -68,11 +68,11 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsolePrintButtonPressedMessage>(OnPrintButton);
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButton);
 
-        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerSelectedMessage>((e,c,_) => UpdateUserInterface(e,c),
-            after: new []{typeof(ResearchSystem)});
-        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e,c,_) => UpdateUserInterface(e,c),
-            after: new []{typeof(ResearchSystem)});
-        SubscribeLocalEvent<AnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e,c,_) => UpdateUserInterface(e,c));
+        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerSelectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+            after: new[] { typeof(ResearchSystem) });
+        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+            after: new[] { typeof(ResearchSystem) });
+        SubscribeLocalEvent<AnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e, c, _) => UpdateUserInterface(e, c));
     }
 
     public override void Update(float frameTime)
@@ -85,7 +85,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             if (scan.Console != null)
                 UpdateUserInterface(scan.Console.Value);
 
-            if (_timing.CurTime - active.StartTime < (scan.AnalysisDuration * scan.AnalysisDurationMulitplier))
+            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier)
                 continue;
 
             FinishScan(uid, scan, active);
@@ -224,7 +224,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             canScan, canPrint, msg, scanning, remaining, totalTime, points);
 
         var bui = _ui.GetUi(uid, ArtifactAnalzyerUiKey.Key);
-        _ui.SetUiState(bui, state);
+        UserInterfaceSystem.SetUiState(bui, state);
     }
 
     /// <summary>
@@ -279,7 +279,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         analyzer.ReadyToPrint = false;
 
         var report = Spawn(component.ReportEntityId, Transform(uid).Coordinates);
-        MetaData(report).EntityName = Loc.GetString("analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id));
+        _metaSystem.SetEntityName(report, Loc.GetString("analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id)));
 
         var msg = GetArtifactScanMessage(analyzer);
         if (msg == null)

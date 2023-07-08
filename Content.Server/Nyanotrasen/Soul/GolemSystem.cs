@@ -76,7 +76,7 @@ namespace Content.Server.Soul
                 golemName = _robustRandom.Pick(names.Values);
 
             var state = new GolemBoundUserInterfaceState(golemName, MetaData(args.User).EntityName);
-            _uiSystem.SetUiState(ui, state);
+            UserInterfaceSystem.SetUiState(ui, state);
         }
 
         private void OnDispelled(EntityUid uid, GolemComponent component, DispelledEvent args)
