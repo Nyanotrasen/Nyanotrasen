@@ -1,5 +1,6 @@
 using System.Linq;
 using Robust.Shared.Random;
+using Robust.Shared.Map;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.NPC.Components;
 using Content.Server.Psionics.Glimmer;
@@ -15,6 +16,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
     private static readonly string WispPrototype = "MobGlimmerWisp";
+    private static readonly string ShadePrototype = "MobShade";
 
     protected override void Started(EntityUid uid, GlimmerWispRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -25,7 +27,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
         var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
         var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, FactionComponent>().Count() / 10);
-        int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
+        int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 1);
 
         var total = baseCount * multiplier;
 
@@ -34,25 +36,35 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
-                EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(glimmerSources).Item2.Coordinates);
+                SpawnWisp(_robustRandom.Pick(glimmerSources).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (normalSpawnLocations.Count != 0)
             {
-                EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                SpawnWisp(_robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
 
             if (hiddenSpawnLocations.Count != 0)
             {
-                EntityManager.SpawnEntity(WispPrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
+                SpawnWisp(_robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
                 i++;
                 continue;
             }
             return;
+        }
+    }
+
+    // each wisp might bring a friend...
+    private void SpawnWisp(EntityCoordinates coordinates)
+    {
+        EntityManager.SpawnEntity(WispPrototype, coordinates);
+        if (_robustRandom.Prob(0.2f))
+        {
+            EntityManager.SpawnEntity(ShadePrototype, coordinates);
         }
     }
 }
