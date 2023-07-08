@@ -101,6 +101,17 @@
     - type: GlimmerWispRule
 
 - type: entity
+  id: GlimmerShadeSpawn
+  parent: BaseGlimmerEvent
+  noSpawn: true
+  components:
+    - type: GlimmerEvent
+      minimumGlimmer: 100
+      maximumGlimmer: 500
+      report: glimmer-event-report-signatures
+    - type: GlimmerShadeRule
+
+- type: entity
   id: FreeProber
   parent: BaseGlimmerEvent
   noSpawn: true
