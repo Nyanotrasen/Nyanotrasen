@@ -4,3 +4,11 @@
     path: /Audio/Voice/Moth/squeak_moth.ogg
     params:
       variation: 0.125
+
+- type: emoteSounds
+  id: Shade
+  sounds:
+    Scream:
+      collection: ShadeWails
+  params:
+    variation: 0.125
