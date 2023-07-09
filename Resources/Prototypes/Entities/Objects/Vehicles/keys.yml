@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: VehicleKeyPussyWagon
+  id: VehicleKeyJanicart
   name: janicart keys
   description: Interesting design.
   components:
@@ -9,13 +9,13 @@
   - type: Tag
     tags:
     - VehicleKey
-    - PussyWagonKeys
+    - JanicartKeys
   - type: Sprite
     sprite: Objects/Vehicles/pussywagon.rsi
     state: keys
 
 - type: entity
-  parent: VehicleKeyPussyWagon
+  parent: VehicleKeyJanicart
   id: VehicleKeySecway
   name: secway keys
   description: The keys to the future.
@@ -29,7 +29,7 @@
     state: keys
 
 - type: entity
-  parent: VehicleKeyPussyWagon
+  parent: VehicleKeyJanicart
   id: VehicleKeyATV
   name: ATV keys
   description: Think this looks like just one key? ATV keys means "actually two vehicle keys."
@@ -51,14 +51,14 @@
   - type: Tag
     tags:
     - VehicleKey
-    - PussyWagonKeys
+    - JanicartKeys
     - SecwayKeys
     - ATVKeys
     - SyndicateSegwayKeys
     - SkeletonMotorcycleKeys
 
 - type: entity
-  parent: VehicleKeyPussyWagon
+  parent: VehicleKeyJanicart
   id: VehicleKeySyndicateSegway
   name: syndicate segway keys
   description: Patterned after the iconic EMAG design.

@@ -38,8 +38,6 @@ ClothingUniformJumpskirtResearchDirector: ClothingUniformJumpskirtMystagogue
 ClothingOuterWinterRD: ClothingOuterWinterMystagogue
 
 # Nyano 2023-05-21: upstream map compat patch
-SpawnVehicleJanicart: SpawnVehiclePussywagon
-VehicleKeyJanicart: VehicleKeyPussyWagon
 LockerAtmosphericsFilledHardsuit: LockerAtmosphericsFilled
 LockerChiefEngineerFilledHardsuit: LockerChiefEngineerFilled
 LockerChiefMedicalOfficerFilledHardsuit: LockerChiefMedicalOfficerFilled
@@ -68,3 +66,7 @@ ParticleAcceleratorEmitterRightUnfinished: ParticleAcceleratorEmitterPortUnfinis
 
 # Nyano 2023-07-03
 ClothingOuterHardsuitRd: ClothingOuterHardsuitMystagogue
+
+# Nyano 2023-07-09
+SpawnVehiclePussywagon: SpawnVehicleJanicart
+VehicleKeyPussyWagon: VehicleKeyJanicart
