@@ -2,11 +2,9 @@ using System.Linq;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.NPC.Components;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.StationEvents.Events;
 
@@ -59,7 +57,7 @@ internal sealed class GlimmerRevenantSpawnRule : StationEventSystem<GlimmerReven
         }
     }
 
-    // each revnant might bring up to 2 friends...
+    // each revenant might bring up to 2 friends...
     private void SpawnRevenant(EntityCoordinates coordinates)
     {
         EntityManager.SpawnEntity(RevenantPrototype, coordinates);
