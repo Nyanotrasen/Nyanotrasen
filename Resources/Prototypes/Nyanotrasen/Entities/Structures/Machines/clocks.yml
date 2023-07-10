@@ -2,6 +2,7 @@
   parent: BaseStructure
   id: ClockGrandfather
   name: grandfather clock
+  description: Tick, tock.
   components:
   - type: AmbientSound
     sound: "/Audio/Nyanotrasen/Ambience/Objects/grandfather_clock_ticking.ogg"
@@ -13,3 +14,5 @@
     noRot: true
     layers:
     - state: clock
+    - state: hands
+    - state: glass

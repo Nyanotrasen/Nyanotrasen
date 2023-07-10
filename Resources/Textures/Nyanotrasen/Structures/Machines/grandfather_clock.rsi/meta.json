@@ -1,14 +1,20 @@
 {
   "version": 1,
-  "license": "Unknown",
-  "copyright": "From LifeWeb",
+  "license": "CC0",
+  "copyright": "By Rane",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "clock",
+        "name": "clock"
+    },
+    {
+        "name": "glass"
+    },
+    {
+      "name": "hands",
       "delays": [
         [
           0.5,
