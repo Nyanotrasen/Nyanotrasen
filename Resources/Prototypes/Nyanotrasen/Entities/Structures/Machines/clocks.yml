@@ -14,5 +14,7 @@
     noRot: true
     layers:
     - state: clock
-    - state: hands
+    - state: pendulum
     - state: glass
+    - state: hour_hand
+    - statE: minute_hand
