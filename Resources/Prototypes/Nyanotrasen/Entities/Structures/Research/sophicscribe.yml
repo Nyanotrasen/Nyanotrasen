@@ -33,21 +33,40 @@
 - type: npcConversationTree
   id: SophiaTree
   dialogue:
-  - prompts: [job, occupation, profession]
+  - prompts: [glimmer, reading]
     responses:
-      - text: sophia-response-job
+      - is: !type:NPCConversationGetGlimmerEvent
+          text: sophia-response-glimmer
+
+  - prompts: [job, occupation, profession]
+    weight: 0.5
+    responses:
+      - text: -job
+
   - prompts: [help, topics]
     weight: 0.5
     hidden: true
     responses:
       - is: !type:NPCConversationHelpEvent
           text: sophia-response-help
+
   - prompts: [hi, hello, hey, greetings, salutations]
     weight: 0.1
     hidden: true
     responses:
       - text: sophia-response-hello-1
       - text: sophia-response-hello-2
+
+  - prompts: [bye, goodbye, done, farewell, later, seeya]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: hecate-response-bye-1
+        event: !type:NPCConversationByeEvent
+      - text: hecate-response-bye-2
+        event: !type:NPCConversationByeEvent
+      - text: hecate-response-bye-3
+        event: !type:NPCConversationByeEvent
 
   attention:
     - text: sophia-response-attention-1
