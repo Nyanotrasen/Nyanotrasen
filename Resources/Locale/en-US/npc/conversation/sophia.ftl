@@ -22,4 +22,11 @@ sophia-response-sorry-3 = Maybe I know the answer, maybe I do not. Either way, I
 
 sophia-response-job = I observe the glimmer here, and record it.
 
-sophia-response-glimmer = The current glimmer reading is {$glimmer}. That is {$tier}.
+sophia-response-glimmer = The current glimmer reading is {$glimmer}. {$tier}
+
+glimmer-reading-minimal = That is extremely low. Nothing bad will happen, but I hope this is not at the cost of progression in your understanding of the universe.
+glimmer-reading-low = That is quite low. Just barely enough to register any psionic activity here.
+glimmer-reading-moderate = That is about the expected level on a psionically active station. You may notice manageable, minor effects.
+glimmer-reading-high = That is sure to start attracting attention, although still quite manageable.
+glimmer-reading-dangerous = That's a bit concerning. You may want to redirect efforts to reducing it.
+glimmer-reading-critical = That's apocalyptic, in the original sense of the word. That is, to say, revealing. This is the sort of time and place to acquire secret knowledge.

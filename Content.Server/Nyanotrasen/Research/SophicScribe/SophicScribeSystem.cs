@@ -35,7 +35,15 @@ namespace Content.Server.Research.SophicScribe
                 return;
             }
 
-            var tier = _glimmerSystem.GetGlimmerTier();
+            var tier = _glimmerSystem.GetGlimmerTier() switch
+            {
+                GlimmerTier.Minimal => Loc.GetString("glimmer-reading-minimal"),
+                GlimmerTier.Low => Loc.GetString("glimmer-reading-low"),
+                GlimmerTier.Moderate => Loc.GetString("glimmer-reading-moderate"),
+                GlimmerTier.High => Loc.GetString("glimmer-reading-high"),
+                GlimmerTier.Dangerous => Loc.GetString("glimmer-reading-dangerous"),
+                _ => Loc.GetString("glimmer-reading-critical"),
+            };
 
             var glimmerReadingText = Loc.GetString(args.Text,
                 ("glimmer", _glimmerSystem.Glimmer), ("tier", tier));
