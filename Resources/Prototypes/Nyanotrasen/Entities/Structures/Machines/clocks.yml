@@ -2,8 +2,8 @@
   parent: BaseStructure
   id: ClockGrandfather
   name: grandfather clock
-  description: Tick, tock.
   components:
+  - type: Clock
   - type: AmbientSound
     sound: "/Audio/Nyanotrasen/Ambience/Objects/grandfather_clock_ticking.ogg"
     range: 10
@@ -17,4 +17,6 @@
     - state: pendulum
     - state: glass
     - state: hour_hand
-    - statE: minute_hand
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute_hand
+      map: ["enum.ClockVisualLayers.MinuteHand"]
