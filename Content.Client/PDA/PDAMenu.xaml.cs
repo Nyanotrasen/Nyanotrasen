@@ -119,7 +119,7 @@ namespace Content.Client.PDA
             var date = Loc.GetString("standard-date", ("date", stationTime.Date));
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.Time.ToString("hh\\:mm\\:ss"))) + " " + date);
+                ("time", stationTime.Time.ToString("hh\\:mm\\:ss"))) + "  " + date);
             // end nyano change
 
             var alertLevel = state.PDAOwnerInfo.StationAlertLevel;
@@ -292,7 +292,7 @@ namespace Content.Client.PDA
             var date = Loc.GetString("standard-date", ("date", stationTime.Date));
 
             StationTimeLabel.SetMarkup(Loc.GetString("comp-pda-ui-station-time",
-                ("time", stationTime.Time.ToString("hh\\:mm\\:ss"))) + " " + date);
+                ("time", stationTime.Time.ToString("hh\\:mm\\:ss"))) + "  " + date);
             // end nyano change
         }
     }
