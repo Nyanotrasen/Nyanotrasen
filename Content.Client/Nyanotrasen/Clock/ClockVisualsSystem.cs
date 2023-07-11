@@ -23,7 +23,7 @@ namespace Content.Client.Nyanotrasen.Clock
             var minutes = stationTime.TotalSeconds % 60;
             var hours = stationTime.TotalHours % 12;
 
-            var minuteAngle = Angle.FromDegrees(45);
+            var minuteAngle = Angle.FromDegrees(Math.Round(minutes / 60 * 360));
             var hourAngle = Angle.FromDegrees(0 - (hours / 12 * 360));
 
             foreach (var (clock, sprite) in EntityQuery<AnalogueClockVisualsComponent, SpriteComponent>())
@@ -36,6 +36,24 @@ namespace Content.Client.Nyanotrasen.Clock
                 Logger.Error("X and Y vectors: " + minuteX + " " + minuteY);
 
                 var minuteVector = new Vector2((float) ((clock.Origin.X - minuteX) / 32), (float) ((clock.Origin.Y - minuteY) / 32));
+
+                minuteVector.X = minuteAngle.Degrees switch
+                {
+                    <= 90 => minuteVector.X,
+                    <= 180 => minuteVector.X + (float) ((minuteAngle.Degrees - 90) / 90) / 32,
+                    <= 270 => minuteVector.X, // There is a relationship here left to figure out
+                    _ => minuteVector.X + (float) (1 - (minuteAngle.Degrees - 270) / 90) / 32
+                };
+
+                Logger.Error("degrees: " + minuteAngle.Degrees);
+                minuteVector.Y = minuteAngle.Degrees switch
+                {
+                    <= 90 => minuteVector.Y - (float) (minuteAngle.Degrees / 90) / 32,
+                    <= 180 => minuteVector.Y, // And there is a relationship here left to figure out
+                    <= 270 => minuteVector.Y - (float) ((1 - (minuteAngle.Degrees - 270) / 90) / 32),
+                    _ => minuteVector.Y
+                };
+
                 sprite.LayerSetOffset(ClockVisualLayers.MinuteHand, minuteVector);
                 Logger.Error("Minute offset: " + minuteVector);
 
