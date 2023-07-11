@@ -10,7 +10,7 @@ namespace Content.Client.Nyanotrasen.Clock
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ClientGameTicker _ticker = default!;
         private TimeSpan _nextUpdate = TimeSpan.Zero;
-        private TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+        private TimeSpan UpdateInterval = TimeSpan.FromSeconds(60);
         public override void Update(float frameTime)
         {
             base.Update(frameTime);
@@ -19,12 +19,11 @@ namespace Content.Client.Nyanotrasen.Clock
                 return;
 
             var stationTime = _timing.CurTime.Subtract(_ticker.RoundStartTimeSpan).Add(TimeSpan.FromHours(12));
-            // var minutes = stationTime.TotalMinutes % 60;
-            var minutes = stationTime.TotalSeconds % 60;
+            var minutes = stationTime.TotalMinutes % 60;
             var hours = stationTime.TotalHours % 12;
 
-            var minuteAngle = Angle.FromDegrees(Math.Round(minutes / 60 * 360));
-            var hourAngle = Angle.FromDegrees(0 - Math.Round(hours / 12 * 360));
+            var minuteAngle = Angle.FromDegrees(360 - Math.Round(minutes / 60 * 360));
+            var hourAngle = Angle.FromDegrees(360 - Math.Round(hours / 12 * 360));
 
             foreach (var (clock, sprite) in EntityQuery<AnalogueClockVisualsComponent, SpriteComponent>())
             {
@@ -47,7 +46,7 @@ namespace Content.Client.Nyanotrasen.Clock
                 {
                     <= 90 => minuteVector.Y - (float) (minuteAngle.Degrees / 90) / 32,
                     <= 180 => minuteVector.Y - 0.03125f,
-                    <= 270 => minuteVector.Y - (float) ((1 - (minuteAngle.Degrees - 270) / 90) / 32),
+                    <= 270 => minuteVector.Y - (float) ((1 - (minuteAngle.Degrees - 180) / 90) / 32),
                     _ => minuteVector.Y
                 };
 
@@ -57,6 +56,24 @@ namespace Content.Client.Nyanotrasen.Clock
                 var hourX = clock.Origin.X * Math.Cos(hourAngle) - clock.Origin.Y * Math.Sin(hourAngle);
                 var hourY = clock.Origin.Y * Math.Cos(hourAngle) + clock.Origin.X * Math.Sin(hourAngle);
                 var hourVector = new Vector2((float) ((clock.Origin.X - hourX) / 32), (float) ((clock.Origin.Y - hourY) / 32));
+
+                hourVector.X = hourAngle.Degrees switch
+                {
+                    <= 90 => hourVector.X,
+                    <= 180 => hourVector.X + (float) ((hourAngle.Degrees - 90) / 90) / 32,
+                    <= 270 => hourVector.X + 0.03125f,
+                    _ => hourVector.X + (float) (1 - (hourAngle.Degrees - 270) / 90) / 32
+                };
+
+                hourVector.Y = hourAngle.Degrees switch
+                {
+                    <= 90 => hourVector.Y - (float) (hourAngle.Degrees / 90) / 32,
+                    <= 180 => hourVector.Y - 0.03125f,
+                    <= 270 => hourVector.Y - (float) ((1 - (hourAngle.Degrees - 180) / 90) / 32),
+                    _ => hourVector.Y
+                };
+
+
                 sprite.LayerSetOffset(ClockVisualLayers.HourHand, hourVector);
             }
             _nextUpdate = _timing.CurTime + UpdateInterval;
