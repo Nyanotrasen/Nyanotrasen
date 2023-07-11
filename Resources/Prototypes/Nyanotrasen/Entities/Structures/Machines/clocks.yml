@@ -4,6 +4,7 @@
   name: grandfather clock
   components:
   - type: Clock
+  - type: AnalogueClockVisuals
   - type: AmbientSound
     sound: "/Audio/Nyanotrasen/Ambience/Objects/grandfather_clock_ticking.ogg"
     range: 10
