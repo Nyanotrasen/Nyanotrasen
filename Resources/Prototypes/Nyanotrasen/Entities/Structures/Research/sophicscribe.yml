@@ -38,10 +38,10 @@
       - is: !type:NPCConversationGetGlimmerEvent
           text: sophia-response-glimmer
 
-  - prompts: [job, occupation, profession]
+  - prompts: [purpose, job, occupation, profession]
     weight: 0.5
     responses:
-      - text: -job
+      - text: sophia-response-job
 
   - prompts: [help, topics]
     weight: 0.5
@@ -49,6 +49,43 @@
     responses:
       - is: !type:NPCConversationHelpEvent
           text: sophia-response-help
+
+  - prompts: [nature, statue, being]
+    weight: 0.3
+    responses:
+      - text: sophia-response-nature
+
+  - prompts: [epistemics, epi]
+    weight: 0.2
+    responses:
+      - text: sophia-response-epi
+
+  - prompts: [mantis]
+    weight: 0.2
+    responses:
+      - text: sophia-response-mantis
+
+  - prompts: [mystagogue, mysta]
+    weight: 0.2
+    responses:
+      - text: sophia-response-mystagogue
+
+
+  - prompts: [psionics, psychic]
+    weight: 0.2
+    responses:
+      - text: sophia-response-psionics
+
+  - prompts: [noösphere, noosphere]
+    weight: 0.2
+    responses:
+      - text: sophia-response-noosphere
+
+  - prompts: [oracle]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-oracle
 
   - prompts: [hi, hello, hey, greetings, salutations]
     weight: 0.1
