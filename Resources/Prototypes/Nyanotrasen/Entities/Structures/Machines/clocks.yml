@@ -21,3 +21,45 @@
       map: ["enum.ClockVisualLayers.HourHand"]
     - state: minute_hand
       map: ["enum.ClockVisualLayers.MinuteHand"]
+
+- type: entity
+  parent: BaseStructure
+  id: ClockWall
+  name: wall clock
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clock
+  - type: AnalogueClockVisuals
+    origin: "-1, 8"
+  - type: WallMount
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/wall_clock.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+    - state: hour
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute
+      map: ["enum.ClockVisualLayers.MinuteHand"]
+
+
+- type: entity
+  parent: BaseItem
+  id: ClockWatchPocket
+  name: pocket watch
+  components:
+  - type: Clock
+  - type: AnalogueClockVisuals
+    origin: "-1, 1"
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Watches/pocket_watch.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+    - state: hour
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute
+      map: ["enum.ClockVisualLayers.MinuteHand"]
