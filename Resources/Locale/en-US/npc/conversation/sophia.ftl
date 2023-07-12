@@ -34,7 +34,19 @@ sophia-response-psionics = Psionics are extraordinary abilities originating from
 
 sophia-response-noosphere = The noösphere is a field connecting all of consciousness. It's the medium through which psionics works. Its strength and effects on the illusory world of the material are based on its pressure. Colloquially, noöspheric pressure is called 'glimmer.'
 
+sophia-response-god = 'God' is such a vague term. There are so many entities out there that have defeated mortality. How you choose to regard them is your business.
+
+sophia-response-morphotype = In the first century PCC, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories.
+
+sophia-response-calendar = It's currently 417 PCC. The casuality crisis neccesitated a new year to count from. Due to the nature of the crisis, it can only be said with certainty that 1 PCC is between 2400 and 2700 CE.
+
+sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
+
+sophia-response-truth = If you seek the truth, you're in the wrong place. From a perspective tainted by material reality, the best you can hope is to try and divine higher truths that are not dependent on it.
+
 sophia-response-job = I observe the glimmer here, and record it.
+
+sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
 
 sophia-response-glimmer = The current glimmer reading is {$glimmer}. {$tier}
 
