@@ -18,13 +18,12 @@ internal sealed class GlimmerShadeSpawnRule : StationEventSystem<GlimmerShadeRul
     {
         base.Started(uid, component, gameRule, args);
 
-
         var rottingPlaces = EntityManager.EntityQuery<RottingComponent, TransformComponent>().ToList();
         var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
         var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
         float chance = 0.15f * (float) _glimmerSystem.GetGlimmerTier();
-        int guaranteedSpawns = _robustRandom.Next(1, (int) _glimmerSystem.GetGlimmerTier());
+        int guaranteedSpawns = _robustRandom.Next(1, (int) _glimmerSystem.GetGlimmerTier() + 1);
 
         // Spawn on top of rotting stuff first.
         foreach(var (rot, xform) in rottingPlaces)
