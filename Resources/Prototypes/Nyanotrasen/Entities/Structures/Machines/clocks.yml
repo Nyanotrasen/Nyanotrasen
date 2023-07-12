@@ -44,7 +44,6 @@
     - state: minute
       map: ["enum.ClockVisualLayers.MinuteHand"]
 
-
 - type: entity
   parent: BaseItem
   id: ClockWatchPocket
