@@ -50,10 +50,11 @@ namespace Content.Server.GameTicking
                     {
                         var data = new PlayerData(session.UserId, args.Session.Name);
                         data.Mind = mind;
+                        data.Whitelisted = await _db.GetWhitelistStatusAsync(session.UserId);
                         session.Data.ContentDataUncast = data;
-                    }
 
-                    CacheWhitelist(session);
+                        _playTimeTrackingManager.SendWhitelistCached(session);
+                    }
 
                     // Make the player actually join the game.
                     // timer time must be > tick length
@@ -126,12 +127,6 @@ namespace Content.Server.GameTicking
             {
                 await _userDb.WaitLoadComplete(session);
                 SpawnPlayer(session, EntityUid.Invalid);
-            }
-
-            async void CacheWhitelist(IPlayerSession whiteSession)
-            {
-                whiteSession.ContentData()!.Whitelisted = await _db.GetWhitelistStatusAsync(whiteSession.UserId);
-                _playTimeTrackingManager.SendWhitelist(session);
             }
 
             async void SpawnObserverWaitDb()
