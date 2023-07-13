@@ -64,3 +64,19 @@
   - type: ClothingGrantPsionicPower
     power: NoosphericZapPower
   - type: Psionic
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: felinidcone
+  name: ZE CONE OF ALL-SEEING
+  description: CONE CONE!!!?!??!?!??!?!!
+  abstract: true
+  components:
+  - type: IngestionBlocker
+  - type: ClothingGrantPsionicPower
+    power: TelegnosisPower
+  - type: Psionic
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Mask/felinidcone.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Mask/felinidcone.rsi

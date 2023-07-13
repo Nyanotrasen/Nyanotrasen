@@ -28,3 +28,16 @@
     sprite: Nyanotrasen/Clothing/Mask/mask_oni_red.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Mask/mask_oni_red.rsi
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: felinidcone
+  name: Recovery cone
+  description: A recovery cone adapted for felinids and other animal-based morthotypes.
+  abstract: true
+  components:
+  - type: IngestionBlocker
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Mask/felinidcone.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Mask/felinidcone.rsi
