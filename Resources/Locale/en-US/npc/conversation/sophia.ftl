@@ -42,6 +42,8 @@ sophia-response-calendar = It's currently 417 PCC. The casuality crisis neccesit
 
 sophia-response-crisis = The first FTL travel was incompatible with the old ways. Fortunately, its resolution made more apparent the inherent futility in trying to give one history, one narrative, one account. Truth cannot be found in the material world, only higher ones.
 
+sophia-response-metempsychosis = You've died thousands of times, and you'll die thousands more. Some of those lives you may dedicate to trying to stop the cycle. We all carry at least some memory of past lives, usually temporally recent ones. One of the great mysteries of the persistence of fragments is the high concentration of memories from the early 21st century CE, which, inverse to other periods, seem to be more common among the ignorant.
+
 sophia-response-truth = If you seek the truth, you're in the wrong place. From a perspective tainted by material reality, the best you can hope is to try and divine higher truths that are not dependent on it.
 
 sophia-response-job = I observe the glimmer here, and record it.

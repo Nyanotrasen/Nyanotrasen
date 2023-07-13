@@ -80,6 +80,11 @@
     responses:
       - text: sophia-response-noosphere
 
+  - prompts: [metempsychosis, metempsychoses, reincarnation, death, dying, afterlife]
+    weight: 0.2
+    responses:
+      - text: sophia-response-metempsychosis
+
   - prompts: [calendar]
     weight: 0.2
     responses:
