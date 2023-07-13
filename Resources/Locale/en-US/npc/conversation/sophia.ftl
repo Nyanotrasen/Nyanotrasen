@@ -36,7 +36,7 @@ sophia-response-noosphere = The noösphere is a field connecting all of consciou
 
 sophia-response-god = 'God' is such a vague term. There are so many entities out there that have defeated mortality. How you choose to regard them is your business.
 
-sophia-response-morphotype = In the first century PCC, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories.
+sophia-response-morphotype = In the first century PCC, several entities reshaped men into their image. I had done the same, if you would believe it. I can offer no evidence of their existence, other than faint memories. Any specific morphotype you want to know about?
 
 sophia-response-calendar = It's currently 417 PCC. The casuality crisis neccesitated a new year to count from. Due to the nature of the crisis, it can only be said with certainty that 1 PCC is between 2400 and 2700 CE.
 
@@ -46,7 +46,23 @@ sophia-response-truth = If you seek the truth, you're in the wrong place. From a
 
 sophia-response-job = I observe the glimmer here, and record it.
 
+sophia-response-human = Humans were the base for all the others. But they, too, were shaped. Long, long before the others.
+
+sophia-response-felinid = Felinids were the first, and the most willing. In true feline nature, they shaped themselves.
+
+sophia-response-oni = Oni, it is said, originated in Sirius. The brightest star in the night sky from Earth may have attracted some chromatically inclined entities, explaining their vivid coloring. But, that's just speculation.
+
+sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They took the form of humans, but not their genes. Their creator wrote his name in their stead.
+
+sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. Their creator shares his name with a genus of moths, and was responsible for the other outlier.
+
 sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
+
+sophia-response-cyno = Were those... no... So faint. Ignorance! You cannot remember them! It's impossible!
+
+sophia-response-grue = You do not know of those. You cannot. I had so hoped to live a few cycles under normal causality.
+
+sophia-response-abraxas = That's a name of power, and I avoid speaking of him. He's the least content to rest, and the most infatuated with creating things from ignorance.
 
 sophia-response-glimmer = The current glimmer reading is {$glimmer}. {$tier}
 

@@ -96,17 +96,59 @@
     responses:
       - text: sophia-response-god
 
-  - prompts: [lamiae, lamia]
-    weight: 0.1
-    hidden: true
-    responses:
-      - text: sophia-response-lamiae
-
   - prompts: [truth, "true", "false", falsity, falsehood]
     weight: 0.1
     hidden: true
     responses:
       - text: sophia-response-truth
+
+  - prompts: [human, humans, humanoid, unmutated]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-human
+
+  - prompts: [felinid, felinids, felid, felids, catperson, catpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-felinid
+
+  - prompts: [oni, onis]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-oni
+
+  - prompts: [arachne, arachnid, arachnids, spiderperson, spiderpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-arachne
+
+  - prompts: [moth, moths, moff, moths]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-moth
+
+  - prompts: [lamiae, lamia, lamias]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-lamiae
+
+  - prompts: [grue, grues, batperson, batpeople]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-grue
+
+  - prompts: [cynocephalus, cynocephali, cyno, cynos]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-cyno
 
   - prompts: [crisis, causality]
     weight: 0.1
@@ -119,6 +161,12 @@
     hidden: true
     responses:
       - text: sophia-response-oracle
+
+  - prompts: [abraxas]
+    weight: 0.1
+    hidden: true
+    responses:
+      - text: sophia-response-abraxas
 
   - prompts: [hi, hello, hey, greetings, salutations]
     weight: 0.1
