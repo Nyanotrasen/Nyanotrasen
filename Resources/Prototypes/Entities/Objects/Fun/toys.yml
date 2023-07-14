@@ -103,6 +103,24 @@
 
 - type: entity
   parent: BasePlushie
+  id: PlushieLizard
+  name: lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    state: plushie_lizard
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSpaceLizard
+  name: space lizard plushie
+  description: An adorable stuffed toy that resembles a lizardperson in an EVA suit. Made by CentCom as a token initiative to combat speciesism in space environments. "Welcome your new colleges as you do this plush, with open arms!"
+  components:
+  - type: Sprite
+    state: plushie_spacelizard
+
+- type: entity
+  parent: BasePlushie
   id: PlushieSharkBlue
   name: blue shark soft toy
   description: Big and safe to have by your side if you want to discover the world below the surface of the ocean.
