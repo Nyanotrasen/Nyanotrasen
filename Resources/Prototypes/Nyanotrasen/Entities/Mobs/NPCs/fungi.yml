@@ -1,17 +1,24 @@
 - type: entity
   parent: SimpleSpaceMobBase
+  id: MobFungusBase
+  name: fungus
+  abstract: true
+  components:
+  - type: Bloodstream
+    bloodReagent: Mold
+  - type: PsionicInsulation
+
+- type: entity
+  parent: MobFungusBase
   id: MobFungusGasSpore
   name: gas spore
   description: A floating ball of gas.
   components:
-  - type: Bloodstream
-    bloodReagent: Mold
   - type: CombatMode
     combatToggleAction:
       enabled: false
       autoPopulate: false
       name: action-name-combat
-  - type: PsionicInsulation
   - type: GasCanister
     gasMixture:
       volume: 200
