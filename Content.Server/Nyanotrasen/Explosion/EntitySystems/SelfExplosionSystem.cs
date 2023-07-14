@@ -1,25 +1,7 @@
 using Content.Server.Explosion.Components;
 using Content.Shared.Actions;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Audio;
-using Content.Shared.StatusEffect;
-using Content.Shared.Throwing;
-using Content.Shared.Item;
-using Content.Shared.Inventory;
-using Content.Shared.Hands;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Nutrition.EntitySystems;
-using Content.Server.Body.Components;
-using Content.Server.Medical;
-using Content.Server.Nutrition.EntitySystems;
-using Content.Server.Nutrition.Components;
-using Content.Server.Chemistry.EntitySystems;
-using Content.Server.Popups;
-using Robust.Shared.Audio;
-using Robust.Shared.Player;
-using Robust.Shared.Random;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Explosion.EntitySystems
@@ -53,15 +35,16 @@ namespace Content.Server.Explosion.EntitySystems
             args.Handled = true;
         }
 
-        private void ExplodeSelf(EntityUid uid, SelfExploderComponent? component)
+        public bool ExplodeSelf(EntityUid uid, SelfExploderComponent? component)
         {
             if (!Resolve(uid, ref component))
-                return;
+                return false;
 
             if (!_blocker.CanInteract(uid, null))
-                return;
+                return false;
 
             _explosionSystem.TriggerExplosive(uid, user: uid);
+            return true;
         }
     }
 
