@@ -65,6 +65,9 @@
         solution: bloodstream
       - !type:ExplodeBehavior
   - type: SelfExploder
+    selfDamage:
+      groups:
+        Brute: 100
   - type: Explosive
     explosionType: Default
     maxIntensity: 6
@@ -74,11 +77,6 @@
     baseWalkSpeed : 1.5
     baseSprintSpeed : 1.5
   - type: Sprite
-    netsync: false
     noRot: true
-    drawdepth: Ghosts
-    sprite: Nyanotrasen/Mobs/Monster/glimmer_wisp.rsi
-    state: willowisp
-    layers:
-      - state: willowisp
-        shader: unshaded
+    sprite: Nyanotrasen/Mobs/Fungi/gas_spore.rsi
+    state: gas_spore

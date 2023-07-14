@@ -1,7 +1,9 @@
 using Content.Server.Explosion.Components;
+using Content.Server.Destructible;
 using Content.Shared.Actions;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Explosion.EntitySystems
@@ -12,6 +14,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
         [Dependency] private readonly ActionBlockerSystem _blocker = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         public override void Initialize()
         {
@@ -43,7 +46,17 @@ namespace Content.Server.Explosion.EntitySystems
             if (!_blocker.CanInteract(uid, null))
                 return false;
 
-            _explosionSystem.TriggerExplosive(uid, user: uid);
+            // If they have no special destruction behavior, just explode directly
+            if (!HasComp<DestructibleComponent>(uid))
+            {
+                _explosionSystem.TriggerExplosive(uid, user: uid);
+            }
+            // yeah this kind of sucks but destructible sucks
+            else
+            {
+                _damageableSystem.TryChangeDamage(uid, component.SelfDamage, true);
+            }
+
             return true;
         }
     }
