@@ -1,0 +1,11 @@
+advertisement-parrot-1 = 1
+advertisement-parrot-2 = 2
+advertisement-parrot-3 = 3
+advertisement-parrot-4 = 4
+advertisement-parrot-5 = 5
+advertisement-parrot-6 = 6
+advertisement-parrot-7 = 7
+advertisement-parrot-8 = 8
+advertisement-parrot-9 = 9
+advertisement-parrot-10 = 10
+advertisement-parrot-11 = 11
