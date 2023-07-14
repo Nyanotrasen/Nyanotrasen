@@ -1,0 +1,65 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobFungusGasSpore
+  name: gas spore
+  description: A floating ball of gas.
+  components:
+  - type: Bloodstream
+    bloodReagent: Mold
+  - type: GasCanister
+    gasMixture:
+      volume: 200
+      moles:
+        - 0 # oxygen
+        - 0 # nitrogen
+        - 0 # CO2
+        - 0 # Plasma
+        - 0 # Tritium
+        - 0 #  Water vapor
+        - 300 # Miasma
+      temperature: 293.15
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: FloatingVisuals
+  - type: Fixtures
+    fixtures:
+      fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 20
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      35: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 35
+      behaviors:
+      - !type:DumpCanisterBehavior
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 15
+    intensitySlope: 15
+    totalIntensity: 170
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.8
+    baseSprintSpeed : 1.8
+  - type: Sprite
+    netsync: false
+    noRot: true
+    drawdepth: Ghosts
+    sprite: Nyanotrasen/Mobs/Monster/glimmer_wisp.rsi
+    state: willowisp
+    layers:
+      - state: willowisp
+        shader: unshaded
