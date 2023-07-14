@@ -11,7 +11,7 @@
       - state: server_o
         map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ResearchServer
-    # passiveLimitPerSource: 7500
+    passiveLimitPerSource: 7500
   - type: TechnologyDatabase
     supportedDisciplines:
     - Industrial

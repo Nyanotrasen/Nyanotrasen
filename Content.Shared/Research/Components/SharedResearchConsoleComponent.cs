@@ -28,10 +28,16 @@ namespace Content.Shared.Research.Components
     [Serializable, NetSerializable]
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
+        // Begin Nyano-code: limit passive point generation.
         public int Points;
-        public ResearchConsoleBoundInterfaceState(int points)
+        public int PointsPerSecond;
+        public int PointsLimit;
+        public ResearchConsoleBoundInterfaceState(int points, int pointsPerSecond, int pointsLimit)
         {
             Points = points;
+            PointsPerSecond = pointsPerSecond;
+            PointsLimit = pointsLimit;
         }
+        // End Nyano-code.
     }
 }

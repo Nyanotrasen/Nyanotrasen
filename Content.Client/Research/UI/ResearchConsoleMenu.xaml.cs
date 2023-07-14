@@ -115,10 +115,14 @@ public sealed partial class ResearchConsoleMenu : FancyWindow
 
     public void UpdateInformationPanel(ResearchConsoleBoundInterfaceState state)
     {
-        var amountMsg = new FormattedMessage();
-        amountMsg.AddMarkup(Loc.GetString("research-console-menu-research-points-text",
-            ("points", state.Points)));
-        ResearchAmountLabel.SetMessage(amountMsg);
+        // Begin Nyano-code: limit passive point generation.
+        var pointsMsg = new FormattedMessage();
+        pointsMsg.AddMarkup(Loc.GetString("research-console-menu-research-points-detailed-text",
+            ("points", state.Points),
+            ("pointsPerSecond", state.PointsPerSecond),
+            ("pointsLimit", state.PointsLimit)));
+        ResearchAmountLabel.SetMessage(pointsMsg);
+        // End Nyano-code.
 
         if (_technologyDatabase == null)
             return;

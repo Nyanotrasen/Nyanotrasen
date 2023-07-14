@@ -50,14 +50,19 @@ public sealed partial class ResearchSystem
 
         ResearchConsoleBoundInterfaceState state;
 
-        if (TryGetClientServer(uid, out _, out var serverComponent, clientComponent))
+        if (TryGetClientServer(uid, out var server, out var serverComponent, clientComponent) &&
+            clientComponent.ConnectedToServer)
         {
-            var points = clientComponent.ConnectedToServer ? serverComponent.Points : 0;
-            state = new ResearchConsoleBoundInterfaceState(points);
+            // Begin Nyano-code: limit passive point generation.
+            var points = serverComponent.Points;
+            var pointsPerSecond = GetPointsPerSecond(server.Value, serverComponent);
+            var pointsLimit = serverComponent.PassiveLimitPerSource * serverComponent.PointSourcesLastUpdate;
+            state = new ResearchConsoleBoundInterfaceState(points, pointsPerSecond, pointsLimit);
+            // End Nyano-code.
         }
         else
         {
-            state = new ResearchConsoleBoundInterfaceState(default);
+            state = new ResearchConsoleBoundInterfaceState(default, default, default);
         }
 
         _uiSystem.TrySetUiState(uid, ResearchConsoleUiKey.Key, state);

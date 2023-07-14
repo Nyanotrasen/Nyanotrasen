@@ -92,6 +92,9 @@ public sealed partial class AnomalySystem
             return;
         }
 
+        // Begin Nyano-code: limit passive point generation.
+        args.Sources++;
+        // End Nyano-code.
         args.Points += (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier);
     }
 

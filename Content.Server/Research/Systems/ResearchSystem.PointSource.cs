@@ -14,7 +14,12 @@ public sealed partial class ResearchSystem
     private void OnGetPointsPerSecond(EntityUid uid, ResearchPointSourceComponent component, ref ResearchServerGetPointsPerSecondEvent args)
     {
         if (CanProduce(component))
+        {
             args.Points += component.PointsPerSecond;
+            // Begin Nyano-code: limit passive point generation.
+            args.Sources++;
+            // End Nyano-code.
+        }
     }
 
     public bool CanProduce(ResearchPointSourceComponent component)
