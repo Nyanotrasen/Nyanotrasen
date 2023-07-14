@@ -353,9 +353,9 @@
   description: An MNK outfit within office dress code.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/office_skirt.rsi
+    sprite: Nyanotrasen/Clothing/Misc/office_skirt.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/office_skirt.rsi
+    sprite: Nyanotrasen/Clothing/Misc/office_skirt.rsi
     femaleMask: NoMask
 - type: entity
   parent: ClothingUniformBase
@@ -364,9 +364,9 @@
   description: MNK ensured comfort for the important bits.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/under_garments.rsi
+    sprite: Nyanotrasen/Clothing/Misc/under_garments.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/under_garments.rsi
+    sprite: Nyanotrasen/Clothing/Misc/under_garments.rsi
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformMNKGymBra
@@ -374,9 +374,9 @@
   description: Maximum performance with MNK sweat blockers.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/gym_bra.rsi
+    sprite: Nyanotrasen/Clothing/Misc/gym_bra.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/gym_bra.rsi 
+    sprite: Nyanotrasen/Clothing/Misc/gym_bra.rsi 
     femaleMask: NoMask
 - type: entity
   parent: ClothingUniformBase
@@ -385,9 +385,9 @@
   description: A sleek black dress sporting a MNK window.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/black_dress.rsi
+    sprite: Nyanotrasen/Clothing/Misc/black_dress.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/black_dress.rsi 
+    sprite: Nyanotrasen/Clothing/Misc/black_dress.rsi 
     femaleMask: UnifromTop
 - type: entity
   parent: ClothingUniformBase
@@ -396,9 +396,9 @@
   description: A comfy undershirt and thick black MNK overalls.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/black_overall.rsi
+    sprite: Nyanotrasen/Clothing/Misc/black_overall.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/black_overall.rsi 
+    sprite: Nyanotrasen/Clothing/Misc/black_overall.rsi 
     femaleMask: NoMask
 - type: entity
   parent: ClothingUniformBase
@@ -407,9 +407,9 @@
   description: A MNK outfit with exposed shoulders.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/exposed_shoulder.rsi
+    sprite: Nyanotrasen/Clothing/Misc/exposed_shoulder.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/Uniforms/Misc/exposed_shoulder.rsi 
+    sprite: Nyanotrasen/Clothing/Misc/exposed_shoulder.rsi 
     femaleMask: UniformTop  
 - type: entity
   parent: ClothingUniformBase
