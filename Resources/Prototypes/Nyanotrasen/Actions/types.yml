@@ -145,3 +145,11 @@
   charges: 1
   useDelay: 30
   serverEvent: !type:HairballActionEvent
+
+- type: instantAction
+  id: ExplodeSelf
+  name: explode-self-text
+  description: explode-self-description
+  icon: { sprite: Effects/explosion.rsi, state: explosion }
+  itemIconStyle: BigAction
+  serverEvent: !type:ExplodeSelfActionEvent
