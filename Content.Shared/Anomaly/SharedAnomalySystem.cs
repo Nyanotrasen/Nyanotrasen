@@ -5,7 +5,6 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Psionics.Glimmer;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
@@ -24,7 +23,6 @@ public abstract class SharedAnomalySystem : EntitySystem
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private readonly GlimmerSystem _glimmer = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -155,7 +153,6 @@ public abstract class SharedAnomalySystem : EntitySystem
         Appearance.SetData(uid, AnomalyVisuals.IsPulsing, true);
 
         var ev = new AnomalyPulseEvent(component.Stability, component.Severity);
-        _glimmer.Glimmer += (int) (5f * component.Severity);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -200,7 +197,6 @@ public abstract class SharedAnomalySystem : EntitySystem
             _sawmill.Info($"Raising supercritical event. Entity: {ToPrettyString(uid)}");
 
         var ev = new AnomalySupercriticalEvent();
-        _glimmer.Glimmer += 100;
         RaiseLocalEvent(uid, ref ev);
 
         EndAnomaly(uid, component, true);

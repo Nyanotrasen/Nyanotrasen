@@ -1,6 +1,7 @@
 ﻿using Content.Server.Anomaly.Components;
 using Content.Server.Construction;
 using Content.Server.Power.EntitySystems;
+using Content.Server.Psionics.Glimmer;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Examine;
@@ -87,8 +88,14 @@ public sealed partial class AnomalySystem
 
     private void OnVesselGetPointsPerSecond(EntityUid uid, AnomalyVesselComponent component, ref ResearchServerGetPointsPerSecondEvent args)
     {
+        GlimmerSourceComponent? glimmerSource = null;
+
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
         {
+            // Begin Nyano-code: tie anomaly vessels to glimmer rate.
+            if (TryComp<GlimmerSourceComponent>(uid, out glimmerSource))
+                glimmerSource.Active = false;
+            // End Nyano-code.
             return;
         }
 
@@ -96,6 +103,11 @@ public sealed partial class AnomalySystem
         args.Sources++;
         // End Nyano-code.
         args.Points += (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier);
+
+        // Begin Nyano-code: tie anomaly vessels to glimmer rate.
+        if (TryComp<GlimmerSourceComponent>(uid, out glimmerSource))
+            glimmerSource.Active = true;
+        // End Nyano-code.
     }
 
     private void OnUnpaused(EntityUid uid, AnomalyVesselComponent component, ref EntityUnpausedEvent args)
