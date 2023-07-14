@@ -1115,8 +1115,8 @@
     rootTask: IdleEvadeCompound
   - type: Speech
   - type: Advertise
-    minWait: 1
-    maxWait: 2
+    minWait: 30
+    maxWait: 240
     pack: ParrotAds
 
 - type: entity
