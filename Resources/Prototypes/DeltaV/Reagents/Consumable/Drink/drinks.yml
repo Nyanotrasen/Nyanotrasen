@@ -5,7 +5,7 @@
   desc: reagent-desc-dulleavene
   physicalDesc: reagent-physical-desc-strong-smelling
   flavor: dulleavene
-  color: "#994422"
+  color: "#ff7f00"
   metamorphicSprite:
     sprite: DeltaV/Objects/Consumable/Drinks/dulleavene.rsi
     state: icon
@@ -14,12 +14,9 @@
       effects:
       - !type:SatiateThirst
         factor: 2
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 0.5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.55
 
 - type: reagent
   id: Gunmetal #Credit to DinkusMcsplinkus for inspiring this drink. This could've also been called "Creamy Ignition"
