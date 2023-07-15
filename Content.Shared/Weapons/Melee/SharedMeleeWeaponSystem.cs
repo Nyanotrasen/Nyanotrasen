@@ -441,8 +441,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     animation = weapon.ClickAnimation;
                     break;
                 case HeavyAttackEvent heavy:
-                    DoHeavyAttack(user, heavy, weaponUid, weapon, session, out var playLunge);
-                    lunge = playLunge;
+                    DoHeavyAttack(user, heavy, weaponUid, weapon, session, out lunge);
                     animation = weapon.WideAnimation;
                     break;
                 default:
@@ -548,7 +547,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
             else if (GetDamage(meleeUid, user, component).Total.Equals(FixedPoint2.Zero) && component.HitSound != null)
             {
-                Audio.PlayPredicted(component.HitSound, component.Owner, user);
+                Audio.PlayPredicted(component.HitSound, meleeUid, user);
             }
             else
             {
