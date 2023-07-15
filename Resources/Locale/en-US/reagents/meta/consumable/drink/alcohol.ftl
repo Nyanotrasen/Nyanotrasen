@@ -284,3 +284,6 @@ reagent-desc-daiquiri = A sweet rum and lime mix, a favourite of writers and pol
 
 reagent-name-arsonistsbrew = arsonist's brew
 reagent-desc-arsonistsbrew = Take a sip and laugh, while you watch your world burn.
+
+reagent-name-dulleavene = dulleavene
+reagent-desc-dulleavene = Allegedly it's a cocktail. The warning cone motif seems apt.

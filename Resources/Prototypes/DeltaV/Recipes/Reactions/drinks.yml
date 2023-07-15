@@ -1,4 +1,18 @@
 - type: reaction
+  id: Dulleavene
+  reactants:
+    Gargleblaster
+      amount: 1
+    Moonshine
+      amount: 1
+    VodkaMartini
+      amount: 1
+    Vermouth
+      amount: 1
+  products:
+    Dulleavene: 4
+
+- type: reaction
   id: Gunmetal
   reactants:
     Cream:
