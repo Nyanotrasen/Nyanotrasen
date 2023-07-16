@@ -1,4 +1,4 @@
-﻿## Implanter Attempt Messages
+## Implanter Attempt Messages
 
 implanter-component-implanting-target = {$user} is trying to implant you with something!
 implanter-draw-failed-permanent = The {$implant} in {$target} is fused with them and cannot be removed!
@@ -26,3 +26,8 @@ use-freedom-implant-action-description = Activating your freedom implant will fr
 
 open-uplink-implant-action-name = Open Uplink
 open-uplink-implant-action-description = Opens the syndicate uplink embedded under your skin
+
+## Implanter Messages
+
+deathrattle-implant-dead-message = {$user} has died at {$position}.
+deathrattle-implant-critical-message = {$user} life signs critical, immediate assistance required at {$position}.
