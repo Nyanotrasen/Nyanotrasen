@@ -1,4 +1,4 @@
-﻿# Tier 1
+# Tier 1
 
 - type: technology
   id: Chemistry
@@ -98,6 +98,7 @@
   cost: 10000
   recipeUnlocks:
   - HandheldCrewMonitor
+  - CrewMonitoringComputerCircuitboard
 
 # Tier 3
 
@@ -112,6 +113,6 @@
   cost: 15000
   recipeUnlocks:
   - CloningPodMachineCircuitboard
-  - MedicalScannerMachineCircuitboard
-  - CloningConsoleComputerCircuitboard
-  - BiomassReclaimerMachineCircuitboard
+  # - MedicalScannerMachineCircuitboard
+  # - CloningConsoleComputerCircuitboard
+  # - BiomassReclaimerMachineCircuitboard

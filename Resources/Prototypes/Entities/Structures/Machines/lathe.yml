@@ -50,11 +50,14 @@
   - type: ResearchClient
   - type: TechnologyDatabase
 
+# This entity has been retired in favor of specialized techfabs.
+# It remains to support the tests that require its continued existence.
 - type: entity
-  id: Autolathe
+  id: Autolathe # RETIRED
   parent: BaseLathe
   name: autolathe
   description: It produces items using metal and glass.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -80,31 +83,15 @@
   - type: Lathe
     idleState: icon
     runningState: building
-    staticRecipes:
-      - Wirecutter
-      - Screwdriver
-      - Welder
-      - Wrench
-      - Crowbar
-      - Multitool
-      - NetworkConfigurator
-      - AirlockPainter
-      - MiniHoe
-      - Shovel
-      - Spade
-      - CableStack
-      - CableMVStack
-      - CableHVStack
-      - HandheldGPSBasic
-      - TRayScanner
-      - GasAnalyzer
-      - UtilityBelt
 
+# This entity has been retired in favor of specialized techfabs.
+# It remains to support the tests that require its continued existence.
 - type: entity
-  id: Protolathe
+  id: Protolathe # RETIRED
   parent: BaseLathe
   name: protolathe
   description: Converts raw materials into useful objects.
+  noSpawn: true
   components:
   - type: Sprite
     sprite: Structures/Machines/protolathe.rsi
@@ -133,65 +120,6 @@
   - type: Lathe
     idleState: icon
     runningState: building
-    dynamicRecipes:
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlastic
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetRGlass
-      - SheetGlass1
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
-      - ConveyorBeltAssembly
-      - AppraisalTool
-      - HandheldCrewMonitor
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - Saw
-      - Hemostat
-      - Beaker
-      - LargeBeaker
-      - Dropper
-      - Syringe
-      - Implanter
-      - PillCanister
-      - ChemistryEmptyBottle01
-      - Flash
-      - MicroManipulatorStockPart
-      - MatterBinStockPart
-      - CapacitorStockPart
-      - AdvancedCapacitorStockPart
-      - AdvancedMatterBinStockPart
-      - NanoManipulatorStockPart
-      - SuperCapacitorStockPart
-      - SuperMatterBinStockPart
-      - PicoManipulatorStockPart
-      - FirelockElectronics
-      - DoorElectronics
-      - APCElectronics
-      - AirAlarmElectronics
-      - StationMapElectronics
-      - FireAlarmElectronics
-      - IntercomElectronics
-      - MailingUnitElectronics
-      - SignalTimerElectronics
-      - MopItem
-      - SprayBottle
-      - MegaSprayBottle
-      - FireExtinguisher
-      - FlashlightLantern
-      - TimerTrigger
-      - Signaller
-      - SignalTrigger
-      - VoiceTrigger
-      - PowerCellMedium
-      - PowerCellHigh
 
 - type: entity
   id: CircuitImprinter
@@ -215,77 +143,85 @@
     producingSound: /Audio/Machines/circuitprinter.ogg
     idleState: icon
     runningState: building
-    dynamicRecipes:
-      - FirelockElectronics
-      - DoorElectronics
+    staticRecipes:
       - APCElectronics
       - AirAlarmElectronics
-      - StationMapElectronics
+      - CellRechargerCircuitboard
+      - DoorElectronics
       - FireAlarmElectronics
-      - MailingUnitElectronics
+      - FirelockElectronics
       - IntercomElectronics
+      - MailingUnitElectronics
+      - SMESMachineCircuitboard
       - SignalTimerElectronics
-      - ThermomachineFreezerMachineCircuitBoard
-      - PortableScrubberMachineCircuitBoard
-      - MetempsychoticMachineCircuitboard
-      - MedicalScannerMachineCircuitboard
-      - CryoPodMachineCircuitboard
-      - CrewMonitoringComputerCircuitboard
-      - VaccinatorMachineCircuitboard
-      - DiagnoserMachineCircuitboard
-      - ChemMasterMachineCircuitboard
-      - ChemDispenserMachineCircuitboard
+      - SubstationMachineCircuitboard
+      - WeaponCapacitorRechargerCircuitboard
+    dynamicRecipes:
+      - APCElectronics
+      - APECircuitboard
+      - AirAlarmElectronics
+      - AnalysisComputerCircuitboard
+      - AnomalyVesselCircuitboard
+      - ArtifactAnalyzerMachineCircuitboard
       - BiomassReclaimerMachineCircuitboard
-      - SurveillanceCameraRouterCircuitboard
-      - SurveillanceCameraMonitorCircuitboard
-      - SurveillanceWirelessCameraMonitorCircuitboard
-      - SurveillanceCameraWirelessRouterCircuitboard
-      - ComputerTelevisionCircuitboard
-      - SurveillanceWirelessCameraMovableCircuitboard
-      - SurveillanceWirelessCameraAnchoredCircuitboard
-      - HydroponicsTrayMachineCircuitboard
-      - SolarControlComputerCircuitboard
-      - SolarTrackerElectronics
-      - PowerComputerCircuitboard
-      - ReverseEngineeringMachineCircuitboard
-      - AutolatheMachineCircuitboard
-      - ProtolatheMachineCircuitboard
-      - ReagentGrinderMachineCircuitboard
-      - HotplateMachineCircuitboard
-      - MicrowaveMachineCircuitboard
-      - DeepFryerMachineCircuitboard
-      - UniformPrinterMachineCircuitboard
-      - RadarConsoleCircuitboard
-      - CircuitImprinterMachineCircuitboard
-      - CloningPodMachineCircuitboard
-      - TechDiskComputerCircuitboard
-      - DawInstrumentMachineCircuitboard
-      - CloningConsoleComputerCircuitboard
-      - StasisBedMachineCircuitboard
-      - MaterialReclaimerMachineCircuitboard
-      - OreProcessorMachineCircuitboard
+      - BoozeDispenserMachineCircuitboard
       - CargoTelepadMachineCircuitboard
-      - RipleyCentralElectronics
-      - RipleyPeripheralsElectronics
+      - ChemDispenserMachineCircuitboard
+      - ChemMasterMachineCircuitboard
+      - CircuitImprinterMachineCircuitboard
+      - CloningConsoleComputerCircuitboard
+      - CloningPodMachineCircuitboard
+      - ComputerTelevisionCircuitboard
+      - CrewMonitoringComputerCircuitboard
+      - CryoPodMachineCircuitboard
+      - DawInstrumentMachineCircuitboard
+      - DeepFryerMachineCircuitboard
+      - DiagnoserMachineCircuitboard
+      - DoorElectronics
+      - EmitterCircuitboard
+      - FireAlarmElectronics
+      - FirelockElectronics
+      - GasRecyclerMachineCircuitboard
       - GeneratorPlasmaMachineCircuitboard
       - GeneratorUraniumMachineCircuitboard
-      - WallmountGeneratorElectronics
-      - WallmountGeneratorAPUElectronics
-      - WallmountSubstationElectronics
-      - EmitterCircuitboard
-      - GasRecyclerMachineCircuitboard
+      - HotplateMachineCircuitboard
+      - HydroponicsTrayMachineCircuitboard
+      - IntercomElectronics
+      - MailingUnitElectronics
+      - MaterialReclaimerMachineCircuitboard
+      - MedicalScannerMachineCircuitboard
+      - MetempsychoticMachineCircuitboard
+      - MicrowaveMachineCircuitboard
+      - OreProcessorMachineCircuitboard
+      - PortableScrubberMachineCircuitBoard
+      - PowerComputerCircuitboard
+      - RadarConsoleCircuitboard
+      - ReagentGrinderMachineCircuitboard
+      - ReverseEngineeringMachineCircuitboard
+      - RipleyCentralElectronics
+      - RipleyPeripheralsElectronics
+      - SalvageMagnetMachineCircuitboard
       - SeedExtractorMachineCircuitboard
-      - AnalysisComputerCircuitboard
-      - ExosuitFabricatorMachineCircuitboard
-      - AnomalyVesselCircuitboard
-      - APECircuitboard
-      - ArtifactAnalyzerMachineCircuitboard
-      - TraversalDistorterMachineCircuitboard
-      - BoozeDispenserMachineCircuitboard
       - SodaDispenserMachineCircuitboard
+      - SolarControlComputerCircuitboard
+      - SolarTrackerElectronics
+      - StasisBedMachineCircuitboard
+      - StationMapElectronics
+      - SurveillanceCameraMonitorCircuitboard
+      - SurveillanceCameraRouterCircuitboard
+      - SurveillanceCameraWirelessRouterCircuitboard
+      - SurveillanceWirelessCameraAnchoredCircuitboard
+      - SurveillanceWirelessCameraMonitorCircuitboard
+      - SurveillanceWirelessCameraMovableCircuitboard
+      - TechDiskComputerCircuitboard
       - TelecomServerCircuitboard
-      - CellRechargerCircuitboard
-      - WeaponCapacitorRechargerCircuitboard
+      - ThermomachineFreezerMachineCircuitBoard
+      - TraversalDistorterMachineCircuitboard
+      - UniformPrinterMachineCircuitboard
+      - VaccinatorMachineCircuitboard
+      - WallmountGeneratorAPUElectronics
+      - WallmountGeneratorElectronics
+      - WallmountSubstationElectronics
   - type: MaterialStorage
     whitelist:
       tags:
@@ -314,28 +250,28 @@
     idleState: fab-idle
     runningState: fab-active
     dynamicRecipes:
-    - ProximitySensor
-    - LeftArmBorg
-    - RightArmBorg
-    - LeftLegBorg
-    - RightLegBorg
-    - LightHeadBorg
-    - RipleyHarness
-    - RipleyLArm
-    - RipleyRArm
-    - RipleyLLeg
-    - RipleyRLeg
-    - MechEquipmentGrabber
-    - ClothingOuterHardsuitSyndieReverseEngineered
-    - ClothingOuterHardsuitJuggernautReverseEngineered
-    - JetpackBlue
-    - JetpackMini
+      - ClothingOuterHardsuitJuggernautReverseEngineered
+      - ClothingOuterHardsuitSyndieReverseEngineered
+      - JetpackBlue
+      - JetpackMini
+      - LeftArmBorg
+      - LeftLegBorg
+      - LightHeadBorg
+      - MechEquipmentGrabber
+      - ProximitySensor
+      - RightArmBorg
+      - RightLegBorg
+      - RipleyHarness
+      - RipleyLArm
+      - RipleyLLeg
+      - RipleyRArm
+      - RipleyRLeg
   - type: MaterialStorage
     whitelist:
       tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+        - Sheet
+        - RawMaterial
+        - Ingot
 
 - type: entity
   id: SecurityTechFab
@@ -360,87 +296,71 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    dynamicRecipes:
-      - Flash
-      - Handcuffs
-      - Zipties
-      - Stunbaton
-      - InsulativeHeadcage
-      - ShockCollar
-      - ForensicPad
-      - ClothingEyesGlassesSecurity
-      - RiotShield
-      - CartridgePistol
+    staticRecipes:
+      - CartridgeLightRifle
       - CartridgeMagnum
+      - CartridgePistol
+      - CartridgeRifle
+      - ClothingEyesGlassesSecurity
+      - Flash
+      - ForensicPad
+      - Handcuffs
+      - MagazineBoxLightRifle
+      - MagazineBoxMagnum
+      - MagazineBoxPistol
+      - MagazineBoxRifle
+      - RiotShield
       - ShellShotgun
       - ShellShotgunFlare
       - ShellTranquilizer
-      - ShellSoulbreaker
-      - EncryptionKeySyndie
-      - CartridgeRifle
-      - MagazineBoxPistol
-      - MagazineBoxMagnum
-      - MagazineBoxRifle
-      - MagazineBoxLightRifle
+      - ShockCollar
+      - Stunbaton
+      - TargetClown
       - TargetHuman
       - TargetSyndicate
-      - TargetClown
-      - CartridgePistolRubber
-      - CartridgeMagnumRubber
-      - ShellShotgunBeanbag
-      - CartridgeRifleRubber
-      - CartridgeLightRifleRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxMagnumRubber
-      - MagazineBoxRifleRubber
-      - MagazineBoxLightRifleRubber
-      - CartridgeLightRifle
-      - CartridgePistolHighVelocity
-      - CartridgeMagnumHighVelocity
+      - Zipties
+    dynamicRecipes:
       - CartridgeLightRifleHighVelocity
-      - CartridgeRifleHighVelocity
-      - MagazineBoxPistolHighVelocity
-      - MagazineBoxMagnumHighVelocity
-      - MagazineBoxLightRifleHighVelocity
-      - MagazineBoxRifleHighVelocity
-      - ShellShotgunIncendiary
-      - CartridgePistolIncendiary
-      - CartridgeMagnumIncendiary
       - CartridgeLightRifleIncendiary
+      - CartridgeLightRifleRubber
+      - CartridgeMagnumHighVelocity
+      - CartridgeMagnumIncendiary
+      - CartridgeMagnumRubber
+      - CartridgePistolHighVelocity
+      - CartridgePistolIncendiary
+      - CartridgePistolRubber
+      - CartridgeRifleHighVelocity
       - CartridgeRifleIncendiary
-      - MagazineBoxPistolIncendiary
-      - MagazineBoxMagnumIncendiary
-      - MagazineBoxLightRifleIncendiary
-      - MagazineBoxRifleIncendiary
-      - Signaller
-      - SignalTrigger
-      - VoiceTrigger
-      - TimerTrigger
-      - FlashPayload
+      - CartridgeRifleRubber
+      - ClothingHeadHelmetInsulated
+      - EncryptionKeySyndie
       - ExplosivePayload
-      - WeaponLaserCarbine
+      - FlashPayload
+      - InsulativeHeadcage
+      - MagazineBoxLightRifleHighVelocity
+      - MagazineBoxLightRifleIncendiary
+      - MagazineBoxLightRifleRubber
+      - MagazineBoxMagnumHighVelocity
+      - MagazineBoxMagnumIncendiary
+      - MagazineBoxMagnumRubber
+      - MagazineBoxPistolHighVelocity
+      - MagazineBoxPistolIncendiary
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleHighVelocity
+      - MagazineBoxRifleIncendiary
+      - MagazineBoxRifleRubber
+      - ShellShotgunBeanbag
+      - ShellShotgunIncendiary
+      - ShellSoulbreaker
+      - SignalTrigger
+      - Signaller
+      - TimerTrigger
+      - VoiceTrigger
       - WeaponAdvancedLaser
       - WeaponLaserCannon
-      - WeaponXrayCannon
+      - WeaponLaserCarbine
       - WeaponTaser
-        #Everything below this is shared with other lathes
-      - FlashlightLantern
-      - Bucket
-      - MopItem
-      - SprayBottle
-      - FireExtinguisher
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlastic
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetRGlass
-      - SheetGlass1
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
+      - WeaponXrayCannon
   - type: MaterialStorage
     whitelist:
       tags:
@@ -470,55 +390,42 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    dynamicRecipes:
+    staticRecipes:
+      - Beaker
+      - BodyBag
       - Brutepack
-      - Ointment
-      - Defibrillator
-      - HandheldHealthAnalyzer
+      - ChemistryEmptyBottle01
       - ClothingHandsGlovesLatex
       - ClothingHandsGlovesNitrile
       - ClothingMaskSterile
+      - Defibrillator
       - DiseaseSwab
-      - HandheldCrewMonitor
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - Saw
-      - Hemostat
-      - ChemicalPayload
-      - Beaker
-      - Syringe
+      - HandLabeler
+      - HandheldHealthAnalyzer
       - Implanter
-      - PillCanister
-      - BodyBag
-      - ChemistryEmptyBottle01
       - Medkit
-      - MedkitBurn
-      - MedkitToxin
-      - MedkitO2
-      - MedkitBrute
       - MedkitAdvanced
-      - MedkitRadiation
+      - MedkitBrute
+      - MedkitBurn
       - MedkitCombat
+      - MedkitO2
+      - MedkitRadiation
+      - MedkitToxin
+      - Ointment
+      - PillCanister
+      - Syringe
+    dynamicRecipes:
+      - Cautery
+      - ChemicalPayload
       - ClothingEyesHudMedical
-      - FlashlightLantern
-      - Bucket
-      - MopItem
-      - SprayBottle
-      - FireExtinguisher
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlastic
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetRGlass
-      - SheetGlass1
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
+      - Drill
+      - Dropper
+      - HandheldCrewMonitor
+      - Hemostat
+      - LargeBeaker
+      - Retractor
+      - Saw
+      - Scalpel
   - type: Machine
     board: MedicalTechFabCircuitboard
 
@@ -713,12 +620,19 @@
       idleState: icon
       runningState: building
       staticRecipes:
-        - SheetSteel30
-        - SheetGlass30
-        - SheetRGlass30
-        - SheetPlasma30
-        - SheetPGlass30
-        - SheetRPGlass30
-        - SheetUranium1
-        - IngotSilver1
+        - BluespaceCrystal
         - IngotGold1
+        - IngotSilver1
+        - SheetGlass1
+        - SheetGlass30
+        - SheetPGlass30
+        - SheetPlasma
+        - SheetPlasma30
+        - SheetPlasteel
+        - SheetPlastic
+        - SheetRGlass
+        - SheetRGlass30
+        - SheetRPGlass30
+        - SheetSteel
+        - SheetSteel30
+        - SheetUranium1

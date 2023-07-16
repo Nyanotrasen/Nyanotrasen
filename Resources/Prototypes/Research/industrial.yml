@@ -49,8 +49,8 @@
   tier: 1
   cost: 10000
   recipeUnlocks:
-  - ProtolatheMachineCircuitboard
-  - AutolatheMachineCircuitboard
+  # - ProtolatheMachineCircuitboard
+  # - AutolatheMachineCircuitboard
   - CircuitImprinterMachineCircuitboard
   - MaterialReclaimerMachineCircuitboard
 
@@ -201,3 +201,5 @@
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
   - ClothingBackpackDuffelHolding
+  - BluespaceBeaker
+  - TrashBagHolding
