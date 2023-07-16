@@ -1,4 +1,25 @@
 - type: entity
+  name: judge kangaroo
+  parent: MobKangaroo
+  id: MobKangarooJudge
+  description: This case is in the bag... or, pouch...
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: kangaroo-judge
+        sprite: Mobs/Animals/kangaroo.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: kangaroo-judge
+      Critical:
+        Base: kangaroo-dead
+      Dead:
+        Base: kangaroo-dead
+
+- type: entity
   name: white ferret
   parent: MobFerret
   id: MobFerretWhite

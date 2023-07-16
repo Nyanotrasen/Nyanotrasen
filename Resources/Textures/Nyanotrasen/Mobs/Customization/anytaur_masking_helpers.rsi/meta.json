@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "copyright": "Rane",
     "license": "CC-BY-SA-3.0",
     "size": {
@@ -7,62 +8,48 @@
     },
     "states": [
         {
-            "delays": [
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ]
-            ],
-            "directions": 4,
-            "name": "female_none"
+            "name": "female_none",
+            "directions": 4
         },
         {
-            "delays": [
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ]
-            ],
-            "directions": 4,
-            "name": "female_full"
+            "name": "female_full",
+            "directions": 4
         },
         {
-            "delays": [
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ]
-            ],
-            "directions": 4,
-            "name": "female_top"
+            "name": "female_top",
+            "directions": 4
         },
         {
-            "name": "none"
+            "name": "male_none",
+            "directions": 4
+        },
+        {
+            "name": "male_full",
+            "directions": 4
+        },
+        {
+            "name": "male_top",
+            "directions": 4
+        },
+        {
+            "name": "none",
+            "directions": 4
+        },
+        {
+            "name": "top",
+            "directions": 4
+        },
+        {
+            "name": "unisex_full",
+            "directions": 4
+        },
+        {
+            "name": "unisex_none",
+            "directions": 4
+        },
+        {
+            "name": "unisex_top",
+            "directions": 4
         }
-    ],
-    "version": 1
+    ]
 }

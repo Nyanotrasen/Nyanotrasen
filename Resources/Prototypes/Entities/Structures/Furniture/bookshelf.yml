@@ -2,16 +2,19 @@
   id: Bookshelf
   parent: BaseStructure
   name: "bookshelf"
-  description: Mostly filled with erotica.
+  description: Mostly filled with books.
   components:
   - type: Sprite
     sprite: Structures/Furniture/bookshelf.rsi
     snapCardinals: true
-    netsync: false
     layers:
       - state: base
       - state: book-0
-        map: ["enum.StorageFillLayers.Fill"]
+      - map: ["enum.StorageFillLayers.Fill"]
+  - type: Appearance
+  - type: StorageFillVisualizer
+    maxFillLevels: 20
+    fillBaseName: book
   - type: Damageable
     damageModifierSet: Wood
     damageContainer: Inorganic
@@ -27,8 +30,8 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           MaterialWoodPlank:
-            min: 1
-            max: 1
+            min: 2
+            max: 3
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Tag
@@ -41,79 +44,24 @@
     bodyType: Static
   - type: Anchorable
   - type: Pullable
-  - type: StorageFillVisualizer
-    maxFillLevels: 6
-    fillBaseName: book
+  - type: Occluder
   - type: Storage
-    capacity: 25
+    capacity: 200
     whitelist:
       tags:
+        - Document
+        - Folder
+        - Write
         - Book
+        - Spellbook
   - type: UserInterface
     interfaces:
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
+  - type: InteractionOutline
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
-        ents: []
-  - type: Appearance
-  - type: InteractionOutline
-  - type: StorageFill
-    contents:
-      - id: HyperlinkBookSpaceLaw
-        orGroup: Guide1
-      - id: HyperlinkBookGlimmer
-        orGroup: Guide1
-      - id: HyperlinkBookAlerts
-        orGroup: Guide1
-      - id: HyperlinkBookPower
-        orGroup: Guide1
-      - id: HyperlinkBookHacking
-        orGroup: Guide1
-      - id: HyperlinkBookChemistry
-        orGroup: Guide2
-      - id: HyperlinkBookBartending
-        orGroup: Guide2
-      - id: HyperlinkBookCooking
-        orGroup: Guide2
-      - id: HyperlinkBookProcedure
-        orGroup: Guide2
-      - id: HyperlinkBookMedical
-        orGroup: Guide2
-      - id: HyperlinkBookBotany
-        orGroup: Guide2
-      - id: HyperlinkBookAtmos
-        orGroup: Guide2
-      - id: BookDemonomicon1
-        orGroup: Lore
-      - id: BookDemonomicon2
-        orGroup: Lore
-      - id: BookDemonomicon3
-        orGroup: Lore
-      - id: BookChemistryInsane
-        orGroup: Lore
-      - id: BookBotanicalTextbook
-        orGroup: Lore
-      - id: BookGnominomicon
-        orGroup: Lore
-      - id: BookFishing
-        orGroup: Lore
-      - id: BookDetective
-        orGroup: Lore
-      - id: BookSalvageEpistemics1
-        orGroup: Lore
-      # - id: SpawnSpellbook #EntitySpawn is shit so we can't have rare orGroups RIP
-      #   orGroup: Spell
-      # - id: ForceWallSpellbook
-      #   orGroup: Spell
-      # - id: BlinkBook
-      #   orGroup: Spell
-      # - id: SmiteBook
-      #   orGroup: Spell
-      # - id: KnockSpellbook
-      #   orGroup: Spell
-      # - id: FireballSpellbook
-      #   orGroup: Spell
-      - id: HyperlinkBookSupernanny
-        prob: 0.01
+  - type: Construction
+    graph: Bookshelf
+    node: bookshelf

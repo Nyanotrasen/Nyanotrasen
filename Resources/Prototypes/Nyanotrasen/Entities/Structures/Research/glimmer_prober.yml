@@ -14,7 +14,6 @@
     active: true
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
-    netsync: false
     noRot: true
     layers:
     - state: base
@@ -99,7 +98,6 @@
     node: glimmerDrain
   - type: Sprite
     sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
-    netsync: false
     noRot: true
     layers:
     - state: base
@@ -167,7 +165,6 @@
           acts: ["Destruction"]
     - type: Sprite
       sprite: Nyanotrasen/Structures/Machines/glimmer_machines.rsi
-      netsync: false
       noRot: true
       layers:
       - state: base

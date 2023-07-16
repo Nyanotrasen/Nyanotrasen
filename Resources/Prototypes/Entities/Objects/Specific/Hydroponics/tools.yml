@@ -50,7 +50,6 @@
   - type: Sprite
     sprite: Objects/Tools/Hydroponics/scythe.rsi
     state: icon
-    netsync: false
   - type: ItemCooldown
   - type: MeleeWeapon
     range: 1.85
@@ -79,7 +78,6 @@
   - type: Sprite
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
     state: icon
-    netsync: false
   - type: ItemCooldown
   - type: MeleeWeapon
     attackRate: 1.1
@@ -126,7 +124,6 @@
   description: A bag for botanists to easily move their huge harvests.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Hydroponics/Equipment/plant_bag.rsi
     state: icon
   - type: Item

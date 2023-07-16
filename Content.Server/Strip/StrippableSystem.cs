@@ -234,6 +234,8 @@ namespace Content.Server.Strip
                 _popup.PopupEntity(message, target, target, PopupType.Large);
             }
 
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):user} is trying to place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s {slot} slot");
+
             var result = await _doAfter.WaitDoAfter(doAfterArgs);
             if (result != DoAfterStatus.Finished) return;
 
@@ -296,6 +298,8 @@ namespace Content.Server.Strip
                 NeedHand = true,
                 DuplicateCondition = DuplicateConditions.SameTool
             };
+
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):user} is trying to place the item {ToPrettyString(held):item} in {ToPrettyString(target):target}'s hands");
 
             var result = await _doAfter.WaitDoAfter(doAfterArgs);
             if (result != DoAfterStatus.Finished) return;
@@ -370,6 +374,8 @@ namespace Content.Server.Strip
                 }
             }
 
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low, $"{ToPrettyString(user):user} is trying to strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}");
+
             var result = await _doAfter.WaitDoAfter(doAfterArgs);
             if (result != DoAfterStatus.Finished) return;
 
@@ -437,6 +443,9 @@ namespace Content.Server.Strip
                     component.Owner,
                     component.Owner);
             }
+
+            _adminLogger.Add(LogType.Stripping, LogImpact.Low,
+                $"{ToPrettyString(user):user} is trying to strip the item {ToPrettyString(item):item} from {ToPrettyString(target):target}");
 
             var result = await _doAfter.WaitDoAfter(doAfterArgs);
             if (result != DoAfterStatus.Finished) return;

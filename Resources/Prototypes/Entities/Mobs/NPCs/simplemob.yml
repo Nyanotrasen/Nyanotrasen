@@ -42,7 +42,6 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    netsync: false
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -108,6 +107,7 @@
   - type: HeatResistance
   - type: CombatMode
   - type: Internals
+  - type: StatusIcon
   - type: StatusEffects
     allowed:
     - SlowedDown

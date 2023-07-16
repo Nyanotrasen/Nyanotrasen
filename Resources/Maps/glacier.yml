@@ -46455,14 +46455,14 @@ entities:
     - parent: 12375
       type: Transform
     - type: InsideEntityStorage
-- proto: FoodCondimentBottleSmallHotsauce
+- proto: FoodCondimentBottleHotsauce
   entities:
   - uid: 10407
     components:
     - pos: -45.339725,24.498829
       parent: 1781
       type: Transform
-- proto: FoodCondimentBottleSmallKetchup
+- proto: FoodCondimentBottleKetchup
   entities:
   - uid: 15752
     components:
@@ -46470,7 +46470,7 @@ entities:
       pos: -42.098766,23.890728
       parent: 1781
       type: Transform
-- proto: FoodCondimentBottleSmallVinegar
+- proto: FoodCondimentBottleVinegar
   entities:
   - uid: 1471
     components:
@@ -64048,7 +64048,7 @@ entities:
     - pos: -30.588676,18.706852
       parent: 1781
       type: Transform
-- proto: HatBandBotany
+- proto: ClothingHeadBandBotany
   entities:
   - uid: 5013
     components:

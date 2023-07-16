@@ -66,6 +66,7 @@
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: MeleeWeapon
+    altDisarm: false
     hidden: true
     angle: 0
     soundHit:
@@ -241,6 +242,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Ravager
