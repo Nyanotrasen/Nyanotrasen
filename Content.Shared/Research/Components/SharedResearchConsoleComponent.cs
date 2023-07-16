@@ -20,12 +20,6 @@ namespace Content.Shared.Research.Components
     }
 
     [Serializable, NetSerializable]
-    public sealed class ConsoleServerSyncMessage : BoundUserInterfaceMessage
-    {
-
-    }
-
-    [Serializable, NetSerializable]
     public sealed class ConsoleServerSelectionMessage : BoundUserInterfaceMessage
     {
 
@@ -34,6 +28,7 @@ namespace Content.Shared.Research.Components
     [Serializable, NetSerializable]
     public sealed class ResearchConsoleBoundInterfaceState : BoundUserInterfaceState
     {
+        // Begin Nyano-code: limit passive point generation.
         public int Points;
         public int PointsPerSecond;
         public int PointsLimit;
@@ -43,5 +38,6 @@ namespace Content.Shared.Research.Components
             PointsPerSecond = pointsPerSecond;
             PointsLimit = pointsLimit;
         }
+        // End Nyano-code.
     }
 }

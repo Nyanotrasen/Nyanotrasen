@@ -6,7 +6,6 @@
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -215,7 +214,7 @@
   - type: MobPrice
     price: 6000
     deathPenalty: 0.1
-  - type: Mind
+  - type: MindContainer
   - type: Input
     context: "human"
   - type: MobMover
@@ -284,7 +283,6 @@
   description: An artificial construct imitating life. This one has no soul installed yet.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -408,7 +406,6 @@
     - type: Sprite
       drawdepth: Mobs
       sprite: Nyanotrasen/Mobs/Species/Golem/silver.rsi
-      netsync: false
       layers:
         - map: [ "enum.DamageStateVisualLayers.Base" ]
           state: silver_base

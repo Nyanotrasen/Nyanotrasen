@@ -6,7 +6,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -42,8 +41,8 @@
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
-      state: female_full
-      visible: true
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"
@@ -160,7 +159,6 @@
   description: A dummy arachne meant to be used in character setup.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -196,8 +194,8 @@
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
       sprite: Nyanotrasen/Mobs/Customization/anytaur_masking_helpers.rsi
-      state: female_full
-      visible: true
+      state: unisex_full
+      visible: false
     - map: [ "jumpsuit" ]
     - map: [ "enum.HumanoidVisualLayers.LHand" ]
       color: "#e8b59b"

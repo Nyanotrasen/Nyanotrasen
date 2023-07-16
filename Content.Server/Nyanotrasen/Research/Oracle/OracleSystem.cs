@@ -282,7 +282,7 @@ namespace Content.Server.Research.Oracle
 
             foreach (var tech in allTechs)
             {
-                foreach (var recipe in tech.UnlockedRecipes)
+                foreach (var recipe in tech.RecipeUnlocks)
                 {
                     var recipeProto = _prototypeManager.Index<LatheRecipePrototype>(recipe);
                     allRecipes.Add(recipeProto.Result);

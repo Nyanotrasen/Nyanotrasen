@@ -1,19 +1,34 @@
-﻿- type: entity
+- type: entity
   id: ResearchAndDevelopmentServer
-  parent: BaseMachinePowered
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: R&D server
   description: Contains the collective knowledge of the station's scientists. Destroying it would send them back to the stone age. You don't want that do you?
   components:
   - type: Sprite
     sprite: Structures/Machines/server.rsi
-    state: server
+    layers:
+      - state: server
+      - state: server_o
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: ResearchServer
     passiveLimitPerSource: 7500
   - type: TechnologyDatabase
+    supportedDisciplines:
+    - Industrial
+    - Biochemical
+    - Arsenal
+    - Experimental
+    - CivilianServices
   - type: ApcPowerReceiver
     powerLoad: 200
     priority: Low
   - type: ExtensionCableReceiver
+  - type: WiresPanel
+  - type: Wires
+    LayoutId: rndserver
+  - type: WiresVisuals
+  - type: Machine
+    board: ResearchAndDevelopmentServerMachineCircuitboard
   - type: Destructible
     thresholds:
     - trigger:
@@ -37,6 +52,7 @@
             min: 1
             max: 2
   - type: DiseaseServer
+  - type: Appearance
   - type: AmbientSound
     volume: -9
     range: 5
@@ -51,7 +67,6 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/rndpointsource.rsi
-    netsync: false
     layers:
     - state: rndpointsource-off
     - state: rndpointsource

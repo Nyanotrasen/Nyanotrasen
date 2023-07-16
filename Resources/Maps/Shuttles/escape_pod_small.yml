@@ -42,7 +42,6 @@ entities:
       type: BecomesStation
     - type: OccluderTree
     - type: Shuttle
-    - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
@@ -99,7 +98,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: SpreaderGrid
-- proto: AirlockExternalShuttleLocked
+- proto: AirlockGlassShuttle
   entities:
   - uid: 12
     components:

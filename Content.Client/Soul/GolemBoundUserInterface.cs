@@ -10,7 +10,7 @@ namespace Content.Client.Soul
     {
         private GolemWindow? _window;
 
-        public GolemBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public GolemBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
 
@@ -60,7 +60,10 @@ namespace Content.Client.Soul
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            if (!disposing) return;
+
+            if (!disposing)
+                return;
+
             _window?.Dispose();
         }
     }

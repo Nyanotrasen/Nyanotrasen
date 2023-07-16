@@ -11909,7 +11909,7 @@ entities:
     - pos: -8.244072,10.637324
       parent: 3765
       type: Transform
-- proto: DrinkBeer
+- proto: DrinkBeerBottleFull
   entities:
   - uid: 4536
     components:
@@ -23309,38 +23309,6 @@ entities:
     - pos: -14.26654,-30.5905
       parent: 3765
       type: Transform
-- proto: IngotGold
-  entities:
-  - uid: 2789
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1909
-      type: Transform
-  - uid: 2790
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1909
-      type: Transform
-  - uid: 3090
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1909
-      type: Transform
-  - uid: 3091
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1909
-      type: Transform
-  - uid: 3094
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1909
-      type: Transform
 - proto: IngotGold1
   entities:
   - uid: 550
@@ -31510,17 +31478,6 @@ entities:
     - pos: -9.570753,-21.559225
       parent: 3765
       type: Transform
-    - containers:
-        storagebase: !type:Container
-          showEnts: false
-          occludes: true
-          ents:
-          - 2789
-          - 2790
-          - 3090
-          - 3091
-          - 3094
-      type: ContainerContainer
 - proto: ToolboxMechanicalFilled
   entities:
   - uid: 1330

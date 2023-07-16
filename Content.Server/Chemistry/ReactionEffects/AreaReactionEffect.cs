@@ -1,9 +1,9 @@
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Maps;
@@ -57,7 +57,7 @@ namespace Content.Server.Chemistry.ReactionEffects
             var transform = args.EntityManager.GetComponent<TransformComponent>(args.SolutionEntity);
             var mapManager = IoCManager.Resolve<IMapManager>();
 
-            if (!mapManager.TryFindGridAt(transform.MapPosition, out var grid) ||
+            if (!mapManager.TryFindGridAt(transform.MapPosition, out _, out var grid) ||
                 !grid.TryGetTileRef(transform.Coordinates, out var tileRef) ||
                 tileRef.Tile.IsSpace())
             {
