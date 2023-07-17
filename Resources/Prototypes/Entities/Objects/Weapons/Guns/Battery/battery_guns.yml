@@ -4,7 +4,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
   - type: Item
     size: 50
   - type: Clothing
@@ -304,8 +303,6 @@
   parent: BaseWeaponBatterySmall
   id: WeaponTaser
   description: A low-capacity, energy-based stun gun used by security teams to subdue targets at range.
-  # Use Disabler
-  suffix: Obsolete
   components:
   - type: Tag
     tags:
@@ -328,8 +325,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
+    proto: BulletTaser
+    fireCost: 200
   - type: MagazineVisuals
     magState: mag
     steps: 5

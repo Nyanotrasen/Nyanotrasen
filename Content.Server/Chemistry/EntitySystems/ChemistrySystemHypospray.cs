@@ -2,7 +2,7 @@ using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
-// using Content.Server.Weapons.Melee;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -14,6 +14,7 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Tag;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Robust.Shared.GameStates;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -27,13 +28,14 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<HyposprayComponent, MeleeHitEvent>(OnAttack);
             SubscribeLocalEvent<HyposprayComponent, SolutionChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<HyposprayComponent, UseInHandEvent>(OnUseInHand);
-            SubscribeLocalEvent<HyposprayComponent, ComponentStartup>(OnStartup);
+            SubscribeLocalEvent<HyposprayComponent, ComponentGetState>(OnHypoGetState);
         }
 
-        private void OnStartup(EntityUid uid, HyposprayComponent component, ComponentStartup args)
+        private void OnHypoGetState(EntityUid uid, HyposprayComponent component, ref ComponentGetState args)
         {
-            // Necessary for the Client-side HyposprayStatusControl to get the appropriate Volume values.
-            Dirty(component);
+            args.State = _solutions.TryGetSolution(uid, component.SolutionName, out var solution)
+                ? new HyposprayComponentState(solution.Volume, solution.MaxVolume)
+                : new HyposprayComponentState(FixedPoint2.Zero, FixedPoint2.Zero);
         }
 
         private void OnUseInHand(EntityUid uid, HyposprayComponent component, UseInHandEvent args)

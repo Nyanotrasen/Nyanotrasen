@@ -2,6 +2,7 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Roles;
 using Content.Shared.Humanoid;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -21,16 +22,10 @@ namespace Content.Shared.Zombies
         public float OtherZombieDamageCoefficient = 0.25f;
 
         /// <summary>
-        /// The baseline infection chance you have if you are completely nude
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        public float MaxZombieInfectionChance = 0.40f;
-
-        /// <summary>
         /// Chance that this zombie be permanently killed (rolled once on crit->death transition)
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ZombiePermadeathChance = 0.70f;
+        public float ZombiePermadeathChance = 0.80f;
 
         /// <summary>
         /// Chance that this zombie will be healed (rolled each second when in crit or dead)
@@ -46,14 +41,20 @@ namespace Content.Shared.Zombies
         public bool Permadeath = false;
 
         /// <summary>
+        /// The baseline infection chance you have if you are completely nude
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float MaxZombieInfectionChance = 0.30f;
+
+        /// <summary>
         /// The minimum infection chance possible. This is simply to prevent
         /// being invincible by bundling up.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]
-        public float MinZombieInfectionChance = 0.10f;
+        public float MinZombieInfectionChance = 0.05f;
 
         [ViewVariables(VVAccess.ReadWrite)]
-        public float ZombieMovementSpeedDebuff = 0.75f;
+        public float ZombieMovementSpeedDebuff = 0.70f;
 
         /// <summary>
         /// The skin color of the zombie
@@ -108,10 +109,12 @@ namespace Content.Shared.Zombies
 
         public EmoteSoundsPrototype? EmoteSounds;
 
-        // Heal on tick
         [DataField("nextTick", customTypeSerializer:typeof(TimeOffsetSerializer))]
         public TimeSpan NextTick;
 
+        /// <summary>
+        /// Healing each second
+        /// </summary>
         [DataField("damage")] public DamageSpecifier Damage = new()
         {
             DamageDict = new ()
@@ -124,5 +127,11 @@ namespace Content.Shared.Zombies
                 { "Shock", -0.2 },
             }
         };
+
+        /// <summary>
+        ///     Path to antagonist alert sound.
+        /// </summary>
+        [DataField("greetSoundNotification")]
+        public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/zombie_start.ogg");
     }
 }

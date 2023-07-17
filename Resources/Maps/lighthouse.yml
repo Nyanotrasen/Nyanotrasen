@@ -51410,7 +51410,7 @@ entities:
     - pos: 29.287134,24.681692
       parent: 100
       type: Transform
-- proto: DrinkBeer
+- proto: DrinkBeerBottleFull
   entities:
   - uid: 10694
     components:
@@ -93285,7 +93285,7 @@ entities:
     - pos: 35.558083,44.613426
       parent: 100
       type: Transform
-- proto: HatBandBlack
+- proto: ClothingHeadBandBlack
   entities:
   - uid: 9548
     components:
@@ -116437,7 +116437,7 @@ entities:
       pos: 14.80062,45.486053
       parent: 100
       type: Transform
-- proto: VehiclePussyWagonDestroyed
+- proto: VehicleJanicartDestroyed
   entities:
   - uid: 9617
     components:

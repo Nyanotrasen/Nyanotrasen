@@ -39484,6 +39484,55 @@ entities:
       type: Transform
 - proto: CapacitorStockPart
   entities:
+  - uid: 5097
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 28.666245,-69.54238
+      parent: 6747
+      type: Transform
+  - uid: 7711
+    components:
+    - pos: 30.111343,34.536076
+      parent: 6747
+      type: Transform
+  - uid: 11537
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 12.479957,-74.82806
+      parent: 6747
+      type: Transform
+  - uid: 11538
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -49.981842,-84.473404
+      parent: 6747
+      type: Transform
+  - uid: 13241
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -18.898804,-61.465073
+      parent: 6747
+      type: Transform
+  - uid: 21086
+    components:
+    - pos: 28.759995,-69.24008
+      parent: 6747
+      type: Transform
+  - uid: 21657
+    components:
+    - pos: 12.660377,-75.474236
+      parent: 6747
+      type: Transform
+  - uid: 21659
+    components:
+    - pos: 3.6750183,-14.292031
+      parent: 6747
+      type: Transform
+  - uid: 22391
+    components:
+    - pos: 17.580536,13.453645
+      parent: 6747
+      type: Transform
   - uid: 5111
     components:
     - pos: 23.606064,-65.59942
@@ -64496,14 +64545,14 @@ entities:
     - pos: 20.336006,-1.1774483
       parent: 6747
       type: Transform
-- proto: FoodCondimentBottleSmallHotsauce
+- proto: FoodCondimentBottleHotsauce
   entities:
   - uid: 6812
     components:
     - pos: -5.213666,-6.198781
       parent: 6747
       type: Transform
-- proto: FoodCondimentBottleSmallVinegar
+- proto: FoodCondimentBottleVinegar
   entities:
   - uid: 23528
     components:
@@ -101331,14 +101380,14 @@ entities:
     - pos: -36.37423,-40.19895
       parent: 6747
       type: Transform
-- proto: HatBandBlack
+- proto: ClothingHeadBandBlack
   entities:
   - uid: 10446
     components:
     - pos: -43.336056,-52.39985
       parent: 6747
       type: Transform
-- proto: HatBandSkull
+- proto: ClothingHeadBandSkull
   entities:
   - uid: 7330
     components:
@@ -103886,37 +103935,6 @@ entities:
         - port: CloningPodSender
           uid: 2149
       type: SignalReceiver
-- proto: MicroLaserStockPart
-  entities:
-  - uid: 5097
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 28.666245,-69.54238
-      parent: 6747
-      type: Transform
-  - uid: 7711
-    components:
-    - pos: 30.111343,34.536076
-      parent: 6747
-      type: Transform
-  - uid: 11537
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 12.479957,-74.82806
-      parent: 6747
-      type: Transform
-  - uid: 11538
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: -49.981842,-84.473404
-      parent: 6747
-      type: Transform
-  - uid: 13241
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -18.898804,-61.465073
-      parent: 6747
-      type: Transform
 - proto: MicrophoneInstrument
   entities:
   - uid: 7538
@@ -126638,28 +126656,6 @@ entities:
   - uid: 4357
     components:
     - pos: 10.535797,-39.409237
-      parent: 6747
-      type: Transform
-- proto: ScanningModuleStockPart
-  entities:
-  - uid: 21086
-    components:
-    - pos: 28.759995,-69.24008
-      parent: 6747
-      type: Transform
-  - uid: 21657
-    components:
-    - pos: 12.660377,-75.474236
-      parent: 6747
-      type: Transform
-  - uid: 21659
-    components:
-    - pos: 3.6750183,-14.292031
-      parent: 6747
-      type: Transform
-  - uid: 22391
-    components:
-    - pos: 17.580536,13.453645
       parent: 6747
       type: Transform
 - proto: SchoolgirlUniformSpawner

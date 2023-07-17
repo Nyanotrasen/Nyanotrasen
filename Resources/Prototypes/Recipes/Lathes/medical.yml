@@ -49,6 +49,22 @@
     Plastic: 300
 
 - type: latheRecipe
+  id: Brutepack
+  result: Brutepack1
+  completetime: 1
+  materials:
+    Steel: 25
+    Plastic: 25
+
+- type: latheRecipe
+  id: Ointment
+  result: Ointment1
+  completetime: 1
+  materials:
+    Glass: 25
+    Plastic: 25
+
+- type: latheRecipe
   id: HandheldCrewMonitor
   result: HandheldCrewMonitorEmpty
   completetime: 2
@@ -175,6 +191,7 @@
     Plastic: 300
 
 - type: latheRecipe
+<<<<<<< HEAD
   id: FelinidCone
   result: FelinidCone
   completetime: 2
@@ -182,3 +199,11 @@
     Steel: 50
     plastic: 200
 
+=======
+  id: HandLabeler
+  result: HandLabeler
+  name: hand labeler
+  completetime: 2
+  materials:
+    Plastic: 100
+>>>>>>> upstream/master

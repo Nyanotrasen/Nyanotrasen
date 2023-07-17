@@ -107,7 +107,7 @@
       roleId: Mystagogue
   conditions:
     - !type:StealCondition
-      prototype: ClothingOuterHardsuitRd
+      prototype: ClothingOuterHardsuitMystagogue
       owner: job-name-mystagogue
 
 - type: objective

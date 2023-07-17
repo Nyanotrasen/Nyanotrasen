@@ -1,11 +1,10 @@
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: ScienceTechFab
   name: epistemics techfab
   description: Prints equipment for use by the epistemics department.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
@@ -24,64 +23,42 @@
     idleState: icon
     runningState: icon
     dynamicRecipes:
-      - QSI
-      - CoreSilver
-      - HandTeleporter
-      - BluespaceBeaker
-      - Decloner
-      - CryostasisBeaker
-      - ShockCollar
-      - InsulativeHeadcage
-      - BackpackOfHolding
-      - SatchelOfHolding
-      - DuffelbagOfHolding
-      - AnomalyScanner
       - AnomalyLocator
-      - ChemicalPayload #Below = shared
-      - FlashlightLantern
-      - Bucket
-      - MopItem
-      - SprayBottle
-      - FireExtinguisher
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlastic
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetRGlass
-      - SheetGlass1
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
-      - NodeScanner
-      - WeaponPistolCHIMP
+      - AnomalyScanner
+      - BluespaceBeaker
       - CartridgeAnomalousParticleDelta
       - CartridgeAnomalousParticleEpsilon
       - CartridgeAnomalousParticleZeta
+      - ChemicalPayload
+      - ClothingBackpackDuffelHolding
+      - ClothingBackpackHolding
+      - ClothingBackpackSatchelHolding
+      - CoreSilver
+      - CryostasisBeaker
+      - Decloner
+      - HandTeleporter
+      - InsulativeHeadcage
+      - NodeScanner
+      - QSI
+      - ShockCollar
+      - WeaponForceGun
+      - WeaponGrapplingGun
+      - WeaponPistolCHIMP
+      - WeaponTetherGun
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
-    materialWhiteList:
-    - Bluespace
-    - Silver
-    - Glass
-    - Plastic
-    - Steel
-    - Durathread
 
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: ServiceTechFab
   name: service techfab
   description: Prints equipment for service staff.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
@@ -99,69 +76,57 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    dynamicRecipes:
-      - KitchenKnife
+    staticRecipes:
+      - AppraisalTool
+      - Bucket
       - ButchCleaver
-      - LightReplacer
-      - Holoprojector
-      - TrashBagOfHolding
-      - AdvMopItem
-      - WeaponSprayNozzle
-      - ClothingBackpackWaterTank
-      - HydroponicsToolScythe
-      - HydroponicsToolHatchet
+      - Clippers
+      - DrinkGlass
       - DrinkMug
       - DrinkMugMetal
-      - DrinkGlass
+      - FireExtinguisher # TODO: needs empty version
+      - FlashlightLantern
+      - HydroponicsToolHatchet
+      - HydroponicsToolScythe
+      - KitchenKnife
+      - LightBulb
+      - LightTube
+      - Matchbox
+      - MiniHoe
       - MopBucket
+      - Plunger
+      - Shovel
+      - Spade
+      - SprayBottle
+      - WetFloorSign
+    dynamicRecipes:
+      - AdvMopItem
+      - ClothingBackpackWaterTank
+      - Holoprojector
+      - LightReplacer
+      - MegaSprayBottle
+      - MopItem
+      - Mousetrap
+      - Shovel
+      - Spade
       - SynthesizerInstrument
       - TrashBag
-      - WetFloorSign
-      - MiniHoe
-      - HydroponicsToolScythe
-      - HydroponicsToolHatchet
-      - Spade
-      - Clippers
-      - Shovel # Below is shared with other lathes
-      - FlashlightLantern
-      - Bucket
-      - MopItem
-      - SprayBottle
-      - FireExtinguisher
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetGlass1
-      - SheetRGlass
-      - SheetPlastic
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
+      - TrashBagHolding
+      - WeaponSprayNozzle
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
-    materialWhiteList:
-    - Steel
-    - Plastic
-    - Glass
-    - Bluespace
-    - Durathread
-    - Wood
 
 - type: entity
-  parent: Protolathe
+  parent: BaseLathe
   id: EngineeringTechFab
   name: engineering techfab
   description: Prints equipment for engineers.
   components:
   - type: Sprite
-    netsync: false
     sprite: Structures/Machines/techfab.rsi
     layers:
     - state: icon
@@ -179,67 +144,60 @@
   - type: Lathe
     idleState: icon
     runningState: icon
+    staticRecipes:
+      - AirlockPainter
+      - CableHVStack
+      - CableMVStack
+      - CableStack
+      - ConveyorBeltAssembly
+      - Crowbar
+      - Flare
+      - GasAnalyzer
+      - HandheldGPSBasic
+      - Multitool
+      - NetworkConfigurator
+      - Pickaxe
+      - PowerCellSmall
+      - Screwdriver
+      - TRayScanner
+      - UtilityBelt
+      - Welder # TODO: needs empty version
+      - Wirecutter
+      - Wrench
     dynamicRecipes:
-      - Flash
+      - ClothingEyesHudDiagnostic
+      - ClothingShoesBootsMag
+      - Drone
+      - HolofanProjector
+      - JawsOfLife
+      - MiningDrill
+      - PowerCellHigh
+      - PowerCellMedium
+      - PowerDrill
+      - RCD
+      - RCDAmmo
+      - RPED
+      - WeaponCrusher
+      - WeaponCrusherDagger
+      - WeaponProtoKineticAccelerator
+      - WelderIndustrialAdvanced
+      # BEGIN: machine parts
+      - AdvancedCapacitorStockPart
+      - AdvancedMatterBinStockPart
+      - BluespaceMatterBinStockPart
+      - CapacitorStockPart
+      - FemtoManipulatorStockPart
+      - MatterBinStockPart
       - MicroManipulatorStockPart
       - NanoManipulatorStockPart
       - PicoManipulatorStockPart
-      - FemtoManipulatorStockPart
-      - ScanningModuleStockPart
-      - AdvancedScanningModuleStockPart
-      - PhasicScanningModuleStockPart
-      - TriphasicScanningModuleStockPart
-      - MicroLaserStockPart
-      - HighPowerMicroLaserStockPart
-      - UltraHighPowerMicroLaserStockPart
-      - QuadUltraMicroLaserStockPart
-      - MatterBinStockPart
-      - AdvancedMatterBinStockPart
-      - SuperMatterBinStockPart
-      - BluespaceMatterBinStockPart
-      - CapacitorStockPart
-      - AdvancedCapacitorStockPart
-      - SuperCapacitorStockPart
       - QuadraticCapacitorStockPart
-      - FirelockElectronics
-      - DoorElectronics
-      - APCElectronics
-      - AirAlarmElectronics
-      - FireAlarmElectronics
-      - MailingUnitElectronics
-      - IntercomElectronics
-      - HolofanProjector
-      - Drone
-      - ConveyorBeltAssembly
-      - RPED
-      - PowerDrill
-      - MiningDrill
-      - ClothingEyesHudDiagnostic
-      - RCDAmmo # Below is shared with other lathes
-      - FlashlightLantern
-      - Bucket
-      - MopItem
-      - SprayBottle
-      - FireExtinguisher
-      - LightTube
-      - LightBulb
-      - SheetSteel
-      - SheetPlasteel
-      - SheetPlasma
-      - SheetGlass1
-      - SheetRGlass
-      - SheetPlastic
-      - BluespaceCrystal
-      - CableStack
-      - CableMVStack
-      - CableHVStack
+      - SuperCapacitorStockPart
+      - SuperMatterBinStockPart
+      # END: machine parts
   - type: MaterialStorage
     whitelist:
       tags:
         - Sheet
         - RawMaterial
         - Ingot
-    materialWhiteList:
-    - Glass
-    - Plastic
-    - Steel
