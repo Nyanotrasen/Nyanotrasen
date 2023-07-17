@@ -30,7 +30,7 @@ sophia-response-mystagogue = 'Mystagogue' literally means 'leader of the mystics
 
 sophia-response-oracle = Oracle? I don't know much about her, and she isn't keen to share her secrets with me.
 
-sophia-response-psionics = Psionics are extraordinary abilities originating from one's mind. There doesn't seem to be any dominant word to refer to someone with the ability to practice these, although I prefer 'psion' or 'psychic'.
+sophia-response-psionics = Psionics are extraordinary abilities originating from one's mind. There doesn't seem to be any dominant word to refer to someone with the ability to practice these, although I prefer 'psion' or 'psychic.'
 
 sophia-response-noosphere = The noösphere is a field connecting all of consciousness. It's the medium through which psionics works. Its strength and effects on the illusory world of the material are based on its pressure. Colloquially, noöspheric pressure is called 'glimmer.'
 
