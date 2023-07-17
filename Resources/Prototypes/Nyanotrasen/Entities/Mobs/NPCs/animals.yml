@@ -141,6 +141,6 @@
   - type: CanEscapeInventory
   - type: HTN
     rootTask: IdleEvadeCompound # Make eat food/clothes when a thing
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - RatPassive
