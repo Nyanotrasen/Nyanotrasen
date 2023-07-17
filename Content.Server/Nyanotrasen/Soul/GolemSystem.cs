@@ -133,7 +133,7 @@ namespace Content.Server.Soul
             if (!TryComp<ActorComponent>(component.PotentialCrystal, out var actor))
                 return;
 
-            if (!_mindSystem.TryGetMind(uid, out var mind))
+            if (!_mindSystem.TryGetMind(component.PotentialCrystal.Value, out var mind))
                 return;
 
             if (!_slotsSystem.TryGetSlot(uid, CrystalSlot, out var crystalSlot, slots)) // does it not have a crystal slot?
