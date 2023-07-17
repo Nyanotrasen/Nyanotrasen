@@ -2,6 +2,7 @@
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
@@ -36,6 +37,8 @@ namespace Content.Server.DeltaV.Ghost.Roles
                 return;
             }
 
+            var mindSystem = _entityManager.System<MindSystem>();
+
             var character = (HumanoidCharacterProfile) _prefs.GetPreferences(args.Player.UserId).SelectedCharacter;
 
             var mob = _entityManager.System<StationSpawningSystem>()
@@ -49,7 +52,7 @@ namespace Content.Server.DeltaV.Ghost.Roles
             var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);
             RaiseLocalEvent(mob, spawnedEvent);
 
-            mob.EnsureComponent<MindComponent>();
+            mob.EnsureComponent<MindContainerComponent>();
 
             _entityManager.System<GhostRoleSystem>().GhostRoleInternalCreateMindAndTransfer(args.Player, uid, mob, ghostRole);
 
