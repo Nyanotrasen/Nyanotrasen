@@ -1,4 +1,13 @@
 - type: entity
+  parent: ClothingOuterHardsuitRd
+  id: ClothingOuterHardsuitMystagogue
+  name: mystagogue's hardsuit
+  description: Lightweight hardsuit that has a helmet with a galaxy-first psionic passthrough system.
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
+
+- type: entity
   parent: ClothingOuterHardsuitSyndie
   id: ClothingOuterHardsuitSyndieReverseEngineered
   suffix: reverse-engineered

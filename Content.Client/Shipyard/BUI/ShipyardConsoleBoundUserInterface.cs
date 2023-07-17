@@ -14,7 +14,7 @@ namespace Content.Client.Shipyard.BUI
         [ViewVariables]
         public int Balance { get; private set; }
 
-        public ShipyardConsoleBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public ShipyardConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
 

@@ -1,0 +1,13 @@
+# Tier 3
+
+- type: technology
+  id: GeneticWeaponry
+  name: research-technology-genetic-weaponry
+  icon:
+    sprite: Nyanotrasen/Objects/Weapons/Guns/Battery/decloner.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - Decloner

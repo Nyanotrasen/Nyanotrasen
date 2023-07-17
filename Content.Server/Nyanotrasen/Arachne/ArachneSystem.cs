@@ -1,6 +1,7 @@
 using Content.Shared.Arachne;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Verbs;
 using Content.Shared.Buckle.Components;
@@ -20,7 +21,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Buckle.Systems;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;

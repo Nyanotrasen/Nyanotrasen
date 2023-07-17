@@ -85,7 +85,7 @@ namespace Content.Server.Silicons.Bots
                 return false;
 
             // Hold still, please
-            if (TryComp<PhysicsComponent>(target, out var physics) && physics.LinearVelocity.Length != 0f)
+            if (TryComp<PhysicsComponent>(target, out var physics) && physics.LinearVelocity.Length() != 0f)
                 return false;
 
             if (!ChooseDrug(target, component, out var drug, out var injectAmount))

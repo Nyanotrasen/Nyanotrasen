@@ -9,9 +9,8 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
 {
     private ReverseEngineeringMachineMenu? _revMenu;
 
-    public ReverseEngineeringMachineBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+    public ReverseEngineeringMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-
     }
 
     protected override void Open()
@@ -69,6 +68,7 @@ public sealed class ReverseEngineeringMachineBoundUserInterface : BoundUserInter
 
         if (!disposing)
             return;
+
         _revMenu?.Dispose();
     }
 }

@@ -1,4 +1,6 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Text;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Roles;
@@ -6,9 +8,11 @@ using Content.Shared.Preferences;
 using Content.Server.Preferences.Managers;
 using Content.Server.Humanoid;
 using Content.Server.Station.Systems;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.DetailExaminable;
 using Content.Server.Players;
+using Content.Server.Roles;
 using Content.Server.Spawners.Components;
 using Content.Server.Psionics;
 using Content.Server.Jobs;
@@ -38,6 +42,8 @@ namespace Content.Server.EvilTwin
         [Dependency] private readonly PsionicsSystem _psionicsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
         public override void Initialize()
         {
@@ -49,19 +55,20 @@ namespace Content.Server.EvilTwin
 
         private void OnPlayerAttached(EntityUid uid, EvilTwinSpawnerComponent component, PlayerAttachedEvent args)
         {
-            var twin = SpawnEvilTwin();
+            if (!TrySpawnParadoxAnomaly(out var twin))
+                return;
 
-            if (twin != null)
-            {
-                args.Player.ContentData()?.Mind?.TransferTo(twin, true);
-            }
+            var mind = args.Player.ContentData()?.Mind;
+            if (mind == null)
+                return;
 
+            _mindSystem.TransferTo(mind, twin, true);
             QueueDel(uid);
         }
 
         private void OnMindAdded(EntityUid uid, EvilTwinComponent component, MindAddedMessage args)
         {
-            if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
+            if (!_mindSystem.TryGetMind(uid, out var mind))
                 return;
 
             if (component.FirstMindAdded)
@@ -69,44 +76,43 @@ namespace Content.Server.EvilTwin
 
             component.FirstMindAdded = true;
 
-            var mind = mindComponent.Mind;
-
-            mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(EvilTwinRole)));
-            mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
-            mind.TryAddObjective(_prototypeManager.Index<ObjectivePrototype>(KillObjective));
+            _mindSystem.AddRole(mind, new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(EvilTwinRole)));
+            _mindSystem.TryAddObjective(mind, _prototypeManager.Index<ObjectivePrototype>(EscapeObjective));
+            _mindSystem.TryAddObjective(mind, _prototypeManager.Index<ObjectivePrototype>(KillObjective));
         }
 
         private void OnRoundEnd(RoundEndTextAppendEvent ev)
         {
-            List<(EvilTwinComponent fugi, MindComponent mind)> fugis = EntityQuery<EvilTwinComponent, MindComponent>().ToList();
-
-            if (fugis.Count < 1)
-                return;
-
-            var result = Loc.GetString("evil-twin-round-end-result", ("evil-twin-count", fugis.Count));
+            var result = new StringBuilder();
+            var query = EntityQueryEnumerator<EvilTwinComponent, MindContainerComponent>();
+            var count = 0;
 
             // yeah this is duplicated from traitor rules lol, there needs to be a generic rewrite where it just goes through all minds with objectives
-            foreach (var fugi in fugis)
+            while (query.MoveNext(out var uid, out _, out var mindContainer))
             {
-                if (fugi.mind.Mind == null)
+                if (!_mindSystem.TryGetMind(uid, out var mind, mindContainer))
                     continue;
 
-                var name = fugi.mind.Mind.CharacterName;
-                fugi.mind.Mind.TryGetSession(out var session);
-                var username = session?.Name;
+                ++count;
 
-                var objectives = fugi.mind.Mind.AllObjectives.ToArray();
+                var name = mind.CharacterName;
+                string? username = null;
+
+                if (_mindSystem.TryGetSession(mind, out var session))
+                    username = session.Name;
+
+                var objectives = mind.AllObjectives.ToArray();
                 if (objectives.Length == 0)
                 {
                     if (username != null)
                     {
                         if (name == null)
-                            result += "\n" + Loc.GetString("evil-twin-user-was-an-evil-twin", ("user", username));
+                            result.AppendLine(Loc.GetString("evil-twin-user-was-an-evil-twin", ("user", username)));
                         else
-                            result += "\n" + Loc.GetString("evil-twin-user-was-an-evil-twin-named", ("user", username), ("name", name));
+                            result.AppendLine(Loc.GetString("evil-twin-user-was-an-evil-twin-named", ("user", username), ("name", name)));
                     }
                     else if (name != null)
-                        result += "\n" + Loc.GetString("evil-twin-was-an-evil-twin-named", ("name", name));
+                        result.AppendLine(Loc.GetString("evil-twin-was-an-evil-twin-named", ("name", name)));
 
                     continue;
                 }
@@ -114,12 +120,12 @@ namespace Content.Server.EvilTwin
                 if (username != null)
                 {
                     if (name == null)
-                        result += "\n" + Loc.GetString("evil-twin-user-was-an-evil-twin-with-objectives", ("user", username));
+                        result.AppendLine(Loc.GetString("evil-twin-user-was-an-evil-twin-with-objectives", ("user", username)));
                     else
-                        result += "\n" + Loc.GetString("evil-twin-user-was-an-evil-twin-with-objectives-named", ("user", username), ("name", name));
+                        result.AppendLine(Loc.GetString("evil-twin-user-was-an-evil-twin-with-objectives-named", ("user", username), ("name", name)));
                 }
                 else if (name != null)
-                    result += "\n" + Loc.GetString("evil-twin-was-an-evil-twin-with-objectives-named", ("name", name));
+                    result.AppendLine(Loc.GetString("evil-twin-was-an-evil-twin-with-objectives-named", ("name", name)));
 
                 foreach (var objectiveGroup in objectives.GroupBy(o => o.Prototype.Issuer))
                 {
@@ -130,109 +136,152 @@ namespace Content.Server.EvilTwin
                             var progress = condition.Progress;
                             if (progress > 0.99f)
                             {
-                                result += "\n- " + Loc.GetString(
+                                result.AppendLine("- " + Loc.GetString(
                                     "traitor-objective-condition-success",
                                     ("condition", condition.Title),
                                     ("markupColor", "green")
-                                );
+                                ));
                             }
                             else
                             {
-                                result += "\n- " + Loc.GetString(
+                                result.AppendLine("- " + Loc.GetString(
                                     "traitor-objective-condition-fail",
                                     ("condition", condition.Title),
                                     ("progress", (int) (progress * 100)),
                                     ("markupColor", "red")
-                                );
+                                ));
                             }
                         }
                     }
                 }
             }
-            ev.AddLine(result);
+
+            if (count == 0)
+                return;
+
+            ev.AddLine(Loc.GetString("evil-twin-round-end-result", ("evil-twin-count", count)));
+            ev.AddLine(result.ToString());
         }
-        public EntityUid? SpawnEvilTwin()
+
+        public bool TrySpawnParadoxAnomaly([NotNullWhen(true)] out EntityUid? twin, EntityUid? specific = null)
         {
-            var candidates = EntityQuery<ActorComponent, MindComponent, HumanoidAppearanceComponent>().ToList();
-            _random.Shuffle(candidates);
+            twin = null;
 
-            foreach (var candidate in candidates)
+            // Get a list of potential candidates if one hasn't been specified.
+            var candidates = new List<(EntityUid uid, Mind.Mind mind, Job job, SpeciesPrototype species, HumanoidCharacterProfile profile)>();
+
+            if (specific == null)
             {
-                var candUid = candidate.Item1.Owner;
-
-                if (candidate.Item2.Mind?.CurrentJob == null)
-                    continue;
-
-                if (HasComp<MetempsychosisKarmaComponent>(candUid))
-                    continue;
-
-                if (HasComp<FugitiveComponent>(candUid) || HasComp<EvilTwinComponent>(candUid) || HasComp<NukeOperativeComponent>(candUid))
-                    continue;
-
-                if (!_prototypeManager.TryIndex<SpeciesPrototype>(candidate.Item3.Species, out var species))
-                    continue;
-
-                var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(candidate.Item1.PlayerSession.UserId).SelectedCharacter;
-
-                if (pref == null)
-                    continue;
-
-                var spawns = EntityQuery<SpawnPointComponent>();
-
-                var coords = Transform(candUid).Coordinates;
-
-                List<EntityUid> latejoins = new();
-
-                foreach (var spawn in spawns)
+                var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
+                while (query.MoveNext(out var uid, out var mindContainer, out var humanoidAppearance))
                 {
-                    if (spawn.SpawnType != SpawnPointType.LateJoin)
+                    if (!_mindSystem.TryGetMind(uid, out var mind, mindContainer) ||
+                        mind.CurrentJob == null)
+                    {
+                        continue;
+                    }
+
+                    if (humanoidAppearance.LastProfileLoaded == null)
                         continue;
 
-                    latejoins.Add(spawn.Owner);
-
-                    if (_stationSystem.GetOwningStation(spawn.Owner) !=_stationSystem.GetOwningStation(candUid))
+                    if (HasComp<MetempsychosisKarmaComponent>(uid) ||
+                        HasComp<FugitiveComponent>(uid) ||
+                        HasComp<EvilTwinComponent>(uid) ||
+                        HasComp<NukeOperativeComponent>(uid))
+                    {
                         continue;
+                    }
 
-                    coords = Transform(spawn.Owner).Coordinates;
-                    break;
+                    if (!_prototypeManager.TryIndex<SpeciesPrototype>(humanoidAppearance.Species, out var species))
+                    {
+                        continue;
+                    }
+
+                    candidates.Add((uid, mind, mind.CurrentJob, species, humanoidAppearance.LastProfileLoaded));
                 }
-
-                if (coords == Transform(candUid).Coordinates && latejoins.Count > 0)
-                    coords = Transform(_random.Pick(latejoins)).Coordinates;
-
-                var uid = Spawn(species.Prototype, coords);
-
-                _humanoidSystem.LoadProfile(uid, pref);
-                MetaData(uid).EntityName = MetaData(candUid).EntityName;
-
-                if (TryComp<DetailExaminableComponent>(candUid, out var detail))
+            }
+            else
+            {
+                if (!_mindSystem.TryGetMind(specific.Value, out var mind) ||
+                    mind.CurrentJob == null ||
+                    !TryComp<HumanoidAppearanceComponent>(specific, out var humanoidAppearance) ||
+                    humanoidAppearance.LastProfileLoaded == null ||
+                    !_prototypeManager.TryIndex<SpeciesPrototype>(humanoidAppearance.Species, out var species))
                 {
-                    var detailCopy = EnsureComp<DetailExaminableComponent>(uid);
-                    detailCopy.Content = detail.Content;
+                    return false;
                 }
 
-                if (candidate.Item2.Mind.CurrentJob.StartingGear != null && _prototypeManager.TryIndex<StartingGearPrototype>(candidate.Item2.Mind.CurrentJob.StartingGear, out var gear))
-                {
-                    _stationSpawningSystem.EquipStartingGear(uid, gear, pref);
-                    _stationSpawningSystem.EquipIdCard(uid, pref.Name, candidate.Item2.Mind.CurrentJob.Prototype, _stationSystem.GetOwningStation(candUid));
-                }
-
-                foreach (var special in candidate.Item2.Mind.CurrentJob.Prototype.Special)
-                {
-                    if (special is AddComponentSpecial)
-                        special.AfterEquip(uid);
-                }
-
-                var twin = EnsureComp<EvilTwinComponent>(uid);
-                twin.TwinMind = candidate.Item2.Mind;
-
-                var psi = EnsureComp<PotentialPsionicComponent>(uid);
-                _psionicsSystem.RollPsionics(uid, psi, false, 100);
-
-                return uid;
+                candidates.Add((specific.Value, mind, mind.CurrentJob, species, humanoidAppearance.LastProfileLoaded));
             }
 
-            return null;
+            // Select a candidate.
+            if (candidates.Count == 0)
+            {
+                return false;
+            }
+
+            var (candidate, candidateMind, candidateJob, candidateSpecies, candidateProfile) = _random.Pick(candidates);
+
+            // Find a suitable spawn point.
+            var coords = Transform(candidate).Coordinates;
+
+            var latejoins = new List<EntityUid>();
+
+            var spawnQuery = EntityQueryEnumerator<SpawnPointComponent>();
+            while (spawnQuery.MoveNext(out var uid, out var spawnPoint))
+            {
+                if (spawnPoint.SpawnType != SpawnPointType.LateJoin)
+                    continue;
+
+                if (_stationSystem.GetOwningStation(uid) !=_stationSystem.GetOwningStation(candidate))
+                    continue;
+
+                latejoins.Add(uid);
+            }
+
+            if (latejoins.Count == 0)
+            {
+                return false;
+            }
+
+            // Spawn the twin.
+            var destination = Transform(_random.Pick(latejoins)).Coordinates;
+            var spawned = Spawn(candidateSpecies.Prototype, destination);
+
+            // Copy the details.
+            _humanoidSystem.LoadProfile(spawned, candidateProfile);
+            _metaDataSystem.SetEntityName(spawned, MetaData(candidate).EntityName);
+
+            if (TryComp<DetailExaminableComponent>(candidate, out var detail))
+            {
+                var detailCopy = EnsureComp<DetailExaminableComponent>(spawned);
+                detailCopy.Content = detail.Content;
+            }
+
+            if (candidateJob.StartingGear != null &&
+                _prototypeManager.TryIndex<StartingGearPrototype>(candidateJob.StartingGear, out var gear))
+            {
+                _stationSpawningSystem.EquipStartingGear(spawned, gear, candidateProfile);
+                _stationSpawningSystem.EquipIdCard(spawned,
+                    candidateProfile.Name,
+                    candidateJob.Prototype,
+                    _stationSystem.GetOwningStation(candidate));
+            }
+
+            foreach (var special in candidateJob.Prototype.Special)
+            {
+                if (special is AddComponentSpecial)
+                    special.AfterEquip(spawned);
+            }
+
+            var twinComponent = EnsureComp<EvilTwinComponent>(spawned);
+            twinComponent.TwinMind = candidateMind;
+
+            var psi = EnsureComp<PotentialPsionicComponent>(spawned);
+            _psionicsSystem.RollPsionics(spawned, psi, false, 100);
+
+            twin = spawned;
+            return true;
         }
     }
 }

@@ -12,13 +12,10 @@ namespace Content.Client.Xenoarchaeology.Ui;
 public sealed partial class AnalysisConsoleMenu : FancyWindow
 {
     [Dependency] private readonly IEntityManager _ent = default!;
-
-    public AnalysisDestroyWindow? AnalysisDestroyWindow;
-
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnScanButtonPressed;
     public event Action? OnPrintButtonPressed;
-    public event Action? OnDestroyButtonPressed;
+    public event Action? OnExtractButtonPressed;
 
     public AnalysisConsoleMenu()
     {
@@ -28,26 +25,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ServerSelectionButton.OnPressed += _ => OnServerSelectionButtonPressed?.Invoke();
         ScanButton.OnPressed += _ => OnScanButtonPressed?.Invoke();
         PrintButton.OnPressed += _ => OnPrintButtonPressed?.Invoke();
-        DestroyButton.OnPressed += _ => OnDestroyButton();
-    }
-
-    private void OnDestroyButton()
-    {
-        // check if window is already open
-        if (AnalysisDestroyWindow is { IsOpen: true })
-        {
-            AnalysisDestroyWindow.MoveToFront();
-            return;
-        }
-
-        // open a new one
-        AnalysisDestroyWindow = new ();
-        AnalysisDestroyWindow.OpenCentered();
-
-        AnalysisDestroyWindow.OnYesButton += _ =>
-        {
-            OnDestroyButtonPressed?.Invoke();
-        };
+        ExtractButton.OnPressed += _ => OnExtractButtonPressed?.Invoke();
     }
 
     public void SetButtonsDisabled(AnalysisConsoleScanUpdateState state)
@@ -57,15 +35,15 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         var disabled = !state.ServerConnected || !state.CanScan || state.PointAmount <= 0;
 
-        DestroyButton.Disabled = disabled;
+        ExtractButton.Disabled = disabled;
 
         if (disabled)
         {
-            DestroyButton.RemoveStyleClass(StyleBase.ButtonCaution);
+            ExtractButton.RemoveStyleClass("ButtonColorGreen");
         }
         else
         {
-            DestroyButton.AddStyleClass(StyleBase.ButtonCaution);
+            ExtractButton.AddStyleClass("ButtonColorGreen");
         }
     }
 
@@ -126,13 +104,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ProgressLabel.Text = Loc.GetString("analysis-console-progress-text",
             ("seconds", (int) state.TotalTime.TotalSeconds - (int) state.TimeRemaining.TotalSeconds));
         ProgressBar.Value = (float) state.TimeRemaining.Divide(state.TotalTime);
-    }
-
-    public override void Close()
-    {
-        base.Close();
-
-        AnalysisDestroyWindow?.Close();
     }
 }
 
