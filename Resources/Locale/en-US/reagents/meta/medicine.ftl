@@ -102,3 +102,6 @@ reagent-desc-diphenylmethylamine = A more stable medicine than ethyloxyephedrine
 
 reagent-name-sigynate = sigynate
 reagent-desc-sigynate = A thick pink syrup useful for neutralizing acids and soothing trauma caused by acids.  Tastes sweet!
+
+reagent-name-saline = saline
+reagent-desc-saline = "A mixture of salt and water. Commonly used to treat dehydration or low fluid presence in blood."
