@@ -1,0 +1,14 @@
+# Tier 2
+
+- type: technology
+  id: Navigation
+  name: research-technology-navigation
+  icon:
+    sprite: Structures/Machines/computers.rsi
+    state: solar_screen
+  discipline: Industrial
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - RadarConsoleCircuitboard
+  - StationMapElectronics

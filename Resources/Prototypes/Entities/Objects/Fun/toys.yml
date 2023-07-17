@@ -7,7 +7,6 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
-    netsync: false
   - type: EmitSoundOnUse
     sound:
       collection: ToySqueak
@@ -97,10 +96,9 @@
   - type: Sprite
     state: plushie_lamp
   - type: PointLight
-    netsync: false
     radius: 1.5
     energy: 2
-
+    netsync: false
 - type: entity
   parent: BasePlushie
   id: PlushieLizard #Weh!
@@ -345,7 +343,6 @@
   components:
   - type: Sprite
     state: plushie_vox
-    netsync: false
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
@@ -379,12 +376,14 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
-    netsync: false
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
   - type: DynamicPrice
     price: 10
+  - type: Tag
+    tags:
+    - Figurine
 
 - type: entity
   parent: BaseFigurine
@@ -581,7 +580,6 @@
   id: FoamWeaponBase
   components:
   - type: Sprite
-    netsync: false
   - type: Item
     size: 24
 
@@ -625,7 +623,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
 
 - type: entity
   parent: ToyGunBase
@@ -823,11 +820,11 @@
     - type: UseDelay
       delay: 1.0
     - type: PointLight
-      netsync: false
       enabled: false
       radius: 2
       energy: 2
       color: white
+      netsync: false
     - type: Appearance
     - type: ToggleableLightVisuals
       spriteLayer: blade
@@ -853,7 +850,6 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/pequeno.rsi
-    netsync: false
     layers:
     - state: base
       map: [ "enum.DamageStateVisualLayers.Base" ]

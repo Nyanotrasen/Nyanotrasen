@@ -5,7 +5,6 @@
   components:
   - type: Sprite
     drawdepth: FloorTiles
-    netsync: false
     sprite: Nyanotrasen/Structures/Furniture/tatami.rsi
   - type: Tag
     tags: [ Carpet ]

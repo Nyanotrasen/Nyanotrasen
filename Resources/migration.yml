@@ -9,6 +9,9 @@
 
 chem_dispenser: ChemDispenser
 
+# SS14 2023-05-10
+FoodCondimentBottleSmallHotsauce: FoodCondimentBottleHotsauce
+
 # Nyano 2023-05-10
 FoodBakedCookieFortune: FoodSnackCookieFortune
 
@@ -22,6 +25,12 @@ AlwaysPoweredlightColoredFrostyBlue: AlwaysPoweredLightColoredFrostyBlue
 PoweredlightColoredBlack: PoweredLightColoredBlack
 AlwaysPoweredlightColoredBlack: AlwaysPoweredLightColoredBlack
 
+# SS14 2023-05-24
+AMEController: AmeController
+AMEJar: AmeJar
+AMEPart: AmePart
+AMEShielding: AmeShielding
+
 # Nyano 2023-05-16
 ClothingNeckMantleRD: ClothingNeckMantleMystagogue
 ClothingUniformJumpsuitResearchDirector: ClothingUniformJumpsuitMystagogue
@@ -29,11 +38,44 @@ ClothingUniformJumpskirtResearchDirector: ClothingUniformJumpskirtMystagogue
 ClothingOuterWinterRD: ClothingOuterWinterMystagogue
 
 # Nyano 2023-05-21: upstream map compat patch
-SpawnVehicleJanicart: SpawnVehiclePussywagon
-VehicleKeyJanicart: VehicleKeyPussyWagon
 LockerAtmosphericsFilledHardsuit: LockerAtmosphericsFilled
 LockerChiefEngineerFilledHardsuit: LockerChiefEngineerFilled
 LockerChiefMedicalOfficerFilledHardsuit: LockerChiefMedicalOfficerFilled
 LockerEngineerFilledHardsuit: LockerEngineerFilled
 LockerHeadOfSecurityFilledHardsuit: LockerHeadOfSecurityFilled
 LockerResearchDirectorFilledHardsuit: LockerResearchDirectorFilled
+
+# SS14 2023-05-31
+IHSVoidsuit: null
+ClothingHeadHelmetIHSVoidHelm: null
+ClothingHandsGlovesIhscombat: null
+
+# SS14 2023-06-02
+# Yes, this is right. They were, in fact, reversed because the default orientation of the particle accelerator was _down_ relative to the screen.
+# This resulted in the parts being named assuming that the person building the accelerator treated it like a rocket with the particles coming out the _back_.
+# As this was confusing they were converted to nautical orientation with forward being towards the emitters.
+MachineParticleAcceleratorEmitterCenterCircuitboard: MachineParticleAcceleratorEmitterForeCircuitboard
+MachineParticleAcceleratorEmitterLeftCircuitboard: MachineParticleAcceleratorEmitterStarboardCircuitboard
+MachineParticleAcceleratorEmitterRightCircuitboard: MachineParticleAcceleratorEmitterPortCircuitboard
+ParticleAcceleratorEmitterCenter: ParticleAcceleratorEmitterFore
+ParticleAcceleratorEmitterCenterUnfinished: ParticleAcceleratorEmitterForeUnfinished
+ParticleAcceleratorEmitterLeft: ParticleAcceleratorEmitterStarboard
+ParticleAcceleratorEmitterLeftUnfinished: ParticleAcceleratorEmitterStarboardUnfinished
+ParticleAcceleratorEmitterRight: ParticleAcceleratorEmitterPort
+ParticleAcceleratorEmitterRightUnfinished: ParticleAcceleratorEmitterPortUnfinished
+
+# Nyano 2023-07-03
+ClothingOuterHardsuitRd: ClothingOuterHardsuitMystagogue
+
+# Nyano 2023-07-09
+SpawnVehiclePussywagon: SpawnVehicleJanicart
+VehicleKeyPussyWagon: VehicleKeyJanicart
+
+# SS14 2023-07-10
+Intercom: IntercomCommon
+
+# Nyano 2023-07-15
+Autolathe: null
+AutolatheMachineCircuitboard: null
+Protolathe: null
+ProtolatheMachineCircuitboard: null

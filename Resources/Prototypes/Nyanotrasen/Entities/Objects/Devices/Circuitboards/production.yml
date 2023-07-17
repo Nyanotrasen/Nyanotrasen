@@ -66,7 +66,7 @@
     - type: MachineBoard
       prototype: MetempsychoticMachine
       requirements:
-        ScanningModule: 2
+        Capacitor: 2
         Manipulator: 2
       materialRequirements:
         Glass: 1
@@ -87,7 +87,7 @@
     - type: MachineBoard
       prototype: ReverseEngineeringMachine
       requirements:
-        ScanningModule: 1
+        MatterBin: 1
         Manipulator: 1
       materialRequirements:
         Glass: 1

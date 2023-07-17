@@ -14,28 +14,28 @@
   id: ArachneWeb
 
 - type: Tag
+  id: ArtifactFragment
+
+- type: Tag
   id: ATVKeys
 
 - type: Tag
   id: Baguette
 
 - type: Tag
-  id: BikeHorn
+  id: BaseballBat
 
 - type: Tag
   id: Bee
+
+- type: Tag
+  id: BikeHorn
 
 - type: Tag
   id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
   id: BluespaceCrystal
-
-- type: Tag
-  id: BrassInstrument
-
-- type: Tag
-  id: Brutepack
 
 - type: Tag
   id: Bloodpack
@@ -48,6 +48,9 @@
 
 - type: Tag
   id: BorgArm
+
+- type: Tag
+  id: BorgHead
 
 - type: Tag
   id: BorgLeg
@@ -74,6 +77,18 @@
   id: BoxHug
 
 - type: Tag
+  id: BrassInstrument
+
+- type: Tag
+  id: Bread
+
+- type: Tag
+  id: Briefcase
+
+- type: Tag
+  id: Brutepack
+
+- type: Tag
   id: Bucket
 
 - type: Tag
@@ -87,6 +102,9 @@
 
 - type: Tag
   id: Carrot
+
+- type: Tag
+  id: CarrotFries
 
 - type: Tag
   id: Carpet
@@ -150,7 +168,16 @@
   id: CigPack
 
 - type: Tag
+  id: ClownMask
+
+- type: Tag
   id: ClownRubberStamp
+
+- type: Tag
+  id: ClownShoes
+
+- type: Tag #Ohioans die happy
+  id: Corn
 
 - type: Tag
   id: Crayon
@@ -204,6 +231,9 @@
   id: CoreSilver
 
 - type: Tag
+  id: CubanCarp
+
+- type: Tag
   id: Debug
 
 - type: Tag
@@ -255,6 +285,9 @@
   id: ExplosivePassable
 
 - type: Tag
+  id: Figurine
+
+- type: Tag
   id: FireAlarm
 
 - type: Tag
@@ -303,6 +336,9 @@
   id: FullBodyOuter # this outerclothing wraps around the feet and legs
 
 - type: Tag
+  id: Galaxythistle
+
+- type: Tag
   id: GasScrubber
 
 - type: Tag
@@ -337,6 +373,9 @@
 
 - type: Tag
   id: Head
+
+- type: Tag
+  id: HelmetEVA
 
 - type: Tag
   id: HideContextMenu
@@ -391,6 +430,12 @@
   id: LavaBrig
 
 - type: Tag
+  id: Lemon
+
+- type: Tag
+  id: Lime
+
+- type: Tag
   id: Machete
 
 - type: Tag
@@ -398,6 +443,9 @@
 
 - type: Tag
   id: MicroBomb
+
+- type: Tag
+  id: MimeBelt
 
 # Magazines ordered by slot then caliber
 
@@ -480,6 +528,9 @@
   id: Mop
 
 - type: Tag
+  id: Mouse
+
+- type: Tag
   id: Multitool
 
 - type: Tag
@@ -519,6 +570,9 @@
   id: PaintableAirlock
 
 - type: Tag
+  id: Pancake
+
+- type: Tag
   id: PercussionInstrument
 
 - type: Tag
@@ -526,6 +580,9 @@
 
 - type: Tag
   id: Pickaxe
+
+- type: Tag
+  id: Pie
 
 - type: Tag
   id: PillCanister
@@ -546,16 +603,22 @@
   id: PlantSampleTaker
 
 - type: Tag
+  id: PlasmaGlassShard
+
+- type: Tag
   id: Plastic
+
+- type: Tag
+  id: Plunger
 
 - type: Tag
   id: Powerdrill
 
 - type: Tag
-  id: ProximitySensor
+  id: PrisonUniform
 
 - type: Tag
-  id: PussyWagonKeys
+  id: ProximitySensor
 
 - type: Tag
   id: Radio
@@ -569,6 +632,9 @@
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
   id: Recyclable
+
+- type: Tag
+  id: ReinforcedGlassShard
 
 - type: Tag
   id: RipleyCentralControlModule
@@ -616,6 +682,9 @@
   id: ShellShotgun
 
 - type: Tag
+  id: Shiv
+
+- type: Tag
   id: ShoesRequiredStepTriggerImmune
 
 - type: Tag
@@ -635,6 +704,9 @@
 
 - type: Tag
   id: SolarTrackerElectronics
+
+- type: Tag
+  id: Soup
 
 - type: Tag
   id: Spray
@@ -667,6 +739,9 @@
   id: SubdermalImplant
 
 - type: Tag
+  id: SuitEVA
+
+- type: Tag
   id: SurveillanceCameraMonitorCircuitboard
 
 - type: Tag
@@ -674,6 +749,12 @@
 
 - type: Tag
   id: SyndicateSegwayKeys
+
+- type: Tag
+  id: Syringe
+
+- type: Tag
+  id: Spellbook
 
 - type: Tag
   id: Taser
@@ -688,10 +769,16 @@
   id: TimerSignalElectronics
 
 - type: Tag
+  id: Toolbox
+
+- type: Tag
   id: Trash
 
 - type: Tag
   id: TrashBag
+
+- type: Tag
+  id: Unstackable # To prevent things like atmos devices (filters etc) being stacked on one tile. See NoUnstackableInTile
 
 - type: Tag
   id: VehicleKey

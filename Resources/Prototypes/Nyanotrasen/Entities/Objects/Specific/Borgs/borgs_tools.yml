@@ -129,7 +129,6 @@
           - SheetSteel
   - type: StackHolder
   - type: Sprite
-    netsync: false
     sprite: Objects/Materials/Sheets/metal.rsi
     state: steel
   - type: ContainerContainer
@@ -154,7 +153,6 @@
           - Gauze
   - type: StackHolder
   - type: Sprite
-    netsync: false
     sprite: Objects/Specific/Medical/medical.rsi
     state: brutepack
   - type: ContainerContainer
@@ -178,7 +176,6 @@
           - FloorTile
   - type: StackHolder
   - type: Sprite
-    netsync: false
     sprite: Objects/Tiles/tile.rsi
     state: steel
   - type: ContainerContainer
@@ -201,7 +198,6 @@
           - CablePlacer
   - type: StackHolder
   - type: Sprite
-    netsync: false
     sprite: Objects/Tools/cable-coils.rsi
     state: coillv-30
   - type: ContainerContainer
@@ -269,3 +265,5 @@
   components:
   - type: Stack
     count: 30
+  - type: Item
+    size: 150

@@ -30,6 +30,7 @@ using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Emag.Components;
+using Content.Server.Mind;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Zombies;
@@ -43,6 +44,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.GameObjects.Components.Localization;
+using Content.Server.Traits.Assorted;
+
 namespace Content.Server.Cloning
 {
     public sealed class CloningSystem : EntitySystem
@@ -65,9 +68,10 @@ namespace Content.Server.Cloning
         [Dependency] private readonly IConfigurationManager _configManager = default!;
         [Dependency] private readonly MaterialStorageSystem _material = default!;
         [Dependency] private readonly MetempsychoticMachineSystem _metem = default!;
-        [Dependency] private readonly MindSystem _mind = default!;
         [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
         public readonly Dictionary<Mind.Mind, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -88,7 +92,7 @@ namespace Content.Server.Cloning
 
         private void OnComponentInit(EntityUid uid, CloningPodComponent clonePod, ComponentInit args)
         {
-            clonePod.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(clonePod.Owner, "clonepod-bodyContainer");
+            clonePod.BodyContainer = _containerSystem.EnsureContainer<ContainerSlot>(uid, "clonepod-bodyContainer");
             _signalSystem.EnsureSinkPorts(uid, CloningPodComponent.PodPort);
         }
 
@@ -111,12 +115,12 @@ namespace Content.Server.Cloning
         {
             if (!ClonesWaitingForMind.TryGetValue(mind, out var entity) ||
                 !EntityManager.EntityExists(entity) ||
-                !TryComp<MindComponent>(entity, out var mindComp) ||
+                !TryComp<MindContainerComponent>(entity, out var mindComp) ||
                 mindComp.Mind != null)
                 return;
 
-            mind.TransferTo(entity, ghostCheckOverride: true);
-            mind.UnVisit();
+            _mindSystem.TransferTo(mind, entity, ghostCheckOverride: true);
+            _mindSystem.UnVisit(mind);
             ClonesWaitingForMind.Remove(mind);
         }
 
@@ -125,12 +129,12 @@ namespace Content.Server.Cloning
             if (clonedComponent.Parent == EntityUid.Invalid ||
                 !EntityManager.EntityExists(clonedComponent.Parent) ||
                 !TryComp<CloningPodComponent>(clonedComponent.Parent, out var cloningPodComponent) ||
-                clonedComponent.Owner != cloningPodComponent.BodyContainer.ContainedEntity)
+                uid != cloningPodComponent.BodyContainer.ContainedEntity)
             {
-                EntityManager.RemoveComponent<BeingClonedComponent>(clonedComponent.Owner);
+                EntityManager.RemoveComponent<BeingClonedComponent>(uid);
                 return;
             }
-            UpdateStatus(CloningPodStatus.Cloning, cloningPodComponent);
+            UpdateStatus(clonedComponent.Parent, CloningPodStatus.Cloning, cloningPodComponent);
         }
 
         private void OnPortDisconnected(EntityUid uid, CloningPodComponent pod, PortDisconnectedEvent args)
@@ -148,7 +152,7 @@ namespace Content.Server.Cloning
                 _cloningConsoleSystem.RecheckConnections(component.ConnectedConsole.Value, uid, console.GeneticScanner, console);
                 return;
             }
-            _cloningConsoleSystem.UpdateUserInterface(console);
+            _cloningConsoleSystem.UpdateUserInterface(component.ConnectedConsole.Value, console);
         }
 
         private void OnExamined(EntityUid uid, CloningPodComponent component, ExaminedEvent args)
@@ -171,7 +175,7 @@ namespace Content.Server.Cloning
             {
                 if (EntityManager.EntityExists(clone) &&
                     !_mobStateSystem.IsDead(clone) &&
-                    TryComp<MindComponent>(clone, out var cloneMindComp) &&
+                    TryComp<MindContainerComponent>(clone, out var cloneMindComp) &&
                     (cloneMindComp.Mind == null || cloneMindComp.Mind == mind))
                     return false; // Mind already has clone
 
@@ -185,13 +189,15 @@ namespace Content.Server.Cloning
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
                 return false; // If we can't track down the client, we can't offer transfer. That'd be quite bad.
 
-            var pref = (HumanoidCharacterProfile) _prefs.GetPreferences(mind.UserId.Value).SelectedCharacter;
+            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
+                return false; // whatever body was to be cloned, was not a humanoid
+
+            // Begin Nyano-code: allow paradox anomalies to be cloned.
+            var pref = humanoid.LastProfileLoaded;
+            // End Nyano-code.
 
             if (pref == null)
                 return false;
-
-            if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
-                return false; // whatever body was to be cloned, was not a humanoid
 
             if (!_prototype.TryIndex<SpeciesPrototype>(humanoid.Species, out var speciesPrototype))
                 return false;
@@ -203,6 +209,16 @@ namespace Content.Server.Cloning
 
             if (clonePod.ConstantBiomassCost == null && _configManager.GetCVar(CCVars.BiomassEasyMode))
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
+
+            // Check if they have the uncloneable trait
+            if (TryComp<UncloneableComponent>(bodyToClone, out _))
+            {
+                if (clonePod.ConnectedConsole != null)
+                    _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value,
+                        Loc.GetString("cloning-console-uncloneable-trait-error"),
+                        InGameICChatType.Speak, false);
+                return false;
+            }
 
             // biomass checks
             var biomassAmount = _material.GetMaterialAmount(uid, clonePod.RequiredMaterial);
@@ -232,20 +248,21 @@ namespace Content.Server.Cloning
 
                     if (_robustRandom.Prob(chance))
                     {
-                        UpdateStatus(CloningPodStatus.Gore, clonePod);
+                        UpdateStatus(uid, CloningPodStatus.Gore, clonePod);
                         clonePod.FailedClone = true;
                         AddComp<ActiveCloningPodComponent>(uid);
                         return true;
                     }
-                // Begin Nyano-code
+                // Begin Nyano-code:
                 // arachne have no genetics. we need to stop the cloner from cloning them.
-                } else
+                }
+                else
                 {
                     if (clonePod.ConnectedConsole != null)
                         _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value, Loc.GetString("cloning-console-chat-no-genetics", ("units", cloningCost)), InGameICChatType.Speak, false);
                     return false;
                 }
-                // End Nyano-code
+                // End Nyano-code.
             }
             // end of genetic damage checks
 
@@ -253,10 +270,10 @@ namespace Content.Server.Cloning
 
             var cloneMindReturn = EntityManager.AddComponent<BeingClonedComponent>(mob);
             cloneMindReturn.Mind = mind;
-            cloneMindReturn.Parent = clonePod.Owner;
+            cloneMindReturn.Parent = uid;
             clonePod.BodyContainer.Insert(mob);
             ClonesWaitingForMind.Add(mind, mob);
-            UpdateStatus(CloningPodStatus.NoMind, clonePod);
+            UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
             _euiManager.OpenEui(new AcceptCloningEui(mind, this), client);
 
             AddComp<ActiveCloningPodComponent>(uid);
@@ -276,17 +293,18 @@ namespace Content.Server.Cloning
             return true;
         }
 
-        public void UpdateStatus(CloningPodStatus status, CloningPodComponent cloningPod)
+        public void UpdateStatus(EntityUid podUid, CloningPodStatus status, CloningPodComponent cloningPod)
         {
             cloningPod.Status = status;
-            _appearance.SetData(cloningPod.Owner, CloningPodVisuals.Status, cloningPod.Status);
+            _appearance.SetData(podUid, CloningPodVisuals.Status, cloningPod.Status);
         }
 
         public override void Update(float frameTime)
         {
-            foreach (var (_, cloning) in EntityManager.EntityQuery<ActiveCloningPodComponent, CloningPodComponent>())
+            var query = EntityQueryEnumerator<ActiveCloningPodComponent, CloningPodComponent>();
+            while (query.MoveNext(out var uid, out var _, out var cloning))
             {
-                if (!_powerReceiverSystem.IsPowered(cloning.Owner))
+                if (!_powerReceiverSystem.IsPowered(uid))
                     continue;
 
                 if (cloning.BodyContainer.ContainedEntity == null && !cloning.FailedClone)
@@ -297,9 +315,9 @@ namespace Content.Server.Cloning
                     continue;
 
                 if (cloning.FailedClone)
-                    EndFailedCloning(cloning.Owner, cloning);
+                    EndFailedCloning(uid, cloning);
                 else
-                    Eject(cloning.Owner, cloning);
+                    Eject(uid, cloning);
             }
         }
 
@@ -308,14 +326,14 @@ namespace Content.Server.Cloning
             if (!Resolve(uid, ref clonePod))
                 return;
 
-            if (clonePod.BodyContainer.ContainedEntity is not {Valid: true} entity || clonePod.CloningProgress < clonePod.CloningTime)
+            if (clonePod.BodyContainer.ContainedEntity is not { Valid: true } entity || clonePod.CloningProgress < clonePod.CloningTime)
                 return;
 
             EntityManager.RemoveComponent<BeingClonedComponent>(entity);
             clonePod.BodyContainer.Remove(entity);
             clonePod.CloningProgress = 0f;
             clonePod.UsedBiomass = 0;
-            UpdateStatus(CloningPodStatus.Idle, clonePod);
+            UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
             RemCompDeferred<ActiveCloningPodComponent>(uid);
         }
 
@@ -323,7 +341,7 @@ namespace Content.Server.Cloning
         {
             clonePod.FailedClone = false;
             clonePod.CloningProgress = 0f;
-            UpdateStatus(CloningPodStatus.Idle, clonePod);
+            UpdateStatus(uid, CloningPodStatus.Idle, clonePod);
             var transform = Transform(uid);
             var indices = _transformSystem.GetGridOrMapTilePosition(uid);
 
@@ -331,7 +349,7 @@ namespace Content.Server.Cloning
 
             Solution bloodSolution = new();
 
-            int i = 0;
+            var i = 0;
             while (i < 1)
             {
                 tileMix?.AdjustMoles(Gas.Miasma, 6f);
@@ -407,8 +425,8 @@ namespace Content.Server.Cloning
             if (!ev.NameHandled)
                 MetaData(mob).EntityName = name;
 
-            var mind = EnsureComp<MindComponent>(mob);
-            _mind.SetExamineInfo(mob, true, mind);
+            var mind = EnsureComp<MindContainerComponent>(mob);
+            _mindSystem.SetExamineInfo(mob, true, mind);
 
             var grammar = EnsureComp<GrammarComponent>(mob);
             grammar.ProperNoun = true;
@@ -445,7 +463,8 @@ namespace Content.Server.Cloning
         public readonly EntityUid Source;
         public readonly EntityUid Target;
 
-        public CloningEvent(EntityUid source, EntityUid target) {
+        public CloningEvent(EntityUid source, EntityUid target)
+        {
             Source = source;
             Target = target;
         }

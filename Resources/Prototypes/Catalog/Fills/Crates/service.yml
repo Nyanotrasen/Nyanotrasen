@@ -15,6 +15,8 @@
         amount: 2
       - id: TrashBag
         amount: 2
+      - id: Plunger
+        amount: 2
 
 - type: entity
   id: CrateServiceReplacementLights
@@ -120,6 +122,15 @@
     contents:
     - id: BoxPDA
     - id: BoxID
+
+- type: entity
+  id: CrateServiceBox
+  parent: CratePlastic
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxCardboard
+          amount: 6
 
 - type: entity
   id: CrateJanitorBiosuit

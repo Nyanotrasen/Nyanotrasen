@@ -23,7 +23,6 @@
     - SimpleHostile
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Mobs/Animals/bear.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -87,7 +86,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Mobs/Animals/bear.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -146,7 +144,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Mobs/Animals/kangaroo.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -222,7 +219,6 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    netsync: false
     sprite: Mobs/Animals/spacespider.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]

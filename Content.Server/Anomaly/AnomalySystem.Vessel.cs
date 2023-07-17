@@ -88,19 +88,26 @@ public sealed partial class AnomalySystem
 
     private void OnVesselGetPointsPerSecond(EntityUid uid, AnomalyVesselComponent component, ref ResearchServerGetPointsPerSecondEvent args)
     {
-        TryComp<GlimmerSourceComponent>(uid, out var glimmerSource);
+        GlimmerSourceComponent? glimmerSource = null;
 
         if (!this.IsPowered(uid, EntityManager) || component.Anomaly is not {} anomaly)
         {
-            if (glimmerSource != null)
+            // Begin Nyano-code: tie anomaly vessels to glimmer rate.
+            if (TryComp<GlimmerSourceComponent>(uid, out glimmerSource))
                 glimmerSource.Active = false;
+            // End Nyano-code.
             return;
         }
 
+        // Begin Nyano-code: limit passive point generation.
         args.Sources++;
+        // End Nyano-code.
         args.Points += (int) (GetAnomalyPointValue(anomaly) * component.PointMultiplier);
-        if (glimmerSource != null)
+
+        // Begin Nyano-code: tie anomaly vessels to glimmer rate.
+        if (TryComp<GlimmerSourceComponent>(uid, out glimmerSource))
             glimmerSource.Active = true;
+        // End Nyano-code.
     }
 
     private void OnUnpaused(EntityUid uid, AnomalyVesselComponent component, ref EntityUnpausedEvent args)
@@ -155,9 +162,7 @@ public sealed partial class AnomalySystem
 
         Appearance.SetData(uid, AnomalyVesselVisuals.HasAnomaly, on, appearanceComponent);
         if (TryComp<SharedPointLightComponent>(uid, out var pointLightComponent))
-        {
-            pointLightComponent.Enabled = on;
-        }
+            _pointLight.SetEnabled(uid, on, pointLightComponent);
 
         // arbitrary value for the generic visualizer to use.
         // i didn't feel like making an enum for this.

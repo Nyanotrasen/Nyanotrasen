@@ -245,6 +245,7 @@
   - type: Clothing
     sprite: Clothing/Belt/medical.rsi
   - type: Storage
+    capacity: 60
     whitelist:
       tags:
         - Wrench
@@ -554,15 +555,16 @@
   name: suspenders
   description: For holding your pants up.
   components:
+  - type: Tag
+    tags:
+    - BeltSlotNotBelt
+    - MimeBelt
   - type: Sprite
     sprite: Clothing/Belt/suspenders.rsi
     state: icon
   - type: Clothing
     sprite: Clothing/Belt/suspenders.rsi
     quickEquip: true
-  - type: Tag
-    tags:
-      - BeltSlotNotBelt
 
 - type: entity
   parent: ClothingBeltStorageBase

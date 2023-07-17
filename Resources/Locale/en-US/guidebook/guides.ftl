@@ -14,6 +14,7 @@ guide-entry-survival = Survival
 guide-entry-ss14 = Space Station 14
 guide-entry-machine-upgrading = Machine Upgrading
 guide-entry-reverse-engineering = Reverse Engineering
+guide-entry-janitorial = Janitorial
 guide-entry-epistemics = Epistemics
 guide-entry-psionics = Psionics
 guide-entry-altars-golemancy = Altars and Golemancy

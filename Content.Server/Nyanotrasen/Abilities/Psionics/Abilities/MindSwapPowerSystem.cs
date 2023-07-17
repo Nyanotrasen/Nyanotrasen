@@ -6,14 +6,14 @@ using Content.Shared.Stealth.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
-using Content.Server.Players;
+using Content.Server.Mind;
+using Content.Server.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Server.Psionics;
 using Content.Server.GameTicking;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.Abilities.Psionics
 {
@@ -25,6 +25,7 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         public override void Initialize()
         {
@@ -155,14 +156,23 @@ namespace Content.Server.Abilities.Psionics
             if (end && (!HasComp<MindSwappedComponent>(performer) || !HasComp<MindSwappedComponent>(target)))
                 return;
 
-            TryComp<ActorComponent>(performer, out var perfActor);
-            TryComp<ActorComponent>(target, out var targetActor);
+            // Get the minds first. On transfer, they'll be gone.
+            Mind.Mind? performerMind = null;
+            Mind.Mind? targetMind = null;
 
-            if (perfActor != null)
-                perfActor.PlayerSession.ContentData()?.Mind?.TransferTo(target, true, false);
+            // This is here to prevent missing MindContainerComponent Resolve errors.
+            if (TryComp<MindContainerComponent>(performer, out var performerMindContainer))
+                performerMind = _mindSystem.GetMind(performer, performerMindContainer);
 
-            if (targetActor != null)
-                targetActor.PlayerSession.ContentData()?.Mind?.TransferTo(performer, true, false);
+            if (TryComp<MindContainerComponent>(target, out var targetMindContainer))
+                targetMind = _mindSystem.GetMind(target, targetMindContainer);
+
+            // Do the transfer.
+            if (performerMind != null)
+                _mindSystem.TransferTo(performerMind, target, ghostCheckOverride: true);
+
+            if (targetMind != null)
+                _mindSystem.TransferTo(targetMind, performer, ghostCheckOverride: true);
 
             if (end)
             {
