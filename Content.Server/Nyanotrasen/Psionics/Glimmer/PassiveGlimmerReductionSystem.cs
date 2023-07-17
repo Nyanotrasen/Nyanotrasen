@@ -33,11 +33,11 @@ namespace Content.Server.Psionics.Glimmer
         public override void Initialize()
         {
             base.Initialize();
-            SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
             _cfg.OnValueChanged(CCVars.GlimmerLostPerSecond, UpdatePassiveGlimmer, true);
         }
 
-        private void Reset(RoundRestartCleanupEvent args)
+        private void OnRoundRestartCleanup(RoundRestartCleanupEvent args)
         {
             GlimmerValues.Clear();
         }
