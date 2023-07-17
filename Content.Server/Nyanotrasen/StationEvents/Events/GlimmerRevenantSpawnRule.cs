@@ -22,8 +22,11 @@ internal sealed class GlimmerRevenantSpawnRule : StationEventSystem<GlimmerReven
         base.Started(uid, component, gameRule, args);
 
         var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
+        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+
+        var spawnLocations = normalSpawnLocations.ToHashSet();
+        spawnLocations.UnionWith(hiddenSpawnLocations.ToHashSet());
 
         int total = 1;
 
@@ -42,17 +45,11 @@ internal sealed class GlimmerRevenantSpawnRule : StationEventSystem<GlimmerReven
 
             if (normalSpawnLocations.Count != 0)
             {
-                SpawnRevenant(_robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                SpawnRevenant(_robustRandom.Pick(spawnLocations));
                 i++;
                 continue;
             }
 
-            if (hiddenSpawnLocations.Count != 0)
-            {
-                SpawnRevenant(_robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
-                i++;
-                continue;
-            }
             return;
         }
     }
@@ -60,15 +57,15 @@ internal sealed class GlimmerRevenantSpawnRule : StationEventSystem<GlimmerReven
     // each revenant might bring up to 2 friends...
     private void SpawnRevenant(EntityCoordinates coordinates)
     {
-        EntityManager.SpawnEntity(RevenantPrototype, coordinates);
+        Spawn(RevenantPrototype, coordinates);
 
         if (_robustRandom.Prob(0.6f))
         {
-            EntityManager.SpawnEntity(ShadePrototype, coordinates);
+            Spawn(ShadePrototype, coordinates);
         }
         if (_robustRandom.Prob(0.3f))
         {
-            EntityManager.SpawnEntity(WispPrototype, coordinates);
+            Spawn(WispPrototype, coordinates);
         }
     }
 }

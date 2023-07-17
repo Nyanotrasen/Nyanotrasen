@@ -23,8 +23,11 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
         base.Started(uid, component, gameRule, args);
 
         var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
+        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+
+        var spawnLocations = normalSpawnLocations.ToHashSet();
+        spawnLocations.UnionWith(hiddenSpawnLocations.ToHashSet());
 
         var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, FactionComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 1);
@@ -41,19 +44,13 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
                 continue;
             }
 
-            if (normalSpawnLocations.Count != 0)
+            if (spawnLocations.Count != 0)
             {
-                SpawnWisp(_robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
+                SpawnWisp(_robustRandom.Pick(spawnLocations));
                 i++;
                 continue;
             }
 
-            if (hiddenSpawnLocations.Count != 0)
-            {
-                SpawnWisp(_robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
-                i++;
-                continue;
-            }
             return;
         }
     }
@@ -61,10 +58,10 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
     // each wisp might bring a friend...
     private void SpawnWisp(EntityCoordinates coordinates)
     {
-        EntityManager.SpawnEntity(WispPrototype, coordinates);
+        Spawn(WispPrototype, coordinates);
         if (_robustRandom.Prob(0.2f))
         {
-            EntityManager.SpawnEntity(ShadePrototype, coordinates);
+            Spawn(ShadePrototype, coordinates);
         }
     }
 }

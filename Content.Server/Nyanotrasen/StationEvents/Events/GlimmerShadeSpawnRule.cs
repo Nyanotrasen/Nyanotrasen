@@ -18,40 +18,36 @@ internal sealed class GlimmerShadeSpawnRule : StationEventSystem<GlimmerShadeRul
     {
         base.Started(uid, component, gameRule, args);
 
-        var rottingPlaces = EntityManager.EntityQuery<RottingComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
+        var rottingPlaces = EntityManager.EntityQuery<RottingComponent, TransformComponent>();
+        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
 
-        float chance = 0.15f * (float) _glimmerSystem.GetGlimmerTier();
+        var spawnLocations = normalSpawnLocations.ToHashSet();
+        spawnLocations.UnionWith(hiddenSpawnLocations.ToHashSet());
+
+        if (spawnLocations.Count == 0)
+            return;
+
         int guaranteedSpawns = _robustRandom.Next(1, (int) _glimmerSystem.GetGlimmerTier() + 1);
-
-        // Spawn on top of rotting stuff first.
-        foreach(var (rot, xform) in rottingPlaces)
-        {
-            if (_robustRandom.Prob(chance))
-            {
-                EntityManager.SpawnEntity(ShadePrototype, xform.Coordinates);
-            }
-        }
 
         int i = 0;
         while (i < guaranteedSpawns)
         {
-            if (normalSpawnLocations.Count != 0)
-            {
-                EntityManager.SpawnEntity(ShadePrototype, _robustRandom.Pick(normalSpawnLocations).Item2.Coordinates);
-                i++;
-                continue;
-            }
-
-            if (hiddenSpawnLocations.Count != 0)
-            {
-                EntityManager.SpawnEntity(ShadePrototype, _robustRandom.Pick(hiddenSpawnLocations).Item2.Coordinates);
-                i++;
-                continue;
-            }
-
-            return;
+            Spawn(ShadePrototype, _robustRandom.Pick(spawnLocations));
+            i++;
+            continue;
         }
+
+        float rottingSpawnChance = 0.15f * (float) _glimmerSystem.GetGlimmerTier();
+
+        // Spawn on top of rotting stuff
+        foreach(var (rot, xform) in rottingPlaces)
+        {
+            if (_robustRandom.Prob(rottingSpawnChance))
+            {
+                Spawn(ShadePrototype, xform.Coordinates);
+            }
+        }
+
     }
 }
