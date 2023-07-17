@@ -67,10 +67,9 @@
 
 - type: entity
   parent: FelinidCone
-  id: felinidConePsionic
+  id: FelinidConePsionic
   name: ZE CONE OF ALL-SEEING
-  description: CONE CONE!!!?!??!?!??!?!!
-  abstract: false
+  description: chat, is this real?
   components:
   - type: IngestionBlocker
   - type: ClothingGrantPsionicPower

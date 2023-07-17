@@ -31,10 +31,9 @@
 
 - type: entity
   parent: ClothingMaskPullableBase
-  id: FelinidCone
+  id: ClothingMaskFelinidCone
   name: recovery cone
   description: A recovery cone adapted for felinids.
-  abstract: false
   components:
   - type: IngestionBlocker
   - type: DiseaseProtection
