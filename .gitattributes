@@ -10,7 +10,18 @@
 # default for csharp files.
 # Note: This is only used by command line
 ###############################################################################
-*.cs     diff=csharp
+*.cs      text diff=csharp
+
+# Explicitly set text files.
+*.csproj  text
+*.json    text
+*.md      text
+*.sln     text
+*.swsl    text
+*.toml    text
+*.txt     text
+*.xaml    text
+*.yml     text
 
 ###############################################################################
 # Set the merge driver for project and solution files
