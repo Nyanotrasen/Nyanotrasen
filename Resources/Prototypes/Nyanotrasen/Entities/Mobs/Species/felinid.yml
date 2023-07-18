@@ -6,7 +6,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     scale: 0.8, 0.8
@@ -152,7 +151,6 @@
   description: A dummy felinid meant to be used in character setup.
   components:
   - type: Sprite
-    netsync: false
     noRot: true
     drawdepth: Mobs
     scale: 1, 1

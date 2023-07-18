@@ -22,7 +22,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/candy.rsi
     state: lollipop
-    netsync: false
 
 - type: entity
   parent: FoodBase
@@ -46,5 +45,4 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/candy.rsi
     state: gumball
-    netsync: false
 

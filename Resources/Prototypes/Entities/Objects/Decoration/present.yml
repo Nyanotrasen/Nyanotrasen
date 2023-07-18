@@ -6,7 +6,6 @@
   components:
   - type: Sprite
     sprite: Objects/Decoration/present.rsi
-    netsync: false
     layers:
       - state: present
 
@@ -358,7 +357,6 @@
   components:
   - type: Sprite
     sprite: Objects/Decoration/present.rsi
-    netsync: false
     layers:
       - state: unwrapped
   - type: Tag

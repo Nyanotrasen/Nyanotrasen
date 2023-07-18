@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server.Administration.Commands;
 using Content.Server.CharacterAppearance.Components;
 using Content.Server.Chat.Managers;
@@ -8,11 +9,13 @@ using Content.Server.Ghost.Roles.Events;
 using Content.Server.Humanoid.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Mail.Components;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
 using Content.Server.Nuke;
 using Content.Server.Preferences.Managers;
+using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
@@ -62,6 +65,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -96,7 +100,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 continue;
 
             // If entity has a prior mind attached, add them to the players list.
-            if (!TryComp<MindComponent>(uid, out var mindComponent))
+            if (!TryComp<MindContainerComponent>(uid, out var mindComponent))
                 continue;
 
             var session = mindComponent.Mind?.Session;
@@ -210,8 +214,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             _chatManager.DispatchServerMessage(actor.PlayerSession, Loc.GetString("nukeops-welcome", ("station", component.TargetStation.Value)));
             filter.AddPlayer(actor.PlayerSession);
         }
-
-        _audioSystem.PlayGlobal(component.GreetSound, filter, recordReplay: false);
     }
 
     private void OnRoundEnd(EntityUid uid, NukeopsRuleComponent? component = null)
@@ -597,27 +599,28 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     private void OnMindAdded(EntityUid uid, NukeOperativeComponent component, MindAddedMessage args)
     {
-        if (!TryComp<MindComponent>(uid, out var mindComponent) || mindComponent.Mind == null)
+        if (!TryComp<MindContainerComponent>(uid, out var mindContainerComponent) || mindContainerComponent.Mind == null)
             return;
 
+        // Begin Nyano-code: prevent issues with mind swapping into a nuclear operative.
         if (component.FirstMindAdded)
             return;
 
         component.FirstMindAdded = true;
+        // End Nyano-code.
 
-        var mind = mindComponent.Mind;
+        var mind = mindContainerComponent.Mind;
 
         foreach (var nukeops in EntityQuery<NukeopsRuleComponent>())
         {
             if (nukeops.OperativeMindPendingData.TryGetValue(uid, out var role) || !nukeops.SpawnOutpost || !nukeops.EndsRound)
             {
                 role ??= nukeops.OperativeRoleProto;
-
-                mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>(role)));
+                _mindSystem.AddRole(mind, new NukeopsRole(mind, _prototypeManager.Index<AntagPrototype>(role)));
                 nukeops.OperativeMindPendingData.Remove(uid);
             }
 
-            if (!mind.TryGetSession(out var playerSession))
+            if (!_mindSystem.TryGetSession(mind, out var playerSession))
                 return;
             if (nukeops.OperativePlayers.ContainsValue(playerSession))
                 return;
@@ -629,10 +632,13 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (GameTicker.RunLevel != GameRunLevel.InRound)
                 return;
 
-            _audioSystem.PlayGlobal(nukeops.GreetSound, playerSession);
-
             if (nukeops.TargetStation != null && !string.IsNullOrEmpty(Name(nukeops.TargetStation.Value)))
+            {
                 _chatManager.DispatchServerMessage(playerSession, Loc.GetString("nukeops-welcome", ("station", nukeops.TargetStation.Value)));
+
+                 // Notificate player about new role assignment
+                 _audioSystem.PlayGlobal(component.GreetSoundNotification, playerSession);
+            }
         }
     }
 
@@ -666,7 +672,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         component.NukieOutpost = outpostGrids[0];
 
         // Listen I just don't want it to overlap.
-        if (!_map.TryLoad(mapId, shuttlePath.ToString(), out var grids, new MapLoadOptions {Offset = Vector2.One*1000f}) || !grids.Any())
+        if (!_map.TryLoad(mapId, shuttlePath.ToString(), out var grids, new MapLoadOptions {Offset = Vector2.One * 1000f}) || !grids.Any())
         {
             Logger.ErrorS("nukies", $"Error loading grid {shuttlePath} for nukies!");
             return false;
@@ -794,15 +800,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 // End Nyano-code.
 
                 SetupOperativeEntity(mob, spawnDetails.Name, spawnDetails.Gear, profile, component);
+                var newMind = _mindSystem.CreateMind(session.UserId, spawnDetails.Name);
+                _mindSystem.SetUserId(newMind, session.UserId);
+                _mindSystem.AddRole(newMind, new NukeopsRole(newMind, nukeOpsAntag));
 
-                var newMind = new Mind.Mind(session.UserId)
-                {
-                    CharacterName = spawnDetails.Name
-                };
-                newMind.ChangeOwningPlayer(session.UserId);
-                newMind.AddRole(new TraitorRole(newMind, nukeOpsAntag));
-
-                newMind.TransferTo(mob);
+                _mindSystem.TransferTo(newMind, mob);
             }
             else if (addSpawnPoints)
             {
@@ -848,7 +850,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             return;
 
         //ok hardcoded value bad but so is everything else here
-        mind.AddRole(new TraitorRole(mind, _prototypeManager.Index<AntagPrototype>("Nukeops")));
+        _mindSystem.AddRole(mind, new NukeopsRole(mind, _prototypeManager.Index<AntagPrototype>("Nukeops")));
         SetOutfitCommand.SetOutfit(mind.OwnedEntity.Value, "SyndicateOperativeGearFull", EntityManager);
     }
 
@@ -897,10 +899,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         }
 
         // Add pre-existing nuke operatives to the credit list.
-        var query = EntityQuery<NukeOperativeComponent, MindComponent, MetaDataComponent>(true);
+        var query = EntityQuery<NukeOperativeComponent, MindContainerComponent, MetaDataComponent>(true);
         foreach (var (_, mindComp, metaData) in query)
         {
-            if (mindComp.Mind == null || !mindComp.Mind.TryGetSession(out var session))
+            if (!mindComp.HasMind || !_mindSystem.TryGetSession(mindComp.Mind, out var session))
                 continue;
             component.OperativePlayers.Add(metaData.EntityName, session);
         }

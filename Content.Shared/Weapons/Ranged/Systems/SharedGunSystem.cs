@@ -40,21 +40,22 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] protected readonly ExamineSystemShared Examine = default!;
     [Dependency] private   readonly ItemSlotsSystem _slots = default!;
     [Dependency] private   readonly RechargeBasicEntityAmmoSystem _recharge = default!;
     [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] private   readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
-    [Dependency] protected readonly ExamineSystemShared Examine = default!;
-    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
+    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
+    [Dependency] protected readonly SharedPointLightSystem Lights = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
-    [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
-    [Dependency] protected readonly TagSystem TagSystem = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] protected readonly SharedProjectileSystem Projectiles = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] protected readonly TagSystem TagSystem = default!;
+    [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
 
     protected ISawmill Sawmill = default!;
 
@@ -98,7 +99,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     private void OnMapInit(EntityUid uid, GunComponent component, MapInitEvent args)
     {
         if (component.NextFire > Timing.CurTime)
-            Logger.Warning($"Initializing a map that contains an entity that is on cooldown. Entity: {ToPrettyString(uid)}");
+            Log.Warning($"Initializing a map that contains an entity that is on cooldown. Entity: {ToPrettyString(uid)}");
 
         DebugTools.Assert((component.AvailableModes & component.SelectedMode) != 0x0);
 #endif
@@ -318,15 +319,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         // Shoot confirmed - sounds also played here in case it's invalid (e.g. cartridge already spent).
-        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, user, throwItems: attemptEv.ThrowItems);
-        var shotEv = new GunShotEvent(user);
+        Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out var userImpulse, user, throwItems: attemptEv.ThrowItems);
+        var shotEv = new GunShotEvent(user, ev.Ammo);
         RaiseLocalEvent(gunUid, ref shotEv);
-        // Projectiles cause impulses especially important in non gravity environments
-        if (TryComp<PhysicsComponent>(user, out var userPhysics))
+
+        if (userImpulse && TryComp<PhysicsComponent>(user, out var userPhysics))
         {
             if (_gravity.IsWeightless(user, userPhysics))
                 CauseImpulse(fromCoordinates, toCoordinates.Value, user, userPhysics);
         }
+
         Dirty(gun);
     }
 
@@ -336,11 +338,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         EntityUid ammo,
         EntityCoordinates fromCoordinates,
         EntityCoordinates toCoordinates,
+        out bool userImpulse,
         EntityUid? user = null,
         bool throwItems = false)
     {
         var shootable = EnsureComp<AmmoComponent>(ammo);
-        Shoot(gunUid, gun, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, user, throwItems);
+        Shoot(gunUid, gun, new List<(EntityUid? Entity, IShootable Shootable)>(1) { (ammo, shootable) }, fromCoordinates, toCoordinates, out userImpulse, user, throwItems);
     }
 
     public abstract void Shoot(
@@ -349,6 +352,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         List<(EntityUid? Entity, IShootable Shootable)> ammo,
         EntityCoordinates fromCoordinates,
         EntityCoordinates toCoordinates,
+        out bool userImpulse,
         EntityUid? user = null,
         bool throwItems = false);
 
@@ -406,7 +410,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     {
         var fromMap = fromCoordinates.ToMapPos(EntityManager, TransformSystem);
         var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var shotDirection = (toMap - fromMap).Normalized;
+        var shotDirection = (toMap - fromMap).Normalized();
 
         const float impulseStrength = 85.0f; //The bullet impulse strength, TODO: In the future we might want to make it more projectile dependent
         var impulseVector =  shotDirection * impulseStrength;
@@ -441,7 +445,7 @@ public record struct AttemptShootEvent(EntityUid User, string? Message, bool Can
 /// </summary>
 /// <param name="User">The user that fired this gun.</param>
 [ByRefEvent]
-public record struct GunShotEvent(EntityUid User);
+public record struct GunShotEvent(EntityUid User, List<(EntityUid? Uid, IShootable Shootable)> Ammo);
 
 public enum EffectLayers : byte
 {

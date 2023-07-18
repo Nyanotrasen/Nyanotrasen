@@ -15,6 +15,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Content.Server.Cargo.Components;
 using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
 
 namespace Content.Server.Shipyard.Systems
 {
@@ -120,7 +121,7 @@ namespace Content.Server.Shipyard.Systems
 
             var loadOptions = new MapLoadOptions()
             {
-                Offset = (500f + _shuttleIndex, 1f)
+                Offset = new Vector2(500f + _shuttleIndex, 1f)
             };
 
             if (!_map.TryLoad(ShipyardMap.Value, shuttlePath, out var gridList, loadOptions))

@@ -48884,6 +48884,63 @@ entities:
       type: Transform
 - proto: CapacitorStockPart
   entities:
+  - uid: 17227
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
+  - uid: 17229
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
+  - uid: 17650
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.384852,75.63202
+      parent: 33
+      type: Transform
+  - uid: 17651
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.395268,75.777954
+      parent: 33
+      type: Transform
+  - uid: 17074
+    components:
+    - pos: -59.352512,-20.61787
+      parent: 33
+      type: Transform
+  - uid: 17230
+    components:
+    - pos: 28.23035,-8.453385
+      parent: 33
+      type: Transform
+  - uid: 17231
+    components:
+    - pos: 28.495975,-8.484658
+      parent: 33
+      type: Transform
+  - uid: 17239
+    components:
+    - pos: -79.66635,-5.9289055
+      parent: 33
+      type: Transform
+  - uid: 17652
+    components:
+    - pos: 10.416102,77.695946
+      parent: 33
+      type: Transform
+  - uid: 17653
+    components:
+    - pos: 15.676518,77.42493
+      parent: 33
+      type: Transform
+  - uid: 17654
+    components:
+    - pos: 10.614018,75.55905
+      parent: 33
+      type: Transform
   - uid: 16811
     components:
     - rot: -1.5707963267948966 rad
@@ -70869,7 +70926,7 @@ entities:
     - pos: -92.59504,-18.314474
       parent: 33
       type: Transform
-- proto: DrinkBeer
+- proto: DrinkBeerBottleFull
   entities:
   - uid: 562
     components:
@@ -78013,7 +78070,7 @@ entities:
     - pos: -2.0024798,34.754864
       parent: 33
       type: Transform
-- proto: FoodCondimentBottleSmallVinegar
+- proto: FoodCondimentBottleVinegar
   entities:
   - uid: 8311
     components:
@@ -78667,13 +78724,6 @@ entities:
   - uid: 9406
     components:
     - pos: -19.46041,80.78899
-      parent: 33
-      type: Transform
-- proto: FoodShakerEmpty
-  entities:
-  - uid: 10867
-    components:
-    - pos: 24.727167,71.50599
       parent: 33
       type: Transform
 - proto: FoodShakerPepper
@@ -123255,14 +123305,14 @@ entities:
       pos: 30.615702,32.10936
       parent: 33
       type: Transform
-- proto: HatBandGreen
+- proto: ClothingHeadBandGreen
   entities:
   - uid: 26841
     components:
     - pos: -48.482735,79.12873
       parent: 33
       type: Transform
-- proto: HatBandSkull
+- proto: ClothingHeadBandSkull
   entities:
   - uid: 24479
     components:
@@ -126677,30 +126727,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 39.390984,18.32292
-      parent: 33
-      type: Transform
-- proto: MicroLaserStockPart
-  entities:
-  - uid: 17227
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17229
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17650
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.384852,75.63202
-      parent: 33
-      type: Transform
-  - uid: 17651
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.395268,75.777954
       parent: 33
       type: Transform
 - proto: MicroManipulatorStockPart
@@ -149290,43 +149316,6 @@ entities:
     - pos: -47.558975,104.1664
       parent: 33
       type: Transform
-- proto: ScanningModuleStockPart
-  entities:
-  - uid: 17074
-    components:
-    - pos: -59.352512,-20.61787
-      parent: 33
-      type: Transform
-  - uid: 17230
-    components:
-    - pos: 28.23035,-8.453385
-      parent: 33
-      type: Transform
-  - uid: 17231
-    components:
-    - pos: 28.495975,-8.484658
-      parent: 33
-      type: Transform
-  - uid: 17239
-    components:
-    - pos: -79.66635,-5.9289055
-      parent: 33
-      type: Transform
-  - uid: 17652
-    components:
-    - pos: 10.416102,77.695946
-      parent: 33
-      type: Transform
-  - uid: 17653
-    components:
-    - pos: 15.676518,77.42493
-      parent: 33
-      type: Transform
-  - uid: 17654
-    components:
-    - pos: 10.614018,75.55905
-      parent: 33
-      type: Transform
 - proto: SchoolgirlUniformSpawner
   entities:
   - uid: 2149
@@ -163975,7 +163964,7 @@ entities:
     - pos: -14.588662,69.66715
       parent: 33
       type: Transform
-- proto: VehiclePussyWagonDestroyed
+- proto: VehicleJanicartDestroyed
   entities:
   - uid: 17967
     components:
