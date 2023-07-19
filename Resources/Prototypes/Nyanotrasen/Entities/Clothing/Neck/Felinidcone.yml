@@ -4,7 +4,7 @@
   name: recovery cone
   description: A feline recovery cone adapted to help felinids.
   components:
-    type: IngestionBlocker
+  - type: IngestionBlocker
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Neck/felinidcone.rsi
   - type: Clothing

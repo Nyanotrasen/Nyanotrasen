@@ -66,12 +66,12 @@
   - type: Psionic
 
 - type: entity
-  parent: RecoveryCone
+  parent: ClothingNeckBase
   id: RecoveryConePsionic
   name: radar dish
-  description: yo,is shark week on yet?
+  description: yo, is shark week on yet?
   components:
-    type: IngestionBlocker
+  - type: IngestionBlocker
   - type: Sprite
     sprite: Nyanotrasen/Clothing/Neck/felinidcone.rsi
   - type: Clothing
