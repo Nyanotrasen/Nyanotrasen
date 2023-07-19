@@ -615,6 +615,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+    clumsyProof: true
   - type: RevolverAmmoProvider
     whitelist:
       tags:
