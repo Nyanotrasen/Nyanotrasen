@@ -178,7 +178,7 @@
     equippedPrefix: ammo
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoBundle
   abstract: true
   components:
@@ -199,7 +199,7 @@
     equippedPrefix: med
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: ClothingBackpackDuffelSyndicateMedical
   id: ClothingBackpackDuffelSyndicateMedicalBundle
   abstract: true
   components:
