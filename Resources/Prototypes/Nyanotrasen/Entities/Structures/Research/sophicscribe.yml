@@ -4,6 +4,14 @@
   name: sophic grammateus
   description: Latest reports on the Noösphere! Placeholder sprite.
   components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    offset: "0.0,0.5"
+    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    layers:
+      - state: sophie
+      - map: ["enum.SolutionContainerLayers.Fill"]
   - type: SophicScribe
   - type: Speech
     speechSounds: Tenor
