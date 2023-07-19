@@ -64,3 +64,18 @@
   - type: ClothingGrantPsionicPower
     power: NoosphericZapPower
   - type: Psionic
+
+- type: entity
+  parent: RecoveryCone
+  id: RecoveryConePsionic
+  name: radar dish
+  description: yo! is shark week on yet?
+  components:
+    type: IngestionBlocker
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Neck/felinidcone.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Neck/felinidcone.rsi
+  - type: ClothingGrantPsionicPower
+    power: TelegnosisPower
+  - type: Psionic
