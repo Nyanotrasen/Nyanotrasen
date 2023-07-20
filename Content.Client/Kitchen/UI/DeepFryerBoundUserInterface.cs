@@ -9,7 +9,7 @@ namespace Content.Client.Kitchen.UI
 
         private EntityUid[] _entities = default!;
 
-        public DeepFryerBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner,uiKey)
+        public DeepFryerBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
             base.Open();
             _window = new DeepFryerWindow();

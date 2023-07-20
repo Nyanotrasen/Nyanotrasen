@@ -1,3 +1,89 @@
+# morphotypes
+- type: emoteSounds
+  id: MaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+
+- type: emoteSounds
+  id: FemaleFelinid
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FelinidScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Hiss:
+      collection: FelinidHisses
+    Meow:
+      collection: FelinidMeows
+    Mew:
+      collection: FelinidMews
+    Growl:
+      collection: FelinidGrowls
+    Purr:
+      collection: FelinidPurrs
+
+- type: emoteSounds
+  id: MaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Moth/scream_moth.ogg
+    Laugh:
+      path: /Audio/Voice/Moth/laugh_moth.ogg
+    Squeak:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+    Chitter:
+      path: /Audio/Nyanotrasen/Animals/moth_chitter.ogg
+
+- type: emoteSounds
+  id: FemaleMoth
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/Voice/Moth/scream_moth.ogg
+    Laugh:
+      path: /Audio/Voice/Moth/laugh_moth.ogg
+    Squeak:
+      path: /Audio/Voice/Moth/squeak_moth.ogg
+    Chitter:
+      path: /Audio/Nyanotrasen/Animals/moth_chitter.ogg
+
+# mobs
 - type: emoteSounds
   id: Mothroach
   sound:

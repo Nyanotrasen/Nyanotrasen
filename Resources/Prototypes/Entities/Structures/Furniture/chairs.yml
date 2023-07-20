@@ -22,7 +22,6 @@
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     noRot: true
-    netsync: false
   - type: Strap
     position: Stand
     buckleOffset: "0,0.15"
@@ -48,7 +47,7 @@
         sound:
           path: /Audio/Effects/metalbreak.ogg
   - type: DynamicPrice
-    price: 50
+    price: 10
 
 - type: entity
   name: chair

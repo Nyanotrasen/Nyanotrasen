@@ -81,7 +81,7 @@
 
 
 - type: entity
-  id: VehiclePussyWagon
+  id: VehicleJanicart
   parent: BaseVehicle
   name: janicart
   description: The janitor's trusty steed.
@@ -97,7 +97,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: UnpoweredFlashlight
     toggleAction:
@@ -132,7 +131,7 @@
       - !type:ExplodeBehavior
       - !type:SpawnEntitiesBehavior # in future should also emit a cloud of hot gas
         spawn:
-          VehiclePussyWagonDestroyed:
+          VehicleJanicartDestroyed:
             min: 1
             max: 1
   - type: ItemSlots
@@ -143,7 +142,7 @@
           requireAll: true
           tags:
           - VehicleKey
-          - PussyWagonKeys
+          - JanicartKeys
         insertSound:
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
@@ -163,7 +162,7 @@
   - type: Appearance
 
 - type: entity
-  id: VehiclePussyWagonDestroyed
+  id: VehicleJanicartDestroyed
   parent: MachineFrameDestroyed
   name: destroyed janicart
   description: R.I.P. (Rest In Pussy)
@@ -171,7 +170,6 @@
   - type: Sprite
     sprite: Objects/Vehicles/pussywagon.rsi
     state: destroyed
-    netsync: false
 
 - type: entity
   id: VehicleSecway
@@ -192,7 +190,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: Strap
     buckleOffset: "0.15, -0.05"
@@ -238,7 +235,6 @@
     layers:
     - state: vehicle
       map: ["enum.VehicleVisualLayers.AutoAnimate"]
-    netsync: false
     noRot: true
   - type: RandomMetadata
     descriptionSegments: [ATVDescriptions]
@@ -296,7 +292,6 @@
       layers:
         - state: vehicle
           map: ["enum.VehicleVisualLayers.AutoAnimate"]
-      netsync: false
       noRot: true
     - type: Strap
       buckleOffset: "0.15, -0.05"
@@ -339,7 +334,6 @@
       layers:
         - state: vehicle
           map: ["enum.VehicleVisualLayers.AutoAnimate"]
-      netsync: false
       noRot: true
     - type: Strap
       buckleOffset: "0.1, -0.05"

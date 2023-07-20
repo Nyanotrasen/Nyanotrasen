@@ -11,8 +11,6 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - AutolatheMachineCircuitboard
-      - ProtolatheMachineCircuitboard
       - CircuitImprinterMachineCircuitboard
       - ArtifactAnalyzerMachineCircuitboard
       - ThermomachineFreezerMachineCircuitBoard

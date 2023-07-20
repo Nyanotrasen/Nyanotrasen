@@ -27,7 +27,6 @@ entities:
 
     - type: OccluderTree
     - type: Shuttle
-    - type: GridPathfinding
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
@@ -35,6 +34,5 @@ entities:
         version: 2
         nodes: []
       type: DecalGrid
-    - nextUpdate: 0
-      type: SpreaderGrid
+    - type: SpreaderGrid
 ...

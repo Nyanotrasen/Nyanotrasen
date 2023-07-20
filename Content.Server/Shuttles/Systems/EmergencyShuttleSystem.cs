@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Threading;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
@@ -21,6 +22,7 @@ using Robust.Server.Maps;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -296,7 +298,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
        // Check for existing centcomms and just point to that
        var query = AllEntityQuery<StationCentcommComponent>();
 
-       while (query.MoveNext(out var uid, out var otherComp))
+       while (query.MoveNext(out var otherComp))
        {
            if (otherComp == component)
                continue;
@@ -371,7 +373,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
            if (comp == centcomm || comp.MapId != centcomm.MapId)
                continue;
 
-           comp.ShuttleIndex = comp.ShuttleIndex;
+           comp.ShuttleIndex = centcomm.ShuttleIndex;
        }
 
        component.EmergencyShuttle = shuttle;
