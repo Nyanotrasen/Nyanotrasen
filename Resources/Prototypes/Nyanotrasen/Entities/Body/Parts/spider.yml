@@ -16,6 +16,13 @@
   - type: Tag
     tags:
       - Trash
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: DemonsBlood
+        Quantity: 10
 
 - type: entity
   id: ThoraxSpider
@@ -23,13 +30,19 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi # placeholder sprite
     state: "torso_m"
   - type: Icon
     sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi
     state: "torso_m"
   - type: BodyPart #"Other" type
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: DemonsBlood
+        Quantity: 20
 
 - type: entity
   id: RightLegSpider
@@ -37,7 +50,6 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
     state: spiderleg
   - type: Icon
@@ -56,7 +68,6 @@
   parent: PartSpider
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
     state: spiderleg
   - type: Icon

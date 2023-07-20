@@ -1,8 +1,9 @@
-using Robust.Shared.Player;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Construction;
+using Content.Shared.Construction.EntitySystems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -23,12 +24,13 @@ namespace Content.Server.StationEvents.Events;
 /// </summary>
 internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleComponent>
 {
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly FlammableSystem _flammableSystem = default!;
     [Dependency] private readonly GlimmerReactiveSystem _glimmerReactiveSystem = default!;
     [Dependency] private readonly AnchorableSystem _anchorableSystem = default!;
@@ -96,18 +98,25 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
         }
 
         // for probers:
-        var queryReactive = EntityQueryEnumerator<SharedGlimmerReactiveComponent>();
-        while (queryReactive.MoveNext(out var reactive, out _))
+        var queryReactive = EntityQueryEnumerator<SharedGlimmerReactiveComponent, TransformComponent, PhysicsComponent>();
+        while (queryReactive.MoveNext(out var reactive, out _, out var xform, out var physics))
         {
-            if (!TryComp<PhysicsComponent>(reactive, out var physics))
-                return;
-
             // shoot out three bolts of lighting...
             _glimmerReactiveSystem.BeamRandomNearProber(reactive, 3, 12);
 
             // try to anchor if we can
-            if (!Transform(reactive).Anchored && _anchorableSystem.TileFree(Transform(reactive).Coordinates, physics))
-                Transform(reactive).Anchored = true;
+            if (!xform.Anchored)
+            {
+                var coordinates = xform.Coordinates;
+                var gridUid = xform.GridUid;
+                if (!_mapManager.TryGetGrid(gridUid, out var grid))
+                    continue;
+
+                var tileIndices = grid.TileIndicesFor(coordinates);
+
+                if (_anchorableSystem.TileFree(grid, tileIndices, physics.CollisionLayer, physics.CollisionMask))
+                    _transformSystem.AnchorEntity(reactive, xform);
+            }
 
             if (!TryComp<ApcPowerReceiverComponent>(reactive, out var power))
                 continue;

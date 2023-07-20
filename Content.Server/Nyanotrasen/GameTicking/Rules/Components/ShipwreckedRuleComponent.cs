@@ -127,10 +127,10 @@ public sealed class ShipwreckedRuleComponent : Component
     public int OriginalThrusterCount;
 
     /// <summary>
-    /// The original power supply of the generator on the shuttle.
+    /// The original power demand on the shuttle's generator(s).
     /// </summary>
     [ViewVariables]
-    public float OriginalPowerSupply;
+    public float OriginalPowerDemand;
 
     /// <summary>
     /// A dictionary of vital shuttle pieces and their eventual destinations once the shuttle decouples the engine.

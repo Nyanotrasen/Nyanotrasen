@@ -12,7 +12,6 @@
   description: Mmm, Donuts.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/Baked/donut.rsi
     state: box
     layers:
@@ -75,7 +74,6 @@
   description: Don't drop 'em!
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/egg.rsi
     state: box-closed
     layers:
@@ -206,7 +204,6 @@
       map: ["enum.StorageVisualLayers.Base"]
     - state: box-open
       map: ["enum.StorageVisualLayers.Door"]
-    netsync: false
   # TODO make these entitystorage again + placeablesurface after entity storage ECS gets merged.
   - type: Storage
     capacity: 8
@@ -280,7 +277,6 @@
   description: You suddenly have an urge to trade on the intergalactic stock market.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/Baked/nuggets.rsi
     state: box
     layers:
@@ -338,7 +334,6 @@
   description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
     state: box
   - type: Storage
@@ -545,8 +540,10 @@
   description: A limited mime edition of the happy honk meal.
   suffix: Toy Safe
   components:
+  - type: Tag
+    tags:
+    - Trash
   - type: Sprite
-    netsync: false
     sprite: Objects/Storage/happyhonk/mime.rsi
     state: box
   - type: Item
@@ -561,8 +558,6 @@
   suffix: Toy Unsafe
   components:
   - type: Sprite
-    netsync: false
-    sprite: Objects/Storage/happyhonk/nukie.rsi
     state: box
   - type: Item
     sprite: Objects/Storage/happyhonk/nukie.rsi
@@ -593,7 +588,6 @@
   description: Nothing good can come of this.
   components:
   - type: Sprite
-    netsync: false
     sprite: Objects/Storage/happyhonk/cluwne.rsi
     state: box
   - type: Item

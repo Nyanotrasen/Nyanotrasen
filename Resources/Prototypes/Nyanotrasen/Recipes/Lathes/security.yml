@@ -34,6 +34,14 @@
     Bluespace: 20
 
 - type: latheRecipe
+  id: ClothingHeadHelmetInsulated
+  result: ClothingHeadHelmetInsulated
+  completetime: 4
+  materials:
+    Steel: 400
+    Bluespace: 20
+
+- type: latheRecipe
   id: ShellSoulbreaker
   icon:
     sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi

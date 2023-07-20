@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Roles;
@@ -29,6 +30,8 @@ namespace Content.Server.Administration.Commands.Brief
                 return;
             }
 
+            var mindSystem = _entitysys.GetEntitySystem<MindSystem>();
+
             var mind = player.ContentData()?.Mind;
 
             if (mind == null)
@@ -49,7 +52,7 @@ namespace Content.Server.Administration.Commands.Brief
                     if (officer.Owner == mind.VisitingEntity)
                     {
                         didYouBrief = true;
-                        player.ContentData()!.Mind?.UnVisit();
+                        mindSystem.UnVisit(player.ContentData()!.Mind);
                         if (mind.CurrentEntity != null) _entities.RemoveComponent<BriefOfficerComponent>((EntityUid) mind.CurrentEntity);
                         _entities.QueueDeleteEntity(officer.Owner);
                         return;
@@ -97,7 +100,7 @@ namespace Content.Server.Administration.Commands.Brief
                 _entities.GetComponent<MetaDataComponent>(brief).EntityName = args[1];
 
             if (mind.CurrentEntity != null) _entities.EnsureComponent<BriefOfficerComponent>((EntityUid) mind.CurrentEntity);
-            mind.Visit(brief);
+            mindSystem.Visit(mind, brief);
             SetOutfitCommand.SetOutfit(brief, outfit, _entities);
         }
 

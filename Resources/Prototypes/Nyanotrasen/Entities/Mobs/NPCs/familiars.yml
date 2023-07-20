@@ -7,7 +7,6 @@
   - type: Sprite
     drawdepth: Mobs
     sprite: Mobs/Aliens/Guardians/guardians.rsi
-    netsync: false
     layers:
       - state: magic_base
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -53,7 +52,7 @@
     tags:
     - Chapel
     - Research
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: Familiar
   - type: Dispellable

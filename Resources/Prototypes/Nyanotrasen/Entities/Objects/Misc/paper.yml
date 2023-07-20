@@ -22,7 +22,6 @@
   components:
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
-    netsync: false
     layers:
     - state: paper_dotmatrix
     - state: paper_dotmatrix_words

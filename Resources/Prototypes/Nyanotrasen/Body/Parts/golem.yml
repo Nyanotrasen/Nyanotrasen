@@ -20,7 +20,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_chest"
   - type: Icon
@@ -35,7 +34,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_head"
   - type: Icon
@@ -57,7 +55,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_l_arm"
   - type: Icon
@@ -73,7 +70,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_r_arm"
   - type: Icon
@@ -89,7 +85,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_l_hand"
   - type: Icon
@@ -105,7 +100,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_r_hand"
   - type: Icon
@@ -121,7 +115,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_l_leg"
   - type: Icon
@@ -137,7 +130,6 @@
   parent: PartGolem
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
     state: "cultgolem_r_leg"
   - type: Icon

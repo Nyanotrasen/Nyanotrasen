@@ -3,6 +3,7 @@
   name: ghost role spawn point
   suffix: Ifrit
   parent: MarkerBase
+  noSpawn: true
   components:
   - type: GhostRoleMobSpawner
     prototype: MobIfritFamiliar
@@ -20,8 +21,8 @@
 - type: entity
   id: SpawnPointGhostFugitive
   name: ghost role spawn point
-  suffix: DONTMAP, fugitive
   parent: MarkerBase
+  noSpawn: true
   components:
   - type: GhostRoleMobSpawner
     prototype: MobHumanFugitive
@@ -55,6 +56,7 @@
   name: ghost role spawn point
   suffix: Vampire spider
   parent: MarkerBase
+  noSpawn: true
   components:
   - type: GhostRoleMobSpawner
     prototype: MobGiantSpiderVampireAngry

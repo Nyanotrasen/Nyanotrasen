@@ -7,8 +7,6 @@
   components:
   - type: HumanoidAppearance
     species: Moth
-  - type: Hunger
-  - type: Thirst
   - type: Icon
     sprite: Nyanotrasen/Mobs/Species/Moth/parts.rsi
     state: full
@@ -55,7 +53,6 @@
         layer:
           - MobLayer
   - type: Sprite # sprite again because we want different layer ordering
-    netsync: false
     noRot: true
     drawdepth: Mobs
     layers:
@@ -116,5 +113,3 @@
   components:
   - type: HumanoidAppearance
     species: Moth
-
-#Weh
