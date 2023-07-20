@@ -5,7 +5,6 @@
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
-    netsync: false
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Moth/squeak_moth.ogg
@@ -45,7 +44,6 @@
     layers:
       - state: moff1
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:

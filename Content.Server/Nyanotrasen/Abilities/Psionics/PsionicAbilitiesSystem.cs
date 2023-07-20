@@ -5,6 +5,7 @@ using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Server.EUI;
 using Content.Server.Psionics;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Random;
@@ -22,8 +23,10 @@ namespace Content.Server.Abilities.Psionics
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly EuiManager _euiManager = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -47,13 +50,14 @@ namespace Content.Server.Abilities.Psionics
             if (HasComp<PsionicComponent>(uid))
                 return;
 
-            if (!TryComp<MindComponent>(uid, out var mind) || mind.Mind?.UserId == null)
+            if (!TryComp<MindContainerComponent>(uid, out var mindContainer) ||
+                !_mindSystem.TryGetMind(uid, out var mind, mindContainer))
             {
                 EnsureComp<PsionicAwaitingPlayerComponent>(uid);
                 return;
             }
 
-            if (!_playerManager.TryGetSessionById(mind.Mind.UserId.Value, out var client))
+            if (!_mindSystem.TryGetSession(mind, out var client))
                 return;
 
             if (warn && TryComp<ActorComponent>(uid, out var actor))

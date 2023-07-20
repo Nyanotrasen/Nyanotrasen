@@ -68,7 +68,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
             _window.ClearEntries();
 
             var cfg = IoCManager.Resolve<IConfigurationManager>();
-            var playTime =  IoCManager.Resolve<PlayTimeTrackingManager>();
+            var playTime =  IoCManager.Resolve<JobRequirementsManager>();
 
             var groupedRoles = ghostState.GhostRoles.GroupBy(
                 role => (role.Name, role.Description, role.WhitelistRequired));

@@ -25,11 +25,11 @@ namespace Content.Shared.Abilities.Psionics
             // Is the clothing in its actual slot?
             if (!clothing.Slots.HasFlag(args.SlotFlags))
                 return;
-            
-            _psiAbilities.TogglePsionics(args.Equipee, false);
+
             var insul = EnsureComp<PsionicInsulationComponent>(args.Equipee);
             insul.Passthrough = component.Passthrough;
             component.IsActive = true;
+            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
         }
 
         private void OnTinfoilUnequipped(EntityUid uid, TinfoilHatComponent component, GotUnequippedEvent args)
@@ -41,9 +41,7 @@ namespace Content.Shared.Abilities.Psionics
                 RemComp<PsionicInsulationComponent>(args.Equipee);
 
             component.IsActive = false;
-
-            if (!HasComp<PsionicsDisabledComponent>(args.Equipee))
-                _psiAbilities.TogglePsionics(args.Equipee, true);
+            _psiAbilities.SetPsionicsThroughEligibility(args.Equipee);
         }
 
         private void OnGranterEquipped(EntityUid uid, ClothingGrantPsionicPowerComponent component, GotEquippedEvent args)

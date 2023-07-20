@@ -9,7 +9,6 @@
   - type: ForensicPad
   - type: Sprite
     sprite: Nyanotrasen/Objects/Misc/forensic_pad.rsi
-    netsync: false
     layers:
     - state: icon
     - map: ["enum.ForensicPadVisualLayers.Prints"]

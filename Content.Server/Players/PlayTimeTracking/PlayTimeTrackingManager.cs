@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -222,6 +222,18 @@ public sealed class PlayTimeTrackingManager
     public async void SendWhitelist(IPlayerSession playerSession)
     {
         var whitelist = await _db.GetWhitelistStatusAsync(playerSession.UserId);
+
+        var msg = new MsgWhitelist
+        {
+            Whitelisted = whitelist
+        };
+
+        _net.ServerSendMessage(msg, playerSession.ConnectedClient);
+    }
+
+    public void SendWhitelistCached(IPlayerSession playerSession)
+    {
+        var whitelist = playerSession.ContentData()?.Whitelisted ?? false;
 
         var msg = new MsgWhitelist
         {

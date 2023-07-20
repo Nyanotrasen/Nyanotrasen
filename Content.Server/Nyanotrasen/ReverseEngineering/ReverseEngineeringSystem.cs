@@ -199,7 +199,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
 
         var state = new ReverseEngineeringMachineScanUpdateState(item, canScan, component.CachedMessage, scanning, component.SafetyOn, component.AutoScan, component.Progress, remaining, component.AnalysisDuration);
 
-        _ui.SetUiState(bui, state);
+        UserInterfaceSystem.SetUiState(bui, state);
     }
 
     private ReverseEngineeringTickResult Roll(ReverseEngineeringMachineComponent component, out int actualRoll)

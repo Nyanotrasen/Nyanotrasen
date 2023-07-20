@@ -7,7 +7,6 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
-    netsync: false
   - type: EmitSoundOnUse
     sound:
       collection: ToySqueak
@@ -97,57 +96,26 @@
   - type: Sprite
     state: plushie_lamp
   - type: PointLight
-    netsync: false
     radius: 1.5
     energy: 2
-
+    netsync: false
 - type: entity
   parent: BasePlushie
-  id: PlushieLizard #Weh!
+  id: PlushieLizard
   name: lizard plushie
   description: An adorable stuffed toy that resembles a lizardperson. Made by CentCom as a token initiative to combat speciesism in work environments. "Welcome your new colleagues as you do this plush, with open arms!"
   components:
   - type: Sprite
     state: plushie_lizard
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/weh.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Items/Toys/weh.ogg
 
 - type: entity
   parent: BasePlushie
-  id: PlushieSpaceLizard #ᵂᵉʰ!
+  id: PlushieSpaceLizard
   name: space lizard plushie
   description: An adorable stuffed toy that resembles a lizardperson in an EVA suit. Made by CentCom as a token initiative to combat speciesism in space environments. "Welcome your new colleges as you do this plush, with open arms!"
   components:
   - type: Sprite
     state: plushie_spacelizard
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Items/Toys/muffled_weh.ogg
 
 - type: entity
   parent: BasePlushie
@@ -345,7 +313,6 @@
   components:
   - type: Sprite
     state: plushie_vox
-    netsync: false
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
@@ -379,12 +346,14 @@
   components:
   - type: Sprite
     sprite: Objects/Fun/toys.rsi
-    netsync: false
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
   - type: DynamicPrice
     price: 10
+  - type: Tag
+    tags:
+    - Figurine
 
 - type: entity
   parent: BaseFigurine
@@ -581,7 +550,6 @@
   id: FoamWeaponBase
   components:
   - type: Sprite
-    netsync: false
   - type: Item
     size: 24
 
@@ -625,7 +593,6 @@
   abstract: true
   components:
   - type: Sprite
-    netsync: false
 
 - type: entity
   parent: ToyGunBase
@@ -823,11 +790,11 @@
     - type: UseDelay
       delay: 1.0
     - type: PointLight
-      netsync: false
       enabled: false
       radius: 2
       energy: 2
       color: white
+      netsync: false
     - type: Appearance
     - type: ToggleableLightVisuals
       spriteLayer: blade
@@ -844,24 +811,6 @@
       damage:
         types:
           Blunt: 0
-
-- type: entity
-  parent: BasePlushie
-  id: ToyAmongPequeno
-  name: among pequeno
-  description: sus!
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/pequeno.rsi
-    netsync: false
-    layers:
-    - state: base
-      map: [ "enum.DamageStateVisualLayers.Base" ]
-    - state: visor
-  - type: RandomSprite
-    available:
-      - enum.DamageStateVisualLayers.Base:
-          base: Sixteen
 
 - type: entity
   parent: BaseItem

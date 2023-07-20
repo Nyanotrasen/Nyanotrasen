@@ -18,6 +18,7 @@ using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Fluids.Components;
 using Content.Server.Item;
 using Content.Server.Mail.Components;
+using Content.Server.Mind;
 using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
@@ -62,6 +63,7 @@ namespace Content.Server.Mail
         [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly ItemSystem _itemSystem = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         private ISawmill _sawmill = default!;
 
@@ -160,7 +162,7 @@ namespace Content.Server.Mail
 
             IdCardComponent? idCard = null; // We need an ID card.
 
-            if (HasComp<PDAComponent>(args.Used)) /// Can we find it in a PDA if the user is using that?
+            if (HasComp<PdaComponent>(args.Used)) /// Can we find it in a PDA if the user is using that?
             {
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
                 idCard = pdaID;
@@ -199,12 +201,13 @@ namespace Content.Server.Mail
 
             component.IsProfitable = false;
 
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var station, out var account))
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
+                if (_stationSystem.GetOwningStation(uid) != station)
+                    continue;
 
-                _cargoSystem.UpdateBankAccount(account, component.Bounty);
+                _cargoSystem.UpdateBankAccount(station, account, component.Bounty);
                 return;
             }
         }
@@ -256,12 +259,13 @@ namespace Content.Server.Mail
             if (component.IsPriority)
                 _appearanceSystem.SetData(uid, MailVisuals.IsPriorityInactive, true);
 
-            foreach (var account in EntityQuery<StationBankAccountComponent>())
+            var query = EntityQueryEnumerator<StationBankAccountComponent>();
+            while (query.MoveNext(out var station, out var account))
             {
-                if (_stationSystem.GetOwningStation(account.Owner) != _stationSystem.GetOwningStation(uid))
-                        continue;
+                if (_stationSystem.GetOwningStation(uid) != station)
+                    continue;
 
-                _cargoSystem.UpdateBankAccount(account, component.Penalty);
+                _cargoSystem.UpdateBankAccount(station, account, component.Penalty);
                 return;
             }
         }
@@ -543,8 +547,7 @@ namespace Content.Server.Mail
 
                 var mayReceivePriorityMail = true;
 
-                if (TryComp<MindComponent>(receiver.Owner, out MindComponent? mind)
-                    && mind.Mind?.Session == null)
+                if (_mindSystem.GetMind(receiver.Owner) == null)
                 {
                     mayReceivePriorityMail = false;
                 }

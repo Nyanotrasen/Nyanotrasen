@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Pathfinding;
@@ -77,7 +78,7 @@ public sealed class PickEvasionPathOperator : HTNOperator
             maxRange = 7f;
 
         var vector = enemyXform.Coordinates.Position - ourXform.Coordinates.Position;
-        vector = vector.Normalized * 40f;
+        vector = vector.Normalized() * 40f;
         vector = new Vector2(-vector.X, -vector.Y);
 
         var targetPos = ourXform.Coordinates.Offset(vector);
