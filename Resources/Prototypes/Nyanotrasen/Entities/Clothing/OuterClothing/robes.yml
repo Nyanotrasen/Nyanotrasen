@@ -1,13 +1,13 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterRobeWhite
-  name: white robe
-  description: This doesn't look creepy at all.
+  name: epistemics labcoat
+  description: A standard Epistemics labcoat.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/white.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Robes/white.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/white.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Robes/white.rsi
   - type: TemperatureProtection
     coefficient: 0.2
 
@@ -27,13 +27,13 @@
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterRobeMystic
-  name: mystic robe
-  description: The mystagogue's flashy robe.
+  name: mystagogue labcoat
+  description: The mystagogue's flashy labcoat.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/mystic.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Robes/mystic.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/OuterClothing/Robes/mystic.rsi
+    sprite: DeltaV/Clothing/OuterClothing/Robes/mystic.rsi
   - type: TemperatureProtection
     coefficient: 0.2
 
