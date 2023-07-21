@@ -1,8 +1,9 @@
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Psionics.Glimmer;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
@@ -14,7 +15,7 @@ namespace Content.Shared.Abilities.Psionics
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedPopupSystem _popups = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
         public override void Initialize()
@@ -23,6 +24,8 @@ namespace Content.Shared.Abilities.Psionics
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicsDisabledComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<PsionicComponent, PsionicPowerUsedEvent>(OnPowerUsed);
+
+            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnPowerUsed(EntityUid uid, PsionicComponent component, PsionicPowerUsedEvent args)
@@ -40,25 +43,40 @@ namespace Content.Shared.Abilities.Psionics
 
         private void OnInit(EntityUid uid, PsionicsDisabledComponent component, ComponentInit args)
         {
-            TogglePsionics(uid, false);
+            SetPsionicsThroughEligibility(uid);
         }
 
         private void OnShutdown(EntityUid uid, PsionicsDisabledComponent component, ComponentShutdown args)
         {
-            if (!HasComp<PsionicInsulationComponent>(uid))
-                TogglePsionics(uid, true);
+            SetPsionicsThroughEligibility(uid);
         }
 
-        public void TogglePsionics(EntityUid uid, bool toggle, PsionicComponent? component = null)
+        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
         {
+            SetPsionicsThroughEligibility(uid);
+        }
+
+        /// <summary>
+        /// Checks whether the entity is eligible to use its psionic ability. This should be run after anything that could effect psionic eligibility.
+        /// </summary>
+        public void SetPsionicsThroughEligibility(EntityUid uid)
+        {
+            PsionicComponent? component = null;
             if (!Resolve(uid, ref component, false))
                 return;
 
             if (component.PsionicAbility == null)
                 return;
 
-            _actions.SetEnabled(component.PsionicAbility, toggle);
+            _actions.SetEnabled(component.PsionicAbility, IsEligibleForPsionics(uid));
         }
+
+        private bool IsEligibleForPsionics(EntityUid uid)
+        {
+            return !HasComp<PsionicInsulationComponent>(uid)
+                && (!TryComp<MobStateComponent>(uid, out var mobstate) || mobstate.CurrentState == MobState.Alive);
+        }
+
         public void LogPowerUsed(EntityUid uid, string power, int minGlimmer = 8, int maxGlimmer = 12)
         {
             _adminLogger.Add(Database.LogType.Psionics, Database.LogImpact.Medium, $"{ToPrettyString(uid):player} used {power}");
@@ -68,8 +86,8 @@ namespace Content.Shared.Abilities.Psionics
             _glimmerSystem.Glimmer += _robustRandom.Next(minGlimmer, maxGlimmer);
         }
     }
-    
-    public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs 
+
+    public sealed class PsionicPowerUsedEvent : HandledEntityEventArgs
     {
         public EntityUid User { get; }
         public string Power = string.Empty;

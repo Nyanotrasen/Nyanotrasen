@@ -6,8 +6,6 @@
   - type: StorageFill
     contents:
       - id: ClothingHeadsetCargo
-      - id: PlushieLizard
-        prob: 0.1
       - id: ClothingHandsGlovesColorBrown
       - id: ClothingOuterSuitFire
         prob: 0.5
@@ -82,6 +80,8 @@
       - id: ClothingShoesBootsLaceup
       - id: PlushieLizard
         prob: 0.1
+      - id: ClothingShoesColorBlack
+        prob: 0.7
       - id: CigarGoldCase
         prob: 0.10
         # Fuck the HoP they don't deserve fucking cigars.

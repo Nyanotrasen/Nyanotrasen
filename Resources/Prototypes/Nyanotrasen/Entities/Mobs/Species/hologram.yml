@@ -95,7 +95,7 @@
   suffix: Human
   save: false
   components:
-  - type: Mind
+  - type: MindContainer
   - type: Input
     context: "human"
   - type: InputMover

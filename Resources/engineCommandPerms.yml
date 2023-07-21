@@ -9,7 +9,6 @@
   - vvwrite
   - vvinvoke
   - scale
-  - spin
 
 - Flags: DEBUG
   Commands:
@@ -64,6 +63,7 @@
   - tilelookup
   - net_entityreport
   - scene
+  - replay_recording_stats
 
 
 - Flags: MAPPING
@@ -120,6 +120,9 @@
   - gcf
   - getcomponentregistration
   - fuck
+  - spin
+  - replay_recording_start
+  - replay_recording_stop
 
 - Flags: QUERY
   Commands:

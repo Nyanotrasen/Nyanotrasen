@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Soul
 {
-        /// <summary>
+    /// <summary>
     /// Key representing which <see cref="BoundUserInterface"/> is currently open.
     /// Useful when there are multiple UI for an object. Here it's future-proofing only.
     /// </summary>

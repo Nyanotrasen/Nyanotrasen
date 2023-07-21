@@ -5,14 +5,16 @@ using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Damage.Events;
 using Content.Shared.IdentityManagement;
+using Content.Shared.CCVar;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Electrocution;
 using Content.Server.Chat.Systems;
+using Content.Server.Electrocution;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Configuration;
+using Robust.Shared.Random;
 
 namespace Content.Server.Psionics
 {
@@ -23,9 +25,10 @@ namespace Content.Server.Psionics
         [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly FactionSystem _factions = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         /// <summary>
         /// Unfortunately, since spawning as a normal role and anything else is so different,
@@ -52,7 +55,6 @@ namespace Content.Server.Psionics
 
             SubscribeLocalEvent<PsionicComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<PsionicComponent, ComponentRemove>(OnRemove);
-            SubscribeLocalEvent<PsionicComponent, MobStateChangedEvent>(OnMobStateChanged);
         }
 
         private void OnStartup(EntityUid uid, PotentialPsionicComponent component, MapInitEvent args)
@@ -114,27 +116,21 @@ namespace Content.Server.Psionics
             if (!component.Removable)
                 return;
 
-            if (!TryComp<FactionComponent>(uid, out var factions))
+            if (!TryComp<NpcFactionMemberComponent>(uid, out var factions))
                 return;
 
-            if (_factions.ContainsFaction(uid, "GlimmerMonster", factions))
+            if (_npcFactonSystem.ContainsFaction(uid, "GlimmerMonster", factions))
                 return;
 
-            _factions.AddFaction(uid, "PsionicInterloper");
+            _npcFactonSystem.AddFaction(uid, "PsionicInterloper");
         }
 
         private void OnRemove(EntityUid uid, PsionicComponent component, ComponentRemove args)
         {
-            if (!TryComp<FactionComponent>(uid, out var factions))
+            if (!TryComp<NpcFactionMemberComponent>(uid, out var factions))
                 return;
 
-            _factions.RemoveFaction(uid, "PsionicInterloper");
-        }
-
-        private void OnMobStateChanged(EntityUid uid, PsionicComponent component, MobStateChangedEvent args)
-        {
-            if (args.NewMobState == MobState.Dead)
-                RemCompDeferred(uid, component);
+            _npcFactonSystem.RemoveFaction(uid, "PsionicInterloper");
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)
@@ -156,6 +152,9 @@ namespace Content.Server.Psionics
         public void RollPsionics(EntityUid uid, PotentialPsionicComponent component, bool applyGlimmer = true, float multiplier = 1f)
         {
             if (HasComp<PsionicComponent>(uid))
+                return;
+
+            if (!_cfg.GetCVar(CCVars.PsionicRollsEnabled))
                 return;
 
             var chance = component.Chance;

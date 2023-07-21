@@ -14,7 +14,6 @@
       path: /Audio/Ambience/Objects/vending_machine_hum.ogg
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/empty.rsi
-    netsync: false
     snapCardinals: true
   - type: Physics
     bodyType: Static
@@ -1296,7 +1295,6 @@
   components:
   - type: Sprite
     drawdepth: WallMountedItems
-    netsync: false
     snapCardinals: false
   - type: WallMount
     arc: 180
@@ -1890,3 +1888,27 @@
     - state: dispenser
     - state: dispensereng
 
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineChemicals
+  name: ChemVend
+  description: Probably not the coffee machine.
+  components:
+  - type: VendingMachine
+    pack: ChemVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal
+    denyState: deny
+    ejectDelay: 3
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/chemvend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: AccessReader
+    access: [["Chemistry"]]

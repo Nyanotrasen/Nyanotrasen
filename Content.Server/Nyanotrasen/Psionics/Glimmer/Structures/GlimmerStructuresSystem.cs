@@ -1,4 +1,5 @@
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Anomaly.Components;
 using Content.Shared.Psionics.Glimmer;
 
 namespace Content.Server.Psionics.Glimmer
@@ -9,7 +10,26 @@ namespace Content.Server.Psionics.Glimmer
     public sealed class GlimmerStructuresSystem : EntitySystem
     {
         [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            SubscribeLocalEvent<GlimmerSourceComponent, AnomalyPulseEvent>(OnAnomalyPulse);
+            SubscribeLocalEvent<GlimmerSourceComponent, AnomalySupercriticalEvent>(OnAnomalySupercritical);
+        }
+
+        private void OnAnomalyPulse(EntityUid uid, GlimmerSourceComponent component, ref AnomalyPulseEvent args)
+        {
+            if (TryComp<AnomalyComponent>(uid, out var anomaly))
+                _glimmerSystem.Glimmer += (int) (5f * anomaly.Severity);
+        }
+
+        private void OnAnomalySupercritical(EntityUid uid, GlimmerSourceComponent component, ref AnomalySupercriticalEvent args)
+        {
+            _glimmerSystem.Glimmer += 100;
+        }
 
         public override void Update(float frameTime)
         {
@@ -29,11 +49,11 @@ namespace Content.Server.Psionics.Glimmer
                     source.Accumulator -= source.SecondsPerGlimmer;
                     if (source.AddToGlimmer)
                     {
-                        _sharedGlimmerSystem.Glimmer++;
+                        _glimmerSystem.Glimmer++;
                     }
                     else
                     {
-                        _sharedGlimmerSystem.Glimmer--;
+                        _glimmerSystem.Glimmer--;
                     }
                 }
             }

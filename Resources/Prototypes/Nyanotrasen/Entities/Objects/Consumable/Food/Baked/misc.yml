@@ -144,7 +144,6 @@
     layers:
       - state: moffin
         map: [ "enum.DamageStateVisualLayers.Base" ]
-    netsync: false
   - type: RandomSprite
     available:
       - enum.DamageStateVisualLayers.Base:

@@ -48,47 +48,11 @@
     Plastic: 500
 
 - type: latheRecipe
-  id: BackpackOfHolding
-  icon:
-    sprite: Clothing/Back/Backpacks/holding.rsi
-    state: holding
-  result: ClothingBackpackHolding
-  completetime: 4
-  materials:
-    Bluespace: 600
-    Durathread: 1500
-    Plastic: 400
-
-- type: latheRecipe
-  id: SatchelOfHolding
-  icon:
-    sprite: Clothing/Back/Satchels/holding.rsi
-    state: icon
-  result: ClothingBackpackSatchelHolding
-  completetime: 4
-  materials:
-    Bluespace: 600
-    Durathread: 1500
-    Plastic: 400
-
-- type: latheRecipe
-  id: DuffelbagOfHolding
-  icon:
-    sprite: Clothing/Back/Duffels/holding.rsi
-    state: icon
-  result: ClothingBackpackDuffelHolding
-  completetime: 4
-  materials:
-    Bluespace: 600
-    Durathread: 1500
-    Plastic: 400
-
-- type: latheRecipe
-  id: TrashBagOfHolding
+  id: TrashBagHolding
   icon:
     sprite: Objects/Specific/Janitorial/trashbag.rsi
     state: blue-icon-0
-  result: TrashBagOfHolding
+  result: TrashBagHolding
   completetime: 4
   materials:
     Bluespace: 200

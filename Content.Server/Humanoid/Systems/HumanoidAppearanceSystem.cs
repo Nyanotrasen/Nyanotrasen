@@ -141,6 +141,10 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         humanoid.Age = profile.Age;
 
+        // Begin Nyano-code: save the last profile for paradox anomalies.
+        humanoid.LastProfileLoaded = profile;
+        // End Nyano-code.
+
         Dirty(humanoid);
     }
 

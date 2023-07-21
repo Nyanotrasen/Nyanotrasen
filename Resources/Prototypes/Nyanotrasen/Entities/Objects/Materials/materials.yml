@@ -5,7 +5,6 @@
   name: bluespace crystal
   components:
   - type: Sprite
-    netsync: false
     sprite: Nyanotrasen/Objects/Materials/materials.rsi
     layers:
       - state: bluespace_3
@@ -27,6 +26,8 @@
       - bluespace_2
       - bluespace_3
     count: 5
+  - type: Item
+    size: 5
 
 - type: entity
   parent: MaterialBluespace
@@ -38,6 +39,8 @@
   - type: Stack
     stackType: Bluespace
     count: 1
+  - type: Item
+    size: 1
 
 - type: entity
   parent: BaseItem

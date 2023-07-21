@@ -30,7 +30,7 @@
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Xeno
   - type: Hands
@@ -66,6 +66,7 @@
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: MeleeWeapon
+    altDisarm: false
     hidden: true
     angle: 0
     soundHit:
@@ -241,6 +242,9 @@
         - MobMask
         layer:
         - MobLayer
+  - type: Tag
+    tags:
+    - CannotSuicide
 
 - type: entity
   name: Ravager
@@ -475,7 +479,7 @@
   - type: MobMover
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Xeno
   - type: MobThresholds

@@ -9,7 +9,6 @@
     noRot: true
   - type: Sprite
     noRot: true
-    netsync: false
     sprite: Structures/Storage/closet.rsi
     layers:
     - state: generic
@@ -34,7 +33,7 @@
         shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.48,0.25,0.48"
-        density: 145
+        density: 75
         mask:
         - MachineMask
         layer:
@@ -98,7 +97,6 @@
     noRot: false
   - type: Sprite
     drawdepth: WallMountedItems
-    netsync: false
     noRot: false
     sprite: Structures/Storage/wall_locker.rsi
     layers:
@@ -156,7 +154,6 @@
   - type: AccessReader
   - type: Lock
   - type: Sprite
-    netsync: false
     sprite: Structures/Storage/wall_locker.rsi
     layers:
     - state: generic
@@ -187,7 +184,6 @@
     noRot: true
   - type: Sprite
     noRot: true
-    netsync: false
     sprite: Structures/Storage/suit_storage.rsi
     layers:
     - state: base
@@ -252,5 +248,5 @@
   - type: Appearance
   - type: EntityStorageVisuals
     stateBase: base
-    stateDoorOpen: base 
+    stateDoorOpen: base
     stateDoorClosed: closed

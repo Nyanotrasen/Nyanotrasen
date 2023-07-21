@@ -1,4 +1,4 @@
-﻿- type: job
+- type: job
   id: SecurityCadet
   name: job-name-cadet
   description: job-description-cadet
@@ -25,7 +25,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
     back: ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsJack
+    shoes: ClothingShoesBootsCombatFilled
     id: SecurityCadetPDA
     ears: ClothingHeadsetSecurity
   innerclothingskirt: ClothingUniformJumpskirtColorRed

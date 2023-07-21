@@ -52,9 +52,12 @@ public abstract class SharedEmitSoundSystem : EntitySystem
 
     private void OnEmitSoundOnLand(EntityUid uid, BaseEmitSoundComponent component, ref LandEvent args)
     {
-        if (!TryComp<TransformComponent>(uid, out var xform) ||
+        if (!args.PlaySound ||
+            !TryComp<TransformComponent>(uid, out var xform) ||
             !_mapManager.TryGetGrid(xform.GridUid, out var grid))
+        {
             return;
+        }
 
         var tile = grid.GetTileRef(xform.Coordinates);
 
@@ -125,8 +128,9 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (!args.OurFixture.Hard ||
             !args.OtherFixture.Hard ||
             !TryComp<PhysicsComponent>(uid, out var physics) ||
-            physics.LinearVelocity.Length < component.MinimumVelocity ||
-            _timing.CurTime < component.NextSound)
+            physics.LinearVelocity.Length() < component.MinimumVelocity ||
+            _timing.CurTime < component.NextSound ||
+            MetaData(uid).EntityPaused)
         {
             return;
         }
@@ -135,7 +139,7 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         const float MinVolume = -10f;
         const float MaxVolume = 2f;
 
-        var fraction = MathF.Min(1f, (physics.LinearVelocity.Length - component.MinimumVelocity) / MaxVolumeVelocity);
+        var fraction = MathF.Min(1f, (physics.LinearVelocity.Length() - component.MinimumVelocity) / MaxVolumeVelocity);
         var volume = MinVolume + (MaxVolume - MinVolume) * fraction;
         component.NextSound = _timing.CurTime + EmitSoundOnCollideComponent.CollideCooldown;
 

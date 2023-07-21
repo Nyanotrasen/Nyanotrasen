@@ -9,10 +9,8 @@ namespace Content.Client.Borgs
     {
         private LawsMenu? _lawsMenu;
 
-        public EntityUid Machine;
-        public LawsBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public LawsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-            Machine = owner.Owner;
         }
 
         protected override void Open()
@@ -30,6 +28,7 @@ namespace Content.Client.Borgs
         {
             SendMessage(new StateLawsMessage());
         }
+
         protected override void UpdateState(BoundUserInterfaceState state)
         {
             base.UpdateState(state);
