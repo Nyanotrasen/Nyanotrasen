@@ -14,7 +14,7 @@
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - RatPassive
   - type: Sprite
@@ -204,7 +204,7 @@
     groups:
       Flammable: [Touch]
       Extinguish: [Touch]
-  - type: Faction
+  - type: NpcFactionMember
   - type: Sprite
     drawdepth: SmallMobs
     sprite: Mobs/Animals/mouse.rsi

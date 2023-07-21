@@ -10,7 +10,7 @@ namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 public sealed class PickDrainTargetOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    private FactionSystem _factions = default!;
+    private NpcFactionSystem _npcFactonSystem = default!;
     private MobStateSystem _mobSystem = default!;
 
     private EntityLookupSystem _lookup = default!;
@@ -37,7 +37,7 @@ public sealed class PickDrainTargetOperator : HTNOperator
         _lookup = sysManager.GetEntitySystem<EntityLookupSystem>();
         _pathfinding = sysManager.GetEntitySystem<PathfindingSystem>();
         _mobSystem = sysManager.GetEntitySystem<MobStateSystem>();
-        _factions = sysManager.GetEntitySystem<FactionSystem>();
+        _npcFactonSystem = sysManager.GetEntitySystem<NpcFactionSystem>();
     }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard,
@@ -53,7 +53,7 @@ public sealed class PickDrainTargetOperator : HTNOperator
 
         var targets = new List<EntityUid>();
 
-        foreach (var entity in _factions.GetNearbyHostiles(owner, range))
+        foreach (var entity in _npcFactonSystem.GetNearbyHostiles(owner, range))
         {
             if (!psionicQuery.TryGetComponent(entity, out var psionic))
                 continue;
