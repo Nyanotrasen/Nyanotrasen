@@ -19,7 +19,7 @@
     rootTask: SimpleHostileCompound
   - type: Input
     context: "human"
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleNeutral
   - type: MovementSpeedModifier

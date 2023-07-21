@@ -1,4 +1,4 @@
-- type: faction
+- type: npcFaction
   id: Dragon
   hostile:
     - NanoTrasen
@@ -9,7 +9,7 @@
     - Xeno
     - Pet
 
-- type: faction
+- type: npcFaction
   id: NanoTrasen
   hostile:
   - SimpleHostile
@@ -17,10 +17,10 @@
   - RatHostile
   - Xeno
 
-- type: faction
+- type: npcFaction
   id: Passive
 
-- type: faction
+- type: npcFaction
   id: SimpleHostile
   hostile:
   - NanoTrasen
@@ -33,10 +33,10 @@
   - Pet
   - Passive
 
-- type: faction
+- type: npcFaction
   id: SimpleNeutral
 
-- type: faction
+- type: npcFaction
   id: Syndicate
   hostile:
   - NanoTrasen
@@ -44,7 +44,7 @@
   - Xeno
   - Pet
 
-- type: faction
+- type: npcFaction
   id: Xeno
   hostile:
   - NanoTrasen
@@ -55,7 +55,7 @@
   - RatPassive
   - RatHostile
 
-- type: faction
+- type: npcFaction
   id: RatPassive
   hostile:
   - Cat
@@ -63,7 +63,7 @@
   - Xeno
   - Dragon
 
-- type: faction
+- type: npcFaction
   id: RatHostile
   hostile:
   - Cat
@@ -74,7 +74,7 @@
   - Syndicate
   - Pet
 
-- type: faction
+- type: npcFaction
   id: Pet
   hostile:
   - SimpleHostile
@@ -82,34 +82,34 @@
   - Dragon
   - RatHostile
 
-- type: faction
+- type: npcFaction
   id: Cat
   hostile:
   - RatPassive
   - RatHostile
   - SimpleHostile
 
-- type: faction
+- type: npcFaction
   id: Pibble #Enhances the 'pet' faction
   hostile:
   - Cat
   - RatPassive
   - Mailman
 
-- type: faction
+- type: npcFaction
   id: Mailman
 
-- type: faction
+- type: npcFaction
   id: GlimmerMonster # Crew hostile psionic
   hostile:
   - PsionicInterloper
 
-- type: faction
+- type: npcFaction
   id: PsionicInterloper # Crew aligned psionic
   hostile:
   - GlimmerMonster
 
-- type: faction
+- type: npcFaction
   id: Zombie
   hostile:
   - NanoTrasen
@@ -124,7 +124,7 @@
   - SimpleHostile
   - MalfunctioningRobot
 
-- type: faction
+- type: npcFaction
   id: MalfunctioningRobot
   hostile:
   - NanoTrasen

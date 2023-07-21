@@ -268,7 +268,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - RatPassive
   - type: Clothing
@@ -615,6 +615,7 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+    clumsyProof: true
   - type: RevolverAmmoProvider
     whitelist:
       tags:
