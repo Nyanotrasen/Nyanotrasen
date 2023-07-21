@@ -17,7 +17,7 @@ public sealed class EventManagerSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] public readonly GameTicker GameTicker = default!;
 
     private ISawmill _sawmill = default!;
@@ -209,7 +209,8 @@ public sealed class EventManagerSystem : EntitySystem
 
         // Begin Nyano-code: check for glimmer events.
         // This could not be cleanly done anywhere else.
-        if (prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
+        if (_configurationManager.GetCVar(CCVars.GlimmerEnabled) &&
+            prototype.TryGetComponent<GlimmerEventComponent>(out var glimmerEvent) &&
             (_glimmerSystem.Glimmer < glimmerEvent.MinimumGlimmer ||
             _glimmerSystem.Glimmer > glimmerEvent.MaximumGlimmer))
         {

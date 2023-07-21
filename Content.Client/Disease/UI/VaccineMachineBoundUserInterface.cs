@@ -10,10 +10,8 @@ namespace Content.Client.Disease.UI
     {
         private VaccineMachineMenu? _machineMenu;
 
-        public EntityUid Machine;
-        public VaccineMachineBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public VaccineMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
-            Machine = owner.Owner;
         }
 
         protected override void Open()
@@ -30,7 +28,7 @@ namespace Content.Client.Disease.UI
             };
 
             _machineMenu.OpenCentered();
-            _machineMenu?.PopulateBiomass(Machine);
+            _machineMenu?.PopulateBiomass(Owner);
         }
 
         public void CreateVaccineMessage(string disease, int amount)
@@ -52,7 +50,7 @@ namespace Content.Client.Disease.UI
                 case VaccineMachineUpdateState msg:
                     _machineMenu?.UpdateLocked(msg.Locked);
                     _machineMenu?.PopulateDiseases(msg.Diseases);
-                    _machineMenu?.PopulateBiomass(Machine);
+                    _machineMenu?.PopulateBiomass(Owner);
                     _machineMenu?.UpdateCost(msg.BiomassCost);
                     _machineMenu?.UpdateServerConnection(msg.HasServer);
                     break;
@@ -62,7 +60,10 @@ namespace Content.Client.Disease.UI
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            if (!disposing) return;
+
+            if (!disposing)
+                return;
+
             _machineMenu?.Dispose();
         }
     }

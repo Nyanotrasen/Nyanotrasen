@@ -12,7 +12,7 @@ namespace Content.Server.StationEvents.Events;
 internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
     private static readonly string WispPrototype = "MobGlimmerWisp";
 
@@ -24,7 +24,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
         var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
         var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
-        var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, FactionComponent>().Count() / 10);
+        var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
 
         var total = baseCount * multiplier;

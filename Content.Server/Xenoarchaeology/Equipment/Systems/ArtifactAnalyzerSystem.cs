@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Construction;
-using Content.Server.DeviceLinking.Events;
 using Content.Server.MachineLinking.Components;
 using Content.Server.Paper;
 using Content.Server.Power.Components;
@@ -41,8 +40,9 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
-    [Dependency] private readonly SharedGlimmerSystem _glimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
     [Dependency] private readonly ResearchSystem _research = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -66,13 +66,13 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleServerSelectionMessage>(OnServerSelectionMessage);
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleScanButtonPressedMessage>(OnScanButton);
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsolePrintButtonPressedMessage>(OnPrintButton);
-        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDestroyButtonPressedMessage>(OnDestroyButton);
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButton);
 
-        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerSelectedMessage>((e,c,_) => UpdateUserInterface(e,c),
-            after: new []{typeof(ResearchSystem)});
-        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e,c,_) => UpdateUserInterface(e,c),
-            after: new []{typeof(ResearchSystem)});
-        SubscribeLocalEvent<AnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e,c,_) => UpdateUserInterface(e,c));
+        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerSelectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+            after: new[] { typeof(ResearchSystem) });
+        SubscribeLocalEvent<AnalysisConsoleComponent, ResearchClientServerDeselectedMessage>((e, c, _) => UpdateUserInterface(e, c),
+            after: new[] { typeof(ResearchSystem) });
+        SubscribeLocalEvent<AnalysisConsoleComponent, BeforeActivatableUIOpenEvent>((e, c, _) => UpdateUserInterface(e, c));
     }
 
     public override void Update(float frameTime)
@@ -85,7 +85,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             if (scan.Console != null)
                 UpdateUserInterface(scan.Console.Value);
 
-            if (_timing.CurTime - active.StartTime < (scan.AnalysisDuration * scan.AnalysisDurationMulitplier))
+            if (_timing.CurTime - active.StartTime < scan.AnalysisDuration * scan.AnalysisDurationMulitplier)
                 continue;
 
             FinishScan(uid, scan, active);
@@ -224,7 +224,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
             canScan, canPrint, msg, scanning, remaining, totalTime, points);
 
         var bui = _ui.GetUi(uid, ArtifactAnalzyerUiKey.Key);
-        _ui.SetUiState(bui, state);
+        UserInterfaceSystem.SetUiState(bui, state);
     }
 
     /// <summary>
@@ -279,7 +279,7 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
         analyzer.ReadyToPrint = false;
 
         var report = Spawn(component.ReportEntityId, Transform(uid).Coordinates);
-        MetaData(report).EntityName = Loc.GetString("analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id));
+        _metaSystem.SetEntityName(report, Loc.GetString("analysis-report-title", ("id", analyzer.LastAnalyzedNode.Id)));
 
         var msg = GetArtifactScanMessage(analyzer);
         if (msg == null)
@@ -341,12 +341,12 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
     }
 
     /// <summary>
-    /// destroys the artifact and updates the server points
+    /// Extracts points from the artifact and updates the server points
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="component"></param>
     /// <param name="args"></param>
-    private void OnDestroyButton(EntityUid uid, AnalysisConsoleComponent component, AnalysisConsoleDestroyButtonPressedMessage args)
+    private void OnExtractButton(EntityUid uid, AnalysisConsoleComponent component, AnalysisConsoleExtractButtonPressedMessage args)
     {
         if (component.AnalyzerEntity == null)
             return;
@@ -360,19 +360,24 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         var pointValue = _artifact.GetResearchPointValue(artifact.Value);
 
+        // no new nodes triggered so nothing to add
+        if (pointValue == 0)
+            return;
 
+        _research.ModifyServerPoints(server.Value, pointValue, serverComponent);
+        _artifact.AdjustConsumedPoints(artifact.Value, pointValue);
+
+        // Begin Nyano-code: tie artifacts to glimmer.
         if (TryComp<ArtifactAnalyzerComponent>(component.AnalyzerEntity.Value, out var analyzer) &&
             analyzer != null)
         {
-            _glimmerSystem.Glimmer += (int) pointValue / analyzer.SacrificeRatio;
+            _glimmerSystem.Glimmer += (int) pointValue / analyzer.ExtractRatio;
         }
+        // End Nyano-code.
 
-        _research.AddPointsToServer(server.Value, pointValue, serverComponent);
-        EntityManager.DeleteEntity(artifact.Value);
+        _audio.PlayPvs(component.ExtractSound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
 
-        _audio.PlayPvs(component.DestroySound, component.AnalyzerEntity.Value, AudioParams.Default.WithVolume(2f));
-
-        _popup.PopupEntity(Loc.GetString("analyzer-artifact-destroy-popup"),
+        _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"),
             component.AnalyzerEntity.Value, PopupType.Large);
 
         UpdateUserInterface(uid, component);
@@ -447,15 +452,17 @@ public sealed class ArtifactAnalyzerSystem : EntitySystem
 
         component.AnalysisDurationMulitplier = MathF.Pow(component.PartRatingAnalysisDurationMultiplier, analysisRating - 1);
 
-        var sacrificeRating = args.PartRatings[component.MachinePartSacrificeRatio];
+        // Begin Nyano-code: tie artifacts to glimmer.
+        var extractRating = args.PartRatings[component.MachinePartExtractRatio];
 
-        component.SacrificeRatio = (400 + (int) (sacrificeRating * component.PartRatingSacrificeRatioMultiplier));
+        component.ExtractRatio = (400 + (int) (extractRating * component.PartRatingExtractRatioMultiplier));
+        // End Nyano-code.
     }
 
     private void OnUpgradeExamine(EntityUid uid, ArtifactAnalyzerComponent component, UpgradeExamineEvent args)
     {
         args.AddPercentageUpgrade("analyzer-artifact-component-upgrade-analysis", component.AnalysisDurationMulitplier);
-        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.SacrificeRatio - 550);
+        args.AddNumberUpgrade("analyzer-artifact-component-upgrade-sacrifice", component.ExtractRatio - 550);
     }
 
     private void OnCollide(EntityUid uid, ArtifactAnalyzerComponent component, ref StartCollideEvent args)

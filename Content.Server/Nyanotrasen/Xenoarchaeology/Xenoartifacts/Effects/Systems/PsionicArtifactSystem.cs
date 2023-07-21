@@ -18,7 +18,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
         [Dependency] private readonly PsionicAbilitiesSystem _psionicAbilitiesSystem = default!;
-        [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -54,7 +54,7 @@ namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems
                     continue;
 
                 _psionicAbilitiesSystem.AddPsionics(entity);
-                _sharedGlimmerSystem.Glimmer += _random.Next(1, 3);
+                _glimmerSystem.Glimmer += _random.Next(1, 3);
                 component.Charges--;
             }
         }

@@ -38,8 +38,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    netsync: false
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleNeutral
   - type: HealthExaminable
@@ -241,7 +240,9 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: ShowHealthBars
-    damageContainer: Biological
+    damageContainers: 
+    - Biological
+    - HalfSpirit
   - type: GhostRole
     makeSentient: true
     allowSpeech: true

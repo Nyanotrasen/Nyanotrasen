@@ -6,7 +6,7 @@ namespace Content.Server.StationEvents.Events
 {
     public sealed class GlimmerEventSystem : StationEventSystem<GlimmerEventComponent>
     {
-        [Dependency] private readonly SharedGlimmerSystem GlimmerSystem = default!;
+        [Dependency] private readonly GlimmerSystem GlimmerSystem = default!;
 
         protected override void Ended(EntityUid uid, GlimmerEventComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
         {

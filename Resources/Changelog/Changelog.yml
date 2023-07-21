@@ -1,20 +1,6 @@
 Entries:
 - author: Rane
   changes:
-  - message: Reenabled the non-social objective groups. Woops.
-    type: Fix
-  - message: All animals are now eligible for awakening.
-    type: Tweak
-  id: 65
-  time: '2022-11-01T23:24:09.0000000+00:00'
-- author: Kromabae
-  changes:
-  - message: additional pebble fixes and qol
-    type: Add
-  id: 66
-  time: '2022-11-03T02:27:53.0000000+00:00'
-- author: Rane
-  changes:
   - message: Doubled glimmer production from probers and drains (per advice of one
       Sidney K. Meier).
     type: Tweak
@@ -3798,3 +3784,15 @@ Entries:
     type: Add
   id: 562
   time: '2023-06-25T22:16:26.668452+00:00'
+- author: Rane
+  changes:
+  - message: There is something in the vents...
+    type: Add
+  id: 563
+  time: '2023-06-26T22:16:26.668452+00:00'
+- author: Vordenburg
+  changes:
+  - message: Adjusted a few things for Shipwrecked.
+    type: Tweak
+  id: 564
+  time: '2023-07-02T23:21:31.772767+00:00'

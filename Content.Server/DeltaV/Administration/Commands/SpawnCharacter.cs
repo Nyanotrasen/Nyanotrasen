@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Shared.Administration;
 using Content.Shared.Preferences;
@@ -30,6 +31,8 @@ namespace Content.Server.DeltaV.Administration.Commands
                 shell.WriteError(Loc.GetString("shell-only-players-can-run-this-command"));
                 return;
             }
+
+            var mindSystem = _entitySys.GetEntitySystem<MindSystem>();
 
             var mind = player.ContentData()?.Mind;
 
@@ -65,7 +68,7 @@ namespace Content.Server.DeltaV.Administration.Commands
                 ? _entityManager.GetComponent<TransformComponent>(player.AttachedEntity.Value).Coordinates
                 : _entitySys.GetEntitySystem<GameTicker>().GetObserverSpawnPoint();
 
-            mind.TransferTo(_entityManager.System<StationSpawningSystem>()
+            mindSystem.TransferTo(mind, _entityManager.System<StationSpawningSystem>()
                 .SpawnPlayerMob(coordinates: coordinates, profile: character, entity: null, job: null, station: null));
 
             shell.WriteLine(Loc.GetString("spawncharacter-command-complete"));

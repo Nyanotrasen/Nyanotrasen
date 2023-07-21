@@ -578,10 +578,6 @@
       orGroup: Plushie
     - id: PlushieRouny
       orGroup: Plushie
-    - id: PlushieLizard
-      orGroup: Plushie
-    - id: PlushieSpaceLizard
-      orGroup: Plushie
     - id: PlushieRatvar
       orGroup: Plushie
     - id: PlushieNar
@@ -635,16 +631,6 @@
 #   - type: Mail
 #     contents:
 #     - id: DrinkCanPack
-
-- type: entity
-  noSpawn: true
-  parent: BaseMail
-  id: MailSkub
-  suffix: skub
-  components:
-  - type: Mail
-    contents:
-    - id: Skub
 
 - type: entity
   noSpawn: true

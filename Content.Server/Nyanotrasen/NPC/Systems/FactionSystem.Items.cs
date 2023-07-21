@@ -5,11 +5,11 @@ using Content.Shared.Inventory.Events;
 
 namespace Content.Server.NPC.Systems;
 
-public partial class FactionSystem : EntitySystem
+public partial class NpcFactionSystem : EntitySystem
 {
     public void InitializeItems()
     {
-        SubscribeLocalEvent<FactionComponent, ItemPurchasedEvent>(OnItemPurchased);
+        SubscribeLocalEvent<NpcFactionMemberComponent, ItemPurchasedEvent>(OnItemPurchased);
 
         SubscribeLocalEvent<ClothingAddFactionComponent, GotEquippedEvent>(OnClothingEquipped);
         SubscribeLocalEvent<ClothingAddFactionComponent, GotUnequippedEvent>(OnClothingUnequipped);
@@ -19,7 +19,7 @@ public partial class FactionSystem : EntitySystem
     /// If we bought something we probably don't want it to start biting us after it's automatically placed in our hands.
     /// If you do, consider finding a better solution to grenade penguin CBT.
     /// </summary>
-    private void OnItemPurchased(EntityUid uid, FactionComponent component, ref ItemPurchasedEvent args)
+    private void OnItemPurchased(EntityUid uid, NpcFactionMemberComponent component, ref ItemPurchasedEvent args)
     {
         component.ExceptionalFriendlies.Add(args.Purchaser);
     }
@@ -32,7 +32,7 @@ public partial class FactionSystem : EntitySystem
         if (!clothing.Slots.HasFlag(args.SlotFlags))
             return;
 
-        if (!TryComp<FactionComponent>(args.Equipee, out var factionComponent))
+        if (!TryComp<NpcFactionMemberComponent>(args.Equipee, out var factionComponent))
             return;
 
         if (factionComponent.Factions.Contains(component.Faction))

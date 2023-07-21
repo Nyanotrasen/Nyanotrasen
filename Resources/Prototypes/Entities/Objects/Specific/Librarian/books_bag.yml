@@ -5,7 +5,6 @@
   description: Pick up the books people scatter all over the library.
   components:
     - type: Sprite
-      netsync: false
       sprite: Objects/Specific/Library/Equipment/books_bag.rsi
       state: icon
     - type: Clothing

@@ -14,7 +14,7 @@ public sealed class TelepathicArtifactSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedGlimmerSystem _sharedGlimmerSystem = default!;
+    [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed class TelepathicArtifactSystem : EntitySystem
             // show it as a popup, but only for the victim
             _popupSystem.PopupEntity(msg, victimUid, victimUid);
             if (_random.Prob(0.05f))
-                _sharedGlimmerSystem.Glimmer++;
+                _glimmerSystem.Glimmer++;
         }
     }
 }
