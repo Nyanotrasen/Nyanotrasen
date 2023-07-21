@@ -136,7 +136,7 @@
         Piercing: 1
   - type: InputMover
   - type: MobMover
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
   - type: Bloodstream
@@ -194,7 +194,7 @@
     accent: chicken
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
 
@@ -249,7 +249,7 @@
     accent: duck
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
 
@@ -412,7 +412,7 @@
       path: /Audio/Animals/cow_moo.ogg
   - type: Perishable
     molsPerSecondPerUnitMass: 0.0015
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: Body
@@ -557,7 +557,7 @@
     damage:
       types:
         Piercing: 5
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: Body
@@ -611,7 +611,7 @@
   - type: Bloodstream
     bloodMaxVolume: 100
   - type: Puller
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
 
@@ -780,7 +780,7 @@
     prototypes: [ BoxingKangarooGear ]
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
 
@@ -845,7 +845,7 @@
   - type: Puller
   - type: CanHostGuardian
   - type: DiseaseCarrier
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
   - type: MeleeWeapon
@@ -905,7 +905,7 @@
     equippedPrefix: 0
     slots:
     - HEAD
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - RatPassive
   - type: HTN
@@ -1314,7 +1314,7 @@
         Cold: 0.1 #per second, scales with temperature & other constants
     interactSuccessSound:
       path: /Audio/Animals/penguin_squawk.ogg
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive
 
@@ -1329,7 +1329,7 @@
     baseSprintSpeed : 5
   - type: InputMover
   - type: MobMover
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Syndicate
   - type: Sprite
@@ -1514,7 +1514,7 @@
   id: MobGiantSpiderAngry
   suffix: Angry
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Xeno
     - type: InputMover
@@ -1697,7 +1697,7 @@
       gender: epicene
   - type: Bloodstream
     bloodMaxVolume: 100
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
 
@@ -1763,7 +1763,7 @@
   - type: MobPrice
     price: 200
   - type: DogVision
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
 
@@ -1802,7 +1802,7 @@
   - type: MobMover
   - type: Psionic
     removable: false
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
     - PsionicInterloper
@@ -1930,7 +1930,7 @@
     price: 200
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Cat
 
@@ -2266,7 +2266,7 @@
     price: 60
   - type: HTN
     rootTask: IdleEvadeCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
 
@@ -2328,6 +2328,6 @@
     accent: pig
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Passive

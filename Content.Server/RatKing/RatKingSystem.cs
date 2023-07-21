@@ -28,7 +28,7 @@ namespace Content.Server.RatKing
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly TransformSystem _xform = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
-        [Dependency] private readonly FactionSystem _factionSystem = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
 
         private const string NeutralAIFaction = "RatPassive";
@@ -152,8 +152,8 @@ namespace Content.Server.RatKing
             var servComp = EnsureComp<RatServantComponent>(servant);
             servComp.RatKing = uid;
 
-            var faction = EnsureComp<FactionComponent>(servant);
-            _factionSystem.AddFriendlyEntity(servant, uid, faction);
+            var faction = EnsureComp<NpcFactionMemberComponent>(servant);
+            _npcFactonSystem.AddFriendlyEntity(servant, uid, faction);
 
             _npc.SetBlackboard(servant, NPCBlackboard.FollowTarget, new EntityCoordinates(uid, Vector2.Zero));
         }
@@ -208,19 +208,19 @@ namespace Content.Server.RatKing
         }
 
 
-        private void UpdateAIFaction(EntityUid servant, bool hostile, FactionComponent? component = null)
+        private void UpdateAIFaction(EntityUid servant, bool hostile, NpcFactionMemberComponent? component = null)
         {
             if (!Resolve(servant, ref component, false))
                 return;
 
             if (hostile)
             {
-                _factionSystem.RemoveFaction(servant, NeutralAIFaction);
-                _factionSystem.AddFaction(servant, HostileAIFaction);
+                _npcFactonSystem.RemoveFaction(servant, NeutralAIFaction);
+                _npcFactonSystem.AddFaction(servant, HostileAIFaction);
             } else
             {
-                _factionSystem.RemoveFaction(servant, HostileAIFaction);
-                _factionSystem.AddFaction(servant, NeutralAIFaction);
+                _npcFactonSystem.RemoveFaction(servant, HostileAIFaction);
+                _npcFactonSystem.AddFaction(servant, NeutralAIFaction);
             }
         }
     }

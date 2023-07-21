@@ -34,7 +34,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly IObjectivesManager _objectivesManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly FactionSystem _faction = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly IServerDbManager _db = default!;
@@ -272,8 +272,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         // Change the faction
-        _faction.RemoveFaction(entity, "NanoTrasen", false);
-        _faction.AddFaction(entity, "Syndicate");
+        _npcFaction.RemoveFaction(entity, "NanoTrasen", false);
+        _npcFaction.AddFaction(entity, "Syndicate");
 
         // Give traitors their objectives
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);

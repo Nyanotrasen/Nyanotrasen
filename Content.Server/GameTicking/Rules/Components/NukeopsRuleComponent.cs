@@ -120,7 +120,7 @@ public sealed class NukeopsRuleComponent : Component
     [DataField("operativePlayers")]
     public readonly Dictionary<string, IPlayerSession> OperativePlayers = new();
 
-    [DataField("faction", customTypeSerializer: typeof(PrototypeIdSerializer<FactionPrototype>), required: true)]
+    [DataField("faction", customTypeSerializer: typeof(PrototypeIdSerializer<NpcFactionPrototype>), required: true)]
     public string Faction = default!;
 
     // Begin Nyano-code: reintroduce species blacklist.

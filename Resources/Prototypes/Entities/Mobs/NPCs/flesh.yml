@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: SimpleFleshAnomalyBase
   id: BaseMobFlesh
   name: aberrant flesh
@@ -7,7 +7,7 @@
   components:
   - type: HTN
     rootTask: SimpleHostileCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
   - type: Tag
