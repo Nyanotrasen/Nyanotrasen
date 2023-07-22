@@ -272,8 +272,12 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         // Change the faction
+        // Begin Nyano-code: disable Syndicate faction connections with Traitors.
+        /*
         _npcFaction.RemoveFaction(entity, "NanoTrasen", false);
         _npcFaction.AddFaction(entity, "Syndicate");
+        */
+        // End Nyano-code.
 
         // Give traitors their objectives
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);

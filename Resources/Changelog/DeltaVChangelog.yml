@@ -221,3 +221,15 @@ Entries:
       message: Added a new lobby track.
   id: 30
   time: '2023-07-21T16:21:25.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: >-
+        Stations not yet outfitted with a cargo teleporter, now start with a
+        shuttle again.
+    - type: Tweak
+      message: Lighthouse now starts with cargo pallets and a teleporter.
+    - type: Fix
+      message: NPCs will no longer attack syndicate agents without provocation.
+  id: 31
+  time: '2023-07-22T19:17:07.0000000+00:00'
