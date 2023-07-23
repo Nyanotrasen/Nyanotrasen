@@ -1,5 +1,21 @@
 - type: entity
   parent: DrinkGlassBase
+  id: DrinkDulleaveneGlass
+  name: dulleavene glass
+  description: Allegedly it's a cocktail. The warning cone motif seems apt.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Dulleavene
+          Quantity: 30
+  - type: Sprite
+    sprite: DeltaV/Objects/Consumable/Drinks/dulleavene.rsi
+
+- type: entity
+  parent: DrinkGlassBase
   id: DrinkGunmetalGlass
   name: gunmetal glass
   description: A cloudy mix of rum, cream, and... is that welding fuel? Probably tasty.
