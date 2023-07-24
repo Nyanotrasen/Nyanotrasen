@@ -728,11 +728,23 @@ entities:
           14,2:
             0: 4095
           15,0:
-            0: 4369
+            0: 65535
           15,1:
-            0: 4369
+            0: 65535
           15,2:
-            0: 273
+            0: 4095
+          16,0:
+            0: 65535
+          16,1:
+            0: 65535
+          16,2:
+            0: 4095
+          17,0:
+            0: 30583
+          17,1:
+            0: 30583
+          17,2:
+            0: 1911
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -754,6 +766,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: LoadedMap
+    - type: GridTree
+    - type: MovedGrids
 - proto: AltarConvertOrange
   entities:
   - uid: 2
