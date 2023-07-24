@@ -12136,11 +12136,6 @@ entities:
     - links:
       - 8596
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 8557
     components:
     - pos: -9.5,63.5
@@ -12149,51 +12144,26 @@ entities:
     - links:
       - 9820
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 10288
     components:
     - pos: 55.5,6.5
       parent: 1781
       type: Transform
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 10289
     components:
     - pos: 51.5,6.5
       parent: 1781
       type: Transform
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 10290
     components:
     - pos: 55.5,2.5
       parent: 1781
       type: Transform
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 10291
     components:
     - pos: 51.5,2.5
       parent: 1781
       type: Transform
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
 - proto: BlastDoorOpen
   entities:
   - uid: 7791
@@ -12204,11 +12174,6 @@ entities:
     - links:
       - 8596
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
 - proto: BlockGameArcade
   entities:
   - uid: 5253
@@ -82777,11 +82742,6 @@ entities:
     - links:
       - 26
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
 - proto: ShuttersNormalOpen
   entities:
   - uid: 6202
@@ -82809,11 +82769,6 @@ entities:
     - links:
       - 6429
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 4005
     components:
     - pos: 36.5,30.5
@@ -82822,11 +82777,6 @@ entities:
     - links:
       - 6429
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 4006
     components:
     - pos: 34.5,30.5
@@ -82835,11 +82785,6 @@ entities:
     - links:
       - 6429
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
 - proto: ShuttleWindow
   entities:
   - uid: 4587
@@ -97812,12 +97757,6 @@ entities:
     - links:
       - 7792
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
   - uid: 15779
     components:
     - pos: 30.5,27.5
@@ -97826,12 +97765,6 @@ entities:
     - links:
       - 7792
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
 - proto: WindoorSecureMedicalLocked
   entities:
   - uid: 12519
@@ -97862,12 +97795,6 @@ entities:
     - links:
       - 3447
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
     missingComponents:
     - Airlock
   - uid: 694
@@ -97879,12 +97806,6 @@ entities:
     - links:
       - 915
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
     missingComponents:
     - Airlock
   - uid: 697
@@ -97896,12 +97817,6 @@ entities:
     - links:
       - 1211
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
     missingComponents:
     - Airlock
   - uid: 713
@@ -97913,12 +97828,6 @@ entities:
     - links:
       - 3447
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-        AutoClose: []
-      type: SignalReceiver
     missingComponents:
     - Airlock
   - uid: 873
