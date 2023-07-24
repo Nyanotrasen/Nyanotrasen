@@ -1,9 +1,10 @@
 using Robust.Shared.Audio;
+using Content.Shared.Soul;
 
 namespace Content.Server.Soul
 {
     [RegisterComponent]
-    public sealed class GolemComponent : Component
+    public sealed class GolemComponent : SharedGolemComponent
     {
         // we use these to config stuff via UI before installation
         public string? Master;

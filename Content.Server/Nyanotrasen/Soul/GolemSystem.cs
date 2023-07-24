@@ -12,15 +12,15 @@ using Content.Shared.Humanoid;
 using Content.Server.Borgs;
 using Content.Server.Speech;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Players;
 using Content.Server.Mind;
+using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Soul
 {
-    public sealed class GolemSystem : EntitySystem
+    public sealed class GolemSystem : SharedGolemSystem
     {
         [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -38,6 +38,10 @@ namespace Content.Server.Soul
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<GolemComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+            SubscribeLocalEvent<GolemComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+
             SubscribeLocalEvent<SoulCrystalComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<GolemComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<GolemComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -45,6 +49,16 @@ namespace Content.Server.Soul
             SubscribeLocalEvent<GolemComponent, GolemNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<GolemComponent, GolemMasterNameChangedMessage>(OnMasterNameChanged);
             SubscribeLocalEvent<GolemComponent, AccentGetEvent>(OnGetAccent); // TODO: Deduplicate
+        }
+
+        private void OnEntInserted(EntityUid uid, SharedGolemComponent component, EntInsertedIntoContainerMessage args)
+        {
+            SharedOnEntInserted(args);
+        }
+
+        private void OnEntRemoved(EntityUid uid, SharedGolemComponent component, EntRemovedFromContainerMessage args)
+        {
+            SharedOnEntRemoved(args);
         }
 
         private void OnAfterInteract(EntityUid uid, SoulCrystalComponent component, AfterInteractEvent args)
