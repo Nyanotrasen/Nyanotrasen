@@ -39,6 +39,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         InitializeEffect();
         SubscribeAllEvent<DamageEffectEvent>(OnDamageEffect);
         SubscribeNetworkEvent<MeleeLungeEvent>(OnMeleeLunge);
+        UpdatesOutsidePrediction = true;
     }
 
     public override void Shutdown()
