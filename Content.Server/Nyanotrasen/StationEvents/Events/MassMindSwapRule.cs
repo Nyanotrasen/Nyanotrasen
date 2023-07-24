@@ -3,7 +3,6 @@ using Robust.Shared.Random;
 using Content.Server.Abilities.Psionics;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Psionics;
-using Content.Server.Research.SophicScribe;
 using Content.Server.StationEvents.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Components;
@@ -40,18 +39,6 @@ internal sealed class MassMindSwapRule : StationEventSystem<MassMindSwapRuleComp
                     psionicActors.Add(psion);
                 }
             }
-        }
-
-        // Throw the scribe in there, for old time's sake.
-        var queryScribe = EntityQueryEnumerator<SophicScribeComponent>();
-        while (queryScribe.MoveNext(out var scribe, out _))
-        {
-            psionicPool.Add(scribe);
-
-            if (HasComp<ActorComponent>(scribe))
-                // Looks like we found someone who got swapped to a scribe.
-                // Give them a chance to get swapped out again.
-                psionicActors.Add(scribe);
         }
 
         // Shuffle the list of candidates.
