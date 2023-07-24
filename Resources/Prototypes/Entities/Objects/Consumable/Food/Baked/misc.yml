@@ -165,6 +165,7 @@
   - type: Tag
     tags:
       - Nugget
+      - FoodHot
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/nuggets.rsi
     layers:
@@ -252,6 +253,7 @@
   - type: Tag
     tags:
     - Pancake
+    - FoodHot
 
 - type: entity
   name: blueberry pancake
@@ -285,6 +287,7 @@
   - type: Tag
     tags:
     - Pancake
+    - FoodHot
 
 - type: entity
   name: chocolate chip pancake
@@ -327,6 +330,7 @@
   - type: Tag
     tags:
     - Pancake
+    - FoodHot
 
 - type: entity
   name: waffles
@@ -347,6 +351,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: soy waffles
@@ -418,6 +425,9 @@
   components:
   - type: Sprite
     state: pretzel
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: cannoli
@@ -436,6 +446,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag
+    tags:
+      - FoodCold
 
 - type: entity
   name: dumplings
@@ -454,4 +467,7 @@
           Quantity: 8
         - ReagentId: Protein
           Quantity: 2
-
+  - type: Tag
+    tags:
+    - FoodHot
+    

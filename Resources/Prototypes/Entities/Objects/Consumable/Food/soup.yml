@@ -82,6 +82,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 
 # Salad
 
@@ -354,6 +357,9 @@
     layers:
     - state: bowl
     - state: rice
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: egg-fried rice
@@ -378,6 +384,9 @@
           Quantity: 4
         - ReagentId: Vitamin
           Quantity: 4
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: rice and pork
@@ -406,6 +415,9 @@
           Quantity: 6.5
         - ReagentId: Epinephrine
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: rice pudding
@@ -434,6 +446,9 @@
           Quantity: 5
         - ReagentId: Sugar
           Quantity: 5
+  - type: Tag
+    tags:
+      - FoodCold
 
 - type: entity
   name: black-eyed gumbo
@@ -462,6 +477,9 @@
           Quantity: 3
         - ReagentId: CapsaicinOil
           Quantity: 2
+  - type: Tag
+    tags:
+    - FoodHot
 
 # Misc
 
@@ -490,6 +508,9 @@
           Quantity: 2
         - ReagentId: Milk
           Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: space liberty duff
@@ -555,6 +576,9 @@
           Quantity: 8
         - ReagentId: Water
           Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: slime soup
@@ -580,6 +604,9 @@
           Quantity: 5
         - ReagentId: Water
           Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: tomato soup
@@ -606,6 +633,9 @@
           Quantity: 10
         - ReagentId: Blood
           Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: wing fang chu
@@ -632,6 +662,9 @@
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 7
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: clown's tears
@@ -657,6 +690,9 @@
           Quantity: 9
         - ReagentId: Water
           Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: vegetable soup
@@ -685,6 +721,9 @@
           Quantity: 10
         - ReagentId: Oculine
           Quantity: 1
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: nettle soup
@@ -714,6 +753,9 @@
           Quantity: 5
         - ReagentId: Histamine
           Quantity: 0.5
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: mystery soup
@@ -728,6 +770,9 @@
     layers:
     - state: bowl
     - state: mystery
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: bowl of hot chili
@@ -755,6 +800,9 @@
             Quantity: 4
           - ReagentId: Allicin
             Quantity: 3
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: cold chili
@@ -779,6 +827,9 @@
             Quantity: 8
           - ReagentId: Vitamin
             Quantity: 4
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: chili con carnival
@@ -809,6 +860,9 @@
             Quantity: 4
           - ReagentId: Allicin
             Quantity: 3
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: monkey's delight
@@ -837,6 +891,9 @@
             Quantity: 1
           - ReagentId: Blackpepper
             Quantity: 1
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: tomato soup
@@ -862,6 +919,9 @@
             Quantity: 5
           - ReagentId: Water
             Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: eyeball soup
@@ -886,6 +946,9 @@
             Quantity: 5
           - ReagentId: Vitamin
             Quantity: 3
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: miso soup
@@ -914,6 +977,9 @@
             Quantity: 3
           - ReagentId: Water
             Quantity: 10
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: mushroom soup
@@ -941,6 +1007,9 @@
             Quantity: 5
           - ReagentId: Milk
             Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: beet soup
@@ -963,7 +1032,10 @@
             Quantity: 7
           - ReagentId: Water
             Quantity: 10
-# Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
+  - type: Tag
+    tags:
+    - FoodHot
+# Tastes like borsch, bortsch, borstch, borsh, borshch, borscht, borshed.
 
 - type: entity
   name: red beet soup
@@ -984,6 +1056,9 @@
             Quantity: 4
           - ReagentId: Vitamin
             Quantity: 6
+  - type: Tag
+    tags:
+    - FoodHot
 # Tastes like beet.
 
 - type: entity
@@ -1012,6 +1087,9 @@
             Quantity: 5
           - ReagentId: Vitamin
             Quantity: 2
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: sweet potato soup
@@ -1035,6 +1113,9 @@
             Quantity: 4
           - ReagentId: Vitamin
             Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 # Tastes like sweet potato.
 
 - type: entity
@@ -1061,6 +1142,9 @@
             Quantity: 5
           - ReagentId: Allicin
             Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: bisque
@@ -1088,6 +1172,9 @@
             Quantity: 6
           - ReagentId: Water
             Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 # Tastes like crab.
 
 - type: entity
@@ -1113,6 +1200,9 @@
             Quantity: 3
           - ReagentId: Licoxide
             Quantity: 6
+  - type: Tag
+    tags:
+    - FoodHot
 
 - type: entity
   name: bungo curry
@@ -1138,4 +1228,7 @@
             Quantity: 5
           - ReagentId: CapsaicinOil
             Quantity: 5
+  - type: Tag
+    tags:
+    - FoodHot
 # Tastes like bungo, hot curry.

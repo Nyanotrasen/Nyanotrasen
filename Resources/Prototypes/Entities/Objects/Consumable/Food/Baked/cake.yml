@@ -195,6 +195,9 @@
     - state: cheese
   - type: SliceableFood
     slice: FoodCakeCheeseSlice
+  - type: Tag
+    tags:
+      - FoodCold
 
 - type: entity
   name: slice of cheese cake
@@ -207,6 +210,9 @@
     - state: plate-small
     - state: plate-slice-shading
     - state: cheese-slice
+  - type: Tag
+    tags:
+      - FoodCold
 # Tastes like sweetness, cream cheese.
 
 - type: entity
