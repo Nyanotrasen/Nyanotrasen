@@ -47,10 +47,10 @@ namespace Content.Client.HealthAnalyzer.UI
                     text.Append($"{Loc.GetString("disease-scanner-not-diseased")}\n");
                 }
 
-                text.Append(String.Format("Temperature: {0}\n", float.IsNaN(msg.Temperature) ? "N/A" : $"{msg.Temperature - 273f:F1} °C"));
+                text.Append($"{Loc.GetString("health-analyzer-window-entity-temperature-text", ("temperature", float.IsNaN(msg.Temperature) ? "N/A" : $"{msg.Temperature - 273f:F1} °C"))}\n");
 
 
-                text.Append(String.Format("Blood Level: {0}\n", float.IsNaN(msg.BloodLevel) ? "N/A" : $"{msg.BloodLevel * 100:F1} %"));
+                text.Append($"{Loc.GetString("health-analyzer-window-entity-blood-level-text", ("bloodLevel", float.IsNaN(msg.BloodLevel) ? "N/A" : $"{msg.BloodLevel * 100:F1} %"))}\n");
 
 
                 // Damage
