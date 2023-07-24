@@ -43,3 +43,13 @@
   - !type:BuyerJobCondition
     whitelist:
     - Musician
+
+- type: listing
+  id: UplinkSunglasses
+  name: uplink-sunglasses-name
+  description: uplink-sunglasses-desc
+  productEntity: ClothingEyesGlassesSunglasses
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkUtility

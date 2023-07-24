@@ -6,3 +6,6 @@ uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine wheneve
 
 uplink-rickenbacker4001-name = Rickenbacker 4001
 uplink-rickenbacker4001-desc = When it comes down to it, there are very few people who will swing the bat.
+
+uplink-sunglasses-name = Sunglasses
+uplink-sunglasses-desc = A simple set of stylish and protective eyewear.
