@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   save: false
   name: Vox
   parent: BaseMobVox
@@ -24,7 +24,6 @@
     - type: NpcFactionMember
       factions:
         - NanoTrasen
-    - type: MailReceiver
     - type: PotentialPsionic
     - type: Respirator
       damage:

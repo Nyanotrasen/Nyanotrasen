@@ -19,11 +19,11 @@ using Content.Server.Fluids.Components;
 using Content.Server.Item;
 using Content.Server.Mail.Components;
 using Content.Server.Mind;
-using Content.Server.Mind.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Spawners.EntitySystems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
@@ -73,6 +73,8 @@ namespace Content.Server.Mail
 
             _sawmill = Logger.GetSawmill("mail");
 
+            SubscribeLocalEvent<PlayerSpawningEvent>(OnSpawnPlayer, after: new[] { typeof(SpawnPointSystem) });
+
             SubscribeLocalEvent<MailComponent, ComponentRemove>(OnRemove);
             SubscribeLocalEvent<MailComponent, UseInHandEvent>(OnUseInHand);
             SubscribeLocalEvent<MailComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
@@ -100,6 +102,24 @@ namespace Content.Server.Mail
 
                 SpawnMail(mailTeleporter.Owner, mailTeleporter);
             }
+        }
+
+        /// <summary>
+        /// Dynamically add the MailReceiver component to appropriate entities.
+        /// </summary>
+        private void OnSpawnPlayer(PlayerSpawningEvent args)
+        {
+            if (args.SpawnResult == null ||
+                args.Job == null ||
+                args.Station is not {} station)
+            {
+                return;
+            }
+
+            if (!HasComp<StationMailRouterComponent>(station))
+                return;
+
+            AddComp<MailReceiverComponent>(args.SpawnResult.Value);
         }
 
         private void OnRemove(EntityUid uid, MailComponent component, ComponentRemove args)
