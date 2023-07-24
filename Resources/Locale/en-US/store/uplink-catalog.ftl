@@ -20,12 +20,6 @@ uplink-edagger-desc = A small energy blade conveniently disguised in the form of
 uplink-fire-axe-flaming-name = Fire Axe
 uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire.
 
-uplink-kanabou-name = Kanabou
-uplink-kanabou-desc = A weapon for those who wish to forgo subtlety. Particularly suited to oni.
-
-uplink-rickenbacker4001-name = Rickenbacker 4001
-uplink-rickenbacker4001-desc = When it comes down to it, there are very few people who will swing the bat.
-
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
 uplink-explosive-grenade-desc = Grenade that creates a small but devastating explosion.
@@ -227,9 +221,6 @@ uplink-stimkit-desc = A medkit containing 6 stimulant microinjectors, which each
 
 uplink-syndicate-segway-crate-name = Syndicate Segway
 uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
-
-uplink-nocturine-gland-injector-name = Nocturine Injector Gland
-uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine whenever you suck blood.
 
 # Pointless
 uplink-revolver-cap-gun-name = Cap Gun
