@@ -18285,11 +18285,6 @@ entities:
     - links:
       - 6390
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 5067
     components:
     - pos: -42.5,-31.5
@@ -18298,11 +18293,6 @@ entities:
     - links:
       - 6390
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 5068
     components:
     - pos: -39.5,-31.5
@@ -18311,11 +18301,6 @@ entities:
     - links:
       - 6244
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 5069
     components:
     - pos: -38.5,-31.5
@@ -18324,11 +18309,6 @@ entities:
     - links:
       - 6244
       type: DeviceLinkSink
-    - inputs:
-        Open: []
-        Close: []
-        Toggle: []
-      type: SignalReceiver
   - uid: 6441
     components:
     - pos: -67.5,31.5
