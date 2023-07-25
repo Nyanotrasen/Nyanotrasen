@@ -126,6 +126,7 @@ namespace Content.Server.GameTicking
             async void SpawnWaitDb()
             {
                 await _userDb.WaitLoadComplete(session);
+
                 SpawnPlayer(session, EntityUid.Invalid);
             }
 
