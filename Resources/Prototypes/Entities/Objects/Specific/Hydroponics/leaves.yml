@@ -17,9 +17,6 @@
         reagents:
         - ReagentId: THC
           Quantity: 15
-  - type: Tag
-    tags:
-      - Dope
 
 - type: entity
   name: dried cannabis leaves
@@ -39,9 +36,6 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
-  - type: Tag
-    tags:
-      - Dope
 
 - type: entity
   name: ground cannabis
@@ -68,7 +62,6 @@
   - type: Tag
     tags:
       - Smokable
-      - Dope
   - type: Item
     size: 1
 

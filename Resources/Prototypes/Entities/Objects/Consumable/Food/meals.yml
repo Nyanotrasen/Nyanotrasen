@@ -19,9 +19,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
-  - type: Tag
-    tags:
-    - FoodHot
 
 # Meals
 
@@ -175,9 +172,6 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
-  - type: Tag
-    tags:
-    - FoodNeither
 # Tastes like parsnips, salt.
 
 - type: entity
@@ -444,9 +438,6 @@
       - chocolate
   - type: Sprite
     state: milkape
-  - type: Tag
-    tags:
-    - FoodNeither
 # Tastes like milk, chocolate, the jungle.
 
 - type: entity
@@ -469,9 +460,6 @@
           Quantity: 10
         - ReagentId: Allicin
           Quantity: 5
-  - type: Tag
-    tags:
-    - FoodNeither
 # Tastes like pain.
 
 - type: entity
@@ -528,9 +516,6 @@
           Quantity: 2
         - ReagentId: Protein
           Quantity: 6
-  - type: Tag
-    tags:
-    - FoodNeither
 # tastes exotic
 
 - type: entity
@@ -583,6 +568,3 @@
           Quantity: 5
         - ReagentId: Kelotane
           Quantity: 5
-  - type: Tag
-    tags:
-    - FoodNeither

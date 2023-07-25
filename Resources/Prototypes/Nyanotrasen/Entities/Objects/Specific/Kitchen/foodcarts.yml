@@ -78,14 +78,10 @@
     - type: Storage
       blacklist: 
         tags:
-          - FoodNeither
           - Coldsauce
           - Hotsauce
           - BBQsauce
           - Ketchup
-      whitelist:
-        tags:
-          - FoodHot
     - type: ItemSlots
       slots:
         coldsauce_slot:
@@ -160,12 +156,6 @@
       sprite: Nyanotrasen/Objects/Specific/Kitchen/food_carts.rsi 
       layers:
         - state: stand-ice
-    - type: Storage
-      blacklist: 
-        tags:
-          - FoodNeither
-      whitelist:
-        tags:
-          - FoodCold
-          - Dope
-          - Pill
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
