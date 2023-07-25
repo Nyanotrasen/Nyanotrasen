@@ -48,6 +48,10 @@ namespace Content.Server.Abilities.Psionics
 
         private void OnPowerUsed(EntityUid uid, TelegnosisPowerComponent component, TelegnosisPowerActionEvent args)
         {
+            // This is technically a sort of mind swap targeted on onesself, so even item granted ones will not work if you have insulation.
+            if (HasComp<PsionicInsulationComponent>(uid))
+                return;
+
             var projection = Spawn(component.Prototype, Transform(uid).Coordinates);
             Transform(projection).AttachToGridOrMap();
             _mindSwap.Swap(uid, projection);
