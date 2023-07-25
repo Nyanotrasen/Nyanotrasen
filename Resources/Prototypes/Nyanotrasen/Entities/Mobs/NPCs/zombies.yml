@@ -112,8 +112,8 @@
   components:
     - type: ZombifiedOnSpawn
     - type: MovementSpeedModifier
-      baseWalkSpeed : 2.0
-      baseSprintSpeed : 4.0
+      baseWalkSpeed : 1.5
+      baseSprintSpeed : 3.0
     - type: Tool
       qualities:
         - Prying

@@ -9,6 +9,7 @@
   itemDrop: FloorTileItemDirt
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 # Desert
 - type: tile
@@ -23,6 +24,7 @@
     collection: FootstepAsteroid
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 - type: tile
   id: FloorLowDesert
@@ -36,6 +38,7 @@
     collection: FootstepAsteroid
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 # Grass
 - type: tile
@@ -62,6 +65,7 @@
   itemDrop: FloorTileItemGrass
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 # Lava
 - type: tile
@@ -74,6 +78,7 @@
     collection: FootstepAsteroid
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 # Snow
 - type: tile
@@ -95,5 +100,6 @@
   friction: 0.20
   heatCapacity: 10000
   weather: true
+  indestructible: true
 
 # Wasteland

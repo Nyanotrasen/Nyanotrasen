@@ -1,60 +1,4 @@
 Entries:
-- author: Rane
-  changes:
-  - message: Doubled glimmer production from probers and drains (per advice of one
-      Sidney K. Meier).
-    type: Tweak
-  - message: Noospheric zap event's glimmer bonus halved.
-    type: Tweak
-  - message: Min/Max players on each of the maps in our pool has been made more consistent.
-    type: Tweak
-  - message: Fixed techfab deconstruction.
-    type: Fix
-  id: 67
-  time: '2022-11-03T02:32:51.0000000+00:00'
-- author: Rane
-  changes:
-  - message: The fry event has new behavior.
-    type: Add
-  id: 68
-  time: '2022-11-03T02:45:39.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Added descriptions to all of our jobs now that that is... supported.
-      Although I checked the code and nothing ever reads or displays it anywhere.
-    type: Add
-  id: 69
-  time: '2022-11-04T00:17:47.0000000+00:00'
-- author: Colin-Tel
-  changes:
-  - message: Huge angle update.
-    type: Add
-  id: 70
-  time: '2022-11-06T23:07:05.0000000+00:00'
-- author: Rane
-  changes:
-  - message: Merged upstream.
-    type: Add
-  - message: Updated maps for xenoarch.
-    type: Add
-  - message: Adjusted current content to account for xenoarchaeology.
-    type: Tweak
-  - message: Removed the buyable random artifacts; we have other sources.
-    type: Remove
-  - message: Reduced prober points per second slightly to adjust for the new xenoarch
-      source.
-    type: Tweak
-  - message: Noospheric zap's bonus chance to gain psionics halved again.
-    type: Tweak
-  - message: Glimmer prober explosion strength increased by 25%.
-    type: Tweak
-  - message: Possible glimmer loss on prober destruction changed to the upper half
-      of the current range.
-    type: Tweak
-  - message: Ifrit movement ignores gravity.
-    type: Tweak
-  id: 71
-  time: '2022-11-06T23:58:36.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Added stuff related to the new Xeno Archeology.
@@ -3796,3 +3740,70 @@ Entries:
     type: Tweak
   id: 564
   time: '2023-07-02T23:21:31.772767+00:00'
+- author: Vordenburg
+  changes:
+  - message: Replaced all round-end sounds with new ones.
+    type: Add
+  - message: Added many new lobby songs.
+    type: Add
+  - message: Added a new sprite for Sophia.
+    type: Add
+  - message: Merged almost 500 changes from SS14. Report bugs and regressions on Github.
+    type: Add
+  - message: Added sunglasses to the Syndicate uplink.
+    type: Add
+  - message: Zombies have been reduced in strength.
+    type: Tweak
+  - message: Golems can no longer use guns.
+    type: Fix
+  - message: All morphotypes should be able to use the standard tattoos now.
+    type: Fix
+  - message: Dispelling a portal while the hand teleporter is in use will no longer
+      break the hand teleporter.
+    type: Fix
+  - message: It is no longer possible to label Sophia and the Oracle.
+    type: Fix
+  - message: Fixed the lack of cargo pallets and teleporter on Ovni and Lighthouse.
+    type: Fix
+  - message: Some NPCs should no longer become hostile to Syndicate traitors without
+      provocation.
+    type: Fix
+  - message: Fixed some minor bugs with cloning and paradox anomalies.
+    type: Fix
+  - message: Removed pointless Syndicate items.
+    type: Remove
+  - message: Removed the autolathe and protolathe in favor of department-specific
+      techfabs.
+    type: Remove
+  id: 565
+  time: '2023-07-24T17:36:42.648621+00:00'
+- author: Rane
+  changes:
+  - message: Sophia, formerly the sophic grammateus, is now an NPC you can talk with.
+    type: Add
+  - message: Epistemics PDAs now come with a program to monitor glimmer.
+    type: Add
+  - message: Added ambient sound to fireplaces.
+    type: Add
+  - message: Removed a bunch of joke items.
+    type: Remove
+  id: 566
+  time: '2023-07-24T17:36:42.648730+00:00'
+- author: Velcroboy
+  changes:
+  - message: Added Klub Skub bar sign!
+    type: Add
+  id: 567
+  time: '2023-07-24T17:36:42.648765+00:00'
+- author: FluffiestFloof
+  changes:
+  - message: Mothroaches are no longer blood-based juice boxes.
+    type: Tweak
+  id: 568
+  time: '2023-07-24T17:36:44.089419+00:00'
+- author: Vordenburg
+  changes:
+  - message: Disabled starvation damage during usual station gameplay.
+    type: Tweak
+  id: 569
+  time: '2023-07-25T17:20:29.901662+00:00'

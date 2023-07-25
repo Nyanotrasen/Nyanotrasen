@@ -28,6 +28,10 @@
     state: pda-detective
   - type: Icon
     state: pda-detective
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -40,6 +44,10 @@
     state: pda-science
   - type: Icon
     state: pda-science
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -52,6 +60,10 @@
     state: pda-rd
   - type: Icon
     state: pda-rd
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA
@@ -115,6 +127,10 @@
     state: pda-library
   - type: Icon
     state: pda-library
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   parent: BasePDA

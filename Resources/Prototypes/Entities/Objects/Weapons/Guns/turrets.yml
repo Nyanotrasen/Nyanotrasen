@@ -116,7 +116,7 @@
   id: WeaponTurretSyndicate
   suffix: Syndicate
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Syndicate
 
@@ -125,7 +125,7 @@
   id: WeaponTurretNanoTrasen
   suffix: NanoTrasen
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
 
@@ -134,7 +134,7 @@
   id: WeaponTurretHostile
   suffix: Hostile
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleHostile
 
@@ -145,7 +145,7 @@
   id: WeaponTurretXeno
   suffix: Xeno
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - Xeno
     - type: Sprite

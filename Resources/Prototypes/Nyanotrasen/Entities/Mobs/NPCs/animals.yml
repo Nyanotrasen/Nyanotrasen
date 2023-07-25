@@ -120,10 +120,8 @@
     solutions:
       food:
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Blood
-          Quantity: 70
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
   - type: Bloodstream
     bloodMaxVolume: 70
   - type: ReplacementAccent
@@ -143,6 +141,6 @@
   - type: CanEscapeInventory
   - type: HTN
     rootTask: IdleEvadeCompound # Make eat food/clothes when a thing
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - RatPassive
