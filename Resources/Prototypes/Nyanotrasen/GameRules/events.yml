@@ -98,7 +98,7 @@
       minimumGlimmer: 300
       maximumGlimmer: 1000
       report: glimmer-event-report-signatures
-    - type: GlimmerWispRule
+    - type: GlimmerWispSpawnRule
 
 - type: entity
   id: GlimmerShadeSpawn
@@ -109,7 +109,7 @@
       minimumGlimmer: 100
       maximumGlimmer: 500
       report: glimmer-event-report-signatures
-    - type: GlimmerShadeRule
+    - type: GlimmerShadeSpawnRule
 
 - type: entity
   id: FreeProber
@@ -143,4 +143,4 @@
       minimumGlimmer: 500
       maximumGlimmer: 1000
       report: glimmer-event-report-signatures
-    - type: GlimmerRevenantRule
+    - type: GlimmerRevenantSpawnRule

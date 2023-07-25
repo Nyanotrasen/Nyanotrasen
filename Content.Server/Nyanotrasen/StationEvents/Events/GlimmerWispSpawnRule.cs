@@ -23,31 +23,29 @@ internal sealed class GlimmerWispSpawnRule : StationEventSystem<GlimmerWispSpawn
         base.Started(uid, component, gameRule, args);
 
         var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+        var spawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().Select(item => item.Item2.Coordinates).ToHashSet();
+        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().Select(item => item.Item2.Coordinates).ToHashSet();
 
-        var spawnLocations = normalSpawnLocations.ToHashSet();
-        spawnLocations.UnionWith(hiddenSpawnLocations.ToHashSet());
+        spawnLocations.UnionWith(hiddenSpawnLocations);
 
         var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
 
         var total = baseCount * multiplier;
 
-        int i = 0;
-        while (i < total)
+        while (total > 0)
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.4f))
             {
                 SpawnWisp(_robustRandom.Pick(glimmerSources).Item2.Coordinates);
-                i++;
+                total--;
                 continue;
             }
 
             if (spawnLocations.Count != 0)
             {
                 SpawnWisp(_robustRandom.Pick(spawnLocations));
-                i++;
+                total--;
                 continue;
             }
 

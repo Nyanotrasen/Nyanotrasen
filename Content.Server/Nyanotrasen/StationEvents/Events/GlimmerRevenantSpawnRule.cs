@@ -22,35 +22,31 @@ internal sealed class GlimmerRevenantSpawnRule : StationEventSystem<GlimmerReven
         base.Started(uid, component, gameRule, args);
 
         var glimmerSources = EntityManager.EntityQuery<GlimmerSourceComponent, TransformComponent>().ToList();
-        var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
-        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList().ConvertAll(item => item.Item2.Coordinates);
+        var spawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().Select(item => item.Item2.Coordinates).ToHashSet();
+        var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().Select(item => item.Item2.Coordinates).ToHashSet();
 
-        var spawnLocations = normalSpawnLocations.ToHashSet();
-        spawnLocations.UnionWith(hiddenSpawnLocations.ToHashSet());
+        spawnLocations.UnionWith(hiddenSpawnLocations);
 
         int total = 1;
 
         if (_glimmerSystem.GetGlimmerTier() == GlimmerTier.Critical)
             total = 2;
 
-        int i = 0;
-        while (i < total)
+        while (total > 0)
         {
             if (glimmerSources.Count != 0 && _robustRandom.Prob(0.9f))
             {
                 SpawnRevenant(_robustRandom.Pick(glimmerSources).Item2.Coordinates);
-                i++;
-                continue;
             }
-
-            if (normalSpawnLocations.Count != 0)
+            else if (spawnLocations.Count != 0)
             {
                 SpawnRevenant(_robustRandom.Pick(spawnLocations));
-                i++;
-                continue;
             }
-
-            return;
+            else
+            {
+                return;
+            }
+            total--;
         }
     }
 

@@ -205,6 +205,6 @@
   - type: InputMover
   - type: MobMover
   - type: Emoting
-  - type: Faction # This makes them count for the wisp multiplier stuff...
+  - type: NpcFactionMember # This makes them count for the wisp multiplier stuff...
     factions:
       - GlimmerMonster
