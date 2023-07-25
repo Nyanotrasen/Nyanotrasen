@@ -10,7 +10,7 @@ using Content.Shared.Abilities.Psionics;
 
 namespace Content.Server.StationEvents.Events;
 
-internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleComponent>
+internal sealed class GlimmerWispSpawnRule : StationEventSystem<GlimmerWispSpawnRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
@@ -18,7 +18,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
     private static readonly string WispPrototype = "MobGlimmerWisp";
     private static readonly string ShadePrototype = "MobShade";
 
-    protected override void Started(EntityUid uid, GlimmerWispRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, GlimmerWispSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
