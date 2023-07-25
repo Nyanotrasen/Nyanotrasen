@@ -49,6 +49,8 @@
     - type: Storage
       popup: false
       capacity: 30
+    - type: TileFrictionModifier
+      modifier: 0.4 # makes it slide 
     
 # Add this if freezing/heating container/objects thermodynamics becomes a thing
 
@@ -158,4 +160,4 @@
         - state: stand-ice
     - type: ContainerContainer
       containers:
-        entity_storage: !type:Container
+        storagebase: !type:Container
