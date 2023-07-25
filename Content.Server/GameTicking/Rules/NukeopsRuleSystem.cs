@@ -88,12 +88,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     {
         var query = EntityQueryEnumerator<NukeopsRuleComponent, GameRuleComponent>();
 
-        // Begin Nyano-code:
-        // This is so nuclear operatives don't receive mail.
-        // This should be replaced at some point with a system that adds MailReceiver to valid mobs.
-        RemComp<MailReceiverComponent>(uid);
-        // End Nyano-code.
-
         while (query.MoveNext(out var ruleEnt, out var nukeops, out var gameRule))
         {
             if (!GameTicker.IsGameRuleAdded(ruleEnt, gameRule))

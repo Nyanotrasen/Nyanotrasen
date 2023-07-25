@@ -69,9 +69,11 @@ namespace Content.Server.Zombies
             // Heal the zombified
             while (zombQuery.MoveNext(out var uid, out var comp, out var damage, out var mobState))
             {
-                // Process only once per second
-                if (comp.NextTick + TimeSpan.FromSeconds(1) > curTime)
+                // Begin Nyano-code: slow the healing rate.
+                // Process only once per two seconds
+                if (comp.NextTick + TimeSpan.FromSeconds(2) > curTime)
                     continue;
+                // End Nyano-code.
 
                 comp.NextTick = curTime;
 
@@ -81,16 +83,10 @@ namespace Content.Server.Zombies
                     continue;
                 }
 
-                if (mobState.CurrentState == MobState.Alive)
-                {
-                    // Gradual healing for living zombies.
-                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
-                }
-                else if (_random.Prob(comp.ZombieReviveChance))
-                {
-                    // There's a small chance to reverse all the zombie's damage (damage.Damage) in one go
-                    _damageable.TryChangeDamage(uid, -damage.Damage, true, false, damage);
-                }
+                // Begin Nyano-code: the instant revive chance was removed here.
+                // Gradual healing for zombies.
+                _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage);
+                // End Nyano-code.
             }
         }
 
@@ -211,7 +207,9 @@ namespace Content.Server.Zombies
                 if (HasComp<ZombieComponent>(entity))
                     args.BonusDamage = -args.BaseDamage * zombieComp.OtherZombieDamageCoefficient;
 
-                if ((mobState.CurrentState == MobState.Dead || mobState.CurrentState == MobState.Critical)
+                // Begin Nyano-code: only zombify the dead on damage, not the critically injured.
+                if ((mobState.CurrentState == MobState.Dead)
+                // End Nyano-code.
                     && !HasComp<ZombieComponent>(entity))
                 {
                     _zombify.ZombifyEntity(entity);

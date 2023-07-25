@@ -91,6 +91,10 @@
         #  - Heh
       - id: SalvageHumanCorpse
         prob: 0.1
+      - id: LidSalami
+        prob: 0.1
+      - id: LidOSaws
+        prob: 0.01
         # Interesting (1%)
         #  - Ammo
       - id: MagazineBoxMagnum
@@ -113,6 +117,9 @@
       - id: WeaponRevolverInspector
         prob: 0.001
       - id: ClothingShoesBootsMagBlinding
+        prob: 0.001
+        #  - Skub
+      - id: Skub
         prob: 0.001
       - id: ResearchDisk10000
         prob: 0.001

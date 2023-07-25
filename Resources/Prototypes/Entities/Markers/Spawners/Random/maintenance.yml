@@ -7,14 +7,15 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Clothing/Mask/gas.rsi
-          state: icon
+        - sprite: Clothing/Eyes/Glasses/gar.rsi
+          state: icon-super
     - type: RandomSpawner
       rarePrototypes:
         - CigarGold
         - ClothingNeckCloakHerald
         - ClothingHeadHelmetTemplar
         - ClothingNeckCloakTrans
+        - ClothingNeckCloakAdmin
         - ClothingNeckCloakMoth
         - ClothingNeckCloakGoliathCloak
         - ToySkeleton
@@ -22,6 +23,7 @@
         - Football
         - BalloonCorgi
         - PonderingOrb
+        - Skub
         - DrinkMugDog
         - ClothingNeckLGBTPin
         - ClothingNeckAromanticPin
@@ -37,7 +39,11 @@
       prototypes:
         - Lighter
         - CigCartonBlue
+        - ClothingEyesGlassesGarGiga
+        - ClothingEyesGlassesGarOrange
+        - ClothingEyesGlassesGar
         - ClothingHeadHatCake
+        - ClothingHeadHatSkub
         - ClothingHeadHatCone
         - ClothingNeckBling
         - ClothingHeadHelmetCosmonaut
@@ -100,6 +106,7 @@
         - Machete
         - BaseBallBat
         - CombatKnife
+        - LidOSaws
       rareChance: 0.05
       prototypes:
         - FlashlightLantern
@@ -112,6 +119,7 @@
         - Welder
         - WeaponFlareGun
         - Spear
+        - LidSalami
         - ClothingEyesBlindfold
       chance: 0.6
       offset: 0.0
