@@ -96,6 +96,81 @@
     amount: 0.5
 
 - type: reagent
+  id: SyntheticBlood
+  name: reagent-name-syntheticblood
+  group: Biological
+  desc: reagent-desc-syntheticblood
+  flavor: metallic
+  color: "#800000"
+  physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
+  metabolisms:
+    Drink:
+      # Quenching!
+      effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      - !type:SatiateHunger
+        factor: 0.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Water
+        amount: 0.15
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Protein
+        amount: 0.15
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Omnizine
+        amount: 0.1
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 0.25
+
+- type: reagent
+  id: InactiveBlood
+  name: reagent-name-inactiveblood
+  group: Biological
+  desc: reagent-desc-inactiveblood
+  flavor: metallic
+  color: "#800000"
+  physicalDesc: reagent-physical-desc-ferrous
+  slippery: false
+  metabolisms:
+    Drink:
+      # Quenching!
+      effects:
+      - !type:SatiateThirst
+        factor: 1.5
+      - !type:SatiateHunger
+        factor: 0.5
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: 0.6
+        conditions:
+        - !type:OrganType
+          type: Vampiric
+        reagent: Water
+        amount: 0.15
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: 0.5
+        
+- type: reagent
   id: Fat
   name: reagent-name-fat
   group: Biological
