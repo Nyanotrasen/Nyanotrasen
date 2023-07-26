@@ -80,10 +80,10 @@ namespace Content.Server.Pointing.EntitySystems
                 RaiseNetworkEvent(new PopupEntityEvent(message, PopupType.Small, source), viewerEntity);
             }
 
-            _replay.QueueReplayMessage(new PopupEntityEvent(viewerMessage, PopupType.Small, source));
-
             var ev = new PointedEvent(source, pointed);
             RaiseLocalEvent(source, ref ev, false);
+
+            _replay.RecordServerMessage(new PopupEntityEvent(viewerMessage, PopupType.Small, source));
         }
 
         public bool InRange(EntityUid pointer, EntityCoordinates coordinates)
@@ -210,9 +210,9 @@ namespace Content.Server.Pointing.EntitySystems
                 TileRef? tileRef = null;
                 string? position = null;
 
-                if (_mapManager.TryFindGridAt(mapCoords, out var grid))
+                if (_mapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid))
                 {
-                    position = $"EntId={grid.Owner} {grid.WorldToTile(mapCoords.Position)}";
+                    position = $"EntId={gridUid} {grid.WorldToTile(mapCoords.Position)}";
                     tileRef = grid.GetTileRef(grid.WorldToTile(mapCoords.Position));
                 }
 

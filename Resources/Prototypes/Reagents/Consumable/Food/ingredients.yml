@@ -6,6 +6,7 @@
   physicalDesc: reagent-physical-desc-powdery
   flavor: chalky
   color: white
+  recognizable: true
   metabolisms:
     Food:
       effects:
@@ -51,6 +52,7 @@
   physicalDesc: reagent-physical-desc-mucus-like
   flavor: egg
   color: white
+  recognizable: true
   metabolisms:
     Food:
       effects:
@@ -66,6 +68,7 @@
   physicalDesc: reagent-physical-desc-grainy
   flavor: peppery
   color: black
+  recognizable: true
 
 - type: reagent
   id: Vinegar
@@ -75,6 +78,7 @@
   physicalDesc: reagent-physical-desc-sour
   flavor: bitter
   color: tan
+  recognizable: true
   metabolisms:
     Food:
       effects:
@@ -98,6 +102,7 @@
   physicalDesc: reagent-physical-desc-chewy
   flavor: rice
   color: white
+  recognizable: true
   metabolisms:
     Food:
       effects:
@@ -118,6 +123,7 @@
   color: yellow
   meltingPoint: 32.0
   boilingPoint: 100.0
+  recognizable: true
   metabolisms:
     Food:
       effects:
@@ -128,10 +134,13 @@
 - type: reagent
   id: CapsaicinOil
   name: reagent-name-capsaicin-oil
+  group: Foods
   desc: reagent-desc-capsaicin-oil
   physicalDesc: reagent-physical-desc-oily
   flavor: spicy
+  flavorMinimum: 0.05
   color: "#FF0000"
+  recognizable: true
   meltingPoint: 146
   boilingPoint: 410 # Really high boiling point compared to its melting
   metabolisms:

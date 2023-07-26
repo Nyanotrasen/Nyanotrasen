@@ -212,7 +212,7 @@ namespace Content.Server.Disease
             }
 
             var state = new VaccineMachineUpdateState(biomass, component.BiomassCost, diseases, overrideLocked ?? HasComp<DiseaseMachineRunningComponent>(uid), hasServer);
-            _uiSys.SetUiState(ui, state);
+            UserInterfaceSystem.SetUiState(ui, state);
         }
 
         /// <summary>

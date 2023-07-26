@@ -17,7 +17,7 @@ public sealed partial class ReverseEngineeringMachineComponent : Component
     public string DiskPrototype = "TechnologyDisk";
 
     [DataField("machinePartScanBonus", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartScanBonus = "ScanningModule";
+    public string MachinePartScanBonus = "Capacitor";
 
     /// <summary>
     /// Added to the 3d6, scales off of scanner.

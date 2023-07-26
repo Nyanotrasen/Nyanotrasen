@@ -16,6 +16,7 @@ public sealed partial class ArtifactSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -49,7 +50,7 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// </remarks>
     private void GetPrice(EntityUid uid, ArtifactComponent component, ref PriceCalculationEvent args)
     {
-        args.Price =+ GetResearchPointValue(uid, component) * component.PriceMultiplier;
+        args.Price += (GetResearchPointValue(uid, component) + component.ConsumedPoints) * component.PriceMultiplier;
     }
 
     /// <summary>
@@ -73,7 +74,18 @@ public sealed partial class ArtifactSystem : EntitySystem
         var sumValue = component.NodeTree.Sum(n => GetNodePointValue(n, component, getMaxPrice));
         var fullyExploredBonus = component.NodeTree.All(x => x.Triggered) || getMaxPrice ? 1.25f : 1;
 
-        return (int) (sumValue * fullyExploredBonus);
+        return (int) (sumValue * fullyExploredBonus) - component.ConsumedPoints;
+    }
+
+    /// <summary>
+    /// Adjusts how many points on the artifact have been consumed
+    /// </summary>
+    public void AdjustConsumedPoints(EntityUid uid, int amount, ArtifactComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.ConsumedPoints += amount;
     }
 
     /// <summary>
@@ -160,6 +172,7 @@ public sealed partial class ArtifactSystem : EntitySystem
         if (component.CurrentNodeId == null)
             return;
 
+        _audio.PlayPvs(component.ActivationSound, uid);
         component.LastActivationTime = _gameTiming.CurTime;
 
         var ev = new ArtifactActivatedEvent

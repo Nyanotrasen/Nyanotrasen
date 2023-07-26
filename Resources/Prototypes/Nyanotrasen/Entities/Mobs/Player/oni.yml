@@ -6,7 +6,7 @@
   components:
   - type: CombatMode
     canDisarm: true
-  - type: Mind
+  - type: MindContainer
     showExamineInfo: true
   - type: Input
     context: "human"
@@ -26,10 +26,9 @@
   - type: CameraRecoil
   - type: Examiner
   - type: CanHostGuardian
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
-  - type: MailReceiver
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
