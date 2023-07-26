@@ -1,28 +1,4 @@
 Entries:
-- author: Rane
-  changes:
-  - message: Merged upstream.
-    type: Add
-  - message: Updated maps for xenoarch.
-    type: Add
-  - message: Adjusted current content to account for xenoarchaeology.
-    type: Tweak
-  - message: Removed the buyable random artifacts; we have other sources.
-    type: Remove
-  - message: Reduced prober points per second slightly to adjust for the new xenoarch
-      source.
-    type: Tweak
-  - message: Noospheric zap's bonus chance to gain psionics halved again.
-    type: Tweak
-  - message: Glimmer prober explosion strength increased by 25%.
-    type: Tweak
-  - message: Possible glimmer loss on prober destruction changed to the upper half
-      of the current range.
-    type: Tweak
-  - message: Ifrit movement ignores gravity.
-    type: Tweak
-  id: 71
-  time: '2022-11-06T23:58:36.0000000+00:00'
 - author: Colin-Tel
   changes:
   - message: Added stuff related to the new Xeno Archeology.
@@ -3825,3 +3801,9 @@ Entries:
     type: Tweak
   id: 568
   time: '2023-07-24T17:36:44.089419+00:00'
+- author: Vordenburg
+  changes:
+  - message: Disabled starvation damage during usual station gameplay.
+    type: Tweak
+  id: 569
+  time: '2023-07-25T17:20:29.901662+00:00'
