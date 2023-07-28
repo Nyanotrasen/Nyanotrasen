@@ -17755,11 +17755,6 @@ entities:
     - pos: -78.5,-4.5
       parent: 33
       type: Transform
-  - uid: 16723
-    components:
-    - pos: -53.5,-12.5
-      parent: 33
-      type: Transform
   - uid: 16823
     components:
     - pos: -72.5,-33.5
@@ -17769,6 +17764,11 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: -40.5,-15.5
+      parent: 33
+      type: Transform
+  - uid: 18366
+    components:
+    - pos: -52.5,-11.5
       parent: 33
       type: Transform
   - uid: 21139
@@ -19408,6 +19408,15 @@ entities:
     - pos: 51.5,81.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709633.6
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19422,6 +19431,15 @@ entities:
     - pos: 48.5,12.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -341953.62
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19528,6 +19546,15 @@ entities:
     - pos: -15.5,101.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -620862.25
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19542,6 +19569,15 @@ entities:
     - pos: -15.5,104.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -620859
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19556,6 +19592,15 @@ entities:
     - pos: -52.5,-50.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -617758.8
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19570,6 +19615,15 @@ entities:
     - pos: -52.5,-51.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -617758.8
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -19584,6 +19638,15 @@ entities:
     - pos: 53.5,12.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -341953.62
+      state: Closing
+      type: Door
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -21613,6 +21676,11 @@ entities:
     - pos: -20.5,50.5
       parent: 33
       type: Transform
+  - uid: 2875
+    components:
+    - pos: -42.5,58.5
+      parent: 33
+      type: Transform
   - uid: 3179
     components:
     - pos: -18.5,29.5
@@ -21635,6 +21703,31 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 4421
+    components:
+    - pos: -25.5,65.5
+      parent: 33
+      type: Transform
+  - uid: 4422
+    components:
+    - pos: -77.5,-31.5
+      parent: 33
+      type: Transform
+  - uid: 4451
+    components:
+    - pos: -73.5,-13.5
+      parent: 33
+      type: Transform
+  - uid: 4599
+    components:
+    - pos: -58.5,-19.5
+      parent: 33
+      type: Transform
+  - uid: 4600
+    components:
+    - pos: -68.5,-11.5
+      parent: 33
+      type: Transform
   - uid: 4712
     components:
     - pos: -38.5,94.5
@@ -21734,6 +21827,11 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 6022
+    components:
+    - pos: -58.5,-7.5
+      parent: 33
+      type: Transform
   - uid: 6065
     components:
     - pos: -4.5,60.5
@@ -21798,6 +21896,11 @@ entities:
   - uid: 8014
     components:
     - pos: -42.5,-22.5
+      parent: 33
+      type: Transform
+  - uid: 8093
+    components:
+    - pos: -57.5,-11.5
       parent: 33
       type: Transform
   - uid: 8162
@@ -22480,6 +22583,11 @@ entities:
   - uid: 11371
     components:
     - pos: -6.5,-25.5
+      parent: 33
+      type: Transform
+  - uid: 11447
+    components:
+    - pos: -58.5,-11.5
       parent: 33
       type: Transform
   - uid: 12231
@@ -30868,6 +30976,11 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 15888
+    components:
+    - pos: -52.5,-13.5
+      parent: 33
+      type: Transform
   - uid: 15889
     components:
     - pos: -41.5,37.5
@@ -32458,9 +32571,9 @@ entities:
     - pos: -38.5,-7.5
       parent: 33
       type: Transform
-  - uid: 16756
+  - uid: 16723
     components:
-    - pos: -53.5,-12.5
+    - pos: -52.5,-11.5
       parent: 33
       type: Transform
     - enabled: True
@@ -33381,6 +33494,11 @@ entities:
   - uid: 18425
     components:
     - pos: 30.5,41.5
+      parent: 33
+      type: Transform
+  - uid: 18439
+    components:
+    - pos: 10.5,22.5
       parent: 33
       type: Transform
   - uid: 18478
@@ -47963,6 +48081,11 @@ entities:
     - pos: -34.5,14.5
       parent: 33
       type: Transform
+  - uid: 1608
+    components:
+    - pos: -52.5,-13.5
+      parent: 33
+      type: Transform
   - uid: 3104
     components:
     - pos: -66.5,2.5
@@ -51893,11 +52016,16 @@ entities:
       type: Transform
   - uid: 16755
     components:
-    - pos: -53.5,-12.5
+    - pos: -52.5,-11.5
       parent: 33
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 16756
+    components:
+    - pos: -52.5,-12.5
+      parent: 33
+      type: Transform
   - uid: 16788
     components:
     - pos: -54.5,-27.5
@@ -52768,11 +52896,6 @@ entities:
       pos: -59.769176,-20.440664
       parent: 33
       type: Transform
-  - uid: 17074
-    components:
-    - pos: -59.352512,-20.61787
-      parent: 33
-      type: Transform
   - uid: 17203
     components:
     - pos: 28.370975,-7.0617943
@@ -52793,34 +52916,9 @@ entities:
     - pos: 28.370975,-7.0617943
       parent: 33
       type: Transform
-  - uid: 17227
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17229
-    components:
-    - pos: 28.6366,-8.469022
-      parent: 33
-      type: Transform
-  - uid: 17230
-    components:
-    - pos: 28.23035,-8.453385
-      parent: 33
-      type: Transform
-  - uid: 17231
-    components:
-    - pos: 28.495975,-8.484658
-      parent: 33
-      type: Transform
   - uid: 17232
     components:
     - pos: 39.38346,17.965187
-      parent: 33
-      type: Transform
-  - uid: 17239
-    components:
-    - pos: -79.66635,-5.9289055
       parent: 33
       type: Transform
   - uid: 17241
@@ -52846,33 +52944,6 @@ entities:
   - uid: 17645
     components:
     - pos: 15.572352,76.66399
-      parent: 33
-      type: Transform
-  - uid: 17650
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.384852,75.63202
-      parent: 33
-      type: Transform
-  - uid: 17651
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 10.395268,75.777954
-      parent: 33
-      type: Transform
-  - uid: 17652
-    components:
-    - pos: 10.416102,77.695946
-      parent: 33
-      type: Transform
-  - uid: 17653
-    components:
-    - pos: 15.676518,77.42493
-      parent: 33
-      type: Transform
-  - uid: 17654
-    components:
-    - pos: 10.614018,75.55905
       parent: 33
       type: Transform
 - proto: CarbonDioxideCanister
@@ -63622,6 +63693,13 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: -101.5,-74.5
+      parent: 33
+      type: Transform
+- proto: ComputerStationRecords
+  entities:
+  - uid: 5432
+    components:
+    - pos: -53.5,-13.5
       parent: 33
       type: Transform
 - proto: ComputerSurveillanceCameraMonitor
@@ -74831,7 +74909,7 @@ entities:
     - pos: -92.59504,-18.314474
       parent: 33
       type: Transform
-- proto: DrinkBeerBottleFull
+- proto: DrinkBeerglass
   entities:
   - uid: 562
     components:
@@ -75641,6 +75719,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2087
     components:
@@ -75650,6 +75730,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2089
     components:
@@ -75659,6 +75741,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2106
     components:
@@ -75668,6 +75752,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2619
     components:
@@ -75677,6 +75763,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2620
     components:
@@ -75686,6 +75774,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2698
     components:
@@ -75695,6 +75785,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2801
     components:
@@ -75703,6 +75795,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2802
     components:
@@ -75712,6 +75806,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2803
     components:
@@ -75721,6 +75817,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2804
     components:
@@ -75730,6 +75828,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2816
     components:
@@ -75738,6 +75838,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2817
     components:
@@ -75746,6 +75848,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2818
     components:
@@ -75755,6 +75859,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2819
     components:
@@ -75764,6 +75870,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2822
     components:
@@ -75773,6 +75881,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2826
     components:
@@ -75782,6 +75892,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2829
     components:
@@ -75791,6 +75903,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2830
     components:
@@ -75800,6 +75914,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2831
     components:
@@ -75809,6 +75925,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2840
     components:
@@ -75818,6 +75936,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2841
     components:
@@ -75827,6 +75947,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2842
     components:
@@ -75836,6 +75958,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2843
     components:
@@ -75844,6 +75968,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2844
     components:
@@ -75853,6 +75979,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2845
     components:
@@ -75862,6 +75990,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2846
     components:
@@ -75871,6 +76001,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2847
     components:
@@ -75880,6 +76012,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2848
     components:
@@ -75889,6 +76023,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 2849
     components:
@@ -75898,6 +76034,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 3729
     components:
@@ -75907,6 +76045,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 3730
     components:
@@ -75916,6 +76056,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4129
     components:
@@ -75924,6 +76066,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4131
     components:
@@ -75933,6 +76077,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4133
     components:
@@ -75942,6 +76088,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4134
     components:
@@ -75951,6 +76099,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4142
     components:
@@ -75960,6 +76110,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4143
     components:
@@ -75969,6 +76121,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4144
     components:
@@ -75977,6 +76131,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4145
     components:
@@ -75986,6 +76142,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4146
     components:
@@ -75995,6 +76153,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4147
     components:
@@ -76004,6 +76164,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4148
     components:
@@ -76013,6 +76175,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4157
     components:
@@ -76022,6 +76186,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4181
     components:
@@ -76031,6 +76197,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4183
     components:
@@ -76040,6 +76208,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4184
     components:
@@ -76049,6 +76219,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4267
     components:
@@ -76057,6 +76229,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4350
     components:
@@ -76066,6 +76240,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4423
     components:
@@ -76074,6 +76250,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4425
     components:
@@ -76083,6 +76261,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4432
     components:
@@ -76091,6 +76271,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4433
     components:
@@ -76100,6 +76282,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4434
     components:
@@ -76109,6 +76293,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4439
     components:
@@ -76118,6 +76304,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4441
     components:
@@ -76126,6 +76314,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4442
     components:
@@ -76135,6 +76325,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 4980
     components:
@@ -76144,6 +76336,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 5474
     components:
@@ -76153,6 +76347,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6703
     components:
@@ -76162,6 +76358,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6704
     components:
@@ -76171,6 +76369,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6705
     components:
@@ -76180,6 +76380,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6706
     components:
@@ -76189,6 +76391,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6720
     components:
@@ -76197,6 +76401,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6721
     components:
@@ -76206,6 +76412,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6730
     components:
@@ -76215,6 +76423,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6731
     components:
@@ -76224,6 +76434,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6732
     components:
@@ -76233,6 +76445,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6733
     components:
@@ -76242,6 +76456,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6734
     components:
@@ -76251,6 +76467,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6735
     components:
@@ -76260,6 +76478,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6736
     components:
@@ -76269,6 +76489,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6737
     components:
@@ -76278,6 +76500,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6738
     components:
@@ -76287,6 +76511,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6739
     components:
@@ -76295,6 +76521,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6740
     components:
@@ -76304,6 +76532,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6741
     components:
@@ -76313,6 +76543,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6742
     components:
@@ -76322,6 +76554,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6743
     components:
@@ -76331,6 +76565,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6744
     components:
@@ -76340,6 +76576,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6745
     components:
@@ -76348,6 +76586,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6746
     components:
@@ -76357,6 +76597,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6750
     components:
@@ -76366,6 +76608,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6751
     components:
@@ -76375,6 +76619,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6752
     components:
@@ -76384,6 +76630,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6753
     components:
@@ -76393,6 +76641,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6754
     components:
@@ -76402,6 +76652,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 6755
     components:
@@ -76411,6 +76663,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 9218
     components:
@@ -76420,6 +76674,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 9783
     components:
@@ -76429,6 +76685,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10362
     components:
@@ -76437,6 +76695,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10368
     components:
@@ -76446,6 +76706,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10371
     components:
@@ -76455,6 +76717,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10373
     components:
@@ -76463,6 +76727,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10376
     components:
@@ -76472,6 +76738,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10377
     components:
@@ -76480,6 +76748,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10378
     components:
@@ -76489,6 +76759,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10379
     components:
@@ -76498,6 +76770,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10380
     components:
@@ -76507,6 +76781,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10381
     components:
@@ -76516,6 +76792,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10382
     components:
@@ -76525,6 +76803,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10383
     components:
@@ -76534,6 +76814,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10384
     components:
@@ -76543,6 +76825,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10385
     components:
@@ -76552,6 +76836,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10386
     components:
@@ -76561,6 +76847,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10387
     components:
@@ -76570,6 +76858,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10388
     components:
@@ -76579,6 +76869,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10389
     components:
@@ -76588,6 +76880,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10390
     components:
@@ -76597,6 +76891,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10391
     components:
@@ -76606,6 +76902,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10392
     components:
@@ -76615,6 +76913,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10393
     components:
@@ -76624,6 +76924,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10394
     components:
@@ -76632,6 +76934,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10395
     components:
@@ -76641,6 +76945,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10396
     components:
@@ -76649,6 +76955,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10397
     components:
@@ -76657,6 +76965,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 10398
     components:
@@ -76666,6 +76976,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 15085
     components:
@@ -76675,6 +76987,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 15086
     components:
@@ -76684,6 +76998,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 22134
     components:
@@ -76693,6 +77009,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 25237
     components:
@@ -76702,6 +77020,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28066
     components:
@@ -76711,6 +77031,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28070
     components:
@@ -76720,6 +77042,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28071
     components:
@@ -76728,6 +77052,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28376
     components:
@@ -76736,6 +77062,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28378
     components:
@@ -76745,6 +77073,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28379
     components:
@@ -76754,6 +77084,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28380
     components:
@@ -76763,6 +77095,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28381
     components:
@@ -76772,6 +77106,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28382
     components:
@@ -76781,6 +77117,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
   - uid: 28385
     components:
@@ -76790,6 +77128,8 @@ entities:
       type: Transform
     - enabled: True
       type: PointLight
+    - enabled: True
+      type: AmbientSound
     - type: ActiveEmergencyLight
 - proto: EmergencyRollerBed
   entities:
@@ -81011,16 +81351,58 @@ entities:
     - pos: 63.506725,8.685071
       parent: 33
       type: Transform
+    - toggleAction:
+        sound: null
+        itemIconStyle: BigItem
+        icon: Objects/Tools/flashlight.rsi/flashlight.png
+        iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
+        iconColor: '#FFFFFFFF'
+        name: action-name-toggle-light
+        description: action-description-toggle-light
+        keywords: []
+        enabled: True
+        useDelay: null
+        charges: null
+        checkCanInteract: True
+        clientExclusive: False
+        priority: 0
+        autoPopulate: True
+        autoRemove: True
+        temporary: False
+        event: !type:ToggleActionEvent {}
+      type: HandheldLight
   - uid: 607
     components:
     - pos: 63.464676,15.484161
       parent: 33
       type: Transform
+    - toggleAction:
+        sound: null
+        itemIconStyle: BigItem
+        icon: Objects/Tools/flashlight.rsi/flashlight.png
+        iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
+        iconColor: '#FFFFFFFF'
+        name: action-name-toggle-light
+        description: action-description-toggle-light
+        keywords: []
+        enabled: True
+        useDelay: null
+        charges: null
+        checkCanInteract: True
+        clientExclusive: False
+        priority: 0
+        autoPopulate: True
+        autoRemove: True
+        temporary: False
+        event: !type:ToggleActionEvent {}
+      type: HandheldLight
   - uid: 9652
     components:
     - pos: -34.612186,100.51028
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
   - uid: 26814
     components:
     - pos: -68.46204,-53.228966
@@ -82780,6 +83162,11 @@ entities:
   - uid: 10465
     components:
     - pos: -11.645875,32.540695
+      parent: 33
+      type: Transform
+  - uid: 10867
+    components:
+    - pos: 24.727167,71.50599
       parent: 33
       type: Transform
 - proto: FoodShakerSalt
@@ -133492,6 +133879,11 @@ entities:
       type: Transform
 - proto: MatterBinStockPart
   entities:
+  - uid: 17074
+    components:
+    - pos: -59.352512,-20.61787
+      parent: 33
+      type: Transform
   - uid: 17193
     components:
     - pos: 47.63364,1.843297
@@ -133545,9 +133937,24 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
+  - uid: 17230
+    components:
+    - pos: 28.23035,-8.453385
+      parent: 33
+      type: Transform
+  - uid: 17231
+    components:
+    - pos: 28.495975,-8.484658
+      parent: 33
+      type: Transform
   - uid: 17237
     components:
     - pos: -66.30981,-10.153397
+      parent: 33
+      type: Transform
+  - uid: 17239
+    components:
+    - pos: -79.66635,-5.9289055
       parent: 33
       type: Transform
   - uid: 17646
@@ -133563,6 +133970,21 @@ entities:
   - uid: 17649
     components:
     - pos: 12.765873,78.58034
+      parent: 33
+      type: Transform
+  - uid: 17652
+    components:
+    - pos: 10.416102,77.695946
+      parent: 33
+      type: Transform
+  - uid: 17653
+    components:
+    - pos: 15.676518,77.42493
+      parent: 33
+      type: Transform
+  - uid: 17654
+    components:
+    - pos: 10.614018,75.55905
       parent: 33
       type: Transform
 - proto: Mattress
@@ -133851,6 +134273,16 @@ entities:
     - pos: 28.589725,-7.390147
       parent: 33
       type: Transform
+  - uid: 17227
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
+  - uid: 17229
+    components:
+    - pos: 28.6366,-8.469022
+      parent: 33
+      type: Transform
   - uid: 17233
     components:
     - pos: 39.62285,17.923508
@@ -133869,6 +134301,18 @@ entities:
   - uid: 17236
     components:
     - pos: -67.60668,-10.528657
+      parent: 33
+      type: Transform
+  - uid: 17650
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.384852,75.63202
+      parent: 33
+      type: Transform
+  - uid: 17651
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.395268,75.777954
       parent: 33
       type: Transform
   - uid: 17669
@@ -142320,6 +142764,13 @@ entities:
   - uid: 24394
     components:
     - pos: 39.5,0.5
+      parent: 33
+      type: Transform
+- proto: PosterContrabandRise
+  entities:
+  - uid: 18531
+    components:
+    - pos: -28.5,91.5
       parent: 33
       type: Transform
 - proto: PosterContrabandRobustSoftdrinks
@@ -157385,6 +157836,15 @@ entities:
     - pos: -38.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157399,6 +157859,15 @@ entities:
     - pos: -33.5,17.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -763558.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157413,6 +157882,15 @@ entities:
     - pos: -32.5,17.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -763558.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157427,6 +157905,15 @@ entities:
     - pos: -31.5,17.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -763558.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157441,6 +157928,15 @@ entities:
     - pos: 40.5,20.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709648.25
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157455,6 +157951,15 @@ entities:
     - pos: 41.5,20.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709648.25
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157469,6 +157974,15 @@ entities:
     - pos: 42.5,20.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709648.25
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157483,6 +157997,15 @@ entities:
     - pos: 38.5,20.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709648.25
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157497,6 +158020,15 @@ entities:
     - pos: 36.5,20.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -709648.25
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157511,6 +158043,15 @@ entities:
     - pos: -36.5,35.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157525,6 +158066,15 @@ entities:
     - pos: -36.5,33.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157539,6 +158089,15 @@ entities:
     - pos: -36.5,32.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157553,6 +158112,15 @@ entities:
     - pos: -84.5,8.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -737046.56
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157567,6 +158135,15 @@ entities:
     - pos: -34.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157581,6 +158158,15 @@ entities:
     - pos: -35.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157595,6 +158181,15 @@ entities:
     - pos: -33.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157609,6 +158204,15 @@ entities:
     - pos: -33.5,29.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157623,6 +158227,15 @@ entities:
     - pos: -33.5,28.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157637,6 +158250,15 @@ entities:
     - pos: -33.5,30.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157651,6 +158273,15 @@ entities:
     - pos: -37.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157665,6 +158296,15 @@ entities:
     - pos: -36.5,34.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157679,6 +158319,15 @@ entities:
     - pos: -39.5,31.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -710938.4
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157693,6 +158342,15 @@ entities:
     - pos: -16.5,71.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157707,6 +158365,15 @@ entities:
     - pos: -17.5,71.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157721,6 +158388,15 @@ entities:
     - pos: -20.5,74.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157735,6 +158411,15 @@ entities:
     - pos: -19.5,71.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157749,6 +158434,15 @@ entities:
     - pos: -27.5,69.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460996.38
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157763,6 +158457,15 @@ entities:
     - pos: -27.5,68.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460996.38
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157777,6 +158480,15 @@ entities:
     - pos: -27.5,67.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460996.38
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157791,6 +158503,15 @@ entities:
     - pos: -27.5,66.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460996.38
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157805,6 +158526,15 @@ entities:
     - pos: -20.5,73.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157819,6 +158549,15 @@ entities:
     - pos: -20.5,72.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -460978.1
+      state: Opening
+      type: Door
+    - canCollide: True
+      type: Physics
+    - enabled: True
+      type: Occluder
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157863,6 +158602,15 @@ entities:
     - pos: -70.5,-15.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -340976.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157877,6 +158625,15 @@ entities:
     - pos: -68.5,-14.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -340964.72
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157891,6 +158648,15 @@ entities:
     - pos: -70.5,-16.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -340976.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157905,6 +158671,15 @@ entities:
     - pos: -52.5,-49.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157919,6 +158694,15 @@ entities:
     - pos: -52.5,-52.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157933,6 +158717,15 @@ entities:
     - pos: -54.5,-54.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157947,6 +158740,15 @@ entities:
     - pos: -55.5,-54.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157961,6 +158763,15 @@ entities:
     - pos: -55.5,-47.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157975,6 +158786,15 @@ entities:
     - pos: -54.5,-47.5
       parent: 33
       type: Transform
+    - enabled: False
+      type: Occluder
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -617764.75
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -157991,6 +158811,15 @@ entities:
     - pos: -56.5,-52.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -617749.94
+      state: Opening
+      type: Door
+    - enabled: True
+      type: Occluder
+    - canCollide: True
+      type: Physics
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158005,6 +158834,15 @@ entities:
     - pos: -56.5,-51.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -617749.94
+      state: Opening
+      type: Door
+    - enabled: True
+      type: Occluder
+    - canCollide: True
+      type: Physics
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158019,6 +158857,15 @@ entities:
     - pos: -56.5,-50.5
       parent: 33
       type: Transform
+    - SecondsUntilStateChange: -617749.94
+      state: Opening
+      type: Door
+    - enabled: True
+      type: Occluder
+    - canCollide: True
+      type: Physics
+    - airBlocked: True
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158035,6 +158882,13 @@ entities:
     - pos: 25.5,-5.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -710191.2
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158049,6 +158903,13 @@ entities:
     - pos: 30.5,9.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -709993.1
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158063,6 +158924,13 @@ entities:
     - pos: 30.5,8.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -709993.1
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158077,6 +158945,13 @@ entities:
     - pos: 26.5,10.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -710015.1
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158091,6 +158966,13 @@ entities:
     - pos: 27.5,10.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -710015.1
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158105,6 +158987,13 @@ entities:
     - pos: 26.5,-5.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -710191.2
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158119,6 +159008,13 @@ entities:
     - pos: 58.5,23.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -354742.34
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158133,6 +159029,13 @@ entities:
     - pos: 58.5,24.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -354742.34
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158147,6 +159050,13 @@ entities:
     - pos: 64.5,28.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -379521.84
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -158165,6 +159075,13 @@ entities:
     - pos: 64.5,27.5
       parent: 33
       type: Transform
+    - canCollide: False
+      type: Physics
+    - SecondsUntilStateChange: -379521.84
+      state: Closing
+      type: Door
+    - airBlocked: False
+      type: Airtight
     - inputs:
         Open:
         - port: On
@@ -171275,6 +172192,14 @@ entities:
     - pos: -24.5,34.5
       parent: 33
       type: Transform
+  - uid: 8556
+    components:
+    - flags: SessionSpecific
+      name: Hot drinks machine
+      type: MetaData
+    - pos: -28.5,5.5
+      parent: 33
+      type: Transform
   - uid: 8605
     components:
     - flags: SessionSpecific
@@ -171541,15 +172466,6 @@ entities:
     - pos: -59.5,8.5
       parent: 33
       type: Transform
-- proto: VendingMachineMNKDrobe
-  entities:
-  - uid: 2635
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: -28.5,5.5
-      parent: 33
-      type: Transform
 - proto: VendingMachineNutri
   entities:
   - uid: 3150
@@ -171674,7 +172590,7 @@ entities:
       type: Transform
 - proto: VendingMachineStarkist
   entities:
-  - uid: 1608
+  - uid: 2635
     components:
     - flags: SessionSpecific
       type: MetaData
@@ -175177,11 +176093,6 @@ entities:
     - pos: -75.5,20.5
       parent: 33
       type: Transform
-  - uid: 2875
-    components:
-    - pos: -74.5,20.5
-      parent: 33
-      type: Transform
   - uid: 2893
     components:
     - pos: -48.5,4.5
@@ -177380,6 +178291,11 @@ entities:
   - uid: 5407
     components:
     - pos: -77.5,-22.5
+      parent: 33
+      type: Transform
+  - uid: 5430
+    components:
+    - pos: -53.5,-12.5
       parent: 33
       type: Transform
   - uid: 5431
@@ -182067,6 +182983,16 @@ entities:
     - pos: -14.5,104.5
       parent: 33
       type: Transform
+  - uid: 17959
+    components:
+    - pos: -74.5,20.5
+      parent: 33
+      type: Transform
+  - uid: 17971
+    components:
+    - pos: -55.5,-12.5
+      parent: 33
+      type: Transform
   - uid: 18043
     components:
     - pos: -56.5,-47.5
@@ -182145,6 +183071,11 @@ entities:
   - uid: 18174
     components:
     - pos: -96.5,-31.5
+      parent: 33
+      type: Transform
+  - uid: 18199
+    components:
+    - pos: -54.5,-12.5
       parent: 33
       type: Transform
   - uid: 18304
@@ -185817,21 +186748,6 @@ entities:
   - uid: 4405
     components:
     - pos: -20.5,18.5
-      parent: 33
-      type: Transform
-  - uid: 4421
-    components:
-    - pos: -55.5,-12.5
-      parent: 33
-      type: Transform
-  - uid: 4422
-    components:
-    - pos: -54.5,-12.5
-      parent: 33
-      type: Transform
-  - uid: 4451
-    components:
-    - pos: -53.5,-12.5
       parent: 33
       type: Transform
   - uid: 4452
