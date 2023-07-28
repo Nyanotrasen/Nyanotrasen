@@ -9,9 +9,10 @@ implanter-draw-text = Draw
 implanter-inject-text = Inject
 
 implanter-empty-text = None
-implanter-implant-text = {$implantName}{$lineBreak}{$implantDescription}
 
-implanter-label = [color=white]Implant: {$currentEntities}{$lineBreak}Mode: {$modeString}[/color]
+implanter-label = Implant: [color=green]{$implantName}[/color] | [color=white]{$modeString}[/color]{$lineBreak}{$implantDescription}
+
+implanter-contained-implant-text = [color=green]{$desc}[/color]
 
 ## Implanter Actions
 
