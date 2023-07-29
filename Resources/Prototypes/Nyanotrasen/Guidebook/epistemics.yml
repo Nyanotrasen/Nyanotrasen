@@ -1,0 +1,61 @@
+- type: guideEntry
+  id: Epistemics
+  name: guide-entry-epistemics
+  text: "/ServerInfo/Guidebook/Epistemics/Epistemics.xml"
+  children:
+  - Psionics
+  - AltarsGolemancy
+  - Xenoarchaeology
+  - Robotics
+  - AnomalousResearch
+
+- type: guideEntry
+  id: Psionics
+  name: guide-entry-psionics
+  text: "/ServerInfo/Guidebook/Epistemics/Psionics.xml"
+
+- type: guideEntry
+  id: AltarsGolemancy
+  name: guide-entry-altars-golemancy
+  text: "/ServerInfo/Guidebook/Epistemics/Altar.xml"
+
+- type: guideEntry
+  id: AnomalousResearch
+  name: guide-entry-anomalous-research
+  text: "/ServerInfo/Guidebook/Epistemics/AnomalousResearch.xml"
+  children:
+  - APE
+  - ScannersAndVessels
+
+- type: guideEntry
+  id: ScannersAndVessels
+  name: guide-entry-scanners-and-vessels
+  text: "/ServerInfo/Guidebook/Epistemics/ScannersAndVessels.xml"
+
+- type: guideEntry
+  id: APE
+  name: guide-entry-ape
+  text: "/ServerInfo/Guidebook/Epistemics/APE.xml"
+
+- type: guideEntry
+  id: Xenoarchaeology
+  name: guide-entry-xenoarchaeology
+  text: "/ServerInfo/Guidebook/Epistemics/Xenoarchaeology.xml"
+  children:
+  - ArtifactReports
+  - TraversalDistorter
+
+- type: guideEntry
+  id: Robotics
+  name: guide-entry-robotics
+  text: "/ServerInfo/Guidebook/Epistemics/Robotics.xml"
+
+- type: guideEntry
+  id: ArtifactReports
+  name: guide-entry-artifact-reports
+  text: "/ServerInfo/Guidebook/Epistemics/ArtifactReports.xml"
+
+- type: guideEntry
+  id: TraversalDistorter
+  name: guide-entry-traversal-distorter
+  text: "/ServerInfo/Guidebook/Epistemics/TraversalDistorter.xml"
