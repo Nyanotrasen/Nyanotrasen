@@ -21,7 +21,6 @@
           Heat: 40
     - type: InteractionOutline
     - type: Sprite
-      netsync: false
     - type: Appearance
     - type: ThrusterVisuals
     - type: ApcPowerReceiver
@@ -50,9 +49,6 @@
   - type: Thruster
   - type: Machine
     board: ThrusterMachineCircuitboard
-  - type: UpgradePowerDraw
-    powerDrawMultiplier: 0.75
-    scaling: Exponential
   - type: Sprite
     sprite: Structures/Shuttles/thruster.rsi
     layers:

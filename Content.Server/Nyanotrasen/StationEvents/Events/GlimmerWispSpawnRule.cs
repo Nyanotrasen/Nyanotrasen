@@ -24,7 +24,7 @@ internal sealed class GlimmerWispRule : StationEventSystem<GlimmerWispRuleCompon
         var normalSpawnLocations = EntityManager.EntityQuery<VentCritterSpawnLocationComponent, TransformComponent>().ToList();
         var hiddenSpawnLocations = EntityManager.EntityQuery<MidRoundAntagSpawnLocationComponent, TransformComponent>().ToList();
 
-        var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, FactionComponent>().Count() / 10);
+        var baseCount = Math.Max(1, EntityManager.EntityQuery<PsionicComponent, NpcFactionMemberComponent>().Count() / 10);
         int multiplier = Math.Max(1, (int) _glimmerSystem.GetGlimmerTier() - 2);
 
         var total = baseCount * multiplier;

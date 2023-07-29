@@ -33,6 +33,7 @@
 - type: entity
   id: CrateEmergencyInternals
   parent: CrateInternals
+  name: Emergency Suits
   components:
   - type: StorageFill
     contents:
@@ -42,7 +43,7 @@
         amount: 3
       - id: OxygenTankFilled
         amount: 3
-      - id: EmergencyOxygenTankFilled
+      - id: NitrogenTankFilled
         amount: 3
       - id: ClothingOuterSuitEmergency
         amount: 3

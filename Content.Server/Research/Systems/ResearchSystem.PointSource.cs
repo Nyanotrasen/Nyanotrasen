@@ -16,7 +16,9 @@ public sealed partial class ResearchSystem
         if (CanProduce(component))
         {
             args.Points += component.PointsPerSecond;
+            // Begin Nyano-code: limit passive point generation.
             args.Sources++;
+            // End Nyano-code.
         }
     }
 

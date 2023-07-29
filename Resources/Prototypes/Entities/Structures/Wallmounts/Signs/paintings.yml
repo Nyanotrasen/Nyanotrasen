@@ -20,15 +20,6 @@
 
 - type: entity
   parent: PaintingBase
-  id: PaintingMoony
-  name: Abstract No.1
-  description: An imposing abstract painting. It feels like it's pressuring you to do good.
-  components:
-  - type: Sprite
-    state: painting1
-
-- type: entity
-  parent: PaintingBase
   id: PaintingPersistenceOfMemory
   name: The Persistence of Memory
   description: This painting depicts a barren landscape. It's filled with various surreal objects.
@@ -161,15 +152,6 @@
   components:
   - type: Sprite
     state: painting16
-
-- type: entity
-  parent: PaintingBase
-  id: PaintingAmogusTriptych
-  name: Amogus Triptych (Untitled.)
-  description: This painting is made up of 3 individual sections. Each depicts a religious figure.
-  components:
-  - type: Sprite
-    state: painting17
 
 - type: entity
   parent: PaintingBase

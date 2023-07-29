@@ -14,7 +14,7 @@
 
 - type: entity
   name: Janicart Spawner
-  id: SpawnVehiclePussywagon
+  id: SpawnVehicleJanicart
   parent: MarkerBase
   components:
   - type: Sprite
@@ -24,7 +24,7 @@
         state: keys
   - type: ConditionalSpawner
     prototypes:
-      - VehiclePussyWagon
+      - VehicleJanicart
 
 - type: entity
   name: ATV Spawner

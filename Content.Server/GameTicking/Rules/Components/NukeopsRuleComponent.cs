@@ -80,9 +80,6 @@ public sealed class NukeopsRuleComponent : Component
     [DataField("shuttleMap", customTypeSerializer: typeof(ResPathSerializer))]
     public ResPath NukieShuttleMap = new("/Maps/infiltrator.yml");
 
-    [DataField("greetingSound", customTypeSerializer: typeof(SoundSpecifierTypeSerializer))]
-    public SoundSpecifier? GreetSound = new SoundPathSpecifier("/Audio/Misc/nukeops.ogg");
-
     [DataField("winType")]
     public WinType WinType = WinType.Neutral;
 
@@ -123,7 +120,7 @@ public sealed class NukeopsRuleComponent : Component
     [DataField("operativePlayers")]
     public readonly Dictionary<string, IPlayerSession> OperativePlayers = new();
 
-    [DataField("faction", customTypeSerializer: typeof(PrototypeIdSerializer<FactionPrototype>), required: true)]
+    [DataField("faction", customTypeSerializer: typeof(PrototypeIdSerializer<NpcFactionPrototype>), required: true)]
     public string Faction = default!;
 
     // Begin Nyano-code: reintroduce species blacklist.

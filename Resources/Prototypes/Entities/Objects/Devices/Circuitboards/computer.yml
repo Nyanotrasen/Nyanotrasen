@@ -66,6 +66,17 @@
 
 - type: entity
   parent: BaseComputerCircuitboard
+  id: StationRecordsComputerCircuitboard
+  name: station records computer board
+  description: A computer printed circuit board for a station records computer.
+  components:
+    - type: Sprite
+      state: cpu_command
+    - type: ComputerBoard
+      prototype: ComputerStationRecords
+
+- type: entity
+  parent: BaseComputerCircuitboard
   id: CargoRequestComputerCircuitboard
   name: cargo request computer board
   description: A computer printed circuit board for a cargo request computer.
@@ -80,6 +91,22 @@
       tags:
       - DroneUsable
       - HighRiskItem
+
+- type: entity
+  id: CargoBountyComputerCircuitboard
+  parent: BaseComputerCircuitboard
+  name: cargo bounty computer board
+  description: A computer printed circuit board for a cargo bounty computer.
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerCargoBounty
+  - type: DynamicPrice
+    price: 750
+  - type: Tag
+    tags:
+    - DroneUsable
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -106,11 +133,20 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: CargoShuttleConsoleCircuitboard
-  name: supply shuttle console board
+  name: cargo shuttle console board
   description: A computer printed circuit board for a cargo shuttle console.
   components:
     - type: ComputerBoard
       prototype: ComputerShuttleCargo
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: SalvageShuttleConsoleCircuitboard
+  name: salvage shuttle console board
+  description: A computer printed circuit board for a salvage shuttle console.
+  components:
+    - type: ComputerBoard
+      prototype: ComputerShuttleSalvage
 
 - type: entity
   parent: BaseComputerCircuitboard
@@ -176,7 +212,7 @@
 - type: entity
   parent: BaseComputerCircuitboard
   id: TechDiskComputerCircuitboard
-  name: technology disk terminal board
+  name: tech disk terminal board
   description: A computer printed circuit board for a technology disk terminal.
   components:
   - type: Sprite

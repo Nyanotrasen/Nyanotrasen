@@ -4,10 +4,11 @@ using Content.Server.Electrocution;
 using Content.Server.Lightning;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Construction;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Ghost;
 using Content.Server.Revenant.EntitySystems;
 using Content.Shared.Audio;
+using Content.Shared.Construction.EntitySystems;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.GameTicking;
 using Content.Shared.Psionics.Glimmer;
 using Content.Shared.Verbs;
@@ -16,6 +17,7 @@ using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Construction.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
@@ -37,6 +39,8 @@ namespace Content.Server.Psionics.Glimmer
         [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
         [Dependency] private readonly GhostSystem _ghostSystem = default!;
         [Dependency] private readonly RevenantSystem _revenantSystem = default!;
+        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         public float Accumulator = 0;
         public const float UpdateFrequency = 15f;
@@ -287,17 +291,29 @@ namespace Content.Server.Psionics.Glimmer
 
         private void AnchorOrExplode(EntityUid uid)
         {
+            var xform = Transform(uid);
+            if (xform.Anchored)
+                return;
+
             if (!TryComp<PhysicsComponent>(uid, out var physics))
                 return;
 
-            if (!_anchorableSystem.TileFree(Transform(uid).Coordinates, physics))
+            var coordinates = xform.Coordinates;
+            var gridUid = xform.GridUid;
+
+            if (_mapManager.TryGetGrid(gridUid, out var grid))
             {
-                _destructibleSystem.DestroyEntity(uid);
-                return;
+                var tileIndices = grid.TileIndicesFor(coordinates);
+
+                if (_anchorableSystem.TileFree(grid, tileIndices, physics.CollisionLayer, physics.CollisionMask) &&
+                    _transformSystem.AnchorEntity(uid, xform))
+                {
+                    return;
+                }
             }
 
-            Transform(uid).Coordinates.SnapToGrid();
-            Transform(uid).Anchored = true;
+            // Wasn't able to get a grid or a free tile, so explode.
+            _destructibleSystem.DestroyEntity(uid);
         }
 
         private void Reset(RoundRestartCleanupEvent args)

@@ -27,7 +27,7 @@ namespace Content.Server.Psionics
         [Dependency] private readonly MindSwapPowerSystem _mindSwapPowerSystem = default!;
         [Dependency] private readonly GlimmerSystem _glimmerSystem = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly FactionSystem _factions = default!;
+        [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         /// <summary>
@@ -116,21 +116,21 @@ namespace Content.Server.Psionics
             if (!component.Removable)
                 return;
 
-            if (!TryComp<FactionComponent>(uid, out var factions))
+            if (!TryComp<NpcFactionMemberComponent>(uid, out var factions))
                 return;
 
-            if (_factions.ContainsFaction(uid, "GlimmerMonster", factions))
+            if (_npcFactonSystem.ContainsFaction(uid, "GlimmerMonster", factions))
                 return;
 
-            _factions.AddFaction(uid, "PsionicInterloper");
+            _npcFactonSystem.AddFaction(uid, "PsionicInterloper");
         }
 
         private void OnRemove(EntityUid uid, PsionicComponent component, ComponentRemove args)
         {
-            if (!TryComp<FactionComponent>(uid, out var factions))
+            if (!TryComp<NpcFactionMemberComponent>(uid, out var factions))
                 return;
 
-            _factions.RemoveFaction(uid, "PsionicInterloper");
+            _npcFactonSystem.RemoveFaction(uid, "PsionicInterloper");
         }
 
         private void OnStamHit(EntityUid uid, AntiPsionicWeaponComponent component, StaminaMeleeHitEvent args)

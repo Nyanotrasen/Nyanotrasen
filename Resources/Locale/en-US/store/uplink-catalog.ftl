@@ -20,12 +20,6 @@ uplink-edagger-desc = A small energy blade conveniently disguised in the form of
 uplink-fire-axe-flaming-name = Fire Axe
 uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire.
 
-uplink-kanabou-name = Kanabou
-uplink-kanabou-desc = A weapon for those who wish to forgo subtlety. Particularly suited to oni.
-
-uplink-rickenbacker4001-name = Rickenbacker 4001
-uplink-rickenbacker4001-desc = When it comes down to it, there are very few people who will swing the bat.
-
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
 uplink-explosive-grenade-desc = Grenade that creates a small but devastating explosion.
@@ -220,19 +214,13 @@ uplink-nocturine-chemistry-bottle-name = Nocturine Bottle
 uplink-nocturine-chemistry-bottle-desc = A chemical that makes it very hard for your target to stand up.
 
 uplink-stimpack-name = Stimpack
-uplink-stimpack-desc = The legendary chemical produced by Donk Co. for the Syndicate. Injecting yourself with this will increase your run speed and let you recover from stuns faster for 5 minutes.
+uplink-stimpack-desc = The legendary chemical produced by Donk Co. for the Syndicate. Injecting yourself with this will increase your run speed and let you recover from stuns faster for 30 seconds.
 
 uplink-stimkit-name = Stimkit
-uplink-stimkit-desc = A medkit containing 6 stimulant microinjectors, which each inject you with enough stimulants to last for a minute.
-
-uplink-experimental-stimpack-name = Experimental Stimpack
-uplink-experimental-stimpack-desc = A prototype version of the Stimpack pulled from the market due to extreme side effects. Effects include virtual immunity to stuns, massively increased movement speed, and rapid tissue regeneration, but the chemical will constantly poison you while in your bloodstream.
+uplink-stimkit-desc = A medkit containing 6 stimulant microinjectors, which each inject you with enough stimulants to last for 15 seconds.
 
 uplink-syndicate-segway-crate-name = Syndicate Segway
 uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
-
-uplink-nocturine-gland-injector-name = Nocturine Injector Gland
-uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine whenever you suck blood.
 
 # Pointless
 uplink-revolver-cap-gun-name = Cap Gun

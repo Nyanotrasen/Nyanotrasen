@@ -22,7 +22,6 @@
     tags:
     - Wall
   - type: Sprite
-    netsync: false
     drawdepth: Walls
   - type: Icon
     state: full
@@ -440,7 +439,6 @@
     - Wall
   components:
   - type: Sprite
-    netsync: false
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
@@ -631,7 +629,6 @@
     tags:
     - Wall
   - type: Sprite
-    netsync: false
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
@@ -780,7 +777,6 @@
     - Wall
   components:
   - type: Sprite
-    netsync: false
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0

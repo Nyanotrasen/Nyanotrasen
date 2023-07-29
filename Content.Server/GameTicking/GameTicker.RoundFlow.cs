@@ -18,9 +18,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
-using System.Threading.Tasks;
 using Content.Shared.Database;
 using Robust.Shared.Asynchronous;
+using PlayerData = Content.Server.Players.PlayerData;
 
 namespace Content.Server.GameTicking
 {
@@ -72,9 +72,6 @@ namespace Content.Server.GameTicking
                 RaiseLocalEvent(new GameRunLevelChangedEvent(old, value));
             }
         }
-
-        [ViewVariables]
-        public int RoundId { get; private set; }
 
         /// <summary>
         /// Returns true if the round's map is eligible to be updated.
@@ -181,6 +178,8 @@ namespace Content.Server.GameTicking
 
             _startingRound = true;
 
+            ReplayStartRound();
+
             DebugTools.Assert(RunLevel == GameRunLevel.PreRoundLobby);
             _sawmill.Info("Starting round!");
 
@@ -209,7 +208,7 @@ namespace Content.Server.GameTicking
 #if DEBUG
                 DebugTools.Assert(_userDb.IsLoadComplete(session), $"Player was readied up but didn't have user DB data loaded yet??");
 #endif
-                if (_roleBanManager.GetRoleBans(userId) == null)
+                if (_banManager.GetRoleBans(userId) == null)
                 {
                     Logger.ErrorS("RoleBans", $"Role bans for player {session} {userId} have not been loaded yet.");
                     continue;
@@ -319,21 +318,20 @@ namespace Content.Server.GameTicking
             var allMinds = Get<MindTrackerSystem>().AllMinds;
             foreach (var mind in allMinds)
             {
-                if (mind == null)
-                    continue;
+                // TODO don't list redundant observer roles?
+                // I.e., if a player was an observer ghost, then a hamster ghost role, maybe just list hamster and not
+                // the observer role?
+                var userId = mind.UserId ?? mind.OriginalOwnerUserId;
 
-                // Some basics assuming things fail
-                var userId = mind.OriginalOwnerUserId;
-                var playerOOCName = userId.ToString();
                 var connected = false;
                 var observer = mind.AllRoles.Any(role => role is ObserverRole);
                 // Continuing
-                if (_playerManager.TryGetSessionById(userId, out var ply))
+                if (userId != null && _playerManager.ValidSessionId(userId.Value))
                 {
                     connected = true;
                 }
                 PlayerData? contentPlayerData = null;
-                if (_playerManager.TryGetPlayerData(userId, out var playerData))
+                if (userId != null && _playerManager.TryGetPlayerData(userId.Value, out var playerData))
                 {
                     contentPlayerData = playerData.ContentData();
                 }
@@ -378,6 +376,8 @@ namespace Content.Server.GameTicking
             // If this game ticker is a dummy, do nothing!
             if (DummyTicker)
                 return;
+
+            ReplayEndRound();
 
             // Handle restart for server update
             if (_serverUpdates.RoundEnded())
@@ -433,13 +433,6 @@ namespace Content.Server.GameTicking
                 PlayerJoinLobby(player);
             }
 
-            // Delete the minds of everybody.
-            // TODO: Maybe move this into a separate manager?
-            foreach (var unCastData in _playerManager.GetAllPlayerData())
-            {
-                unCastData.ContentData()?.WipeMind();
-            }
-
             // Delete all entities.
             foreach (var entity in EntityManager.GetEntities().ToArray())
             {
@@ -464,7 +457,7 @@ namespace Content.Server.GameTicking
 
             _mapManager.Restart();
 
-            _roleBanManager.Restart();
+            _banManager.Restart();
 
             _gameMapManager.ClearSelectedMap();
 

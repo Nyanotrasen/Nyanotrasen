@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.Interaction;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Throwing;
@@ -11,14 +12,15 @@ using Content.Shared.Humanoid;
 using Content.Server.Borgs;
 using Content.Server.Speech;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Players;
+using Content.Server.Mind;
+using Robust.Shared.Containers;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Soul
 {
-    public sealed class GolemSystem : EntitySystem
+    public sealed class GolemSystem : SharedGolemSystem
     {
         [Dependency] private readonly ItemSlotsSystem _slotsSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -29,12 +31,17 @@ namespace Content.Server.Soul
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly LawsSystem _laws = default!;
         [Dependency] private readonly AudioSystem _audioSystem = default!;
+        [Dependency] private readonly MindSystem _mindSystem = default!;
 
         private const string CrystalSlot = "crystal_slot";
 
         public override void Initialize()
         {
             base.Initialize();
+
+            SubscribeLocalEvent<GolemComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+            SubscribeLocalEvent<GolemComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+
             SubscribeLocalEvent<SoulCrystalComponent, AfterInteractEvent>(OnAfterInteract);
             SubscribeLocalEvent<GolemComponent, DispelledEvent>(OnDispelled);
             SubscribeLocalEvent<GolemComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -42,6 +49,16 @@ namespace Content.Server.Soul
             SubscribeLocalEvent<GolemComponent, GolemNameChangedMessage>(OnNameChanged);
             SubscribeLocalEvent<GolemComponent, GolemMasterNameChangedMessage>(OnMasterNameChanged);
             SubscribeLocalEvent<GolemComponent, AccentGetEvent>(OnGetAccent); // TODO: Deduplicate
+        }
+
+        private void OnEntInserted(EntityUid uid, SharedGolemComponent component, EntInsertedIntoContainerMessage args)
+        {
+            SharedOnEntInserted(args);
+        }
+
+        private void OnEntRemoved(EntityUid uid, SharedGolemComponent component, EntRemovedFromContainerMessage args)
+        {
+            SharedOnEntRemoved(args);
         }
 
         private void OnAfterInteract(EntityUid uid, SoulCrystalComponent component, AfterInteractEvent args)
@@ -73,7 +90,7 @@ namespace Content.Server.Soul
                 golemName = _robustRandom.Pick(names.Values);
 
             var state = new GolemBoundUserInterfaceState(golemName, MetaData(args.User).EntityName);
-            _uiSystem.SetUiState(ui, state);
+            UserInterfaceSystem.SetUiState(ui, state);
         }
 
         private void OnDispelled(EntityUid uid, GolemComponent component, DispelledEvent args)
@@ -87,18 +104,18 @@ namespace Content.Server.Soul
 
             args.Handled = true;
 
-            Vector2 direction = (_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
+            var direction = new Vector2(_robustRandom.Next(-30, 30), _robustRandom.Next(-30, 30));
             _throwing.TryThrow(item.Value, direction, _robustRandom.Next(1, 10));
 
             if (TryComp<AppearanceComponent>(uid, out var appearance))
                 _appearance.SetData(uid, ToggleVisuals.Toggled, false, appearance);
 
-            if (!TryComp<ActorComponent>(uid, out var actor))
+            if (!_mindSystem.TryGetMind(uid, out var mind))
                 return;
 
             MetaData(uid).EntityName = Loc.GetString("golem-base-name");
             MetaData(uid).EntityDescription = Loc.GetString("golem-base-desc");
-            actor.PlayerSession.ContentData()?.Mind?.TransferTo(item);
+            _mindSystem.TransferTo(mind, item);
             Dirty(uid);
             Dirty(MetaData(uid));
         }
@@ -128,6 +145,9 @@ namespace Content.Server.Soul
                 return;
 
             if (!TryComp<ActorComponent>(component.PotentialCrystal, out var actor))
+                return;
+
+            if (!_mindSystem.TryGetMind(component.PotentialCrystal.Value, out var mind))
                 return;
 
             if (!_slotsSystem.TryGetSlot(uid, CrystalSlot, out var crystalSlot, slots)) // does it not have a crystal slot?
@@ -171,7 +191,7 @@ namespace Content.Server.Soul
                 _laws.AddLaw(uid, Loc.GetString("golem-law", ("master", master)), component: laws);
             }
 
-            actor.PlayerSession.ContentData()?.Mind?.TransferTo(uid);
+            _mindSystem.TransferTo(mind, uid);
 
             if (TryComp<AppearanceComponent>(uid, out var appearance))
                 _appearance.SetData(uid, ToggleVisuals.Toggled, true, appearance);

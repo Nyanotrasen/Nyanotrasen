@@ -1,9 +1,9 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Abilities.Psionics;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
-using Content.Server.Coordinates.Helpers;
 using Content.Server.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Player;
