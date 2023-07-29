@@ -28,6 +28,8 @@
   name: wall clock
   placement:
     mode: SnapgridCenter
+    snap:
+    - Wallmount
   components:
   - type: Clock
   - type: AnalogueClockVisuals
@@ -43,6 +45,9 @@
       map: ["enum.ClockVisualLayers.HourHand"]
     - state: minute
       map: ["enum.ClockVisualLayers.MinuteHand"]
+  - type: Construction
+    graph: ClockWall
+    node: clock
 
 - type: entity
   parent: BaseItem
@@ -62,3 +67,28 @@
       map: ["enum.ClockVisualLayers.HourHand"]
     - state: minute
       map: ["enum.ClockVisualLayers.MinuteHand"]
+
+## Construction steps
+- type: entity
+  id: ClockWallAssembly
+  name: wall clock assembly
+  description: Waiting for its time.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/wall_clock.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+  - type: Transform
+    anchored: true
+  - type: Construction
+    graph: ClockWall
+    node: assembly

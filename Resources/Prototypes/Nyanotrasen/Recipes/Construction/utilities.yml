@@ -1,0 +1,17 @@
+- type: construction
+  name: wall clock
+  description: A wall-mounted clock to keep the time.
+  id: ClockWall
+  graph: ClockWall
+  startNode: start
+  targetNode: clock
+  category: construction-category-utilities
+  icon:
+    sprite: Nyanotrasen/Structures/Wallmounts/wall_clock.rsi
+    state: clock
+  placementMode: SnapgridCenter
+  objectType: Structure
+  canRotate: false
+  canBuildInImpassable: true
+  conditions:
+  - !type:WallmountCondition {}
