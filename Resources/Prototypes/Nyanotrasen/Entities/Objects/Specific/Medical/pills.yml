@@ -11,9 +11,6 @@
         reagents:
         - ReagentId: MindbreakerToxin
           Quantity: 20
-  - type: GuideHelp
-    guides:
-    - Psionics
 
 - type: entity
   name: cryptobiolin
@@ -28,6 +25,3 @@
         reagents:
         - ReagentId: Cryptobiolin
           Quantity: 20
-  - type: GuideHelp
-    guides:
-    - Psionics
