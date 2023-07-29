@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Content.Client.Nyanotrasen.Clock
 {
     [RegisterComponent]
@@ -5,6 +7,6 @@ namespace Content.Client.Nyanotrasen.Clock
     {
         /// Where we'll rotate around, in pixels.
         [DataField("origin")]
-        public Vector2 Origin = (-1, 9);
+        public Vector2 Origin = new Vector2(-1, 9);
     }
 }

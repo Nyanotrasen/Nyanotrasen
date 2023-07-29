@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Timing;
 using Robust.Client.GameObjects;
 using Content.Shared.Nyanotrasen.Clock;
