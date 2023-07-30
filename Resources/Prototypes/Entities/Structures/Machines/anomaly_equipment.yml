@@ -96,9 +96,6 @@
   - type: GuideHelp
     guides:
     - ScannersAndVessels
-  - type: GlimmerSource
-    active: false
-    secondsPerGlimmer: 10 #More effecient than probers by virtue of much higher point score...
   - type: Fixtures
     fixtures:
       fix1:

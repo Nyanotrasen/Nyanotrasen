@@ -48,6 +48,8 @@
     sound:
       path: /Audio/Effects/teleport_arrival.ogg
   - type: Psionic
+  - type: GlimmerSource
+    active: false
 
 - type: entity
   id: AnomalyPyroclastic
