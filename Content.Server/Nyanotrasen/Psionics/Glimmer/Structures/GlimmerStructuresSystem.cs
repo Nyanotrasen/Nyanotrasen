@@ -1,3 +1,5 @@
+using Content.Server.Anomaly.Components;
+using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Psionics.Glimmer;
@@ -16,12 +18,32 @@ namespace Content.Server.Psionics.Glimmer
         {
             base.Initialize();
 
+            SubscribeLocalEvent<AnomalyVesselComponent, PowerChangedEvent>(OnAnomalyVesselPowerChanged);
+
             SubscribeLocalEvent<GlimmerSourceComponent, AnomalyPulseEvent>(OnAnomalyPulse);
             SubscribeLocalEvent<GlimmerSourceComponent, AnomalySupercriticalEvent>(OnAnomalySupercritical);
         }
 
+        private void OnAnomalyVesselPowerChanged(EntityUid uid, AnomalyVesselComponent component, ref PowerChangedEvent args)
+        {
+            if (TryComp<GlimmerSourceComponent>(component.Anomaly, out var glimmerSource))
+                glimmerSource.Active = args.Powered;
+        }
+
         private void OnAnomalyPulse(EntityUid uid, GlimmerSourceComponent component, ref AnomalyPulseEvent args)
         {
+            // Anomalies are meant to have GlimmerSource on them with the
+            // active flag set to false, as they will be set to actively
+            // generate glimmer when scanned to an anomaly vessel for
+            // harvesting research points.
+            //
+            // It is not a bug that glimmer increases on pulse or
+            // supercritical with an inactive glimmer source.
+            //
+            // However, this will need to be reworked if a distinction
+            // needs to be made in the future. I suggest a GlimmerAnomaly
+            // component.
+
             if (TryComp<AnomalyComponent>(uid, out var anomaly))
                 _glimmerSystem.Glimmer += (int) (5f * anomaly.Severity);
         }
