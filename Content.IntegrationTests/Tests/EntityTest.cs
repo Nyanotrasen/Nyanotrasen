@@ -280,6 +280,7 @@ namespace Content.IntegrationTests.Tests
                         // such as MetaData or Transform
                         if (entityManager.HasComponent(entity, type))
                         {
+                            entityManager.DeleteEntity(entity);
                             continue;
                         }
 
