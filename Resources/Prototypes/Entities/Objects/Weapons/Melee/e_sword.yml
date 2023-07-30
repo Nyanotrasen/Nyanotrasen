@@ -33,11 +33,11 @@
   - type: UseDelay
     delay: 1.0
   - type: PointLight
-    netsync: false
     enabled: false
     radius: 2
     energy: 2
     color: white
+    netsync: false
   - type: Appearance
   - type: ToggleableLightVisuals
     spriteLayer: blade
@@ -88,11 +88,11 @@
   - type: UseDelay
     delay: 1.0
   - type: PointLight
-    netsync: false
     enabled: false
     radius: 1.5
     energy: 1.5
     color: white
+    netsync: false
   - type: Appearance
   - type: ToggleableLightVisuals
     spriteLayer: blade
@@ -119,7 +119,6 @@
   - type: Sprite
     sprite: Objects/Storage/penbox.rsi
     state: e_dagger
-    netsync: false
   - type: SpawnItemsOnUse
     items:
     - id: EnergyDagger

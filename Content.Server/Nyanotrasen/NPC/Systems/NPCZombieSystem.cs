@@ -17,7 +17,7 @@ public sealed class NPCZombieSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly DiseaseSystem _diseaseSystem = default!;
-    [Dependency] private readonly FactionSystem _factionSystem = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFactonSystem = default!;
     [Dependency] private readonly JointSystem _jointSystem = default!;
     [Dependency] private readonly NPCSystem _npcSystem = default!;
     [Dependency] private readonly ZombifyOnDeathSystem _zombifyOnDeathSystem = default!;
@@ -35,8 +35,8 @@ public sealed class NPCZombieSystem : EntitySystem
 
     private void OnZombified(EntityZombifiedEvent ev)
     {
-        _factionSystem.ClearFactions(ev.Target, false);
-        _factionSystem.AddFaction(ev.Target, "Zombie", true);
+        _npcFactonSystem.ClearFactions(ev.Target, false);
+        _npcFactonSystem.AddFaction(ev.Target, "Zombie", true);
 
         // Add the NPC AI.
         var htn = EnsureComp<HTNComponent>(ev.Target);

@@ -3,30 +3,36 @@ using Content.Server.Mind.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.StationEvents.Components;
-using Content.Server.Ghost.Roles.Components;
 using Content.Server.Psionics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects;
 
 public sealed class MakeSentient : ReagentEffect
 {
+    protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+        => Loc.GetString("reagent-effect-guidebook-make-sentient", ("chance", Probability));
+
     public override void Effect(ReagentEffectArgs args)
     {
         var entityManager = args.EntityManager;
         var uid = args.SolutionEntity;
 
-        if (entityManager.HasComponent<MindComponent>(uid))
+        // This makes it so it doesn't affect things that are already sentient
+        if (entityManager.HasComponent<MindContainerComponent>(uid))
+        {
             return;
+        }
 
-        entityManager.RemoveComponent<SentienceTargetComponent>(uid);
-
+        // This piece of code makes things able to speak "normally". One thing of note is that monkeys have a unique accent and won't be affected by this.
         entityManager.RemoveComponent<ReplacementAccentComponent>(uid);
+
+        // Monke talk. This makes cognizine a cure to AMIV's long term damage funnily enough, do with this information what you will.
         entityManager.RemoveComponent<MonkeyAccentComponent>(uid);
 
-        if (entityManager.HasComponent<GhostTakeoverAvailableComponent>(uid))
-            return;
-
+        entityManager.RemoveComponent<SentienceTargetComponent>(uid);
         entityManager.EnsureComponent<PotentialPsionicComponent>(uid);
+
         // No idea what anything past this point does
         if (entityManager.TryGetComponent(uid, out GhostRoleComponent? ghostRole) ||
             entityManager.TryGetComponent(uid, out GhostTakeoverAvailableComponent? takeOver))

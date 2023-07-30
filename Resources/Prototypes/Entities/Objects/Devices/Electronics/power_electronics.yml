@@ -1,4 +1,4 @@
-﻿# APC
+# APC
 - type: entity
   id: APCElectronics
   parent: BaseElectronics
@@ -9,7 +9,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: ReverseEngineering
       recipes:
         - APCElectronics
@@ -29,7 +28,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -45,7 +43,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -61,7 +58,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable
@@ -77,7 +73,6 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: generic
-      netsync: false
     - type: Tag
       tags:
         - DroneUsable

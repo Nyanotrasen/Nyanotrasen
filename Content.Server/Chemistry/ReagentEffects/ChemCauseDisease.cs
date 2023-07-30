@@ -3,6 +3,7 @@ using Content.Server.Disease;
 using Content.Shared.Disease;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects
 {
@@ -12,6 +13,10 @@ namespace Content.Server.Chemistry.ReagentEffects
     [UsedImplicitly]
     public sealed class ChemCauseDisease : ReagentEffect
     {
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => Loc.GetString("reagent-effect-guidebook-chem-cause-disease", ("chance", Probability),
+                ("disease", prototype.Index<DiseasePrototype>(Disease).Name));
+
         /// <summary>
         /// Chance it has each tick to cause disease, between 0 and 1
         /// </summary>

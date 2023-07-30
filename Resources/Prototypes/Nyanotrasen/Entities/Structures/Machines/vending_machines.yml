@@ -91,3 +91,21 @@
     radius: 1.5
     energy: 1.6
     color: "#4b93ad"
+
+- type: entity
+  parent: VendingMachine
+  id: VendingMachineMNKDrobe
+  name: MNK Drobe
+  description: Quality garments provided by MoNoKrome.
+  components:
+  - type: VendingMachine
+    pack: MNKDrobeInventory
+    offState: off
+    brokenState: broken
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/VendingMachines/mnkdrobe.rsi
+    layers:
+    - state: off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]

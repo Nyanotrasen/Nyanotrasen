@@ -107,7 +107,7 @@
   id: MobCatRuntime
   description: Professional mouse hunter. Escape artist.
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - Pet
       - Cat
@@ -124,7 +124,7 @@
   parent: MobCatCalico
   description: Ask nicely, and maybe they'll give you one of their spare lives.
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - Pet
       - Cat
@@ -168,7 +168,7 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -230,7 +230,7 @@
   - type: Grammar
     attributes:
       gender: epicene
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
     - Cat
@@ -297,7 +297,7 @@
       proper: true
       gender: male
   - type: DogVision
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -337,7 +337,7 @@
     attributes:
       proper: true
       gender: male
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -372,7 +372,7 @@
     attributes:
       proper: true
       gender: male
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -391,7 +391,7 @@
     attributes:
       proper: true
       gender: female
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -407,7 +407,7 @@
   - type: Grammar
     attributes:
       gender: male
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - Pet
   - type: Tag
@@ -473,7 +473,7 @@
   id: MobSpiderShiva
   description: The first defender of the station.
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - Pet
   - type: Sprite

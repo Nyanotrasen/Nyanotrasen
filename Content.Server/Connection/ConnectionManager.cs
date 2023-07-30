@@ -169,7 +169,7 @@ namespace Content.Server.Connection
                 && await _db.GetWhitelistStatusAsync(userId) == false
                 && adminData is null)
             {
-                return (ConnectionDenyReason.Whitelist, Loc.GetString("whitelist-not-whitelisted", ("num", minPlayers)), null);
+                return (ConnectionDenyReason.Whitelist, Loc.GetString(_cfg.GetCVar(CCVars.WhitelistReason)), null);
             }
 
             return null;

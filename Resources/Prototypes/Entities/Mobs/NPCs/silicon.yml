@@ -38,8 +38,7 @@
   - type: Sprite
     noRot: true
     drawdepth: Mobs
-    netsync: false
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - SimpleNeutral
   - type: HealthExaminable
@@ -98,6 +97,9 @@
   - type: Alerts
   - type: TypingIndicator
     proto: robot
+  - type: GuideHelp
+    guides:
+    - Robotics
 
 - type: entity
   parent: MobSiliconBase

@@ -8,7 +8,6 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/mixer.rsi
-    netsync: false
     snapCardinals: true
     layers:
     - state: mixer_empty
@@ -89,4 +88,5 @@
       buffer: {}
   - type: GuideHelp
     guides:
-    - Chemistry
+    - Chemicals
+    - Chemist

@@ -221,17 +221,6 @@
 
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterSkub
-  name: skub suit
-  description: 'Skub is crudely written on the outside of this cylindrical suit.'
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-
-- type: entity
-  parent: ClothingOuterBase
   id: ClothingOuterPlagueSuit
   name: plague doctor suit
   description: A bad omen.
@@ -265,4 +254,5 @@
   - type: Construction
     graph: GhostSheet
     node: ghost_sheet
+  - type: IdentityBlocker
 

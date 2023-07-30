@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Damage;
@@ -84,7 +85,7 @@ namespace Content.Server.Shuttles.Components
         public TimeSpan NextFire;
 
         [DataField("machinePartThrust", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-        public string MachinePartThrust = "Laser";
+        public string MachinePartThrust = "Capacitor";
 
         [DataField("partRatingThrustMultiplier")]
         public float PartRatingThrustMultiplier = 1.5f;

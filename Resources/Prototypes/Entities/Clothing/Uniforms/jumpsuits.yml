@@ -81,10 +81,6 @@
     sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/salvage.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.9 # Those overalls ARE sturdy.
 
 - type: entity
   parent: ClothingUniformBase
@@ -96,11 +92,6 @@
     sprite: Clothing/Uniforms/Jumpsuit/ce.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/ce.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Radiation: 0.8
-
 
 - type: entity
   parent: ClothingUniformBase
@@ -294,7 +285,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSAlt
   name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security. Its sturdy fabric provides minor protection from mechanical damage.
+  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
@@ -407,6 +398,10 @@
     controlsLocked: true
     randomMode: false
     mode: SensorCords
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - PrisonUniform
 
 - type: entity
   parent: ClothingUniformBase
@@ -440,6 +435,17 @@
     sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/scientist.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitRoboticist
+  name: roboticist jumpsuit
+  description: It's a slimming black with reinforced seams; great for industrial work.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
 
 - type: entity
   parent: ClothingUniformBase

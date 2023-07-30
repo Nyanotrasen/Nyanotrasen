@@ -14,12 +14,12 @@
     Steel: 50
     Glass: 50
 
-- type: latheRecipe
-  id: GlowstickRed
-  result: GlowstickRed
-  completetime: 2
-  materials:
-    Plastic: 50
+# - type: latheRecipe
+#   id: GlowstickRed
+#   result: GlowstickRed
+#   completetime: 2
+#   materials:
+#     Plastic: 50
 
 - type: latheRecipe
   id: Flare
@@ -76,3 +76,11 @@
   materials:
     Steel: 100
     Plastic: 50
+
+- type: latheRecipe
+  id: ClothingShoesBootsMag
+  result: ClothingShoesBootsMag
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 500

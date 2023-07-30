@@ -1,4 +1,4 @@
-﻿using Content.Server.Xenoarchaeology.XenoArtifacts;
+using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
@@ -8,7 +8,7 @@ namespace Content.Server.Xenoarchaeology.Equipment.Components;
 
 /// <summary>
 /// A machine that is combined and linked to the <see cref="AnalysisConsoleComponent"/>
-/// in order to analyze and destroy artifacts.
+/// in order to analyze artifacts and extract points.
 /// </summary>
 [RegisterComponent]
 public sealed class ArtifactAnalyzerComponent : Component
@@ -30,7 +30,7 @@ public sealed class ArtifactAnalyzerComponent : Component
     /// The machine part that modifies analysis duration.
     /// </summary>
     [DataField("machinePartAnalysisDuration", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartAnalysisDuration = "ScanningModule";
+    public string MachinePartAnalysisDuration = "Manipulator";
 
     /// <summary>
     /// The modifier raised to the part rating to determine the duration multiplier.
@@ -38,23 +38,25 @@ public sealed class ArtifactAnalyzerComponent : Component
     [DataField("partRatingAnalysisDurationMultiplier")]
     public float PartRatingAnalysisDurationMultiplier = 0.75f;
 
+    // Begin Nyano-code: tie artifacts to glimmer.
     /// <summary>
     /// Ratio of research points to glimmer.
     /// Each is 150 and added to this, so
     /// 550 / 700 / 850 / 1000
     /// </summary>
-    public int SacrificeRatio = 400;
+    public int ExtractRatio = 400;
 
     /// <summary>
     // The machine part that modifies the sacrifice ratio.
     /// </summary>
-    [DataField("machinePartSacrificeRatio", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
-    public string MachinePartSacrificeRatio = "Manipulator";
+    [DataField("machinePartExtractRatio", customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
+    public string MachinePartExtractRatio = "MatterBin";
 
     /// <summary>
     /// How many points per glimmer are added to the sacrifice ratio per tier.
     /// </summary>
-    public int PartRatingSacrificeRatioMultiplier = 150;
+    public int PartRatingExtractRatioMultiplier = 150;
+    // End Nyano-code.
 
     /// <summary>
     /// The corresponding console entity.

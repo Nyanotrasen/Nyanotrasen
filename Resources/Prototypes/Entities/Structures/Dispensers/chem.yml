@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ChemDispenser
   name: chemical dispenser
   parent: ReagentDispenserBase
@@ -7,7 +7,6 @@
   - type: Sprite
     sprite: Structures/dispensers.rsi
     state: industrial-working
-    netsync: false
     snapCardinals: true
   - type: ReagentDispenser
     pack: ChemDispenserStandardInventory
@@ -34,4 +33,5 @@
     scaling: Exponential
   - type: GuideHelp
     guides:
-    - Chemistry
+    - Chemicals
+    - Chemist

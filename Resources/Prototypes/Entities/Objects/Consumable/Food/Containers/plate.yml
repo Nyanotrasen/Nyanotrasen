@@ -17,7 +17,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate
-    netsync: false
   - type: DamageOnLand
     damage:
       types:
@@ -63,7 +62,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-trash
-    netsync: false
   - type: Tag
     tags:
     - Trash
@@ -109,7 +107,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-small-trash
-    netsync: false
 
 # Plastic Plate
 
@@ -124,7 +121,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-plastic
-    netsync: false
   - type: Tag
     tags:
     - Trash
@@ -140,7 +136,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: plate-small-plastic
-    netsync: false
   - type: Tag
     tags:
     - Trash
@@ -158,7 +153,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/plates.rsi
     state: tin
-    netsync: false
   - type: Tag
     tags:
     - Trash

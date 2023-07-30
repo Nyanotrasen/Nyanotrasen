@@ -1,3 +1,4 @@
+using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.ComponentTrees;
 using Robust.Shared.GameStates;
@@ -25,6 +26,8 @@ public sealed class AmbientSoundComponent : Component, IComponentTreeEntry<Ambie
     [DataField("range")]
     public float Range = 2f;
 
+    public Vector2 RangeVector => new Vector2(Range, Range);
+
     /// <summary>
     /// Applies this volume to the sound being played.
     /// </summary>
@@ -48,6 +51,6 @@ public sealed class AmbientSoundComponentState : ComponentState
     public float Range { get; init; }
     public float Volume { get; init; }
     // Begin Nyano-code: allow changing of SoundSpecifier.
-    public SoundSpecifier? Sound { get; init; }
+    public SoundSpecifier Sound { get; init; } = default!;
     // End Nyano-code.
 }

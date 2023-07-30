@@ -1,8 +1,8 @@
-﻿- type: entity
+- type: entity
   abstract: true
   id: BaseStationNanotrasen
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
 
@@ -14,12 +14,14 @@
     - BaseStationJobsSpawning
     - BaseStationRecords
     - BaseStationArrivals
+    - BaseStationShuttles
     - BaseStationCentcomm
     - BaseStationEvacuation
     - BaseStationAlertLevels
     - BaseStationExpeditions
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
+    - BaseStationMail
   noSpawn: true
   components:
     - type: Transform

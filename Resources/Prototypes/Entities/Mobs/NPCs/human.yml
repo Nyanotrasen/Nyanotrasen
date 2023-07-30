@@ -7,7 +7,7 @@
   - type: MobMover
   - type: Loadout
     prototypes: [PassengerGear]
-  - type: Faction
+  - type: NpcFactionMember
     factions:
     - NanoTrasen
 
@@ -17,7 +17,7 @@
   id: MobSpirate
   description: Yarr!
   components:
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - Syndicate
   - type: InputMover

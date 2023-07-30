@@ -2,22 +2,22 @@ using Content.Server.NPC.Components;
 
 namespace Content.Server.NPC.Systems;
 
-public partial class FactionSystem : EntitySystem
+public partial class NpcFactionSystem : EntitySystem
 {
     public void InitializeCore()
     {
-        SubscribeLocalEvent<FactionComponent, GetNearbyHostilesEvent>(OnGetNearbyHostiles);
+        SubscribeLocalEvent<NpcFactionMemberComponent, GetNearbyHostilesEvent>(OnGetNearbyHostiles);
     }
 
-    public bool ContainsFaction(EntityUid uid, string faction, FactionComponent? factions = null)
+    public bool ContainsFaction(EntityUid uid, string faction, NpcFactionMemberComponent? component = null)
     {
-        if (!Resolve(uid, ref factions, false))
+        if (!Resolve(uid, ref component, false))
             return false;
 
-        return factions.Factions.Contains(faction);
+        return component.Factions.Contains(faction);
     }
 
-    public void AddFriendlyEntity(EntityUid uid, EntityUid fEntity, FactionComponent? component = null)
+    public void AddFriendlyEntity(EntityUid uid, EntityUid fEntity, NpcFactionMemberComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -25,7 +25,7 @@ public partial class FactionSystem : EntitySystem
         component.ExceptionalFriendlies.Add(fEntity);
     }
 
-    private void OnGetNearbyHostiles(EntityUid uid, FactionComponent component, ref GetNearbyHostilesEvent args)
+    private void OnGetNearbyHostiles(EntityUid uid, NpcFactionMemberComponent component, ref GetNearbyHostilesEvent args)
     {
         args.ExceptionalFriendlies.UnionWith(component.ExceptionalFriendlies);
     }

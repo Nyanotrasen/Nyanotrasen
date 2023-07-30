@@ -1549,6 +1549,7 @@ namespace Content.IntegrationTests.Tests.Mail
             var handsSystem = entitySystemManager.GetEntitySystem<SharedHandsSystem>();
             var idCardSystem = entitySystemManager.GetEntitySystem<IdCardSystem>();
             var mobStateSystem = entitySystemManager.GetEntitySystem<MobStateSystem>();
+            var mindSystem = entitySystemManager.GetEntitySystem<MindSystem>();
 
             var testMap = await PoolManager.CreateTestMap(pairTracker);
 
@@ -1586,9 +1587,8 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 // Install a mind with a valid session into this dummy.
                 var player = playerManager.ServerSessions.Single();
-                var mind = new Mind(player.UserId);
-                mind.ChangeOwningPlayer(player.UserId);
-                mind.TransferTo(realCandidate1);
+                var mind = mindSystem.CreateMind(player.UserId);
+                mindSystem.TransferTo(mind, realCandidate1);
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after mind installation.");
@@ -1611,7 +1611,7 @@ namespace Content.IntegrationTests.Tests.Mail
 
                 // Ghost the dummy's mind.
                 var ghost = entityManager.SpawnEntity("GhostDummy", coordinates);
-                mind.Visit(ghost);
+                mindSystem.Visit(mind, ghost);
 
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after ghosting.");
@@ -1620,7 +1620,7 @@ namespace Content.IntegrationTests.Tests.Mail
                     "Mindful and dead human dummy candidate cannot receive Priority mail.");
 
                 // Sever the connection between the dummy and the mind.
-                mind.TransferTo(ghost);
+                mindSystem.TransferTo(mind, ghost);
                 Assert.IsTrue(mailSystem.TryGetMailRecipientForReceiver(mailReceiverComponent, out recipient),
                     "Human dummy candidate was unable to be converted into a MailRecipient after cutting ties with his mind.");
 
