@@ -19,21 +19,9 @@
       enabled: false
       autoPopulate: false
       name: action-name-combat
-  - type: GasCanister
-    gasMixture:
-      volume: 200
-      moles:
-        - 0 # oxygen
-        - 0 # nitrogen
-        - 0 # CO2
-        - 0 # Plasma
-        - 0 # Tritium
-        - 0 #  Water vapor
-        - 300 # Miasma
-      temperature: 293.15
   - type: HTN
     rootTask: SelfExploderCompound
-  - type: Faction
+  - type: NpcFactionMember
     factions:
       - SimpleHostile #TODO: Fungi faction?
   - type: MovementIgnoreGravity
@@ -60,14 +48,23 @@
         !type:DamageTrigger
         damage: 10
       behaviors:
-      - !type:DumpCanisterBehavior
       - !type:SpillBehavior
         solution: bloodstream
       - !type:ExplodeBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: SelfExploder
-    selfDamage:
-      groups:
-        Brute: 100
+    gasMixture: #It would be really, really cool if there was a component that handled shared behaviors like containing air and dumping it on destruction.
+      volume: 200
+      moles:
+        - 0 # oxygen
+        - 0 # nitrogen
+        - 0 # CO2
+        - 0 # Plasma
+        - 0 # Tritium
+        - 0 #  Water vapor
+        - 300 # Miasma
+      temperature: 293.15
   - type: Explosive
     explosionType: GasSpore
     maxIntensity: 6
