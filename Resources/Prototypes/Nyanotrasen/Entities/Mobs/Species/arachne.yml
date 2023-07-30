@@ -1,13 +1,12 @@
 - type: entity
   save: false
-  name: Base Arachne
+  name: Urist McArachne
   parent: BaseMobHuman
   id: MobArachneBase
   abstract: true
   components:
   - type: Sprite
-    noRot: true
-    drawdepth: Mobs
+    # Arachne are one of the species that needs a manual visual layers setup.
     layers:
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       sprite: Nyanotrasen/Mobs/Species/arachne.rsi
@@ -106,12 +105,6 @@
     - BleedersBite
   - type: Speech
     speechSounds: Alto
-  - type: DamageOnHighSpeedImpact
-    damage:
-      types:
-        Blunt: 1
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
   - type: Inventory
     templateId: anytaur
   - type: Tag
@@ -141,7 +134,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 3.0
     baseSprintSpeed : 5.0
-  - type: Perishable
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -152,15 +144,13 @@
 
 - type: entity
   save: false
-  name: Arachne Dummy
+  name: Urist McHands
   parent: MobHumanDummy
   id: MobArachneDummy
   noSpawn: true
   description: A dummy arachne meant to be used in character setup.
   components:
   - type: Sprite
-    noRot: true
-    drawdepth: Mobs
     layers:
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
       sprite: Nyanotrasen/Mobs/Species/arachne.rsi

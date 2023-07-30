@@ -1,11 +1,10 @@
 - type: entity
   save: false
-  name: Player moth
+  name: Urist McMoth
   parent: BaseMobMoth
   id: MobMoth
   components:
   - type: CombatMode
-    canDisarm: true
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -24,12 +23,6 @@
     damageRecovery:
       types:
         Asphyxiation: -1.0
-  - type: Vocal # these are all the same
-    wilhelm: "/Audio/Voice/Moth/scream_moth.ogg"
-    sounds:
-      Male: MaleMoth
-      Female: FemaleMoth
-      Unsexed: MaleMoth
   - type: Alerts
   - type: Actions
   - type: Eye

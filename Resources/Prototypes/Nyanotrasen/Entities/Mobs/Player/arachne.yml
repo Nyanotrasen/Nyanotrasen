@@ -1,11 +1,10 @@
 - type: entity
   save: false
-  name: Player arachne
+  name: Urist McArachne
   parent: MobArachneBase
   id: MobArachne
   components:
   - type: CombatMode
-    canDisarm: true
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
