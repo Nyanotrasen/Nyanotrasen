@@ -1,5 +1,5 @@
 - type: entity
-  name: golem
+  name: Urist McGolem
   id: MobGolemBase
   save: false
   abstract: true
@@ -391,12 +391,6 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 5.5
-    - type: DamageOnHighSpeedImpact
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
     - type: RandomSprite
       available:
         - enum.DamageStateVisualLayers.Base:
@@ -436,11 +430,8 @@
             - FlyingMobLayer
     - type: HeatResistance
     - type: Internals
-    - type: Examiner
-    - type: Speech
     - type: TypingIndicator
       proto: robot
-    - type: Pullable
     - type: MeleeWeapon
       hidden: true
       angle: 30
@@ -452,7 +443,6 @@
         types:
           Blunt: 10
           Holy: 8
-    - type: Actions
     - type: Inventory
       templateId: golem_silver
     - type: PsychokinesisPower
