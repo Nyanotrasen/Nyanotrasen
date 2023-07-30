@@ -13,5 +13,5 @@ public sealed class PsionicCatGotYourTongueRuleComponent : Component
     public TimeSpan MaxDuration = TimeSpan.FromSeconds(80);
 
     [DataField("sound")]
-    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Voice/Felinid/cat_scream1.ogg");
+    public SoundSpecifier Sound = new SoundPathSpecifier("/Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg");
 }
