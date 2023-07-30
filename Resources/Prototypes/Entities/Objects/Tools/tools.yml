@@ -419,12 +419,6 @@
       types:
         Blunt: 5
     bluntStaminaDamageFactor: 2.0 # 9.1 stamina damage
-  - type: Wieldable
-  - type: IncreaseDamageOnWield #TODO dynamic attackrate and stamina damage
-    # attackRate: 1
-    damage:
-      types:
-        Blunt: 12
   - type: MeleeStaminaCost
     swing: 10
     wieldCoefficient: 0.5 #if wielded you will only consume 5 stam
