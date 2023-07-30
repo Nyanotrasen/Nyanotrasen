@@ -435,6 +435,9 @@
     radius: 1.5
     energy: 1.6
     color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
 
 - type: entity
   parent: BaseComputer
@@ -791,6 +794,9 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
+  - type: GuideHelp
+    guides:
+    - Cloning
 
 - type: entity
   id: ComputerSalvageExpedition

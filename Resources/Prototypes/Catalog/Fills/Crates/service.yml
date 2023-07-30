@@ -36,15 +36,6 @@
         - id: BoxMousetrap
 
 - type: entity
-  id: CrateHolyWaterKit
-  parent: CrateScienceSecure
-  components:
-    - type: StorageFill
-      contents:
-        - id: BoxHolyWater
-          amount: 1
-
-- type: entity
   id: CrateServiceSmokeables
   parent: CrateGenericSteel
   components:
@@ -122,6 +113,35 @@
     contents:
     - id: BoxPDA
     - id: BoxID
+
+- type: entity
+  id: CrateServiceBooks
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: BookRandom
+          amount: 10
+
+- type: entity
+  id: CrateServiceGuidebooks
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+      - id: BookSpaceEncyclopedia
+      - id: BookTheBookOfControl
+      - id: BookBartendersManual
+      - id: BookChefGaming
+      - id: BookLeafLoversSecret
+      - id: BookEngineersHandbook
+      - id: BookScientistsGuidebook
+      - id: BookSecurity
+      - id: BookHowToKeepStationClean
+      - id: BookHowToRockAndStone
+      - id: BookMedicalReferenceBook
+      - id: BookHowToSurvive
+      - id: BookChemicalCompendium
 
 - type: entity
   id: CrateServiceBox
