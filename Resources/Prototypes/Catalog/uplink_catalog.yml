@@ -401,16 +401,16 @@
         tags:
           - NukeOpsUplink
 
-- type: listing
-  id: UplinkDnaScramblerImplant
-  name: uplink-dna-scrambler-implanter-name
-  description: uplink-dna-scrambler-implanter-desc
-  icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
-  productEntity: DnaScramblerImplanter
-  cost:
-    Telecrystal: 10
-  categories:
-    - UplinkImplants
+# - type: listing
+#   id: UplinkDnaScramblerImplant
+#   name: uplink-dna-scrambler-implanter-name
+#   description: uplink-dna-scrambler-implanter-desc
+#   icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
+#   productEntity: DnaScramblerImplanter
+#   cost:
+#     Telecrystal: 10
+#   categories:
+#     - UplinkImplants
 
 - type: listing
   id: UplinkEmpImplanter
