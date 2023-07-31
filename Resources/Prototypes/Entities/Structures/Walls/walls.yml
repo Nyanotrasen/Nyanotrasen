@@ -678,6 +678,8 @@
     damageModifierSet: StrongMetallic
   - type: Physics
     bodyType: Static
+  - type: Reflect
+    reflectProb: 1
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -741,6 +743,8 @@
   - type: IconSmooth
     key: walls
     base: state
+  - type: Reflect
+    reflectProb: 1
 
 - type: entity
   parent: WallSolid
@@ -758,6 +762,8 @@
   - type: IconSmooth
     key: walls
     base: state
+  - type: Reflect
+    reflectProb: 1
 
 - type: entity
   parent: BaseWall
