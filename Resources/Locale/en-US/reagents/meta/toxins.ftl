@@ -55,17 +55,5 @@ reagent-desc-allicin = An organosulfur compound found in alliums like garlic, on
 reagent-name-pax = pax
 reagent-desc-pax = A psychiatric drug which prevents the patient from directly harming anyone.
 
-reagent-name-prometheum = prometheum
-reagent-desc-prometheum = A complex superdrug our bodies could produce if we could only unlock our potential.
-
-reagent-name-soulbreaker-toxin = soulbreaker toxin
-reagent-desc-soulbreaker-toxin = An anti-psionic about 4 times as powerful as mindbreaker toxin.
-
-reagent-name-lotophagoi-oil = lotophagoi oil
-reagent-desc-lotophagoi-oil = A super potent drug that is much better at inducing psionics than normal hallucinogens, but with worse side effects.
-
-reagent-name-ectoplasm = ectoplasm
-reagent-desc-ectoplasm = The physical component of semi-corporeal spirits.
-
 reagent-name-lead = lead
 reagent-desc-lead = A slow-acting but incredibly lethal toxin found in steel, albiet in trace amounts. Tasteless.
