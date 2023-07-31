@@ -240,6 +240,10 @@
     borderColor: "#333333"
   - type: Icon
     state: pda-chaplain
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   name: Quartermaster PDA
