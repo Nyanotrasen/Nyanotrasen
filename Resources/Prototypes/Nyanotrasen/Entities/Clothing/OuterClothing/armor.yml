@@ -36,14 +36,14 @@
     
 - type: entity
   parent: ClothingOuterBase
-  id: ClothingOuterArmorToseiGusoku
-  name: tosei-gusoku
+  id: ClothingOuterArmorTouseiGusoku
+  name: tousei-gusoku
   description: A modern replica of a Ni-mai-do Gusoku armor set. 
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/toseigusoku.rsi
+    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/touseigusoku.rsi
   - type: Clothing
-    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/toseigusoku.rsi
+    sprite: Nyanotrasen/Clothing/OuterClothing/Armor/touseigusoku.rsi
   - type: Armor
     modifiers:
       coefficients:

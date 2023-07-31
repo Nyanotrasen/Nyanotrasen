@@ -10,5 +10,5 @@ uplink-rickenbacker4001-desc = When it comes down to it, there are very few peop
 uplink-sunglasses-name = Sunglasses
 uplink-sunglasses-desc = A simple set of stylish and protective eyewear.
 
-uplink-samurai-crate-name = Samurai Crate
-uplink-samurai-crate-desc = A crate containing a modern replica of a full Tosei-Gusoku set.
+uplink-samurai-crate-name = Syndicate samurai crate
+uplink-samurai-crate-desc = A crate containing a modern replica of a full Tousei-Gusoku set.
