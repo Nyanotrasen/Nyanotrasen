@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateSamuraiCrate
+  name: samurai crate
+  suffix: Filled
+  parent: CrateSyndicate
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorToseiGusoku
+      - id: ClothingHeadHelmetKabuto
