@@ -512,21 +512,6 @@
 
 - type: entity
   parent: DrinkBottleBaseFull
-  id: DrinkHolyWaterFull
-  name: flask of holy water
-  description: A flask of holy water.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: HolyWater
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/flaskholywater.rsi
-
-- type: entity
-  parent: DrinkBottleBaseFull
   id: DrinkMoonshineFull
   name: jug of moonshine
   description: A jug, of the classic variety, containing copious amounts of moonshine.
