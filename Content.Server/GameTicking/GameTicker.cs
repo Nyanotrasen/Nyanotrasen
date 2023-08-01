@@ -38,6 +38,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly GhostSystem _ghost = default!;
         [Dependency] private readonly MindSystem _mind = default!;
+        [Dependency] private readonly MindTrackerSystem _mindTracker = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly IAdminLogManager _adminLogs = default!;
 
@@ -93,7 +94,8 @@ namespace Content.Server.GameTicking
 
         private void SendServerMessage(string message)
         {
-            _chatManager.ChatMessageToAll(ChatChannel.Server, message, "", default, false, true);
+            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+            _chatManager.ChatMessageToAll(ChatChannel.Server, message, wrappedMessage, default, false, true);
         }
 
         public override void Update(float frameTime)
