@@ -370,3 +370,13 @@
   - type: EntityStorageVisuals
     stateDoorOpen: crate_open
     stateDoorClosed: crate_door
+
+- type: entity
+  parent: CrateBaseWeldable
+  id: CrateSyndicate
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/syndicate.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/syndicate.rsi
+
