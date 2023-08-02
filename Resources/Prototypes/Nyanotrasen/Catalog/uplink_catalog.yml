@@ -53,3 +53,22 @@
     Telecrystal: 1
   categories:
   - UplinkUtility
+  
+- type: listing
+  id: UplinkSamurai
+  name: uplink-samurai-crate-name
+  description: uplink-samurai-crate-desc
+  productEntity: CrateSyndicateSamurai
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:BuyerSpeciesCondition
+    whitelist:
+    - Oni
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+      
