@@ -7,7 +7,8 @@
   - type: EnergySword
     litDamageBonus:
         types:
-            Heat: 17
+            Heat: 15
+            Slash: 15
             Blunt: -4.5
     litDisarmMalus: 0.6
   - type: Sprite
@@ -64,7 +65,8 @@
     secret: true
     litDamageBonus:
         types:
-            Heat: 13
+            Heat: 9
+            Slash: 9 
             Blunt: -1
     litDisarmMalus: 0.4
   - type: Sprite
