@@ -77,7 +77,7 @@ namespace Content.Server.Salvage
         public TimeSpan CooldownTime = TimeSpan.FromSeconds(60);
 
         [DataField("salvageChannel", customTypeSerializer: typeof(PrototypeIdSerializer<RadioChannelPrototype>))]
-        public string SalvageChannel = "Supply";
+        public string SalvageChannel = "Engineering";
 
         /// <summary>
         /// Current how much charge the magnet currently has
