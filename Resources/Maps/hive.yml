@@ -131311,6 +131311,9 @@ entities:
       pos: -22.5,16.5
       parent: 1
       type: Transform
+    - links:
+      - 3560
+      type: DeviceLinkSink
 - proto: ReinforcedGirder
   entities:
   - uid: 3153
@@ -145555,6 +145558,19 @@ entities:
     - pos: -22.5,15.5
       parent: 1
       type: Transform
+    - linkedPorts:
+        3555:
+        - Left: Forward
+        - Right: Reverse
+        - Middle: Off
+      registeredSinks:
+        Left:
+        - 3555
+        Right:
+        - 3555
+        Middle:
+        - 3555
+      type: DeviceLinkSource
   - uid: 6849
     components:
     - pos: -9.5,-2.5
