@@ -37,7 +37,9 @@ namespace Content.Client.Popups
         private readonly List<WorldPopupLabel> _aliveWorldLabels = new();
         private readonly List<CursorPopupLabel> _aliveCursorLabels = new();
 
-        public const float PopupLifetime = 3f;
+        public const float MinimumPopupLifetime = 0.7f;
+        public const float MaximumPopupLifetime = 5f;
+        public const float PopupLifetimePerCharacter = 0.04f;
 
         public override void Initialize()
         {
@@ -201,6 +203,13 @@ namespace Content.Client.Popups
 
         #endregion
 
+        public static float GetPopupLifetime(PopupLabel label)
+        {
+            return Math.Clamp(PopupLifetimePerCharacter * label.Text.Length,
+                MinimumPopupLifetime,
+                MaximumPopupLifetime);
+        }
+
         public override void FrameUpdate(float frameTime)
         {
             if (_aliveWorldLabels.Count == 0 && _aliveCursorLabels.Count == 0)
@@ -211,7 +220,7 @@ namespace Content.Client.Popups
                 var label = _aliveWorldLabels[i];
                 label.TotalTime += frameTime;
 
-                if (label.TotalTime > PopupLifetime || Deleted(label.InitialPos.EntityId))
+                if (label.TotalTime > GetPopupLifetime(label) || Deleted(label.InitialPos.EntityId))
                 {
                     _aliveWorldLabels.RemoveSwap(i);
                     i--;
@@ -223,7 +232,7 @@ namespace Content.Client.Popups
                 var label = _aliveCursorLabels[i];
                 label.TotalTime += frameTime;
 
-                if (label.TotalTime > PopupLifetime)
+                if (label.TotalTime > GetPopupLifetime(label))
                 {
                     _aliveCursorLabels.RemoveSwap(i);
                     i--;
