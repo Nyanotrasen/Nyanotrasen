@@ -39,6 +39,7 @@ namespace Content.Shared.Alert
         Essence,
         Corporeal,
         Bleed,
+        Pacified,
         Caged,
         Debug1,
         Debug2,
