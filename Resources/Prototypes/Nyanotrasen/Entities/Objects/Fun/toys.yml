@@ -98,14 +98,15 @@
 - type: entity
   parent: BasePlushie
   id: mangleplush
-  abstract: true
+  name: mangle plush
+  description: Children can be so cruel
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Fun/mangle.rsi
     netsync: false
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Effects/metal-pipe-falling.ogg
+      path: /Audio/Effects/metal-pipe-falling.ogg #placeholder?
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/fnaf-jumpscare-sound.ogg #ps3moria recommended this, i think its a nice feature however i am timid of its lengh |:
@@ -118,11 +119,3 @@
   - type: UseDelay
     delay: 2
 
-- type: entity
-  parent: mangleplush
-  id: Plushiemangle
-  name: fox plush
-  description: What came first, the robot or the fruit? #Autism plush
-  components:
-  - type: Sprite
-    state: mangle #?
