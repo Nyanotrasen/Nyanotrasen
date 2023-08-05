@@ -83338,6 +83338,30 @@ entities:
     - pos: 47.5,-43.5
       parent: 9
       type: Transform
+- proto: HoloprojectorEngineering
+  entities:
+  - uid: 3977
+    components:
+    - pos: 45.391438,-82.60512
+      parent: 9
+      type: Transform
+  - uid: 11013
+    components:
+    - pos: 45.620605,-82.32367
+      parent: 9
+      type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 4705
+    components:
+    - pos: 21.115553,-26.335907
+      parent: 9
+      type: Transform
+  - uid: 7223
+    components:
+    - pos: 21.084303,-26.627777
+      parent: 9
+      type: Transform
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 896
@@ -91088,6 +91112,11 @@ entities:
   - uid: 1540
     components:
     - pos: -11.5,-5.5
+      parent: 9
+      type: Transform
+  - uid: 2330
+    components:
+    - pos: 45.5,-82.5
       parent: 9
       type: Transform
   - uid: 2807
@@ -100828,9 +100857,9 @@ entities:
     - pos: 81.5,-0.5
       parent: 9
       type: Transform
-  - uid: 11013
+  - uid: 8380
     components:
-    - pos: 45.5,-82.5
+    - pos: 46.5,-82.5
       parent: 9
       type: Transform
   - uid: 13371
@@ -104775,7 +104804,7 @@ entities:
   - uid: 11010
     components:
     - rot: -1.5707963267948966 rad
-      pos: 45.276096,-83.166985
+      pos: 45.75602,-84.99219
       parent: 9
       type: Transform
 - proto: VehicleKeyJanicart
@@ -116125,9 +116154,9 @@ entities:
     - pos: 21.510607,-26.318047
       parent: 9
       type: Transform
-  - uid: 2330
+  - uid: 3985
     components:
-    - pos: 21.218939,-26.609917
+    - pos: 21.53222,-26.596506
       parent: 9
       type: Transform
   - uid: 10884

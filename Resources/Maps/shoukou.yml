@@ -55126,6 +55126,37 @@ entities:
     - pos: -28.5,-37.5
       parent: 34
       type: Transform
+- proto: HolofanProjector
+  entities:
+  - uid: 4405
+    components:
+    - pos: -24.64519,-29.318565
+      parent: 34
+      type: Transform
+- proto: HoloprojectorEngineering
+  entities:
+  - uid: 5266
+    components:
+    - pos: -28.402485,-31.054815
+      parent: 34
+      type: Transform
+  - uid: 5267
+    components:
+    - pos: -28.6004,-30.804642
+      parent: 34
+      type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 4284
+    components:
+    - pos: 25.431868,-20.413542
+      parent: 34
+      type: Transform
+  - uid: 8129
+    components:
+    - pos: 25.379786,-20.684563
+      parent: 34
+      type: Transform
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 1355
@@ -67249,18 +67280,6 @@ entities:
       type: Transform
 - proto: Stunbaton
   entities:
-  - uid: 5266
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 25.52784,-20.41782
-      parent: 34
-      type: Transform
-  - uid: 5267
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 25.387215,-20.480364
-      parent: 34
-      type: Transform
   - uid: 5268
     components:
     - rot: -1.5707963267948966 rad
