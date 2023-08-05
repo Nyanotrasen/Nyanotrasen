@@ -4646,11 +4646,6 @@ entities:
     - pos: -22.5,-2.5
       parent: 34
       type: Transform
-  - uid: 4405
-    components:
-    - pos: 14.5,-39.5
-      parent: 34
-      type: Transform
   - uid: 4984
     components:
     - pos: 19.5,10.5
@@ -5109,6 +5104,11 @@ entities:
       type: Transform
 - proto: AirlockServiceLocked
   entities:
+  - uid: 1119
+    components:
+    - pos: 14.5,-39.5
+      parent: 34
+      type: Transform
   - uid: 4003
     components:
     - pos: 19.5,-36.5
@@ -6495,6 +6495,11 @@ entities:
   - uid: 1910
     components:
     - pos: -7.2759867,-24.45904
+      parent: 34
+      type: Transform
+  - uid: 2528
+    components:
+    - pos: 13.426399,-37.591137
       parent: 34
       type: Transform
 - proto: BoxColoredLighttube
@@ -22207,6 +22212,9 @@ entities:
     - pos: -12.5,-30.5
       parent: 34
       type: Transform
+    - links:
+      - 1886
+      type: DeviceLinkSink
 - proto: Carpet
   entities:
   - uid: 2192
@@ -27803,6 +27811,13 @@ entities:
       pos: -14.5,-27.5
       parent: 34
       type: Transform
+    - linkedPorts:
+        1923:
+        - OrderSender: OrderReceiver
+      registeredSinks:
+        OrderSender:
+        - 1923
+      type: DeviceLinkSource
 - proto: ComputerCloningConsole
   entities:
   - uid: 1297
@@ -27962,6 +27977,12 @@ entities:
       type: Transform
 - proto: ComputerStationRecords
   entities:
+  - uid: 2201
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -29.5,2.5
+      parent: 34
+      type: Transform
   - uid: 4368
     components:
     - rot: -1.5707963267948966 rad
