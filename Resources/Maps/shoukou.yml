@@ -4646,11 +4646,6 @@ entities:
     - pos: -22.5,-2.5
       parent: 34
       type: Transform
-  - uid: 4405
-    components:
-    - pos: 14.5,-39.5
-      parent: 34
-      type: Transform
   - uid: 4984
     components:
     - pos: 19.5,10.5
@@ -5109,6 +5104,11 @@ entities:
       type: Transform
 - proto: AirlockServiceLocked
   entities:
+  - uid: 1119
+    components:
+    - pos: 14.5,-39.5
+      parent: 34
+      type: Transform
   - uid: 4003
     components:
     - pos: 19.5,-36.5
@@ -6495,6 +6495,11 @@ entities:
   - uid: 1910
     components:
     - pos: -7.2759867,-24.45904
+      parent: 34
+      type: Transform
+  - uid: 2528
+    components:
+    - pos: 13.426399,-37.591137
       parent: 34
       type: Transform
 - proto: BoxColoredLighttube
@@ -22207,6 +22212,9 @@ entities:
     - pos: -12.5,-30.5
       parent: 34
       type: Transform
+    - links:
+      - 1886
+      type: DeviceLinkSink
 - proto: Carpet
   entities:
   - uid: 2192
@@ -27803,6 +27811,13 @@ entities:
       pos: -14.5,-27.5
       parent: 34
       type: Transform
+    - linkedPorts:
+        1923:
+        - OrderSender: OrderReceiver
+      registeredSinks:
+        OrderSender:
+        - 1923
+      type: DeviceLinkSource
 - proto: ComputerCloningConsole
   entities:
   - uid: 1297
@@ -27962,6 +27977,12 @@ entities:
       type: Transform
 - proto: ComputerStationRecords
   entities:
+  - uid: 2201
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -29.5,2.5
+      parent: 34
+      type: Transform
   - uid: 4368
     components:
     - rot: -1.5707963267948966 rad
@@ -55105,6 +55126,37 @@ entities:
     - pos: -28.5,-37.5
       parent: 34
       type: Transform
+- proto: HolofanProjector
+  entities:
+  - uid: 4405
+    components:
+    - pos: -24.64519,-29.318565
+      parent: 34
+      type: Transform
+- proto: HoloprojectorEngineering
+  entities:
+  - uid: 5266
+    components:
+    - pos: -28.402485,-31.054815
+      parent: 34
+      type: Transform
+  - uid: 5267
+    components:
+    - pos: -28.6004,-30.804642
+      parent: 34
+      type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 4284
+    components:
+    - pos: 25.431868,-20.413542
+      parent: 34
+      type: Transform
+  - uid: 8129
+    components:
+    - pos: 25.379786,-20.684563
+      parent: 34
+      type: Transform
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 1355
@@ -67228,18 +67280,6 @@ entities:
       type: Transform
 - proto: Stunbaton
   entities:
-  - uid: 5266
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 25.52784,-20.41782
-      parent: 34
-      type: Transform
-  - uid: 5267
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 25.387215,-20.480364
-      parent: 34
-      type: Transform
   - uid: 5268
     components:
     - rot: -1.5707963267948966 rad

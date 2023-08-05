@@ -8935,6 +8935,11 @@ entities:
     - pos: 84.57054,0.37762117
       parent: 9
       type: Transform
+  - uid: 3890
+    components:
+    - pos: 40.363274,-16.625956
+      parent: 9
+      type: Transform
 - proto: BoxFolderBlack
   entities:
   - uid: 1216
@@ -9031,11 +9036,6 @@ entities:
   - uid: 16587
     components:
     - pos: 32.332176,9.442453
-      parent: 9
-      type: Transform
-  - uid: 18135
-    components:
-    - pos: 14.3389015,-70.336334
       parent: 9
       type: Transform
 - proto: BoxInflatable
@@ -32794,6 +32794,9 @@ entities:
     - pos: 69.5,6.5
       parent: 9
       type: Transform
+    - links:
+      - 3392
+      type: DeviceLinkSink
 - proto: Carpet
   entities:
   - uid: 1382
@@ -38977,6 +38980,12 @@ entities:
     - pos: 82.5,-2.5
       parent: 9
       type: Transform
+  - uid: 3892
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 83.63814,0.2856866
+      parent: 9
+      type: Transform
   - uid: 3974
     components:
     - rot: -1.5707963267948966 rad
@@ -41292,6 +41301,13 @@ entities:
     - pos: 64.5,0.5
       parent: 9
       type: Transform
+    - linkedPorts:
+        3016:
+        - OrderSender: OrderReceiver
+      registeredSinks:
+        OrderSender:
+        - 3016
+      type: DeviceLinkSource
 - proto: ComputerCloningConsole
   entities:
   - uid: 1128
@@ -41500,6 +41516,12 @@ entities:
   - uid: 2367
     components:
     - pos: 20.5,-10.5
+      parent: 9
+      type: Transform
+  - uid: 3976
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 14.5,-70.5
       parent: 9
       type: Transform
   - uid: 10868
@@ -47503,9 +47525,9 @@ entities:
       type: Transform
 - proto: DrinkGlass
   entities:
-  - uid: 3985
+  - uid: 3972
     components:
-    - pos: 13.702269,-67.390175
+    - pos: 13.51759,-67.53159
       parent: 9
       type: Transform
   - uid: 11018
@@ -83316,6 +83338,30 @@ entities:
     - pos: 47.5,-43.5
       parent: 9
       type: Transform
+- proto: HoloprojectorEngineering
+  entities:
+  - uid: 3977
+    components:
+    - pos: 45.391438,-82.60512
+      parent: 9
+      type: Transform
+  - uid: 11013
+    components:
+    - pos: 45.620605,-82.32367
+      parent: 9
+      type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 4705
+    components:
+    - pos: 21.115553,-26.335907
+      parent: 9
+      type: Transform
+  - uid: 7223
+    components:
+    - pos: 21.084303,-26.627777
+      parent: 9
+      type: Transform
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 896
@@ -85846,16 +85892,6 @@ entities:
       pos: 57.439384,14.5761385
       parent: 9
       type: Transform
-  - uid: 3976
-    components:
-    - pos: 14.6514015,-69.90896
-      parent: 9
-      type: Transform
-  - uid: 3977
-    components:
-    - pos: 14.6514015,-70.07574
-      parent: 9
-      type: Transform
   - uid: 4192
     components:
     - pos: 21.37392,-50.031826
@@ -85975,25 +86011,6 @@ entities:
     - pos: 4.9138722,-68.04962
       parent: 9
       type: Transform
-  - uid: 16159
-    components:
-    - name: Angle Atmos Briefing
-      type: MetaData
-    - pos: 6.3323474,-92.49763
-      parent: 9
-      type: Transform
-    - stampState: paper_stamp-cent
-      stampedBy:
-      - CentCom
-      content: >
-        Angle Atmos Briefing:
-
-        No O2 Miner, however the O2 chamber contains a large quantity of O2 in it.
-
-        There is a gas recycler portion denoted by the green pipes. There is a CO2 miner that can be converted into O2.
-
-        There are two general-purpose storage chambers to the southeast that can be used for any gas, set them up if desired.
-      type: Paper
   - uid: 16583
     components:
     - pos: 31.425924,9.630083
@@ -86007,11 +86024,6 @@ entities:
   - uid: 16585
     components:
     - pos: 31.75405,9.64572
-      parent: 9
-      type: Transform
-  - uid: 16612
-    components:
-    - pos: 14.6514015,-69.981926
       parent: 9
       type: Transform
   - uid: 17763
@@ -86047,11 +86059,6 @@ entities:
   - uid: 18114
     components:
     - pos: 46.301247,-68.35814
-      parent: 9
-      type: Transform
-  - uid: 18134
-    components:
-    - pos: 14.6514015,-70.16955
       parent: 9
       type: Transform
 - proto: PaperBin10
@@ -86095,6 +86102,36 @@ entities:
       type: Transform
 - proto: PaperOffice
   entities:
+  - uid: 2811
+    components:
+    - pos: 6.3433843,-92.43824
+      parent: 9
+      type: Transform
+    - stampState: paper_stamp-centcom
+      stampedBy:
+      - CentCom
+      content: >-
+        Angle Atmos Briefing:
+
+        No O2 Miner, however the O2 chamber contains a large quantity of O2 in it.
+
+        There is a gas recycler portion denoted by the green pipes. There is a CO2 miner that can be converted into O2.
+
+        There are two general-purpose storage chambers to the southeast that can be used for any gas, set them up if desired.
+
+
+        There is a "nitrogen panic valve" by the blue network. Please only use it if you need to rapidly repressurize the station in the absence of oxygen. Consider calling yellow alert in the event it is opened any longer than a minute.
+      type: Paper
+  - uid: 2917
+    components:
+    - pos: 13.7780075,-67.34396
+      parent: 9
+      type: Transform
+  - uid: 3891
+    components:
+    - pos: 13.9655075,-67.270996
+      parent: 9
+      type: Transform
   - uid: 11036
     components:
     - pos: 38.733845,-12.332966
@@ -91075,6 +91112,11 @@ entities:
   - uid: 1540
     components:
     - pos: -11.5,-5.5
+      parent: 9
+      type: Transform
+  - uid: 2330
+    components:
+    - pos: 45.5,-82.5
       parent: 9
       type: Transform
   - uid: 2807
@@ -100815,9 +100857,9 @@ entities:
     - pos: 81.5,-0.5
       parent: 9
       type: Transform
-  - uid: 11013
+  - uid: 8380
     components:
-    - pos: 45.5,-82.5
+    - pos: 46.5,-82.5
       parent: 9
       type: Transform
   - uid: 13371
@@ -102403,11 +102445,6 @@ entities:
   - uid: 3861
     components:
     - pos: 31.5,-49.5
-      parent: 9
-      type: Transform
-  - uid: 3972
-    components:
-    - pos: 14.5,-70.5
       parent: 9
       type: Transform
   - uid: 3973
@@ -104767,7 +104804,7 @@ entities:
   - uid: 11010
     components:
     - rot: -1.5707963267948966 rad
-      pos: 45.276096,-83.166985
+      pos: 45.75602,-84.99219
       parent: 9
       type: Transform
 - proto: VehicleKeyJanicart
@@ -116117,9 +116154,9 @@ entities:
     - pos: 21.510607,-26.318047
       parent: 9
       type: Transform
-  - uid: 2330
+  - uid: 3985
     components:
-    - pos: 21.218939,-26.609917
+    - pos: 21.53222,-26.596506
       parent: 9
       type: Transform
   - uid: 10884
