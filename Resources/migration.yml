@@ -7,7 +7,7 @@
 # WallSolid: Window
 # Table: null
 
--chem_dispenser: ChemDispenser
+chem_dispenser: ChemDispenser
 
 # SS14 2023-05-10
 FoodCondimentBottleSmallHotsauce: FoodCondimentBottleHotsauce
@@ -131,7 +131,4 @@ ClothingEyesGlassesBeer: ClothingEyesHudBeer
 
 # Nyano 2023-07-25: MNK Drobe
 ClothingUniformTracksuitBlack: ClothingUniformMNKTracksuitBlack
-
-# Nyano 2023-07-31: upstream map compat patch
-ClothingOuterArmorBasic: ClothingOuterVestKevlar # The PR responsible for this change is due to be merged at some point.
 
