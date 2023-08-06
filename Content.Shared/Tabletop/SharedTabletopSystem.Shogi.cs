@@ -11,7 +11,7 @@ namespace Content.Shared.Tabletop
         {
             SubscribeAllEvent<TabletopUseSecondaryEvent>(OnShogiUseSecondary);
             SubscribeAllEvent<TabletopActivateInWorldEvent>(OnShogiActivateInWorld);
-            SubscribeAllEvent<TabletopDraggingPlayerChangedEvent>(OnShogiDraggingPlayerChanged);
+            /* SubscribeAllEvent<TabletopDraggingPlayerChangedEvent>(OnShogiDraggingPlayerChanged); */
         }
 
         private void OnShogiUseSecondary(TabletopUseSecondaryEvent msg, EntitySessionEventArgs args)
@@ -43,6 +43,7 @@ namespace Content.Shared.Tabletop
 
         private void OnShogiDraggingPlayerChanged(TabletopDraggingPlayerChangedEvent msg, EntitySessionEventArgs args)
         {
+            /*
             if (!_gameTiming.IsFirstTimePredicted)
                 return;
 
@@ -58,6 +59,7 @@ namespace Content.Shared.Tabletop
             // Play the signature sound.
             var clack = new SoundPathSpecifier("/Audio/Nyanotrasen/shogi_piece_clack.ogg");
             _audio.PlayPredicted(clack, playerEntity, playerEntity, AudioParams.Default.WithVariation(0.06f));
+            */
         }
     }
 
