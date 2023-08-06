@@ -97,16 +97,15 @@
 
 - type: entity
   parent: BasePlushie
-  id: mangleplush
+  id: ManglePlush
   name: mangle plush
   description: Children can be so cruel
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Fun/mangle.rsi
-    netsync: false
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Effects/metal-pipe-falling.ogg #placeholder?
+      path: /Audio/Effects/metal-pipe-falling.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/fnaf-jumpscare-sound.ogg #ps3moria recommended this, i think its a nice feature however i am timid of its lengh |:
