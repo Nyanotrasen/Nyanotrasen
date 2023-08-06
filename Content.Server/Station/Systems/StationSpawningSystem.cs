@@ -115,7 +115,7 @@ public sealed class StationSpawningSystem : EntitySystem
         if (_randomizeCharacters)
         {
             var weightId = _configurationManager.GetCVar(CCVars.ICRandomSpeciesWeights);
-            var weights = _prototypeManager.Index<WeightedRandomPrototype>(weightId);
+            var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
             speciesId = weights.Pick(_random);
         }
         else if (profile != null)
