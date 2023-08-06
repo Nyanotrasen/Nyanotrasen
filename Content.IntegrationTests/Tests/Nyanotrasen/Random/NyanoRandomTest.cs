@@ -23,7 +23,7 @@ namespace Content.IntegrationTests.Tests.Random
         [Test]
         public async Task TestAltarRewards()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -51,7 +51,7 @@ namespace Content.IntegrationTests.Tests.Random
         [Test]
         public async Task TestPsionicPowerPool()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -80,7 +80,7 @@ namespace Content.IntegrationTests.Tests.Random
         [Test]
         public async Task TestMetempsychoticPool()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
