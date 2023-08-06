@@ -22,7 +22,7 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
         [Test]
         public async Task ReverseEngineeringResultsValid()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
