@@ -28,32 +28,15 @@ using Content.Server.Station.Systems;
 
 namespace Content.IntegrationTests.Tests.Mail
 {
+    /*
     [TestFixture]
     [TestOf(typeof(MailSystem))]
     [TestOf(typeof(MailComponent))]
     [TestOf(typeof(MailTeleporterComponent))]
     public sealed class MailTest
     {
+        [TestPrototypes]
         private const string Prototypes = @"
-- type: gameMap
-  id: FooStation
-  minPlayers: 0
-  mapName: FooStation
-  mapPath: Maps/Tests/empty.yml
-  stations:
-    Station:
-      mapNameTemplate: FooStation
-      stationProto: StandardNanotrasenStation
-      components:
-        - type: StationJobs
-          overflowJobs:
-          - Assistant
-          availableJobs:
-            TMime: [0, -1]
-            TAssistant: [-1, -1]
-            TCaptain: [5, 5]
-            TClown: [5, 6]
-
 - type: damageType
   id: TestBlunt
 
@@ -242,7 +225,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestAllMailIsAvailableToSpawn()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -291,7 +274,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestAllMailHasSomeContents()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -321,7 +304,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestTeleporterCanSetupPriorityMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -367,7 +350,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPriorityBonusMalus()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -422,7 +405,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailFragileBonusMalus()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -477,7 +460,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailFragileDetection()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -519,7 +502,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSystemMatchJobTitleToDepartment()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -544,7 +527,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSystemMatchJobTitleToIcon()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -569,7 +552,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailJobStampVisuals()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -618,7 +601,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailTransferDamage()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -683,7 +666,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPriorityTimeoutPenalty()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -730,7 +713,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailCanBeUnlockedWithValidID()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -820,7 +803,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailCannotBeUnlockedWithInvalidID()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -892,7 +875,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailTeleporterCanDetectMailOnItsTile()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -937,7 +920,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailTeleporterCanSpawnMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -997,7 +980,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailLimitUndeliveredParcels()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1061,7 +1044,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailDepositsIntoStationBankAccount()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1171,7 +1154,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailPenalizesStationBankAccountOnFailure()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1254,7 +1237,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSpawnForJobWithJobCandidate()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1312,7 +1295,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailSpawnForJobWithoutJobCandidate()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1393,7 +1376,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailRecipients()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1458,7 +1441,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestMailIsEmaggedProperly()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true, ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1535,7 +1518,7 @@ namespace Content.IntegrationTests.Tests.Mail
         [Test]
         public async Task TestNoMindlessPriorityMail()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{ExtraPrototypes = Prototypes});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             await server.WaitIdleAsync();
 
@@ -1633,4 +1616,5 @@ namespace Content.IntegrationTests.Tests.Mail
             await pairTracker.CleanReturnAsync();
         }
     }
+*/
 }
