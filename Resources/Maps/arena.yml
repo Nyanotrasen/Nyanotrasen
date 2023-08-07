@@ -47298,6 +47298,9 @@ entities:
     - pos: 51.5,11.5
       parent: 6747
       type: Transform
+    - links:
+      - 6726
+      type: DeviceLinkSink
 - proto: Carpet
   entities:
   - uid: 98
@@ -56369,6 +56372,13 @@ entities:
       pos: 43.5,10.5
       parent: 6747
       type: Transform
+    - linkedPorts:
+        6561:
+        - OrderSender: OrderReceiver
+      registeredSinks:
+        OrderSender:
+        - 6561
+      type: DeviceLinkSource
 - proto: ComputerCloningConsole
   entities:
   - uid: 2149
@@ -147578,6 +147588,18 @@ entities:
   - uid: 22445
     components:
     - pos: 17.5,-2.5
+      parent: 6747
+      type: Transform
+- proto: SpawnPointWarden
+  entities:
+  - uid: 25497
+    components:
+    - pos: -26.5,-5.5
+      parent: 6747
+      type: Transform
+  - uid: 25498
+    components:
+    - pos: -26.5,-7.5
       parent: 6747
       type: Transform
 - proto: SpawnVehicleATV
