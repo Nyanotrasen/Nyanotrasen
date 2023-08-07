@@ -10140,6 +10140,7 @@ entities:
             0: 65535
           -15,2:
             0: 17476
+            4: 2048
           -15,3:
             0: 50244
           -14,0:
@@ -10468,6 +10469,7 @@ entities:
             0: 65535
           -17,3:
             0: 255
+            4: 34816
           -19,-2:
             0: 34816
           -19,-1:
@@ -10486,8 +10488,17 @@ entities:
             0: 32768
           -17,-3:
             0: 61440
+            4: 2184
           -17,-2:
             0: 65535
+          -16,-4:
+            4: 4096
+          -16,4:
+            4: 16
+          -17,-4:
+            4: 49152
+          -17,4:
+            4: 200
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -56560,6 +56571,14 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 15.5,-68.5
+      parent: 6747
+      type: Transform
+- proto: ComputerShipyard
+  entities:
+  - uid: 3959
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: -31.5,-46.5
       parent: 6747
       type: Transform
 - proto: ComputerSolarControl
@@ -147461,6 +147480,18 @@ entities:
   - uid: 23493
     components:
     - pos: 10.5,26.5
+      parent: 6747
+      type: Transform
+- proto: SpawnPointSecurityCadet
+  entities:
+  - uid: 25495
+    components:
+    - pos: 0.5,-4.5
+      parent: 6747
+      type: Transform
+  - uid: 25496
+    components:
+    - pos: 0.5,-5.5
       parent: 6747
       type: Transform
 - proto: SpawnPointSecurityOfficer
