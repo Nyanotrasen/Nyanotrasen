@@ -79,12 +79,22 @@
   group: market
 
 - type: cargoProduct
-  id: ServiceHolyWaterKit
+  id: ServiceBooks
   icon:
-    sprite: Objects/Consumable/Drinks/flaskholywater.rsi
-    state: icon
-  product: CrateHolyWaterKit
+    sprite: Objects/Misc/books.rsi
+    state: book0
+  product: CrateServiceBooks
   cost: 1000
+  category: Service
+  group: market
+
+- type: cargoProduct
+  id: ServiceGuidebooks
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book_engineering2
+  product: CrateServiceGuidebooks
+  cost: 1300
   category: Service
   group: market
 

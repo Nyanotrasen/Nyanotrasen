@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: MachineArtifactAnalyzer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: artifact analyzer
@@ -59,6 +59,9 @@
     radius: 1.5
     energy: 1.6
     color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Xenoarchaeology
   - type: LitOnPowered
   - type: Appearance
   - type: GenericVisualizer
@@ -67,9 +70,6 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { visible: true }
           False: { visible: false }
-  - type: GuideHelp
-    guides:
-    - Xenoarchaeology
 
 - type: entity
   id: MachineTraversalDistorter
@@ -111,10 +111,10 @@
   - type: TraversalDistorter
   - type: Machine
     board: TraversalDistorterMachineCircuitboard
+  - type: Appearance
   - type: GuideHelp
     guides:
     - TraversalDistorter
-  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:

@@ -240,6 +240,10 @@
     borderColor: "#333333"
   - type: Icon
     state: pda-chaplain
+  - type: CartridgeLoader
+    preinstalled:
+      - NotekeeperCartridge
+      - GlimmerMonitorCartridge
 
 - type: entity
   name: Quartermaster PDA
@@ -407,6 +411,9 @@
     scanDelay: 1.2
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: GuideHelp
+    guides:
+    - Medical Doctor
 
 - type: entity
   parent: BasePDA

@@ -30,6 +30,6 @@ reverse-engineering-success = Breakthrough
 reverse-engineering-machine-bonus-upgrade = Analysis power
 reverse-engineering-machine-aversion-upgrade = Destruction aversion bonus
 
-reverse-engineering-failure = {CAPITALIZE(THE($machine))} blows smoke and debris everywhere!
+reverse-engineering-popup-failure = {CAPITALIZE(THE($machine))} blows smoke and debris everywhere!
 
 reverse-engineering-examine = [color=yellow]This item can be reverse engineered. Difficulty: {$diff}[/color]

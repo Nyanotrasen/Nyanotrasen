@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ChemDispenser
   name: chemical dispenser
   parent: ReagentDispenserBase
@@ -33,4 +33,5 @@
     scaling: Exponential
   - type: GuideHelp
     guides:
-    - Chemistry
+    - Chemicals
+    - Chemist

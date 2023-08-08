@@ -1,6 +1,7 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Server.Psionics;
 using JetBrains.Annotations;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.ReagentEffects
 {
@@ -10,6 +11,9 @@ namespace Content.Server.Chemistry.ReagentEffects
     [UsedImplicitly]
     public sealed class ChemRerollPsionic : ReagentEffect
     {
+        protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
+            => Loc.GetString("reagent-effect-guidebook-chem-reroll-psionic", ("chance", Probability));
+
         /// <summary>
         /// Reroll multiplier.
         /// </summary>

@@ -251,7 +251,7 @@ public sealed class ReverseEngineeringSystem : EntitySystem
                 _slots.SetLock(uid, TargetSlot, false);
                 _audio.PlayPvs(component.FailSound1, uid);
                 _audio.PlayPvs(component.FailSound2, uid);
-                _popupSystem.PopupEntity(Loc.GetString("reverse-engineering-failure", ("machine", uid)), uid, Shared.Popups.PopupType.MediumCaution);
+                _popupSystem.PopupEntity(Loc.GetString("reverse-engineering-popup-failure", ("machine", uid)), uid, Shared.Popups.PopupType.MediumCaution);
                 CancelProbe(uid, component);
             } else
             {

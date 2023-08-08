@@ -7,16 +7,16 @@
     sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Voice/Moth/squeak_moth.ogg
+      path: /Audio/Nyanotrasen/Voice/Moth/squeak_moth.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Voice/Moth/scream_moth.ogg
+      path: /Audio/Nyanotrasen/Voice/Moth/scream_moth.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/Voice/Moth/squeak_moth.ogg
+      path: /Audio/Nyanotrasen/Voice/Moth/squeak_moth.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Voice/Moth/squeak_moth.ogg
+      path: /Audio/Nyanotrasen/Voice/Moth/squeak_moth.ogg
   - type: UseDelay
     delay: 2
 
