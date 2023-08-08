@@ -303,8 +303,8 @@ entities:
             color: '#FFFFFFFF'
             id: Dirt
           decals:
-            124: 2,21
-            131: 0,3
+            123: 2,21
+            129: 0,3
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -317,26 +317,26 @@ entities:
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
-            122: -2,10
-            125: -5,13
-            126: -3,15
-            127: 2,9
-            130: 7,5
-            132: -2,2
-            137: 0,24
-            138: 0,23
-            139: -2,9
+            121: -2,10
+            124: -5,13
+            125: -3,15
+            126: 2,9
+            128: 7,5
+            130: -2,2
+            135: 0,24
+            136: 0,23
+            137: -2,9
         - node:
             cleanable: True
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
-            123: 0,16
-            128: 6,8
-            133: 2,1
-            134: 2,23
-            135: -2,25
-            136: -2,23
+            122: 0,16
+            127: 6,8
+            131: 2,1
+            132: 2,23
+            133: -2,25
+            134: -2,23
         - node:
             color: '#52B4E996'
             id: FullTileOverlayGreyscale
@@ -511,6 +511,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
 - proto: AirCanister
   entities:
   - uid: 636
@@ -1600,6 +1601,31 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 965
+    components:
+    - pos: 0.5,16.5
+      parent: 1
+      type: Transform
+  - uid: 966
+    components:
+    - pos: 0.5,15.5
+      parent: 1
+      type: Transform
+  - uid: 967
+    components:
+    - pos: 0.5,14.5
+      parent: 1
+      type: Transform
+  - uid: 968
+    components:
+    - pos: 0.5,9.5
+      parent: 1
+      type: Transform
+  - uid: 969
+    components:
+    - pos: 0.5,10.5
+      parent: 1
+      type: Transform
 - proto: CableHV
   entities:
   - uid: 640
