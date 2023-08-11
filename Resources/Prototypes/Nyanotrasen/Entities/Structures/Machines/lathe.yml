@@ -149,14 +149,11 @@
       - CableHVStack
       - CableMVStack
       - CableStack
-      - CapacitorStockPart
       - ConveyorBeltAssembly
       - Crowbar
       - Flare
       - GasAnalyzer
-      - HandheldGPSBasic 
-      - MatterBinStockPart
-      - MicroManipulatorStockPart
+      - HandheldGPSBasic
       - Multitool
       - NetworkConfigurator
       - Pickaxe
@@ -167,6 +164,11 @@
       - Welder # TODO: needs empty version
       - Wirecutter
       - Wrench
+      - CapacitorStockPart
+      - MatterBinStockPart
+      - MicroManipulatorStockPart
+      
+      # BEGIN: machine parts
     dynamicRecipes:
       - ClothingEyesHudDiagnostic
       - ClothingShoesBootsMag
