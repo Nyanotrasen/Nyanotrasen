@@ -164,11 +164,11 @@
       - Welder # TODO: needs empty version
       - Wirecutter
       - Wrench
+      
+      # BEGIN: machine parts
       - CapacitorStockPart
       - MatterBinStockPart
       - MicroManipulatorStockPart
-      
-      # BEGIN: machine parts
     dynamicRecipes:
       - ClothingEyesHudDiagnostic
       - ClothingShoesBootsMag
