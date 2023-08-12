@@ -1,0 +1,161 @@
+- type: entity
+  parent: BaseStructure
+  id: ClockGrandfather
+  name: grandfather clock
+  components:
+  - type: Clock
+  - type: AnalogueClockVisuals
+  - type: AmbientSound
+    sound: "/Audio/Nyanotrasen/Ambience/Objects/grandfather_clock_ticking.ogg"
+    range: 10
+    volume: -9
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/grandfather_clock.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - state: clock
+    - state: pendulum
+    - state: glass
+    - state: hour_hand
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute_hand
+      map: ["enum.ClockVisualLayers.MinuteHand"]
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          IngotSilver1:
+            min: 1
+            max: 3
+          ShardGlass:
+            min: 0
+            max: 1
+          SheetSteel1:
+            min: 0
+            max: 2
+
+- type: entity
+  parent: BaseStructure
+  id: ClockWall
+  name: wall clock
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: Clock
+  - type: AnalogueClockVisuals
+    origin: "-1, 8"
+  - type: WallMount
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/wall_clock.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+    - state: hour
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute
+      map: ["enum.ClockVisualLayers.MinuteHand"]
+  - type: Construction
+    graph: ClockWall
+    node: clock
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/metalbreak.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 0
+            max: 1
+          SheetSteel:
+            min: 0
+            max: 1
+
+- type: entity
+  parent: BaseItem
+  id: ClockWatchPocket
+  name: pocket watch
+  components:
+  - type: Clock
+  - type: AnalogueClockVisuals
+    origin: "-1, 1"
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/Watches/pocket_watch.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+    - state: hour
+      map: ["enum.ClockVisualLayers.HourHand"]
+    - state: minute
+      map: ["enum.ClockVisualLayers.MinuteHand"]
+
+## Construction steps
+- type: entity
+  id: ClockWallAssembly
+  name: wall clock assembly
+  description: Waiting for its time.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: WallMount
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Wallmounts/wall_clock.rsi
+    drawdepth: WallMountedItems
+    noRot: true
+    layers:
+    - state: clock
+  - type: Transform
+    anchored: true
+  - type: Construction
+    graph: ClockWall
+    node: assembly
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]

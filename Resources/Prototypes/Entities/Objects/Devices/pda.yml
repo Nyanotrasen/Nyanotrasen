@@ -6,6 +6,9 @@
   description: Personal Data Assistant.
   components:
   - type: Appearance
+  ## Nyano change: clock!
+  - type: Clock
+    showSeconds: true
   - type: Sprite
     sprite: Objects/Devices/pda.rsi
     layers:

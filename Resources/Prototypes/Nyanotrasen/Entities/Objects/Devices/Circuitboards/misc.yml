@@ -1,0 +1,18 @@
+- type: entity
+  id: ClockElectronics
+  parent: BaseElectronics
+  name: clock electronics
+  description: An electronics board used in clocks and timers.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: radio_micro #Placeholder sprite but not really
+    - type: Tag
+      tags:
+        - ClockElectronics
+        - DroneUsable
+    - type: ReverseEngineering
+      recipes:
+        - ClockElectronics
+    - type: Item
+      size: 1

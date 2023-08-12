@@ -1,0 +1,49 @@
+- type: constructionGraph
+  id: ClockWall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: assembly
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 2.0
+
+  - node: assembly
+    entity: ClockWallAssembly
+    edges:
+    - to: clock
+      steps:
+      - material: Cable
+        amount: 1
+        doAfter: 1
+      - tag: ClockElectronics
+        name: clock electronics
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "radio_micro"
+    - to: start
+      completed:
+      - !type:GivePrototype
+        prototype: SheetSteel1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Welding
+        doAfter: 2
+
+  - node: clock
+    entity: ClockWall
+    edges:
+    - to: assembly
+      steps:
+      - tool: Screwing
+        doAfter: 2
+      completed:
+      - !type:GivePrototype
+        prototype: ClockElectronics
+        amount: 1
+      - !type:GivePrototype
+        prototype: CableApcStack1
+        amount: 1
