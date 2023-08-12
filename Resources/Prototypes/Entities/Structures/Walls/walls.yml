@@ -690,6 +690,9 @@
         acts: ["Destruction"]
     destroySound:
       path: /Audio/Effects/metalbreak.ogg
+  - type: Construction
+    graph: Girder
+    node: diagonalshuttleWall
 
 - type: entity
   parent: WallReinforced
@@ -707,6 +710,18 @@
   - type: IconSmooth
     key: walls
     base: state
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ShuttleWallVisuals.DeconstructionStage:
+        ShuttleWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: shuttle_construct-0, visible: true}
+          1: { state: shuttle_construct-1, visible: true}
+          2: { state: shuttle_construct-2, visible: true}
+          3: { state: shuttle_construct-3, visible: true}
+          4: { state: shuttle_construct-4, visible: true}
+          5: { state: shuttle_construct-5, visible: true}
 
 - type: entity
   parent: WallSolid
