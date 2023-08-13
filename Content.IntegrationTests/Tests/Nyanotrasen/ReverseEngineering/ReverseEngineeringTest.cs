@@ -1,7 +1,5 @@
 #nullable enable
 using System.Collections.Generic;
-using NUnit.Framework;
-using System.Threading.Tasks;
 using Content.Shared.ReverseEngineering;
 using Content.Shared.Research.Prototypes;
 using Content.Server.ReverseEngineering;
@@ -66,6 +64,8 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                     }
                 }
             });
+
+            await pairTracker.CleanReturnAsync();
         }
     }
 }
