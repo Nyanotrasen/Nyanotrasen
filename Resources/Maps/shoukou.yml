@@ -6449,9 +6449,9 @@ entities:
       type: Transform
 - proto: BoxBeanbag
   entities:
-  - uid: 3729
+  - uid: 3580
     components:
-    - pos: 26.412447,1.824281
+    - pos: 25.475487,1.7896924
       parent: 34
       type: Transform
 - proto: BoxBodyBag
@@ -6580,13 +6580,6 @@ entities:
   - uid: 2670
     components:
     - pos: -1.7050788,-36.142494
-      parent: 34
-      type: Transform
-- proto: BoxShellSoulbreaker
-  entities:
-  - uid: 3732
-    components:
-    - pos: 25.46344,1.8366721
       parent: 34
       type: Transform
 - proto: BriefcaseBrown
@@ -25075,6 +25068,13 @@ entities:
     - pos: -26.5,-11.5
       parent: 34
       type: Transform
+- proto: ClosetL3SecurityFilled
+  entities:
+  - uid: 3721
+    components:
+    - pos: 26.5,-20.5
+      parent: 34
+      type: Transform
 - proto: ClosetL3VirologyFilled
   entities:
   - uid: 1944
@@ -25133,6 +25133,11 @@ entities:
       type: Transform
 - proto: ClosetToolFilled
   entities:
+  - uid: 3720
+    components:
+    - pos: 22.5,-20.5
+      parent: 34
+      type: Transform
   - uid: 8113
     components:
     - pos: 24.5,5.5
@@ -25325,6 +25330,36 @@ entities:
       type: Transform
 - proto: ClothingHeadHatCone
   entities:
+  - uid: 3742
+    components:
+    - pos: -22.758726,3.360742
+      parent: 34
+      type: Transform
+  - uid: 3743
+    components:
+    - pos: -22.31081,3.360742
+      parent: 34
+      type: Transform
+  - uid: 3744
+    components:
+    - pos: -22.52956,3.704731
+      parent: 34
+      type: Transform
+  - uid: 3745
+    components:
+    - pos: -23.268188,-27.556864
+      parent: 34
+      type: Transform
+  - uid: 3746
+    components:
+    - pos: -23.768188,-27.567286
+      parent: 34
+      type: Transform
+  - uid: 4284
+    components:
+    - pos: -23.539022,-27.306688
+      parent: 34
+      type: Transform
   - uid: 10230
     components:
     - pos: 21.847918,-35.67099
@@ -25444,23 +25479,6 @@ entities:
   - uid: 266
     components:
     - pos: -1.6040713,8.884319
-      parent: 34
-      type: Transform
-- proto: ClothingHeadHelmetRiot
-  entities:
-  - uid: 3580
-    components:
-    - pos: 26.692974,-20.275053
-      parent: 34
-      type: Transform
-  - uid: 4412
-    components:
-    - pos: 26.3336,-20.275053
-      parent: 34
-      type: Transform
-  - uid: 4413
-    components:
-    - pos: 26.4586,-20.462683
       parent: 34
       type: Transform
 - proto: ClothingHeadHelmetSpaceNinja
@@ -25703,23 +25721,6 @@ entities:
   - uid: 4791
     components:
     - pos: 36.494946,-2.303215
-      parent: 34
-      type: Transform
-- proto: ClothingOuterHardsuitSecurity
-  entities:
-  - uid: 3719
-    components:
-    - pos: 30.491426,-0.50488555
-      parent: 34
-      type: Transform
-  - uid: 3720
-    components:
-    - pos: 29.501844,-0.50488555
-      parent: 34
-      type: Transform
-  - uid: 3721
-    components:
-    - pos: 28.51226,-0.50488555
       parent: 34
       type: Transform
 - proto: ClothingOuterHoodieBlack
@@ -51974,6 +51975,13 @@ entities:
       pos: -42.5,-59.5
       parent: 34
       type: Transform
+- proto: GunSafePistolMk58
+  entities:
+  - uid: 3710
+    components:
+    - pos: 29.5,1.5
+      parent: 34
+      type: Transform
 - proto: HandheldGPSBasic
   entities:
   - uid: 11537
@@ -52047,14 +52055,14 @@ entities:
       type: Transform
 - proto: HoloprojectorSecurity
   entities:
-  - uid: 4284
+  - uid: 3584
     components:
-    - pos: 25.431868,-20.413542
+    - pos: 24.346996,-19.636211
       parent: 34
       type: Transform
-  - uid: 8129
+  - uid: 3585
     components:
-    - pos: 25.379786,-20.684563
+    - pos: 24.388662,-19.354765
       parent: 34
       type: Transform
 - proto: HospitalCurtainsOpen
@@ -52585,19 +52593,19 @@ entities:
       type: Transform
 - proto: JetpackSecurityFilled
   entities:
-  - uid: 12182
+  - uid: 904
     components:
-    - pos: 28.687887,-0.2432406
+    - pos: 26.298405,1.8209641
       parent: 34
       type: Transform
-  - uid: 12183
+  - uid: 3593
     components:
-    - pos: 29.698305,-0.26408792
+    - pos: 26.68382,1.6541817
       parent: 34
       type: Transform
-  - uid: 12184
+  - uid: 3714
     components:
-    - pos: 30.708721,-0.28493643
+    - pos: 26.34007,1.4978237
       parent: 34
       type: Transform
 - proto: Katana
@@ -53080,23 +53088,23 @@ entities:
       type: Transform
 - proto: MagazineBoxPistol
   entities:
-  - uid: 3745
+  - uid: 3719
     components:
-    - pos: 30.409151,0.6601119
+    - pos: 30.423405,1.6646061
       parent: 34
       type: Transform
 - proto: MagazineBoxPistolPractice
   entities:
-  - uid: 3731
+  - uid: 3726
     components:
-    - pos: 26.627901,1.4731765
+    - pos: 25.694237,1.4144318
       parent: 34
       type: Transform
 - proto: MagazineBoxPistolRubber
   entities:
-  - uid: 3730
+  - uid: 3725
     components:
-    - pos: 30.627901,0.43078637
+    - pos: 30.662987,1.476975
       parent: 34
       type: Transform
 - proto: MagazineBoxRifleBig
@@ -53115,21 +53123,9 @@ entities:
       type: Transform
 - proto: MagazineBoxRiflePractice
   entities:
-  - uid: 3746
+  - uid: 3594
     components:
-    - pos: 26.086235,1.5357203
-      parent: 34
-      type: Transform
-- proto: MagazinePistol
-  entities:
-  - uid: 3743
-    components:
-    - pos: 29.773735,1.3793616
-      parent: 34
-      type: Transform
-  - uid: 3744
-    components:
-    - pos: 30.794569,1.421057
+    - pos: 25.298405,1.466552
       parent: 34
       type: Transform
 - proto: MailTeleporter
@@ -53731,6 +53727,29 @@ entities:
     - intervalSeconds: 520
       chance: 0.4
       type: TimedSpawner
+- proto: Mousetrap
+  entities:
+  - uid: 3729
+    components:
+    - pos: 5.77034,-17.400778
+      parent: 34
+      type: Transform
+  - uid: 3730
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 5.187007,-17.734343
+      parent: 34
+      type: Transform
+  - uid: 3731
+    components:
+    - pos: -9.7181835,-47.475216
+      parent: 34
+      type: Transform
+  - uid: 3732
+    components:
+    - pos: -14.619152,-5.5521803
+      parent: 34
+      type: Transform
 - proto: Multitool
   entities:
   - uid: 2928
@@ -53827,13 +53846,6 @@ entities:
   - uid: 10359
     components:
     - pos: -23.5,-4.5
-      parent: 34
-      type: Transform
-- proto: PaintingEmpty
-  entities:
-  - uid: 904
-    components:
-    - pos: -12.5,-6.5
       parent: 34
       type: Transform
 - proto: PaintingSkeletonCigarette
@@ -57973,7 +57985,7 @@ entities:
       type: Transform
   - uid: 3581
     components:
-    - pos: 23.5,-20.5
+    - pos: 24.5,-19.5
       parent: 34
       type: Transform
   - uid: 3583
@@ -57981,34 +57993,9 @@ entities:
     - pos: 22.5,-19.5
       parent: 34
       type: Transform
-  - uid: 3584
+  - uid: 3592
     components:
-    - pos: 25.5,-20.5
-      parent: 34
-      type: Transform
-  - uid: 3710
-    components:
-    - pos: 30.5,1.5
-      parent: 34
-      type: Transform
-  - uid: 3711
-    components:
-    - pos: 29.5,1.5
-      parent: 34
-      type: Transform
-  - uid: 3712
-    components:
-    - pos: 30.5,-0.5
-      parent: 34
-      type: Transform
-  - uid: 3713
-    components:
-    - pos: 29.5,-0.5
-      parent: 34
-      type: Transform
-  - uid: 3714
-    components:
-    - pos: 28.5,-0.5
+    - pos: 26.5,1.5
       parent: 34
       type: Transform
   - uid: 3715
@@ -58800,6 +58787,11 @@ entities:
   - uid: 3364
     components:
     - pos: -33.5,-14.5
+      parent: 34
+      type: Transform
+  - uid: 3596
+    components:
+    - pos: -12.5,-6.5
       parent: 34
       type: Transform
   - uid: 4283
@@ -61401,37 +61393,6 @@ entities:
     - pos: -27.44184,-41.439953
       parent: 34
       type: Transform
-- proto: RiotBulletShield
-  entities:
-  - uid: 3587
-    components:
-    - pos: 23.363127,-20.531721
-      parent: 34
-      type: Transform
-- proto: RiotLaserShield
-  entities:
-  - uid: 4414
-    components:
-    - pos: 23.691252,-20.390997
-      parent: 34
-      type: Transform
-- proto: RiotShield
-  entities:
-  - uid: 3592
-    components:
-    - pos: 22.275465,-19.316986
-      parent: 34
-      type: Transform
-  - uid: 3593
-    components:
-    - pos: 22.640047,-19.337833
-      parent: 34
-      type: Transform
-  - uid: 3594
-    components:
-    - pos: 22.452547,-19.525463
-      parent: 34
-      type: Transform
 - proto: RollerBed
   entities:
   - uid: 1365
@@ -64026,10 +63987,9 @@ entities:
       type: Transform
 - proto: Stunbaton
   entities:
-  - uid: 5268
+  - uid: 3722
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 25.68409,-20.370913
+    - pos: 24.607412,-19.584091
       parent: 34
       type: Transform
   - uid: 10762
@@ -64088,6 +64048,33 @@ entities:
   - uid: 11852
     components:
     - pos: -28.5,-32.5
+      parent: 34
+      type: Transform
+- proto: SuitStorageSec
+  entities:
+  - uid: 3587
+    components:
+    - pos: 28.5,-0.5
+      parent: 34
+      type: Transform
+  - uid: 3597
+    components:
+    - pos: 23.5,-20.5
+      parent: 34
+      type: Transform
+  - uid: 3707
+    components:
+    - pos: 25.5,-20.5
+      parent: 34
+      type: Transform
+  - uid: 3711
+    components:
+    - pos: 29.5,-0.5
+      parent: 34
+      type: Transform
+  - uid: 3712
+    components:
+    - pos: 30.5,-0.5
       parent: 34
       type: Transform
 - proto: SurveillanceCameraCommand
@@ -65335,9 +65322,9 @@ entities:
     - pos: 8.5,-26.5
       parent: 34
       type: Transform
-  - uid: 3707
+  - uid: 3595
     components:
-    - pos: 26.5,1.5
+    - pos: 30.5,1.5
       parent: 34
       type: Transform
   - uid: 3708
@@ -65348,11 +65335,6 @@ entities:
   - uid: 3740
     components:
     - pos: 28.5,4.5
-      parent: 34
-      type: Transform
-  - uid: 3742
-    components:
-    - pos: 30.5,0.5
       parent: 34
       type: Transform
   - uid: 4044
@@ -65833,11 +65815,6 @@ entities:
     - pos: 9.5,12.5
       parent: 34
       type: Transform
-  - uid: 3585
-    components:
-    - pos: 22.5,-20.5
-      parent: 34
-      type: Transform
   - uid: 3696
     components:
     - pos: 24.5,0.5
@@ -65846,11 +65823,6 @@ entities:
   - uid: 3697
     components:
     - pos: 24.5,-0.5
-      parent: 34
-      type: Transform
-  - uid: 4415
-    components:
-    - pos: 26.5,-20.5
       parent: 34
       type: Transform
   - uid: 4483
@@ -66928,6 +66900,18 @@ entities:
   - uid: 10829
     components:
     - pos: -1.5,-18.5
+      parent: 34
+      type: Transform
+- proto: TrashBag
+  entities:
+  - uid: 3727
+    components:
+    - pos: 6.7647095,-17.550875
+      parent: 34
+      type: Transform
+  - uid: 3728
+    components:
+    - pos: 6.6813755,-17.519604
       parent: 34
       type: Transform
 - proto: TwoWayLever
@@ -75120,22 +75104,19 @@ entities:
       type: Transform
 - proto: WeaponDisabler
   entities:
-  - uid: 3595
+  - uid: 3713
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 22.712965,-20.348953
+    - pos: 22.34301,-19.588076
       parent: 34
       type: Transform
-  - uid: 3596
+  - uid: 3723
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 22.265047,-20.380224
+    - pos: 22.634678,-19.421293
       parent: 34
       type: Transform
-  - uid: 3597
+  - uid: 3724
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 22.473381,-20.484463
+    - pos: 22.31176,-19.264936
       parent: 34
       type: Transform
   - uid: 10761
@@ -75165,28 +75146,6 @@ entities:
   - uid: 4499
     components:
     - pos: 29.57278,4.3827605
-      parent: 34
-      type: Transform
-- proto: WeaponPistolMk58
-  entities:
-  - uid: 3725
-    components:
-    - pos: 29.453777,1.5982637
-      parent: 34
-      type: Transform
-  - uid: 3726
-    components:
-    - pos: 29.620443,1.3689375
-      parent: 34
-      type: Transform
-  - uid: 3727
-    components:
-    - pos: 30.432943,1.6191115
-      parent: 34
-      type: Transform
-  - uid: 3728
-    components:
-    - pos: 30.596651,1.3689375
       parent: 34
       type: Transform
 - proto: WeaponRifleLecter
@@ -76153,23 +76112,6 @@ entities:
   - uid: 2184
     components:
     - pos: -42.5,-2.5
-      parent: 34
-      type: Transform
-- proto: YellowOxygenTankFilled
-  entities:
-  - uid: 3722
-    components:
-    - pos: 30.44976,-0.46319032
-      parent: 34
-      type: Transform
-  - uid: 3723
-    components:
-    - pos: 29.44976,-0.43191862
-      parent: 34
-      type: Transform
-  - uid: 3724
-    components:
-    - pos: 28.460176,-0.45276594
       parent: 34
       type: Transform
 - proto: Zipties
