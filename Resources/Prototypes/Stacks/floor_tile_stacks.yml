@@ -1,4 +1,4 @@
-﻿- type: stack
+- type: stack
   id: FloorTileSteel
   name: steel tile
   spawn: FloorTileItemSteel
@@ -364,6 +364,13 @@
   id: FloorTileWoodPattern
   name: wood pattern floor
   spawn: FloorTileItemWoodPattern
+  maxCount: 30
+  itemSize: 5
+
+- type: stack
+  id: FloorTileFlesh
+  name: flesh floor
+  spawn: FloorTileItemFlesh
   maxCount: 30
   itemSize: 5
 

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: FirelockElectronics
   parent: BaseElectronics
   name: firelock electronics
@@ -14,3 +14,5 @@
     - type: ReverseEngineering
       recipes:
         - FirelockElectronics
+    - type: DynamicPrice
+      price: 61

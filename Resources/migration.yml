@@ -45,6 +45,9 @@ LockerEngineerFilledHardsuit: LockerEngineerFilled
 LockerHeadOfSecurityFilledHardsuit: LockerHeadOfSecurityFilled
 LockerResearchDirectorFilledHardsuit: LockerResearchDirectorFilled
 
+# SS14 2023-05-29
+OrGate: null
+
 # SS14 2023-05-31
 IHSVoidsuit: null
 ClothingHeadHelmetIHSVoidHelm: null
@@ -64,8 +67,30 @@ ParticleAcceleratorEmitterLeftUnfinished: ParticleAcceleratorEmitterStarboardUnf
 ParticleAcceleratorEmitterRight: ParticleAcceleratorEmitterPort
 ParticleAcceleratorEmitterRightUnfinished: ParticleAcceleratorEmitterPortUnfinished
 
+# SS14 2023-06-21
+WindoorArmoryLocked: WindoorSecureArmoryLocked
+WindoorBrigLocked: WindoorSecureBrigLocked
+WindoorChemistryLocked: WindoorSecureChemistryLocked
+WindoorCommandLocked: WindoorSecureCommandLocked
+WindoorEngineeringLocked: WindoorSecureEngineeringLocked
+WindoorExternalLocked: WindoorSecureExternalLocked
+WindoorMedicalLocked: WindoorSecureMedicalLocked
+WindoorSecurityLocked: WindoorSecureSecurityLocked
+WindoorScienceLocked: WindoorSecureScienceLocked
+WindoorHeadOfPersonnelLocked: WindoorSecureHeadOfPersonnelLocked
+WindoorAtmosphericsLocked: WindoorSecureAtmosphericsLocked
+WindoorParamedicLocked: WindoorSecureParamedicLocked
+
 # Nyano 2023-07-03
 ClothingOuterHardsuitRd: ClothingOuterHardsuitMystagogue
+
+# SS14 2023-07-03
+ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
+ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic
+
+# SS14 2023-07-04
+# Bulletproof armor is almost statistically identical to kevlar, however, before this kevlar armor was the closest thing there was to "basic" armor. It makes the most sense to replace it with this.
+ClothingOuterVestKevlar: ClothingOuterArmorBasic
 
 # Nyano 2023-07-09
 SpawnVehiclePussywagon: SpawnVehicleJanicart
@@ -73,6 +98,9 @@ VehicleKeyPussyWagon: VehicleKeyJanicart
 
 # SS14 2023-07-10
 Intercom: IntercomCommon
+
+# SS14 2023-07-12
+ToyAssistant: ToyFigurinePassenger
 
 # Nyano 2023-07-15
 Autolathe: null
@@ -98,5 +126,9 @@ ClothingEyesGlassesGar: null # Classic item but was always reddit
 ClothingEyesGlassesGarOrange: null # the gar glasses maybe invented the reddification of ss13
 ClothingEyesGlassesGarGiga: null
 
+# SS14 2023-07-24
+ClothingEyesGlassesBeer: ClothingEyesHudBeer
+
 # Nyano 2023-07-25: MNK Drobe
 ClothingUniformTracksuitBlack: ClothingUniformMNKTracksuitBlack
+

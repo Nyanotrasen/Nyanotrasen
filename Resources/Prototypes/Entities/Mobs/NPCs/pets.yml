@@ -636,3 +636,31 @@
     flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
+
+- type: entity
+  name: Pun Pun
+  parent: MobMonkey
+  id: MobMonkeyPunpun
+  description: A prominent representative of monkeys with unlimited access to alcohol.
+  components:
+  - type: GhostRole
+    prob: 1
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-punpun-name
+    description: ghost-role-information-punpun-description
+  - type: GhostTakeoverAvailable
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+    - id: DrinkTequilaBottleFull
+      amount: 1
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: Loadout
+    prototypes: [ MobMonkeyGear ]

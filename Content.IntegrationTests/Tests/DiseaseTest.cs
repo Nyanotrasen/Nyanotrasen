@@ -14,7 +14,7 @@ public sealed class DiseaseTest
     [Test]
     public async Task Stages()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var protoManager = server.ResolveDependency<IPrototypeManager>();

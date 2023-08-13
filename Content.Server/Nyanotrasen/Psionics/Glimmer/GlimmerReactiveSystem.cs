@@ -52,7 +52,7 @@ namespace Content.Server.Psionics.Glimmer
             base.Initialize();
             SubscribeLocalEvent<RoundRestartCleanupEvent>(Reset);
 
-            SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentInit>(OnComponentInit);
+            SubscribeLocalEvent<SharedGlimmerReactiveComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, ComponentRemove>(OnComponentRemove);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<SharedGlimmerReactiveComponent, GlimmerTierChangedEvent>(OnTierChanged);
@@ -109,7 +109,7 @@ namespace Content.Server.Psionics.Glimmer
         /// current status of the glimmer tier, if it wasn't around when an
         /// update went out.
         /// </summary>
-        private void OnComponentInit(EntityUid uid, SharedGlimmerReactiveComponent component, ComponentInit args)
+        private void OnMapInit(EntityUid uid, SharedGlimmerReactiveComponent component, MapInitEvent args)
         {
             if (component.RequiresApcPower && !HasComp<ApcPowerReceiverComponent>(uid))
                 Logger.Warning($"{ToPrettyString(uid)} had RequiresApcPower set to true but no ApcPowerReceiverComponent was found on init.");

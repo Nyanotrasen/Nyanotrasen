@@ -23,7 +23,7 @@ namespace Content.IntegrationTests.Tests.Oracle
         [Test]
         public async Task AllOracleItemsCanBeTurnedIn()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();

@@ -5,29 +5,22 @@
   - type: StorageFill
     contents:
       - id: PlushieBee
-        amount: 1
       - id: PlushieNar
-        amount: 1
       - id: PlushieCarp
-        amount: 1
       - id: PlushieNuke
-        amount: 1
       - id: PlushieSlime
-        amount: 1
       - id: PlushieSnake
-        amount: 1
       - id: PlushieVox
-        amount: 1
       - id: PlushieRouny
-        amount: 1
       - id: PlushieRatvar
-        amount: 1
-      - id: PlushieSharkBlue
-        amount: 1
       - id: PlushieMoffRandom
-        amount: 2
+      - id: PlushieSharkBlue
+        orGroup: PlushieShark
+      - id: PlushieSharkGrey
+        orGroup: PlushieShark
       - id: PlushieAtmosian
-        amount: 1
+      - id: PlushieXeno
+      - id: PlushieHampter
 
 - type: entity
   id: CrateFunInstrumentsVariety
@@ -259,3 +252,25 @@
       - id: ClothingHeadBandRed
       - id: FoamCutlass
         amount: 2
+
+- type: entity
+  id: CrateFunToyBox
+  parent: CrateToyBox
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: CrazyGlue
+        amount: 2
+      - id: PlasticBanana
+      - id: WhoopieCushion
+      - id: ToyHammer
+      - id: MrChips
+        orGroup: GiftPool
+      - id: MrDips
+        orGroup: Giftpool
+      - id: RevolverCapGun
+      - id: VehicleUnicycleFolded
+      - id: ClothingShoesClownLarge
+      - id: ClothingHeadHatMagician
+      - id: BeachBall

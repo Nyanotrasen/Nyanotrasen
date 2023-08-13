@@ -73,6 +73,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - NewsReadCartridge
     cartridgeSlot:
       priority: -1
       name: Cartridge
@@ -228,7 +229,7 @@
     state: pda-mime
 
 - type: entity
-  name: Chaplain PDA
+  name: chaplain PDA
   parent: BasePDA
   id: ChaplainPDA
   description: God's chosen PDA.
@@ -246,7 +247,7 @@
       - GlimmerMonitorCartridge
 
 - type: entity
-  name: Quartermaster PDA
+  name: quartermaster PDA
   parent: BasePDA
   id: QuartermasterPDA
   description: PDA for the guy that orders the guns.
@@ -417,6 +418,25 @@
 
 - type: entity
   parent: BasePDA
+  id: ParamedicPDA
+  name: paramedic PDA
+  description: Shiny and sterile. Has a built-in rapid health analyzer.
+  components:
+  - type: Pda
+    id: ParamedicIDCard
+    state: pda-paramedic
+  - type: PdaBorderColor
+    borderColor: "#d7d7d0"
+    accentVColor: "#2a4b5b"
+  - type: Icon
+    state: pda-paramedic
+  - type: HealthAnalyzer
+    scanDelay: 0.5
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+
+- type: entity
+  parent: BasePDA
   id: HoSPDA
   name: head of security PDA
   description: Whosoever bears this PDA is the law.
@@ -460,14 +480,39 @@
     state: pda-security
 
 - type: entity
-  parent: PassengerPDA
+  parent: BasePDA
   id: CentcomPDA
   name: CentCom PDA
-  description: Colored the numbing grey of bureaucracy.
+  description: Light green sign of walking bureaucracy.
+  components:
+  - type: Pda
+    id: CentcomIDCard
+    state: pda-centcom
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#00842e"
+  - type: Icon
+    state: pda-centcom
+
+- type: entity
+  parent: CentcomPDA
+  id: CentcomPDAFake
+  suffix: Fake
   components:
   - type: Pda
     id: CentcomIDCardSyndie
-    state: pda
+
+- type: entity
+  parent: CentcomPDA
+  id: DeathsquadPDA
+  suffix: Deathsquad
+  components:
+  - type: Pda
+    id: CentcomIDCardDeathsquad
 
 - type: entity
   parent: BasePDA
@@ -480,6 +525,8 @@
     state: pda-musician
   - type: PdaBorderColor
     borderColor: "#333333"
+  - type: Icon
+    state: pda-musician
   - type: Instrument
     allowPercussion: false
     handheld: true
@@ -528,6 +575,18 @@
     borderColor: "#891417"
   - type: Icon
     state: pda-syndi
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - NotekeeperCartridge
+    cartridgeSlot:
+      priority: -1
+      name: Cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+      whitelist:
+        components:
+          - Cartridge
 
 - type: entity
   parent: BasePDA

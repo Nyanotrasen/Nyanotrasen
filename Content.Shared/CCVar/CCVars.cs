@@ -741,6 +741,19 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<int> AdminAlertExplosionMinIntensity =
             CVarDef.Create("admin.alert.explosion_min_intensity", 60, CVar.SERVERONLY);
 
+
+        /// <summary>
+        ///     Should the ban details in admin channel include PII? (IP, HWID, etc)
+        public static readonly CVarDef<bool> AdminShowPIIOnBan =
+            CVarDef.Create("admin.show_pii_onban", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// If an admin joins a round by reading up or using the late join button, automatically
+        /// de-admin them.
+        /// </summary>
+        public static readonly CVarDef<bool> AdminDeadminOnJoin =
+            CVarDef.Create("admin.deadmin_on_join", false, CVar.SERVERONLY);
+
         /*
          * Explosions
          */
@@ -1049,6 +1062,12 @@ namespace Content.Shared.CCVar
         /// False: Dead player LOOC gets redirected to dead chat
         /// </summary>
         public static readonly CVarDef<bool> DeadLoocEnabled = CVarDef.Create("looc.enabled_dead", false, CVar.NOTIFY | CVar.REPLICATED);
+
+        /// <summary>
+        /// True: Crit players can use LOOC
+        /// False: Crit player LOOC gets redirected to dead chat
+        /// </summary>
+        public static readonly CVarDef<bool> CritLoocEnabled = CVarDef.Create("looc.enabled_crit", false, CVar.NOTIFY | CVar.REPLICATED);
 
         /*
          * Entity Menu Grouping Types

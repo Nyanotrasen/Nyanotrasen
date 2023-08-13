@@ -49,6 +49,11 @@
   description: flavor-base-fishy
 
 - type: flavor
+  id: crabby
+  flavorType: Base
+  description: flavor-base-crabby
+
+- type: flavor
   id: cheesy
   flavorType: Base
   description: flavor-base-cheesy
@@ -164,6 +169,11 @@
   description: flavor-base-sharp
 
 - type: flavor
+  id: syrupy
+  flavorType: Base
+  description: flavor-base-syrupy
+
+- type: flavor
   id: nothing
   flavorType: Complex
   description: flavor-complex-nothing
@@ -222,6 +232,16 @@
   id: bacon
   flavorType: Complex
   description: flavor-complex-bacon
+
+- type: flavor
+  id: chicken
+  flavorType: Complex
+  description: flavor-complex-chicken
+
+- type: flavor
+  id: duck
+  flavorType: Complex
+  description: flavor-complex-duck
 
 - type: flavor
   id: chocolate
@@ -454,6 +474,36 @@
   description: flavor-complex-validhunting
 
 - type: flavor
+  id: people
+  flavorType: Complex
+  description: flavor-complex-people
+
+- type: flavor
+  id: cat
+  flavorType: Complex
+  description: flavor-complex-cat
+
+- type: flavor
+  id: homerun
+  flavorType: Complex
+  description: flavor-complex-homerun
+
+- type: flavor
+  id: grass
+  flavorType: Complex
+  description: flavor-complex-grass
+
+- type: flavor
+  id: flare
+  flavorType: Complex
+  description: flavor-complex-flare
+
+- type: flavor
+  id: cobwebs
+  flavorType: Complex
+  description: flavor-complex-cobwebs
+
+- type: flavor
   id: alcohol
   flavorType: Complex
   description: flavor-complex-alcohol
@@ -522,6 +572,11 @@
   id: shittywine
   flavorType: Complex
   description: flavor-complex-shitty-wine
+
+- type: flavor
+  id: champagne
+  flavorType: Complex
+  description: flavor-complex-champagne
 
 - type: flavor
   id: icedtea
@@ -747,13 +802,38 @@
   id: chaos
   flavorType: Complex
   description: flavor-complex-chaos
-  
+
 - type: flavor
   id: themartinez
   flavorType: Complex
   description: flavor-complex-themartinez
 
 - type: flavor
+  id: white-gilgamesh
+  flavorType: Complex
+  description: flavor-complex-white-gilgamesh
+
+- type: flavor
+  id: plastic
+  flavorType: Complex
+  description: flavor-complex-plastic
+
+- type: flavor
+  id: glue
+  flavorType: Complex
+  description: flavor-complex-glue
+
+- type: flavor
   id: rocksandstones
   flavorType: Complex
   description: flavor-complex-rocksandstones
+
+- type: flavor
+  id: spaceshroom
+  flavorType: Base
+  description: flavor-base-spaceshroom
+
+- type: flavor
+  id: spaceshroomcooked
+  flavorType: Complex
+  description: flavor-complex-spaceshroom-cooked

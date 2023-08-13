@@ -19,11 +19,9 @@ using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
-using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Kitchen;
 using Robust.Server;
-using Robust.Server.Bql;
 using Robust.Shared.Configuration;
 using Robust.Server.ServerStatus;
 using Robust.Shared.ContentPack;
@@ -149,7 +147,6 @@ namespace Content.Server.Entry
 
                 IoCManager.Resolve<IGameMapManager>().Initialize();
                 IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<GameTicker>().PostInitialize();
-                IoCManager.Resolve<IBqlQueryManager>().DoAutoRegistrations();
                 IoCManager.Resolve<IBanManager>().Initialize();
             }
         }

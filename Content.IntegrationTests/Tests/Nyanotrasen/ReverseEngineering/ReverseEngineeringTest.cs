@@ -1,7 +1,5 @@
 #nullable enable
 using System.Collections.Generic;
-using NUnit.Framework;
-using System.Threading.Tasks;
 using Content.Shared.ReverseEngineering;
 using Content.Shared.Research.Prototypes;
 using Content.Server.ReverseEngineering;
@@ -22,7 +20,7 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
         [Test]
         public async Task ReverseEngineeringResultsValid()
         {
-            await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+            await using var pairTracker = await PoolManager.GetServerClient();
             var server = pairTracker.Pair.Server;
             // Per RobustIntegrationTest.cs, wait until state is settled to access it.
             await server.WaitIdleAsync();
@@ -66,6 +64,8 @@ namespace Content.IntegrationTests.Tests.ReverseEngineering
                     }
                 }
             });
+
+            await pairTracker.CleanReturnAsync();
         }
     }
 }

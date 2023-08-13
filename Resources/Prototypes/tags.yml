@@ -8,6 +8,9 @@
   id: AirSensor
 
 - type: Tag
+  id: Ambrosia
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag
@@ -792,6 +795,9 @@
   id: Unstackable # To prevent things like atmos devices (filters etc) being stacked on one tile. See NoUnstackableInTile
 
 - type: Tag
+  id: UraniumGlassShard
+
+- type: Tag
   id: VehicleKey
 
 - type: Tag
@@ -835,3 +841,9 @@
 
 - type: Tag
   id: Write
+
+- type: Tag
+  id: RifleStock
+
+- type: Tag
+  id: ModularReceiver

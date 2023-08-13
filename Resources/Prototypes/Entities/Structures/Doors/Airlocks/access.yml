@@ -530,6 +530,14 @@
     access: [["Security"]]
 
 - type: entity
+  parent: AirlockScienceGlassLocked
+  id: AirlockDetectiveGlassLocked
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
+
+- type: entity
   parent: AirlockSecurityGlass
   id: AirlockBrigGlassLocked
   suffix: Brig, Locked
@@ -544,14 +552,6 @@
   components:
   - type: AccessReader
     access: [["Armory"]]
-
-- type: entity
-  parent: AirlockScienceGlassLocked
-  id: AirlockDetectiveGlassLocked
-  suffix: Detective, Locked
-  components:
-  - type: AccessReader
-    access: [["Detective"]]
 
 - type: entity
   parent: AirlockCommandGlassLocked
@@ -721,6 +721,14 @@
   components:
   - type: AccessReader
     access: [["Security"]]
+
+- type: entity
+  parent: AirlockMaint
+  id: AirlockMaintDetectiveLocked
+  suffix: Detective, Locked
+  components:
+  - type: AccessReader
+    access: [["Detective"]]
 
 - type: entity
   parent: AirlockMaint

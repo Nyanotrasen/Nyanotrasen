@@ -1,16 +1,5 @@
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesGlassesBeer
-  name: beer goggles
-  description: A pair of sunglasses outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion.
-  components:
-  - type: Sprite
-    sprite: Clothing/Eyes/Glasses/beergoggles.rsi
-  - type: Clothing
-    sprite: Clothing/Eyes/Glasses/beergoggles.rsi
-
-- type: entity
-  parent: ClothingEyesBase
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
   description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
@@ -75,6 +64,20 @@
   - type: EyeProtection
     protectionTime: 5
 
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMercenary
+  name: mercenary glasses
+  description: Glasses made for combat, to protect the eyes from bright blinding flashes.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+
 #Make a scanner category when these actually function and we get the trayson
 - type: entity
   parent: ClothingEyesBase
@@ -91,3 +94,15 @@
       coefficients:
         Heat: 0.95
   - type: GroupExamine
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesChemical
+  name: chemical analysis goggles
+  description: Goggles that can scan the chemical composition of a solution.
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/science.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/science.rsi
+    - type: SolutionScanner

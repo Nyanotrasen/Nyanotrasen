@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: Toxin
   name: reagent-name-toxin
   group: Toxins
@@ -415,23 +415,24 @@
           disease: VentCough
 
 - type: reagent
-  id: Corpium
-  name: reagent-name-corpium
+  id: Romerol
+  name: reagent-name-romerol
   group: Toxins
-  desc: reagent-desc-corpium
+  desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
   flavor: bitter
-  color: "#7668a1"
+  color: "#7e916e"
   metabolisms:
-    Poison:
+    Medicine:
       effects:
-        - !type:HealthChange
-          damage:
-            types:
-              Cellular: 1
         - !type:ChemCauseDisease
           causeChance: 1
           disease: ActiveZombieVirus
+        # non-DiseaseSystem variant:
+        # - !type:CauseZombieInfection
+        #   conditions:
+        #     - !type:ReagentThreshold
+        #       min: 5
 
 - type: reagent
   id: UncookedAnimalProteins
@@ -495,3 +496,19 @@
         component: Pacified
         refresh: false
         type: Add
+
+- type: reagent
+  id: Lead
+  name: reagent-name-lead
+  group: Toxins
+  desc: reagent-desc-lead
+  physicalDesc: reagent-physical-desc-metallic
+  color: "#5C6274"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.03 # Effectively once every 30 seconds.
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.6 # Makes it 20 damage per unit.

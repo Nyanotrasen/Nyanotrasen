@@ -24,15 +24,13 @@
   - type: StorageFill
     contents:
     - id: SmokingPipeFilledTobacco
-  - type: TemperatureProtection
-    coefficient: 0.2
-  - type: Armor
+  - type: Armor #same as regular sec armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.80
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -62,10 +60,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.7
-        Slash: 0.7
-        Piercing: 0.4
-        Heat: 0.7
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+        Caustic: 0.75 #not the full 90% from ss13 because of the head
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -170,6 +171,21 @@
 
 - type: entity
   parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatRnd
+  name: scientist lab coat
+  description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/rndcoat.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/rndcoat.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRobo
   name: roboticist lab coat
   description: More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads.
@@ -207,10 +223,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.8
-        Slash: 0.8
-        Piercing: 0.4
-        Heat: 0.8
+        Blunt: 0.70
+        Slash: 0.70
+        Piercing: 0.70
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.90
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -261,3 +279,25 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSyndieCap
+  name: syndicate's coat
+  description: The syndicate's coat is made of durable fabric, with gilded patterns.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+
+- type: entity
+  parent: ClothingOuterCoatHoSTrench
+  id: ClothingOuterCoatSyndieCapArmored
+  name: syndicate's armored coat
+  description: The syndicate's armored coat is made of durable fabric, with gilded patterns.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
