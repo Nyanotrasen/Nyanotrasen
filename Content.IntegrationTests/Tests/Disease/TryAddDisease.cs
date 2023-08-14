@@ -1,7 +1,5 @@
-using System.Threading.Tasks;
 using Content.Server.Disease;
 using Content.Shared.Disease;
-using NUnit.Framework;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
@@ -15,7 +13,7 @@ public sealed class DeviceNetworkTest
     [Test]
     public async Task AddAllDiseases()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings{NoClient = true});
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
         var testMap = await PoolManager.CreateTestMap(pairTracker);
         await server.WaitPost(() =>
@@ -31,5 +29,7 @@ public sealed class DeviceNetworkTest
                 diseaseSystem.TryAddDisease(sickEntity, diseaseProto);
             }
         });
+
+        await pairTracker.CleanReturnAsync();
     }
 }

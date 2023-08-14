@@ -1778,9 +1778,6 @@ entities:
     - linkedPorts:
         254:
         - Pressed: Toggle
-      registeredSinks:
-        Pressed:
-        - 254
       type: DeviceLinkSource
 - proto: SinkEmpty
   entities:

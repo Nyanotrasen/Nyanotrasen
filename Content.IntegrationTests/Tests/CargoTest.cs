@@ -17,7 +17,7 @@ public sealed class CargoTest
     [Test]
     public async Task NoCargoOrderArbitrage()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings() { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var testMap = await PoolManager.CreateTestMap(pairTracker);
@@ -52,7 +52,7 @@ public sealed class CargoTest
     [Test]
     public async Task NoCargoBountyArbitageTest()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings() { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var testMap = await PoolManager.CreateTestMap(pairTracker);
@@ -93,7 +93,7 @@ public sealed class CargoTest
     [Test]
     public async Task NoStaticPriceAndStackPrice()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var testMap = await PoolManager.CreateTestMap(pairTracker);
@@ -110,6 +110,7 @@ public sealed class CargoTest
 
             var protoIds = protoManager.EnumeratePrototypes<EntityPrototype>()
                 .Where(p => !p.Abstract)
+                .Where(p => !pairTracker.Pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // Grids are not for sale.
                 .Select(p => p.ID)
                 .ToList();
@@ -145,10 +146,9 @@ public sealed class CargoTest
         await pairTracker.CleanReturnAsync();
     }
 
-    [Test]
-    public async Task StackPrice()
-    {
-        const string stackProto = @"
+
+    [TestPrototypes]
+    private const string StackProto = @"
 - type: entity
   id: A
 
@@ -166,7 +166,10 @@ public sealed class CargoTest
     count: 5
 ";
 
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true, ExtraPrototypes = stackProto });
+    [Test]
+    public async Task StackPrice()
+    {
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entManager = server.ResolveDependency<IEntityManager>();

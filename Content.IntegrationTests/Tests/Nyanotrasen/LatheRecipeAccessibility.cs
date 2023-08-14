@@ -13,7 +13,7 @@ public sealed class LatheRecipeAccessibility
     [Test]
     public async Task AllLatheRecipesAccessible()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var protoManager = server.ResolveDependency<IPrototypeManager>();

@@ -24,6 +24,7 @@ namespace Content.IntegrationTests.Tests.Minds;
 [TestFixture]
 public sealed partial class MindTests
 {
+    [TestPrototypes]
     private const string Prototypes = @"
 - type: entity
   id: MindTestEntityDamageable
@@ -53,7 +54,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestCreateAndTransferMindToNewEntity()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -79,7 +80,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestReplaceMind()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -110,7 +111,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestEntityDeadWhenGibbed()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true, ExtraPrototypes = Prototypes });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -164,7 +165,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestMindTransfersToOtherEntity()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -198,7 +199,11 @@ public sealed partial class MindTests
     [Test]
     public async Task TestOwningPlayerCanBeChanged()
     {
-        await using var pairTracker = await PoolManager.GetServerClient();
+        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Connected = true,
+            DummyTicker = false
+        });
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -251,7 +256,7 @@ public sealed partial class MindTests
     [Test]
     public async Task TestAddRemoveHasRoles()
     {
-        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { NoClient = true });
+        await using var pairTracker = await PoolManager.GetServerClient();
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -320,7 +325,7 @@ public sealed partial class MindTests
     public async Task TestPlayerCanGhost()
     {
         // Client is needed to spawn session
-        await using var pairTracker = await PoolManager.GetServerClient();
+        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings { Connected = true });
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
@@ -396,15 +401,16 @@ public sealed partial class MindTests
     [Test]
     public async Task TestGhostDoesNotInfiniteLoop()
     {
-        // Client is needed to spawn session
-        await using var pairTracker = await PoolManager.GetServerClient();
+        await using var pairTracker = await PoolManager.GetServerClient(new PoolSettings
+        {
+            DummyTicker = false,
+            Connected = true
+        });
         var server = pairTracker.Pair.Server;
 
         var entMan = server.ResolveDependency<IServerEntityManager>();
         var playerMan = server.ResolveDependency<IPlayerManager>();
         var serverConsole = server.ResolveDependency<IServerConsoleHost>();
-
-        var mindSystem = entMan.EntitySysManager.GetEntitySystem<MindSystem>();
 
         //EntityUid entity = default!;
         EntityUid mouse = default!;

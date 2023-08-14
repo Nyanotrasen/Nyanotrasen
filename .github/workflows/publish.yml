@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install dependencies
+      run: sudo apt-get install -y python3-paramiko
+
     - uses: actions/checkout@v2
       with:
         submodules: 'recursive'
@@ -59,11 +62,17 @@ jobs:
         port: ${{ secrets.PUBLISH_PORT }}
         script: /var/www/builds.delta-v.org/push.ps1 ${{ github.sha }}
 
-    - name: Publish changelog
+    - name: Publish changelog (Discord)
       run: |
         pip install python-dateutil
         Tools/actions_changelogs_since_last_run.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         DISCORD_WEBHOOK_URL: ${{ secrets.CHANGELOG_DISCORD_WEBHOOK }}
+      continue-on-error: true
+
+    - name: Publish changelog (RSS)
+      run: Tools/actions_changelog_rss.py
+      env:
+        CHANGELOG_RSS_KEY: ${{ secrets.CHANGELOG_RSS_KEY }}
       continue-on-error: true

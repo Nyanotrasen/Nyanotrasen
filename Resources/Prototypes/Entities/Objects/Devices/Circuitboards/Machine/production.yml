@@ -51,6 +51,20 @@
           ExamineName: Glass Beaker
 
 - type: entity
+  id: AmmoTechFabCircuitboard
+  parent: BaseMachineCircuitboard
+  name: ammo techfab circuit board
+  description: A machine printed circuit board for an ammo techfab
+  components:
+    - type: Sprite
+      state: security
+    - type: MachineBoard
+      prototype: AmmoTechFab
+      requirements:
+        MatterBin: 1
+        Manipulator: 1
+
+- type: entity
   id: MedicalTechFabCircuitboard
   parent: BaseMachineCircuitboard
   name: medical techfab machine board
@@ -470,18 +484,12 @@
         MatterBin: 2
         Manipulator: 1
       tagRequirements:
-        Pipe:
-          Amount: 1
-          DefaultPrototype: GasPipeStraight
-          ExamineName: pipe
-        BorgArm:
-          Amount: 3
-          DefaultPrototype: LeftArmBorg
-          ExamineName: borg arm
         Knife:
-          Amount: 3
+          Amount: 2
           DefaultPrototype: KitchenKnife
-          ExamineName: knife
+          ExamineName: Knife
+      materialRequirements:
+        Steel: 5
     - type: ReverseEngineering
       difficulty: 2
       recipes:
@@ -615,6 +623,8 @@
         Glass: 200
       chemicalComposition:
         Silicon: 20
+    - type: DynamicPrice
+      price: 58
 
 - type: entity
   parent: BaseMachineCircuitboard
@@ -822,6 +832,17 @@
     - type: ReverseEngineering
       recipes:
         - OreProcessorMachineCircuitboard
+
+- type: entity
+  id: SheetifierMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: sheet-meister 2000 machine board
+  components:
+  - type: MachineBoard
+    prototype: Sheetifier
+    requirements:
+      MatterBin: 1
+      Manipulator: 1
 
 - type: entity
   id: MicrowaveMachineCircuitboard

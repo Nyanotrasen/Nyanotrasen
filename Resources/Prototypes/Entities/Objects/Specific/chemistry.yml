@@ -156,6 +156,8 @@
   components:
   - type: Spillable
     solution: beaker
+  - type: DynamicPrice
+    price: 10
 
 - type: entity
   name: large beaker
@@ -298,7 +300,7 @@
     solution: injector
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 4
+    maxFillLevels: 2
     fillBaseName: syringe
 
 - type: entity
@@ -328,6 +330,7 @@
     transferAmount: null
     eatMessage: food-swallow
     useSound: /Audio/Items/pill.ogg
+  - type: BadFood
   - type: FlavorProfile
     ignoreReagents: []
   - type: SolutionContainerManager

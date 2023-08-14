@@ -40,7 +40,7 @@
     materialComposition:
       Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 30
 
 - type: entity
   name: screwdriver
@@ -82,7 +82,7 @@
     materialComposition:
       Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 30
 
 - type: entity
   name: wrench
@@ -120,7 +120,7 @@
     materialComposition:
       Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 22
 
 - type: entity
   name: crowbar
@@ -155,7 +155,7 @@
     materialComposition:
       Steel: 100
   - type: DynamicPrice
-    price: 40
+    price: 22
 
 - type: entity
   name: emergency crowbar
@@ -219,12 +219,12 @@
     materialComposition:
       Steel: 100
       Plastic: 100
-  - type: DynamicPrice
-    price: 60
   - type: MeleeWeapon
     damage:
       types:
         Shock: 2
+  - type: DynamicPrice
+    price: 56
 
 - type: entity
   name: network configurator
@@ -271,8 +271,8 @@
     - type: Tag
       tags:
         - DroneUsable
-    - type: StaticPrice
-      price: 60
+    - type: DynamicPrice
+      price: 56
     - type: GuideHelp
       guides:
         - NetworkConfigurator

@@ -57,3 +57,23 @@
               doAfter: 1
     - node: icon
       entity: PlasmaShiv
+
+- type: constructionGraph
+  id: UraniumShiv
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: icon
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 1
+            - tag: UraniumGlassShard
+              name: Uranium Glass Shard
+              icon:
+                sprite: Objects/Materials/Shards/shard.rsi
+                state: shard1
+              doAfter: 1
+    - node: icon
+      entity: UraniumShiv
