@@ -41704,6 +41704,14 @@ entities:
       pos: 0.5,37.5
       parent: 2
       type: Transform
+- proto: ComputerMassMedia
+  entities:
+  - uid: 15252
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -13.5,20.5
+      parent: 2
+      type: Transform
 - proto: ComputerMedicalRecords
   entities:
   - uid: 5613
@@ -51305,6 +51313,13 @@ entities:
   - uid: 15729
     components:
     - pos: -61.46964,-8.387285
+      parent: 2
+      type: Transform
+- proto: FoodMealTaco
+  entities:
+  - uid: 1247
+    components:
+    - pos: -11.366393,4.2297497
       parent: 2
       type: Transform
 - proto: FoodMeatBacon
@@ -81551,10 +81566,9 @@ entities:
       type: Transform
 - proto: MicrophoneInstrument
   entities:
-  - uid: 15252
+  - uid: 16804
     components:
-    - rot: 3.141592653589793 rad
-      pos: -13.237209,20.531408
+    - pos: -12.9764385,22.003674
       parent: 2
       type: Transform
 - proto: MinimoogInstrument
@@ -96709,11 +96723,6 @@ entities:
   - uid: 891
     components:
     - pos: -20.5,-2.5
-      parent: 2
-      type: Transform
-  - uid: 1247
-    components:
-    - pos: -13.5,20.5
       parent: 2
       type: Transform
   - uid: 1416
