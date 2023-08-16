@@ -10,22 +10,12 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 100
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 181
     components:
     - name: NT-Reclaimer
       type: MetaData
     - pos: 2.2710133,-2.4148211
-      parent: 100
+      parent: invalid
       type: Transform
     - chunks:
         -1,0:
