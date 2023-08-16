@@ -35,11 +35,11 @@
 - type: entity
   id: BaseStationShuttles
   abstract: true
-#  components:
-#   - type: GridSpawn
-#     paths:
+  components:
+   - type: GridSpawn
+     paths:
 #       - /Maps/Shuttles/cargo.yml
-#       - /Maps/Shuttles/mining.yml # Note, this doesn't spawn on a seperate map, salvage doesnt deserve it :)
+       - /Maps/Shuttles/mining-deltav.yml
 
 - type: entity
   id: BaseStationCentcomm
