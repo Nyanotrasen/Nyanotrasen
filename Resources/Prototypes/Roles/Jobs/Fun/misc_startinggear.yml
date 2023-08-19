@@ -1,20 +1,20 @@
 #Misc outfit startingGear definitions.
 
-#IHS Void Suit Outfit
-- type: startingGear
-  id: IHSGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBlack
-    back: ClothingBackpackFilled
-    head: ClothingHeadHelmetIHSVoidHelm
-    gloves: ClothingHandsGlovesIhscombat
-    outerClothing: IHSVoidsuit
-    shoes: ClothingShoesBootsJack
-    id: PassengerPDA
-    ears: ClothingHeadsetService
-  innerclothingskirt: ClothingUniformJumpskirtColorBlack
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
+##IHS Void Suit Outfit
+#- type: startingGear
+#  id: IHSGear
+#  equipment:
+#    jumpsuit: ClothingUniformJumpsuitColorBlack
+#    back: ClothingBackpackFilled
+#    head: ClothingHeadHelmetIHSVoidHelm
+#    gloves: ClothingHandsGlovesIhscombat
+#    outerClothing: IHSVoidsuit
+#    shoes: ClothingShoesBootsJack
+#    id: PassengerPDA
+#    ears: ClothingHeadsetService
+#  innerclothingskirt: ClothingUniformJumpskirtColorBlack
+#  satchel: ClothingBackpackSatchelFilled
+#  duffelbag: ClothingBackpackDuffelFilled
 
 #Skeleton Biker
 - type: startingGear
@@ -145,7 +145,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackDuffelSyndicateOperativeMedic
-    mask: ClothingMaskBreathMedicalSecurity
+    mask: ClothingMaskBreathMedical
     eyes: ClothingEyesHudMedical
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
