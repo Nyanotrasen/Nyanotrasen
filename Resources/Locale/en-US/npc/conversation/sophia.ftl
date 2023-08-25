@@ -22,7 +22,7 @@ sophia-response-sorry-3 = Maybe I know the answer, maybe I do not. Either way, I
 
 sophia-response-nature = My nature doesn't really matter, does it? I'm fulfilling my purpose. Can you say the same, or are you just wasting time?
 
-sophia-response-epi = 'Epistemics' is a word. Aspiring Hellenes they are, they wished to displace the Latin 'science.' However, in English, epistemics has undesired connotations as a study of knowledge itself, even though the Greek word is a literal replacement for 'science.'
+sophia-response-epi = 'Epistemics' is a word. Aspiring Hellenes they are, they wished to displace the Latin 'science.' However, in Galactic Common, epistemics has undesired connotations as a study of knowledge itself, even though the Greek word is a literal replacement for 'science.'
 
 sophia-response-mantis = 'Mantis' means seer, soothsayer, or prophet. They must be so named because they seek to uncover the truth. And, fittingly with their psionic aptitude, 'mantis' and 'mind' both descend, to the best of our knowledge, from an absolutely ancient word that sounded something like 'mentis.'
 
