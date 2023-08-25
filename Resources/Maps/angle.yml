@@ -3996,6 +3996,7 @@ entities:
     - type: RadiationGridResistance
     - type: GasTileOverlay
     - type: SpreaderGrid
+    - type: PreventPilot
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 4552
@@ -39609,11 +39610,6 @@ entities:
   - uid: 1044
     components:
     - pos: 5.5,-22.5
-      parent: 9
-      type: Transform
-  - uid: 13486
-    components:
-    - pos: 1.5,-67.5
       parent: 9
       type: Transform
 - proto: ChemistryEmptyBottle01
@@ -103833,6 +103829,15 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -1.5,-24.5
+      parent: 9
+      type: Transform
+- proto: VendingMachineChemicals
+  entities:
+  - uid: 13486
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 1.5,-67.5
       parent: 9
       type: Transform
 - proto: VendingMachineCigs

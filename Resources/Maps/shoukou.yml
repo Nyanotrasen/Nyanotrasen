@@ -2952,6 +2952,7 @@ entities:
     - id: Shoukou
       type: BecomesStation
     - type: SpreaderGrid
+    - type: PreventPilot
   - uid: 35
     components:
     - type: MetaData
@@ -6359,6 +6360,13 @@ entities:
   - uid: 5625
     components:
     - pos: -19.61977,7.4961514
+      parent: 34
+      type: Transform
+- proto: BoardGameSpawner
+  entities:
+  - uid: 4414
+    components:
+    - pos: 20.5,4.5
       parent: 34
       type: Transform
 - proto: Bookshelf
@@ -26436,11 +26444,6 @@ entities:
     - pos: -1.5,-27.5
       parent: 34
       type: Transform
-  - uid: 6120
-    components:
-    - pos: 10.5,10.5
-      parent: 34
-      type: Transform
 - proto: ChemistryEmptyBottle03
   entities:
   - uid: 6118
@@ -26458,13 +26461,6 @@ entities:
   - uid: 11017
     components:
     - pos: -0.5,-26.5
-      parent: 34
-      type: Transform
-- proto: ChessBoard
-  entities:
-  - uid: 5043
-    components:
-    - pos: 20.496408,4.611505
       parent: 34
       type: Transform
 - proto: Cigar
@@ -62018,6 +62014,16 @@ entities:
     - pos: 8.5,-35.5
       parent: 34
       type: Transform
+  - uid: 4415
+    components:
+    - pos: 21.5,4.5
+      parent: 34
+      type: Transform
+  - uid: 5043
+    components:
+    - pos: 17.5,7.5
+      parent: 34
+      type: Transform
   - uid: 7151
     components:
     - pos: -36.5,-12.5
@@ -70072,6 +70078,15 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -10.5,-48.5
+      parent: 34
+      type: Transform
+- proto: VendingMachineChemicals
+  entities:
+  - uid: 4413
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 10.5,10.5
       parent: 34
       type: Transform
 - proto: VendingMachineCigs
