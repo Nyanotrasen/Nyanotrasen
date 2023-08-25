@@ -56,7 +56,7 @@ sophia-response-oni = Oni, it is said, originated in Sirius. The brightest star 
 
 sophia-response-arachne = Arachne are the strangest of them. They're not fully mortal. They took the form of humans, but not their genes. Their creator wrote his name in their stead.
 
-sophia-response-moth = Moths scarecely look human, but, strangely, their genes confirm they are. Their creator shares his name with a genus of moths, and was responsible for the other outlier.
+sophia-response-moth = Moths scarcely look human, but, strangely, their genes confirm they are. Their creator shares his name with a genus of moths, and was responsible for the other outlier.
 
 sophia-response-lamiae = So, you remember? You must be remembering their mythological namesake. If you've really retained that fleeting memory over so many metempsychoses... Perhaps I've said too much.
 
