@@ -406,8 +406,8 @@ entities:
             color: '#0000FBFF'
             id: ArrowsGreyscale
           decals:
-            5604: -52.228264,22.926834
-            5605: -51.759514,22.91641
+            5595: -52.228264,22.926834
+            5596: -51.759514,22.91641
         - node:
             angle: -7.853981633974483 rad
             color: '#52B4E996'
@@ -457,8 +457,8 @@ entities:
             color: '#FF2E26FF'
             id: ArrowsGreyscale
           decals:
-            5606: -38.229725,32.950005
-            5607: -37.760975,32.92916
+            5597: -38.229725,32.950005
+            5598: -37.760975,32.92916
         - node:
             color: '#FFFFFFFF'
             id: Basalt1
@@ -76111,20 +76111,20 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 267
+  - uid: 264
     components:
     - rot: -1.5707963267948966 rad
-      pos: -43.5,24.5
+      pos: -41.5,26.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-  - uid: 271
+  - uid: 267
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -45.5,26.5
+    - rot: -1.5707963267948966 rad
+      pos: -43.5,24.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
@@ -104895,10 +104895,9 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-  - uid: 266
+  - uid: 263
     components:
-    - rot: 3.141592653589793 rad
-      pos: -41.5,26.5
+    - pos: -45.5,26.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
@@ -107763,7 +107762,7 @@ entities:
   - uid: 268
     components:
     - rot: -1.5707963267948966 rad
-      pos: -44.5,24.5
+      pos: -42.5,26.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
@@ -107856,10 +107855,10 @@ entities:
       type: AtmosPipeColor
 - proto: GasThermoMachineHeater
   entities:
-  - uid: 263
+  - uid: 271
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -40.5,26.5
+    - rot: 1.5707963267948966 rad
+      pos: -46.5,26.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
@@ -112823,10 +112822,10 @@ entities:
       type: Transform
     - color: '#FF1212FF'
       type: AtmosPipeColor
-  - uid: 264
+  - uid: 266
     components:
     - rot: -1.5707963267948966 rad
-      pos: -42.5,26.5
+      pos: -44.5,24.5
       parent: 1
       type: Transform
     - color: '#33FF33FF'
