@@ -167,3 +167,14 @@
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirt_khaki.rsi
   - type: Clothing
     sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirt_khaki.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTShirtDecorPants
+  name: decorated pants
+  description: a decorated jumpsuit.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/decorpants.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/decorpants.rsi
