@@ -23,6 +23,19 @@
     sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
   - type: TemperatureProtection
     coefficient: 0.4
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatOrangeWindbreaker
+  name: orange windbreaker
+  description: just an orange windbreaker with an triangle on the back.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Misc/letterman_jacket_red.rsi
+  - type: TemperatureProtection
+    coefficient: 0.4
 ## mnk
 
 - type: entity
