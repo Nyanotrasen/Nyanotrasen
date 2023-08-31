@@ -17,3 +17,13 @@
   cost: 3500
   category: Armory
   group: market
+
+- type: cargoProduct
+  id: ArmoryShotgunAdjutant
+  icon:
+    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+    state: icon
+  product: WeaponShotgunAdjutant
+  cost: 9000
+  category: Armory
+  group: market

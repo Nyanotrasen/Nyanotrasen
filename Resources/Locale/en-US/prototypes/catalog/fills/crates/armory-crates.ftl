@@ -18,3 +18,6 @@ ent-CrateArmoryGrand = rifles crate
 
 ent-CrateArmoryUniversal = Universal crate
     .desc = Contains two Mk32 Universal handguns with four mags. Requires Armory access to open.
+
+ent-CrateArmoryAdjutant = Adjutant crate
+    .desc = Contains two Adjutant shotguns with 4 ammo drums. Requires Armory access to open.

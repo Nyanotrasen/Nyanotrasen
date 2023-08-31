@@ -15,3 +15,6 @@ ent-ArmoryGrand = { ent-CrateArmoryGrand }
 
 ent-ArmoryUniversal = { ent-CrateArmoryUniversal }
     .desc = { ent-CrateArmoryUniversal.desc }
+
+ent-ArmoryAdjutant = { ent-CrateArmoryAdjutant }
+    .desc = { ent-CrateArmoryAdjutant.desc }
