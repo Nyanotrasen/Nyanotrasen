@@ -8547,6 +8547,13 @@ entities:
     - pos: 49.5,3.5
       parent: 9
       type: Transform
+- proto: BiomassReclaimer
+  entities:
+  - uid: 18143
+    components:
+    - pos: -9.5,-33.5
+      parent: 9
+      type: Transform
 - proto: BlastDoor
   entities:
   - uid: 3807
