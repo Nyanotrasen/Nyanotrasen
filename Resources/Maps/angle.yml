@@ -4444,6 +4444,10 @@ entities:
     - pos: 44.5,-3.5
       parent: 9
       type: Transform
+    - ShutdownSubscribers:
+      - 18306
+      - 9518
+      type: DeviceNetwork
     - devices:
       - 2901
       - 2900
@@ -4468,6 +4472,8 @@ entities:
       - 11116
       - 11117
       - 14250
+      - 18306
+      - 9518
       type: DeviceList
   - uid: 13760
     components:
@@ -8863,9 +8869,9 @@ entities:
     - pos: 84.57054,0.37762117
       parent: 9
       type: Transform
-  - uid: 3890
+  - uid: 18305
     components:
-    - pos: 40.363274,-16.625956
+    - pos: 37.823082,-14.334037
       parent: 9
       type: Transform
 - proto: BoxFolderBlack
@@ -51987,14 +51993,6 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9535
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 37.5,-5.5
-      parent: 9
-      type: Transform
-    - color: '#0000FFFF'
-      type: AtmosPipeColor
   - uid: 9549
     components:
     - rot: -1.5707963267948966 rad
@@ -52956,6 +52954,14 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
+  - uid: 18298
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-15.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
 - proto: GasPipeFourway
   entities:
   - uid: 1247
@@ -53022,6 +53028,13 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+  - uid: 9603
+    components:
+    - pos: 29.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
   - uid: 9909
     components:
     - pos: 19.5,-17.5
@@ -54086,14 +54099,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-  - uid: 4709
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 66.5,-6.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 4772
     components:
     - rot: 3.141592653589793 rad
@@ -59942,6 +59947,14 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
+  - uid: 9535
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
   - uid: 9537
     components:
     - rot: 1.5707963267948966 rad
@@ -60378,18 +60391,10 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9603
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 37.5,-7.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 9604
     components:
-    - rot: 1.5707963267948966 rad
-      pos: 38.5,-7.5
+    - rot: -1.5707963267948966 rad
+      pos: 36.5,-7.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -70447,6 +70452,30 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+  - uid: 18147
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-6.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18148
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18149
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-8.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
   - uid: 18173
     components:
     - pos: 13.5,-6.5
@@ -70494,6 +70523,102 @@ entities:
   - uid: 18185
     components:
     - pos: 13.5,-0.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18187
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-9.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18252
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-10.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18288
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18291
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-13.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18295
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18299
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-14.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18300
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-13.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18301
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-12.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18302
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-10.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18303
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-9.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18304
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-8.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -70876,6 +71001,14 @@ entities:
       parent: 9
       type: Transform
     - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 4709
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-5.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
       type: AtmosPipeColor
   - uid: 5054
     components:
@@ -71983,16 +72116,9 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9518
-    components:
-    - pos: 29.5,-7.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 9528
     components:
-    - pos: 36.5,-7.5
+    - pos: 38.5,-7.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -73322,6 +73448,30 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
+  - uid: 18290
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-12.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18294
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 38.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18307
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 66.5,-6.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
 - proto: GasPort
   entities:
   - uid: 3036
@@ -73495,7 +73645,7 @@ entities:
       type: Transform
     - targetPressure: 34
       type: GasPressurePump
-    - color: '#00FFFFFF'
+    - color: '#0000FFFF'
       type: AtmosPipeColor
   - uid: 8474
     components:
@@ -75522,6 +75672,26 @@ entities:
       type: AmbientSound
     - color: '#0000FFFF'
       type: AtmosPipeColor
+  - uid: 18292
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-14.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18293
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 36.5,-12.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
 - proto: GasVentScrubber
   entities:
   - uid: 371
@@ -76185,6 +76355,18 @@ entities:
       pos: 11.5,-21.5
       parent: 9
       type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 9518
+    components:
+    - pos: 66.5,-5.5
+      parent: 9
+      type: Transform
+    - ShutdownSubscribers:
+      - 13738
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF0000FF'
@@ -77022,6 +77204,38 @@ entities:
     - pos: 13.5,0.5
       parent: 9
       type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18296
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 36.5,-11.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18297
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 39.5,-15.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18306
+    components:
+    - pos: 29.5,-6.5
+      parent: 9
+      type: Transform
+    - ShutdownSubscribers:
+      - 13738
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF0000FF'
@@ -101434,6 +101648,13 @@ entities:
       nameSet: True
       id: mail room
       type: SurveillanceCamera
+- proto: SurveillanceCameraWirelessRouterEntertainment
+  entities:
+  - uid: 3890
+    components:
+    - pos: 40.5,-16.5
+      parent: 9
+      type: Transform
 - proto: SurveillanceWirelessCameraAnchoredEntertainment
   entities:
   - uid: 957
