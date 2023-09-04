@@ -274,3 +274,13 @@
       - id: ClothingShoesClownLarge
       - id: ClothingHeadHatMagician
       - id: BeachBall
+
+- type: entity
+  id: CrateFigureBox
+  parent: CrateGenericSteel
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MysteryFigureBox
+        amount: 6
