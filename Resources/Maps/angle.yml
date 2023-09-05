@@ -4444,6 +4444,10 @@ entities:
     - pos: 44.5,-3.5
       parent: 9
       type: Transform
+    - ShutdownSubscribers:
+      - 18306
+      - 9518
+      type: DeviceNetwork
     - devices:
       - 2901
       - 2900
@@ -4468,6 +4472,8 @@ entities:
       - 11116
       - 11117
       - 14250
+      - 18306
+      - 9518
       type: DeviceList
   - uid: 13760
     components:
@@ -8547,6 +8553,13 @@ entities:
     - pos: 49.5,3.5
       parent: 9
       type: Transform
+- proto: BiomassReclaimer
+  entities:
+  - uid: 18143
+    components:
+    - pos: -9.5,-33.5
+      parent: 9
+      type: Transform
 - proto: BlastDoor
   entities:
   - uid: 3807
@@ -8856,9 +8869,9 @@ entities:
     - pos: 84.57054,0.37762117
       parent: 9
       type: Transform
-  - uid: 3890
+  - uid: 18305
     components:
-    - pos: 40.363274,-16.625956
+    - pos: 37.823082,-14.334037
       parent: 9
       type: Transform
 - proto: BoxFolderBlack
@@ -11687,9 +11700,11 @@ entities:
       type: Transform
   - uid: 5859
     components:
-    - pos: 7.5,-19.5
+    - pos: 6.5,-16.5
       parent: 9
       type: Transform
+    - enabled: True
+      type: AmbientSound
   - uid: 5861
     components:
     - pos: 4.5,-4.5
@@ -23568,6 +23583,31 @@ entities:
     - pos: 44.5,15.5
       parent: 9
       type: Transform
+  - uid: 17901
+    components:
+    - pos: 7.5,-19.5
+      parent: 9
+      type: Transform
+  - uid: 17902
+    components:
+    - pos: 5.5,-16.5
+      parent: 9
+      type: Transform
+  - uid: 17903
+    components:
+    - pos: 3.5,-10.5
+      parent: 9
+      type: Transform
+  - uid: 17904
+    components:
+    - pos: 3.5,-11.5
+      parent: 9
+      type: Transform
+  - uid: 17906
+    components:
+    - pos: 4.5,-11.5
+      parent: 9
+      type: Transform
   - uid: 17913
     components:
     - pos: 44.5,16.5
@@ -23688,6 +23728,11 @@ entities:
   - uid: 18050
     components:
     - pos: 23.5,-41.5
+      parent: 9
+      type: Transform
+  - uid: 18084
+    components:
+    - pos: 2.5,-11.5
       parent: 9
       type: Transform
   - uid: 18239
@@ -32713,6 +32758,43 @@ entities:
   - uid: 18001
     components:
     - pos: 29.5,-59.5
+      parent: 9
+      type: Transform
+    - enabled: True
+      type: AmbientSound
+  - uid: 18085
+    components:
+    - pos: 17.5,-23.5
+      parent: 9
+      type: Transform
+  - uid: 18086
+    components:
+    - pos: 16.5,-23.5
+      parent: 9
+      type: Transform
+  - uid: 18087
+    components:
+    - pos: 16.5,-24.5
+      parent: 9
+      type: Transform
+  - uid: 18088
+    components:
+    - pos: 15.5,-24.5
+      parent: 9
+      type: Transform
+  - uid: 18089
+    components:
+    - pos: 14.5,-24.5
+      parent: 9
+      type: Transform
+  - uid: 18090
+    components:
+    - pos: 13.5,-24.5
+      parent: 9
+      type: Transform
+  - uid: 18134
+    components:
+    - pos: 12.5,-24.5
       parent: 9
       type: Transform
     - enabled: True
@@ -48826,6 +48908,32 @@ entities:
       - 2599
       - 3761
       type: DeviceList
+  - uid: 18142
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 0.5,-33.5
+      parent: 9
+      type: Transform
+    - ShutdownSubscribers:
+      - 6721
+      - 6720
+      - 6734
+      - 6735
+      - 6723
+      - 6722
+      - 6724
+      - 6752
+      type: DeviceNetwork
+    - devices:
+      - 6721
+      - 6720
+      - 6734
+      - 6735
+      - 6723
+      - 6722
+      - 6724
+      - 6752
+      type: DeviceList
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 11795
@@ -49582,6 +49690,7 @@ entities:
     - ShutdownSubscribers:
       - 15266
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6721
     components:
@@ -49591,6 +49700,7 @@ entities:
     - ShutdownSubscribers:
       - 15266
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6722
     components:
@@ -49600,6 +49710,7 @@ entities:
     - ShutdownSubscribers:
       - 15266
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6723
     components:
@@ -49608,6 +49719,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6724
     components:
@@ -49616,6 +49728,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6734
     components:
@@ -49625,6 +49738,7 @@ entities:
     - ShutdownSubscribers:
       - 15238
       - 15378
+      - 18142
       type: DeviceNetwork
   - uid: 6735
     components:
@@ -49634,6 +49748,7 @@ entities:
     - ShutdownSubscribers:
       - 15238
       - 15378
+      - 18142
       type: DeviceNetwork
   - uid: 6739
     components:
@@ -49667,6 +49782,7 @@ entities:
       type: Transform
     - ShutdownSubscribers:
       - 15238
+      - 18142
       type: DeviceNetwork
   - uid: 6753
     components:
@@ -51877,14 +51993,6 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9535
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 37.5,-5.5
-      parent: 9
-      type: Transform
-    - color: '#0000FFFF'
-      type: AtmosPipeColor
   - uid: 9549
     components:
     - rot: -1.5707963267948966 rad
@@ -52846,6 +52954,14 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
+  - uid: 18298
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-15.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
 - proto: GasPipeFourway
   entities:
   - uid: 1247
@@ -52912,6 +53028,13 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+  - uid: 9603
+    components:
+    - pos: 29.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
   - uid: 9909
     components:
     - pos: 19.5,-17.5
@@ -53976,14 +54099,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-  - uid: 4709
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 66.5,-6.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 4772
     components:
     - rot: 3.141592653589793 rad
@@ -59832,6 +59947,14 @@ entities:
       type: Transform
     - color: '#0000FFFF'
       type: AtmosPipeColor
+  - uid: 9535
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
   - uid: 9537
     components:
     - rot: 1.5707963267948966 rad
@@ -60268,18 +60391,10 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9603
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 37.5,-7.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 9604
     components:
-    - rot: 1.5707963267948966 rad
-      pos: 38.5,-7.5
+    - rot: -1.5707963267948966 rad
+      pos: 36.5,-7.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -70337,6 +70452,30 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
+  - uid: 18147
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-6.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18148
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-7.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18149
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-8.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
   - uid: 18173
     components:
     - pos: 13.5,-6.5
@@ -70384,6 +70523,102 @@ entities:
   - uid: 18185
     components:
     - pos: 13.5,-0.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18187
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-9.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18252
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-10.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18288
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18291
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-13.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18295
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18299
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-14.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18300
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-13.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18301
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-12.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18302
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-10.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18303
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-9.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 18304
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 38.5,-8.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -70766,6 +71001,14 @@ entities:
       parent: 9
       type: Transform
     - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 4709
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-5.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
       type: AtmosPipeColor
   - uid: 5054
     components:
@@ -71873,16 +72116,9 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
-  - uid: 9518
-    components:
-    - pos: 29.5,-7.5
-      parent: 9
-      type: Transform
-    - color: '#FF0000FF'
-      type: AtmosPipeColor
   - uid: 9528
     components:
-    - pos: 36.5,-7.5
+    - pos: 38.5,-7.5
       parent: 9
       type: Transform
     - color: '#FF0000FF'
@@ -73212,6 +73448,30 @@ entities:
       type: Transform
     - color: '#FF0000FF'
       type: AtmosPipeColor
+  - uid: 18290
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 37.5,-12.5
+      parent: 9
+      type: Transform
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18294
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 38.5,-11.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18307
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 66.5,-6.5
+      parent: 9
+      type: Transform
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
 - proto: GasPort
   entities:
   - uid: 3036
@@ -73385,7 +73645,7 @@ entities:
       type: Transform
     - targetPressure: 34
       type: GasPressurePump
-    - color: '#00FFFFFF'
+    - color: '#0000FFFF'
       type: AtmosPipeColor
   - uid: 8474
     components:
@@ -75412,6 +75672,26 @@ entities:
       type: AmbientSound
     - color: '#0000FFFF'
       type: AtmosPipeColor
+  - uid: 18292
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 37.5,-14.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
+  - uid: 18293
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 36.5,-12.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#0000FFFF'
+      type: AtmosPipeColor
 - proto: GasVentScrubber
   entities:
   - uid: 371
@@ -76075,6 +76355,18 @@ entities:
       pos: 11.5,-21.5
       parent: 9
       type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 9518
+    components:
+    - pos: 66.5,-5.5
+      parent: 9
+      type: Transform
+    - ShutdownSubscribers:
+      - 13738
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF0000FF'
@@ -76912,6 +77204,38 @@ entities:
     - pos: 13.5,0.5
       parent: 9
       type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18296
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 36.5,-11.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18297
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 39.5,-15.5
+      parent: 9
+      type: Transform
+    - enabled: False
+      type: AmbientSound
+    - color: '#FF0000FF'
+      type: AtmosPipeColor
+  - uid: 18306
+    components:
+    - pos: 29.5,-6.5
+      parent: 9
+      type: Transform
+    - ShutdownSubscribers:
+      - 13738
+      type: DeviceNetwork
     - enabled: False
       type: AmbientSound
     - color: '#FF0000FF'
@@ -91844,6 +92168,11 @@ entities:
     - pos: 28.5,15.5
       parent: 9
       type: Transform
+  - uid: 18135
+    components:
+    - pos: 1.5,-39.5
+      parent: 9
+      type: Transform
   - uid: 18265
     components:
     - pos: 28.5,-48.5
@@ -92084,6 +92413,11 @@ entities:
   - uid: 17962
     components:
     - pos: 21.5,12.5
+      parent: 9
+      type: Transform
+  - uid: 18136
+    components:
+    - pos: 0.5,-42.5
       parent: 9
       type: Transform
 - proto: RandomPosterContraband
@@ -99150,6 +99484,13 @@ entities:
     - pos: 25.5,-16.5
       parent: 9
       type: Transform
+- proto: SpawnMobMouse
+  entities:
+  - uid: 18138
+    components:
+    - pos: -0.5,-44.5
+      parent: 9
+      type: Transform
 - proto: SpawnMobRaccoonMorticia
   entities:
   - uid: 11984
@@ -101307,6 +101648,13 @@ entities:
       nameSet: True
       id: mail room
       type: SurveillanceCamera
+- proto: SurveillanceCameraWirelessRouterEntertainment
+  entities:
+  - uid: 3890
+    components:
+    - pos: 40.5,-16.5
+      parent: 9
+      type: Transform
 - proto: SurveillanceWirelessCameraAnchoredEntertainment
   entities:
   - uid: 957
