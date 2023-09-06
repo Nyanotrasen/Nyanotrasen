@@ -2990,16 +2990,12 @@ entities:
             230: 34,-33
             231: 34,-34
         - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: Dirt
           decals:
             3386: 69.419556,-18.458513
             3387: 71.544556,-18.489784
-        - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: Dirt
-          decals:
             3388: 72.86748,-27.644072
             3389: 72.06539,-27.831703
             3390: 59.36202,-29.971268
@@ -3543,6 +3539,7 @@ entities:
             5377: 2.7161236,-40.002285
             5552: -6.104628,-21.528816
         - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
@@ -4877,11 +4874,6 @@ entities:
             5152: -2.5229442,-6.5116663
             5153: 0.5603895,-6.5012426
             5154: 0.5603895,-6.5012426
-        - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: DirtLight
-          decals:
             5155: 1.258306,-4.5206995
             5156: 1.0291395,-4.531124
             5157: 1.0291395,-4.531124
@@ -18588,6 +18580,11 @@ entities:
     components:
     - rot: -1.5707963267948966 rad
       pos: 4.72733,-30.336615
+      parent: 6747
+      type: Transform
+  - uid: 25520
+    components:
+    - pos: 33.810234,2.8752806
       parent: 6747
       type: Transform
 - proto: CableApcExtension
@@ -53946,11 +53943,6 @@ entities:
     - pos: 12.5,-27.5
       parent: 6747
       type: Transform
-  - uid: 21534
-    components:
-    - pos: 54.5,-43.5
-      parent: 6747
-      type: Transform
 - proto: ChemDispenserMachineCircuitboard
   entities:
   - uid: 9081
@@ -54230,12 +54222,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 17318
-          - 17317
-          - 17308
-          - 17307
-          - 17306
           - 17319
+          - 17306
+          - 17307
+          - 17308
+          - 17317
+          - 17318
       type: ContainerContainer
 - proto: ClosetBombFilled
   entities:
@@ -116900,6 +116892,23 @@ entities:
     - pos: -32.5,-45.5
       parent: 6747
       type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 25517
+    components:
+    - pos: -10.09704,-4.2094913
+      parent: 6747
+      type: Transform
+  - uid: 25518
+    components:
+    - pos: -0.02076292,2.565388
+      parent: 6747
+      type: Transform
+  - uid: 25519
+    components:
+    - pos: -24.504158,-33.95527
+      parent: 6747
+      type: Transform
 - proto: HospitalCurtains
   entities:
   - uid: 1237
@@ -127042,6 +127051,7 @@ entities:
   - uid: 17308
     components:
     - flags: InContainer
+      name: pill canister (dump me)
       type: MetaData
     - parent: 17305
       type: Transform
@@ -127058,6 +127068,8 @@ entities:
       type: ContainerContainer
     - canCollide: False
       type: Physics
+    - currentLabel: dump me
+      type: Label
     - type: InsideEntityStorage
 - proto: PillDexalin
   entities:
@@ -152466,6 +152478,13 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -25.5,-9.5
+      parent: 6747
+      type: Transform
+  - uid: 21534
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 54.5,-43.5
       parent: 6747
       type: Transform
 - proto: VendingMachineCigs
