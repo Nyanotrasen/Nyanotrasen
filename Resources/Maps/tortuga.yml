@@ -3826,6 +3826,7 @@ entities:
             6702: -85.20363,-30.62568
             6703: -85.3078,-31.6368
         - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: DirtHeavy
           decals:
@@ -3915,17 +3916,11 @@ entities:
             2608: -37.72284,92.0661
             2805: -18.566235,33.873024
             2806: -16.472485,35.592968
-            5834: 58.59723,20.527157
-            5835: 58.59723,20.527157
-            6622: 9.435939,-20.517126
-        - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: DirtHeavy
-          decals:
             2807: -19.628735,33.278862
             2815: -19.597485,34.70111
             2816: -19.430817,34.388393
+            5834: 58.59723,20.527157
+            5835: 58.59723,20.527157
             6154: -7.5999374,-24.495373
             6155: -7.5999374,-24.495373
             6156: -6.9641824,-30.991838
@@ -3934,7 +3929,9 @@ entities:
             6159: -4.0961905,-21.570915
             6160: -4.0961905,-21.570915
             6161: -4.0961905,-21.570915
+            6622: 9.435939,-20.517126
         - node:
+            cleanable: True
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
@@ -4507,6 +4504,43 @@ entities:
             2130: 20.503935,43.69883
             2131: 20.51435,44.021973
             2132: 20.51435,44.021973
+            2133: 25.612768,49.063152
+            2134: 26.196102,49.10485
+            2135: 26.175268,48.906796
+            2136: 24.654436,45.435635
+            2137: 24.716936,43.8512
+            2138: 24.550268,43.277885
+            2139: 25.4608,38.606785
+            2140: 24.86705,38.679752
+            2141: 24.939966,39.159252
+            2142: 25.825384,39.74299
+            2143: 28.158716,43.832745
+            2144: 28.387884,43.884865
+            2145: 29.762884,44.051647
+            2146: 34.419136,48.7841
+            2147: 34.554554,49.034275
+            2148: 34.554554,49.034275
+            2149: 33.492054,52.41162
+            2150: 33.492054,52.41162
+            2151: 27.033716,52.43247
+            2152: 27.075384,52.401196
+            2153: 27.231634,51.807034
+            2154: 27.356634,51.556858
+            2155: 27.36705,51.53601
+            2156: 29.106634,50.587437
+            2157: 31.856636,50.56659
+            2158: 32.37747,41.45986
+            2159: 32.37747,41.45986
+            2160: 31.867054,41.439014
+            2161: 34.53372,42.543945
+            2162: 34.481636,42.398014
+            2163: 34.325386,41.88724
+            2164: 31.575386,44.441097
+            2165: 31.533718,44.201347
+            2166: 31.512886,43.99287
+            2167: 32.59622,44.263893
+            2168: 28.346216,49.826553
+            2169: 27.564966,49.774433
             2171: 20.40685,56.442368
             2172: 20.40685,56.442368
             2173: 10.396436,59.73632
@@ -4550,6 +4584,38 @@ entities:
             2211: 8.000602,54.295044
             2212: 8.615186,50.30269
             2213: 9.865186,49.6981
+            2227: 7.5342026,61.934597
+            2228: 7.1487856,61.090263
+            2229: 6.857119,60.22508
+            2230: 6.752952,59.43286
+            2231: 10.815453,62.278587
+            2232: 11.20087,60.079144
+            2233: 11.752953,59.047176
+            2234: 14.54462,54.12709
+            2235: 9.909203,57.264687
+            2236: 7.8779526,58.536404
+            2237: 13.32587,56.68095
+            2238: 15.086287,56.837307
+            2239: 15.721703,56.847733
+            2240: 19.544619,56.4412
+            2241: 20.669619,55.982548
+            2242: 19.752953,55.419655
+            2243: 19.086287,54.81507
+            2244: 18.784203,54.76295
+            2245: 20.075869,53.80395
+            2246: 19.638369,53.678864
+            2247: 8.04462,54.773376
+            2248: 7.169619,54.846344
+            2249: 7.9300356,54.06455
+            2250: 9.617536,55.07567
+            2251: 10.117537,55.0027
+            2252: 11.284203,52.584354
+            2253: 10.815453,52.448845
+            2254: 10.73212,53.05343
+            2255: 17.659203,57.494015
+            2256: 18.263369,57.494015
+            2257: 18.336287,57.368927
+            2258: 18.159203,56.899853
             2295: 7.388369,66.39354
             2296: 7.5758696,66.32057
             2297: 7.6383696,66.247604
@@ -4572,6 +4638,19 @@ entities:
             2314: 8.76337,64.76741
             2315: 7.7529526,64.35045
             2316: 6.784202,64.433846
+            2317: 7.263369,64.10028
+            2318: 8.148786,68.03009
+            2319: 8.596703,64.996735
+            2320: 11.32587,67.4672
+            2321: 8.815453,68.80146
+            2322: 8.992536,66.47693
+            2323: 9.565453,67.790344
+            2324: 10.76337,68.48874
+            2325: 10.784203,66.87304
+            2326: 8.846703,64.76741
+            2327: 12.502953,65.72641
+            2328: 7.5550356,68.32196
+            2329: 7.9404526,65.14267
             2330: -0.28897285,48.47074
             2331: -2.2681396,48.43947
             2332: -3.622306,48.376926
@@ -4828,6 +4907,23 @@ entities:
             2636: -38.11867,85.012634
             2637: -35.09784,76.63375
             2638: -36.014503,76.779686
+            2639: -38.58742,77.22663
+            2640: -37.41034,78.46707
+            2641: -36.08742,77.455956
+            2642: -36.83742,78.90137
+            2643: -36.32421,83.85008
+            2644: -37.119507,88.82083
+            2645: -37.077785,91.963425
+            2646: -37.046505,95.954445
+            2647: -37.379837,98.47703
+            2648: -36.296505,92.775154
+            2649: -39.379837,92.89642
+            2650: -39.640255,94.1592
+            2651: -36.546505,90.75783
+            2652: -36.556923,87.11225
+            2653: -36.577755,85.23121
+            2654: -37.286087,82.41265
+            2655: -36.598587,79.807274
             2656: -42.533913,73.549515
             2657: -43.88808,71.65237
             2658: -42.91933,69.64056
@@ -4974,6 +5070,22 @@ entities:
             2799: -17.659985,33.508186
             2800: -18.597485,33.581154
             2801: -20.462067,33.529034
+            2817: -15.981277,40.66405
+            2818: -17.554195,42.008736
+            2819: -16.720861,42.57163
+            2820: -14.5854435,42.112976
+            2821: -15.481277,44.2603
+            2822: -17.700027,46.00109
+            2823: -13.4396105,41.91492
+            2824: -15.543777,39.090042
+            2825: -18.502111,34.983025
+            2826: -20.189611,40.06989
+            2827: -10.44136,38.370792
+            2828: -9.06636,39.64251
+            2829: -8.53511,38.454185
+            2830: -7.743444,37.891293
+            2831: -17.332579,36.504913
+            2832: -17.790913,35.61888
             2833: -18.040913,35.629307
             2834: -16.936747,38.652237
             2835: -15.582578,38.766903
@@ -5000,6 +5112,34 @@ entities:
             2856: -19.103413,47.231113
             2857: -18.124247,47.18942
             2858: -16.353413,47.06433
+            2859: -18.988829,46.28254
+            2860: -18.905497,46.511864
+            2861: -18.634663,46.887123
+            2862: -17.374247,46.855854
+            2863: -16.197163,46.84543
+            2864: -17.332579,46.543137
+            2865: -15.988828,46.48059
+            2866: -14.249245,46.28254
+            2867: -12.967995,46.219994
+            2868: -18.124247,46.12618
+            2869: -18.738829,45.876007
+            2870: -19.124247,45.177605
+            2871: -19.311747,44.729378
+            2872: -19.790913,42.655018
+            2873: -19.842997,41.518814
+            2874: -19.853413,40.799564
+            2875: -19.905497,40.58066
+            2876: -19.426329,40.4243
+            2877: -19.842997,40.18455
+            2878: -14.189258,36.44854
+            2879: -14.199674,36.052433
+            2880: -13.783008,36.333878
+            2881: -13.908008,36.042007
+            2882: -14.335091,35.791836
+            2883: -14.418424,35.48954
+            2884: -13.314258,29.843378
+            2885: -12.303841,25.027534
+            2886: -12.970508,23.380556
             2887: -30.284952,37.366932
             2888: -30.337034,37.293964
             2889: -30.472452,36.699802
@@ -5461,6 +5601,11 @@ entities:
             3623: -20.613283,47.16116
             3624: -20.602865,46.097923
             3625: -25.196615,43.85678
+            3688: 26.856594,-21.757402
+            3689: 27.033676,-21.027729
+            3690: 27.158676,-20.850523
+            3691: 27.669094,-21.027729
+            3692: 26.83576,-23.362684
             4877: 9.53583,-18.258945
             4878: 8.47333,-22.751648
             4879: 8.421247,-23.2103
@@ -5520,6 +5665,32 @@ entities:
             6081: 39.786396,24.438604
             6082: 39.900978,23.917408
             6083: 40.505146,23.698507
+            6162: -5.481607,-20.65537
+            6163: -5.481607,-20.65537
+            6164: -26.528284,-26.50296
+            6165: -26.694952,-26.450842
+            6166: -27.587608,-23.593887
+            6167: -27.504276,-23.771093
+            6168: -27.545942,-24.24017
+            6169: -27.139692,-28.388151
+            6170: -27.327192,-28.377728
+            6171: -27.295942,-28.78426
+            6172: -27.316776,-29.096977
+            6173: -27.420942,-29.524357
+            6174: -27.525108,-30.399965
+            6175: -24.641787,-30.410389
+            6176: -24.66262,-30.379118
+            6177: -24.798037,-29.96216
+            6178: -24.954287,-29.732836
+            6179: -25.35012,-29.732836
+            6180: -25.245953,-30.045551
+            6181: -25.16262,-30.295727
+            6182: -24.402203,-22.992306
+            6183: -24.558453,-20.396753
+            6184: -24.589703,-20.448874
+            6185: -24.704287,-20.511417
+            6186: -26.527203,-20.584383
+            6187: -26.527203,-20.584383
             6623: 15.488207,-19.53728
             6624: 15.488207,-19.53728
             6625: 15.988205,-19.558126
@@ -5620,184 +5791,6 @@ entities:
             6752: -83.449844,-40.072124
         - node:
             cleanable: True
-            color: '#FFFFFFFF'
-            id: DirtLight
-          decals:
-            2133: 25.612768,49.063152
-            2134: 26.196102,49.10485
-            2135: 26.175268,48.906796
-            2136: 24.654436,45.435635
-            2137: 24.716936,43.8512
-            2138: 24.550268,43.277885
-            2139: 25.4608,38.606785
-            2140: 24.86705,38.679752
-            2141: 24.939966,39.159252
-            2142: 25.825384,39.74299
-            2143: 28.158716,43.832745
-            2144: 28.387884,43.884865
-            2145: 29.762884,44.051647
-            2146: 34.419136,48.7841
-            2147: 34.554554,49.034275
-            2148: 34.554554,49.034275
-            2149: 33.492054,52.41162
-            2150: 33.492054,52.41162
-            2151: 27.033716,52.43247
-            2152: 27.075384,52.401196
-            2153: 27.231634,51.807034
-            2154: 27.356634,51.556858
-            2155: 27.36705,51.53601
-            2156: 29.106634,50.587437
-            2157: 31.856636,50.56659
-            2158: 32.37747,41.45986
-            2159: 32.37747,41.45986
-            2160: 31.867054,41.439014
-            2161: 34.53372,42.543945
-            2162: 34.481636,42.398014
-            2163: 34.325386,41.88724
-            2164: 31.575386,44.441097
-            2165: 31.533718,44.201347
-            2166: 31.512886,43.99287
-            2167: 32.59622,44.263893
-            2168: 28.346216,49.826553
-            2169: 27.564966,49.774433
-            2227: 7.5342026,61.934597
-            2228: 7.1487856,61.090263
-            2229: 6.857119,60.22508
-            2230: 6.752952,59.43286
-            2231: 10.815453,62.278587
-            2232: 11.20087,60.079144
-            2233: 11.752953,59.047176
-            2234: 14.54462,54.12709
-            2235: 9.909203,57.264687
-            2236: 7.8779526,58.536404
-            2237: 13.32587,56.68095
-            2238: 15.086287,56.837307
-            2239: 15.721703,56.847733
-            2240: 19.544619,56.4412
-            2241: 20.669619,55.982548
-            2242: 19.752953,55.419655
-            2243: 19.086287,54.81507
-            2244: 18.784203,54.76295
-            2245: 20.075869,53.80395
-            2246: 19.638369,53.678864
-            2247: 8.04462,54.773376
-            2248: 7.169619,54.846344
-            2249: 7.9300356,54.06455
-            2250: 9.617536,55.07567
-            2251: 10.117537,55.0027
-            2252: 11.284203,52.584354
-            2253: 10.815453,52.448845
-            2254: 10.73212,53.05343
-            2255: 17.659203,57.494015
-            2256: 18.263369,57.494015
-            2257: 18.336287,57.368927
-            2258: 18.159203,56.899853
-            2317: 7.263369,64.10028
-            2318: 8.148786,68.03009
-            2319: 8.596703,64.996735
-            2320: 11.32587,67.4672
-            2321: 8.815453,68.80146
-            2322: 8.992536,66.47693
-            2323: 9.565453,67.790344
-            2324: 10.76337,68.48874
-            2325: 10.784203,66.87304
-            2326: 8.846703,64.76741
-            2327: 12.502953,65.72641
-            2328: 7.5550356,68.32196
-            2329: 7.9404526,65.14267
-            2639: -38.58742,77.22663
-            2640: -37.41034,78.46707
-            2641: -36.08742,77.455956
-            2642: -36.83742,78.90137
-            2643: -36.32421,83.85008
-            2644: -37.119507,88.82083
-            2645: -37.077785,91.963425
-            2646: -37.046505,95.954445
-            2647: -37.379837,98.47703
-            2648: -36.296505,92.775154
-            2649: -39.379837,92.89642
-            2650: -39.640255,94.1592
-            2651: -36.546505,90.75783
-            2652: -36.556923,87.11225
-            2653: -36.577755,85.23121
-            2654: -37.286087,82.41265
-            2655: -36.598587,79.807274
-            2817: -15.981277,40.66405
-            2818: -17.554195,42.008736
-            2819: -16.720861,42.57163
-            2820: -14.5854435,42.112976
-            2821: -15.481277,44.2603
-            2822: -17.700027,46.00109
-            2823: -13.4396105,41.91492
-            2824: -15.543777,39.090042
-            2825: -18.502111,34.983025
-            2826: -20.189611,40.06989
-            2827: -10.44136,38.370792
-            2828: -9.06636,39.64251
-            2829: -8.53511,38.454185
-            2830: -7.743444,37.891293
-            2831: -17.332579,36.504913
-            2832: -17.790913,35.61888
-            2859: -18.988829,46.28254
-            2860: -18.905497,46.511864
-            2861: -18.634663,46.887123
-            2862: -17.374247,46.855854
-            2863: -16.197163,46.84543
-            2864: -17.332579,46.543137
-            2865: -15.988828,46.48059
-            2866: -14.249245,46.28254
-            2867: -12.967995,46.219994
-            2868: -18.124247,46.12618
-            2869: -18.738829,45.876007
-            2870: -19.124247,45.177605
-            2871: -19.311747,44.729378
-            2872: -19.790913,42.655018
-            2873: -19.842997,41.518814
-            2874: -19.853413,40.799564
-            2875: -19.905497,40.58066
-            2876: -19.426329,40.4243
-            2877: -19.842997,40.18455
-            2878: -14.189258,36.44854
-            2879: -14.199674,36.052433
-            2880: -13.783008,36.333878
-            2881: -13.908008,36.042007
-            2882: -14.335091,35.791836
-            2883: -14.418424,35.48954
-            2884: -13.314258,29.843378
-            2885: -12.303841,25.027534
-            2886: -12.970508,23.380556
-            3688: 26.856594,-21.757402
-            3689: 27.033676,-21.027729
-            3690: 27.158676,-20.850523
-            3691: 27.669094,-21.027729
-            3692: 26.83576,-23.362684
-            6162: -5.481607,-20.65537
-            6163: -5.481607,-20.65537
-            6164: -26.528284,-26.50296
-            6165: -26.694952,-26.450842
-            6166: -27.587608,-23.593887
-            6167: -27.504276,-23.771093
-            6168: -27.545942,-24.24017
-            6169: -27.139692,-28.388151
-            6170: -27.327192,-28.377728
-            6171: -27.295942,-28.78426
-            6172: -27.316776,-29.096977
-            6173: -27.420942,-29.524357
-            6174: -27.525108,-30.399965
-            6175: -24.641787,-30.410389
-            6176: -24.66262,-30.379118
-            6177: -24.798037,-29.96216
-            6178: -24.954287,-29.732836
-            6179: -25.35012,-29.732836
-            6180: -25.245953,-30.045551
-            6181: -25.16262,-30.295727
-            6182: -24.402203,-22.992306
-            6183: -24.558453,-20.396753
-            6184: -24.589703,-20.448874
-            6185: -24.704287,-20.511417
-            6186: -26.527203,-20.584383
-            6187: -26.527203,-20.584383
-        - node:
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
@@ -6014,6 +6007,11 @@ entities:
             2802: -20.243317,33.59158
             2803: -17.70165,33.581154
             2804: -16.784985,33.977264
+            2810: -19.368317,33.533634
+            2811: -19.07665,33.512787
+            2812: -18.76415,34.148643
+            2813: -18.712067,33.55448
+            2814: -18.191235,34.450935
             3679: 26.377426,-21.83037
             3680: 27.158676,-22.539196
             3681: 27.231594,-22.58089
@@ -6042,16 +6040,6 @@ entities:
             6076: 40.5489,22.729084
             6077: 37.578064,23.052225
             6078: 38.973896,23.0418
-        - node:
-            cleanable: True
-            color: '#FFFFFFFF'
-            id: DirtMedium
-          decals:
-            2810: -19.368317,33.533634
-            2811: -19.07665,33.512787
-            2812: -18.76415,34.148643
-            2813: -18.712067,33.55448
-            2814: -18.191235,34.450935
         - node:
             color: '#3AB3DAFF'
             id: Flowersbr1
@@ -19369,7 +19357,7 @@ entities:
     - pos: 51.5,81.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721367.2
+    - SecondsUntilStateChange: -721581.5
       state: Closing
       type: Door
     - enabled: False
@@ -19386,7 +19374,7 @@ entities:
     - pos: 48.5,12.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -353687.25
+    - SecondsUntilStateChange: -353901.56
       state: Closing
       type: Door
     - enabled: False
@@ -19453,7 +19441,7 @@ entities:
     - pos: -15.5,101.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -632595.8
+    - SecondsUntilStateChange: -632810.1
       state: Closing
       type: Door
     - enabled: False
@@ -19470,7 +19458,7 @@ entities:
     - pos: -15.5,104.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -632592.56
+    - SecondsUntilStateChange: -632806.9
       state: Closing
       type: Door
     - enabled: False
@@ -19487,7 +19475,7 @@ entities:
     - pos: -52.5,-50.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -629492.4
+    - SecondsUntilStateChange: -629706.7
       state: Closing
       type: Door
     - enabled: False
@@ -19504,7 +19492,7 @@ entities:
     - pos: -52.5,-51.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -629492.4
+    - SecondsUntilStateChange: -629706.7
       state: Closing
       type: Door
     - enabled: False
@@ -19521,7 +19509,7 @@ entities:
     - pos: 53.5,12.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -353687.25
+    - SecondsUntilStateChange: -353901.56
       state: Closing
       type: Door
     - enabled: False
@@ -60579,11 +60567,6 @@ entities:
     - pos: -51.5,0.5
       parent: 33
       type: Transform
-  - uid: 12676
-    components:
-    - pos: 14.5,12.5
-      parent: 33
-      type: Transform
 - proto: ChemDispenserMachineCircuitboard
   entities:
   - uid: 5427
@@ -62601,6 +62584,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
+    - type: InsideEntityStorage
 - proto: ClothingOuterVestHazard
   entities:
   - uid: 24441
@@ -130309,6 +130293,19 @@ entities:
     - pos: 38.45849,25.618118
       parent: 33
       type: Transform
+- proto: HoloprojectorSecurity
+  entities:
+  - uid: 28597
+    components:
+    - pos: -28.611574,66.532616
+      parent: 33
+      type: Transform
+  - uid: 28598
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -13.18077,65.627235
+      parent: 33
+      type: Transform
 - proto: HospitalCurtains
   entities:
   - uid: 1715
@@ -157201,7 +157198,7 @@ entities:
     - pos: -38.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157218,7 +157215,7 @@ entities:
     - pos: -33.5,17.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -775291.94
+    - SecondsUntilStateChange: -775506.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157235,7 +157232,7 @@ entities:
     - pos: -32.5,17.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -775291.94
+    - SecondsUntilStateChange: -775506.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157252,7 +157249,7 @@ entities:
     - pos: -31.5,17.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -775291.94
+    - SecondsUntilStateChange: -775506.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157269,7 +157266,7 @@ entities:
     - pos: 40.5,20.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721381.8
+    - SecondsUntilStateChange: -721596.1
       state: Opening
       type: Door
     - canCollide: True
@@ -157286,7 +157283,7 @@ entities:
     - pos: 41.5,20.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721381.8
+    - SecondsUntilStateChange: -721596.1
       state: Opening
       type: Door
     - canCollide: True
@@ -157303,7 +157300,7 @@ entities:
     - pos: 42.5,20.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721381.8
+    - SecondsUntilStateChange: -721596.1
       state: Opening
       type: Door
     - canCollide: True
@@ -157320,7 +157317,7 @@ entities:
     - pos: 38.5,20.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721381.8
+    - SecondsUntilStateChange: -721596.1
       state: Opening
       type: Door
     - canCollide: True
@@ -157337,7 +157334,7 @@ entities:
     - pos: 36.5,20.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -721381.8
+    - SecondsUntilStateChange: -721596.1
       state: Opening
       type: Door
     - canCollide: True
@@ -157354,7 +157351,7 @@ entities:
     - pos: -36.5,35.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157371,7 +157368,7 @@ entities:
     - pos: -36.5,33.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157388,7 +157385,7 @@ entities:
     - pos: -36.5,32.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157405,7 +157402,7 @@ entities:
     - pos: -84.5,8.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -748780.1
+    - SecondsUntilStateChange: -748994.44
       state: Opening
       type: Door
     - canCollide: True
@@ -157422,7 +157419,7 @@ entities:
     - pos: -34.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157439,7 +157436,7 @@ entities:
     - pos: -35.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157456,7 +157453,7 @@ entities:
     - pos: -33.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157473,7 +157470,7 @@ entities:
     - pos: -33.5,29.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157490,7 +157487,7 @@ entities:
     - pos: -33.5,28.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157507,7 +157504,7 @@ entities:
     - pos: -33.5,30.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157524,7 +157521,7 @@ entities:
     - pos: -37.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157541,7 +157538,7 @@ entities:
     - pos: -36.5,34.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157558,7 +157555,7 @@ entities:
     - pos: -39.5,31.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -722671.94
+    - SecondsUntilStateChange: -722886.25
       state: Opening
       type: Door
     - canCollide: True
@@ -157575,7 +157572,7 @@ entities:
     - pos: -16.5,71.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157592,7 +157589,7 @@ entities:
     - pos: -17.5,71.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157609,7 +157606,7 @@ entities:
     - pos: -20.5,74.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157626,7 +157623,7 @@ entities:
     - pos: -19.5,71.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157643,7 +157640,7 @@ entities:
     - pos: -27.5,69.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472730
+    - SecondsUntilStateChange: -472944.3
       state: Opening
       type: Door
     - canCollide: True
@@ -157660,7 +157657,7 @@ entities:
     - pos: -27.5,68.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472730
+    - SecondsUntilStateChange: -472944.3
       state: Opening
       type: Door
     - canCollide: True
@@ -157677,7 +157674,7 @@ entities:
     - pos: -27.5,67.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472730
+    - SecondsUntilStateChange: -472944.3
       state: Opening
       type: Door
     - canCollide: True
@@ -157694,7 +157691,7 @@ entities:
     - pos: -27.5,66.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472730
+    - SecondsUntilStateChange: -472944.3
       state: Opening
       type: Door
     - canCollide: True
@@ -157711,7 +157708,7 @@ entities:
     - pos: -20.5,73.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157728,7 +157725,7 @@ entities:
     - pos: -20.5,72.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -472711.72
+    - SecondsUntilStateChange: -472926.03
       state: Opening
       type: Door
     - canCollide: True
@@ -157767,7 +157764,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -352710.38
+    - SecondsUntilStateChange: -352924.7
       state: Closing
       type: Door
     - airBlocked: False
@@ -157784,7 +157781,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -352698.34
+    - SecondsUntilStateChange: -352912.66
       state: Closing
       type: Door
     - airBlocked: False
@@ -157801,7 +157798,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -352710.38
+    - SecondsUntilStateChange: -352924.7
       state: Closing
       type: Door
     - airBlocked: False
@@ -157818,7 +157815,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157835,7 +157832,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157852,7 +157849,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157869,7 +157866,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157886,7 +157883,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157903,7 +157900,7 @@ entities:
       type: Occluder
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -629498.3
+    - SecondsUntilStateChange: -629712.6
       state: Closing
       type: Door
     - airBlocked: False
@@ -157918,7 +157915,7 @@ entities:
     - pos: -56.5,-52.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -629483.5
+    - SecondsUntilStateChange: -629697.8
       state: Opening
       type: Door
     - enabled: True
@@ -157935,7 +157932,7 @@ entities:
     - pos: -56.5,-51.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -629483.5
+    - SecondsUntilStateChange: -629697.8
       state: Opening
       type: Door
     - enabled: True
@@ -157952,7 +157949,7 @@ entities:
     - pos: -56.5,-50.5
       parent: 33
       type: Transform
-    - SecondsUntilStateChange: -629483.5
+    - SecondsUntilStateChange: -629697.8
       state: Opening
       type: Door
     - enabled: True
@@ -157973,7 +157970,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721924.75
+    - SecondsUntilStateChange: -722139.06
       state: Closing
       type: Door
     - airBlocked: False
@@ -157988,7 +157985,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721726.7
+    - SecondsUntilStateChange: -721941
       state: Closing
       type: Door
     - airBlocked: False
@@ -158003,7 +158000,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721726.7
+    - SecondsUntilStateChange: -721941
       state: Closing
       type: Door
     - airBlocked: False
@@ -158018,7 +158015,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721748.7
+    - SecondsUntilStateChange: -721963
       state: Closing
       type: Door
     - airBlocked: False
@@ -158033,7 +158030,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721748.7
+    - SecondsUntilStateChange: -721963
       state: Closing
       type: Door
     - airBlocked: False
@@ -158048,7 +158045,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -721924.75
+    - SecondsUntilStateChange: -722139.06
       state: Closing
       type: Door
     - airBlocked: False
@@ -158063,7 +158060,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -366475.97
+    - SecondsUntilStateChange: -366690.28
       state: Closing
       type: Door
     - airBlocked: False
@@ -158078,7 +158075,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -366475.97
+    - SecondsUntilStateChange: -366690.28
       state: Closing
       type: Door
     - airBlocked: False
@@ -158093,7 +158090,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -391255.47
+    - SecondsUntilStateChange: -391469.78
       state: Closing
       type: Door
     - airBlocked: False
@@ -158109,7 +158106,7 @@ entities:
       type: Transform
     - canCollide: False
       type: Physics
-    - SecondsUntilStateChange: -391255.47
+    - SecondsUntilStateChange: -391469.78
       state: Closing
       type: Door
     - airBlocked: False
@@ -170840,6 +170837,15 @@ entities:
     - flags: SessionSpecific
       type: MetaData
     - pos: -59.5,3.5
+      parent: 33
+      type: Transform
+- proto: VendingMachineChemicals
+  entities:
+  - uid: 12676
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 14.5,12.5
       parent: 33
       type: Transform
 - proto: VendingMachineCigs
