@@ -1,0 +1,36 @@
+- type: entity
+  id: XenoVents
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-vent-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobXeno
+      amount: 4
+      maxAmount: 12
+    - id: MobXenoDrone
+      amount: 4
+      maxAmount: 10
+    - id: MobXenoSpitter
+      amount: 4
+      maxAmount: 10
+    - id: MobXenoRunner
+      amount: 4
+      maxAmount: 10
+    - id: MobXenoPraetorian
+      amount: 4
+      maxAmount: 10
+    - id: MobXenoRavager
+      amount: 4
+      maxAmount: 10
+    - id: MobXenoQueen
+      amount: 2
+      maxAmount: 6
