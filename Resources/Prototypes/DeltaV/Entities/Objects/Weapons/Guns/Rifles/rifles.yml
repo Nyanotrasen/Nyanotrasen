@@ -1,8 +1,8 @@
 - type: entity
-  name: Vulcan
+  name: vulcan
   parent: BaseWeaponRifle
-  id: WeaponVulcanRifle
-  description: One of the first firearms modified for space usage, used to punch holes in cargonia "combat mechs"
+  id: WeaponRifleVulcan
+  description: One of the first firearms modified for space usage, this rifle has been used to punch holes in Cargonian "combat mechs."
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Rifles/vulcan.rsi

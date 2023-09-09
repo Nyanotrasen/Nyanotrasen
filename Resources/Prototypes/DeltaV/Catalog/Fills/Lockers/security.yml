@@ -25,11 +25,11 @@
 - type: entity
   parent: GunSafe
   id: GunSafeVulcanRifle
-  name: Vulcan safe
+  name: vulcan safe
   components:
   - type: StorageFill
     contents:
-    - id: WeaponVulcanRifle
+    - id: WeaponRifleVulcan
       amount: 2
     - id: MagazineLightRifle
       amount: 4
@@ -37,7 +37,7 @@
 - type: entity
   parent: GunSafe
   id: GunSafeAdjutantShotgun
-  name: Adjutant safe
+  name: adjutant safe
   components:
   - type: StorageFill
     contents:

@@ -7,17 +7,17 @@ ent-CrateArmoryShotgun = Shotgun crate
 ent-CrateTrackingImplants = Tracking implants
     .desc = Contains a handful of tracking implanters. Good for prisoners you'd like to release but still keep track of.
 
-ent-CrateArmoryLaser = lasers crate
+ent-CrateArmoryLaser = Lasers crate
     .desc = Contains three lethal, high-energy laser guns. Requires Armory access to open.
 
-ent-CrateArmoryPistols = pistols crate
+ent-CrateArmoryPistols = Pistols crate
     .desc = Contains two standard NT pistols with four mags. Requires Armory access to open.
 
-ent-CrateArmoryGrand = rifles crate
+ent-CrateArmoryGrand = Rifles crate
     .desc = Contains two Mark 1 Rifles and a box of speed-loaders. Requires Armory access to open.
 
 ent-CrateArmoryUniversal = Universal crate
     .desc = Contains two Mk32 Universal handguns with four mags. Requires Armory access to open.
 
 ent-CrateArmoryAdjutant = Adjutant crate
-    .desc = Contains two Adjutant shotguns with 4 ammo drums. Requires Armory access to open.
+    .desc = Contains two Adjutant shotguns with 3 ammo boxes. Requires Armory access to open.

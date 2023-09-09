@@ -19,3 +19,14 @@
         amount: 2
       - id: MagazineUniversalCaselessRifle
         amount: 4
+
+- type: entity
+  id: CrateArmoryAdjutant
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunAdjutant
+      amount: 2
+    - id: BoxLethalshot
+      amount: 3
