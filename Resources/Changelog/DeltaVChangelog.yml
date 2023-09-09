@@ -416,3 +416,11 @@ Entries:
       message: Basic department PDAs can now be obtained from the HOP's Ptech vendor
   id: 56
   time: '2023-09-08T19:01:20.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Fix
+      message: >-
+        Fixed bug where ordering a crate of adjutant shotguns gives cargo a
+        shotgun and no crate.
+  id: 57
+  time: '2023-09-09T13:21:02.0000000+00:00'
