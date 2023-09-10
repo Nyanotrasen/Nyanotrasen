@@ -161,17 +161,29 @@
     startDelay: 30
   - type: MeteorSwarmRule
 
-# - type: entity
-#   id: MouseMigration
-#   parent: BaseGameRule
-#   noSpawn: true
-#   components:
-#   - type: StationEvent
-#     earliestStart: 30
-#     minimumPlayers: 35
-#     weight: 5
-#     duration: 50
-#   - type: MouseMigrationRule
+#- type: entity
+#  id: MouseMigration
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#  - type: StationEvent
+#    earliestStart: 30
+#    minimumPlayers: 35
+#    weight: 5
+#    duration: 50
+#  - type: VentCrittersRule
+#    entries:
+#    - id: MobMouse
+#      prob: 0.015
+#    - id: MobMouse1
+#      prob: 0.015
+#    - id: MobMouse2
+#      prob: 0.015
+#    - id: MobRatServant
+#      prob: 0.015
+#    specialEntries:
+#    - id: SpawnPointGhostRatKing
+#      prob: 0.005
 
 - type: entity
   id: PowerGridCheck
@@ -255,17 +267,13 @@
   - type: VentCrittersRule
     entries:
     - id: MobMouse
-      amount: 4
-      maxAmount: 12
+      prob: 0.01
     - id: MobMouse1
-      amount: 4
-      maxAmount: 12
+      prob: 0.01
     - id: MobMouse2
-      amount: 4
-      maxAmount: 12
+      prob: 0.01
     - id: MobPibbleVent
-      amount: 2
-      maxAmount: 6
+      prob: 0.005
 
 - type: entity
   id: MothroachesSpawn
@@ -280,8 +288,7 @@
   - type: VentCrittersRule
     entries:
     - id: MobMothroach
-      amount: 2
-      maxAmount: 6
+      prob: 0.02
 
 - type: entity
   id: SlimesSpawn
@@ -295,15 +302,12 @@
     duration: 60
   - type: VentCrittersRule
     entries:
-      - id: MobAdultSlimesBlueAngry
-        amount: 6
-        maxAmount: 10
-      - id: MobAdultSlimesGreenAngry
-        amount: 6
-        maxAmount: 10
-      - id: MobAdultSlimesYellowAngry
-        amount: 6
-        maxAmount: 10
+    - id: MobAdultSlimesBlueAngry
+      prob: 0.02
+    - id: MobAdultSlimesGreenAngry
+      prob: 0.02
+    - id: MobAdultSlimesYellowAngry
+      prob: 0.02
 
 # - type: entity
 #   id: SpiderSpawn
