@@ -57488,7 +57488,7 @@ entities:
       type: Transform
 - proto: ClothingEyesHudFriedOnion
   entities:
-  - uid: 24311
+  - uid: 24312
     components:
     - pos: 32.35002,0.9791496
       parent: 1
@@ -67973,6 +67973,26 @@ entities:
   - uid: 23775
     components:
     - pos: -57.5,38.5
+      parent: 1
+      type: Transform
+  - uid: 24311
+    components:
+    - pos: -2.5,14.5
+      parent: 1
+      type: Transform
+  - uid: 24313
+    components:
+    - pos: -1.5,17.5
+      parent: 1
+      type: Transform
+  - uid: 24314
+    components:
+    - pos: 1.5,17.5
+      parent: 1
+      type: Transform
+  - uid: 24315
+    components:
+    - pos: 1.5,14.5
       parent: 1
       type: Transform
 - proto: DonkpocketBoxSpawner
