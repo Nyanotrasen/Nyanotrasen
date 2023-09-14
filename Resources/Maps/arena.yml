@@ -57937,13 +57937,6 @@ entities:
         - 0
         - 0
       type: EntityStorage
-- proto: CrateNPCCow
-  entities:
-  - uid: 1714
-    components:
-    - pos: -13.5,-14.5
-      parent: 6747
-      type: Transform
 - proto: CrateNPCDuck
   entities:
   - uid: 11119
@@ -74483,7 +74476,7 @@ entities:
       pos: 43.5,30.5
       parent: 6747
       type: Transform
-    - color: '#FF1212FF'
+    - color: '#66FF66FF'
       type: AtmosPipeColor
 - proto: GasFilterFlipped
   entities:
@@ -74728,20 +74721,12 @@ entities:
       type: Transform
     - color: '#CC6600FF'
       type: AtmosPipeColor
-  - uid: 11825
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 43.5,31.5
-      parent: 6747
-      type: Transform
-    - color: '#66FF66FF'
-      type: AtmosPipeColor
   - uid: 23527
     components:
     - pos: 43.5,33.5
       parent: 6747
       type: Transform
-    - color: '#FF9999FF'
+    - color: '#66FF66FF'
       type: AtmosPipeColor
   - uid: 25075
     components:
@@ -74958,15 +74943,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 46.5,30.5
-      parent: 6747
-      type: Transform
-    - color: '#CC6600FF'
-      type: AtmosPipeColor
-    - enabled: True
-      type: AmbientSound
-  - uid: 7936
-    components:
-    - pos: 46.5,32.5
       parent: 6747
       type: Transform
     - color: '#CC6600FF'
@@ -77756,6 +77732,25 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 49.5,30.5
+      parent: 6747
+      type: Transform
+    - color: '#CC6600FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 7934
+    components:
+    - pos: 43.5,31.5
+      parent: 6747
+      type: Transform
+    - color: '#66FF66FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
+  - uid: 7936
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 47.5,30.5
       parent: 6747
       type: Transform
     - color: '#CC6600FF'
@@ -102736,16 +102731,6 @@ entities:
       type: AtmosPipeColor
     - enabled: True
       type: AmbientSound
-  - uid: 7935
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 47.5,30.5
-      parent: 6747
-      type: Transform
-    - color: '#CC6600FF'
-      type: AtmosPipeColor
-    - enabled: True
-      type: AmbientSound
   - uid: 7937
     components:
     - pos: 45.5,32.5
@@ -104703,6 +104688,15 @@ entities:
       type: Transform
     - color: '#0335FCFF'
       type: AtmosPipeColor
+  - uid: 22380
+    components:
+    - pos: 46.5,32.5
+      parent: 6747
+      type: Transform
+    - color: '#CC6600FF'
+      type: AtmosPipeColor
+    - enabled: True
+      type: AmbientSound
   - uid: 23660
     components:
     - pos: 3.5,-8.5
@@ -105977,7 +105971,7 @@ entities:
     - pos: 45.5,31.5
       parent: 6747
       type: Transform
-    - color: '#66FF66FF'
+    - color: '#CC6600FF'
       type: AtmosPipeColor
 - proto: GasThermoMachineFreezer
   entities:
@@ -106005,23 +105999,21 @@ entities:
     - pos: -3.5,-86.5
       parent: 6747
       type: Transform
-  - uid: 24980
+- proto: GasThermoMachineFreezerEnabled
+  entities:
+  - uid: 11825
     components:
     - pos: 0.5,-20.5
       parent: 6747
       type: Transform
-    - targetTemperature: 0
-      enabled: True
+    - targetTemperature: 249.8167
       type: GasThermoMachine
-    - powerDisabled: False
-      type: ApcPowerReceiver
-    - color: '#E5CCFFFF'
-      type: AtmosPipeColor
 - proto: GasThermoMachineHeater
   entities:
-  - uid: 7934
+  - uid: 7935
     components:
-    - pos: 47.5,31.5
+    - rot: -1.5707963267948966 rad
+      pos: 47.5,32.5
       parent: 6747
       type: Transform
     - color: '#CC6600FF'
@@ -145984,6 +145976,13 @@ entities:
     - pos: 38.5,-39.5
       parent: 6747
       type: Transform
+- proto: SpawnMobCow
+  entities:
+  - uid: 1714
+    components:
+    - pos: -13.5,-14.5
+      parent: 6747
+      type: Transform
 - proto: SpawnMobDrone
   entities:
   - uid: 7708
@@ -167456,13 +167455,6 @@ entities:
       parent: 6747
       type: Transform
     - location: Engineering
-      type: WarpPoint
-  - uid: 22380
-    components:
-    - pos: 47.5,32.5
-      parent: 6747
-      type: Transform
-    - location: Atmospherics
       type: WarpPoint
   - uid: 22381
     components:
