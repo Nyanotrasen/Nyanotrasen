@@ -167502,6 +167502,13 @@ entities:
       type: Transform
     - location: Arena
       type: WarpPoint
+  - uid: 24980
+    components:
+    - name: Atmospherics
+      type: MetaData
+    - pos: 47.5,31.5
+      parent: 6747
+      type: Transform
 - proto: WashingMachine
   entities:
   - uid: 2780
