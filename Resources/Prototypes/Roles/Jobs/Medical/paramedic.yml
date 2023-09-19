@@ -26,11 +26,13 @@
   id: ParamedicGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitParamedic
-    back: ClothingBackpackMedicalFilled
+    back: ClothingBackpackParamedicFilled
     shoes: ClothingShoesColorWhite
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltParamedicFilled
+    pocket1: HandheldGPSBasic
+    pocket2: HandheldCrewMonitor
   innerclothingskirt: ClothingUniformJumpskirtParamedic
-  satchel: ClothingBackpackSatchelMedicalFilled
-  duffelbag: ClothingBackpackDuffelMedicalFilled
+  satchel: ClothingBackpackSatchelParamedicFilled
+  duffelbag: ClothingBackpackDuffelParamedicFilled
