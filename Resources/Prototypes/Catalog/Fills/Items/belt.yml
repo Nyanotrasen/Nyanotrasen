@@ -63,19 +63,6 @@
       #- name: GrenadeChem
       #- name: GrenadeChem
       - id: FlashlightLantern
-      
-- type: entity
-  id: ClothingBeltJanitorAdvanced
-  parent: ClothingBeltJanitor
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-      - id: Soap #Make a soap group and pick between when i'm not lazy
-      - id: SprayBottleSpaceCleaner
-      - id: WetFloorSign
-      - id: Holoprojector
-      - id: FlashlightLantern
 
 - type: entity
   id: ClothingBeltMedicalFilled
@@ -92,7 +79,6 @@
         amount: 1
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
-      
       
 - type: entity
   id: ClothingBeltParamedicFilled
@@ -172,18 +158,3 @@
     - id: WeaponWandFireball
     - id: WeaponWandDeath
     - id: WeaponWandPolymorphDoor
-    
-- type: entity
-  id: ClothingBeltMilitaryWebbingMedAdvanced
-  parent: ClothingBeltMilitaryWebbingMed
-  suffix: Filled
-  components:
-  - type: StorageFill
-    contents:
-    - id: MedicatedSuture
-      amount: 3
-    - id: RegenerativeMesh
-      amount: 1
-    - id: Bloodpack
-      amount: 1
-    - id: CombatMedipen
