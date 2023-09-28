@@ -117,6 +117,16 @@
   - type: NoSlip
   - type: MobPrice
     price: 50
+  - type: Item
+    size: 5
+  - type: Extractable
+    grindableSolutionName: bee
+  - type: SolutionContainerManager
+    solutions:
+      bee:
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 5
 
 - type: entity
   name: bee
