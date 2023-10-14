@@ -491,3 +491,9 @@ Entries:
       message: bees can now be put in inventory and ground up as a beverage/ingredient
   id: 67
   time: '2023-09-28T17:52:08.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: Whitelists no longer require server restarts
+  id: 68
+  time: '2023-10-14T23:37:53.0000000+00:00'
