@@ -1,16 +1,18 @@
 - type: entity
   parent: BaseStructure
   id: SophicScribe
-  name: Sophia
+  name: sophic grammateus
+
   description: Latest reports on the Noösphere!
   components:
   - type: Sprite
     noRot: true
     drawdepth: Mobs
     offset: "0.0,0.5"
-    sprite: Nyanotrasen/Structures/Decoration/statues.rsi
+    sprite: DeltaV/Structures/Decoration/statues.rsi
     layers:
-      - state: sophia
+      - state: sophie
+
       - map: ["enum.SolutionContainerLayers.Fill"]
   - type: SophicScribe
   - type: Speech

@@ -70,8 +70,8 @@
               Heat: 10
     - type: AtmosExposed
     - type: Kudzu
-      spreadChance: 0.75
-      growthTickChance: 0.3
+      spreadChance: 0.3
+      growthTickChance: 0.2
     - type: GrowingKudzu
     - type: SlowContacts
       walkSpeedModifier: 0.2

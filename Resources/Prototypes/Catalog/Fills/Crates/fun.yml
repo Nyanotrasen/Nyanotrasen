@@ -10,6 +10,11 @@
       - id: PlushieNuke
       - id: PlushieSlime
       - id: PlushieSnake
+        amount: 1
+      - id: PlushieLizard
+        amount: 1
+      - id: PlushieSpaceLizard
+        amount: 1
       - id: PlushieVox
       - id: PlushieRouny
       - id: PlushieRatvar
@@ -21,6 +26,15 @@
       - id: PlushieAtmosian
       - id: PlushieXeno
       - id: PlushieHampter
+
+- type: entity
+  id: CrateFunCrewmates
+  parent: CrateGenericSteel
+  components:
+  - type: StorageFill
+    contents:
+      - id: ToyAmongPequeno
+        amount: 5
 
 - type: entity
   id: CrateFunInstrumentsVariety

@@ -23,6 +23,12 @@ uplink-edagger-desc = A small energy blade conveniently disguised in the form of
 uplink-fire-axe-flaming-name = Fire Axe
 uplink-fire-axe-flaming-desc = A classic-style weapon infused with advanced atmos technology to allow it to set targets on fire.
 
+uplink-kanabou-name = Kanabou
+uplink-kanabou-desc = A weapon for those who wish to forgo subtlety. Particularly suited to oni.
+
+uplink-rickenbacker4001-name = Rickenbacker 4001
+uplink-rickenbacker4001-desc = When it comes down to it, there are very few people who will swing the bat.
+
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
 uplink-explosive-grenade-desc = A simplistic grenade with a ten-second fuse that is geared towards injuring personnel. Causes minimal hull damage.
@@ -107,6 +113,9 @@ uplink-voice-mask-desc = A gas mask that lets you adjust your voice to whoever y
 
 uplink-radio-jammer-name = Radio Jammer
 uplink-radio-jammer-desc = This device will disrupt any nearby outgoing radio communication when activated.
+
+uplink-borg-beacon-name = Syndicate Assault Robot beacon
+uplink-borg-beacon-desc = A beacon that can be used to call in a syndicate assault borg. It is equipped with a grenade launcher, energy sword, emag, LMG and a pinpointer.
 
 # Implants
 uplink-storage-implanter-name = Storage Implanter
@@ -272,6 +281,12 @@ uplink-stimkit-desc = A medkit containing 6 stimulant microinjectors, which each
 
 uplink-syndicate-segway-crate-name = Syndicate Segway
 uplink-syndicate-segway-crate-desc = Be an enemy of the corporation, in style!
+
+uplink-syndicate-sponge-box-name = Syndicate Sponge Box
+uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguised as monkey cubes, these cubes turn into a variety of angry wildlife after coming into contact with water.
+
+uplink-nocturine-gland-injector-name = Nocturine Injector Gland
+uplink-nocturine-gland-injector-desc = Makes your fangs inject nocturine whenever you suck blood.
 
 uplink-syndicate-sponge-box-name = Syndicate Sponge Box
 uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguised as monkey cubes, these cubes turn into a variety of angry wildlife after coming into contact with water.

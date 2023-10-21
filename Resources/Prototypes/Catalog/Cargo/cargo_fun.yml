@@ -99,6 +99,16 @@
   group: market
 
 - type: cargoProduct
+  id: FunCrewmates
+  icon:
+    sprite: Objects/Fun/pequeno.rsi
+    state: icon
+  product: CrateFunCrewmates
+  cost: 1000
+  category: Fun
+  group: market
+
+- type: cargoProduct
   id: FunBoardGames
   icon:
     sprite: Objects/Fun/dice.rsi

@@ -51,5 +51,19 @@ namespace Content.Shared.Preferences
         {
             return (index = IndexOfCharacter(profile)) != -1;
         }
+
+        public int IndexOfCharacterName(string name)
+        {
+            return _characters.FirstOrNull(p => p.Value.Name == name)?.Key ?? -1;
+        }
+        public List<string> GetCharacterNames()
+        {
+            List<string> charList = new();
+            foreach (var character in _characters)
+            {
+                charList.Add(character.Value.Name);
+            }
+            return charList;
+        }
     }
 }

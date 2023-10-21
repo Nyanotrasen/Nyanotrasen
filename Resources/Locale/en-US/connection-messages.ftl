@@ -1,5 +1,5 @@
-whitelist-not-whitelisted = You are not whitelisted. To apply for whitelisting, connect to the Discord at www.nyanotrasen.moe
-whitelist-end-round-kick = Non-whitelisted players are automatically kicked at round end. To apply for whitelisting, connect to the Discord at www.nyanotrasen.moe
+﻿whitelist-not-whitelisted = Delta-v requires whitelisting above {$num} players. Connect to the Discord at www.delta-v.org
+whitelist-end-round-kick = Non-whitelisted players are automatically kicked at round end. To apply for whitelisting, connect to the Discord at www.delta-v.org
 
 command-whitelistadd-description = Adds the player with the given username to the server whitelist.
 command-whitelistadd-help = whitelistadd <username>
@@ -25,7 +25,7 @@ ban-banned-3 = Attempts to circumvent this ban such as creating a new account wi
 
 soft-player-cap-full = The server is full!
 panic-bunker-account-denied = Due to Russian raiders recently, we are not accepting connections from new accounts right now.
-                              If you speak good English and are really interested, join the Discord at www.nyanotrasen.moe
+                              If you speak good English and are really interested, join the Discord at www.delta-v.org
 panic-bunker-no-admins = No admins are on, and your account is new to us.
                          To ensure game quality, we unfortunately have to reject this connection.
-                         If you're interested in Nyanotrasen, please check out the website and Discord at www.nyanotrasen.moe
+                         If you're interested in Delta-v, please check out the website and Discord at www.delta-v.org

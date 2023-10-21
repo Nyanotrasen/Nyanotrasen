@@ -5,7 +5,7 @@ on:
 
 jobs:
   labeler:
-    if: github.actor != 'Nyanotrasen-Changelog'
+    if: github.actor != 'DeltaV-Bot'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v3

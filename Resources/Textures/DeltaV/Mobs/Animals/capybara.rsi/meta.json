@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "size":
+  {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "art by user leonardo-dabepis https://leonardo-dabepis.tumblr.com/",
+  "states":
+  [
+    {
+      "name": "capybara",
+      "directions": 4,
+      "delays": [[1],[1],[1],[1]]
+    },
+    {
+      "name": "capybara_crit",
+      "directions": 1,
+      "delays": [[1]]
+    },
+    {
+      "name": "capybara_dead",
+      "directions": 1,
+      "delays": [[1]]
+    }
+  ]
+}

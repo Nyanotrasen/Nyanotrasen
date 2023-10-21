@@ -9,3 +9,4 @@ species-name-oni = Oni
 species-name-arachne = Arachne
 species-name-diona = Diona
 species-name-moth = Moth
+species-name-vulpkanin = Vulpkanin

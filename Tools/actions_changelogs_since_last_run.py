@@ -10,6 +10,7 @@ import itertools
 import os
 import requests
 import yaml
+from dateutil import parser
 from typing import Any, Iterable
 
 GITHUB_API_URL    = os.environ.get("GITHUB_API_URL", "https://api.github.com")
@@ -19,7 +20,8 @@ GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 
-CHANGELOG_FILE = "Resources/Changelog/Changelog.yml"
+CHANGELOG_FILE = "Resources/Changelog/DeltaVChangelog.yml"
+CHANGELOG_FILE_UPSTREAM = "Resources/Changelog/Changelog.yml"
 
 TYPES_TO_EMOJI = {
     "Fix":    "🐛",
@@ -42,9 +44,12 @@ def main():
     most_recent = get_most_recent_workflow(session)
     last_sha = most_recent['head_commit']['id']
     print(f"Last successsful publish job was {most_recent['id']}: {last_sha}")
-    last_changelog = yaml.safe_load(get_last_changelog(session, last_sha))
+    last_changelog = get_last_changelog(session, last_sha)
     with open(CHANGELOG_FILE, "r") as f:
-        cur_changelog = yaml.safe_load(f)
+        cur_changelog_tmp1 = yaml.safe_load(f)
+    with open(CHANGELOG_FILE_UPSTREAM, "r") as f:
+        cur_changelog_tmp2 = yaml.safe_load(f)
+    cur_changelog = merge_changelog(cur_changelog_tmp1, cur_changelog_tmp2)
 
     diff = diff_changelog(last_changelog, cur_changelog)
     send_to_discord(diff)
@@ -93,8 +98,23 @@ def get_last_changelog(sess: requests.Session, sha: str) -> str:
 
     resp = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE}", headers=headers, params=params)
     resp.raise_for_status()
-    return resp.text
+    master = yaml.safe_load(resp.text)
+    resp2 = sess.get(f"{GITHUB_API_URL}/repos/{GITHUB_REPOSITORY}/contents/{CHANGELOG_FILE_UPSTREAM}", headers=headers, params=params)
+    resp2.raise_for_status()
+    upstream = yaml.safe_load(resp2.text)
 
+    merged = merge_changelog(master,upstream)
+    return merged
+
+def merge_changelog(main: dict[str, Any], upstream: dict[str, Any]) -> Iterable[ChangelogEntry]:
+    """
+    Merge 2 separate changelog files with possible matching IDs and reset the combined IDs by date
+    """
+    combined = {key:[*main[key], *upstream[key]] for key in main}
+    combined["Entries"].sort(key=lambda x: parser.parse(x["time"]))
+    for count, entry in enumerate(combined["Entries"], start=1):
+        entry["id"] = count
+    return combined
 
 def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[ChangelogEntry]:
     """
@@ -113,11 +133,7 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
         content.write(f"**{name}** updated:\n")
         for entry in group:
             for change in entry["changes"]:
-                try:
-                    emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
-                except KeyError:
-                    # Changelog entry without a type field?
-                    emoji = "❓"
+                emoji = TYPES_TO_EMOJI.get(change['type'], "❓")
                 message = change['message']
                 content.write(f"{emoji} {message}\n")
 
@@ -135,4 +151,3 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
 
 
 main()
-

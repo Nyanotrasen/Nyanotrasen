@@ -45,7 +45,7 @@ public sealed class AddWhitelistCommand : IConsoleCommand
             if (player.TryGetPlayerDataByUsername(name, out var playerData) &&
                 player.TryGetSessionByUsername(name, out var session))
             {
-                playerData.ContentData()!.Whitelisted = false;
+                playerData.ContentData()!.Whitelisted = true;
                 playtime.SendWhitelistCached(session);
             }
 
