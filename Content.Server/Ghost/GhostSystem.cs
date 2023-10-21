@@ -163,17 +163,20 @@ namespace Content.Server.Ghost
 
         private void OnMindRemovedMessage(EntityUid uid, GhostComponent component, MindRemovedMessage args)
         {
-            DeleteEntity(uid);
+            if (!EntityManager.HasComponent<BriefOfficerComponent>(uid))
+                DeleteEntity(uid);
         }
 
         private void OnMindUnvisitedMessage(EntityUid uid, GhostComponent component, MindUnvisitedMessage args)
         {
-            DeleteEntity(uid);
+            if (!EntityManager.HasComponent<BriefOfficerComponent>(uid))
+                DeleteEntity(uid);
         }
 
         private void OnPlayerDetached(EntityUid uid, GhostComponent component, PlayerDetachedEvent args)
         {
-            DeleteEntity(uid);
+            if (!EntityManager.HasComponent<BriefOfficerComponent>(uid))
+                DeleteEntity(uid);
         }
 
         private void OnGhostWarpsRequest(GhostWarpsRequestEvent msg, EntitySessionEventArgs args)
