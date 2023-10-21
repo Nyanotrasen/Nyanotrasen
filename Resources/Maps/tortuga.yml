@@ -170357,6 +170357,8 @@ entities:
     - pos: 11.5,68.5
       parent: 33
       type: Transform
+    - nextSignalLeft: True
+      type: TwoWayLever
     - linkedPorts:
         9856:
         - Left: Forward
@@ -170408,6 +170410,8 @@ entities:
     - pos: 33.5,-12.5
       parent: 33
       type: Transform
+    - nextSignalLeft: True
+      type: TwoWayLever
     - linkedPorts:
         2788:
         - Left: Forward

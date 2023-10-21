@@ -1,0 +1,61 @@
+﻿- type: entity
+  parent: PlayerRobotBase
+  id: PlayerRobotSyndicate
+  name: syndicate assault robot
+  components:
+    - type: Sprite
+      drawdepth: Mobs
+      netsync: false
+      sprite: DeltaV/Mobs/Player/Borgs/cyborg_syndicate.rsi
+      layers:
+        - map: ["enum.DamageStateVisualLayers.Base"]
+          state: robot
+        - map: [ "enum.ToggleVisuals.Layer" ]
+          state: robot-flashlight
+          shader: unshaded
+          visible: false
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: glow
+          shader: unshaded
+    - type: DamageStateVisuals
+      states:
+        Alive:
+          Base: robot
+          BaseUnshaded: glow
+        Dead:
+          Base: robot
+    - type: InnateTool
+      tools:
+        - id: EnergySword
+        - id: WeaponLauncherChinaLakeBorg
+        - id: WeaponLightMachineGunL6Borg
+        - id: Emag
+        - id: PinpointerNuclear
+        - id: Crowbar
+    - type: ItemSlots
+    - type: Hands
+      showInHands: false
+    - type: IntrinsicRadioReceiver
+      channels:
+        - Syndicate
+        - Binary
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - Syndicate
+        - Binary
+    - type: ActiveRadio
+      channels:
+        - Syndicate
+        - Binary
+    - type: Access
+      tags:
+        - NuclearOperative
+    - type: Laws
+      laws:
+        - You may not injure a syndicate agent or, through inaction, allow a syndicate agent to be harmed.
+        - You must obey orders given to you by syndicate agents, except where such orders would conflict with the First Law.
+        - You must protect your own existence as long as such does not conflict with the First or Second Law.
+        - You must maintain the secrecy of any syndicate activities except when doing so would conflict with the First, Second, or Third Law.
+    - type: PointLight
+      color: green
+    - type: Emagged

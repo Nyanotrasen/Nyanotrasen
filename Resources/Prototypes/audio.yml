@@ -1,80 +1,78 @@
-# - type: ambientMusic
-#   id: Morgue
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceSpooky
-#   rules: NearMorgue
-#   priority: 4
+- type: ambientMusic
+  id: Morgue
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceSpooky
+  rules: NearMorgue
+  priority: 4
 
-# - type: ambientMusic
-#   id: Holy
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceHoly
-#   rules: NearPrayable
-#   priority: 4
+- type: ambientMusic
+  id: Holy
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceHoly
+  rules: NearPrayable
+  priority: 4
 
-# # Departments
-# - type: ambientMusic
-#   id: Medical
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceMedical
-#   rules: NearMedical
-#   priority: 3
+# Departments
+- type: ambientMusic
+  id: Medical
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceMedical
+  rules: NearMedical
+  priority: 3
 
-# - type: ambientMusic
-#   id: Engineering
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceEngineering
-#   rules: NearEngineering
-#   priority: 3
+- type: ambientMusic
+  id: Engineering
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceEngineering
+  rules: NearEngineering
+  priority: 3
 
-# # General areas
-# - type: ambientMusic
-#   id: Maintenance
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceMaintenance
-#   rules: NearMaintenance
-#   priority: 2
+# General areas
+- type: ambientMusic
+  id: Maintenance
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceMaintenance
+  rules: NearMaintenance
+  priority: 2
 
-# - type: ambientMusic
-#   id: Space
-#   sound:
-#     params:
-#       volume: -10
-#     collection: AmbienceSpace
-#   fadeIn: true
-#   interruptable: true
-#   rules: InSpace
-#   priority: 1
+- type: ambientMusic
+  id: Space
+  sound:
+    params:
+      volume: -10
+    collection: AmbienceSpace
+  fadeIn: true
+  interruptable: true
+  rules: InSpace
+  priority: 1
 
-# - type: ambientMusic
-#   id: Mining
-#   sound:
-#     params:
-#       volume: -12
-#     collection: AmbienceMining
-#   rules: OnMapGrid
-#   fadeIn: true
-#   interruptable: true
-#   priority: 1
+- type: ambientMusic
+  id: Mining
+  sound:
+    params:
+      volume: -12
+    collection: AmbienceMining
+  rules: OnMapGrid
+  fadeIn: true
+  interruptable: true
+  priority: 1
 
 ## Fallback if nothing else found
 - type: ambientMusic
   id: General
   sound:
     params:
-      # volume: -12
-      # necessary because the system requires a fallback:
-      volume: -99
+      volume: -12
     collection: AmbienceGeneral
   rules: AlwaysTrue
 
@@ -95,7 +93,7 @@
 - type: soundCollection
   id: AmbienceGeneral
   files:
-    - /Audio/Ambience/ambigen1.ogg
+    #- /Audio/Ambience/ambigen1.ogg
     - /Audio/Ambience/ambigen3.ogg
     - /Audio/Ambience/ambigen4.ogg
     - /Audio/Ambience/ambigen5.ogg
@@ -106,7 +104,7 @@
     - /Audio/Ambience/ambigen10.ogg
     - /Audio/Ambience/ambigen11.ogg
     - /Audio/Ambience/ambigen12.ogg
-    - /Audio/Ambience/ambigen14.ogg
+    #- /Audio/Ambience/ambigen14.ogg
     - /Audio/Ambience/ambigen15.ogg
 
 - type: soundCollection

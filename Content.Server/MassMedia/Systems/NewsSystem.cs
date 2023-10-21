@@ -1,7 +1,10 @@
+using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.MassMedia.Components;
 using Content.Server.PDA.Ringer;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
+using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.MassMedia.Components;
 using Content.Shared.MassMedia.Systems;
@@ -26,6 +29,8 @@ public sealed class NewsSystem : EntitySystem
     [Dependency] private readonly CartridgeLoaderSystem? _cartridgeLoaderSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IChatManager _chat = default!;
 
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
 
@@ -113,6 +118,17 @@ public sealed class NewsSystem : EntitySystem
             && _accessReader.FindAccessItemsInventory(author.Value, out var items)
             && _accessReader.FindStationRecordKeys(author.Value, out var stationRecordKeys, items))
         {
+            if (article.Content.Length > 8192) {
+                if (article.Content.Length > 32768) {
+                    _adminLogger.Add(LogType.Action, LogImpact.Extreme, $"{ToPrettyString(author.Value):player} has sent a news article above the size limit ({article.Content.Length} > 32768 characters long).");
+                    _chat.SendAdminAlert(author.Value, $"has sent a news article above the size limit ({article.Content.Length} > 32768 characters long).");
+                    article.Content = msg.Article.Content.Substring(0, 32768);
+                }
+                else {
+                    _adminLogger.Add(LogType.Action, LogImpact.High, $"{ToPrettyString(author.Value):player} has sent a large news article ({article.Content.Length} > 8192 characters long).");
+                    _chat.SendAdminAlert(author.Value, $"has sent a large news article ({article.Content.Length} characters long).");
+                }
+            }
             article.AuthorStationRecordKeyIds = stationRecordKeys;
 
             foreach (var item in items)

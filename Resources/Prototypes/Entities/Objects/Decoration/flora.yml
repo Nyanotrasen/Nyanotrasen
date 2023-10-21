@@ -143,7 +143,6 @@
         density: 3500
         layer:
         - WallLayer
-
 - type: entity
   parent: BaseRock
   id: FloraRockSolid01
@@ -390,3 +389,118 @@
   components:
   - type: Sprite
     state: treestumpconifer
+      
+- type: entity
+  parent: BaseTree
+  id: BaseTreePalmLarge
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_largepalm.rsi
+    offset: 0,1.55
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.18,-0.35,0.18,0.35"
+        density: 2000
+        layer:
+        - WallLayer
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge01
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge01
+
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge02
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge02    
+
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge03
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge03
+
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge04
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge04
+   
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge05
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge05
+
+- type: entity
+  parent: BaseTreePalmLarge
+  id: FloraTreePalmLarge06
+  name: large palm tree
+  components:
+  - type: Sprite
+    state: palmlarge06
+    
+- type: entity
+  parent: BaseTree
+  id: BaseTreePalm
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Decoration/Flora/flora_palmtree.rsi
+    offset: 0,0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        density: 4000
+        layer:
+        - WallLayer
+        
+- type: entity
+  parent: BaseTreePalm
+  id: FloraTreePalm01
+  name: palm tree
+  components:
+  - type: Sprite
+    state: palm01
+
+- type: entity
+  parent: BaseTreePalm
+  id: FloraTreePalm02
+  name: palm tree
+  components:
+  - type: Sprite
+    state: palm02    
+
+- type: entity
+  parent: BaseTreePalm
+  id: FloraTreePalm03
+  name: palm tree
+  components:
+  - type: Sprite
+    state: palm03
+
+- type: entity
+  parent: BaseTreePalm
+  id: FloraTreePalm04
+  name: palm tree
+  components:
+  - type: Sprite
+    state: palm04

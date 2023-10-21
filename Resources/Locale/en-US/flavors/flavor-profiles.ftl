@@ -230,3 +230,11 @@ flavor-complex-sapopicante = like tomatoes and spices
 flavor-complex-graveyard = like a strong cold brew
 flavor-complex-bubbletea = like creamy sweetness
 flavor-complex-corncob = like a sick joke
+
+## Velta o.o
+flavor-complex-gunmetal = bittersweet and creamy
+flavor-complex-lemondrop = refreshingly tart
+flavor-complex-greengrass = like a holiday in the sun
+flavor-complex-daiquiri = fashionable
+flavor-complex-arsonistsbrew = like ash and flame
+flavor-complex-dulleavene = ominous

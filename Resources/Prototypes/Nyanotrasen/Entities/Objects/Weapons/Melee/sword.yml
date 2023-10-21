@@ -24,3 +24,8 @@
     size: 10
     sprite: Nyanotrasen/Objects/Weapons/Melee/wakizashi.rsi
   - type: DisarmMalus
+  - type: Tool
+    qualities:
+      - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg

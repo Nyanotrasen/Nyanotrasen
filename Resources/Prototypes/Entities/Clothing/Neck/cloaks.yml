@@ -99,6 +99,15 @@
 
 - type: entity
   parent: ClothingNeckBase
+  id: ClothingNeckCloakAdmin
+  name: admin cloak
+  description: Weh!
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Cloaks/admin.rsi
+
+- type: entity
+  parent: ClothingNeckBase
   id: ClothingNeckCloakMiner
   name: miner's cloak
   description: Worn by the most skilled miners, for one who has moved mountains and filled valleys.

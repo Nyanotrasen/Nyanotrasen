@@ -57,6 +57,7 @@ namespace Content.IntegrationTests.Tests
             "Shoukou",
             "TheHive",
             "Tortuga",
+            "Edge",
         };
 
         /// <summary>

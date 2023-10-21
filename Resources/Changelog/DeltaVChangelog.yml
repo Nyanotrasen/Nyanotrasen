@@ -1,0 +1,505 @@
+Entries:
+- author: Colin-Tel
+  changes:
+    - message: Lowered the maintenance lighting on Angle and Shoukou.
+      type: Tweak
+  id: 1
+  time: '2023-05-08T08:00:00.0000000+00:00'
+- author: ZeroDayDaemon
+  changes:
+    - message: Enabled all species types, and added Vulpkanin
+      type: Add
+  id: 2
+  time: '2023-05-09T08:00:00.0000000+00:00'
+- author: Fireheart
+  changes:
+    - message: Adjusted character name validation
+      type: Tweak
+  id: 3
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Made the changelog system better
+      type: Tweak
+  id: 4
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: ODJ
+  changes:
+    - message: Diona, Reptilian, and Vulpkanin morphotypes should feel a bit better.
+      type: Tweak
+  id: 5
+  time: '2023-05-11T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Merged upstream, please report any bugs or issues you find.
+      type: Add
+  id: 6
+  time: '2023-05-13T08:00:00.0000000+00:00'
+- author: BasedPugilist
+  changes:
+    - message: The rules have been updated, make sure to read them!
+      type: Tweak
+  id: 7
+  time: '2023-05-15T00:00:00.0000000+00:00'
+- author: 20kdc
+  changes:
+    - message: >-
+        After a terrible accident involving an unfortunately rotated circuit
+        board revision, the crew monitoring devices now should show the correct
+        directions again and shouldn't be too harmful to look at for long
+        periods of time.
+      type: Fix
+  id: 8
+  time: '2023-05-16T00:00:00.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - message: Added HoP mess kit, inspection items, and flak jackets.
+      type: Add
+    - message: >-
+        Changed e-cutlass sprites to fit planned artstyle, replaced detective
+        vest with press flak jacket in RepDrobe.
+      type: Tweak
+  id: 9
+  time: '2023-05-16T08:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: >-
+        Mimes with the muted trait should no longer cause round restart loops,
+        if only they spoke up about it sooner.
+      type: Fix
+  id: 10
+  time: '2023-05-18T00:00:00.0000000+00:00'
+- author: Scribbles0
+  changes:
+    - message: >-
+        Lone nuclear operatives have recently started attacking stations. Make
+        sure to watch out for them on long, extended shifts.
+      type: Add
+  id: 11
+  time: '2023-05-23T00:00:00.0000000+00:00'
+- author: Pooch
+  changes:
+    - message: Dwarf, Vox, Skeleton mobs now carriable
+      type: Fix
+  id: 12
+  time: '2023-05-31T12:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: >-
+        Reports have been coming in about a new type of robot designed by
+        Cybersun falling into the hands of nuclear operatives.
+      type: Add
+  id: 13
+  time: '2023-05-31T12:00:00.0000000+00:00'
+- author: Debug
+  changes:
+    - message: Merged upstream, shouldn't cause any issues
+      type: Add
+    - message: Enabled ambient sounds
+      type: Tweak
+  id: 14
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+    - message: Fixed some morphotypes accidentally being faster than others.
+      type: Fix
+  id: 15
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - message: >-
+        added various mafia-related clothes, the Typewriter SMG, a snubnosed
+        .45, and a few other tidbits.
+      type: Add
+    - message: resprited vests (kevlar, web, flak) to look a little nicer.
+      type: Tweak
+  id: 16
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - message: Security cadets regained their Brig access.
+      type: Fix
+  id: 17
+  time: '2023-06-05T12:00:00.0000000+00:00'
+- author: ShatteredSwords
+  changes:
+    - type: Add
+      message: >-
+        Added THE SPOOOOKYY GHOST HOTEL FROM CATACLYSM, YOUR FAVORITE/LEAST
+        FAVORITE UNOFFICIAL GOD OF CHAOS
+  id: 18
+  time: '2023-06-07T19:03:59.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: Merged Nyano, shouldn't change too much
+  id: 19
+  time: '2023-06-12T07:41:02.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Maxcaps have had their radius reduced by roughly 3x, from 80 to 27.5 due
+        to a flimsier gas tank construction.
+  id: 20
+  time: '2023-06-14T00:13:51.0000000+00:00'
+- author: FluffiestFloof
+  changes:
+    - type: Add
+      message: Added a bunch of new customisation options for the Vulpkanin.
+    - type: Tweak
+      message: Tweaked the Vulpkanin sprites.
+  id: 21
+  time: '2023-06-14T17:08:15.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - type: Add
+      message: >-
+        Mk32 Universal combat handguns and Mark 1 rifles are now purchasable
+        from cargo.
+    - type: Tweak
+      message: >-
+        Typewriter now has a much more badass firing sound, fires faster, and is
+        more inaccurate with longer bursts.
+  id: 22
+  time: '2023-06-15T09:45:03.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Remove
+      message: Atmos no longer can be antagonists.
+  id: 23
+  time: '2023-06-16T07:12:52.0000000+00:00'
+- author: ShatteredSwords
+  changes:
+    - type: Add
+      message: added spawning in with clothes to the ghost bar/hotel
+    - type: Add
+      message: added a salvage and seeds extractor to the Ghost Hotel
+  id: 24
+  time: '2023-06-22T21:06:25.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - type: Add
+      message: >-
+        Added several new drinks, including Gunmetal, a drink that incorporates
+        welding fuel, rum, and cream.
+    - type: Tweak
+      message: Moonshine now has a real sprite.
+  id: 25
+  time: '2023-06-25T14:32:26.0000000+00:00'
+- author: 'pickle_leonardo '
+  changes:
+    - type: Tweak
+      message: Changed how the revenant looks
+    - type: Tweak
+      message: Updated oracle sprites
+  id: 26
+  time: '2023-07-01T23:37:44.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: Merged 433 commits, please report any bugs in our Discord server
+  id: 27
+  time: '2023-07-20T19:59:22.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: >-
+        The glue has been removed from the heater/freezer temperature nobs, they
+        should work again.
+  id: 28
+  time: '2023-07-21T04:26:46.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Remove
+      message: Remove tether guns, force guns and grappling guns for now.
+  id: 29
+  time: '2023-07-21T05:20:18.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Add
+      message: Added a new lobby track.
+  id: 30
+  time: '2023-07-21T16:21:25.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: >-
+        Stations not yet outfitted with a cargo teleporter, now start with a
+        shuttle again.
+    - type: Tweak
+      message: Lighthouse now starts with cargo pallets and a teleporter.
+    - type: Fix
+      message: NPCs will no longer attack syndicate agents without provocation.
+  id: 31
+  time: '2023-07-22T19:17:07.0000000+00:00'
+- author: Leonardo-DaBepis
+  changes:
+    - type: Add
+      message: >-
+        added cloak for mystagogue, new Sophic Grammateus sprite, new cocktail
+        dulleavene.
+    - type: Tweak
+      message: Changed the sprites for the acolyte and mystagogue robes.
+  id: 32
+  time: '2023-07-23T00:22:37.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Add
+      message: Revenant and Oracle lobby art
+  id: 33
+  time: '2023-07-25T23:29:13.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Add
+      message: Added Donk Pocket shipments to cargo.
+  id: 34
+  time: '2023-07-26T15:31:29.0000000+00:00'
+- author: CodedCrow
+  changes:
+    - type: Add
+      message: Added Inactive blood and its crafting recipe
+    - type: Add
+      message: Added Synthetic blood and its crafting recipe
+  id: 35
+  time: '2023-07-26T15:32:24.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Fix
+      message: >-
+        Modified the glass tile sprite so that it looks like a tile instead of
+        space.
+  id: 36
+  time: '2023-07-26T22:06:41.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Add
+      message: New mysta hat sprite
+  id: 37
+  time: '2023-08-02T02:07:46.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Fix
+      message: Mystagogue now has hair when wearing their hat.
+  id: 38
+  time: '2023-08-02T19:10:33.0000000+00:00'
+- author: Leander
+  changes:
+    - type: Tweak
+      message: Nerf kudzu
+  id: 39
+  time: '2023-08-04T09:11:22.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Add
+      message: Added Edge to the pool of stations!
+  id: 40
+  time: '2023-08-05T22:22:17.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: Rewrote the rules!
+  id: 41
+  time: '2023-08-05T22:57:58.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a slew of issues on Edge Station. Thanks for the feedback,
+        everyone!
+  id: 42
+  time: '2023-08-07T14:21:21.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: Merged a few new changes from Nyano
+    - type: Add
+      message: Added the new Hive map, please report any issues to Nyanotrasen, not us.
+    - type: Tweak
+      message: >-
+        The guidebook was changed, it should work, but please report any issues
+        in the Discord.
+  id: 43
+  time: '2023-08-08T05:19:44.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Add
+      message: Added a new lobby art image- "A Bad Shift" by DEminerDG
+    - type: Tweak
+      message: Added signatures to the Oracle and Revenant lobby arts.
+  id: 44
+  time: '2023-08-10T18:25:25.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Fix
+      message: Fixed bug where evac wouldn't reach Centcomm on Edge Station.
+  id: 45
+  time: '2023-08-10T21:44:50.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Add
+      message: >-
+        NanoTrasen Shipyards has fulfilled an order for several decommissioned
+        reclaimer class shuttles, you may find one on a station near you.
+  id: 46
+  time: '2023-08-16T03:41:39.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: Edge Station is now outfitted with new Chemistry equipment.
+  id: 47
+  time: '2023-08-25T18:59:55.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Add
+      message: Added palm trees, new clothing items, capybara.
+  id: 48
+  time: '2023-08-25T19:11:49.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the rules to specify changes to players revived with
+        defibrillators.
+  id: 49
+  time: '2023-08-26T21:22:57.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Fix
+      message: >-
+        Edge Station's cryogenics lab has been overhauled, and the station's
+        permanent filthy spots are no longer permanent.
+  id: 50
+  time: '2023-08-28T16:01:55.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Add
+      message: >-
+        Central Command has updated their automated announcement system with a
+        new announcer.
+  id: 51
+  time: '2023-08-28T16:04:39.0000000+00:00'
+- author: Jerryaqua
+  changes:
+    - type: Add
+      message: >-
+        A old Battle rifle was taken out of storage and is being sent to Staions
+        to help refill the armory at a lower cost. A new high-tech shotgun is
+        also being sent out as well.
+  id: 52
+  time: '2023-08-31T12:38:01.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: >-
+        The Angle Rig's medical department has been completely overhauled
+        according to new NT Corporate standards.
+  id: 53
+  time: '2023-09-01T19:23:50.0000000+00:00'
+- author: JustTNE
+  changes:
+    - type: Tweak
+      message: >-
+        The ChemMaster 4000 has been upgraded to allow drag-and-drop insertion
+        of reagents!
+  id: 54
+  time: '2023-09-05T10:53:43.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Add
+      message: Added an event! Don't worry, they mostly come at night. Mostly...
+  id: 55
+  time: '2023-09-08T19:00:41.0000000+00:00'
+- author: VMSolidus
+  changes:
+    - type: Add
+      message: Basic department PDAs can now be obtained from the HOP's Ptech vendor
+  id: 56
+  time: '2023-09-08T19:01:20.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Fix
+      message: >-
+        Fixed bug where ordering a crate of adjutant shotguns gives cargo a
+        shotgun and no crate.
+  id: 57
+  time: '2023-09-09T13:21:02.0000000+00:00'
+- author: TadJohnson00
+  changes:
+    - type: Add
+      message: Added arctic foxes to the game. Who knows, maybe you'll see one around!
+  id: 58
+  time: '2023-09-09T13:27:34.0000000+00:00'
+- author: Adrian16199
+  changes:
+    - type: Add
+      message: >-
+        A new barber has been seen nearby of your station! Seems to have a new
+        hairstyle to show.
+  id: 59
+  time: '2023-09-09T13:38:32.0000000+00:00'
+- author: ps3moira
+  changes:
+    - type: Tweak
+      message: Made changes to exterior and Medical Department of Glacier Station.
+  id: 60
+  time: '2023-09-09T20:08:53.0000000+00:00'
+- author: Velcroboy
+  changes:
+    - type: Tweak
+      message: >-
+        Overhauled Bar/Kitchen/Hydro and swapped location with Dorms. Hopefully
+        this livens things up a bit for our service crew members. Please! Report
+        any bugs/issues in the mapping channel in Discord.  
+  id: 61
+  time: '2023-09-14T16:14:37.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: >-
+        Paramedics now spawn with their respective equipment for retrieving
+        crewmates more effectively.
+  id: 62
+  time: '2023-09-19T15:38:37.0000000+00:00'
+- author: JJ
+  changes:
+    - type: Add
+      message: Added recipe for Blue Curacao
+  id: 63
+  time: '2023-09-21T00:12:21.0000000+00:00'
+- author: JJ
+  changes:
+    - type: Add
+      message: Added Grilled Cheese.
+  id: 64
+  time: '2023-09-21T15:57:11.0000000+00:00'
+- author: PHCodes
+  changes:
+    - type: Add
+      message: 'Added Mr. Butlertron, the Roboisseur '
+  id: 65
+  time: '2023-09-22T03:04:34.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: Adjusted the rules. Rules rool!!1
+  id: 66
+  time: '2023-09-26T16:57:12.0000000+00:00'
+- author: leonardo-dabepis
+  changes:
+    - type: Tweak
+      message: bees can now be put in inventory and ground up as a beverage/ingredient
+  id: 67
+  time: '2023-09-28T17:52:08.0000000+00:00'
+- author: DebugOk
+  changes:
+    - type: Fix
+      message: Whitelists no longer require server restarts
+  id: 68
+  time: '2023-10-14T23:37:53.0000000+00:00'
+- author: Colin-Tel
+  changes:
+    - type: Tweak
+      message: Adjusted the rules in regards to naming conventions.
+  id: 69
+  time: '2023-10-18T20:45:23.0000000+00:00'
