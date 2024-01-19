@@ -18,7 +18,7 @@
   - type: Flammable
     damage:
       types:
-        Heat: 2 # moths should burn more easily
+        Heat: 1.5 # moths should burn more easily
   - type: Vocal
     wilhelm: "/Audio/Nyanotrasen/Voice/Moth/scream_moth.ogg"
     sounds:
