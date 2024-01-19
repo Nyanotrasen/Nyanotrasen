@@ -431,7 +431,7 @@
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: EmitSoundOnActivate
+  - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: MeleeWeapon
