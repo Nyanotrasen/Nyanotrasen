@@ -91,9 +91,10 @@ namespace Content.Server.Shipyard.Systems
                 return false;
             }
 
+            _station.AddGridToStation(stationUid, (EntityUid) shuttleGrid);
+
             var price = _pricing.AppraiseGrid((EntityUid) shuttleGrid, null);
             var targetGrid = _station.GetLargestGrid(stationData);
-
 
             if (targetGrid == null) //how are we even here with no station grid
             {
