@@ -1,0 +1,15 @@
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyCivilian
+  suffix: Admin Event
+  name: civilian encryption key
+  description: An encryption key used mostly by civilians and independent contractors aboard their ships.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Civilian
+    defaultChannel: Civilian
+  - type: Sprite
+    layers:
+    - state: crypt_silver
+

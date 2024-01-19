@@ -14,6 +14,7 @@ chat-radio-service = Service
 chat-radio-supply = Supply
 chat-radio-syndicate = Syndicate
 chat-radio-binary = Binary
+chat-radio-civilian = Civilian
 
 # not headset but whatever
 chat-radio-handheld = Handheld
