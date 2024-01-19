@@ -1,0 +1,28 @@
+- type: htnCompound
+  id: SelfExploderCompound
+  branches:
+    - tasks:
+      - id: ExplodeOnHostileCompound
+    - tasks:
+      - id: IdleCompound
+
+
+# Select a target and start to move to it to explode
+- type: htnCompound
+  id: ExplodeOnHostileCompound
+  branches:
+    - tasks:
+      - id: PickMeleeTargetPrimitive
+      - id: ExplodeOnTargetCompound
+
+# Move to target and explode
+- type: htnCompound
+  id: ExplodeOnTargetCompound
+  branches:
+    - tasks:
+      - id: MoveToCombatTargetPrimitive
+      - id: ExplodeSelfPrimitive
+
+- type: htnPrimitive
+  id: ExplodeSelfPrimitive
+  operator: !type:ExplodeSelfOperator

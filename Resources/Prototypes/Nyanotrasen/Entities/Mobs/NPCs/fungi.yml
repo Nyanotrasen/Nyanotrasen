@@ -1,0 +1,79 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobFungusBase
+  name: fungus
+  abstract: true
+  components:
+  - type: Bloodstream
+    bloodReagent: Mold
+  - type: PsionicInsulation
+
+- type: entity
+  parent: MobFungusBase
+  id: MobFungusGasSpore
+  name: gas spore
+  description: A floating ball of gas.
+  components:
+  - type: CombatMode
+    combatToggleAction:
+      enabled: false
+      autoPopulate: false
+      name: action-name-combat
+  - type: HTN
+    rootTask: SelfExploderCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile #TODO: Fungi faction?
+  - type: MovementIgnoreGravity
+    gravityState: true
+  - type: FloatingVisuals
+  - type: Fixtures
+    fixtures:
+      fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 20
+          mask:
+            - FlyingMobMask
+          layer:
+            - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpillBehavior
+        solution: bloodstream
+      - !type:ExplodeBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SelfExploder
+    gasMixture: #It would be really, really cool if there was a component that handled shared behaviors like containing air and dumping it on destruction.
+      volume: 200
+      moles:
+        - 0 # oxygen
+        - 0 # nitrogen
+        - 0 # CO2
+        - 0 # Plasma
+        - 0 # Tritium
+        - 0 #  Water vapor
+        - 300 # Miasma
+      temperature: 293.15
+  - type: Explosive
+    explosionType: GasSpore
+    maxIntensity: 6
+    intensitySlope: 12
+    totalIntensity: 60
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 1.5
+  - type: Sprite
+    noRot: true
+    sprite: Nyanotrasen/Mobs/Fungi/gas_spore.rsi
+    state: gas_spore
