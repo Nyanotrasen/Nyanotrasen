@@ -9,7 +9,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 30
         reagents:
         - ReagentId: Ectoplasm
           Quantity: 25
@@ -21,7 +21,19 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 100
+        maxVol: 65
         reagents:
         - ReagentId: Ectoplasm
           Quantity: 60
+
+- type: entity
+  parent: Ectoplasm
+  id: EctoplasmSmall
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 10
