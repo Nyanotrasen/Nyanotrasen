@@ -10,3 +10,68 @@
       - id: Decloner
   - type: AccessReader
     access: [["Armory"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxEngineeringTechFabCircuitboard
+  name: engineering techfab lockbox
+  description: A lockbox secured by an access reader, requiring Chief Engineer access.
+  suffix: engineering techfab
+  components:
+  - type: StorageFill
+    contents:
+      - id: EngineeringTechFabCircuitboard
+  - type: AccessReader
+    access: [["ChiefEngineer"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxServiceTechFabCircuitboard
+  name: service techfab lockbox
+  description: A lockbox secured by an access reader, requiring Head of Personnel access.
+  suffix: service techfab
+  components:
+  - type: StorageFill
+    contents:
+      - id: ServiceTechFabCircuitboard
+  - type: AccessReader
+    access: [["HeadOfPersonnel"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxScienceTechFabCircuitboard
+  name: epistemics techfab lockbox
+  description: A lockbox secured by an access reader, requiring Mystagogue access.
+  suffix: epistemics techfab
+  components:
+  - type: StorageFill
+    contents:
+      - id: ScienceTechFabCircuitboard
+  - type: AccessReader
+    access: [["ResearchDirector"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxSecurityTechFabCircuitboard
+  name: security techfab lockbox
+  description: A lockbox secured by an access reader, requiring Head of Security access.
+  suffix: security techfab
+  components:
+  - type: StorageFill
+    contents:
+      - id: SecurityTechFabCircuitboard
+  - type: AccessReader
+    access: [["HeadOfSecurity"]]
+
+- type: entity
+  parent: Lockbox
+  id: LockboxMedicalTechFabCircuitboard
+  name: medical techfab lockbox
+  description: A lockbox secured by an access reader, requiring Chief Medical Officer access.
+  suffix: medical techfab
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicalTechFabCircuitboard
+  - type: AccessReader
+    access: [["ChiefMedicalOfficer"]]
